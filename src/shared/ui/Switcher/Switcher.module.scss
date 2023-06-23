@@ -1,0 +1,43 @@
+.switcher {
+    display: flex;
+    align-items: center;
+    border-radius: var(--default-border);
+    border: 1px solid transparent;
+
+    .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        grid-gap: 10px;
+        width: 130px;
+        color: var(--gray);
+        cursor: pointer;
+
+        svg {
+            fill: var(--gray);
+        }
+    }
+
+    .healthy {
+        background-color: var(--blue-100);
+        color: var(--blue);
+        border-top-left-radius: var(--default-border);
+        border-bottom-left-radius: var(--default-border);
+        
+        svg {
+            fill: var(--blue) !important;
+        }
+    }
+
+    .sick {
+        background-color: #F7E6E8;
+        color: var(--red-400);
+        border-top-right-radius: var(--default-border);
+        border-bottom-right-radius: var(--default-border);
+
+        svg {
+            fill: var(--red-400);
+        }
+    }
+}

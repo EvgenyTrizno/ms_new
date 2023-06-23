@@ -1,0 +1,57 @@
+.container {
+    .header {
+        display: flex;
+        align-items: center;
+        grid-gap: 10px;
+    }
+
+    .wrapper {
+        display: flex;
+        grid-gap: 40px;
+        margin-top: 40px;
+
+        .calendare {
+            width: 490px;
+            height: 530px;
+            background-color: var(--white);
+        }
+
+        .list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            grid-gap: 10px;
+
+            .item {
+                height: 150px;
+                background-color: var(--white);
+                padding: 30px;
+                border-radius: var(--default-border);
+                display: flex;
+                flex-direction: column;
+                grid-gap: 10px; 
+                position: relative;
+
+                .deadline {
+                    display: flex;
+                    align-items: center;
+                    grid-gap: 10px;
+
+                    .status {
+                        color: var(--green);
+                        font-size: 14px;
+                    }
+                }
+
+                .descr {
+                    color: var(--gray);
+                }
+
+                .arrow {
+                    position: absolute;
+                    right: 30px;   
+                }
+            }
+        }
+    }
+}

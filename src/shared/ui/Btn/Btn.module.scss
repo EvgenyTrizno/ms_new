@@ -1,0 +1,15 @@
+.btn {
+    height: 60px;
+    border-radius: var(--default-border);
+    font-size: 18px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    position: relative;
+
+    span {
+        position: absolute;
+    }
+}

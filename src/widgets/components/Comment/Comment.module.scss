@@ -1,0 +1,43 @@
+.item {
+    width: 505px;
+    height: 300px;
+    background-color: var(--white);
+    border-radius: var(--default-border);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .reaction {
+        display: flex;
+        align-items: center;
+        grid-gap: 15px;
+        margin-bottom: 5px;
+
+        .count {
+            display: flex;
+            align-items: center;
+            grid-gap: 5px;
+            color: var(--dark-gray);
+        }
+    }
+
+    .info {
+        .name {
+            margin-bottom: 15px;
+        }
+
+        .comment {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 10px;
+        }
+
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+        grid-gap: 100px;
+    }
+}

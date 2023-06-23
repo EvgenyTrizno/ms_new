@@ -1,0 +1,51 @@
+.recovery {
+    width: 570px;
+    max-height: 740px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--default-border);
+    color: var(--dark-gray);
+
+    .subtitle {
+        margin: 65px 0 45px;
+    }
+
+    .text {
+        margin-bottom: 70px;
+    }
+
+    .swithcer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        position: relative;
+        width: 570px;
+        left: -30px;
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gray);
+            cursor: pointer;
+        }
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 25px;
+        margin: 30px 0;
+    }
+
+    .redirect {
+        .link {
+            color: var(--blue);
+        }
+    }
+}

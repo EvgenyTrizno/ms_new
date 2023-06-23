@@ -1,0 +1,17 @@
+.layout {
+    display: flex;
+
+    .container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+
+        .main {
+            display: block;
+            position: absolute;
+            width: calc(100vw - 300px);
+            right: 0;
+            top: 80px;
+            padding: 20px 40px;
+        }
+    }
+}                   

@@ -1,0 +1,7 @@
+@import "./normalize.scss";
+@import "./vars.scss";
+
+body {
+    background-color: var(--background);
+    color: var(--dark);
+}

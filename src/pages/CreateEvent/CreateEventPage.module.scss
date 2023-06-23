@@ -1,0 +1,50 @@
+.container {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 500px 1fr;
+        grid-gap: 40px;
+        margin-top: 20px;
+
+        .box {
+            .text {
+                display: flex;
+                align-items: center;
+                grid-gap: 5px;
+                margin-bottom: 15px;
+            }
+
+            .calendar {
+                display: flex;
+                flex-direction: column;
+                grid-gap: 5px;
+            }
+
+            .employees {
+                display: flex;
+                grid-gap: 10px;
+            }
+
+            .more {
+                display: flex;
+                flex-direction: column;
+                margin: 40px 0 15px;
+
+                .options {
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: 5px;
+
+                    .item {
+                        background-color: var(--white);
+                        height: 90px;
+                        padding: 30px;
+                        border-radius: var(--default-border);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+    }
+}   

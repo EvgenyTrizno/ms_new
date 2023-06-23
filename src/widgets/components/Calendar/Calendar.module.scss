@@ -1,0 +1,96 @@
+.calendar {
+    width: 490px;
+    background-color: var(--white);
+    border-radius: var(--default-border);
+    border: 1px solid var(--blue-100);
+    padding: 40px;
+    
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .date {
+            display: flex;
+            align-items: center;
+        }
+
+        .arrows {
+            display: flex;
+            align-items: center;
+            grid-gap: 15px;
+        }
+    }
+
+    .days {
+        margin-top: 50px;
+
+        .inner {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            .day {
+                color: var(--dark);
+                font-size: 20px;
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .list {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+
+            .item {
+                font-size: 18px;
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--dark-gray);
+            }
+
+            .active {
+                background-color: var(--blue);
+                border-radius: var(--default-border);
+                color: var(--white);
+            }
+        }
+    }
+
+    .line {
+        width: 100%;
+        height: 1px;
+        background-color: #F2F4F5;
+        margin-top: 40px;
+    }
+
+    .info {
+        display: flex;
+        justify-content: space-between;
+        grid-gap: 10px;
+        margin: 40px 0 20px;
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 15px;
+        }
+    }
+
+    .result {
+        background-color: var(--blue-100);
+        height: 60px;
+        padding: 20px;
+        border-radius: var(--default-border);
+        color: var(--blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

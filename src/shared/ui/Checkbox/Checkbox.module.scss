@@ -1,0 +1,29 @@
+.checkbox input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--dark-gray);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkbox input[type="checkbox"]:checked {
+    background-color: var(--blue);
+    border-color: var(--blue);
+}
+
+.checkbox input[type="checkbox"]:checked:after {
+    content: url(/assets/check.svg);
+    width: 14px;
+    height: 14px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}

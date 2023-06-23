@@ -1,0 +1,28 @@
+.virusList {
+    width: 570px;
+    max-height: 740px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--default-border);
+    color: var(--dark-gray);
+
+    .list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: space-between;
+        margin: 30px 0;
+        grid-gap: 10px;
+
+        .item {
+            display: flex;
+            align-items: center;
+            grid-gap: 10px;
+            justify-content: center;
+        }
+    }
+}

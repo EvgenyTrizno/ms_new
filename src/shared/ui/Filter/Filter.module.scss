@@ -1,0 +1,24 @@
+.container {
+    width: 500px;
+    background-color: var(--white);
+    height: 80px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: var(--default-border);
+    border: 1px solid var(--blue-100);
+
+    .item {
+        width: 230px;
+        text-align: center;
+        border-radius: 10px;
+        color: var(--dark-gray);
+        padding: 20px 0;
+    }
+
+    .active {
+        background-color: var(--blue-100);
+        color: var(--blue);
+    }
+}

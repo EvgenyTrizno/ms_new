@@ -1,0 +1,21 @@
+.user {
+    height: 140px;
+    background-color: var(--white);
+    border-radius: var(--default-border);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    grid-gap: 20px;
+
+    img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+    }
+
+    .data {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 10px;
+    }
+}
