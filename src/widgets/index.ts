@@ -12,6 +12,7 @@ import { Confirmation } from "./components/Auth/Confirmation/Confirmation";
 import { User } from "./components/User/User";
 import { Search } from "./components/Search/Search";
 import { Comment } from "./components/Comment/Comment";
+import { CenterInfoCard } from "./components/CenterInfoCard/CenterInfoCard";
 
 export {
     Login,
@@ -28,4 +29,5 @@ export {
     User,
     Search,
     Comment,
+    CenterInfoCard,
 };

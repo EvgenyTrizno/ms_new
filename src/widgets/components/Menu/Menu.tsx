@@ -1,16 +1,18 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { EActive } from "./types";
 
 import { Text } from "../../../shared/ui/Text/Text";
 import { Switcher } from "../../../shared";
 import { Icons } from "../../../shared/ui/Icons/Icons";
+import { useMenu } from "../../../shared/model/store";
 
 import styles from "./Menu.module.scss";
 
 export const Menu: FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const { setIsSelect } = useMenu();
 
     return (
         <div className={styles.menu}>
@@ -22,9 +24,11 @@ export const Menu: FC = () => {
                 <div
                     onClick={() => {
                         navigate("/");
+                        setIsSelect("Главная");
                     }}
                     className={
-                        location.pathname === EActive.HOME
+                        location.pathname === EActive.HOME ||
+                        location.pathname === EActive.PROFILE
                             ? `${styles.item} ${styles.active}`
                             : styles.item
                     }
@@ -35,6 +39,7 @@ export const Menu: FC = () => {
                 <div
                     onClick={() => {
                         navigate("/search");
+                        setIsSelect("Поиск");
                     }}
                     className={
                         location.pathname === EActive.SEARCH
@@ -48,6 +53,7 @@ export const Menu: FC = () => {
                 <div
                     onClick={() => {
                         navigate("/messages");
+                        setIsSelect("Сообщения");
                     }}
                     className={
                         location.pathname === EActive.SMS
@@ -61,6 +67,7 @@ export const Menu: FC = () => {
                 <div
                     onClick={() => {
                         navigate("/notes");
+                        setIsSelect("Записи");
                     }}
                     className={
                         location.pathname === EActive.NOTE ||
@@ -75,6 +82,7 @@ export const Menu: FC = () => {
                 <div
                     onClick={() => {
                         navigate("/medical-card");
+                        setIsSelect("Медицинская карта");
                     }}
                     className={
                         location.pathname === EActive.MEDICALCARD
@@ -88,6 +96,7 @@ export const Menu: FC = () => {
                 <div
                     onClick={() => {
                         navigate("/location");
+                        setIsSelect("Местоположение");
                     }}
                     className={
                         location.pathname === EActive.LOCATION
@@ -101,6 +110,7 @@ export const Menu: FC = () => {
                 <div
                     onClick={() => {
                         navigate("/settings");
+                        setIsSelect("Настройки");
                     }}
                     className={
                         location.pathname === EActive.SETTINGS

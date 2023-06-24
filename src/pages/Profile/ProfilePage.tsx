@@ -1,8 +1,8 @@
-import { FC, useState, MouseEvent, MouseEventHandler } from "react";
+import { FC, useState } from "react";
 
 import { Layout } from "../Layout/Layout";
 import { User } from "../../widgets";
-import { Text } from "../../shared";
+import { Input, Text } from "../../shared";
 
 import user from "/assets/user-blue.svg";
 import arrowRigth from "/assets/arrow-right.svg";
@@ -51,7 +51,37 @@ export const ProfilePage: FC = () => {
                                     />
                                 </div>
                                 {isOpen && select === "Профиль" && (
-                                    <div>sdsss</div>
+                                    <form className={styles.form}>
+                                        <Input type="text" placeholder="Имя" />
+                                        <Input
+                                            type="text"
+                                            placeholder="Фамилия"
+                                        />
+                                        <Input
+                                            type="text"
+                                            placeholder="Дата рождения"
+                                        />
+                                        <Input
+                                            type="text"
+                                            placeholder="Страна"
+                                        />
+                                        <Input
+                                            type="text"
+                                            placeholder="Город"
+                                        />
+                                        <Input
+                                            type="text"
+                                            placeholder="Адрес"
+                                        />
+                                        <Input
+                                            type="text"
+                                            placeholder="Логин"
+                                        />
+                                        <Input
+                                            type="text"
+                                            placeholder="Интерес"
+                                        />
+                                    </form>
                                 )}
                             </div>
                             <div className={styles.item}>
@@ -62,8 +92,33 @@ export const ProfilePage: FC = () => {
                                             Защита профиля
                                         </Text>
                                     </div>
-                                    <img src={arrowRigth} alt="" />
+                                    <img
+                                        src={arrowRigth}
+                                        alt=""
+                                        style={
+                                            isOpen &&
+                                            select === "Защита профиля"
+                                                ? { transform: "rotate(90deg)" }
+                                                : {}
+                                        }
+                                        onClick={() => {
+                                            setIsOpen((prev) => !prev);
+                                            setSelect("Защита профиля");
+                                        }}
+                                    />
                                 </div>
+                                {isOpen && select === "Защита профиля" && (
+                                    <form className={styles.form}>
+                                        <Input
+                                            type="text"
+                                            placeholder="Телефон"
+                                        />
+                                        <Input
+                                            type="text"
+                                            placeholder="Почта"
+                                        />
+                                    </form>
+                                )}
                             </div>
                             <div className={styles.item}>
                                 <div className={styles.nav}>

@@ -7,4 +7,5 @@ export enum EActive {
     LOCATION = "/location",
     SETTINGS = "/settings",
     LOGOUT = "/logout",
+    PROFILE = "/profile",
 }

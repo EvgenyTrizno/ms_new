@@ -14,6 +14,7 @@ import { NotesPage } from "../Notes/NotesPage";
 import { NotesInfoPage } from "../NotesInfo/NotesInfoPage";
 import { CreateEventPage } from "../CreateEvent/CreateEventPage";
 import { MapPage } from "../Map/MapPage";
+import { SelectCenterMapPage } from "../SelectCenterMap/SelectCenterMapPage";
 
 export const routes: RouteData[] = [
     {
@@ -47,4 +48,9 @@ export const routes: RouteData[] = [
         key: "create-event_page",
     },
     { path: "/location", Component: MapPage, key: "map_page" },
+    {
+        path: "/select-center-map",
+        Component: SelectCenterMapPage,
+        key: "select-center-map_page",
+    },
 ];

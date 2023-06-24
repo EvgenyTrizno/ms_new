@@ -1,10 +1,6 @@
 import { FC } from "react";
 import { IMap } from "./types";
-import {
-    GoogleMap,
-    useLoadScript,
-    StandaloneSearchBox,
-} from "@react-google-maps/api";
+import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 
 import styles from "./Map.module.scss";
 
@@ -26,10 +22,8 @@ export const Map: FC<IMap> = ({ children, width, height }) => {
                     zoom={14}
                     center={{ lat: 1, lng: 1 }}
                     mapContainerStyle={containerStyle}
+                    options={{ disableDefaultUI: true }}
                 >
-                    <StandaloneSearchBox>
-                        <input type="text" />
-                    </StandaloneSearchBox>
                     {children}
                 </GoogleMap>
             )}
