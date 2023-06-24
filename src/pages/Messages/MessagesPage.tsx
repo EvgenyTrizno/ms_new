@@ -2,9 +2,13 @@ import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
 import { Search } from "../../widgets";
-import { Filter, Text } from "../../shared";
+import { Filter, Input, Text } from "../../shared";
 
 import woman from "/assets/woman.jpg";
+import call from "/assets/call-calling.svg";
+import paperclip from "/assets/paperclip-blue.svg";
+import sender from "/assets/send-blue.svg";
+import emoji from "/assets/emoji-normal.svg";
 import styles from "./MessagesPage.module.scss";
 
 export const MessagesPage: FC = () => {
@@ -45,6 +49,42 @@ export const MessagesPage: FC = () => {
                                     <div className={styles.counter}>98</div>
                                 </div>
                             ))}
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.view}>
+                    <div className={styles.info}>
+                        <div className={styles.data}>
+                            <img src={woman} alt="" />
+                            <div className={styles.text}>
+                                <Text type="h2" fz="18px">
+                                    Яковенко А. С.
+                                </Text>
+                                <Text type="p" color="#84C55D">
+                                    Online
+                                </Text>
+                            </div>
+                        </div>
+                        <img src={call} alt="" className={styles.call} />
+                    </div>
+                    <div></div>
+                    <div className={styles.messageBlock}>
+                        <div className={styles.wrapper}>
+                            <img src={paperclip} alt="" />
+                            <div className={styles.inner}>
+                                <Input
+                                    type="text"
+                                    placeholder="Поиск чатов"
+                                    br="none"
+                                    btr="unset"
+                                    bbr="unset"
+                                    bcolor="#E9EAEB"
+                                />
+                                <div className={styles.btn}>
+                                    <img src={emoji} alt="" />
+                                </div>
+                            </div>
+                            <img src={sender} alt="" />
                         </div>
                     </div>
                 </div>
