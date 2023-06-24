@@ -18,9 +18,6 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
     const [selectedDay, setSelectedDay] = useState<string>(
         currentDate.getDate().toString()
     );
-    const [currentDay, setCurrentDay] = useState(currentDate.getDay());
-    const [time, setTime] = useState();
-
     const months = [
         "Январь",
         "Февраль",
@@ -37,15 +34,6 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
     ];
 
     const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
-    const fullDays = [
-        "Понедельник",
-        "Вторник",
-        "Среда",
-        "Четверг",
-        "Пятница",
-        "Суббота",
-        "Восскресенье",
-    ];
 
     const handlePreviousMonth = () => {
         if (currentMonth === 1) {
