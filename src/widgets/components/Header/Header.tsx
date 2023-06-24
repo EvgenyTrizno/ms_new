@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { Text } from "../../../shared";
 import { useMenu } from "../../../shared/model/store";
@@ -12,6 +12,7 @@ import styles from "./Header.module.scss";
 
 export const Header: FC = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const { isSelect, setIsSelect } = useMenu();
 
     return (
@@ -25,7 +26,7 @@ export const Header: FC = () => {
                 <div className={styles.inner}>
                     <Text type="p">Главная</Text>
                     <span>/</span>
-                    {isSelect === "Главная" ? (
+                    {isSelect === "Главная" || location.pathname === "/" ? (
                         <div
                             className={styles.text}
                             onClick={() => navigate("/create-event")}

@@ -1,0 +1,72 @@
+.container {
+    width: calc(100vw - 300px);
+    height: calc(100vh - 80px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid var(--blue-100);
+    display: grid;
+    grid-template-columns: 530px 1fr;
+    overflow: hidden;
+
+    .sidebar {
+        background-color: var(--white);
+        padding: 20px;
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 20px;
+
+            .chats {
+                overflow-y: visible;
+                .chat {
+                    height: 105px;
+                    padding: 20px 0;
+                    border-bottom: 1px solid var(--gray-100);
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    
+                    .inner {
+                        display: flex;
+                        grid-gap: 15px;
+                    }
+
+                    img {
+                        width: 65px;
+                        height: 65px;
+                        object-fit: cover;
+                    }
+
+                    .data {
+                        display: flex;
+                        flex-direction: column;
+                        grid-gap: 10px;
+                    }
+
+                    .time {
+                        position: absolute;
+                        top: 20px;
+                        right: 0;
+                    }
+
+                    .counter {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 1000px;
+                        background-color: var(--blue);
+                        color: var(--white);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 5px;
+                        font-size: 12px;
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

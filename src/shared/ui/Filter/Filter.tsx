@@ -3,11 +3,11 @@ import { IFilter } from "./types";
 
 import styles from "./Filter.module.scss";
 
-export const Filter: FC<IFilter> = ({ data }) => {
+export const Filter: FC<IFilter> = ({ data, width }) => {
     const [isSelect, setIsSelect] = useState<string>(data[0]);
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} style={{ width }}>
             {data.map((item) => (
                 <div
                     className={`${
