@@ -6,5 +6,6 @@ import { Checkbox } from "./ui/Checkbox/Checkbox";
 import { Switch } from "./ui/Switch/Switch";
 import { Filter } from "./ui/Filter/Filter";
 import { Modal } from "./ui/Modal/Modal";
+import { PopUp } from "./ui/PopUp/PopUp";
 
-export { Btn, Input, Text, Switcher, Checkbox, Switch, Filter, Modal };
+export { Btn, Input, Text, Switcher, Checkbox, Switch, Filter, Modal, PopUp };

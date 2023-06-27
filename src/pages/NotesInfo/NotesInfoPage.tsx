@@ -1,8 +1,9 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 
 import { Layout } from "../Layout/Layout";
 import { Btn, Text, Modal } from "../../shared";
-import { Card, Comment } from "../../widgets";
+import { Card, Comment, Circle } from "../../widgets";
+import { Auth } from "../../shared/api/Auth";
 
 import virus from "/assets/virus-icon.jpg";
 import arrowRight from "/assets/arrow-right.svg";
@@ -12,6 +13,18 @@ import styles from "./NotesInfoPage.module.scss";
 
 export const NotesInfoPage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const { createAdmin } = Auth();
+
+    useEffect(() => {
+        createAdmin(
+            "+123456789",
+            "test@gmail.com",
+            "test123",
+            "test123",
+            "User",
+            "User"
+        );
+    });
 
     return (
         <Layout>
@@ -99,7 +112,43 @@ export const NotesInfoPage: FC = () => {
                 </div>
                 <div className={styles.box}>
                     <div className={styles.wrapper}>
-                        <div className={styles.left}></div>
+                        <div className={styles.left}>
+                            <Text type="h2" color="#262626" fz="25px">
+                                Статистика
+                            </Text>
+                            <div className={styles.stats}>
+                                <div className={styles.box}>
+                                    <Circle
+                                        percent={40}
+                                        size={160}
+                                        strokeWidth={12}
+                                        circleColor="#F2F4F5"
+                                        textColor="#000"
+                                        percentColor="#FF8181"
+                                    />
+                                </div>
+                                <div className={styles.box}>
+                                    <Circle
+                                        percent={60}
+                                        size={160}
+                                        strokeWidth={12}
+                                        circleColor="#F2F4F5"
+                                        textColor="#000"
+                                        percentColor="#81B3FF"
+                                    />
+                                </div>
+                                <div className={styles.box}>
+                                    <Circle
+                                        percent={80}
+                                        size={160}
+                                        strokeWidth={12}
+                                        circleColor="#F2F4F5"
+                                        textColor="#000"
+                                        percentColor="#3BB948"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className={styles.box}>

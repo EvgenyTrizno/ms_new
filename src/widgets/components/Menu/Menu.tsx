@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { EActive } from "./types";
 
 import { Text } from "../../../shared/ui/Text/Text";
@@ -12,6 +12,7 @@ import styles from "./Menu.module.scss";
 export const Menu: FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const { name } = useParams();
     const { setIsSelect } = useMenu();
 
     return (
@@ -71,7 +72,7 @@ export const Menu: FC = () => {
                     }}
                     className={
                         location.pathname === EActive.NOTE ||
-                        location.pathname === "notes/:name"
+                        location.pathname === `${EActive.NOTE}/${name}`
                             ? `${styles.item} ${styles.active}`
                             : styles.item
                     }

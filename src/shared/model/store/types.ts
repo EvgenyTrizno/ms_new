@@ -17,3 +17,8 @@ export interface IMenuStore {
     isSelect: TIsSelect;
     setIsSelect: (arg: TIsSelect) => void;
 }
+
+export interface IFilterStore {
+    isFilter: string;
+    setIsFilter: (arg: string) => void;
+}

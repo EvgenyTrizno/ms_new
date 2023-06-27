@@ -13,6 +13,7 @@ import { User } from "./components/User/User";
 import { Search } from "./components/Search/Search";
 import { Comment } from "./components/Comment/Comment";
 import { CenterInfoCard } from "./components/CenterInfoCard/CenterInfoCard";
+import { Circle } from "./components/Circle/Circle";
 
 export {
     Login,
@@ -30,4 +31,5 @@ export {
     Search,
     Comment,
     CenterInfoCard,
+    Circle,
 };

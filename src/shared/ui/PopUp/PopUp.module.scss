@@ -1,0 +1,17 @@
+.popup {
+    background-color: var(--white);
+    position: absolute;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid var(--gray-100);
+
+    :last-child {
+        border-bottom: none;
+    }
+    
+    li {
+        padding: 10px;
+        border-bottom: 1px solid var(--gray-100);
+        cursor: pointer;
+    }
+}

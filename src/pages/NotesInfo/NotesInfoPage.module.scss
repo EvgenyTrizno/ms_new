@@ -91,10 +91,18 @@
             justify-content: space-between;
 
             .left {
-                width: 960px;
-                height: 310px;
+                width: 830px;
+                height: 380px;
                 padding: 40px;
                 background-color: var(--white);
+                border-radius: var(--default-border);
+
+                .stats {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    align-self: center;
+                }   
             }
         }
 

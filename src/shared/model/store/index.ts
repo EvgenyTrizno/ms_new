@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
-import { IDiseasesStore, IMenuStore, TIsSelect } from "./types";
+import { IDiseasesStore, IMenuStore, TIsSelect, IFilterStore } from "./types";
 
 export const useDiseases = create<IDiseasesStore>()(
     immer((set) => ({
@@ -19,6 +19,17 @@ export const useMenu = create<IMenuStore>()(
         setIsSelect: (arg: TIsSelect) => {
             set((state) => {
                 state.isSelect = arg;
+            });
+        },
+    }))
+);
+
+export const useFilter = create<IFilterStore>()(
+    immer((set) => ({
+        isFilter: "",
+        setIsFilter: (arg) => {
+            set((state) => {
+                state.isFilter = arg;
             });
         },
     }))
