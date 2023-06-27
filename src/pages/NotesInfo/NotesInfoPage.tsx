@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
 
 import { Layout } from "../Layout/Layout";
 import { Btn, Text, Modal } from "../../shared";

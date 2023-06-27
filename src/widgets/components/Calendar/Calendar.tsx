@@ -146,13 +146,13 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                             <div className={styles.text}>
                                 <Text type="p">Время начала:</Text>
                             </div>
-                            <Input type="text" bcolor="#E9EAEB" />
+                            <Input type="text" borderColor="#E9EAEB" />
                         </div>
                         <div className={styles.box}>
                             <div className={styles.text}>
                                 <Text type="p">Конечное время:</Text>
                             </div>
-                            <Input type="text" bcolor="#E9EAEB" />
+                            <Input type="text" borderColor="#E9EAEB" />
                         </div>
                     </div>
                     <div className={styles.result}>

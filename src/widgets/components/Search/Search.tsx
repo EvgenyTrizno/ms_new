@@ -13,7 +13,7 @@ export const Search: FC = () => {
             </button>
             <Input
                 width="100%"
-                bcolor="#E9EAEB"
+                borderColor="#E9EAEB"
                 bl="none"
                 btl="unset"
                 bbl="unset"
