@@ -111,11 +111,9 @@ export const NotesInfoPage: FC = () => {
                     </div>
                 </div>
                 <div className={styles.box}>
+                    <Text type="p">dssd</Text>
                     <div className={styles.wrapper}>
                         <div className={styles.left}>
-                            <Text type="h2" color="#262626" fz="25px">
-                                Статистика
-                            </Text>
                             <div className={styles.stats}>
                                 <div className={styles.box}>
                                     <Circle
@@ -126,6 +124,19 @@ export const NotesInfoPage: FC = () => {
                                         textColor="#000"
                                         percentColor="#FF8181"
                                     />
+
+                                    <div className={styles.text}>
+                                        <Text type="h2" fz="16px">
+                                            Помогло на 40%
+                                        </Text>
+                                        <Text
+                                            type="p"
+                                            fz="14px"
+                                            color="#FF8181"
+                                        >
+                                            600 пациентов
+                                        </Text>
+                                    </div>
                                 </div>
                                 <div className={styles.box}>
                                     <Circle
@@ -136,6 +147,18 @@ export const NotesInfoPage: FC = () => {
                                         textColor="#000"
                                         percentColor="#81B3FF"
                                     />
+                                    <div className={styles.text}>
+                                        <Text type="h2" fz="16px">
+                                            Помогло на 60%
+                                        </Text>
+                                        <Text
+                                            type="p"
+                                            fz="14px"
+                                            color="#81B3FF"
+                                        >
+                                            600 пациентов
+                                        </Text>
+                                    </div>
                                 </div>
                                 <div className={styles.box}>
                                     <Circle
@@ -146,9 +169,22 @@ export const NotesInfoPage: FC = () => {
                                         textColor="#000"
                                         percentColor="#3BB948"
                                     />
+                                    <div className={styles.text}>
+                                        <Text type="h2" fz="16px">
+                                            Помогло на 80%
+                                        </Text>
+                                        <Text
+                                            type="p"
+                                            fz="14px"
+                                            color="#3BB948"
+                                        >
+                                            600 пациентов
+                                        </Text>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div className={styles.right}></div>
                     </div>
                 </div>
                 <div className={styles.box}>
