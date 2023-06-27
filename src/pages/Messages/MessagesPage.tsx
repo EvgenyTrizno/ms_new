@@ -23,6 +23,7 @@ export const MessagesPage: FC = () => {
         setIsFilter("Сообщения");
 
         return () => setIsFilter("");
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -132,7 +133,6 @@ export const MessagesPage: FC = () => {
                                     br="none"
                                     btr="unset"
                                     bbr="unset"
-                                    bcolor="#E9EAEB"
                                 />
                                 <div className={styles.btn}>
                                     <img src={emoji} alt="" />
@@ -146,7 +146,6 @@ export const MessagesPage: FC = () => {
                                     setY(e.clientY);
                                     setIsSelect("Отправить");
                                     setIsOpen((prev) => !prev);
-                                    console.log(e.clientY * 2);
                                 }}
                             />
                         </div>
@@ -175,7 +174,7 @@ export const MessagesPage: FC = () => {
                         </PopUp>
                     )}
                     {isOpen && isSelect === "Отправить" && (
-                        <PopUp width="170px" top={`${y / 1.43}px`} right="5px">
+                        <PopUp width="180px" top={`${y / 1.43}px`} right="5px">
                             <li>
                                 <Text type="p" color="#000" fz="14px">
                                     Отправить позже

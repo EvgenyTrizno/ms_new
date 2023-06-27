@@ -7,7 +7,7 @@ export const Input: FC<IInput> = ({
     type = "text",
     placeholder,
     width = "100%",
-    bcolor,
+    borderColor,
     checked = false,
     bt,
     br,
@@ -28,7 +28,7 @@ export const Input: FC<IInput> = ({
             disabled={disabled}
             style={{
                 width: width,
-                borderColor: bcolor,
+                borderColor: borderColor,
                 borderTop: bt,
                 borderRight: br,
                 borderBottom: bb,

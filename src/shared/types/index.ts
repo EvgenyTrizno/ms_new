@@ -19,7 +19,7 @@ export interface IInput {
     type: HTMLInputTypeAttribute;
     placeholder?: string;
     width?: string;
-    bcolor?: string;
+    borderColor?: string;
     checked?: boolean;
     bt?: string;
     br?: string;

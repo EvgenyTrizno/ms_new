@@ -14,7 +14,7 @@ export const Text: FC<IText> = ({
         case "h1":
             return (
                 <h1
-                    className={styles.text}
+                    className={styles.h1}
                     style={{ textAlign: position, fontSize: fz, color: color }}
                 >
                     {children}
@@ -23,7 +23,7 @@ export const Text: FC<IText> = ({
         case "h2":
             return (
                 <h2
-                    className={styles.text}
+                    className={styles.h2}
                     style={{ textAlign: position, fontSize: fz, color: color }}
                 >
                     {children}
@@ -32,7 +32,7 @@ export const Text: FC<IText> = ({
         case "h3":
             return (
                 <h3
-                    className={styles.text}
+                    className={styles.h3}
                     style={{ textAlign: position, fontSize: fz, color: color }}
                 >
                     {children}
@@ -41,7 +41,7 @@ export const Text: FC<IText> = ({
         case "h4":
             return (
                 <h4
-                    className={styles.text}
+                    className={styles.h4}
                     style={{ textAlign: position, fontSize: fz, color: color }}
                 >
                     {children}
@@ -50,7 +50,7 @@ export const Text: FC<IText> = ({
         case "h5":
             return (
                 <h5
-                    className={styles.text}
+                    className={styles.h5}
                     style={{ textAlign: position, fontSize: fz, color: color }}
                 >
                     {children}
@@ -59,7 +59,7 @@ export const Text: FC<IText> = ({
         case "h6":
             return (
                 <h6
-                    className={styles.text}
+                    className={styles.h6}
                     style={{ textAlign: position, fontSize: fz, color: color }}
                 >
                     {children}
@@ -68,7 +68,7 @@ export const Text: FC<IText> = ({
         default:
             return (
                 <p
-                    className={styles.text}
+                    className={styles.p}
                     style={{ textAlign: position, fontSize: fz, color: color }}
                 >
                     {children}

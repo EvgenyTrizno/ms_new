@@ -3,7 +3,7 @@ import { FC, useState, useEffect } from "react";
 import { Layout } from "../Layout/Layout";
 import { Btn, Text, Modal } from "../../shared";
 import { Card, Comment, Circle } from "../../widgets";
-import { Auth } from "../../shared/api/Auth";
+// import { Auth } from "../../shared/api/Auth";
 
 import virus from "/assets/virus-icon.jpg";
 import arrowRight from "/assets/arrow-right.svg";
@@ -13,18 +13,18 @@ import styles from "./NotesInfoPage.module.scss";
 
 export const NotesInfoPage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const { createAdmin } = Auth();
+    // const { createAdmin } = Auth();
 
-    useEffect(() => {
-        createAdmin(
-            "+123456789",
-            "test@gmail.com",
-            "test123",
-            "test123",
-            "User",
-            "User"
-        );
-    });
+    // useEffect(() => {
+    //     createAdmin(
+    //         "+123456789",
+    //         "test@gmail.com",
+    //         "test123",
+    //         "test123",
+    //         "User",
+    //         "User"
+    //     );
+    // });
 
     return (
         <Layout>

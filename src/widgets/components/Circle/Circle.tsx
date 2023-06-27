@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useRef, useEffect } from "react";
 import { ICircleProps } from "./types";
 
 export const Circle: FC<ICircleProps> = ({
@@ -12,6 +12,15 @@ export const Circle: FC<ICircleProps> = ({
     const radius = (size - strokeWidth) / 2;
     const circumference = 2 * Math.PI * radius;
     const offset = (1 - percent / 100) * circumference;
+    const circleRef = useRef<SVGCircleElement | null>(null);
+
+    useEffect(() => {
+        if (circleRef.current) {
+            circleRef.current.style.transition =
+                "stroke-dashoffset 1s ease-in-out";
+            circleRef.current.style.strokeDashoffset = offset.toString();
+        }
+    }, [offset]);
 
     return (
         <svg width={size} height={size}>
@@ -24,16 +33,16 @@ export const Circle: FC<ICircleProps> = ({
                 stroke={circleColor}
             />
             <circle
+                ref={circleRef}
                 r={radius}
                 cx={size / 2}
                 cy={size / 2}
                 fill="none"
                 strokeWidth={strokeWidth}
                 stroke={percentColor}
-                strokeDasharray={`${circumference} ${circumference}`}
-                strokeDashoffset={offset}
+                strokeDasharray={circumference.toString()}
                 strokeLinecap="round"
-                transform={`rotate(90 ${size / 2} ${size / 2})`}
+                style={{ strokeDashoffset: circumference.toString() }}
             />
             <text
                 x="50%"

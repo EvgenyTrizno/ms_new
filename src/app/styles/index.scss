@@ -1,7 +1,9 @@
 @import "./normalize.scss";
 @import "./vars.scss";
+@import './fonts.scss';
 
 body {
     background-color: var(--background);
     color: var(--dark);
+    font-family: "Montserrat";
 }

@@ -11,30 +11,30 @@ import styles from "./Registration.module.scss";
 export const Registration: FC = () => {
     return (
         <div className={styles.registration}>
-            <Text position="center" type="h2" fz="28px">
+            <Text position="center" type="h2" fz="28px" color="#262626">
                 Регистрация
             </Text>
             <form action="#" className={styles.form}>
                 <Input
                     type="text"
                     placeholder="Введите тел.номер"
-                    bcolor="#E9EAEB"
+                    borderColor="#E9EAEB"
                 />
                 <Input
                     type="password"
                     placeholder="Введите пароль"
-                    bcolor="#E9EAEB"
+                    borderColor="#E9EAEB"
                 />
                 <Input
                     type="password"
                     placeholder="Подтвердите пароль"
-                    bcolor="#E9EAEB"
+                    borderColor="#E9EAEB"
                 />
             </form>
             <div className={styles.policy}>
                 <Checkbox />
                 <Text color="#7D7F82" type="p">
-                    Я принимаю условия
+                    Я принимаю условия &nbsp;
                     <Link to="/" className={styles.link}>
                         данного соглашения
                     </Link>

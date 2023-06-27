@@ -17,26 +17,26 @@ export const Login: FC = () => {
 
     return (
         <div className={styles.login}>
-            <Text position="center" type="h2" fz="28px">
+            <Text position="center" type="h2" fz="28px" color="#262626">
                 Вход
             </Text>
             <form action="#" className={styles.form}>
                 <Input
                     type="text"
                     placeholder="Введите тел.номер или эл. почту"
-                    bcolor="#E9EAEB"
+                    borderColor="#E9EAEB"
                 />
                 <div className={styles.inner}>
                     <Input
                         type={isShow ? "text" : "password"}
                         placeholder="Введите пароль"
-                        bcolor="#E9EAEB"
+                        borderColor="#E9EAEB"
                         br="none"
                         btr="unset"
                         bbr="unset"
                     />
                     <div
-                        onClick={() => setIsShow((bol) => !bol)}
+                        onClick={() => setIsShow((bool) => !bool)}
                         className={styles.btn}
                     >
                         {!isShow ? (
@@ -53,7 +53,7 @@ export const Login: FC = () => {
             <Btn color="#0064FA">Войти</Btn>
             <div className={styles.redirect}>
                 <Text type="p" position="center" color="#7D7F82">
-                    Нет учетной записи?
+                    Нет учетной записи? &nbsp;
                     <Link to="/auth/registration" className={styles.link}>
                         Зарегистрироваться
                     </Link>
