@@ -5,7 +5,6 @@ import { Menu } from "./components/Menu/Menu";
 import { Header } from "./components/Header/Header";
 import { Card } from "./components/Card/Card";
 import { Calendar } from "./components/Calendar/Calendar";
-import { Map } from "./components/Map/Map";
 import { Authorization } from "./components/Auth/Authorization/Authorization";
 import { VirusList } from "./components/VirusList/VirusList";
 import { Confirmation } from "./components/Auth/Confirmation/Confirmation";
@@ -14,6 +13,8 @@ import { Search } from "./components/Search/Search";
 import { Comment } from "./components/Comment/Comment";
 import { CenterInfoCard } from "./components/CenterInfoCard/CenterInfoCard";
 import { Circle } from "./components/Circle/Circle";
+import { Map } from "./components/Map/Map";
+import { Rating } from "./components/Rating/Rating";
 
 export {
     Login,
@@ -32,4 +33,5 @@ export {
     Comment,
     CenterInfoCard,
     Circle,
+    Rating,
 };

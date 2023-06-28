@@ -4,7 +4,7 @@ import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 
 import styles from "./Map.module.scss";
 
-export const Map: FC<IMap> = ({ children, width, height }) => {
+export const Map: FC<IMap> = ({ children, width, height, position, zoom }) => {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyAXgV7Xnqc6mVvOVbz8ljhMF1_BEjopOEA",
         libraries: ["places"],
@@ -19,8 +19,8 @@ export const Map: FC<IMap> = ({ children, width, height }) => {
         <div className={styles.map} style={{ width, height }}>
             {isLoaded && (
                 <GoogleMap
-                    zoom={14}
-                    center={{ lat: 1, lng: 1 }}
+                    zoom={zoom}
+                    center={position}
                     mapContainerStyle={containerStyle}
                     options={{ disableDefaultUI: true }}
                 >

@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Search } from "@/widgets/components/Search/Search";
+import { Rating, Search } from "@/widgets";
 import { Btn, Filter, Text } from "@/shared";
 
 import arrowLeft from "/assets/arrow-left.svg";
@@ -55,7 +55,7 @@ export const SearchPage: FC = () => {
                                         </Text>
                                     </div>
                                     <div className={styles.rating}>
-                                        рейтинг (заглушка)
+                                        <Rating defaultValue={5} />
                                         <div>
                                             <Text type="p" color="#7D7F82">
                                                 Россия, Москва
