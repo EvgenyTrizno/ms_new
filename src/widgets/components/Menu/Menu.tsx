@@ -2,10 +2,10 @@ import { FC } from "react";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { EActive } from "./types";
 
-import { Text } from "../../../shared/ui/Text/Text";
-import { Switcher } from "../../../shared";
-import { Icons } from "../../../shared/ui/Icons/Icons";
-import { useMenu } from "../../../shared/model/store";
+import { Text } from "@/shared/ui/Text/Text";
+import { Switcher } from "@/shared";
+import { Icons } from "@/shared/ui/Icons/Icons";
+import { useMenu } from "@/shared/model/store";
 
 import styles from "./Menu.module.scss";
 

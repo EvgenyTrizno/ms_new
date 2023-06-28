@@ -2,9 +2,9 @@ import { FC } from "react";
 import { useNavigate } from "react-router";
 import { IoAddCircleOutline } from "react-icons/io5";
 
-import { Calendar, Search } from "../../widgets";
+import { Calendar, Search } from "@/widgets";
 import { Layout } from "../Layout/Layout";
-import { Btn, Text } from "../../shared";
+import { Btn, Text } from "@/shared";
 
 import arrow from "/assets/arrow-right.svg";
 import styles from "./MedicalCardPage.module.scss";

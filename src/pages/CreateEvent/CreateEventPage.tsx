@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Btn, Filter, Switch, Text } from "../../shared";
-import { Calendar, Card } from "../../widgets";
+import { Btn, Filter, Switch, Text } from "@/shared";
+import { Calendar, Card } from "@/widgets";
 
 import info from "/assets/info-circle.svg";
 import styles from "./CreateEventPage.module.scss";

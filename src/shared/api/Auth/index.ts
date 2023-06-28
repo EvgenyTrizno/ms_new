@@ -1,5 +1,5 @@
-import { useHttp } from "../../../shared/hooks";
-import { BASE_URL } from "../../../shared/config";
+import { useHttp } from "@/shared/hooks";
+import { BASE_URL } from "@/shared/config";
 import { ICreateUser } from "./types";
 
 export const Auth = () => {

@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { ICalendare } from "./types";
 
-import { Input, Text } from "../../../shared";
+import { Input, Text } from "@/shared";
 
 import arrowLeft from "/assets/arrow-left.svg";
 import arrowRight from "/assets/arrow-right.svg";

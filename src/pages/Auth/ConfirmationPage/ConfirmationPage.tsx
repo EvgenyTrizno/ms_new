@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Confirmation } from "../../../widgets";
+import { Confirmation } from "@/widgets";
 
 import styles from "./Confirmation.module.scss";
 

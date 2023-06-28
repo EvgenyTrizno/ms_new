@@ -1,8 +1,7 @@
 import { FC } from "react";
 import { useNavigate } from "react-router";
 
-// import { useDiseases } from "../../../shared/model/store";
-import { Btn, Checkbox, Text } from "../../../shared";
+import { Btn, Checkbox, Text } from "@/shared";
 
 import styles from "./VirusList.module.scss";
 

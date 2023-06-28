@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import { Like, Dislike } from "../../../features";
-import { Text } from "../../../shared";
+import { Like, Dislike } from "@/features";
+import { Text } from "@/shared";
 import { IComment } from "./types";
 
 import styles from "./Comment.module.scss";

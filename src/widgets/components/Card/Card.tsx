@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { ICard } from "./types";
 
-import { Checkbox, Text } from "../../../shared";
+import { Checkbox, Text } from "@/shared";
 
 import styles from "./Card.module.scss";
 import woman from "/assets/woman.jpg";

@@ -1,9 +1,9 @@
 import { FC, useState, useRef } from "react";
 import { MarkerF, StandaloneSearchBox } from "@react-google-maps/api";
 
-import { CenterInfoCard, Map } from "../../widgets";
-import { Icons } from "../../shared/ui/Icons/Icons";
-import { Btn, Text } from "../../shared";
+import { CenterInfoCard, Map } from "@/widgets";
+import { Icons } from "@/shared/ui/Icons/Icons";
+import { Btn, Text } from "@/shared";
 
 import circle from "/assets/circle-blue.svg";
 import controler from "/assets/controler.svg";
@@ -20,7 +20,6 @@ export const SelectCenterMapPage: FC = () => {
     const onPlacesChanged = () => {
         if (searchBoxRef.current) {
             const places = searchBoxRef.current.getPlaces();
-            console.log(places);
             if (places && places.length > 0) {
                 setIsLat(places[0]?.geometry?.location?.lat() || 0);
                 setIsLng(places[0]?.geometry?.location?.lng() || 0);

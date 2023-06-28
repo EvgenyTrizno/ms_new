@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { User } from "../../widgets";
-import { Input, Text } from "../../shared";
+import { User } from "@/widgets";
+import { Input, Text } from "@/shared";
 
 import user from "/assets/user-blue.svg";
 import arrowRigth from "/assets/arrow-right.svg";

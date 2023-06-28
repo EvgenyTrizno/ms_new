@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IInput } from "../../types";
+import { IInput } from "@/shared/types";
 
 import styles from "./Input.module.scss";
 

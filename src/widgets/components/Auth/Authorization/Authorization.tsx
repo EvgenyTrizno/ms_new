@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { EAuth } from "./types";
 import { Link } from "react-router-dom";
 
-import { Btn, Checkbox, Text } from "../../../../shared";
+import { Btn, Checkbox, Text } from "@/shared";
 
 import centerIcon from "/assets/center-icon.jpg";
 import styles from "./Authorization.module.scss";

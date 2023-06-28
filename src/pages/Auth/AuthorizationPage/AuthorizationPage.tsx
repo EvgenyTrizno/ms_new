@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Authorization } from "../../../widgets";
+import { Authorization } from "@/widgets";
 
 import styles from "./AuthorizationPage.module.scss";
 

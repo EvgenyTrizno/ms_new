@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { ICenterInfoCard } from "./types";
 
-import { Btn, Text } from "../../../shared";
+import { Btn, Text } from "@/shared";
 
 import close from "/assets/close-circle.svg";
 import centerIcon from "/assets/center-icon.jpg";

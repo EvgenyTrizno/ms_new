@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 
-import { Text } from "../../../../shared/ui/Text/Text";
-import { Input } from "../../../../shared/ui/Input/Input";
-import { Btn } from "../../../../shared/ui/Btn/Btn";
+import { Text } from "@/shared/ui/Text/Text";
+import { Input } from "@/shared/ui/Input/Input";
+import { Btn } from "@/shared/ui/Btn/Btn";
 
 import facebook from "/assets/facebook.svg";
 import apple from "/assets/apple.svg";

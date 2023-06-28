@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { IFilter } from "./types";
 
-import { useFilter } from "../../../shared/model/store";
+import { useFilter } from "@/shared/model/store";
 
 import styles from "./Filter.module.scss";
 

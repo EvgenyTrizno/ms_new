@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import { Text } from "../../../shared";
-import { useMenu } from "../../../shared/model/store";
+import { Text } from "@/shared";
+import { useMenu } from "@/shared/model/store";
 
 import logo from "/assets/logo.svg";
 import man from "/assets/man.jpg";

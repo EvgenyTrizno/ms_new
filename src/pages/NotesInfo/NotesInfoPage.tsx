@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Btn, Text, Modal } from "../../shared";
-import { Card, Comment, Circle } from "../../widgets";
+import { Btn, Text, Modal } from "@/shared";
+import { Card, Comment, Circle } from "@/widgets";
 // import { Auth } from "../../shared/api/Auth";
 
 import virus from "/assets/virus-icon.jpg";
@@ -237,8 +237,13 @@ export const NotesInfoPage: FC = () => {
                     </div>
                 </div>
                 {isOpen && (
-                    <Modal width="1100px" height="640px" setIsOpen={setIsOpen}>
-                        <img src={photo} alt="" />
+                    <Modal width="1000px" height="440px" setIsOpen={setIsOpen}>
+                        <img src={photo} alt="" className={styles.modalImg} />
+                        <div className={styles.galleryItems}>
+                            <img src={photo} alt="" />
+                            <img src={photo} alt="" />
+                            <img src={photo} alt="" />
+                        </div>
                     </Modal>
                 )}
             </div>

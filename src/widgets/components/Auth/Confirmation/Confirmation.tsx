@@ -1,7 +1,7 @@
 import { KeyboardEvent, ChangeEvent, FC, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Btn, Text } from "../../../../shared";
+import { Btn, Text } from "@/shared";
 
 import styles from "./Confirmation.module.scss";
 

@@ -1,7 +1,8 @@
 import { FC } from "react";
 
+import { VirusList } from "@/widgets";
+
 import styles from "./VirusListPage.module.scss";
-import { VirusList } from "../../../widgets";
 
 export const VirusListPage: FC = () => {
     return (

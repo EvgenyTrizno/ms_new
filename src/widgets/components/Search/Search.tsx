@@ -1,7 +1,6 @@
 import { FC } from "react";
 
-import { Input } from "../../../shared";
-import { Icons } from "../../../shared/ui/Icons/Icons";
+import { Input, Icons } from "@/shared";
 
 import styles from "./Search.module.scss";
 

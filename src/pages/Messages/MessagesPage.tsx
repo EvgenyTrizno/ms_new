@@ -1,9 +1,9 @@
 import { FC, useEffect, useState, MouseEvent } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Search } from "../../widgets";
-import { Filter, Input, PopUp, Text } from "../../shared";
-import { useFilter } from "../../shared/model/store";
+import { Search } from "@/widgets";
+import { Filter, Input, PopUp, Text } from "@/shared";
+import { useFilter } from "@/shared/model/store";
 
 import woman from "/assets/woman.jpg";
 import call from "/assets/call-calling.svg";

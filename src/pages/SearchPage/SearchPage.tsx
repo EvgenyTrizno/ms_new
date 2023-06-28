@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Search } from "../../widgets/components/Search/Search";
-import { Btn, Filter, Text } from "../../shared";
+import { Search } from "@/widgets/components/Search/Search";
+import { Btn, Filter, Text } from "@/shared";
 
 import arrowLeft from "/assets/arrow-left.svg";
 import controler from "/assets/controler.svg";

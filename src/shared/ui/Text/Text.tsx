@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IText } from "shared/types";
+import { IText } from "@/shared/types";
 
 import styles from "./Text.module.scss";
 

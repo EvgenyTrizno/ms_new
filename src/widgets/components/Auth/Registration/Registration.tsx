@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-import { Text, Input, Btn, Checkbox } from "../../../../shared";
+import { Text, Input, Btn, Checkbox } from "@/shared";
 
 import facebook from "/assets/facebook.svg";
 import apple from "/assets/apple.svg";

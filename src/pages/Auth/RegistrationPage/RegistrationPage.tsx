@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Registration } from "../../../widgets/components/Auth/Registration/Registration";
+import { Registration } from "@/widgets";
 
 import styles from "./RegistrationPage.module.scss";
 

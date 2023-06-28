@@ -2,8 +2,8 @@ import { FC } from "react";
 import { useNavigate } from "react-router";
 
 import { Layout } from "../Layout/Layout";
-import { Search } from "../../widgets";
-import { Btn, Filter, Text } from "../../shared";
+import { Search } from "@/widgets";
+import { Btn, Filter, Text } from "@/shared";
 
 import controler from "/assets/controler.svg";
 import virus from "/assets/virus-icon.jpg";

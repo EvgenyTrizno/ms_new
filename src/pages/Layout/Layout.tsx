@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { TProps } from "./types";
 
-import { Header, Menu } from "../../widgets";
+import { Header, Menu } from "@/widgets";
 
 import styles from "./Layout.module.scss";
 

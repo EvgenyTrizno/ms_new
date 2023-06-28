@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 // import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { IBtn } from "../../types";
+import { IBtn } from "@/shared/types";
 
 import styles from "./Btn.module.scss";
 

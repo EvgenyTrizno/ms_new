@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Text } from "../../../shared";
+import { Text } from "@/shared";
 
 import avatar from "/assets/man.jpg";
 import styles from "./User.module.scss";

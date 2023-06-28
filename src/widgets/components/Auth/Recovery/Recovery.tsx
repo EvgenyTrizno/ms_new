@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Btn, Input, Text } from "../../../../shared";
+import { Btn, Input, Text } from "@/shared";
 
 import styles from "./Recovery.module.scss";
 
