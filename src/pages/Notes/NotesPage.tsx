@@ -110,7 +110,7 @@ export const NotesPage: FC = () => {
                                 width="155px"
                                 onClick={() => navigate(`/notes/name`)}
                             >
-                                Записаться
+                                Продолжить
                             </Btn>
                             <img src={arrow} alt="" />
                         </div>

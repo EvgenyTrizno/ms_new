@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Btn, Text, Modal } from "@/shared";
+import { Btn, Text, GalleryModal } from "@/shared";
 import { Card, Comment, Circle } from "@/widgets";
 // import { Auth } from "../../shared/api/Auth";
 
@@ -105,13 +105,15 @@ export const NotesInfoPage: FC = () => {
                         </div>
                     </div>
                     <div className={styles.items}>
-                        {[1, 2, 3, 4, 5, 6, 7].map(() => (
+                        {[1, 2, 3, 4, 5, 6, 7, 8].map(() => (
                             <Card checkbox={false} />
                         ))}
                     </div>
                 </div>
                 <div className={styles.box}>
-                    <Text type="p">dssd</Text>
+                    <Text type="p" color="#7D7F82">
+                        Статистика о записи
+                    </Text>
                     <div className={styles.wrapper}>
                         <div className={styles.left}>
                             <div className={styles.stats}>
@@ -192,18 +194,15 @@ export const NotesInfoPage: FC = () => {
                         Публикации
                     </Text>
                     <div className={styles.gallery}>
-                        <div
-                            className={styles.photo}
-                            onClick={() => setIsOpen(true)}
-                        >
-                            <img src={photo} alt="" />
-                        </div>
-                        <div className={styles.photo}>
-                            <img src={photo} alt="" />
-                        </div>
-                        <div className={styles.photo}>
-                            <img src={photo} alt="" />
-                        </div>
+                        {[1, 2, 3, 4].map((item) => (
+                            <div
+                                key={item}
+                                className={styles.photo}
+                                onClick={() => setIsOpen(true)}
+                            >
+                                <img src={photo} alt="" />
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <div className={styles.box}>
@@ -237,14 +236,10 @@ export const NotesInfoPage: FC = () => {
                     </div>
                 </div>
                 {isOpen && (
-                    <Modal width="1000px" height="440px" setIsOpen={setIsOpen}>
-                        <img src={photo} alt="" className={styles.modalImg} />
-                        <div className={styles.galleryItems}>
-                            <img src={photo} alt="" />
-                            <img src={photo} alt="" />
-                            <img src={photo} alt="" />
-                        </div>
-                    </Modal>
+                    <GalleryModal
+                        setIsOpen={setIsOpen}
+                        images={[photo, photo, photo]}
+                    />
                 )}
             </div>
         </Layout>

@@ -5,7 +5,7 @@ import { Switcher } from "./ui/Switcher/Switcher";
 import { Checkbox } from "./ui/Checkbox/Checkbox";
 import { Switch } from "./ui/Switch/Switch";
 import { Filter } from "./ui/Filter/Filter";
-import { Modal } from "./ui/Modal/Modal";
+import { GalleryModal } from "./ui/GalleryModal/GalleryModal";
 import { PopUp } from "./ui/PopUp/PopUp";
 import { Icons } from "./ui/Icons/Icons";
 
@@ -17,7 +17,7 @@ export {
     Checkbox,
     Switch,
     Filter,
-    Modal,
+    GalleryModal,
     PopUp,
     Icons,
 };
