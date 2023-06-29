@@ -19,6 +19,8 @@ export const Input: FC<IInput> = ({
     bbl,
     bgcolor,
     disabled,
+    onChange,
+    value,
 }) => {
     return (
         <input
@@ -40,6 +42,8 @@ export const Input: FC<IInput> = ({
                 backgroundColor: bgcolor,
             }}
             checked={checked}
+            onChange={onChange}
+            value={value}
         />
     );
 };
