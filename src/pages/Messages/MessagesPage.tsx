@@ -18,6 +18,7 @@ export const MessagesPage: FC = () => {
     const { isFilter, setIsFilter } = useFilter();
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [y, setY] = useState<number>(0);
+    const [x, setX] = useState<number>(0);
     const [isSelect, setIsSelect] = useState<string>("");
 
     useEffect(() => {
@@ -26,6 +27,23 @@ export const MessagesPage: FC = () => {
         return () => setIsFilter("");
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const handleClick = (e: MouseEvent) => {
+        const classes = e.currentTarget.classList.contains(styles.text);
+
+        if (classes) {
+            setIsSelect("Сообщение");
+            setY(e.clientY);
+            setIsOpen((prev) => !prev);
+            setX(parseInt(window.getComputedStyle(e.currentTarget).width) + 80);
+        }
+
+        return;
+    };
+
+    const copyText = (text: string) => {
+        navigator.clipboard.writeText(text);
+    };
 
     return (
         <Layout>
@@ -133,6 +151,9 @@ export const MessagesPage: FC = () => {
                                     </Text>
                                     <div
                                         className={`${styles.text} ${styles.myText}`}
+                                        onClick={(e: MouseEvent) =>
+                                            handleClick(e)
+                                        }
                                     >
                                         <Text type="p" color="#262626">
                                             Привет. Я готов к чему-то
@@ -158,7 +179,12 @@ export const MessagesPage: FC = () => {
                                     <Text type="p" color="#333" fz="14px">
                                         Александр
                                     </Text>
-                                    <div className={`${styles.text}`}>
+                                    <div
+                                        className={`${styles.text}`}
+                                        onClick={(e: MouseEvent) =>
+                                            handleClick(e)
+                                        }
+                                    >
                                         <Text type="p" color="#262626">
                                             Да, я обычно выделяю все ctrl+A,
                                             потом всему сразу ставлю верх и
@@ -251,6 +277,39 @@ export const MessagesPage: FC = () => {
                             <li>
                                 <Text type="p" color="#000" fz="14px">
                                     Создать опрос
+                                </Text>
+                            </li>
+                        </PopUp>
+                    )}
+                    {isOpen && isSelect === "Сообщение" && (
+                        <PopUp
+                            width="120x"
+                            top={`${y / 1.2}px`}
+                            left={`${x}px`}
+                        >
+                            <li>
+                                <Text type="p" color="#000" fz="14px">
+                                    Ответить
+                                </Text>
+                            </li>
+                            <li>
+                                <Text type="p" color="#000" fz="14px">
+                                    Выбрать
+                                </Text>
+                            </li>
+                            <li onClick={() => copyText("скопировать")}>
+                                <Text type="p" color="#000" fz="14px">
+                                    Скопировать
+                                </Text>
+                            </li>
+                            <li>
+                                <Text type="p" color="#000" fz="14px">
+                                    Изменить
+                                </Text>
+                            </li>
+                            <li>
+                                <Text type="p" color="#D64657" fz="14px">
+                                    Удалить
                                 </Text>
                             </li>
                         </PopUp>
