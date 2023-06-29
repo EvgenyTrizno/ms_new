@@ -11,6 +11,7 @@ import paperclip from "/assets/paperclip-blue.svg";
 import sender from "/assets/send-blue.svg";
 import emoji from "/assets/emoji-normal.svg";
 import incoming from "/assets/call-incoming.svg";
+import read from "/assets/read-blue.svg";
 import styles from "./MessagesPage.module.scss";
 
 export const MessagesPage: FC = () => {
@@ -122,7 +123,64 @@ export const MessagesPage: FC = () => {
                             }}
                         />
                     </div>
-                    <div></div>
+                    <div className={styles.chat}>
+                        <div className={styles.list}>
+                            <div className={styles.message}>
+                                <img src={woman} alt="" />
+                                <div className={styles.inner}>
+                                    <Text type="p" color="#333" fz="14px">
+                                        Виктор
+                                    </Text>
+                                    <div
+                                        className={`${styles.text} ${styles.myText}`}
+                                    >
+                                        <Text type="p" color="#262626">
+                                            Привет. Я готов к чему-то
+                                        </Text>
+                                        <div className={styles.read}>
+                                            <img src={read} alt="" />
+                                        </div>
+                                    </div>
+                                    <div className={styles.time}>
+                                        <Text
+                                            type="p"
+                                            color="#7D7F82"
+                                            fz="12px"
+                                        >
+                                            8:00 PM
+                                        </Text>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.message}>
+                                <img src={woman} alt="" />
+                                <div className={styles.inner}>
+                                    <Text type="p" color="#333" fz="14px">
+                                        Александр
+                                    </Text>
+                                    <div className={`${styles.text}`}>
+                                        <Text type="p" color="#262626">
+                                            Да, я обычно выделяю все ctrl+A,
+                                            потом всему сразу ставлю верх и
+                                            лево)))))
+                                        </Text>
+                                        <div className={styles.read}>
+                                            <img src={read} alt="" />
+                                        </div>
+                                    </div>
+                                    <div className={styles.time}>
+                                        <Text
+                                            type="p"
+                                            color="#7D7F82"
+                                            fz="12px"
+                                        >
+                                            8:00 PM
+                                        </Text>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className={styles.messageBlock}>
                         <div className={styles.wrapper}>
                             <img src={paperclip} alt="" />

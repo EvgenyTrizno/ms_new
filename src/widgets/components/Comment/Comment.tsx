@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import { Like, Dislike } from "@/features";
 import { Text } from "@/shared";
+import { Rating } from "../Rating/Rating";
 import { IComment } from "./types";
 
 import styles from "./Comment.module.scss";
@@ -35,7 +36,7 @@ export const Comment: FC<IComment> = ({ title, children, name }) => {
                 </div>
             </div>
             <div className={styles.rating}>
-                <div>stars</div>
+                <Rating defaultValue={4} disabled />
                 <Text type="p" color="#7D7F82">
                     4.0
                 </Text>

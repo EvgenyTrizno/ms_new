@@ -1,15 +1,14 @@
 import { FC, useState } from "react";
+import { IRatingProps } from "./types";
 
-interface RatingProps {
-    defaultValue: number;
-    onChange?: (value: number) => void;
-    disabled?: boolean;
-}
+import styles from "./Rating.module.scss";
 
-export const Rating: FC<RatingProps> = ({
+export const Rating: FC<IRatingProps> = ({
     defaultValue,
     onChange,
     disabled,
+    width = "24px",
+    height = "24px",
 }) => {
     const [value, setValue] = useState(defaultValue);
 
@@ -25,16 +24,12 @@ export const Rating: FC<RatingProps> = ({
 
     const stars = [];
     for (let i = 1; i <= 5; i++) {
-        const starClass = i <= value ? "active" : "";
+        const starClass = i <= value ? `${styles.active}` : "";
         stars.push(
-            <span
-                key={i}
-                className={`star ${starClass}`}
-                onClick={() => handleClick(i)}
-            >
+            <span key={i} className={starClass} onClick={() => handleClick(i)}>
                 <svg
-                    width="22"
-                    height="20"
+                    width={width}
+                    height={height}
                     viewBox="0 0 22 20"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"

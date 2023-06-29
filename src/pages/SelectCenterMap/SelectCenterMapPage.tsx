@@ -2,8 +2,7 @@ import { FC, useState, useRef } from "react";
 import { MarkerF, StandaloneSearchBox } from "@react-google-maps/api";
 
 import { CenterInfoCard, Map } from "@/widgets";
-import { Icons } from "@/shared/ui/Icons/Icons";
-import { Btn, Text } from "@/shared";
+import { Btn, Text, Icons } from "@/shared";
 
 import circle from "/assets/circle-blue.svg";
 import controler from "/assets/controler.svg";
@@ -12,8 +11,8 @@ import styles from "./SelectCenterMapPage.module.scss";
 export const SelectCenterMapPage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [y, setY] = useState<number>(0);
-    const [isLat, setIsLat] = useState<number>(0);
-    const [isLng, setIsLng] = useState<number>(0);
+    const [isLat, setIsLat] = useState<number>(100);
+    const [isLng, setIsLng] = useState<number>(100);
 
     const searchBoxRef = useRef<google.maps.places.SearchBox | null>(null);
 
@@ -33,7 +32,12 @@ export const SelectCenterMapPage: FC = () => {
 
     return (
         <div className={styles.map}>
-            <Map width="100vw" height="100vh">
+            <Map
+                width="100vw"
+                height="100vh"
+                zoom={15}
+                position={{ lat: isLat, lng: isLng }}
+            >
                 <StandaloneSearchBox
                     onPlacesChanged={onPlacesChanged}
                     onLoad={handleSearchBoxLoad}

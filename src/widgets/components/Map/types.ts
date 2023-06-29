@@ -8,6 +8,6 @@ export interface IMap {
     width?: string | number;
     height?: string | number;
     children?: ReactNode;
-    position: IPosition;
+    position?: IPosition;
     zoom?: number;
 }

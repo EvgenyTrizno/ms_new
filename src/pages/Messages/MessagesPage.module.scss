@@ -113,9 +113,76 @@
             }
         }
     }
-
+    
     .view {
         position: relative;
+        
+        .chat {
+            position: fixed;
+            top: 185px;
+            width: 100%;
+            height: calc(100vh - 285px);
+            width: calc(100vw - 830px);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            .list {
+                display: flex;
+                flex-direction: column;
+                grid-gap: 10px;
+                
+                .message {
+                    height: 90px;
+                    display: flex;
+                    align-items: center;
+                    grid-gap: 10px;
+
+                }
+                img {
+                    width: 48px;
+                    height: 48px;
+                    object-fit: cover;
+                    border-radius: 1000px;
+                }
+
+                .inner {
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: 5px;
+                }
+
+                .text {
+                    padding: 15px;
+                    border-radius: 10px 10px 0px 10px;
+                    max-width: 700px;
+                    background-color: var(--white);
+                    display: flex;
+                    grid-gap: 5px;
+
+                    .read {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+
+                        img {
+                            width: 14px;
+                            height: 8px;
+                        }
+                    }
+                }
+
+                .myText {
+                    background-color: var(--blue-200);
+                }
+
+                .time {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            }
+        }
 
         .info {
             background-color: var(--white);

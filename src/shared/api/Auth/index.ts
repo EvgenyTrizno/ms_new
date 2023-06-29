@@ -19,10 +19,26 @@ export const Auth = () => {
             { number, email, password1, password2, first_name, last_name }
         );
 
-        console.log(data);
+        return data;
+    };
+
+    const createUser = async () => {
+        const data = await request(`${BASE_URL}/api/create/user`, "POST", {});
 
         return data;
     };
 
-    return { createAdmin };
+    const updateAdmin = async () => {
+        const data = await request(`${BASE_URL}/api/update/admin`, "PUT");
+
+        return data;
+    };
+
+    const updateUser = async () => {
+        const data = await request(`${BASE_URL}/api/update/user`, "PUT");
+
+        return data;
+    };
+
+    return { createAdmin, createUser, updateUser, updateAdmin };
 };

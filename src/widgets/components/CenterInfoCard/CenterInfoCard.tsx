@@ -6,6 +6,7 @@ import { Btn, Text } from "@/shared";
 import close from "/assets/close-circle.svg";
 import centerIcon from "/assets/center-icon.jpg";
 import styles from "./CenterInfoCard.module.scss";
+import { Rating } from "../Rating/Rating";
 
 export const CenterInfoCard: FC<ICenterInfoCard> = ({
     setIsOpen,
@@ -14,6 +15,9 @@ export const CenterInfoCard: FC<ICenterInfoCard> = ({
 }) => {
     return (
         <div className={styles.card} style={{ top, left }}>
+            <div className={styles.rating}>
+                <Rating defaultValue={5} disabled width="35px" height="35px" />
+            </div>
             <img
                 src={close}
                 alt="close button"

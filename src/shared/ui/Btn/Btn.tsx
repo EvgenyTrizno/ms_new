@@ -11,6 +11,7 @@ export const Btn: FC<IBtn> = ({
     children,
     onClick = () => "",
     br,
+    padding,
 }) => {
     // const [isHovered, setIsHovered] = useState<boolean>(false);
     // const [isTouch, setIsTouch] = useState<boolean>(false);
@@ -25,7 +26,12 @@ export const Btn: FC<IBtn> = ({
     return (
         <motion.button
             className={styles.btn}
-            style={{ backgroundColor: color, width: width, borderRadius: br }}
+            style={{
+                backgroundColor: color,
+                width: width,
+                borderRadius: br,
+                padding,
+            }}
             // onMouseEnter={() => setIsHovered(true)}
             // onMouseLeave={() => setIsHovered(false)}
             // onTap={() => {

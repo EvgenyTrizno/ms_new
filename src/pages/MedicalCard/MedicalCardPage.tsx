@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { useNavigate } from "react-router";
-import { IoAddCircleOutline } from "react-icons/io5";
 
 import { Calendar, Search } from "@/widgets";
 import { Layout } from "../Layout/Layout";
 import { Btn, Text } from "@/shared";
 
 import arrow from "/assets/arrow-right.svg";
+import addCircle from "/assets/add-circle.svg";
 import styles from "./MedicalCardPage.module.scss";
 
 export const MedicalCardPage: FC = () => {
@@ -21,8 +21,9 @@ export const MedicalCardPage: FC = () => {
                         color="#0064FA"
                         width="60px"
                         onClick={() => navigate("/select-center-map")}
+                        padding="0"
                     >
-                        <IoAddCircleOutline size={24} />
+                        <img src={addCircle} alt="" />
                     </Btn>
                 </div>
                 <div className={styles.wrapper}>

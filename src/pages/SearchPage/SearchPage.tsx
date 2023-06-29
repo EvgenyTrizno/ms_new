@@ -55,7 +55,7 @@ export const SearchPage: FC = () => {
                                         </Text>
                                     </div>
                                     <div className={styles.rating}>
-                                        <Rating defaultValue={5} />
+                                        <Rating defaultValue={3} disabled />
                                         <div>
                                             <Text type="p" color="#7D7F82">
                                                 Россия, Москва

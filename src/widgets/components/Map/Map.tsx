@@ -4,7 +4,13 @@ import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 
 import styles from "./Map.module.scss";
 
-export const Map: FC<IMap> = ({ children, width, height, position, zoom }) => {
+export const Map: FC<IMap> = ({
+    children,
+    width,
+    height,
+    position,
+    zoom = 14,
+}) => {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyAXgV7Xnqc6mVvOVbz8ljhMF1_BEjopOEA",
         libraries: ["places"],
