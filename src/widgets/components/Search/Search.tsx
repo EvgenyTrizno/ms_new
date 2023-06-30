@@ -1,10 +1,11 @@
 import { FC } from "react";
+import { ISeacrh } from "./types";
 
 import { Input, Icons } from "@/shared";
 
 import styles from "./Search.module.scss";
 
-export const Search: FC = () => {
+export const Search: FC<ISeacrh> = ({ placeholder }) => {
     return (
         <div className={styles.box}>
             <button className={styles.btn}>
@@ -18,7 +19,7 @@ export const Search: FC = () => {
                 bbl="unset"
                 bgcolor="#fff"
                 type="text"
-                placeholder="Поиск чатов"
+                placeholder={placeholder}
             />
         </div>
     );

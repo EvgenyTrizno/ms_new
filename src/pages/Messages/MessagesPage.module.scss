@@ -18,19 +18,26 @@
             flex-direction: column;
             grid-gap: 20px;
 
-            .chats {
-                overflow-y: auto;
+            .wrapper {
+                overflow-y: scroll;
                 height: calc(100vh - 280px);
+                scrollbar-width: thin;
+                scrollbar-color: transparent transparent;
+                
+                .chats {
+                    height: 0;
+                    background-color: transparent;
 
-                .chat {
-                    height: 105px;
-                    padding: 20px 0;
-                    border-bottom: 1px solid var(--gray-100);
-                    position: relative;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    cursor: pointer;
+                    .chat {
+                        height: 105px;
+                        padding: 20px 0;
+                        border-bottom: 1px solid var(--gray-100);
+                        position: relative;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        cursor: pointer;
+                    }
                     
                     .inner {
                         display: flex;
@@ -68,6 +75,11 @@
                         font-size: 12px;
                         margin-top: 15px;
                     }
+                }
+
+                .chats::-webkit-scrollbar {
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
                 }
 
                 .calls {
@@ -110,6 +122,18 @@
                         }
                     }
                 }
+            }
+
+            .wrapper::-webkit-scrollbar {
+                width: 0.5em;
+            }
+
+            .wrapper::-webkit-scrollbar-thumb {
+                background-color: transparent;
+            }
+              
+            .wrapper::-webkit-scrollbar-track {
+                background-color: transparent;
             }
         }
     }

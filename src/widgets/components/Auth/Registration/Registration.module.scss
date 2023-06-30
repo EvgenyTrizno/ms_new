@@ -52,5 +52,11 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        .policy {
+            p {
+                font-size: 14px !important; 
+            }
+        }
     }
 }

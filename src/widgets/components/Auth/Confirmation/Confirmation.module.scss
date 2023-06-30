@@ -35,6 +35,7 @@
 
     .timer {
         margin-bottom: 50px;
+        font-weight: 400 !important;
     }
 
     .redirect {
@@ -46,6 +47,43 @@
 
         .link {
             color: var(--blue);
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .confirmation {
+        width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .text {
+            p {
+                font-size: 15px !important;
+            }
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 0;
+            
+            input {
+                width: 55px !important;
+                height: 70px !important;
+            }
+        }
+
+        .timer {
+            margin-bottom: 40px;
+        }
+
+        .redirect {
+            font-size: 15px;
         }
     }
 }

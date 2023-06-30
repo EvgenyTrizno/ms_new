@@ -72,19 +72,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            .arrows {
-                display: flex;
-                align-items: center;
-                grid-gap: 15px;
-            }
         }
 
-        .items {
-            display: flex;
-            align-items: center;
-            grid-gap: 10px;
-            overflow: hidden;
+        .slider {
+            height: 100%;
+            width: 1500px;
+            .window {
+                height: 100%;
+                width: 100%;
+            }
         }
 
         .wrapper {
@@ -140,8 +136,32 @@
                 width: 370px;
                 height: 240px;
                 cursor: pointer;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
             }
-        }
+
+            .add {
+                position: relative;
+                
+                .bg {
+                    filter: blur(10px);
+                }
+
+                .btn {
+                    position: absolute;
+                    top: 40%;
+                    left: 50%;
+                    margin-right: -50%;
+                    transform: translate(-50%, -50%);
+                    width: 52px;
+                    height: 52px;
+                }
+            }
+        }s
 
         .comments {
             .header {

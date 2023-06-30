@@ -16,6 +16,7 @@ import { CreateEventPage } from "@/pages/CreateEvent/CreateEventPage";
 import { MapPage } from "@/pages/Map/MapPage";
 import { SelectCenterMapPage } from "@/pages/SelectCenterMap/SelectCenterMapPage";
 import { MessagesPage } from "@/pages/Messages/MessagesPage";
+import { MedicalTestPage } from "@/pages/MedicalTest/MedicalTestPage";
 
 export const routes: RouteData[] = [
     {
@@ -55,4 +56,9 @@ export const routes: RouteData[] = [
         key: "select-center-map_page",
     },
     { path: "/messages", Component: MessagesPage, key: "messages_page" },
+    {
+        path: "/medical-card-test",
+        Component: MedicalTestPage,
+        key: "medical-test_page",
+    },
 ];

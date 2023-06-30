@@ -57,14 +57,14 @@ export const Authorization: FC = () => {
             <Text color="#262626" type="h2" position="center" fz="28px">
                 Регистрация
             </Text>
-            {!hasPermission ? (
+            {hasPermission ? (
                 <>
                     <div className={styles.box}>
                         <Text type="p" position="center" color="#262626">
                             Для того чтобы зарегестрироваться, вам необходимо
                             указать свое состояние на данный момент
                         </Text>
-                        <Filter data={["Здоров", "Болен"]} />
+                        <Filter width="100%" data={["Здоров", "Болен"]} />
                     </div>
                     <Btn color="#0064FA">Продолжить</Btn>
                 </>

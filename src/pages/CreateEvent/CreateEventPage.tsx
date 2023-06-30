@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
 import { Btn, Filter, Switch, Text } from "@/shared";
-import { Calendar, Card } from "@/widgets";
+import { Calendar, Card, Slider } from "@/widgets";
 
 import info from "/assets/info-circle.svg";
 import styles from "./CreateEventPage.module.scss";
@@ -33,11 +33,11 @@ export const CreateEventPage: FC = () => {
                                 Выберите специалиста
                             </Text>
                         </div>
-                        <div className={styles.employees}>
-                            {[1, 2, 3].map(() => (
+                        <Slider container="960px">
+                            {[1, 2, 3, 4, 5, 6].map(() => (
                                 <Card checkbox />
                             ))}
-                        </div>
+                        </Slider>
                         <div className={styles.more}>
                             <div className={styles.text}>
                                 <Text type="p" color="#7D7F82">

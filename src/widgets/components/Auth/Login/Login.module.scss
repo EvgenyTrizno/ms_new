@@ -100,9 +100,38 @@
         flex-direction: column;
         justify-content: center;
 
+        .redirect {
+            p {
+                font-size: 14px !important;
+            }
+        }
+
+        .link {
+            font-size: 14px;
+        }
+
         .link {
             display: flex;
             justify-content: flex-end;
         }
+
+        .btns {
+            .btn {
+                p {
+                    font-size: 12px !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .login {
+        .redirect {
+            p {
+                font-size: 13px !important;
+            }
+        }
+
     }
 }

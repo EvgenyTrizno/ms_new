@@ -37,7 +37,7 @@ export const MedicalCardPage: FC = () => {
                                         Online
                                     </span>
                                 </div>
-                                <Text type="h2" fz="20px">
+                                <Text type="h2" fz="20px" color="#262626">
                                     Лорем Ипсум #1
                                 </Text>
                                 <div className={styles.descr}>

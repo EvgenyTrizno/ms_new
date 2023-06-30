@@ -1,0 +1,44 @@
+.slider {
+    position: relative;
+    
+    .container {
+        width: 1500px;
+        overflow-x: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: transparent transparent;
+        
+        .slides {
+            display: flex;
+            grid-gap: 10px;
+            transition: ease-in-out .3s;
+        }
+        
+    }
+
+    .container::-webkit-scrollbar {
+        width: 0.5em;
+    }
+    
+    .container::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+    
+    .container::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+
+    .arrows {
+        display: flex;
+        grid-gap: 15px;
+        align-items: center;
+        justify-content: flex-end;
+        position: absolute;
+        z-index: 100;
+        right: 0;
+        top: -35px;
+
+        .arrow {
+            cursor: pointer;
+        }
+    }
+}

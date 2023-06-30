@@ -1,0 +1,93 @@
+.medical {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20px;
+
+    .header {
+        display: flex;
+        grid-gap: 10px;
+        align-items: center;
+    }
+
+    .items {
+        display: grid;
+        grid-template-columns: repeat(3, 495px);
+        grid-gap: 30px 10px;
+
+        .empty {
+            height: calc(100vh - 300px);
+
+            .inner {
+                display: flex;
+                flex-direction: column;
+                grid-gap: 20px;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+            }
+
+            .text {
+                width: 540px;
+            }
+        }
+
+        .item {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--default-border);
+            display: flex;
+            flex-direction: column;
+            grid-gap: 30px;
+
+            .management {
+                display: flex;
+                justify-content: space-between;
+                grid-gap: 10px;
+                align-items: center;
+
+                .item {
+                    border: 1px solid var(--gray-100);
+                    padding: 10px;
+                    width: 105px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                }
+            }
+
+            .box {
+                display: flex;
+                flex-direction: column;
+                grid-gap: 20px;
+
+                .text {
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: 10px;
+                }
+
+                .list {
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: 10px;
+
+                    .li {
+                        display: flex;
+                        align-items: center;
+                        grid-gap: 10px;
+                        
+                        p {
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+            }
+
+            .btns {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}

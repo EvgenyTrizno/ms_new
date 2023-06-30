@@ -15,6 +15,7 @@ import { CenterInfoCard } from "./components/CenterInfoCard/CenterInfoCard";
 import { Circle } from "./components/Circle/Circle";
 import { Map } from "./components/Map/Map";
 import { Rating } from "./components/Rating/Rating";
+import { Slider } from "./components/Slider/Slider";
 
 export {
     Login,
@@ -34,4 +35,5 @@ export {
     CenterInfoCard,
     Circle,
     Rating,
+    Slider,
 };

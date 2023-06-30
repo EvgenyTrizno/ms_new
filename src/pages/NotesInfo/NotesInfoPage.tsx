@@ -2,13 +2,12 @@ import { FC, useState } from "react";
 
 import { Layout } from "../Layout/Layout";
 import { Btn, Text, GalleryModal } from "@/shared";
-import { Card, Comment, Circle } from "@/widgets";
+import { Card, Comment, Circle, Slider } from "@/widgets";
 // import { Auth } from "../../shared/api/Auth";
 
 import virus from "/assets/virus-icon.jpg";
-import arrowRight from "/assets/arrow-right.svg";
-import arrowLeft from "/assets/arrow-left.svg";
 import photo from "/assets/photo.jpg";
+import plus from "/assets/big-plus.svg";
 import styles from "./NotesInfoPage.module.scss";
 
 export const NotesInfoPage: FC = () => {
@@ -99,16 +98,14 @@ export const NotesInfoPage: FC = () => {
                         <Text type="p" color="#7D7F82">
                             Специалисты
                         </Text>
-                        <div className={styles.arrows}>
-                            <img src={arrowLeft} alt="" />
-                            <img src={arrowRight} alt="" />
-                        </div>
                     </div>
-                    <div className={styles.items}>
-                        {[1, 2, 3, 4, 5, 6, 7, 8].map(() => (
-                            <Card checkbox={false} />
-                        ))}
-                    </div>
+                    <Slider container="1500px">
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
+                            (item) => (
+                                <Card checkbox={false} key={item} />
+                            )
+                        )}
+                    </Slider>
                 </div>
                 <div className={styles.box}>
                     <Text type="p" color="#7D7F82">
@@ -194,7 +191,7 @@ export const NotesInfoPage: FC = () => {
                         Публикации
                     </Text>
                     <div className={styles.gallery}>
-                        {[1, 2, 3, 4].map((item) => (
+                        {[1, 2, 3].map((item) => (
                             <div
                                 key={item}
                                 className={styles.photo}
@@ -203,6 +200,10 @@ export const NotesInfoPage: FC = () => {
                                 <img src={photo} alt="" />
                             </div>
                         ))}
+                        <div className={`${styles.photo} ${styles.add}`}>
+                            <img src={photo} alt="" className={styles.bg} />
+                            <img src={plus} alt="" className={styles.btn} />
+                        </div>
                     </div>
                 </div>
                 <div className={styles.box}>

@@ -43,4 +43,6 @@ export interface IBtn {
     onClick?: (handleClick?: (arg?: ReactNode) => void) => void;
     padding?: string;
     disabled?: boolean;
+    border?: string;
+    textColor?: string;
 }
