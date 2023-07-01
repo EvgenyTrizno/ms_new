@@ -16,6 +16,7 @@ import { Circle } from "./components/Circle/Circle";
 import { Map } from "./components/Map/Map";
 import { Rating } from "./components/Rating/Rating";
 import { Slider } from "./components/Slider/Slider";
+import { Post } from "./components/Post/Post";
 
 export {
     Login,
@@ -36,4 +37,5 @@ export {
     Circle,
     Rating,
     Slider,
+    Post,
 };

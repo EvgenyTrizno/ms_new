@@ -1,6 +1,4 @@
 .layout {
-    display: flex;
-
     .container {
         display: grid;
         grid-template-columns: 300px 1fr;
@@ -15,3 +13,7 @@
         }
     }
 }                   
+
+// @media screen and (max-width: 576px) {
+
+// }

@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-import { Link } from "react-router-dom";
 
 import { Btn, Input, Text } from "@/shared";
 
@@ -60,14 +59,6 @@ export const Recovery: FC = () => {
                 )}
                 <Btn color="#0064FA">Продолжить</Btn>
             </form>
-            <div className={styles.redirect}>
-                <Text type="p" position="center">
-                    Уже имеется аккаунт?
-                    <Link to="/auth/login" className={styles.link}>
-                        Войти
-                    </Link>
-                </Text>
-            </div>
         </div>
     );
 };
