@@ -24,7 +24,7 @@ export const CreateEventPage: FC = () => {
                         </div>
                         <div className={styles.calendar}>
                             <Filter data={["Онлайн", "Оффлайн"]} />
-                            <Calendar info height="720px" width="100%" />
+                            <Calendar info height="750px" width="100%" />
                         </div>
                     </div>
                     <div className={styles.box}>

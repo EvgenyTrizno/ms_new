@@ -84,6 +84,12 @@
                 }
             }
 
+            .time {
+                display: flex;
+                flex-direction: column;
+                grid-gap: 10px;
+            }
+
             .btns {
                 display: flex;
                 justify-content: space-between;

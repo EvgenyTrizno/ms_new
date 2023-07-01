@@ -42,7 +42,10 @@ export const ProfilePage: FC = () => {
                                         style={
                                             isOpen && select === "Профиль"
                                                 ? { transform: "rotate(90deg)" }
-                                                : {}
+                                                : {
+                                                      transform:
+                                                          "rotate(-90deg)",
+                                                  }
                                         }
                                         onClick={() => {
                                             setIsOpen((prev) => !prev);
@@ -99,7 +102,10 @@ export const ProfilePage: FC = () => {
                                             isOpen &&
                                             select === "Защита профиля"
                                                 ? { transform: "rotate(90deg)" }
-                                                : {}
+                                                : {
+                                                      transform:
+                                                          "rotate(-90deg)",
+                                                  }
                                         }
                                         onClick={() => {
                                             setIsOpen((prev) => !prev);

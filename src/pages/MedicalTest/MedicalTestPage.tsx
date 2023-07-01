@@ -120,7 +120,7 @@ export const MedicalTestPage: FC = () => {
                                                 </Text>
                                             </li>
                                         </ul>
-                                        <div>
+                                        <div className={styles.time}>
                                             <Text
                                                 type="p"
                                                 color="#9B9B9B"

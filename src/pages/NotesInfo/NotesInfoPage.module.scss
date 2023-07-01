@@ -161,9 +161,10 @@
                     height: 52px;
                 }
             }
-        }s
+        }
 
         .comments {
+            
             .header {
                 display: flex;
                 align-items: center;
@@ -173,6 +174,8 @@
 
             .items {
                 display: flex;
+                grid-gap: 20px;
+                align-items: center;
             }
         }
     }

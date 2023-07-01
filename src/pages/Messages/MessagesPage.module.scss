@@ -75,23 +75,18 @@
                         font-size: 12px;
                         margin-top: 15px;
                     }
-                }
-
-                .chats::-webkit-scrollbar {
-                    scrollbar-width: none;
-                    -ms-overflow-style: none;
-                }
-
-                .calls {
-                    .call {
-                        height: 105px;
-                        padding: 20px 0;
-                        border-bottom: 1px solid var(--gray-100);
-                        position: relative;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        cursor: pointer;
+                    
+                    .calls {
+                        .call {
+                            height: 105px;
+                            padding: 20px 0;
+                            border-bottom: 1px solid var(--gray-100);
+                            position: relative;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            cursor: pointer;
+                        }
 
                         .data {
                             display: flex;
@@ -122,6 +117,11 @@
                         }
                     }
                 }
+            }
+
+            .chats::-webkit-scrollbar {
+                scrollbar-width: none;
+                -ms-overflow-style: none;
             }
 
             .wrapper::-webkit-scrollbar {

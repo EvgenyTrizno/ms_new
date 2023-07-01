@@ -70,7 +70,7 @@ export const Registration: FC = () => {
                         : true
                 }
             >
-                Зарегестрироваться
+                Продолжить
             </Btn>
             <div className={styles.btns}>
                 <img src={google} alt="google" />
