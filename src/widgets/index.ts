@@ -17,6 +17,7 @@ import { Map } from "./components/Map/Map";
 import { Rating } from "./components/Rating/Rating";
 import { Slider } from "./components/Slider/Slider";
 import { Post } from "./components/Post/Post";
+import { ExtraCallModal } from "./components/ExtraCallModal/ExtraCallModal";
 
 export {
     Login,
@@ -38,4 +39,5 @@ export {
     Rating,
     Slider,
     Post,
+    ExtraCallModal,
 };

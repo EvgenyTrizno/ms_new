@@ -1,7 +1,13 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
-import { IDiseasesStore, IMenuStore, TIsSelect, IFilterStore } from "./types";
+import {
+    IDiseasesStore,
+    IMenuStore,
+    TIsSelect,
+    IFilterStore,
+    IExtraCall,
+} from "./types";
 
 export const useDiseases = create<IDiseasesStore>()(
     immer((set) => ({
@@ -30,6 +36,17 @@ export const useFilter = create<IFilterStore>()(
         setIsFilter: (arg) => {
             set((state) => {
                 state.isFilter = arg;
+            });
+        },
+    }))
+);
+
+export const useExtraCall = create<IExtraCall>()(
+    immer((set) => ({
+        isOpen: false,
+        setIsOpen: (arg) => {
+            set((state) => {
+                state.isOpen = arg;
             });
         },
     }))

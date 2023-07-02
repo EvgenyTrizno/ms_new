@@ -22,3 +22,8 @@ export interface IFilterStore {
     isFilter: string;
     setIsFilter: (arg: string) => void;
 }
+
+export interface IExtraCall {
+    isOpen: boolean;
+    setIsOpen: (arg: boolean) => void;
+}

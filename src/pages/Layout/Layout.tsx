@@ -1,12 +1,16 @@
 import { FC } from "react";
 import { TProps } from "./types";
 
-import { Header, Menu } from "@/widgets";
+import { ExtraCallModal, Header, Menu } from "@/widgets";
 import { MOBILE_SCREEN } from "@/shared/config";
+import { useExtraCall } from "@/shared/model/store";
 
+import extra from "/assets/extra-call.svg";
 import styles from "./Layout.module.scss";
 
 export const Layout: FC<TProps> = ({ children }) => {
+    const { isOpen, setIsOpen } = useExtraCall();
+
     return (
         <div className={styles.layout}>
             {MOBILE_SCREEN ? (
@@ -19,6 +23,16 @@ export const Layout: FC<TProps> = ({ children }) => {
                     <div className={styles.container}>
                         <Menu />
                         <div className={styles.main}>{children}</div>
+                        {isOpen ? (
+                            <ExtraCallModal />
+                        ) : (
+                            <div
+                                className={styles.extra}
+                                onClick={() => setIsOpen(true)}
+                            >
+                                <img src={extra} alt="" />
+                            </div>
+                        )}
                     </div>
                 </>
             )}

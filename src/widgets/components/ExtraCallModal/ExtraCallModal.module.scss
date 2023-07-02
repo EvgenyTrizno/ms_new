@@ -1,0 +1,35 @@
+.extra {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+    width: calc(100vw - 300px);
+    height: calc(100vh - 80px);
+    backdrop-filter: blur(5px);
+
+    .extraBtn {
+        background-color: var(--green);
+        width: 75px;
+        height: 75px;
+        border-radius: 30px;
+        padding: 20px;
+        position: fixed;
+        right: 75px;
+        bottom: 40px;
+        cursor: pointer;
+        z-index: 2;
+
+        img {
+            z-index: 1;
+        }
+    }
+
+    .select {
+        width: 75px;
+        height: 75px;
+        background-color: var(--blue-200);
+        padding: 20px;
+        cursor: pointer;
+        border-radius: 30px;
+    }
+}
