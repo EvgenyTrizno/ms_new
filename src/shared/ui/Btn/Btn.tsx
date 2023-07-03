@@ -15,6 +15,7 @@ export const Btn: FC<IBtn> = ({
     disabled,
     border,
     textColor,
+    height,
 }) => {
     // const [isHovered, setIsHovered] = useState<boolean>(false);
     // const [isTouch, setIsTouch] = useState<boolean>(false);
@@ -31,11 +32,12 @@ export const Btn: FC<IBtn> = ({
             className={styles.btn}
             style={{
                 backgroundColor: color,
-                width: width,
+                width,
                 borderRadius: br,
                 padding,
                 border,
                 color: textColor,
+                height,
             }}
             disabled={disabled}
             // onMouseEnter={() => setIsHovered(true)}

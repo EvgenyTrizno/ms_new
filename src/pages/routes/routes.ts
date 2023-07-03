@@ -17,6 +17,7 @@ import { MapPage } from "@/pages/Map/MapPage";
 import { SelectCenterMapPage } from "@/pages/SelectCenterMap/SelectCenterMapPage";
 import { MessagesPage } from "@/pages/Messages/MessagesPage";
 import { MedicalTestPage } from "@/pages/MedicalTest/MedicalTestPage";
+import { MobileMainPage } from "@/pages/MobileMain/MobileMainPage";
 
 export const routes: RouteData[] = [
     {
@@ -61,4 +62,5 @@ export const routes: RouteData[] = [
         Component: MedicalTestPage,
         key: "medical-test_page",
     },
+    { path: "/m/", Component: MobileMainPage, key: "mobile-main_page" },
 ];

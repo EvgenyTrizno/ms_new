@@ -45,4 +45,5 @@ export interface IBtn {
     disabled?: boolean;
     border?: string;
     textColor?: string;
+    height?: string;
 }

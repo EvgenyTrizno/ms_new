@@ -2,9 +2,8 @@ import { FC } from "react";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { EActive } from "./types";
 
-import { Text } from "@/shared/ui/Text/Text";
-import { Switcher } from "@/shared";
-import { Icons } from "@/shared/ui/Icons/Icons";
+import { Text, Icons, Switcher } from "@/shared";
+import { TIsSelect } from "@/shared/model/store/types";
 import { useMenu } from "@/shared/model/store";
 
 import styles from "./Menu.module.scss";
@@ -15,6 +14,11 @@ export const Menu: FC = () => {
     const { name } = useParams();
     const { setIsSelect } = useMenu();
 
+    const handleNavigate = (path: EActive, select: TIsSelect) => {
+        navigate(path);
+        setIsSelect(select);
+    };
+
     return (
         <div className={styles.menu}>
             <Text color="#B1B2B4" type="p">
@@ -23,10 +27,7 @@ export const Menu: FC = () => {
             <Switcher />
             <div className={styles.list}>
                 <div
-                    onClick={() => {
-                        navigate("/");
-                        setIsSelect("Главная");
-                    }}
+                    onClick={() => handleNavigate(EActive.HOME, "Главная")}
                     className={
                         location.pathname === EActive.HOME ||
                         location.pathname === EActive.PROFILE
@@ -38,10 +39,7 @@ export const Menu: FC = () => {
                     <Text type="p">Главная</Text>
                 </div>
                 <div
-                    onClick={() => {
-                        navigate("/search");
-                        setIsSelect("Поиск");
-                    }}
+                    onClick={() => handleNavigate(EActive.SEARCH, "Поиск")}
                     className={
                         location.pathname === EActive.SEARCH
                             ? `${styles.item} ${styles.active}`
@@ -52,10 +50,7 @@ export const Menu: FC = () => {
                     <Text type="p">Поиск</Text>
                 </div>
                 <div
-                    onClick={() => {
-                        navigate("/messages");
-                        setIsSelect("Сообщения");
-                    }}
+                    onClick={() => handleNavigate(EActive.SMS, "Сообщения")}
                     className={
                         location.pathname === EActive.SMS
                             ? `${styles.item} ${styles.active}`
@@ -66,10 +61,7 @@ export const Menu: FC = () => {
                     <Text type="p">Сообщения</Text>
                 </div>
                 <div
-                    onClick={() => {
-                        navigate("/notes");
-                        setIsSelect("Записи");
-                    }}
+                    onClick={() => handleNavigate(EActive.NOTE, "Записи")}
                     className={
                         location.pathname === EActive.NOTE ||
                         location.pathname === `${EActive.NOTE}/${name}`
@@ -81,10 +73,9 @@ export const Menu: FC = () => {
                     <Text type="p">Записи</Text>
                 </div>
                 <div
-                    onClick={() => {
-                        navigate("/medical-card");
-                        setIsSelect("Медицинская карта");
-                    }}
+                    onClick={() =>
+                        handleNavigate(EActive.MEDICALCARD, "Медицинская карта")
+                    }
                     className={
                         location.pathname === EActive.MEDICALCARD
                             ? `${styles.item} ${styles.active}`
@@ -95,10 +86,9 @@ export const Menu: FC = () => {
                     <Text type="p">Медицинская карта</Text>
                 </div>
                 <div
-                    onClick={() => {
-                        navigate("/location");
-                        setIsSelect("Местоположение");
-                    }}
+                    onClick={() =>
+                        handleNavigate(EActive.LOCATION, "Местоположение")
+                    }
                     className={
                         location.pathname === EActive.LOCATION
                             ? `${styles.item} ${styles.active}`
@@ -109,10 +99,9 @@ export const Menu: FC = () => {
                     <Text type="p">Местоположение</Text>
                 </div>
                 <div
-                    onClick={() => {
-                        navigate("/settings");
-                        setIsSelect("Настройки");
-                    }}
+                    onClick={() =>
+                        handleNavigate(EActive.SETTINGS, "Настройки")
+                    }
                     className={
                         location.pathname === EActive.SETTINGS
                             ? `${styles.item} ${styles.active}`

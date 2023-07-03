@@ -7,6 +7,8 @@ import {
     TIsSelect,
     IFilterStore,
     IExtraCall,
+    IUserCondition,
+    TUserConditionStatus,
 } from "./types";
 
 export const useDiseases = create<IDiseasesStore>()(
@@ -47,6 +49,17 @@ export const useExtraCall = create<IExtraCall>()(
         setIsOpen: (arg) => {
             set((state) => {
                 state.isOpen = arg;
+            });
+        },
+    }))
+);
+
+export const useUserCondition = create<IUserCondition>()(
+    immer((set) => ({
+        condition: "Здоров",
+        setCondition: (arg: TUserConditionStatus) => {
+            set((state) => {
+                state.condition = arg;
             });
         },
     }))

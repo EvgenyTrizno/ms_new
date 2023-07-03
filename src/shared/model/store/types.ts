@@ -27,3 +27,9 @@ export interface IExtraCall {
     isOpen: boolean;
     setIsOpen: (arg: boolean) => void;
 }
+
+export type TUserConditionStatus = "Здоров" | "Болен";
+export interface IUserCondition {
+    condition: TUserConditionStatus;
+    setCondition: (arg: TUserConditionStatus) => void;
+}

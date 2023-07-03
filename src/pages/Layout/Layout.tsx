@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { TProps } from "./types";
 
-import { ExtraCallModal, Header, Menu } from "@/widgets";
+import { MobileMenu, ExtraCallModal, Header, Menu } from "@/widgets";
 import { MOBILE_SCREEN } from "@/shared/config";
 import { useExtraCall } from "@/shared/model/store";
 
@@ -14,8 +14,9 @@ export const Layout: FC<TProps> = ({ children }) => {
     return (
         <div className={styles.layout}>
             {MOBILE_SCREEN ? (
-                <div>
-                    <h1>mobile</h1>
+                <div className={styles.mobileContainer}>
+                    {children}
+                    <MobileMenu />
                 </div>
             ) : (
                 <>

@@ -1,0 +1,61 @@
+.mobilePost {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid var(--system-light-grey);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+
+    .user {
+        display: flex;
+        align-items: center;
+        grid-gap: 10px;
+        
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+        }
+
+        .data {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .images {
+        img {
+            border-radius: 12px;
+        }
+    }
+
+    .managment {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .btns {
+            display: flex;
+            align-items: center;
+            grid-gap: 5px;
+
+            .btn {
+                width: 40px;
+                height: 40px;
+                background-color: var(--system-light-grey);
+                border-radius: 12px;
+                padding: 10px;
+            }
+        }
+
+        .more {
+            display: flex;
+            align-items: center;
+            gg
+            p {
+                font-weight: 600;
+            }
+        }
+    }
+}

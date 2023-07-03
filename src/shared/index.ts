@@ -8,6 +8,7 @@ import { Filter } from "./ui/Filter/Filter";
 import { GalleryModal } from "./ui/GalleryModal/GalleryModal";
 import { PopUp } from "./ui/PopUp/PopUp";
 import { Icons } from "./ui/Icons/Icons";
+import { MobileSwitcher } from "./ui/MobileSwitcher/MobileSwitcher";
 
 export {
     Btn,
@@ -20,4 +21,5 @@ export {
     GalleryModal,
     PopUp,
     Icons,
+    MobileSwitcher,
 };

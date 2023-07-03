@@ -5,7 +5,11 @@ import arrowLeft from "/assets/arrow-left.svg";
 import arrowRight from "/assets/arrow-right.svg";
 import styles from "./Slider.module.scss";
 
-export const Slider: FC<ISlider> = ({ children, container }) => {
+export const Slider: FC<ISlider> = ({
+    children,
+    container,
+    navigate = true,
+}) => {
     const ref = useRef<HTMLDivElement | null>(null);
     const [position, setPosition] = useState(0);
 
@@ -52,20 +56,22 @@ export const Slider: FC<ISlider> = ({ children, container }) => {
 
     return (
         <div className={styles.slider}>
-            <div className={styles.arrows}>
-                <img
-                    src={arrowLeft}
-                    alt=""
-                    className={styles.arrow}
-                    onClick={() => handleArrowClick(-160)}
-                />
-                <img
-                    src={arrowRight}
-                    alt=""
-                    className={styles.arrow}
-                    onClick={() => handleArrowClick(160)}
-                />
-            </div>
+            {navigate !== false && (
+                <div className={styles.arrows}>
+                    <img
+                        src={arrowLeft}
+                        alt=""
+                        className={styles.arrow}
+                        onClick={() => handleArrowClick(-160)}
+                    />
+                    <img
+                        src={arrowRight}
+                        alt=""
+                        className={styles.arrow}
+                        onClick={() => handleArrowClick(160)}
+                    />
+                </div>
+            )}
 
             <div
                 className={styles.container}

@@ -1,0 +1,40 @@
+.container {
+    padding: 15px;
+    top: 70px;
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 175px);
+
+    .box {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 10px;
+    }
+
+    .line {
+        height: 2px;
+        width: 100%;
+        background-color: var(--gray);
+        border-radius: 60px;
+        margin: 16px 0;
+        opacity: 0.1;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    .items {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 10px;
+        margin-top: 10px;
+    }
+}

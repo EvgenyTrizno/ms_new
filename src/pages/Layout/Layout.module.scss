@@ -27,6 +27,20 @@
     }
 }                   
 
-// @media screen and (max-width: 576px) {
+@media screen and (max-width: 576px) {
+    .layout {
+        .container {
+            display: none !important;
 
-// }
+            .main {
+                display: none !important;
+            }
+        }
+
+        .mobileContainer {
+            display: grid;
+            height: 100vh;
+            grid-template-rows: calc(100vh - 105px) 105px;
+        }
+    }
+}
