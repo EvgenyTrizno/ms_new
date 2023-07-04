@@ -1,6 +1,12 @@
 import { FC } from "react";
 
-import { MobileCard, MobileHeader, MobilePost, Slider } from "@/widgets";
+import {
+    MobileCard,
+    MobileHeader,
+    MobilePost,
+    Slider,
+    MobileContainer,
+} from "@/widgets";
 import { Btn, Text } from "@/shared";
 import { useUserCondition } from "@/shared/model/store";
 import { Layout } from "../Layout/Layout";
@@ -14,7 +20,7 @@ export const MobileMainPage: FC = () => {
     return (
         <Layout>
             <MobileHeader />
-            <div className={styles.container}>
+            <MobileContainer>
                 <div className={styles.box}>
                     <Text type="h2" fz="12px" color="#B1B2B4">
                         Специалисты из Узбекистана
@@ -52,7 +58,7 @@ export const MobileMainPage: FC = () => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </MobileContainer>
         </Layout>
     );
 };

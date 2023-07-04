@@ -21,6 +21,7 @@ export const Input: FC<IInput> = ({
     disabled,
     onChange,
     value,
+    height,
 }) => {
     return (
         <input
@@ -30,6 +31,7 @@ export const Input: FC<IInput> = ({
             disabled={disabled}
             style={{
                 width: width,
+                height,
                 borderColor: borderColor,
                 borderTop: bt,
                 borderRight: br,

@@ -1,0 +1,29 @@
+.mobileFilter {
+    width: 100%;
+    background-color: var(--white);
+    padding: 8px;
+    border-radius: var(--default-border);
+    border: 1px solid var(--blue-100);
+    display: flex;
+    justify-content: space-between;
+
+    .item {
+        height: 40px;
+        width: 170px;
+        border-radius: var(--mobile-default-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark-gray);
+    }
+
+    .active {
+        color: var(--blue);
+        background-color: var(--blue-100);
+    }
+
+    .active_red {
+        color: var(--red-400);
+        background-color: var(--red-100);
+    }
+}

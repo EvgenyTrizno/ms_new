@@ -18,6 +18,10 @@ import { SelectCenterMapPage } from "@/pages/SelectCenterMap/SelectCenterMapPage
 import { MessagesPage } from "@/pages/Messages/MessagesPage";
 import { MedicalTestPage } from "@/pages/MedicalTest/MedicalTestPage";
 import { MobileMainPage } from "@/pages/MobileMain/MobileMainPage";
+import { MobileSearchPage } from "@/pages/MobileSearch/MobileSearchPage";
+import { MobileMessagesPage } from "@/pages/MobileMessages/MobileMessagesPage";
+import { MobileProfile } from "@/pages/MobileProfile/MobileProfile";
+import { MobileChatPage } from "@/pages/MobileChat/MobileChatPage";
 
 export const routes: RouteData[] = [
     {
@@ -63,4 +67,20 @@ export const routes: RouteData[] = [
         key: "medical-test_page",
     },
     { path: "/m/", Component: MobileMainPage, key: "mobile-main_page" },
+    {
+        path: "/m/search",
+        Component: MobileSearchPage,
+        key: "mobile-search_page",
+    },
+    {
+        path: "/m/messages",
+        Component: MobileMessagesPage,
+        key: "mobile-messages_page",
+    },
+    {
+        path: "/m/profile/:id",
+        Component: MobileProfile,
+        key: "mobile-profile_page",
+    },
+    { path: "/m/chat/:id", Component: MobileChatPage, key: "mobile-chat_page" },
 ];

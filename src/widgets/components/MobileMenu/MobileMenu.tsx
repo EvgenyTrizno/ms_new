@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { useLocation, useNavigate } from "react-router";
+import { EPath } from "./types.";
 
 import { Icons } from "@/shared";
-import { EActive } from "../Menu/types";
 import { TIsSelect } from "@/shared/model/store/types";
 import { useMenu } from "@/shared/model/store";
 
@@ -15,7 +15,7 @@ export const MobileMenu: FC = () => {
     const location = useLocation();
     const { setIsSelect } = useMenu();
 
-    const handleNavigate = (path: EActive, select: TIsSelect) => {
+    const handleNavigate = (path: EPath, select: TIsSelect) => {
         navigate(path);
         setIsSelect(select);
     };
@@ -24,9 +24,9 @@ export const MobileMenu: FC = () => {
         <div className={styles.mobileMenu}>
             <div className={styles.box}>
                 <div
-                    onClick={() => handleNavigate(EActive.HOME, "Главная")}
+                    onClick={() => handleNavigate(EPath.HOME, "Главная")}
                     className={
-                        location.pathname === EActive.HOME
+                        location.pathname === EPath.HOME
                             ? `${styles.active}`
                             : undefined
                     }
@@ -35,11 +35,11 @@ export const MobileMenu: FC = () => {
                 </div>
                 <div
                     className={
-                        location.pathname === EActive.SEARCH
+                        location.pathname === EPath.SEARCH
                             ? `${styles.active}`
                             : undefined
                     }
-                    onClick={() => handleNavigate(EActive.SEARCH, "Поиск")}
+                    onClick={() => handleNavigate(EPath.SEARCH, "Поиск")}
                 >
                     <Icons icon="search" />
                 </div>
@@ -52,11 +52,11 @@ export const MobileMenu: FC = () => {
             <div className={styles.box}>
                 <div
                     className={
-                        location.pathname === EActive.SMS
+                        location.pathname === EPath.MESSAGES
                             ? `${styles.active}`
                             : undefined
                     }
-                    onClick={() => handleNavigate(EActive.SMS, "Сообщения")}
+                    onClick={() => handleNavigate(EPath.MESSAGES, "Сообщения")}
                 >
                     <Icons icon="envelope" />
                 </div>
