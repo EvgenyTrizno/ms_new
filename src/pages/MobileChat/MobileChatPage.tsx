@@ -11,6 +11,7 @@ import call from "/assets/call-calling.svg";
 import clips from "/assets/paperclip-blue.svg";
 import microphone from "/assets/microphone-blue.svg";
 import emoji from "/assets/emoji-normal.svg";
+import ghost from "/assets/ghost.svg";
 import styles from "./MobileChatPage.module.scss";
 
 export const MobileChatPage: FC = () => {
@@ -48,7 +49,7 @@ export const MobileChatPage: FC = () => {
                 <img src={call} alt="" />
             </div>
             <MobileContainer>
-                <div className={styles.chatBox}>
+                {/* <div className={styles.chatBox}>
                     <div className={styles.date}>
                         <Text type="p" fz="12px" color="#7D7F82">
                             Сегодня
@@ -56,10 +57,46 @@ export const MobileChatPage: FC = () => {
                     </div>
                     <div className={styles.container}>
                         <div className={styles.message}>
-                            <Text type="p" fz="13px" color="#262626">
-                                Привет. Я готов к чему-то
-                            </Text>
+                            <div className={styles.inner}>
+                                <Text type="p" fz="13px" color="#262626">
+                                    Привет. Я готов к чему-то
+                                </Text>
+                                <div className={styles.time}>
+                                    <Text type="p" fz="11px">
+                                        8:00 PM
+                                    </Text>
+                                </div>
+                            </div>
                         </div>
+                        <div className={styles.message_right}>
+                            <div className={styles.inner}>
+                                <Text type="p" fz="13px" color="#262626">
+                                    Да, я обычно выделяю все ctrl+A, потом всему
+                                    сразу ставлю верх и лево)))))
+                                </Text>
+                                <div className={styles.time}>
+                                    <Text type="p" fz="11px">
+                                        8:00 PM
+                                    </Text>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+                <div className={styles.empty}>
+                    <img src={ghost} alt="" />
+                    <div className={styles.text}>
+                        <Text type="h2" fz="17px" position="center">
+                            Сообщений пока нет
+                        </Text>
+                        <Text
+                            type="p"
+                            color="#B1B2B4"
+                            position="center"
+                            fz="14px"
+                        >
+                            Отправьте сообщения что бы начать диалог
+                        </Text>
                     </div>
                 </div>
             </MobileContainer>

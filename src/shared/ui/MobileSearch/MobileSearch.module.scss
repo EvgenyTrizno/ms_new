@@ -1,0 +1,31 @@
+.search {
+    background-color: var(--white);
+    padding: 10px;
+    border: 1px solid var(--system-light-grey);
+    border-radius: var(--default-border);
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+
+    input {
+        height: 20px;
+        width: 100%;
+    }
+
+    .icon {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn {
+        min-width: 35px;
+        max-width: 35px;
+        height: 35px;
+        border-radius: 10px;
+        background-color: var(--blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px;
+    }
+}

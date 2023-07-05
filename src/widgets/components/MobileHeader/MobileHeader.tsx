@@ -22,7 +22,7 @@ export const MobileHeader: FC = () => {
                 src={man}
                 alt=""
                 className={styles.avatar}
-                onClick={() => navigate("/profile")}
+                onClick={() => navigate("/m/account")}
             />
             <MobileSwitcher />
             <div className={styles.settings}>

@@ -1,0 +1,95 @@
+.notes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        .nav {
+            display: flex;
+            align-items: center;
+            grid-gap: 10px;
+        }
+    }
+
+    .box {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 10px;
+    }
+
+    .items {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 5px;
+        padding: 15px 0;
+
+        .item {
+            background-color: var(--white);
+            border: 1px solid var(--system-light-grey);
+            border-radius: var(--default-border);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            grid-gap: 30px;
+            
+            .managment {
+                display: flex;
+                justify-content: space-between;
+
+                .param {
+                    border-radius: 12px;
+                    padding: 10px;
+                    width: 75px;
+                    border: 1px solid var(--system-light-grey);
+                }
+            }
+
+            .container {
+
+                .titles {
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: 5px;
+                }
+
+                .list {
+                    margin-top: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: 10px;
+
+                    .li {
+                        display: flex;
+                        align-items: center;
+                        grid-gap: 5px;
+
+                        p {
+                            font-size: 12px !important;
+                        }
+                    }
+                }
+
+                .line {
+                    height: 2px;
+                    background-color: var(--gray);
+                    opacity: .1;
+                    margin: 15px 0;
+                }
+            }
+
+            .btns {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                button {
+                    font-size: 13px !important;
+                }
+            }
+        }
+    }
+}

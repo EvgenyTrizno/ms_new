@@ -22,6 +22,9 @@ import { MobileSearchPage } from "@/pages/MobileSearch/MobileSearchPage";
 import { MobileMessagesPage } from "@/pages/MobileMessages/MobileMessagesPage";
 import { MobileProfile } from "@/pages/MobileProfile/MobileProfile";
 import { MobileChatPage } from "@/pages/MobileChat/MobileChatPage";
+import { MobileAccountPage } from "@/pages/MobileAccount/MobileAccountPage";
+import { AccountSettingsPage } from "@/pages/Settings/AccountSettingsPage/AccountSettingsPage";
+import { MobileNotesPage } from "@/pages/MobileNotes/MobileNotesPage";
 
 export const routes: RouteData[] = [
     {
@@ -83,4 +86,15 @@ export const routes: RouteData[] = [
         key: "mobile-profile_page",
     },
     { path: "/m/chat/:id", Component: MobileChatPage, key: "mobile-chat_page" },
+    {
+        path: "/m/account",
+        Component: MobileAccountPage,
+        key: "mobile-account_page",
+    },
+    {
+        path: "/m/settings/account",
+        Component: AccountSettingsPage,
+        key: "mobile-account_page",
+    },
+    { path: "/m/notes", Component: MobileNotesPage, key: "mobile-notes_page" },
 ];
