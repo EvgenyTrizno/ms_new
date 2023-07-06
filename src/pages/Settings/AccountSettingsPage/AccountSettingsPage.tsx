@@ -51,7 +51,12 @@ export const AccountSettingsPage: FC = () => {
                             Основные
                         </Text>
                         <div className={styles.items}>
-                            <div className={styles.item}>
+                            <div
+                                className={styles.item}
+                                onClick={() =>
+                                    navigate("/m/settings/account/profile")
+                                }
+                            >
                                 <div className={styles.inner}>
                                     <div className={styles.icon}>
                                         <svg

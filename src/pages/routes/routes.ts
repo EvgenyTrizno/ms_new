@@ -25,6 +25,7 @@ import { MobileChatPage } from "@/pages/MobileChat/MobileChatPage";
 import { MobileAccountPage } from "@/pages/MobileAccount/MobileAccountPage";
 import { AccountSettingsPage } from "@/pages/Settings/AccountSettingsPage/AccountSettingsPage";
 import { MobileNotesPage } from "@/pages/MobileNotes/MobileNotesPage";
+import { ProfileSettingsPage } from "@/pages/Settings/ProfileSettingsPage/ProfileSettingsPage";
 
 export const routes: RouteData[] = [
     {
@@ -97,4 +98,9 @@ export const routes: RouteData[] = [
         key: "mobile-account_page",
     },
     { path: "/m/notes", Component: MobileNotesPage, key: "mobile-notes_page" },
+    {
+        path: "/m/settings/account/profile",
+        Component: ProfileSettingsPage,
+        key: "mobile-profile-settings_page",
+    },
 ];

@@ -45,9 +45,7 @@ export const MobileMenu: FC = () => {
                 </div>
             </div>
             <div className={styles.extraBtn}>
-                <div className={styles.btn}>
-                    <img src={extra} alt="" />
-                </div>
+                <img src={extra} alt="" />
             </div>
             <div className={styles.box}>
                 <div

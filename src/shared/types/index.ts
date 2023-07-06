@@ -32,6 +32,7 @@ export interface IInput {
     bgcolor?: string;
     disabled?: boolean;
     height?: string;
+    borderRadius?: string;
     value?: string | number | readonly string[];
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }

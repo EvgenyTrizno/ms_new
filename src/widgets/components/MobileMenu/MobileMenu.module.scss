@@ -2,15 +2,18 @@
     .mobileMenu {
         width: 100vw;
         height: 105px;
-        background-color: var(--white);
+        overflow: hidden;
         position: fixed;
+        left: 0;
+        right: 0;
         bottom: 0;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        z-index: 1;
+        padding: 0 40px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 40px;
-        border-top-left-radius: var(--default-border);
-        border-top-right-radius: var(--default-border);
 
         .box {
             display: flex;
@@ -27,22 +30,34 @@
         .extraBtn {
             width: 80px;
             height: 80px;
-            border: 10px solid rgba(217,217,217, 0.3);
-            position: absolute;
-            top: 50%;
+            position: fixed;
             left: 50%;
             margin-right: -50%;
-            transform: translate(-50%, -80px);
+            transform: translate(-50%, -55px);
             border-radius: 100%;
-            
-            .btn {
-                padding: 10px;
-                border-radius: 100%;
-                background-color: var(--green);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
+            background-color: var(--green);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+    }
+
+    .mobileMenu:before,
+    .mobileMenu:after {
+        content: '';
+        position: absolute;
+    }
+
+    .mobileMenu:before {
+        top: 0;
+        left: 50%;
+        width: 90px;
+        height: 90px;
+        margin-right: -50%;
+        transform: translate(-50%, -45.5px);
+        border-radius: 50%;
+        box-shadow: 0px 0px 0px 580px var(--white);
+        z-index: -1;
     }
 }

@@ -22,6 +22,7 @@ export const Input: FC<IInput> = ({
     onChange,
     value,
     height,
+    borderRadius,
 }) => {
     return (
         <input
@@ -42,6 +43,7 @@ export const Input: FC<IInput> = ({
                 borderTopLeftRadius: btl,
                 borderBottomLeftRadius: bbl,
                 backgroundColor: bgcolor,
+                borderRadius,
             }}
             checked={checked}
             onChange={onChange}
