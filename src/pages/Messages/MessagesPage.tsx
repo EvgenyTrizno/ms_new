@@ -4,6 +4,7 @@ import { Layout } from "../Layout/Layout";
 import { Search } from "@/widgets";
 import { Filter, Input, PopUp, Text } from "@/shared";
 import { useFilter } from "@/shared/model/store";
+import { ABSOLUTE_PATH } from "@/shared/config";
 
 import woman from "/assets/woman.jpg";
 import call from "/assets/call-calling.svg";
@@ -20,11 +21,22 @@ export const MessagesPage: FC = () => {
     const [y, setY] = useState<number>(0);
     const [x, setX] = useState<number>(0);
     const [isSelect, setIsSelect] = useState<string>("");
+    const [msg, setMsg] = useState<string>("");
+    const [ws, setWs] = useState<WebSocket | null>(null);
 
     useEffect(() => {
         setIsFilter("Сообщения");
 
-        return () => setIsFilter("");
+        const ws = new WebSocket(
+            `ws://${ABSOLUTE_PATH}/ws/chat/8345f52b-6d74-4a54-9ae1-6c03c92e962b/99/`
+        );
+
+        setWs(ws);
+
+        return () => {
+            setIsFilter("");
+            ws.close();
+        };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -43,6 +55,28 @@ export const MessagesPage: FC = () => {
 
     const copyText = (text: string) => {
         navigator.clipboard.writeText(text);
+    };
+
+    const sendMsg = (msg: string, id: number, uuid: string) => {
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            ws.send(
+                JSON.stringify({
+                    action: "send_message", //CONST
+                    chat_uuid: uuid, // UPDT
+                    text: msg,
+                    user_id: id, // updt
+                })
+            );
+        }
+    };
+
+    const handleSendMsg = () => {
+        if (msg === "") return;
+        else {
+            sendMsg(msg, 99, "8345f52b-6d74-4a54-9ae1-6c03c92e962b");
+            console.log(msg);
+            setMsg("");
+        }
     };
 
     return (
@@ -224,6 +258,8 @@ export const MessagesPage: FC = () => {
                                     br="none"
                                     btr="unset"
                                     bbr="unset"
+                                    value={msg}
+                                    onChange={(e) => setMsg(e.target.value)}
                                 />
                                 <div className={styles.btn}>
                                     <img src={emoji} alt="" />
@@ -266,7 +302,7 @@ export const MessagesPage: FC = () => {
                     )}
                     {isOpen && isSelect === "Отправить" && (
                         <PopUp width="180px" top={`${y / 1.43}px`} right="5px">
-                            <li>
+                            <li onClick={handleSendMsg}>
                                 <Text type="p" color="#000" fz="14px">
                                     Отправить позже
                                 </Text>

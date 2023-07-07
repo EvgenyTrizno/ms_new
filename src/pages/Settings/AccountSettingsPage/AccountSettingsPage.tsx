@@ -161,7 +161,12 @@ export const AccountSettingsPage: FC = () => {
                                 </div>
                                 {arrowRight}
                             </div>
-                            <div className={styles.item}>
+                            <div
+                                className={styles.item}
+                                onClick={() =>
+                                    navigate("/m/settings/account/protection")
+                                }
+                            >
                                 <div className={styles.inner}>
                                     <div className={styles.icon}>
                                         <svg

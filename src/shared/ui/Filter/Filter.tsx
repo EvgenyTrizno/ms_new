@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import { IFilter } from "./types";
 
 import { useFilter } from "@/shared/model/store";
@@ -8,6 +8,10 @@ import styles from "./Filter.module.scss";
 export const Filter: FC<IFilter> = ({ data, width }) => {
     const [isSelect, setIsSelect] = useState<string>(data[0]);
     const { setIsFilter } = useFilter();
+
+    useEffect(() => {
+        setIsFilter(data[0]);
+    }, []);
 
     return (
         <div className={styles.container} style={{ width }}>

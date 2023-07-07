@@ -12,6 +12,16 @@ import styles from "./ProfileSettingsPage.module.scss";
 export const ProfileSettingsPage: FC = () => {
     const navigate = useNavigate();
 
+    const inputs = [
+        { id: 1, placeholder: "Имя" },
+        { id: 2, placeholder: "Фамилия" },
+        { id: 3, placeholder: "Страна" },
+        { id: 4, placeholder: "Город" },
+        { id: 5, placeholder: "Адрес" },
+        { id: 6, placeholder: "Логин" },
+        { id: 7, placeholder: "Интерес" },
+    ];
+
     return (
         <div className={styles.profile}>
             <CustomMobileHeader>
@@ -34,12 +44,15 @@ export const ProfileSettingsPage: FC = () => {
                     </div>
                 </div>
                 <div className={styles.inputs}>
-                    <Input
-                        type="text"
-                        placeholder="Имя"
-                        height="50px"
-                        borderRadius="15px"
-                    />
+                    {inputs.map((input) => (
+                        <Input
+                            key={input.id}
+                            type="text"
+                            placeholder={`${input.placeholder}`}
+                            height="50px"
+                            borderRadius="15px"
+                        />
+                    ))}
                 </div>
             </MobileContainer>
         </div>

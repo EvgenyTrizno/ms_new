@@ -12,7 +12,7 @@ export const Map: FC<IMap> = ({
     zoom = 14,
 }) => {
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
+        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAP_API_KEY as string,
         libraries: ["places"],
     });
 
@@ -20,8 +20,6 @@ export const Map: FC<IMap> = ({
         width: "100%",
         height: "100%",
     };
-
-    console.log(import.meta.env.VITE_GOOGLE_API_KEY);
 
     return (
         <div className={styles.map} style={{ width, height }}>

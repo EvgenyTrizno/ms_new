@@ -8,7 +8,6 @@ export const Input: FC<IInput> = ({
     placeholder,
     width = "100%",
     borderColor,
-    checked = false,
     bt,
     br,
     bb,
@@ -32,6 +31,7 @@ export const Input: FC<IInput> = ({
             disabled={disabled}
             style={{
                 width: width,
+                borderRadius: borderRadius,
                 height,
                 borderColor: borderColor,
                 borderTop: bt,
@@ -43,9 +43,7 @@ export const Input: FC<IInput> = ({
                 borderTopLeftRadius: btl,
                 borderBottomLeftRadius: bbl,
                 backgroundColor: bgcolor,
-                borderRadius,
             }}
-            checked={checked}
             onChange={onChange}
             value={value}
         />
