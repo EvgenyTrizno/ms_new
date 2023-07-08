@@ -1,24 +1,16 @@
 import { FC } from "react";
-import { useNavigate } from "react-router";
 
 import { CustomMobileHeader, MobileContainer } from "@/widgets";
-import { Input, Text } from "@/shared";
+import { BackArrow, Input, Text } from "@/shared";
 
-import arrow from "/assets/arrow-left-black.svg";
 import styles from "./AccountProtectionSettingsPage.module.scss";
 
 export const AccountProtectionSettingsPage: FC = () => {
-    const navigate = useNavigate();
-
     return (
         <div className={styles.protection}>
             <CustomMobileHeader>
                 <div className={styles.header}>
-                    <img
-                        src={arrow}
-                        alt=""
-                        onClick={() => navigate("/m/settings/account")}
-                    />
+                    <BackArrow path="/m/settings/account" />
                     <Text type="h2" fz="19px">
                         Защита профиля
                     </Text>

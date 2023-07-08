@@ -1,17 +1,13 @@
 import { FC } from "react";
-import { useNavigate } from "react-router";
 
 import { CustomMobileHeader, MobileContainer } from "@/widgets";
-import { Input, Text } from "@/shared";
+import { BackArrow, Input, Text } from "@/shared";
 
-import arrow from "/assets/arrow-left-black.svg";
 import man from "/assets/man.jpg";
 import pencilBlue from "/assets/pencil-blue.svg";
 import styles from "./ProfileSettingsPage.module.scss";
 
 export const ProfileSettingsPage: FC = () => {
-    const navigate = useNavigate();
-
     const inputs = [
         { id: 1, placeholder: "Имя" },
         { id: 2, placeholder: "Фамилия" },
@@ -26,11 +22,7 @@ export const ProfileSettingsPage: FC = () => {
         <div className={styles.profile}>
             <CustomMobileHeader>
                 <div className={styles.header}>
-                    <img
-                        src={arrow}
-                        alt=""
-                        onClick={() => navigate("/m/settings/account")}
-                    />
+                    <BackArrow path="/m/settings/account" />
                     <Text type="h2" fz="19px">
                         Профиль
                     </Text>

@@ -49,3 +49,7 @@ export interface IBtn {
     textColor?: string;
     height?: string;
 }
+
+export interface IBackArrow {
+    path: string;
+}

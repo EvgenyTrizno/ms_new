@@ -11,6 +11,8 @@ import { Icons } from "./ui/Icons/Icons";
 import { MobileSwitcher } from "./ui/MobileSwitcher/MobileSwitcher";
 import { MobileFilter } from "./ui/MobileFilter/MobileFilter";
 import { MobileSearch } from "./ui/MobileSearch/MobileSearch";
+import { MobilePopUp } from "./ui/MobilePopUp/MobilePopUp";
+import { BackArrow } from "./ui/BackArrow/BackArrow";
 
 export {
     Btn,
@@ -26,4 +28,6 @@ export {
     MobileSwitcher,
     MobileFilter,
     MobileSearch,
+    MobilePopUp,
+    BackArrow,
 };

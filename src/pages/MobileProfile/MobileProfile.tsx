@@ -1,11 +1,9 @@
 import { FC, useState } from "react";
-import { useNavigate } from "react-router";
 
 import { MobileContainer } from "@/widgets";
 import { useUserCondition } from "@/shared/model/store";
-import { Text } from "@/shared";
+import { BackArrow, Text } from "@/shared";
 
-import arrowLeft from "/assets/arrow-left.svg";
 import dots from "/assets/dots-more.svg";
 import call from "/assets/call-calling.svg";
 import avatar from "/assets/man.jpg";
@@ -13,12 +11,7 @@ import styles from "./MobileProfile.module.scss";
 
 export const MobileProfile: FC = () => {
     const { condition } = useUserCondition();
-    const navigate = useNavigate();
     const [isSelect, setIsSelect] = useState("");
-
-    const handleNav = () => {
-        navigate("/m/");
-    };
 
     const filters = ["Медия", "Файлы", "Голос", "Ссылки"];
 
@@ -32,7 +25,7 @@ export const MobileProfile: FC = () => {
                         : {}
                 }
             >
-                <img src={arrowLeft} alt="" onClick={handleNav} />
+                <BackArrow path="/m/" />
                 <div className={styles.menu}>
                     <img src={call} alt="" />
                     <img src={dots} alt="" />

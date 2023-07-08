@@ -1,0 +1,22 @@
+.subs {
+    .header {
+        display: flex;
+        align-items: center;
+        grid-gap: 10px;
+    }
+
+    .container {
+        margin-top: 20px;
+
+        .block {
+            .card {
+                min-width: 280px;
+                height: 200px;
+                border: 1px solid var(--system-light-grey);
+                border-radius: 20px;
+                background-color: var(--white);
+                padding: 15px;
+            }
+        }
+    }
+}

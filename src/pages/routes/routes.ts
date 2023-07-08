@@ -27,6 +27,8 @@ import { AccountSettingsPage } from "@/pages/Settings/AccountSettingsPage/Accoun
 import { MobileNotesPage } from "@/pages/MobileNotes/MobileNotesPage";
 import { ProfileSettingsPage } from "@/pages/Settings/ProfileSettingsPage/ProfileSettingsPage";
 import { AccountProtectionSettingsPage } from "../Settings/AccountProtectionSettingsPage/AccountProtectionSettingsPage";
+import { AccountAccessSettings } from "../Settings/AccountAccessSettingsPage/AccountAccessSettings";
+import { AccountSubscriptionsSettingsPage } from "../Settings/AccountSubscriptionsSettings/AccountSubscriptionsSettings";
 
 export const routes: RouteData[] = [
     {
@@ -108,5 +110,15 @@ export const routes: RouteData[] = [
         path: "/m/settings/account/protection",
         Component: AccountProtectionSettingsPage,
         key: "mobile-protection_page",
+    },
+    {
+        path: "/m/settings/account/access",
+        Component: AccountAccessSettings,
+        key: "mobile-access_page",
+    },
+    {
+        path: "/m/settings/account/subscriptions",
+        Component: AccountSubscriptionsSettingsPage,
+        key: "mobile-subscriptions_page",
     },
 ];

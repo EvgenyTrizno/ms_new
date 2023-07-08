@@ -2,10 +2,9 @@ import { FC } from "react";
 import { useNavigate } from "react-router";
 
 import { MobileContainer, CustomMobileHeader } from "@/widgets";
-import { Text } from "@/shared";
+import { BackArrow, Text } from "@/shared";
 // import { useUserCondition } from "@/shared/model/store";
 
-import arrow from "/assets/arrow-left.svg";
 import styles from "./AccountSettingsPage.module.scss";
 
 export const AccountSettingsPage: FC = () => {
@@ -34,11 +33,7 @@ export const AccountSettingsPage: FC = () => {
         <div className={styles.account}>
             <CustomMobileHeader>
                 <div className={styles.header}>
-                    <img
-                        src={arrow}
-                        alt=""
-                        onClick={() => navigate("/m/account")}
-                    />
+                    <BackArrow path="/m/account" />
                     <Text type="h2" fz="19px">
                         Аккаунт
                     </Text>
@@ -119,7 +114,12 @@ export const AccountSettingsPage: FC = () => {
                                 </div>
                                 {arrowRight}
                             </div>
-                            <div className={styles.item}>
+                            <div
+                                className={styles.item}
+                                onClick={() =>
+                                    navigate("/m/settings/account/access")
+                                }
+                            >
                                 <div className={styles.inner}>
                                     <div className={styles.icon}>
                                         <svg
@@ -199,7 +199,14 @@ export const AccountSettingsPage: FC = () => {
                             Другое
                         </Text>
                         <div className={styles.items}>
-                            <div className={styles.item}>
+                            <div
+                                className={styles.item}
+                                onClick={() =>
+                                    navigate(
+                                        "/m/settings/account/subscriptions"
+                                    )
+                                }
+                            >
                                 <div className={styles.inner}>
                                     <div className={styles.icon}>
                                         <svg

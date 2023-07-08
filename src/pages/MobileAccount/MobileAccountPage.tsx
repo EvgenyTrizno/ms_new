@@ -3,9 +3,8 @@ import { useNavigate } from "react-router";
 
 import { MobileContainer } from "@/widgets";
 import { useUserCondition } from "@/shared/model/store";
-import { Text } from "@/shared";
+import { BackArrow, Text } from "@/shared";
 
-import arrow from "/assets/arrow-left.svg";
 import man from "/assets/man.jpg";
 import styles from "./MobileAccountPage.module.scss";
 
@@ -41,7 +40,7 @@ export const MobileAccountPage: FC = () => {
                         : {}
                 }
             >
-                <img src={arrow} alt="" onClick={() => navigate("/m/")} />
+                <BackArrow path="/m/" />
                 <div>
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
                         <path
