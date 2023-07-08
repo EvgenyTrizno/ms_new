@@ -26,9 +26,11 @@ import { MobileAccountPage } from "@/pages/MobileAccount/MobileAccountPage";
 import { AccountSettingsPage } from "@/pages/Settings/AccountSettingsPage/AccountSettingsPage";
 import { MobileNotesPage } from "@/pages/MobileNotes/MobileNotesPage";
 import { ProfileSettingsPage } from "@/pages/Settings/ProfileSettingsPage/ProfileSettingsPage";
-import { AccountProtectionSettingsPage } from "../Settings/AccountProtectionSettingsPage/AccountProtectionSettingsPage";
-import { AccountAccessSettings } from "../Settings/AccountAccessSettingsPage/AccountAccessSettings";
-import { AccountSubscriptionsSettingsPage } from "../Settings/AccountSubscriptionsSettings/AccountSubscriptionsSettings";
+import { AccountProtectionSettingsPage } from "@/pages/Settings/AccountProtectionSettingsPage/AccountProtectionSettingsPage";
+import { AccountAccessSettings } from "@/pages/Settings/AccountAccessSettingsPage/AccountAccessSettings";
+import { AccountSubscriptionsSettingsPage } from "@/pages/Settings/AccountSubscriptionsSettings/AccountSubscriptionsSettings";
+import { AccountSavedPage } from "@/pages/Settings/AccountSavedPage/AccountSavedPage";
+import { AccountMedicalCardPage } from "../Settings/AccountMedicalCard/AccountMedicalCardPage";
 
 export const routes: RouteData[] = [
     {
@@ -120,5 +122,15 @@ export const routes: RouteData[] = [
         path: "/m/settings/account/subscriptions",
         Component: AccountSubscriptionsSettingsPage,
         key: "mobile-subscriptions_page",
+    },
+    {
+        path: "/m/settings/account/saved",
+        Component: AccountSavedPage,
+        key: "mobile-saved_page",
+    },
+    {
+        path: "/m/settings/account/medical-card",
+        Component: AccountMedicalCardPage,
+        key: "mobile-medical-card_page",
     },
 ];

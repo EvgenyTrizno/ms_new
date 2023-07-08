@@ -76,7 +76,12 @@ export const AccountSettingsPage: FC = () => {
                                 </div>
                                 {arrowRight}
                             </div>
-                            <div className={styles.item}>
+                            <div
+                                className={styles.item}
+                                onClick={() =>
+                                    navigate("/m/settings/account/medical-card")
+                                }
+                            >
                                 <div className={styles.inner}>
                                     <div className={styles.icon}>
                                         <svg
@@ -228,7 +233,12 @@ export const AccountSettingsPage: FC = () => {
                                 </div>
                                 {arrowRight}
                             </div>
-                            <div className={styles.item}>
+                            <div
+                                className={styles.item}
+                                onClick={() =>
+                                    navigate("/m/settings/account/saved")
+                                }
+                            >
                                 <div className={styles.inner}>
                                     <div className={styles.icon}>
                                         <svg

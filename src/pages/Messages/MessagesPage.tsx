@@ -35,7 +35,6 @@ export const MessagesPage: FC = () => {
 
         return () => {
             setIsFilter("");
-            ws.close();
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

@@ -1,5 +1,6 @@
 .mobileCard {
-    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
     height: 100px;
     padding: 12px;
     display: flex;
