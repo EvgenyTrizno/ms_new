@@ -30,6 +30,7 @@ import { AccountProtectionSettingsPage } from "@/pages/Settings/AccountProtectio
 import { AccountAccessSettings } from "@/pages/Settings/AccountAccessSettingsPage/AccountAccessSettings";
 import { AccountSubscriptionsSettingsPage } from "@/pages/Settings/AccountSubscriptionsSettings/AccountSubscriptionsSettings";
 import { AccountSavedPage } from "@/pages/Settings/AccountSavedPage/AccountSavedPage";
+import { AccountMedicalCenterPage } from "../Settings/AccountMedicalCenter/AccountMedicalCenterPage";
 import { AccountMedicalCardPage } from "../Settings/AccountMedicalCard/AccountMedicalCardPage";
 
 export const routes: RouteData[] = [
@@ -129,7 +130,12 @@ export const routes: RouteData[] = [
         key: "mobile-saved_page",
     },
     {
-        path: "/m/settings/account/medical-card",
+        path: "/m/settings/account/medical-center",
+        Component: AccountMedicalCenterPage,
+        key: "mobile-medical-center_page",
+    },
+    {
+        path: "/m/account/medical-card",
         Component: AccountMedicalCardPage,
         key: "mobile-medical-card_page",
     },

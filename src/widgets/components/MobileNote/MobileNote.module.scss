@@ -1,0 +1,18 @@
+.note {
+    background-color: var(--white);
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px solid var(--system-light-grey);
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        .date {
+            display: flex;
+            align-items: center;
+            grid-gap: 8px;
+        }
+    }
+}

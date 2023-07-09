@@ -24,6 +24,7 @@ import { MobileCard } from "./components/MobileCard/MobileCard";
 import { MobilePost } from "./components/MobilePost/MobilePost";
 import { MobileContainer } from "./components/MobileContainer/MobileContainer";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
+import { MobileNote } from "./components/MobileNote/MobileNote";
 
 export {
     Login,
@@ -52,4 +53,5 @@ export {
     MobilePost,
     MobileContainer,
     CustomMobileHeader,
+    MobileNote,
 };

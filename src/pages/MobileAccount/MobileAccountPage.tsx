@@ -161,6 +161,7 @@ export const MobileAccountPage: FC = () => {
                         {arrowRight}
                     </div>
                     <div
+                        onClick={() => navigate("/m/account/medical-card")}
                         className={
                             condition === "Болен"
                                 ? `${styles.item} ${styles.icon_red}`
