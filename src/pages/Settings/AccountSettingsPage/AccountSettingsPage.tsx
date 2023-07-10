@@ -79,7 +79,9 @@ export const AccountSettingsPage: FC = () => {
                             <div
                                 className={styles.item}
                                 onClick={() =>
-                                    navigate("/m/settings/account/medical-card")
+                                    navigate(
+                                        "/m/settings/account/medical-center"
+                                    )
                                 }
                             >
                                 <div className={styles.inner}>

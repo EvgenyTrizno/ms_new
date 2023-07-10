@@ -4,4 +4,16 @@
         align-items: center;
         grid-gap: 10px;
     }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
+        
+        .box {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 10px;
+        }
+    }
 }

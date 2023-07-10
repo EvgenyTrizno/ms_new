@@ -3,6 +3,7 @@ import { FC } from "react";
 import { Text } from "@/shared";
 
 import alarm from "/assets/alarm-clock.svg";
+import arrowRight from "/assets/arrow-right-black.svg";
 import styles from "./MobileNote.module.scss";
 
 export const MobileNote: FC = () => {
@@ -18,6 +19,16 @@ export const MobileNote: FC = () => {
                         Онлайн
                     </Text>
                 </div>
+                <img src={arrowRight} alt="" />
+            </div>
+            <div className={styles.text}>
+                <Text type="h2" fz="17px">
+                    Восстановление
+                </Text>
+                <Text type="p" fz="12px" color="#7D7F82">
+                    Для работодателей и заказчиков — предсказуемая площадка с
+                    понятными правилами.
+                </Text>
             </div>
         </div>
     );

@@ -1,6 +1,11 @@
 import { FC } from "react";
 
-import { CustomMobileHeader, MobileContainer, MobileNote } from "@/widgets";
+import {
+    Calendar,
+    CustomMobileHeader,
+    MobileContainer,
+    MobileNote,
+} from "@/widgets";
 import { BackArrow, MobileSearch, Text } from "@/shared";
 
 import styles from "./AccountMedicalCardPage.module.scss";
@@ -22,6 +27,7 @@ export const AccountMedicalCardPage: FC = () => {
                         placeholder="Введите запрос"
                         filterBtn={false}
                     />
+                    <Calendar info={false} />
                     <div className={styles.box}>
                         <Text type="p" fz="14px" color="#7D7F82">
                             10 Октябрь
