@@ -7,7 +7,7 @@ import { Calendar, Card, Slider } from "@/widgets";
 import info from "/assets/info-circle.svg";
 import styles from "./CreateEventPage.module.scss";
 
-export const CreateEventPage: FC = () => {
+const CreateEventPage: FC = () => {
     return (
         <Layout>
             <div className={styles.container}>
@@ -78,3 +78,5 @@ export const CreateEventPage: FC = () => {
         </Layout>
     );
 };
+
+export default CreateEventPage;

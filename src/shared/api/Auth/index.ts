@@ -1,29 +1,70 @@
 import { useHttp } from "@/shared/hooks";
 import { BASE_URL } from "@/shared/config";
-import { ICreateUser } from "./types";
+import {
+    ICreateUser,
+    IVerifyCodeProps,
+    StageType,
+    TGroups,
+    TResentVerifyCodeProps,
+} from "./types";
 
 export const Auth = () => {
     const { request } = useHttp();
 
-    const createAdmin = async (
+    const createUser = async (
         number: string,
-        email: string,
         password1: string,
         password2: string,
-        first_name: string,
-        last_name: string
+        stage: StageType,
+        group: TGroups,
+        center_id?: number,
+        disease_id?: number[]
     ): Promise<ICreateUser> => {
         const data: ICreateUser = await request(
-            `${BASE_URL}/api/create/admin`,
+            `${BASE_URL}/api/create/user/`,
             "POST",
-            { number, email, password1, password2, first_name, last_name }
+            {
+                number,
+                stage,
+                password1,
+                password2,
+                group,
+                center_id,
+                disease_id,
+            }
         );
 
         return data;
     };
 
-    const createUser = async () => {
-        const data = await request(`${BASE_URL}/api/create/user`, "POST", {});
+    const sendVerifyCode = async (
+        phone_number: string,
+        code: number
+    ): Promise<IVerifyCodeProps> => {
+        const res: IVerifyCodeProps = await request(
+            `${BASE_URL}/api/verify-code/`,
+            "POST",
+            {
+                phone_number,
+                code,
+            }
+        );
+
+        return res;
+    };
+
+    const resendVerifyCode = async (phone_number: string) => {
+        const code: TResentVerifyCodeProps = await request(
+            `${BASE_URL}/api/resend-sms/`,
+            "POST",
+            { phone_number }
+        );
+
+        return code;
+    };
+
+    const createAdmin = async () => {
+        const data = await request(`${BASE_URL}/api/create/admin`, "POST", {});
 
         return data;
     };
@@ -40,5 +81,12 @@ export const Auth = () => {
         return data;
     };
 
-    return { createAdmin, createUser, updateUser, updateAdmin };
+    return {
+        createAdmin,
+        createUser,
+        updateUser,
+        updateAdmin,
+        sendVerifyCode,
+        resendVerifyCode,
+    };
 };

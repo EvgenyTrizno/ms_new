@@ -10,7 +10,7 @@ import { BackArrow, MobileSearch, Text } from "@/shared";
 
 import styles from "./AccountMedicalCardPage.module.scss";
 
-export const AccountMedicalCardPage: FC = () => {
+const AccountMedicalCardPage: FC = () => {
     return (
         <div className={styles.card}>
             <CustomMobileHeader>
@@ -41,3 +41,5 @@ export const AccountMedicalCardPage: FC = () => {
         </div>
     );
 };
+
+export default AccountMedicalCardPage;

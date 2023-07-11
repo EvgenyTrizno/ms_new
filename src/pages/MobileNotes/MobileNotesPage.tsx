@@ -13,7 +13,7 @@ import arrowRight from "/assets/arrow-right-black.svg";
 import ghost from "/assets/ghost.svg";
 import styles from "./MobileNotesPage.module.scss";
 
-export const MobileNotesPage: FC = () => {
+const MobileNotesPage: FC = () => {
     const navigate = useNavigate();
 
     return (
@@ -35,7 +35,12 @@ export const MobileNotesPage: FC = () => {
             </CustomMobileHeader>
             <MobileContainer>
                 <div className={styles.box}>
-                    <MobileSearch placeholder="Введите запрос" icon={add} />
+                    <MobileSearch
+                        placeholder="Введите запрос"
+                        icon={add}
+                        filterBtn
+                        onClick={() => navigate("/m/create-event")}
+                    />
                     <MobileFilter data={["Предстоящие", "История"]} />
                 </div>
                 <div className={styles.items}>
@@ -159,3 +164,5 @@ export const MobileNotesPage: FC = () => {
         </div>
     );
 };
+
+export default MobileNotesPage;

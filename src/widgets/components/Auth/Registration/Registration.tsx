@@ -1,7 +1,9 @@
-import { FC, useState } from "react";
-import { Link } from "react-router-dom";
+import { FC, useState, FormEvent } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Text, Input, Btn, Checkbox } from "@/shared";
+import { Auth } from "@/shared/api/Auth";
+import { useLocation } from "@/shared/hooks";
 
 import facebook from "/assets/facebook.svg";
 import apple from "/assets/apple.svg";
@@ -14,8 +16,27 @@ export const Registration: FC = () => {
     const [confirmPass, setConfirmPass] = useState<string>("");
     const [checked, setChecked] = useState<boolean>(false);
 
-    const onSubmitHandler = () => {
-        console.log(tel, pass, confirmPass);
+    const navigate = useNavigate();
+
+    const { createUser } = Auth();
+    const { getLocation } = useLocation();
+
+    const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        createUser(tel, pass, confirmPass, 1, "Пользователи")
+            .then((res) => {
+                console.log(res);
+                setPass("");
+                setTel("");
+                setConfirmPass("");
+                setChecked(false);
+            })
+            .then(() => getLocation())
+            .then(() => {
+                navigate("/auth");
+            })
+            .catch((e) => console.log(e));
     };
 
     return (
@@ -23,7 +44,7 @@ export const Registration: FC = () => {
             <Text position="center" type="h2" fz="28px" color="#262626">
                 Регистрация
             </Text>
-            <form action="#" className={styles.form}>
+            <form action="#" className={styles.form} onSubmit={onSubmitHandler}>
                 <Input
                     type="text"
                     placeholder="Введите тел.номер"
@@ -45,33 +66,33 @@ export const Registration: FC = () => {
                     onChange={(e) => setConfirmPass(e.target.value)}
                     value={confirmPass}
                 />
+                <div className={styles.policy}>
+                    <Checkbox
+                        checked={checked}
+                        onChange={() => setChecked((prev) => !prev)}
+                    />
+                    <Text color="#7D7F82" type="p">
+                        Я принимаю условия &nbsp;
+                        <Link to="/" className={styles.link}>
+                            данного соглашения
+                        </Link>
+                    </Text>
+                </div>
+                <Btn
+                    color="#0064FA"
+                    type="submit"
+                    disabled={
+                        tel !== "" &&
+                        pass !== "" &&
+                        confirmPass !== "" &&
+                        checked !== false
+                            ? false
+                            : true
+                    }
+                >
+                    Продолжить
+                </Btn>
             </form>
-            <div className={styles.policy}>
-                <Checkbox
-                    checked={checked}
-                    onChange={() => setChecked((prev) => !prev)}
-                />
-                <Text color="#7D7F82" type="p">
-                    Я принимаю условия &nbsp;
-                    <Link to="/" className={styles.link}>
-                        данного соглашения
-                    </Link>
-                </Text>
-            </div>
-            <Btn
-                color="#0064FA"
-                onClick={onSubmitHandler}
-                disabled={
-                    tel !== "" &&
-                    pass !== "" &&
-                    confirmPass !== "" &&
-                    checked !== false
-                        ? false
-                        : true
-                }
-            >
-                Продолжить
-            </Btn>
             <div className={styles.btns}>
                 <img src={google} alt="google" />
                 <img src={facebook} alt="facebook" />

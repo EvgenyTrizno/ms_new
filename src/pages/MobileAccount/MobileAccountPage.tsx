@@ -8,7 +8,7 @@ import { BackArrow, Text } from "@/shared";
 import man from "/assets/man.jpg";
 import styles from "./MobileAccountPage.module.scss";
 
-export const MobileAccountPage: FC = () => {
+const MobileAccountPage: FC = () => {
     const { condition } = useUserCondition();
     const navigate = useNavigate();
 
@@ -291,3 +291,5 @@ export const MobileAccountPage: FC = () => {
         </div>
     );
 };
+
+export default MobileAccountPage;

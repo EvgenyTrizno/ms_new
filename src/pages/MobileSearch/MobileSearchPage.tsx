@@ -8,7 +8,7 @@ import { Layout } from "../Layout/Layout";
 import center from "/assets/center-icon.jpg";
 import styles from "./MobileSearchPage.module.scss";
 
-export const MobileSearchPage: FC = () => {
+const MobileSearchPage: FC = () => {
     const { isFilter } = useFilter();
     const { condition } = useUserCondition();
 
@@ -182,3 +182,5 @@ export const MobileSearchPage: FC = () => {
         </Layout>
     );
 };
+
+export default MobileSearchPage;

@@ -8,7 +8,7 @@ import circle from "/assets/circle-blue.svg";
 import controler from "/assets/controler.svg";
 import styles from "./SelectCenterMapPage.module.scss";
 
-export const SelectCenterMapPage: FC = () => {
+const SelectCenterMapPage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [y, setY] = useState<number>(0);
     const [isLat, setIsLat] = useState<number>(100);
@@ -74,3 +74,5 @@ export const SelectCenterMapPage: FC = () => {
         </div>
     );
 };
+
+export default SelectCenterMapPage;

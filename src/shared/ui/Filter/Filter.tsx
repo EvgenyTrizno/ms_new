@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, useMemo } from "react";
 import { IFilter } from "./types";
 
 import { useFilter } from "@/shared/model/store";
@@ -11,17 +11,16 @@ export const Filter: FC<IFilter> = ({ data, width }) => {
 
     useEffect(() => {
         setIsFilter(data[0]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const active = useMemo(() => `${styles.item} ${styles.active}`, []);
 
     return (
         <div className={styles.container} style={{ width }}>
             {data.map((item) => (
                 <div
-                    className={`${
-                        isSelect === item
-                            ? `${styles.item} ${styles.active}`
-                            : styles.item
-                    }`}
+                    className={`${isSelect === item ? active : styles.item}`}
                     key={item}
                     onClick={() => {
                         setIsSelect(item);

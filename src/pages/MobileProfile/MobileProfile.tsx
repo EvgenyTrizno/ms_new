@@ -9,7 +9,7 @@ import call from "/assets/call-calling.svg";
 import avatar from "/assets/man.jpg";
 import styles from "./MobileProfile.module.scss";
 
-export const MobileProfile: FC = () => {
+const MobileProfile: FC = () => {
     const { condition } = useUserCondition();
     const [isSelect, setIsSelect] = useState("");
 
@@ -108,3 +108,5 @@ export const MobileProfile: FC = () => {
         </div>
     );
 };
+
+export default MobileProfile;

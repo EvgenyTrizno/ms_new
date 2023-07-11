@@ -138,9 +138,34 @@
                 border-radius: 12px !important;
             }
         }
+    }
 
-        .line {
-            display: none;
+    .info {
+        .box {
+            grid-gap: 10px !important;
+            .text {
+                p {
+                    font-size: 12px !important;
+                }
+            }
+
+            input {
+                padding: 15px;
+                font-size: 12px;
+                height: 40px;
+                border-radius: 12px;
+            }
+        }
+
+    }
+
+    .result {
+        height: 40px !important;
+        padding: 10px 15px !important;
+        border-radius: 12px !important;
+
+        p {
+            font-size: 13px !important;
         }
     }
 }

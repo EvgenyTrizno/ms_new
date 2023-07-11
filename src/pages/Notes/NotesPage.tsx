@@ -10,7 +10,7 @@ import virus from "/assets/virus-icon.jpg";
 import arrow from "/assets/arrow-right.svg";
 import styles from "./NotesPage.module.scss";
 
-export const NotesPage: FC = () => {
+const NotesPage: FC = () => {
     const navigate = useNavigate();
 
     return (
@@ -120,3 +120,5 @@ export const NotesPage: FC = () => {
         </Layout>
     );
 };
+
+export default NotesPage;

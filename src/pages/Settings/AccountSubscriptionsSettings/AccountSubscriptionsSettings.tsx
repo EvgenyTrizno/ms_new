@@ -11,7 +11,7 @@ import { BackArrow, MobileSearch, Text } from "@/shared";
 import poster from "/assets/center-icon.jpg";
 import styles from "./AccountSubscriptionsSettings.module.scss";
 
-export const AccountSubscriptionsSettingsPage: FC = () => {
+const AccountSubscriptionsSettingsPage: FC = () => {
     return (
         <div className={styles.subs}>
             <CustomMobileHeader>
@@ -102,3 +102,5 @@ export const AccountSubscriptionsSettingsPage: FC = () => {
         </div>
     );
 };
+
+export default AccountSubscriptionsSettingsPage;

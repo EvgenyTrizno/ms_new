@@ -4,10 +4,12 @@ import { Recovery } from "@/widgets";
 
 import styles from "./RecoveryPage.module.scss";
 
-export const RecoveryPage: FC = () => {
+const RecoveryPage: FC = () => {
     return (
         <div className={styles.recoveryPage}>
             <Recovery />
         </div>
     );
 };
+
+export default RecoveryPage;

@@ -9,7 +9,7 @@ import arrow from "/assets/arrow-right.svg";
 import addCircle from "/assets/add-circle.svg";
 import styles from "./MedicalCardPage.module.scss";
 
-export const MedicalCardPage: FC = () => {
+const MedicalCardPage: FC = () => {
     const navigate = useNavigate();
 
     return (
@@ -60,3 +60,5 @@ export const MedicalCardPage: FC = () => {
         </Layout>
     );
 };
+
+export default MedicalCardPage;

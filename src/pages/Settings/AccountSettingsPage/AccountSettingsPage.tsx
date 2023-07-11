@@ -7,7 +7,7 @@ import { BackArrow, Text } from "@/shared";
 
 import styles from "./AccountSettingsPage.module.scss";
 
-export const AccountSettingsPage: FC = () => {
+const AccountSettingsPage: FC = () => {
     const navigate = useNavigate();
     // const { condition } = useUserCondition();
 
@@ -307,3 +307,5 @@ export const AccountSettingsPage: FC = () => {
         </div>
     );
 };
+
+export default AccountSettingsPage;

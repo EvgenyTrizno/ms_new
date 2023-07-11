@@ -7,7 +7,7 @@ import man from "/assets/man.jpg";
 import pencilBlue from "/assets/pencil-blue.svg";
 import styles from "./ProfileSettingsPage.module.scss";
 
-export const ProfileSettingsPage: FC = () => {
+const ProfileSettingsPage: FC = () => {
     const inputs = [
         { id: 1, placeholder: "Имя" },
         { id: 2, placeholder: "Фамилия" },
@@ -50,3 +50,5 @@ export const ProfileSettingsPage: FC = () => {
         </div>
     );
 };
+
+export default ProfileSettingsPage;

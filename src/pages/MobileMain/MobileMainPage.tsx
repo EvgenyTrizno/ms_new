@@ -14,7 +14,7 @@ import { Layout } from "../Layout/Layout";
 import settings from "/assets/controler.svg";
 import styles from "./MobileMainPage.module.scss";
 
-export const MobileMainPage: FC = () => {
+const MobileMainPage: FC = () => {
     const { condition } = useUserCondition();
 
     return (
@@ -62,3 +62,5 @@ export const MobileMainPage: FC = () => {
         </Layout>
     );
 };
+
+export default MobileMainPage;

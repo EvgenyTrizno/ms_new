@@ -10,7 +10,7 @@ import photo from "/assets/photo.jpg";
 import plus from "/assets/big-plus.svg";
 import styles from "./NotesInfoPage.module.scss";
 
-export const NotesInfoPage: FC = () => {
+const NotesInfoPage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     // const { createAdmin } = Auth();
 
@@ -246,3 +246,5 @@ export const NotesInfoPage: FC = () => {
         </Layout>
     );
 };
+
+export default NotesInfoPage;

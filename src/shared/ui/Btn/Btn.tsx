@@ -17,12 +17,14 @@ export const Btn: FC<IBtn> = ({
     border,
     textColor,
     height,
+    type,
 }) => {
     const { condition } = useUserCondition();
 
     return (
         <motion.button
             className={styles.btn}
+            type={type}
             style={{
                 backgroundColor: `${
                     condition === "Болен" && color === "transparen"

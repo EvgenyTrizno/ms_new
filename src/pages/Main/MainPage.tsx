@@ -6,7 +6,7 @@ import { Card, Post, Slider } from "@/widgets";
 
 import styles from "./MainPage.module.scss";
 
-export const MainPage: FC = () => {
+const MainPage: FC = () => {
     return (
         <Layout>
             <div className={styles.container}>
@@ -29,3 +29,5 @@ export const MainPage: FC = () => {
         </Layout>
     );
 };
+
+export default MainPage;

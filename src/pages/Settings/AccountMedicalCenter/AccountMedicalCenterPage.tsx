@@ -13,7 +13,7 @@ import verify from "/assets/verify.svg";
 import dots from "/assets/dots-more.svg";
 import styles from "./AccountMedicalCenterPage.module.scss";
 
-export const AccountMedicalCenterPage: FC = () => {
+const AccountMedicalCenterPage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [y, setY] = useState<number>(0);
 
@@ -201,3 +201,5 @@ export const AccountMedicalCenterPage: FC = () => {
         </div>
     );
 };
+
+export default AccountMedicalCenterPage;

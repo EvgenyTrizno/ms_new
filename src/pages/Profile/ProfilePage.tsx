@@ -14,7 +14,7 @@ import archive from "/assets/archive-tick-blue.svg";
 import cart from "/assets/shopping-cart-blue.svg";
 import styles from "./ProfilePage.module.scss";
 
-export const ProfilePage: FC = () => {
+const ProfilePage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [select, setSelect] = useState<string>();
 
@@ -195,3 +195,5 @@ export const ProfilePage: FC = () => {
         </Layout>
     );
 };
+
+export default ProfilePage;

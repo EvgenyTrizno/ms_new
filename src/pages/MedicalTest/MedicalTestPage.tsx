@@ -12,7 +12,7 @@ import arrowRight from "/assets/arrow-right.svg";
 import loading from "/assets/loading.svg";
 import styles from "./MedicalTestPage.module.scss";
 
-export const MedicalTestPage: FC = () => {
+const MedicalTestPage: FC = () => {
     const data = [1, 2, 3];
 
     return (
@@ -176,3 +176,5 @@ export const MedicalTestPage: FC = () => {
         </Layout>
     );
 };
+
+export default MedicalTestPage;

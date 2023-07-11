@@ -11,7 +11,7 @@ import arrowLeft from "/assets/arrow-left.svg";
 import controler from "/assets/controler.svg";
 import styles from "./SearchPage.module.scss";
 
-export const SearchPage: FC = () => {
+const SearchPage: FC = () => {
     const { getAllResult } = SearchRes();
     const { isFilter } = useFilter();
     const [data, setData] = useState<ISearchResult>();
@@ -120,3 +120,5 @@ export const SearchPage: FC = () => {
         </Layout>
     );
 };
+
+export default SearchPage;

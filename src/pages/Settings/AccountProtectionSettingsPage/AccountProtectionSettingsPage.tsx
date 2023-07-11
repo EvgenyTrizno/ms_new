@@ -5,7 +5,7 @@ import { BackArrow, Input, Text } from "@/shared";
 
 import styles from "./AccountProtectionSettingsPage.module.scss";
 
-export const AccountProtectionSettingsPage: FC = () => {
+const AccountProtectionSettingsPage: FC = () => {
     return (
         <div className={styles.protection}>
             <CustomMobileHeader>
@@ -43,3 +43,5 @@ export const AccountProtectionSettingsPage: FC = () => {
         </div>
     );
 };
+
+export default AccountProtectionSettingsPage;

@@ -14,7 +14,7 @@ import emoji from "/assets/emoji-normal.svg";
 import ghost from "/assets/ghost.svg";
 import styles from "./MobileChatPage.module.scss";
 
-export const MobileChatPage: FC = () => {
+const MobileChatPage: FC = () => {
     const { condition } = useUserCondition();
     const navigate = useNavigate();
 
@@ -111,3 +111,5 @@ export const MobileChatPage: FC = () => {
         </div>
     );
 };
+
+export default MobileChatPage;

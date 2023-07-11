@@ -15,7 +15,7 @@ import incoming from "/assets/call-incoming.svg";
 import read from "/assets/read-blue.svg";
 import styles from "./MessagesPage.module.scss";
 
-export const MessagesPage: FC = () => {
+const MessagesPage: FC = () => {
     const { isFilter, setIsFilter } = useFilter();
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [y, setY] = useState<number>(0);
@@ -27,11 +27,11 @@ export const MessagesPage: FC = () => {
     useEffect(() => {
         setIsFilter("Сообщения");
 
-        const ws = new WebSocket(
-            `ws://${ABSOLUTE_PATH}/ws/chat/8345f52b-6d74-4a54-9ae1-6c03c92e962b/99/`
-        );
+        // const ws = new WebSocket(
+        //     `ws://${ABSOLUTE_PATH}/ws/chat/8345f52b-6d74-4a54-9ae1-6c03c92e962b/99/`
+        // );
 
-        setWs(ws);
+        // setWs(ws);
 
         return () => {
             setIsFilter("");
@@ -361,3 +361,5 @@ export const MessagesPage: FC = () => {
         </Layout>
     );
 };
+
+export default MessagesPage;

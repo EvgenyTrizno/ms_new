@@ -7,7 +7,7 @@ import woman from "/assets/woman.jpg";
 import more from "/assets/dots-more.svg";
 import styles from "./AccountAccessSettings.module.scss";
 
-export const AccountAccessSettings: FC = () => {
+const AccountAccessSettings: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>();
     const [y, setY] = useState<number>(0);
 
@@ -139,3 +139,5 @@ export const AccountAccessSettings: FC = () => {
         </div>
     );
 };
+
+export default AccountAccessSettings;

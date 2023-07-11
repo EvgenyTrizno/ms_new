@@ -11,7 +11,7 @@ import call from "/assets/call-incoming.svg";
 import info from "/assets/info-circle.svg";
 import styles from "./MobileMessagesPage.module.scss";
 
-export const MobileMessagesPage: FC = () => {
+const MobileMessagesPage: FC = () => {
     const { isFilter } = useFilter();
     const { condition } = useUserCondition();
     const navigate = useNavigate();
@@ -107,3 +107,5 @@ export const MobileMessagesPage: FC = () => {
         </Layout>
     );
 };
+
+export default MobileMessagesPage;

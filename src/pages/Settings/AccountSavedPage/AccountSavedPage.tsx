@@ -9,7 +9,7 @@ import thumbnail from "/assets/file-question.svg";
 import photo from "/assets/center-icon.jpg";
 import styles from "./AccountSavedPage.module.scss";
 
-export const AccountSavedPage: FC = () => {
+const AccountSavedPage: FC = () => {
     return (
         <div className={styles.saved}>
             <CustomMobileHeader>
@@ -132,3 +132,5 @@ export const AccountSavedPage: FC = () => {
         </div>
     );
 };
+
+export default AccountSavedPage;

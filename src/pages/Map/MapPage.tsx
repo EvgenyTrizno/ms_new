@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Layout } from "../Layout/Layout";
 import { Map } from "@/widgets";
 
-export const MapPage: FC = () => {
+const MapPage: FC = () => {
     return (
         <Layout>
             <div>
@@ -12,3 +12,5 @@ export const MapPage: FC = () => {
         </Layout>
     );
 };
+
+export default MapPage;

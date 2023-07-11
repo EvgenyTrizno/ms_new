@@ -48,6 +48,7 @@ export interface IBtn {
     border?: string;
     textColor?: string;
     height?: string;
+    type?: "submit" | "reset" | "button";
 }
 
 export interface IBackArrow {

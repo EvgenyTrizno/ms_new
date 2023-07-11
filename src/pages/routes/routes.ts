@@ -1,37 +1,93 @@
+import { lazy } from "react";
 import { RouteData } from "./types";
-import { RegistrationPage } from "@/pages/Auth/RegistrationPage/RegistrationPage";
-import { LoginPage } from "@/pages/Auth/LoginPage/LoginPage";
-import { MainPage } from "@/pages/Main/MainPage";
-import { RecoveryPage } from "@/pages/Auth/RecoveryPage/RecoveryPage";
-import { AuthMapPage } from "@/pages/Auth/AuthMapPage/AuthMapPage";
-import { AuthorizationPage } from "@/pages/Auth/AuthorizationPage/AuthorizationPage";
-import { VirusListPage } from "@/pages/Auth/VirusListPage/VirusListPage";
-import { ConfirmationPage } from "@/pages/Auth/ConfirmationPage/ConfirmationPage";
-import { SearchPage } from "@/pages/SearchPage/SearchPage";
-import { ProfilePage } from "@/pages/Profile/ProfilePage";
-import { MedicalCardPage } from "@/pages/MedicalCard/MedicalCardPage";
-import { NotesPage } from "@/pages/Notes/NotesPage";
-import { NotesInfoPage } from "@/pages/NotesInfo/NotesInfoPage";
-import { CreateEventPage } from "@/pages/CreateEvent/CreateEventPage";
-import { MapPage } from "@/pages/Map/MapPage";
-import { SelectCenterMapPage } from "@/pages/SelectCenterMap/SelectCenterMapPage";
-import { MessagesPage } from "@/pages/Messages/MessagesPage";
-import { MedicalTestPage } from "@/pages/MedicalTest/MedicalTestPage";
-import { MobileMainPage } from "@/pages/MobileMain/MobileMainPage";
-import { MobileSearchPage } from "@/pages/MobileSearch/MobileSearchPage";
-import { MobileMessagesPage } from "@/pages/MobileMessages/MobileMessagesPage";
-import { MobileProfile } from "@/pages/MobileProfile/MobileProfile";
-import { MobileChatPage } from "@/pages/MobileChat/MobileChatPage";
-import { MobileAccountPage } from "@/pages/MobileAccount/MobileAccountPage";
-import { AccountSettingsPage } from "@/pages/Settings/AccountSettingsPage/AccountSettingsPage";
-import { MobileNotesPage } from "@/pages/MobileNotes/MobileNotesPage";
-import { ProfileSettingsPage } from "@/pages/Settings/ProfileSettingsPage/ProfileSettingsPage";
-import { AccountProtectionSettingsPage } from "@/pages/Settings/AccountProtectionSettingsPage/AccountProtectionSettingsPage";
-import { AccountAccessSettings } from "@/pages/Settings/AccountAccessSettingsPage/AccountAccessSettings";
-import { AccountSubscriptionsSettingsPage } from "@/pages/Settings/AccountSubscriptionsSettings/AccountSubscriptionsSettings";
-import { AccountSavedPage } from "@/pages/Settings/AccountSavedPage/AccountSavedPage";
-import { AccountMedicalCenterPage } from "../Settings/AccountMedicalCenter/AccountMedicalCenterPage";
-import { AccountMedicalCardPage } from "../Settings/AccountMedicalCard/AccountMedicalCardPage";
+
+const RegistrationPage = lazy(
+    () => import("@/pages/Auth/RegistrationPage/RegistrationPage")
+);
+const LoginPage = lazy(() => import("@/pages/Auth/LoginPage/LoginPage"));
+const MainPage = lazy(() => import("@/pages/Main/MainPage"));
+const RecoveryPage = lazy(
+    () => import("@/pages/Auth/RecoveryPage/RecoveryPage")
+);
+const AuthMapPage = lazy(() => import("@/pages/Auth/AuthMapPage/AuthMapPage"));
+const AuthorizationPage = lazy(
+    () => import("@/pages/Auth/AuthorizationPage/AuthorizationPage")
+);
+const VirusListPage = lazy(
+    () => import("@/pages/Auth/VirusListPage/VirusListPage")
+);
+const ConfirmationPage = lazy(
+    () => import("@/pages/Auth/ConfirmationPage/ConfirmationPage")
+);
+const SearchPage = lazy(() => import("@/pages/SearchPage/SearchPage"));
+const ProfilePage = lazy(() => import("@/pages/Profile/ProfilePage"));
+const MedicalCardPage = lazy(
+    () => import("@/pages/MedicalCard/MedicalCardPage")
+);
+const NotesPage = lazy(() => import("@/pages/Notes/NotesPage"));
+const NotesInfoPage = lazy(() => import("@/pages/NotesInfo/NotesInfoPage"));
+const CreateEventPage = lazy(
+    () => import("@/pages/CreateEvent/CreateEventPage")
+);
+const MapPage = lazy(() => import("@/pages/Map/MapPage"));
+const SelectCenterMapPage = lazy(
+    () => import("@/pages/SelectCenterMap/SelectCenterMapPage")
+);
+const MessagesPage = lazy(() => import("@/pages/Messages/MessagesPage"));
+const MedicalTestPage = lazy(
+    () => import("@/pages/MedicalTest/MedicalTestPage")
+);
+const MobileMainPage = lazy(() => import("@/pages/MobileMain/MobileMainPage"));
+const MobileSearchPage = lazy(
+    () => import("@/pages/MobileSearch/MobileSearchPage")
+);
+const MobileMessagesPage = lazy(
+    () => import("@/pages/MobileMessages/MobileMessagesPage")
+);
+const MobileProfile = lazy(() => import("@/pages/MobileProfile/MobileProfile"));
+const MobileChatPage = lazy(() => import("@/pages/MobileChat/MobileChatPage"));
+const MobileAccountPage = lazy(
+    () => import("@/pages/MobileAccount/MobileAccountPage")
+);
+const AccountSettingsPage = lazy(
+    () => import("@/pages/Settings/AccountSettingsPage/AccountSettingsPage")
+);
+const MobileNotesPage = lazy(
+    () => import("@/pages/MobileNotes/MobileNotesPage")
+);
+const ProfileSettingsPage = lazy(
+    () => import("@/pages/Settings/ProfileSettingsPage/ProfileSettingsPage")
+);
+const AccountProtectionSettingsPage = lazy(
+    () =>
+        import(
+            "@/pages/Settings/AccountProtectionSettingsPage/AccountProtectionSettingsPage"
+        )
+);
+const AccountAccessSettings = lazy(
+    () =>
+        import(
+            "@/pages/Settings/AccountAccessSettingsPage/AccountAccessSettings"
+        )
+);
+const AccountSubscriptionsSettingsPage = lazy(
+    () =>
+        import(
+            "@/pages/Settings/AccountSubscriptionsSettings/AccountSubscriptionsSettings"
+        )
+);
+const AccountSavedPage = lazy(
+    () => import("@/pages/Settings/AccountSavedPage/AccountSavedPage")
+);
+const AccountMedicalCenterPage = lazy(
+    () => import("../Settings/AccountMedicalCenter/AccountMedicalCenterPage")
+);
+const AccountMedicalCardPage = lazy(
+    () => import("../Settings/AccountMedicalCard/AccountMedicalCardPage")
+);
+const MobileCreateEventPage = lazy(
+    () => import("../MobileCreateEvent/MobileCreateEventPage")
+);
 
 export const routes: RouteData[] = [
     {
@@ -138,5 +194,10 @@ export const routes: RouteData[] = [
         path: "/m/account/medical-card",
         Component: AccountMedicalCardPage,
         key: "mobile-medical-card_page",
+    },
+    {
+        path: "/m/create-event",
+        Component: MobileCreateEventPage,
+        key: "mobile-create-event_page",
     },
 ];
