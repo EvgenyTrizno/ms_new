@@ -35,12 +35,15 @@
 
                 .item {
                     background-color: var(--white);
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
                     padding: 15px;
                     border: 1px solid var(--system-light-grey);
                     border-radius: var(--default-border);
+
+                    .block {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
                 }
             }
         }
@@ -53,6 +56,77 @@
             display: flex;
             flex-direction: column;
             grid-gap: 25px;
+        }
+    }
+
+    .grayBlock {
+        border-radius: 12px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color:var(--system-light-grey);
+    }
+
+    .lang {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &Box {
+            width: 140px;
+        }
+
+        .sort {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--system-light-grey);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .time {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-gap: 15px;
+
+        &Block {
+            width: 100px;
+        }
+    }
+
+    .accounts {
+        .list {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            margin-bottom: 15px;
+        }
+    }
+
+    .files {
+        .select {
+            .file {
+                width: 120px;
+                height: 30px;
+                border-radius: var(--input-border);
+                background-color: var(--system-light-grey);
+            }
+        }
+
+        &Btn {
+            border-radius: 12px;
+            height: 60px;
+            background: var(--system-light-grey);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            grid-gap: 10px;
         }
     }
 }
