@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useId } from "react";
 
 import {
     Calendar,
@@ -13,6 +13,15 @@ import info from "/assets/info-circle.svg";
 import styles from "./MobileCreateEventPage.module.scss";
 
 const MobileCreateEventPage: FC = () => {
+    const data = [
+        {
+            id: useId(),
+            title: "Требуется ли переводчик",
+            subtitle: "Выберите предпочитаемый язык",
+            content: <div></div>,
+        },
+    ];
+
     return (
         <div className={styles.events}>
             <CustomMobileHeader>
@@ -59,12 +68,21 @@ const MobileCreateEventPage: FC = () => {
                             Выберите формат записи
                         </Text>
                         <div className={styles.items}>
-                            <div className={styles.item}>
-                                <Text type="p" fz="15px">
-                                    Требуется ли переводчик
-                                </Text>
-                                <Switch />
-                            </div>
+                            {data.map((item) => (
+                                <div className={styles.item}>
+                                    <Text type="p" fz="15px">
+                                        {item.title}
+                                    </Text>
+                                    <Switch />
+                                    <div className={styles.content}>
+                                        <div className={styles.inner}>
+                                            <Text type="p" color="#7D7F82">
+                                                {item.subtitle}
+                                            </Text>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                             <div className={styles.item}>
                                 <Text type="p" fz="15px">
                                     Уведомить

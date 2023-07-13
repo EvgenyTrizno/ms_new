@@ -1,0 +1,25 @@
+.extra {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(38, 38, 38, 0.40);
+    backdrop-filter: blur(30px);
+
+    .btn {
+        position: absolute;
+        z-index: 101;
+        bottom: 75px;
+        width: 60px;
+        height: 60px;
+        background-color: var(--blue-300);
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

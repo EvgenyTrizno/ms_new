@@ -1,7 +1,13 @@
 import { FC } from "react";
 import { TProps } from "./types";
 
-import { MobileMenu, ExtraCallModal, Header, Menu } from "@/widgets";
+import {
+    MobileMenu,
+    ExtraCallModal,
+    Header,
+    Menu,
+    ExtraCallMobile,
+} from "@/widgets";
 import { MOBILE_SCREEN } from "@/shared/config";
 import { useExtraCall } from "@/shared/model/store";
 
@@ -17,6 +23,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                 <div className={styles.mobileContainer}>
                     {children}
                     <MobileMenu />
+                    {isOpen && <ExtraCallMobile />}
                 </div>
             ) : (
                 <>

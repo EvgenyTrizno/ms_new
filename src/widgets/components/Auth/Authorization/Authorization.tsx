@@ -1,7 +1,7 @@
 import { FC, useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router";
 import { MarkerF } from "@react-google-maps/api";
-import { IPosition } from "../../Map/types";
+// import { IPosition } from "../../Map/types";
 
 import { Btn, Filter, Text } from "@/shared";
 import { Map } from "../../Map/Map";

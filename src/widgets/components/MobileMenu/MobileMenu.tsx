@@ -5,15 +5,18 @@ import { EPath } from "./types.";
 import { Icons } from "@/shared";
 import { TIsSelect } from "@/shared/model/store/types";
 import { useMenu } from "@/shared/model/store";
+import { useExtraCall } from "@/shared/model/store";
 
 import extra from "/assets/extra-call.svg";
 import notification from "/assets/notification.svg";
+import cross from "/assets/cross.svg";
 import styles from "./MobileMenu.module.scss";
 
 export const MobileMenu: FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { setIsSelect } = useMenu();
+    const { isOpen, setIsOpen } = useExtraCall();
 
     const handleNavigate = (path: EPath, select: TIsSelect) => {
         navigate(path);
@@ -44,8 +47,8 @@ export const MobileMenu: FC = () => {
                     <Icons icon="search" />
                 </div>
             </div>
-            <div className={styles.extraBtn}>
-                <img src={extra} alt="" />
+            <div className={styles.extraBtn} onClick={() => setIsOpen(!isOpen)}>
+                <img src={isOpen ? cross : extra} alt="" />
             </div>
             <div className={styles.box}>
                 <div

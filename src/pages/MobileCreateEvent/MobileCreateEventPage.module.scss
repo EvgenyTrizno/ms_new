@@ -45,4 +45,14 @@
             }
         }
     }
+
+    .content {
+        margin-top: 15px;
+
+        .inner {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 25px;
+        }
+    }
 }
