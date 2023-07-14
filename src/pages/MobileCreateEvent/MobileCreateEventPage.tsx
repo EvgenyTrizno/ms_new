@@ -12,6 +12,7 @@ import { BackArrow, Btn, MobileFilter, Switch, Text } from "@/shared";
 import info from "/assets/info-circle.svg";
 import sortArrow from "/assets/sort-arrow.svg";
 import file from "/assets/file.svg";
+import cross from "/assets/cross-black-small.svg";
 import styles from "./MobileCreateEventPage.module.scss";
 
 const MobileCreateEventPage: FC = () => {
@@ -89,7 +90,13 @@ const MobileCreateEventPage: FC = () => {
             content: (
                 <div className={styles.files}>
                     <div className={styles.select}>
-                        <div className={styles.file}></div>
+                        <div className={styles.file}>
+                            <img src={file} alt="" />
+                            <Text type="h3" fz="11px">
+                                lorem.img
+                            </Text>
+                            <img src={cross} alt="" />
+                        </div>
                     </div>
                     <div className={styles.filesBtn}>
                         <img src={file} alt="" />
@@ -99,6 +106,12 @@ const MobileCreateEventPage: FC = () => {
                     </div>
                 </div>
             ),
+        },
+        {
+            id: useId(),
+            title: "Дополнительный опрос специалиста",
+            subtitle: "",
+            content: <div className={styles.quiz}></div>,
         },
     ];
 
@@ -170,12 +183,6 @@ const MobileCreateEventPage: FC = () => {
                                     </div>
                                 </div>
                             ))}
-                            <div className={styles.item}>
-                                <Text type="p" fz="15px">
-                                    Дополнительный опрос специалиста
-                                </Text>
-                                <Switch />
-                            </div>
                         </div>
                     </div>
                     <Btn color="#0064FA" height="40px" br="12px">

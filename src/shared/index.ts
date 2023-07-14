@@ -13,6 +13,7 @@ import { MobileFilter } from "./ui/MobileFilter/MobileFilter";
 import { MobileSearch } from "./ui/MobileSearch/MobileSearch";
 import { MobilePopUp } from "./ui/MobilePopUp/MobilePopUp";
 import { BackArrow } from "./ui/BackArrow/BackArrow";
+import { Drop } from "./ui/Drop/Drop";
 
 export {
     Btn,
@@ -30,4 +31,5 @@ export {
     MobileSearch,
     MobilePopUp,
     BackArrow,
+    Drop,
 };
