@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Routing } from "./providers/Routing";
 import { routes } from "../pages";
 import { PSuspense } from "./providers/Suspense";
-import { MOBILE_SCREEN } from "@/shared/config";
+import { MOBILE_SCREEN } from "@/shared/utils";
 
 import "./index.scss";
 

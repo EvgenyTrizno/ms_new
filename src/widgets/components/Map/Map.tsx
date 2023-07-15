@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
 import { IMap } from "./types";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
-import { GOOGLE_LIBRARIES } from "@/shared/config";
+import { GOOGLE_LIBRARIES } from "@/shared/utils";
 
 import styles from "./Map.module.scss";
 

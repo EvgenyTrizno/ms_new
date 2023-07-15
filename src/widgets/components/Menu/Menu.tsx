@@ -1,10 +1,11 @@
 import { FC } from "react";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { EActive } from "./types";
+import { TIsSelect } from "@/shared/model/store/types";
 
 import { Text, Icons, Switcher } from "@/shared";
-import { TIsSelect } from "@/shared/model/store/types";
 import { useMenu } from "@/shared/model/store";
+import { useUserCondition } from "@/shared/model/store";
 
 import styles from "./Menu.module.scss";
 
@@ -13,11 +14,21 @@ export const Menu: FC = () => {
     const location = useLocation();
     const { name } = useParams();
     const { setIsSelect } = useMenu();
+    const { condition } = useUserCondition();
 
     const handleNavigate = (path: EActive, select: TIsSelect) => {
         navigate(path);
         setIsSelect(select);
     };
+
+    const sick = condition === "Болен";
+
+    const menuData = [
+        {
+            label: "Главная",
+            path: EActive.HOME,
+        },
+    ];
 
     return (
         <div className={styles.menu}>

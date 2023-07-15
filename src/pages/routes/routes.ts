@@ -88,6 +88,9 @@ const AccountMedicalCardPage = lazy(
 const MobileCreateEventPage = lazy(
     () => import("../MobileCreateEvent/MobileCreateEventPage")
 );
+const CreateNewPassPage = lazy(
+    () => import("@/pages/CreateNewPass/CreateNewPassPage")
+);
 
 export const routes: RouteData[] = [
     {
@@ -199,5 +202,10 @@ export const routes: RouteData[] = [
         path: "/m/create-event",
         Component: MobileCreateEventPage,
         key: "mobile-create-event_page",
+    },
+    {
+        path: "/create-new-password",
+        Component: CreateNewPassPage,
+        key: "create-new-pass_page",
     },
 ];

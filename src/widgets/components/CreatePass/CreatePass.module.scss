@@ -1,0 +1,20 @@
+.createPass {
+    width: 570px;
+    max-height: 740px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--default-border);
+    color: var(--dark-gray);
+
+    .box {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 40px;
+        margin: 50px 0 60px;
+    }
+}

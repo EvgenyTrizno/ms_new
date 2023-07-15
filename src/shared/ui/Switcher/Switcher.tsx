@@ -1,25 +1,25 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
-import { EStatus } from "./types";
+import { useUserCondition } from "@/shared/model/store";
 
 import styles from "./Switcher.module.scss";
 
 export const Switcher: FC = () => {
-    const [status, setStatus] = useState<EStatus>(EStatus.HEALTHY);
+    const { condition, setCondition } = useUserCondition();
 
     return (
         <div
             className={styles.switcher}
             style={
-                status === EStatus.HEALTHY
+                condition === "Здоров"
                     ? { borderColor: "#EBF3FF" }
                     : { borderColor: "#F7E6E8" }
             }
         >
             <div
-                onClick={() => setStatus(EStatus.HEALTHY)}
+                onClick={() => setCondition("Здоров")}
                 className={
-                    status === EStatus.HEALTHY
+                    condition === "Здоров"
                         ? `${styles.healthy} ${styles.item}`
                         : styles.item
                 }
@@ -41,9 +41,9 @@ export const Switcher: FC = () => {
                 Здоров
             </div>
             <div
-                onClick={() => setStatus(EStatus.SICK)}
+                onClick={() => setCondition("Болен")}
                 className={
-                    status === EStatus.SICK
+                    condition === "Болен"
                         ? `${styles.sick} ${styles.item}`
                         : styles.item
                 }
