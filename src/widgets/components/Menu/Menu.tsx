@@ -27,6 +27,10 @@ export const Menu: FC = () => {
         {
             label: "Главная",
             path: EActive.HOME,
+            icon: {
+                healthy: "",
+                sick: "",
+            },
         },
     ];
 

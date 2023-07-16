@@ -8,7 +8,7 @@ import {
     Menu,
     ExtraCallMobile,
 } from "@/widgets";
-import { MOBILE_SCREEN } from "@/shared/config";
+import { MOBILE_SCREEN } from "@/shared/utils";
 import { useExtraCall } from "@/shared/model/store";
 
 import extra from "/assets/extra-call.svg";
