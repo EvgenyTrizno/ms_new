@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { Text } from "@/shared";
 import { useMenu } from "@/shared/model/store";
+import { useUserCondition, useNotification } from "@/shared/model/store";
 
 import logo from "/assets/logo.svg";
 import man from "/assets/man.jpg";
@@ -14,13 +15,17 @@ export const Header: FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { isSelect, setIsSelect } = useMenu();
+    const { condition } = useUserCondition();
+    const { setIsNotification, isNotification } = useNotification();
+
+    const sick = condition === "Болен";
 
     return (
         <header className={styles.header}>
             <div className={styles.box}>
-                <Link to="/">
+                <div>
                     <img src={logo} alt="" />
-                </Link>
+                </div>
             </div>
             <div className={styles.nav}>
                 <div className={styles.inner}>
@@ -38,7 +43,10 @@ export const Header: FC = () => {
                         </div>
                     ) : (
                         <div className={styles.text}>
-                            <Text color="#0064FA" type="p">
+                            <Text
+                                color={`${sick ? "#D64657" : "#0064FA"}`}
+                                type="p"
+                            >
                                 {isSelect}
                             </Text>
                         </div>
@@ -47,7 +55,13 @@ export const Header: FC = () => {
                 <div className={styles.data}>
                     <div className={styles.notification}>
                         {styles ? ( // заглушка
-                            <img src={notification} alt="" />
+                            <img
+                                src={notification}
+                                alt=""
+                                onClick={() =>
+                                    setIsNotification(!isNotification)
+                                }
+                            />
                         ) : (
                             <img src={notificationActive} alt="" />
                         )}

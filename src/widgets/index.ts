@@ -27,6 +27,7 @@ import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobile
 import { MobileNote } from "./components/MobileNote/MobileNote";
 import { ExtraCallMobile } from "./components/ExtraCallMobile/ExtraCallMobile";
 import { CreatePass } from "./components/CreatePass/CreatePass";
+import { NotificationModal } from "./components/NotificationModal/NotificationModal";
 
 export {
     Login,
@@ -58,4 +59,5 @@ export {
     MobileNote,
     ExtraCallMobile,
     CreatePass,
+    NotificationModal,
 };

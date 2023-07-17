@@ -7,15 +7,17 @@ import {
     Header,
     Menu,
     ExtraCallMobile,
+    NotificationModal,
 } from "@/widgets";
 import { MOBILE_SCREEN } from "@/shared/utils";
-import { useExtraCall } from "@/shared/model/store";
+import { useExtraCall, useNotification } from "@/shared/model/store";
 
 import extra from "/assets/extra-call.svg";
 import styles from "./Layout.module.scss";
 
 export const Layout: FC<TProps> = ({ children }) => {
     const { isOpen, setIsOpen } = useExtraCall();
+    const { isNotification } = useNotification();
 
     return (
         <div className={styles.layout}>
@@ -41,6 +43,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                                 <img src={extra} alt="" />
                             </div>
                         )}
+                        {isNotification && <NotificationModal />}
                     </div>
                 </>
             )}

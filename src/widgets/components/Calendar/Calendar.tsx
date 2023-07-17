@@ -2,12 +2,15 @@ import { FC, useState } from "react";
 import { ICalendare } from "./types";
 
 import { Input, Text } from "@/shared";
+import { useUserCondition } from "@/shared/model/store";
 
 import arrowLeft from "/assets/arrow-left.svg";
 import arrowRight from "/assets/arrow-right.svg";
 import styles from "./Calendar.module.scss";
 
 export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
+    const { condition } = useUserCondition();
+
     const currentDate: Date = new Date();
     const [currentMonth, setCurrentMonth] = useState<number>(
         currentDate.getMonth()
@@ -18,6 +21,7 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
     const [selectedDay, setSelectedDay] = useState<string>(
         currentDate.getDate().toString()
     );
+
     const months = [
         "Январь",
         "Февраль",
@@ -34,6 +38,9 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
     ];
 
     const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+    const sick = condition === "Болен";
+    const active = `${styles.item} ${styles.active}`;
+    const activeRed = `${styles.item} ${styles.activeRed}`;
 
     const handlePreviousMonth = () => {
         if (currentMonth === 1) {
@@ -85,7 +92,10 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
     const daysInMonth = getDaysInMonth(currentYear, currentMonth);
 
     return (
-        <div className={styles.calendar} style={{ width, height }}>
+        <div
+            className={styles.calendar}
+            style={{ width, height, borderColor: sick ? "#F7E6E8" : "" }}
+        >
             <div className={styles.nav}>
                 <div className={styles.date}>
                     <Text type="h2" fz="24px">
@@ -127,8 +137,10 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                             }
                             key={day}
                             className={
-                                selectedDay === day
-                                    ? `${styles.item} ${styles.active}`
+                                selectedDay === day && sick
+                                    ? activeRed
+                                    : selectedDay === day && !sick
+                                    ? active
                                     : styles.item
                             }
                             onClick={() => handleSelectedDay(day)}

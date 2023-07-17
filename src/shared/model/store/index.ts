@@ -9,6 +9,7 @@ import {
     IExtraCall,
     IUserCondition,
     TUserConditionStatus,
+    INotificationStore,
 } from "./types";
 
 export const useDiseases = create<IDiseasesStore>()(
@@ -60,6 +61,17 @@ export const useUserCondition = create<IUserCondition>()(
         setCondition: (arg: TUserConditionStatus) => {
             set((state) => {
                 state.condition = arg;
+            });
+        },
+    }))
+);
+
+export const useNotification = create<INotificationStore>()(
+    immer((set) => ({
+        isNotification: false,
+        setIsNotification: (bool: boolean) => {
+            set((state) => {
+                state.isNotification = bool;
             });
         },
     }))

@@ -23,6 +23,15 @@
             }
         }
 
+        .activeRed {
+            background-color: var(--red-400);
+            color: var(--white);
+
+            path {
+                stroke: white;
+            }
+        }
+
         .item {
             display: flex;
             grid-gap: 20px;
@@ -34,6 +43,16 @@
 
             p {
                 margin: 0;
+            }
+        }
+
+        .itemHover {
+            transition: ease-in-out .3s;
+            color: var(--dark);
+
+            path {
+                transition: ease-in-out .3s;
+                stroke: var(--dark);
             }
         }
     }

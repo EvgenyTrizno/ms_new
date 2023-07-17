@@ -33,3 +33,8 @@ export interface IUserCondition {
     condition: TUserConditionStatus;
     setCondition: (arg: TUserConditionStatus) => void;
 }
+
+export interface INotificationStore {
+    isNotification: boolean;
+    setIsNotification: (bool: boolean) => void;
+}

@@ -91,6 +91,7 @@ const MobileCreateEventPage = lazy(
 const CreateNewPassPage = lazy(
     () => import("@/pages/CreateNewPass/CreateNewPassPage")
 );
+const NotFoundPage = lazy(() => import("@/pages/404Page/NotFoundPage"));
 
 export const routes: RouteData[] = [
     {
@@ -104,6 +105,7 @@ export const routes: RouteData[] = [
         key: "login_page",
     },
     { path: "/", Component: MainPage, key: "main_page" },
+    { path: "*", Component: NotFoundPage, key: "error_page" },
     { path: "/auth/recovery", Component: RecoveryPage, key: "recovery_page" },
     { path: "/auth/map", Component: AuthMapPage, key: "auth-map_page" },
     { path: "/auth", Component: AuthorizationPage, key: "auth_page" },

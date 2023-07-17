@@ -21,25 +21,30 @@ export const Btn: FC<IBtn> = ({
 }) => {
     const { condition } = useUserCondition();
 
+    const sick = condition === "Болен";
+
     return (
         <motion.button
             className={styles.btn}
             type={type}
             style={{
                 backgroundColor: `${
-                    condition === "Болен" && color === "transparen"
+                    sick && color === "transparen"
                         ? "transparent"
-                        : condition === "Болен" && color !== "transparent"
+                        : sick && color !== "transparent"
                         ? "#D64657"
                         : `${color}`
                 }`,
                 width,
                 borderRadius: br,
                 padding,
-                border:
-                    condition === "Болен" ? "1px solid #D64657" : `${border}`,
+                border: !sick
+                    ? `${border}`
+                    : sick
+                    ? "1px solid #D64657"
+                    : "none",
                 color:
-                    condition === "Болен" && color === "transparent"
+                    sick && color === "transparent"
                         ? "#D64657"
                         : `${textColor}`,
                 height,

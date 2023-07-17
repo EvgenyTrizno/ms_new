@@ -37,7 +37,7 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: 135,
+                x: 118,
                 y: 0,
             },
         },
@@ -48,8 +48,8 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: 130,
-                y: 75,
+                x: 90,
+                y: 20,
             },
         },
         {
@@ -59,8 +59,8 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: 75,
-                y: 130,
+                x: 20,
+                y: 90,
             },
         },
         {
@@ -71,7 +71,7 @@ export const ExtraCallModal: FC = () => {
             id: useId(),
             position: {
                 x: 0,
-                y: 135,
+                y: 119,
             },
         },
     ];
