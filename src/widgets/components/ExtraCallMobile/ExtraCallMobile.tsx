@@ -23,7 +23,10 @@ export const ExtraCallMobile: FC = () => {
 
     const btns: IExtraCallBtnData[] = [
         {
-            icon: amabulance,
+            icon: {
+                sick: amabulance,
+                healthy: amabulance,
+            },
             id: useId(),
             position: {
                 x: 90,
@@ -31,7 +34,10 @@ export const ExtraCallMobile: FC = () => {
             },
         },
         {
-            icon: marker,
+            icon: {
+                sick: marker,
+                healthy: marker,
+            },
             id: useId(),
             position: {
                 x: 165,
@@ -39,7 +45,7 @@ export const ExtraCallMobile: FC = () => {
             },
         },
         {
-            icon: people,
+            icon: { healthy: people, sick: people },
             id: useId(),
             position: {
                 x: 235,
@@ -60,7 +66,10 @@ export const ExtraCallMobile: FC = () => {
                             backgroundColor: `${sick ? "#F7E6E8" : ""}`,
                         }}
                     >
-                        <img src={btn.icon} alt="" />
+                        <img
+                            src={sick ? btn.icon.sick : btn.icon.healthy}
+                            alt=""
+                        />
                     </div>
                 ))}
             </div>
