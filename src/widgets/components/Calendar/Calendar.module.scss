@@ -103,4 +103,9 @@
         align-items: center;
         justify-content: center;
     }
+
+    .resultRed {
+        background-color: var(--red-100);
+        color: var(--red-400);
+    }
 }

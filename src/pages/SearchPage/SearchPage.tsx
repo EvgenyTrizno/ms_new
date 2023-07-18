@@ -28,7 +28,7 @@ const SearchPage: FC = () => {
                     <div className={styles.back}>
                         <img src={arrowLeft} alt="" />
                     </div>
-                    <Search />
+                    <Search placeholder="Поиск чатов" />
                     <Btn width="160px" color="#0064FA">
                         <div className={styles.btn}>
                             <img src={controler} alt="" />

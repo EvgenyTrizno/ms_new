@@ -39,10 +39,10 @@ export const Btn: FC<IBtn> = ({
                 borderRadius: br,
                 padding,
                 border: !sick
-                    ? `${border}`
-                    : sick
+                    ? "none"
+                    : sick && color === "transparent"
                     ? "1px solid #D64657"
-                    : "none",
+                    : border,
                 color:
                     sick && color === "transparent"
                         ? "#D64657"

@@ -61,7 +61,13 @@ export const MobileMenu: FC = () => {
                 >
                     <Icons icon="envelope" />
                 </div>
-                <img src={notification} alt="" />
+                <img
+                    src={notification}
+                    alt=""
+                    onClick={() =>
+                        handleNavigate(EPath.NOTIFICATION, "" as TIsSelect)
+                    }
+                />
             </div>
         </div>
     );

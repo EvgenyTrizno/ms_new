@@ -26,11 +26,6 @@
         }
     }
 
-    .img {
-        height: 400px;
-        object-fit: cover;
-    }
-
     .managment {
         display: flex;
         justify-content: space-between;
@@ -61,6 +56,24 @@
                 width: 20px;
                 height: 20px;
             }
+        }
+
+        .moreRed {
+            color: var(--red-400);
+        }
+    }
+
+    .slider {
+        width: 100%;
+        position: relative;
+
+        .img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .pagination {
+            background-color: #fff;
         }
     }
 }

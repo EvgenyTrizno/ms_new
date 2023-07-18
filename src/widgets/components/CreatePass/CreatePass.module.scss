@@ -18,3 +18,23 @@
         margin: 50px 0 60px;
     }
 }
+
+@media screen and (max-width: 576px) {
+    .createPass {
+        width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2 {
+            font-size: 24px !important;
+        }
+
+        .box {
+            margin: 40px 0;
+            grid-gap: 25px;
+        }
+    }
+}

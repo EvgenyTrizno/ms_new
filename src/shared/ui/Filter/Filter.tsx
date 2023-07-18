@@ -21,7 +21,10 @@ export const Filter: FC<IFilter> = ({ data, width }) => {
     const sick = condition === "Болен";
 
     return (
-        <div className={styles.container} style={{ width }}>
+        <div
+            className={styles.container}
+            style={{ width, borderColor: sick ? "#F7E6E8" : "" }}
+        >
             {data.map((item) => (
                 <div
                     className={`${

@@ -171,7 +171,13 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                             <Input type="text" borderColor="#E9EAEB" />
                         </div>
                     </div>
-                    <div className={styles.result}>
+                    <div
+                        className={
+                            sick
+                                ? `${styles.result} ${styles.resultRed}`
+                                : styles.result
+                        }
+                    >
                         <Text type="p" fz="18px">
                             Вторник, 8 октября 15:00
                         </Text>

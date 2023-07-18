@@ -92,6 +92,9 @@ const CreateNewPassPage = lazy(
     () => import("@/pages/CreateNewPass/CreateNewPassPage")
 );
 const NotFoundPage = lazy(() => import("@/pages/404Page/NotFoundPage"));
+const MobileNotificationPage = lazy(
+    () => import("@/pages/MobileNotification/MobileNotification")
+);
 
 export const routes: RouteData[] = [
     {
@@ -209,5 +212,10 @@ export const routes: RouteData[] = [
         path: "/create-new-password",
         Component: CreateNewPassPage,
         key: "create-new-pass_page",
+    },
+    {
+        path: "/m/notifications",
+        Component: MobileNotificationPage,
+        key: "mobile-notifications_page",
     },
 ];

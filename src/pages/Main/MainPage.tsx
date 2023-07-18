@@ -1,9 +1,10 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Text } from "@/shared";
+import { Btn, Text } from "@/shared";
 import { Card, Post, Slider } from "@/widgets";
 
+import controller from "/assets/controler.svg";
 import styles from "./MainPage.module.scss";
 
 const MainPage: FC = () => {
@@ -21,6 +22,14 @@ const MainPage: FC = () => {
                     </Slider>
                 </div>
                 <div className={styles.posts}>
+                    <div className={styles.filters}>
+                        <Btn color="#0064FA">
+                            <div className={styles.inner}>
+                                <img src={controller} alt="" />
+                                Фильтры
+                            </div>
+                        </Btn>
+                    </div>
                     {[1].map((item) => (
                         <Post key={item} />
                     ))}

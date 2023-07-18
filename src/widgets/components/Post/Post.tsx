@@ -1,6 +1,9 @@
 import { FC } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 
 import { Text } from "@/shared";
+import { useUserCondition } from "@/shared/model/store";
 
 import avatar from "/assets/woman.jpg";
 import post from "/assets/post.jpg";
@@ -8,9 +11,14 @@ import heart from "/assets/heart.svg";
 import send from "/assets/send.svg";
 import archive from "/assets/archive-add.svg";
 import arrowRight from "/assets/arrow-right-blue.svg";
+import arrowRightRed from "/assets/arrow-right-red.svg";
 import styles from "./Post.module.scss";
 
 export const Post: FC = () => {
+    const { condition } = useUserCondition();
+
+    const sick = condition === "Болен";
+
     return (
         <div className={styles.post}>
             <div className={styles.user}>
@@ -31,9 +39,26 @@ export const Post: FC = () => {
                     предварительного просмотра макета
                 </Text>
             </div>
-            <div className={styles.img}>
-                <img src={post} alt="" />
-            </div>
+            <Swiper
+                pagination={{
+                    clickable: true,
+                }}
+                modules={[Pagination]}
+                className={styles.slider}
+            >
+                <SwiperSlide>
+                    <img src={post} alt="" className={styles.img} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={post} alt="" className={styles.img} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={post} alt="" className={styles.img} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={post} alt="" className={styles.img} />
+                </SwiperSlide>
+            </Swiper>
             <div className={styles.managment}>
                 <div className={styles.btns}>
                     <div className={styles.btn}>
@@ -46,9 +71,13 @@ export const Post: FC = () => {
                         <img src={archive} alt="" />
                     </div>
                 </div>
-                <div className={styles.more}>
+                <div
+                    className={
+                        sick ? `${styles.more} ${styles.moreRed}` : styles.more
+                    }
+                >
                     Подробнее
-                    <img src={arrowRight} alt="" />
+                    <img src={sick ? arrowRightRed : arrowRight} alt="" />
                 </div>
             </div>
         </div>

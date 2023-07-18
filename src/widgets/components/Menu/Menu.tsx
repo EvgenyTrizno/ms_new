@@ -25,19 +25,23 @@ export const Menu: FC = () => {
     const activeRed = `${styles.item} ${styles.activeRed}`;
 
     const handleMouseEnter = (e: MouseEvent<HTMLDivElement>) => {
+        const classList = e.currentTarget.classList;
+
         if (
-            e.currentTarget.classList.contains(styles.active) ||
-            e.currentTarget.classList.contains(styles.activeRed)
+            classList.contains(styles.active) ||
+            classList.contains(styles.activeRed)
         ) {
             return;
         } else {
-            e.currentTarget.classList.add(styles.itemHover);
+            classList.add(styles.itemHover);
         }
     };
 
     const handleMouseLeave = (e: MouseEvent<HTMLDivElement>) => {
-        if (e.currentTarget.classList.contains(styles.itemHover)) {
-            e.currentTarget.classList.remove(styles.itemHover);
+        const classList = e.currentTarget.classList;
+
+        if (classList.contains(styles.itemHover)) {
+            classList.remove(styles.itemHover);
         }
     };
 

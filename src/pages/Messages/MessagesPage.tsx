@@ -3,8 +3,8 @@ import { FC, useEffect, useState, MouseEvent } from "react";
 import { Layout } from "../Layout/Layout";
 import { Search } from "@/widgets";
 import { Filter, Input, PopUp, Text } from "@/shared";
-import { useFilter } from "@/shared/model/store";
-import { ABSOLUTE_PATH } from "@/shared/config";
+import { useFilter, useUserCondition } from "@/shared/model/store";
+// import { ABSOLUTE_PATH } from "@/shared/config";
 
 import woman from "/assets/woman.jpg";
 import call from "/assets/call-calling.svg";
@@ -17,10 +17,12 @@ import styles from "./MessagesPage.module.scss";
 
 const MessagesPage: FC = () => {
     const { isFilter, setIsFilter } = useFilter();
+    const { condition } = useUserCondition();
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [y, setY] = useState<number>(0);
     const [x, setX] = useState<number>(0);
     const [isSelect, setIsSelect] = useState<string>("");
+    const [isChat, setIsChat] = useState<boolean>(false);
     const [msg, setMsg] = useState<string>("");
     const [ws, setWs] = useState<WebSocket | null>(null);
 
@@ -60,10 +62,10 @@ const MessagesPage: FC = () => {
         if (ws && ws.readyState === WebSocket.OPEN) {
             ws.send(
                 JSON.stringify({
-                    action: "send_message", //CONST
-                    chat_uuid: uuid, // UPDT
+                    action: "send_message",
+                    chat_uuid: uuid,
                     text: msg,
-                    user_id: id, // updt
+                    user_id: id,
                 })
             );
         }
@@ -78,12 +80,17 @@ const MessagesPage: FC = () => {
         }
     };
 
+    const sick = condition === "Болен";
+
     return (
         <Layout>
-            <div className={styles.container}>
+            <div
+                className={styles.container}
+                style={{ borderColor: sick ? "#F7E6E8" : "" }}
+            >
                 <div className={styles.sidebar}>
                     <div className={styles.box}>
-                        <Search />
+                        <Search placeholder="Поиск чатов" />
                         <Filter data={["Сообщения", "Звонки"]} width="490px" />
                         <div className={styles.wrapper}>
                             <div className={styles.chats}>
@@ -114,7 +121,13 @@ const MessagesPage: FC = () => {
                                                     2:23
                                                 </Text>
                                             </div>
-                                            <div className={styles.counter}>
+                                            <div
+                                                className={
+                                                    sick
+                                                        ? `${styles.counter} ${styles.counterRed}`
+                                                        : styles.counter
+                                                }
+                                            >
                                                 98
                                             </div>
                                         </div>
@@ -157,206 +170,214 @@ const MessagesPage: FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className={styles.view}>
-                    <div className={styles.info}>
-                        <div className={styles.data}>
-                            <img src={woman} alt="" />
-                            <div className={styles.text}>
-                                <Text type="h2" fz="18px">
-                                    Яковенко А. С.
-                                </Text>
-                                <Text type="p" color="#84C55D">
-                                    Online
-                                </Text>
-                            </div>
-                        </div>
-                        <img
-                            src={call}
-                            alt=""
-                            className={styles.call}
-                            onClick={(e: MouseEvent<HTMLImageElement>) => {
-                                setY(e.clientY);
-                                setIsOpen((prev) => !prev);
-                                setIsSelect("Звонок");
-                            }}
-                        />
-                    </div>
-                    <div className={styles.chat}>
-                        <div className={styles.list}>
-                            <div className={styles.message}>
+                {isChat && (
+                    <div className={styles.view}>
+                        <div className={styles.info}>
+                            <div className={styles.data}>
                                 <img src={woman} alt="" />
-                                <div className={styles.inner}>
-                                    <Text type="p" color="#333" fz="14px">
-                                        Виктор
+                                <div className={styles.text}>
+                                    <Text type="h2" fz="18px">
+                                        Яковенко А. С.
                                     </Text>
-                                    <div
-                                        className={`${styles.text} ${styles.myText}`}
-                                        onClick={(e: MouseEvent) =>
-                                            handleClick(e)
-                                        }
-                                    >
-                                        <Text type="p" color="#262626">
-                                            Привет. Я готов к чему-то
-                                        </Text>
-                                        <div className={styles.read}>
-                                            <img src={read} alt="" />
-                                        </div>
-                                    </div>
-                                    <div className={styles.time}>
-                                        <Text
-                                            type="p"
-                                            color="#7D7F82"
-                                            fz="12px"
-                                        >
-                                            8:00 PM
-                                        </Text>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.message}>
-                                <img src={woman} alt="" />
-                                <div className={styles.inner}>
-                                    <Text type="p" color="#333" fz="14px">
-                                        Александр
+                                    <Text type="p" color="#84C55D">
+                                        Online
                                     </Text>
-                                    <div
-                                        className={`${styles.text}`}
-                                        onClick={(e: MouseEvent) =>
-                                            handleClick(e)
-                                        }
-                                    >
-                                        <Text type="p" color="#262626">
-                                            Да, я обычно выделяю все ctrl+A,
-                                            потом всему сразу ставлю верх и
-                                            лево)))))
-                                        </Text>
-                                        <div className={styles.read}>
-                                            <img src={read} alt="" />
-                                        </div>
-                                    </div>
-                                    <div className={styles.time}>
-                                        <Text
-                                            type="p"
-                                            color="#7D7F82"
-                                            fz="12px"
-                                        >
-                                            8:00 PM
-                                        </Text>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.messageBlock}>
-                        <div className={styles.wrapper}>
-                            <img src={paperclip} alt="" />
-                            <div className={styles.inner}>
-                                <Input
-                                    type="text"
-                                    placeholder="Поиск чатов"
-                                    br="none"
-                                    btr="unset"
-                                    bbr="unset"
-                                    value={msg}
-                                    onChange={(e) => setMsg(e.target.value)}
-                                />
-                                <div className={styles.btn}>
-                                    <img src={emoji} alt="" />
                                 </div>
                             </div>
                             <img
-                                src={sender}
+                                src={call}
                                 alt=""
-                                className={styles.icon}
+                                className={styles.call}
                                 onClick={(e: MouseEvent<HTMLImageElement>) => {
                                     setY(e.clientY);
-                                    setIsSelect("Отправить");
                                     setIsOpen((prev) => !prev);
+                                    setIsSelect("Звонок");
                                 }}
                             />
                         </div>
+                        <div className={styles.chat}>
+                            <div className={styles.list}>
+                                <div className={styles.message}>
+                                    <img src={woman} alt="" />
+                                    <div className={styles.inner}>
+                                        <Text type="p" color="#333" fz="14px">
+                                            Виктор
+                                        </Text>
+                                        <div
+                                            className={`${styles.text} ${styles.myText}`}
+                                            onClick={(e: MouseEvent) =>
+                                                handleClick(e)
+                                            }
+                                        >
+                                            <Text type="p" color="#262626">
+                                                Привет. Я готов к чему-то
+                                            </Text>
+                                            <div className={styles.read}>
+                                                <img src={read} alt="" />
+                                            </div>
+                                        </div>
+                                        <div className={styles.time}>
+                                            <Text
+                                                type="p"
+                                                color="#7D7F82"
+                                                fz="12px"
+                                            >
+                                                8:00 PM
+                                            </Text>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={styles.message}>
+                                    <img src={woman} alt="" />
+                                    <div className={styles.inner}>
+                                        <Text type="p" color="#333" fz="14px">
+                                            Александр
+                                        </Text>
+                                        <div
+                                            className={`${styles.text}`}
+                                            onClick={(e: MouseEvent) =>
+                                                handleClick(e)
+                                            }
+                                        >
+                                            <Text type="p" color="#262626">
+                                                Да, я обычно выделяю все ctrl+A,
+                                                потом всему сразу ставлю верх и
+                                                лево)))))
+                                            </Text>
+                                            <div className={styles.read}>
+                                                <img src={read} alt="" />
+                                            </div>
+                                        </div>
+                                        <div className={styles.time}>
+                                            <Text
+                                                type="p"
+                                                color="#7D7F82"
+                                                fz="12px"
+                                            >
+                                                8:00 PM
+                                            </Text>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.messageBlock}>
+                            <div className={styles.wrapper}>
+                                <img src={paperclip} alt="" />
+                                <div className={styles.inner}>
+                                    <Input
+                                        type="text"
+                                        placeholder="Поиск чатов"
+                                        br="none"
+                                        btr="unset"
+                                        bbr="unset"
+                                        value={msg}
+                                        onChange={(e) => setMsg(e.target.value)}
+                                    />
+                                    <div className={styles.btn}>
+                                        <img src={emoji} alt="" />
+                                    </div>
+                                </div>
+                                <img
+                                    src={sender}
+                                    alt=""
+                                    className={styles.icon}
+                                    onClick={(
+                                        e: MouseEvent<HTMLImageElement>
+                                    ) => {
+                                        setY(e.clientY);
+                                        setIsSelect("Отправить");
+                                        setIsOpen((prev) => !prev);
+                                    }}
+                                />
+                            </div>
+                        </div>
+                        {isOpen && isSelect === "Звонок" && (
+                            <PopUp
+                                width="120px"
+                                right="25px"
+                                top={`${y / 2 + 15}px`}
+                            >
+                                <li>
+                                    <Text type="p" color="#000" fz="14px">
+                                        Аудиовызов
+                                    </Text>
+                                </li>
+                                <li>
+                                    <Text type="p" color="#000" fz="14px">
+                                        Видеовызов
+                                    </Text>
+                                </li>
+                                <li>
+                                    <Text type="p" color="#000" fz="14px">
+                                        Конференция
+                                    </Text>
+                                </li>
+                            </PopUp>
+                        )}
+                        {isOpen && isSelect === "Отправить" && (
+                            <PopUp
+                                width="180px"
+                                top={`${y / 1.43}px`}
+                                right="5px"
+                            >
+                                <li onClick={handleSendMsg}>
+                                    <Text type="p" color="#000" fz="14px">
+                                        Отправить позже
+                                    </Text>
+                                </li>
+                                <li>
+                                    <Text type="p" color="#000" fz="14px">
+                                        Отправить без звука
+                                    </Text>
+                                </li>
+                                <li>
+                                    <Text type="p" color="#000" fz="14px">
+                                        Скрыть от
+                                    </Text>
+                                </li>
+                                <li>
+                                    <Text type="p" color="#000" fz="14px">
+                                        Создать опрос
+                                    </Text>
+                                </li>
+                            </PopUp>
+                        )}
+                        {isOpen && isSelect === "Сообщение" && (
+                            <PopUp
+                                width="120x"
+                                top={`${y / 1.2}px`}
+                                left={`${x}px`}
+                            >
+                                <li>
+                                    <Text type="p" color="#000" fz="14px">
+                                        Ответить
+                                    </Text>
+                                </li>
+                                <li>
+                                    <Text type="p" color="#000" fz="14px">
+                                        Выбрать
+                                    </Text>
+                                </li>
+                                <li onClick={() => copyText("скопировать")}>
+                                    <Text type="p" color="#000" fz="14px">
+                                        Скопировать
+                                    </Text>
+                                </li>
+                                <li>
+                                    <Text type="p" color="#000" fz="14px">
+                                        Изменить
+                                    </Text>
+                                </li>
+                                <li>
+                                    <Text type="p" color="#D64657" fz="14px">
+                                        Удалить
+                                    </Text>
+                                </li>
+                            </PopUp>
+                        )}
                     </div>
-                    {isOpen && isSelect === "Звонок" && (
-                        <PopUp
-                            width="120px"
-                            right="25px"
-                            top={`${y / 2 + 15}px`}
-                        >
-                            <li>
-                                <Text type="p" color="#000" fz="14px">
-                                    Аудиовызов
-                                </Text>
-                            </li>
-                            <li>
-                                <Text type="p" color="#000" fz="14px">
-                                    Видеовызов
-                                </Text>
-                            </li>
-                            <li>
-                                <Text type="p" color="#000" fz="14px">
-                                    Конференция
-                                </Text>
-                            </li>
-                        </PopUp>
-                    )}
-                    {isOpen && isSelect === "Отправить" && (
-                        <PopUp width="180px" top={`${y / 1.43}px`} right="5px">
-                            <li onClick={handleSendMsg}>
-                                <Text type="p" color="#000" fz="14px">
-                                    Отправить позже
-                                </Text>
-                            </li>
-                            <li>
-                                <Text type="p" color="#000" fz="14px">
-                                    Отправить без звука
-                                </Text>
-                            </li>
-                            <li>
-                                <Text type="p" color="#000" fz="14px">
-                                    Скрыть от
-                                </Text>
-                            </li>
-                            <li>
-                                <Text type="p" color="#000" fz="14px">
-                                    Создать опрос
-                                </Text>
-                            </li>
-                        </PopUp>
-                    )}
-                    {isOpen && isSelect === "Сообщение" && (
-                        <PopUp
-                            width="120x"
-                            top={`${y / 1.2}px`}
-                            left={`${x}px`}
-                        >
-                            <li>
-                                <Text type="p" color="#000" fz="14px">
-                                    Ответить
-                                </Text>
-                            </li>
-                            <li>
-                                <Text type="p" color="#000" fz="14px">
-                                    Выбрать
-                                </Text>
-                            </li>
-                            <li onClick={() => copyText("скопировать")}>
-                                <Text type="p" color="#000" fz="14px">
-                                    Скопировать
-                                </Text>
-                            </li>
-                            <li>
-                                <Text type="p" color="#000" fz="14px">
-                                    Изменить
-                                </Text>
-                            </li>
-                            <li>
-                                <Text type="p" color="#D64657" fz="14px">
-                                    Удалить
-                                </Text>
-                            </li>
-                        </PopUp>
-                    )}
-                </div>
+                )}
             </div>
         </Layout>
     );

@@ -27,3 +27,8 @@
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
+
+.checkboxRed input[type="checkbox"]:checked {
+    background-color: var(--red-400);
+    border-color: var(--red-400);
+}

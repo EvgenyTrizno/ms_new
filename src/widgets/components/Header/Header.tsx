@@ -22,7 +22,10 @@ export const Header: FC = () => {
 
     return (
         <header className={styles.header}>
-            <div className={styles.box}>
+            <div
+                className={styles.box}
+                style={sick ? { borderColor: "#F7E6E8" } : {}}
+            >
                 <div>
                     <img src={logo} alt="" />
                 </div>

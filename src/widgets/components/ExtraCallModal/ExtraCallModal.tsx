@@ -9,8 +9,8 @@ import amabulance from "/assets/amabulance-blue.svg";
 import amabulanceRed from "/assets/amabulance-red.svg";
 import homeWithPlus from "/assets/home-with-plus-blue.svg";
 import homeWithPlusRed from "/assets/home-with-plus-red.svg";
-import key from "/assets/key-blue.svg";
-import keyRed from "/assets/key-red.svg";
+// import key from "/assets/key-blue.svg";
+// import keyRed from "/assets/key-red.svg";
 import support from "/assets/support-blue.svg";
 import supportRed from "/assets/support-red.svg";
 import styles from "./ExtraCallModal.module.scss";
@@ -37,7 +37,7 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: 118,
+                x: 120,
                 y: 0,
             },
         },
@@ -48,21 +48,21 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: 90,
-                y: 20,
-            },
-        },
-        {
-            icon: {
-                healthy: key,
-                sick: keyRed,
-            },
-            id: useId(),
-            position: {
-                x: 20,
+                x: 95,
                 y: 90,
             },
         },
+        // {
+        //     icon: {
+        //         healthy: key,
+        //         sick: keyRed,
+        //     },
+        //     id: useId(),
+        //     position: {
+        //         x: 75,
+        //         y: 110,
+        //     },
+        // },
         {
             icon: {
                 healthy: support,
@@ -71,7 +71,7 @@ export const ExtraCallModal: FC = () => {
             id: useId(),
             position: {
                 x: 0,
-                y: 119,
+                y: 120,
             },
         },
     ];
