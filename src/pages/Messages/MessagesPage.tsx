@@ -4,7 +4,7 @@ import { Layout } from "../Layout/Layout";
 import { Search } from "@/widgets";
 import { Filter, Input, PopUp, Text } from "@/shared";
 import { useFilter, useUserCondition } from "@/shared/model/store";
-// import { ABSOLUTE_PATH } from "@/shared/config";
+import { ABSOLUTE_PATH } from "@/shared/config";
 
 import woman from "/assets/woman.jpg";
 import call from "/assets/call-calling.svg";
@@ -29,11 +29,11 @@ const MessagesPage: FC = () => {
     useEffect(() => {
         setIsFilter("Сообщения");
 
-        // const ws = new WebSocket(
-        //     `ws://${ABSOLUTE_PATH}/ws/chat/8345f52b-6d74-4a54-9ae1-6c03c92e962b/99/`
-        // );
+        const ws = new WebSocket(
+            `ws://${ABSOLUTE_PATH}/ws/chat/8345f52b-6d74-4a54-9ae1-6c03c92e962b/99/`
+        );
 
-        // setWs(ws);
+        setWs(ws);
 
         return () => {
             setIsFilter("");
@@ -96,7 +96,10 @@ const MessagesPage: FC = () => {
                             <div className={styles.chats}>
                                 {isFilter === "Сообщения" ? (
                                     [1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                                        <div className={styles.chat}>
+                                        <div
+                                            className={styles.chat}
+                                            onClick={() => setIsChat(true)}
+                                        >
                                             <div className={styles.inner}>
                                                 <img src={woman} alt="" />
                                                 <div className={styles.data}>

@@ -9,7 +9,7 @@ export interface IExtraCallBtnIconData {
 }
 
 export interface IExtraCallBtnData {
-    icon: IExtraCallBtnIconData;
+    icon: string;
     id: string;
     position: IExtraCallBtnPositionData;
 }
