@@ -181,7 +181,7 @@ export const MobileCalendar: FC<ICalendare> = ({ info, width, height }) => {
                                 : styles.result
                         }
                     >
-                        <Text type="p" fz="18px">
+                        <Text type="p" fz="13px">
                             Вторник, 8 октября 15:00
                         </Text>
                     </div>

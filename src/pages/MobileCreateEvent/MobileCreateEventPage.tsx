@@ -7,7 +7,7 @@ import {
     MobileContainer,
     Slider,
 } from "@/widgets";
-import { BackArrow, Btn, MobileFilter, Switch, Text } from "@/shared";
+import { BackArrow, Btn, MobileFilter, MobileSwitch, Text } from "@/shared";
 
 import info from "/assets/info-circle.svg";
 import sortArrow from "/assets/sort-arrow.svg";
@@ -167,7 +167,7 @@ const MobileCreateEventPage: FC = () => {
                                         <Text type="p" fz="15px">
                                             {item.title}
                                         </Text>
-                                        <Switch />
+                                        <MobileSwitch />
                                     </div>
                                     <div className={styles.content}>
                                         <div className={styles.inner}>

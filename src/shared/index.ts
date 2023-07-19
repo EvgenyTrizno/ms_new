@@ -14,6 +14,7 @@ import { MobileSearch } from "./ui/MobileSearch/MobileSearch";
 import { MobilePopUp } from "./ui/MobilePopUp/MobilePopUp";
 import { BackArrow } from "./ui/BackArrow/BackArrow";
 import { Drop } from "./ui/Drop/Drop";
+import { MobileSwitch } from "./ui/MobileSwitch/MobileSwitch";
 
 export {
     Btn,
@@ -32,4 +33,5 @@ export {
     MobilePopUp,
     BackArrow,
     Drop,
+    MobileSwitch,
 };

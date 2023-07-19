@@ -60,3 +60,10 @@ export interface IIconData {
     helthy: string;
     sick: string;
 }
+
+export interface IModalProps {
+    children: ReactNode;
+    width?: string;
+    height?: string;
+    setIsOpenModal: (bool: boolean) => void;
+}

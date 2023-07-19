@@ -3,15 +3,17 @@ import { useNavigate } from "react-router";
 import { MarkerF } from "@react-google-maps/api";
 // import { IPosition } from "../../Map/types";
 
-import { Btn, Filter, MobileFilter, Text } from "@/shared";
+import { Btn, Filter, MobileFilter, MobileSearch, Text } from "@/shared";
 import { Map } from "../../Map/Map";
 import { useFilter } from "@/shared/model/store";
+import { MOBILE_SCREEN } from "@/shared/utils";
+import { MobileModal } from "../../MobileModal/MobileModal";
 
 import styles from "./Authorization.module.scss";
-import { MOBILE_SCREEN } from "@/shared/utils";
 
 export const Authorization: FC = () => {
     const [hasPermission, setHasPermission] = useState<boolean>(false);
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     const navigate = useNavigate();
     const { isFilter } = useFilter();
@@ -19,6 +21,7 @@ export const Authorization: FC = () => {
     useEffect(() => {
         const permission = "geolocation" in navigator;
         setHasPermission(permission);
+        setIsOpenModal(true);
     }, []);
 
     const handleClick = useCallback(() => {
@@ -73,6 +76,34 @@ export const Authorization: FC = () => {
                         Продолжить
                     </Btn>
                 </>
+            )}
+            {isOpenModal && (
+                <MobileModal setIsOpenModal={setIsOpenModal}>
+                    <div className={styles.container}>
+                        <Text
+                            type="h3"
+                            fz="17px"
+                            color="#262626"
+                            position="center"
+                        >
+                            Интерес к какому заболеванию у вас имеется?
+                        </Text>
+                        <MobileSearch filterBtn={false} placeholder="Поиск" />
+                        <div className={styles.status}>
+                            <Text
+                                type="p"
+                                fz="12px"
+                                color="#0064FA"
+                                position="end"
+                            >
+                                Отсутствует
+                            </Text>
+                        </div>
+                        <Btn color="#0064FA" height="45px" br="12px">
+                            Продолжить
+                        </Btn>
+                    </div>
+                </MobileModal>
             )}
         </div>
     );

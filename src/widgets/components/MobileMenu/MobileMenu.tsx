@@ -9,6 +9,7 @@ import { useExtraCall } from "@/shared/model/store";
 
 import extra from "/assets/extra-call.svg";
 import notification from "/assets/notification.svg";
+import notificationActive from "/assets/notification-active.svg";
 import cross from "/assets/cross.svg";
 import styles from "./MobileMenu.module.scss";
 
@@ -62,7 +63,11 @@ export const MobileMenu: FC = () => {
                     <Icons icon="envelope" />
                 </div>
                 <img
-                    src={notification}
+                    src={
+                        location.pathname === EPath.NOTIFICATION
+                            ? notificationActive
+                            : notification
+                    }
                     alt=""
                     onClick={() =>
                         handleNavigate(EPath.NOTIFICATION, "" as TIsSelect)
