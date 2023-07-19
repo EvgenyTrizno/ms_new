@@ -3,11 +3,12 @@ import { useNavigate } from "react-router";
 import { MarkerF } from "@react-google-maps/api";
 // import { IPosition } from "../../Map/types";
 
-import { Btn, Filter, Text } from "@/shared";
+import { Btn, Filter, MobileFilter, Text } from "@/shared";
 import { Map } from "../../Map/Map";
 import { useFilter } from "@/shared/model/store";
 
 import styles from "./Authorization.module.scss";
+import { MOBILE_SCREEN } from "@/shared/utils";
 
 export const Authorization: FC = () => {
     const [hasPermission, setHasPermission] = useState<boolean>(false);
@@ -38,7 +39,11 @@ export const Authorization: FC = () => {
                             Для того чтобы зарегестрироваться, вам необходимо
                             указать свое состояние на данный момент
                         </Text>
-                        <Filter width="100%" data={["Здоров", "Болен"]} />
+                        {MOBILE_SCREEN ? (
+                            <div>sdsdsd</div>
+                        ) : (
+                            <Filter width="100%" data={["Здоров", "Болен"]} />
+                        )}
                     </div>
                     <Btn color="#0064FA">Продолжить</Btn>
                 </>
@@ -58,7 +63,11 @@ export const Authorization: FC = () => {
                         >
                             <MarkerF position={{ lat: 0, lng: 0 }} />
                         </Map>
-                        <Filter width="100%" data={["Здоров", "Болен"]} />
+                        {MOBILE_SCREEN ? (
+                            <MobileFilter data={["Здоров", "Болен"]} />
+                        ) : (
+                            <Filter width="100%" data={["Здоров", "Болен"]} />
+                        )}
                     </div>
                     <Btn onClick={() => handleClick()} color="#0064FA">
                         Продолжить

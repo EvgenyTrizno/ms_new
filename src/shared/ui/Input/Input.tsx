@@ -21,7 +21,8 @@ export const Input: FC<IInput> = ({
     onChange,
     value,
     height,
-    borderRadius,
+    borderRadius = "8px",
+    padding,
 }) => {
     return (
         <input
@@ -31,7 +32,7 @@ export const Input: FC<IInput> = ({
             disabled={disabled}
             style={{
                 width: width,
-                borderRadius: borderRadius,
+                borderRadius,
                 height,
                 borderColor: borderColor,
                 borderTop: bt,
@@ -43,6 +44,7 @@ export const Input: FC<IInput> = ({
                 borderTopLeftRadius: btl,
                 borderBottomLeftRadius: bbl,
                 backgroundColor: bgcolor,
+                padding,
             }}
             onChange={onChange}
             value={value}

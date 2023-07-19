@@ -28,6 +28,7 @@ import { MobileNote } from "./components/MobileNote/MobileNote";
 import { ExtraCallMobile } from "./components/ExtraCallMobile/ExtraCallMobile";
 import { CreatePass } from "./components/CreatePass/CreatePass";
 import { NotificationModal } from "./components/NotificationModal/NotificationModal";
+import { MobileCalendar } from "./components/MobileCalendar/MobileCalendar";
 
 export {
     Login,
@@ -60,4 +61,5 @@ export {
     ExtraCallMobile,
     CreatePass,
     NotificationModal,
+    MobileCalendar,
 };

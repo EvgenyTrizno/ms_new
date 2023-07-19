@@ -1,12 +1,13 @@
 import { FC } from "react";
 import { useNavigate } from "react-router";
 
-import { Calendar, Search } from "@/widgets";
 import { Layout } from "../Layout/Layout";
-import { Btn, Text } from "@/shared";
+import { Search } from "@/widgets";
+import { Btn, Filter, Text } from "@/shared";
 
+import controler from "/assets/controler.svg";
+import virus from "/assets/virus-icon.jpg";
 import arrow from "/assets/arrow-right.svg";
-import addCircle from "/assets/add-circle.svg";
 import styles from "./MedicalCardPage.module.scss";
 
 const MedicalCardPage: FC = () => {
@@ -17,43 +18,102 @@ const MedicalCardPage: FC = () => {
             <div className={styles.container}>
                 <div className={styles.header}>
                     <Search />
-                    <Btn
-                        color="#0064FA"
-                        width="60px"
-                        onClick={() => navigate("/select-center-map")}
-                        padding="0"
-                    >
-                        <img src={addCircle} alt="" />
+                    <Btn color="#0064FA" width="70px">
+                        <img src={controler} alt="" />
                     </Btn>
                 </div>
-                <div className={styles.wrapper}>
-                    <Calendar height="500px" info={false} />
-                    <div className={styles.list}>
-                        {[1, 2, 3, 4, 5].map(() => (
-                            <div className={styles.item}>
-                                <div className={styles.deadline}>
-                                    <Text type="p">14:00 - 15:00</Text>
-                                    <span className={styles.status}>
-                                        Online
-                                    </span>
-                                </div>
-                                <Text type="h2" fz="20px" color="#262626">
-                                    Лорем Ипсум #1
+                <div className={styles.info}>
+                    <div className={styles.data}>
+                        <img src={virus} alt="" />
+                        <div className={styles.text}>
+                            <Text type="h2" fz="24px">
+                                GGTD
+                            </Text>
+                            <Text type="p" color="#7D7F82" fz="18px">
+                                Изучено заболеваний: 50
+                            </Text>
+                        </div>
+                    </div>
+                    <div className={styles.text}>
+                        <Text type="p" fz="18px">
+                            Наблюдалось: 300 человек
+                        </Text>
+                        <Text type="p" fz="18px">
+                            Лечилось: 196 пациентов
+                        </Text>
+                    </div>
+                    <div className={styles.text}>
+                        <Text type="p" fz="18px">
+                            Кол-во специалистов: 11
+                        </Text>
+                        <Text type="p" fz="18px">
+                            Успешно вылечилось: 167 пациентов
+                        </Text>
+                    </div>
+                </div>
+                <Filter data={["Онлайн", "Оффлайн"]} />
+                <div className={styles.items}>
+                    <div className={styles.item}>
+                        <div className={styles.data}>
+                            <Text type="p" color="#7D7F82" fz="14px">
+                                Название
+                            </Text>
+                            <Text type="h2" fz="20px">
+                                Центр Неврологии
+                            </Text>
+                            <div className={styles.status}>
+                                <Text type="p" color="#7D7F82">
+                                    Доступно:
                                 </Text>
-                                <div className={styles.descr}>
-                                    <Text type="p">
-                                        Lorem Ipsum является текст-заполнитель
-                                        обычно используется в графических
-                                        печатей...
-                                    </Text>
-                                </div>
-                                <img
-                                    src={arrow}
-                                    alt=""
-                                    className={styles.arrow}
-                                />
+                                <span className={styles.online}>Online</span>
+                                <div>/</div>
+                                <span className={styles.offline}>Offline</span>
                             </div>
-                        ))}
+                        </div>
+                        <div className={styles.box}>
+                            <div className={styles.text}>
+                                <Text type="p">
+                                    Помогло на 80%:
+                                    <span className={styles.count}>300</span>
+                                </Text>
+                                <Text type="p">
+                                    Помогло на 60%:
+                                    <span className={styles.count}>700</span>
+                                </Text>
+                            </div>
+                            <div className={styles.text}>
+                                <Text type="p">
+                                    Помогло на 40%:
+                                    <span className={styles.count}>300</span>
+                                </Text>
+                                <Text type="p">
+                                    Помогло на 20%:
+                                    <span className={styles.count}>700</span>
+                                </Text>
+                            </div>
+                            <div className={styles.text}>
+                                <Text type="p">
+                                    Публикации:
+                                    <span className={styles.count}>300</span>
+                                </Text>
+                                <Text type="p">
+                                    Выбор специалиста:
+                                    <span className={styles.count}>
+                                        На выбор
+                                    </span>
+                                </Text>
+                            </div>
+                        </div>
+                        <div className={styles.btns}>
+                            <Btn
+                                color="#0064FA"
+                                width="155px"
+                                onClick={() => navigate(`/notes/name`)}
+                            >
+                                Продолжить
+                            </Btn>
+                            <img src={arrow} alt="" />
+                        </div>
                     </div>
                 </div>
             </div>

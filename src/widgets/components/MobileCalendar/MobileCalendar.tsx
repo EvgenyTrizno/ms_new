@@ -1,22 +1,22 @@
 import { FC, useState } from "react";
-import { ICalendare } from "./types";
+import { ICalendare } from "../Calendar/types";
 
-import { Input, Text } from "@/shared";
+import { Text, Input } from "@/shared";
 import { useUserCondition } from "@/shared/model/store";
 
 import arrowLeft from "/assets/arrow-left.svg";
 import arrowRight from "/assets/arrow-right.svg";
-import styles from "./Calendar.module.scss";
+import styles from "./MobileCalendar.module.scss";
 
-export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
+export const MobileCalendar: FC<ICalendare> = ({ info, width, height }) => {
     const { condition } = useUserCondition();
 
     const currentDate: Date = new Date();
+    const [currentYear, setCurrentYear] = useState<number>(
+        currentDate.getUTCFullYear()
+    );
     const [currentMonth, setCurrentMonth] = useState<number>(
         currentDate.getMonth()
-    );
-    const [currentYear, setCurrentYear] = useState<number>(
-        currentDate.getFullYear()
     );
     const [selectedDay, setSelectedDay] = useState<string>(
         currentDate.getDate().toString()
@@ -42,6 +42,37 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
     const active = `${styles.item} ${styles.active}`;
     const activeRed = `${styles.item} ${styles.activeRed}`;
 
+    const getDaysInMonth = (
+        year: number,
+        month: number
+    ): (string | undefined)[] => {
+        const startDate: Date = new Date(year, month, 1);
+        const endDate: Date = new Date(year, month + 1, 0);
+        const lastDayOfWeek = 7;
+        const remainingEmptyDays = (lastDayOfWeek - endDate.getDay()) % 7;
+        const days: (string | undefined)[] = [];
+
+        for (let i = 0; i < startDate.getDay() - 1; i++) {
+            days.push(undefined);
+        }
+
+        for (let day = 1; day <= endDate.getDate(); day++) {
+            days.push(day.toString());
+        }
+
+        for (let i = 0; i < remainingEmptyDays; i++) {
+            days.push(undefined);
+        }
+
+        return days;
+    };
+
+    const handleSelectedDay = (day: string | undefined) => {
+        if (day === undefined) return;
+
+        setSelectedDay(day);
+    };
+
     const handlePreviousMonth = () => {
         if (currentMonth === 1) {
             setCurrentMonth(11);
@@ -60,66 +91,22 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
         }
     };
 
-    const handleSelectedDay = (day: string | undefined) => {
-        if (day === undefined) return;
-
-        setSelectedDay(day);
-    };
-
-    const getDaysInMonth = (
-        year: number,
-        month: number
-    ): (string | undefined)[] => {
-        const startDate = new Date(year, month, 1);
-        const endDate = new Date(year, month + 1, 0);
-        const days: (string | undefined)[] = [];
-
-        for (let i = 0; i < startDate.getDay() - 1; i++) {
-            days.push(undefined);
-        }
-
-        for (let day = 1; day <= endDate.getDate(); day++) {
-            days.push(day.toString());
-        }
-
-        const lastDayOfWeek = 7;
-        const remainingEmptyDays = (lastDayOfWeek - endDate.getDay()) % 7;
-
-        for (let i = 0; i < remainingEmptyDays; i++) {
-            days.push(undefined);
-        }
-
-        return days;
-    };
-
     const daysInMonth = getDaysInMonth(currentYear, currentMonth);
 
     return (
-        <div
-            className={styles.calendar}
-            style={{ width, height, borderColor: sick ? "#F7E6E8" : "" }}
-        >
+        <div className={styles.calendar} style={{ width, height }}>
             <div className={styles.nav}>
                 <div className={styles.date}>
-                    <Text type="h2" fz="24px">
+                    <Text type="h2" fz="17px">
                         {months[currentMonth]}
                     </Text>
-                    &nbsp;
-                    <Text type="h2" fz="24px">
+                    <Text type="h2" fz="17px">
                         {currentYear}
                     </Text>
                 </div>
                 <div className={styles.arrows}>
-                    <img
-                        src={arrowLeft}
-                        alt=""
-                        onClick={() => handlePreviousMonth()}
-                    />
-                    <img
-                        src={arrowRight}
-                        alt=""
-                        onClick={() => handleNextMonth()}
-                    />
+                    <img src={arrowLeft} alt="" onClick={handlePreviousMonth} />
+                    <img src={arrowRight} alt="" onClick={handleNextMonth} />
                 </div>
             </div>
             <div className={styles.days}>
@@ -133,11 +120,6 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                 <ul className={styles.list}>
                     {daysInMonth.map((day) => (
                         <li
-                            style={
-                                day === undefined
-                                    ? { cursor: "" }
-                                    : { cursor: "pointer" }
-                            }
                             key={day}
                             className={
                                 selectedDay === day && sick
@@ -159,19 +141,37 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                     <div className={styles.info}>
                         <div className={styles.box}>
                             <div className={styles.text}>
-                                <Text type="p" color="#7D7F82">
+                                <Text type="p" color="#7D7F82" fz="12px">
                                     Время начала:
                                 </Text>
                             </div>
-                            <Input type="text" borderColor="#E9EAEB" />
+                            <Input
+                                type="text"
+                                borderColor="#E9EAEB"
+                                height="40px"
+                                padding="16px"
+                                bbr="12px"
+                                btr="12px"
+                                bbl="12px"
+                                btl="12px"
+                            />
                         </div>
                         <div className={styles.box}>
                             <div className={styles.text}>
-                                <Text type="p" color="#7D7F82">
+                                <Text type="p" color="#7D7F82" fz="12px">
                                     Конечное время:
                                 </Text>
                             </div>
-                            <Input type="text" borderColor="#E9EAEB" />
+                            <Input
+                                type="text"
+                                borderColor="#E9EAEB"
+                                height="40px"
+                                padding="16px"
+                                bbr="12px"
+                                btr="12px"
+                                bbl="12px"
+                                btl="12px"
+                            />
                         </div>
                     </div>
                     <div

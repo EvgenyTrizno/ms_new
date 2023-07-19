@@ -30,6 +30,7 @@ export interface IInput {
     btl?: string;
     bbl?: string;
     bgcolor?: string;
+    padding?: string;
     disabled?: boolean;
     height?: string;
     borderRadius?: string;
@@ -53,4 +54,9 @@ export interface IBtn {
 
 export interface IBackArrow {
     path: string;
+}
+
+export interface IIconData {
+    helthy: string;
+    sick: string;
 }

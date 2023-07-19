@@ -1,22 +1,109 @@
-import { FC, useState } from "react";
+import { FC, useState, useId } from "react";
+import { IProfileParamsData } from "./types";
 
 import { Layout } from "../Layout/Layout";
 import { User } from "@/widgets";
 import { Input, Text } from "@/shared";
+import { useUserCondition } from "@/shared/model/store";
 
 import user from "/assets/user-blue.svg";
+import userRed from "/assets/user-red.svg";
 import arrowRigth from "/assets/arrow-right.svg";
 import shield from "/assets/shield-tick-blue.svg";
-import people from "/assets/people-blue.svg";
-import buildings from "/assets/buildings-blue.svg";
+import shieldRed from "/assets/shield-tick-red.svg";
+import homeWithPlus from "/assets/home-with-plus-blue.svg";
+import homeWithPlusRed from "/assets/home-with-plus-red.svg";
 import heart from "/assets/heart-blue.svg";
+import heartRed from "/assets/heart-red.svg";
 import archive from "/assets/archive-tick-blue.svg";
+import archiveRed from "/assets/archive-tick-red.svg";
 import cart from "/assets/shopping-cart-blue.svg";
+import cartRed from "/assets/shopping-cart-red.svg";
 import styles from "./ProfilePage.module.scss";
 
 const ProfilePage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [select, setSelect] = useState<string>();
+    const { condition } = useUserCondition();
+
+    const sick = condition === "Болен";
+
+    const data: IProfileParamsData = {
+        main: [
+            {
+                id: useId(),
+                label: "Профиль",
+                icon: {
+                    helthy: user,
+                    sick: userRed,
+                },
+                content: (
+                    <form className={styles.form}>
+                        <Input type="text" placeholder="Имя" />
+                        <Input type="text" placeholder="Фамилия" />
+                        <Input type="text" placeholder="Дата рождения" />
+                        <Input type="text" placeholder="Страна" />
+                        <Input type="text" placeholder="Город" />
+                        <Input type="text" placeholder="Адрес" />
+                        <Input type="text" placeholder="Логин" />
+                        <Input type="text" placeholder="Интерес" />
+                    </form>
+                ),
+            },
+            {
+                id: useId(),
+                label: "Защита профиля",
+                icon: {
+                    helthy: shield,
+                    sick: shieldRed,
+                },
+                content: (
+                    <form className={styles.form}>
+                        <Input type="text" placeholder="Телефон" />
+                        <Input type="text" placeholder="Почта" />
+                    </form>
+                ),
+            },
+            {
+                id: useId(),
+                label: "Медицинский центр",
+                icon: {
+                    helthy: homeWithPlus,
+                    sick: homeWithPlusRed,
+                },
+                content: <div>params</div>,
+            },
+        ],
+        other: [
+            {
+                id: useId(),
+                label: "Подписки",
+                icon: {
+                    helthy: heart,
+                    sick: heartRed,
+                },
+                content: <div>params</div>,
+            },
+            {
+                id: useId(),
+                label: "Сохраненное",
+                icon: {
+                    helthy: archive,
+                    sick: archiveRed,
+                },
+                content: <div>params</div>,
+            },
+            {
+                id: useId(),
+                label: "Покупки",
+                icon: {
+                    helthy: cart,
+                    sick: cartRed,
+                },
+                content: <div>params</div>,
+            },
+        ],
+    };
 
     return (
         <Layout>
@@ -28,126 +115,44 @@ const ProfilePage: FC = () => {
                             Основные
                         </Text>
                         <div className={styles.items}>
-                            <div className={styles.item}>
-                                <div className={styles.nav}>
-                                    <div className={styles.params}>
-                                        <img src={user} alt="" />
-                                        <Text type="p" fz="18px">
-                                            Профиль
-                                        </Text>
+                            {data.main.map((item) => (
+                                <div className={styles.item} key={item.id}>
+                                    <div className={styles.nav}>
+                                        <div className={styles.params}>
+                                            <img
+                                                className={styles.icon}
+                                                src={
+                                                    sick
+                                                        ? item.icon.sick
+                                                        : item.icon.helthy
+                                                }
+                                                alt=""
+                                            />
+                                            <Text type="p" fz="18px">
+                                                {item.label}
+                                            </Text>
+                                        </div>
+                                        <img
+                                            style={
+                                                isOpen && select === item.label
+                                                    ? {
+                                                          transform: `rotate(90deg)`,
+                                                      }
+                                                    : {}
+                                            }
+                                            src={arrowRigth}
+                                            alt=""
+                                            onClick={() => {
+                                                setIsOpen((prev) => !prev);
+                                                setSelect(item.label);
+                                            }}
+                                        />
                                     </div>
-                                    <img
-                                        src={arrowRigth}
-                                        alt=""
-                                        style={
-                                            isOpen && select === "Профиль"
-                                                ? { transform: "rotate(90deg)" }
-                                                : {
-                                                      transform:
-                                                          "rotate(-90deg)",
-                                                  }
-                                        }
-                                        onClick={() => {
-                                            setIsOpen((prev) => !prev);
-                                            setSelect("Профиль");
-                                        }}
-                                    />
+                                    {isOpen &&
+                                        select === item.label &&
+                                        item.content}
                                 </div>
-                                {isOpen && select === "Профиль" && (
-                                    <form className={styles.form}>
-                                        <Input type="text" placeholder="Имя" />
-                                        <Input
-                                            type="text"
-                                            placeholder="Фамилия"
-                                        />
-                                        <Input
-                                            type="text"
-                                            placeholder="Дата рождения"
-                                        />
-                                        <Input
-                                            type="text"
-                                            placeholder="Страна"
-                                        />
-                                        <Input
-                                            type="text"
-                                            placeholder="Город"
-                                        />
-                                        <Input
-                                            type="text"
-                                            placeholder="Адрес"
-                                        />
-                                        <Input
-                                            type="text"
-                                            placeholder="Логин"
-                                        />
-                                        <Input
-                                            type="text"
-                                            placeholder="Интерес"
-                                        />
-                                    </form>
-                                )}
-                            </div>
-                            <div className={styles.item}>
-                                <div className={styles.nav}>
-                                    <div className={styles.params}>
-                                        <img src={shield} alt="" />
-                                        <Text type="p" fz="18px">
-                                            Защита профиля
-                                        </Text>
-                                    </div>
-                                    <img
-                                        src={arrowRigth}
-                                        alt=""
-                                        style={
-                                            isOpen &&
-                                            select === "Защита профиля"
-                                                ? { transform: "rotate(90deg)" }
-                                                : {
-                                                      transform:
-                                                          "rotate(-90deg)",
-                                                  }
-                                        }
-                                        onClick={() => {
-                                            setIsOpen((prev) => !prev);
-                                            setSelect("Защита профиля");
-                                        }}
-                                    />
-                                </div>
-                                {isOpen && select === "Защита профиля" && (
-                                    <form className={styles.form}>
-                                        <Input
-                                            type="text"
-                                            placeholder="Телефон"
-                                        />
-                                        <Input
-                                            type="text"
-                                            placeholder="Почта"
-                                        />
-                                    </form>
-                                )}
-                            </div>
-                            <div className={styles.item}>
-                                <div className={styles.nav}>
-                                    <div className={styles.params}>
-                                        <img src={people} alt="" />
-                                        <Text type="p" fz="18px">
-                                            Доступ
-                                        </Text>
-                                    </div>
-                                    <img src={arrowRigth} alt="" />
-                                </div>
-                            </div>
-                            <div className={styles.item}>
-                                <div className={styles.nav}>
-                                    <div className={styles.params}>
-                                        <img src={buildings} alt="" />
-                                        <Text type="p" fz="18px">
-                                            Ведущий центр
-                                        </Text>
-                                    </div>
-                                    <img src={arrowRigth} alt="" />
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                     <div className={styles.box}>
@@ -155,39 +160,44 @@ const ProfilePage: FC = () => {
                             Другое
                         </Text>
                         <div className={styles.items}>
-                            <div className={styles.item}>
-                                <div className={styles.nav}>
-                                    <div className={styles.params}>
-                                        <img src={heart} alt="" />
-                                        <Text type="p" fz="18px">
-                                            Подписки
-                                        </Text>
+                            {data.other.map((item) => (
+                                <div className={styles.item} key={item.id}>
+                                    <div className={styles.nav}>
+                                        <div className={styles.params}>
+                                            <img
+                                                className={styles.icon}
+                                                src={
+                                                    sick
+                                                        ? item.icon.sick
+                                                        : item.icon.helthy
+                                                }
+                                                alt=""
+                                            />
+                                            <Text type="p" fz="18px">
+                                                {item.label}
+                                            </Text>
+                                        </div>
+                                        <img
+                                            src={arrowRigth}
+                                            style={
+                                                isOpen && select === item.label
+                                                    ? {
+                                                          transform: `rotate(90deg)`,
+                                                      }
+                                                    : {}
+                                            }
+                                            alt=""
+                                            onClick={() => {
+                                                setIsOpen((prev) => !prev);
+                                                setSelect(item.label);
+                                            }}
+                                        />
                                     </div>
-                                    <img src={arrowRigth} alt="" />
+                                    {isOpen &&
+                                        select === item.label &&
+                                        item.content}
                                 </div>
-                            </div>
-                            <div className={styles.item}>
-                                <div className={styles.nav}>
-                                    <div className={styles.params}>
-                                        <img src={archive} alt="" />
-                                        <Text type="p" fz="18px">
-                                            Сохраненное
-                                        </Text>
-                                    </div>
-                                    <img src={arrowRigth} alt="" />
-                                </div>
-                            </div>
-                            <div className={styles.item}>
-                                <div className={styles.nav}>
-                                    <div className={styles.params}>
-                                        <img src={cart} alt="" />
-                                        <Text type="p" fz="18px">
-                                            Покупки
-                                        </Text>
-                                    </div>
-                                    <img src={arrowRigth} alt="" />
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>

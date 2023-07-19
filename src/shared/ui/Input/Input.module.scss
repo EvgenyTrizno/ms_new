@@ -1,10 +1,8 @@
 .input {
     width: 100%;
-    border-radius: var(--input-border);
     height: 60px;
     padding: 16px 24px;
-    border: 1px solid;
-    border-color: var(--gray-200);
+    border: 1px solid var(--gray-200);
     font-family: 'Montserrat';
     font-weight: 400;
     color: #000 !important;

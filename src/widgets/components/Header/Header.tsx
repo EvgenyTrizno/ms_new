@@ -40,7 +40,10 @@ export const Header: FC = () => {
                             onClick={() => navigate("/create-event")}
                             style={{ cursor: "pointer" }}
                         >
-                            <Text color="#0064FA" type="p">
+                            <Text
+                                color={`${sick ? "#D64657" : "#0064FA"}`}
+                                type="p"
+                            >
                                 Создать событие
                             </Text>
                         </div>

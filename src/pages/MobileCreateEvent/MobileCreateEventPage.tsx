@@ -1,8 +1,8 @@
 import { FC, useId } from "react";
 
 import {
-    Calendar,
     CustomMobileHeader,
+    MobileCalendar,
     MobileCard,
     MobileContainer,
     Slider,
@@ -141,7 +141,7 @@ const MobileCreateEventPage: FC = () => {
                     <div>
                         <MobileFilter data={["Онлайн", "Оффлайн"]} />
                         <div className={styles.calendar}>
-                            <Calendar info />
+                            <MobileCalendar info />
                         </div>
                     </div>
                     <div className={styles.box}>

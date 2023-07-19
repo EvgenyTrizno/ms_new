@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 import {
-    Calendar,
     CustomMobileHeader,
+    MobileCalendar,
     MobileContainer,
     MobileNote,
 } from "@/widgets";
@@ -27,7 +27,7 @@ const AccountMedicalCardPage: FC = () => {
                         placeholder="Введите запрос"
                         filterBtn={false}
                     />
-                    <Calendar info={false} />
+                    <MobileCalendar />
                     <div className={styles.box}>
                         <Text type="p" fz="14px" color="#7D7F82">
                             10 Октябрь

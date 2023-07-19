@@ -42,4 +42,14 @@
             fill: var(--red-400);
         }
     }
+
+    .hover {
+        color: var(--dark);
+        transition: ease-in-out .3s;
+
+        svg {
+            fill: var(--dark);
+            transition: ease-in-out .3s;
+        }
+    }
 }

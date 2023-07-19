@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, MouseEvent } from "react";
 
 import { useUserCondition } from "@/shared/model/store";
 
@@ -6,6 +6,31 @@ import styles from "./Switcher.module.scss";
 
 export const Switcher: FC = () => {
     const { condition, setCondition } = useUserCondition();
+
+    const healthyClasses = `${styles.healthy} ${styles.item}`;
+    const sickClasses = `${styles.sick} ${styles.item}`;
+
+    const handleMouseEnter = (e: MouseEvent<HTMLDivElement>) => {
+        const classList = e.currentTarget.classList;
+
+        if (
+            classList.contains(styles.item) &&
+            !classList.contains(styles.healthy) &&
+            !classList.contains(styles.sick)
+        ) {
+            classList.add(styles.hover);
+        } else {
+            return;
+        }
+    };
+
+    const handleMousleLeave = (e: MouseEvent<HTMLDivElement>) => {
+        const classList = e.currentTarget.classList;
+
+        if (classList.contains(styles.hover)) {
+            classList.remove(styles.hover);
+        }
+    };
 
     return (
         <div
@@ -18,10 +43,10 @@ export const Switcher: FC = () => {
         >
             <div
                 onClick={() => setCondition("Здоров")}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMousleLeave}
                 className={
-                    condition === "Здоров"
-                        ? `${styles.healthy} ${styles.item}`
-                        : styles.item
+                    condition === "Здоров" ? healthyClasses : styles.item
                 }
             >
                 <svg
@@ -42,11 +67,9 @@ export const Switcher: FC = () => {
             </div>
             <div
                 onClick={() => setCondition("Болен")}
-                className={
-                    condition === "Болен"
-                        ? `${styles.sick} ${styles.item}`
-                        : styles.item
-                }
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMousleLeave}
+                className={condition === "Болен" ? sickClasses : styles.item}
             >
                 <svg
                     width="21"

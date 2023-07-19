@@ -38,7 +38,7 @@ const MedicalTestPage: FC = () => {
                             <div className={styles.inner}>
                                 <img src={ghost} alt="" />
                                 <Text type="h2" color="#262626" fz="32px">
-                                    Ничего нетS
+                                    Ничего нет
                                 </Text>
                                 <div className={styles.text}>
                                     <Text
