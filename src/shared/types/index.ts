@@ -57,7 +57,7 @@ export interface IBackArrow {
 }
 
 export interface IIconData {
-    helthy: string;
+    healthy: string;
     sick: string;
 }
 

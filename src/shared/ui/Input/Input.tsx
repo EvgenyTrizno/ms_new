@@ -21,7 +21,7 @@ export const Input: FC<IInput> = ({
     onChange,
     value,
     height,
-    borderRadius = "8px",
+    borderRadius,
     padding,
 }) => {
     return (
