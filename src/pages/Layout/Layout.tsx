@@ -25,7 +25,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                 <div className={styles.mobileContainer}>
                     {children}
                     <MobileMenu />
-                    {isOpen && <ExtraCallMobile />}
+                    <ExtraCallMobile />
                 </div>
             ) : (
                 <>

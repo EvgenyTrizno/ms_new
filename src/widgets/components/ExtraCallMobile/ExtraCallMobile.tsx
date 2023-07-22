@@ -1,7 +1,8 @@
-import { FC, useEffect, useId } from "react";
+import { FC, useId, MouseEvent } from "react";
 import { IExtraCallBtnData } from "./types";
+import { motion } from "framer-motion";
 
-import { useUserCondition } from "@/shared/model/store";
+import { useExtraCall, useUserCondition } from "@/shared/model/store";
 
 import amabulance from "/assets/amabulance-blue.svg";
 import people from "/assets/people-blue.svg";
@@ -10,14 +11,7 @@ import styles from "./ExtraCallMobile.module.scss";
 
 export const ExtraCallMobile: FC = () => {
     const { condition } = useUserCondition();
-
-    useEffect(() => {
-        document.body.style.overflow = "hidden";
-
-        return () => {
-            document.body.style.overflow = "";
-        };
-    }, []);
+    const { isOpen, setIsOpen } = useExtraCall();
 
     const sick = condition === "Болен";
 
@@ -30,7 +24,7 @@ export const ExtraCallMobile: FC = () => {
             id: useId(),
             position: {
                 x: 90,
-                y: 40,
+                y: -40,
             },
         },
         {
@@ -41,7 +35,7 @@ export const ExtraCallMobile: FC = () => {
             id: useId(),
             position: {
                 x: 165,
-                y: 95,
+                y: -95,
             },
         },
         {
@@ -49,30 +43,61 @@ export const ExtraCallMobile: FC = () => {
             id: useId(),
             position: {
                 x: 235,
-                y: 40,
+                y: -40,
             },
         },
     ];
 
+    isOpen
+        ? (document.body.style.overflow = "hidden")
+        : (document.body.style.overflow = "");
+
+    const handleClick = () => {
+        setIsOpen(false);
+    };
+
     return (
-        <div className={styles.extra}>
-            <div className={styles.container}>
+        <motion.div
+            onClick={handleClick}
+            style={{
+                pointerEvents: !isOpen ? "none" : "auto",
+                overflow: "hidden",
+            }}
+            className={styles.extra}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isOpen ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+            exit={{ opacity: 0 }}
+        >
+            <div>
                 {btns.map((btn) => (
-                    <div
+                    <motion.div
                         className={styles.btn}
-                        key={btn.id}
-                        style={{
-                            transform: `translate(${btn.position.x}px, -${btn.position.y}px)`,
-                            backgroundColor: `${sick ? "#F7E6E8" : ""}`,
+                        onClick={(e: MouseEvent<HTMLDivElement>) =>
+                            e.stopPropagation()
+                        }
+                        initial={{ x: 0, y: 0 }}
+                        whileTap={{ scale: 0.9 }}
+                        animate={{
+                            x: isOpen ? btn.position.x : 165,
+                            y: isOpen ? btn.position.y : 25,
                         }}
+                        transition={{
+                            type: "spring",
+                            duration: 0.3,
+                            damping: 13,
+                            stiffness: 100,
+                        }}
+                        exit={{ x: 0, y: 0 }}
+                        key={btn.id}
                     >
                         <img
                             src={sick ? btn.icon.sick : btn.icon.healthy}
                             alt=""
                         />
-                    </div>
+                    </motion.div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     );
 };
