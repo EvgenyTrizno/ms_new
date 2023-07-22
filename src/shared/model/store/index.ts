@@ -2,7 +2,6 @@ import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
 import {
-    IDiseasesStore,
     IMenuStore,
     TIsSelect,
     IFilterStore,
@@ -10,17 +9,9 @@ import {
     IUserCondition,
     TUserConditionStatus,
     INotificationStore,
+    IUserData,
+    TGroups,
 } from "./types";
-
-export const useDiseases = create<IDiseasesStore>()(
-    immer((set) => ({
-        diseases: [],
-        setDiseases: (arg: string) =>
-            set((state) => {
-                state.diseases.push(arg);
-            }),
-    }))
-);
 
 export const useMenu = create<IMenuStore>()(
     immer((set) => ({
@@ -72,6 +63,54 @@ export const useNotification = create<INotificationStore>()(
         setIsNotification: (bool: boolean) => {
             set((state) => {
                 state.isNotification = bool;
+            });
+        },
+    }))
+);
+
+export const useUserData = create<IUserData>()(
+    immer((set) => ({
+        center_id: [],
+        disease_id: [],
+        group: "Пользователи",
+        number: "",
+        position: {
+            lat: 0,
+            lng: 0,
+            city: "",
+            counrty: "",
+        },
+        setCenter: (centerId: number) => {
+            set((state) => {
+                state.center_id.push(centerId);
+            });
+        },
+        setDiseases: (diseaseId: number) => {
+            set((state) => {
+                state.disease_id.push(diseaseId);
+            });
+        },
+        setGroup: (group: TGroups) => {
+            set((state) => {
+                state.group = group;
+            });
+        },
+        setNumber: (phone: string) => {
+            set((state) => {
+                state.number = phone;
+            });
+        },
+        setPosition: (
+            lat: number,
+            lng: number,
+            city: string,
+            counrty: string
+        ) => {
+            set((state) => {
+                (state.position.lat = lat),
+                    (state.position.lng = lng),
+                    (state.position.city = city),
+                    (state.position.counrty = counrty);
             });
         },
     }))

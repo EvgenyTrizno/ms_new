@@ -11,7 +11,7 @@ import {
 export const Auth = () => {
     const { request } = useHttp();
 
-    const createUser = async (
+    const registration = async (
         number: string,
         password1: string,
         password2: string,
@@ -21,7 +21,7 @@ export const Auth = () => {
         disease_id?: number[]
     ): Promise<ICreateUser> => {
         const data: ICreateUser = await request(
-            `${BASE_URL}/api/create/user/`,
+            `${BASE_URL}/api/users/`,
             "POST",
             {
                 number,
@@ -81,12 +81,65 @@ export const Auth = () => {
         return data;
     };
 
+    const recoveryPassword = async (number?: string, email?: string) => {
+        const data = await request(`${BASE_URL}/api/reset-password/`, "POST", {
+            number,
+            email,
+        });
+
+        return data;
+    };
+
+    const sendVerifyCodeRecoveryPassOnEmail = async (email: string) => {
+        const data = await request(
+            `${BASE_URL}/api/verify-reset-password/`,
+            "POST",
+            {
+                email,
+            }
+        );
+
+        return data;
+    };
+
+    const sendVerifyCodeRecoveryPassOnPhone = async (phone: string) => {
+        const data = await request(
+            `${BASE_URL}/api/verify-reset-password/`,
+            "POST",
+            {
+                phone,
+            }
+        );
+
+        return data;
+    };
+
+    const changePassword = async (
+        email?: string,
+        number?: string,
+        password1?: string,
+        password2?: string
+    ) => {
+        const data = await request(`${BASE_URL}/api/change-password/`, "POST", {
+            email,
+            number,
+            password1,
+            password2,
+        });
+
+        return data;
+    };
+
     return {
         createAdmin,
-        createUser,
+        registration,
         updateUser,
         updateAdmin,
         sendVerifyCode,
         resendVerifyCode,
+        recoveryPassword,
+        sendVerifyCodeRecoveryPassOnEmail,
+        sendVerifyCodeRecoveryPassOnPhone,
+        changePassword,
     };
 };

@@ -1,21 +1,21 @@
 export const useLocation = () => {
-    let lat: number;
-    let lng: number;
+    let lat = 0;
+    let lng = 0;
 
     const getLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (pos: GeolocationPosition) => {
-                    lng = pos.coords.longitude;
-                    lat = pos.coords.latitude;
+                    const { latitude, longitude } = pos.coords;
+
+                    lng = longitude;
+                    lat = latitude;
                 }
             );
-
-            return { lat, lng };
         } else {
-            return { messages: "Неудалось получить вашу локацию" };
+            return { message: "Не удалось получить вашу локацию" };
         }
     };
 
-    return { getLocation };
+    return { getLocation, lat, lng };
 };

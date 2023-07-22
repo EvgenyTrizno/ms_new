@@ -8,6 +8,7 @@ import { Map } from "../../Map/Map";
 import { useFilter } from "@/shared/model/store";
 import { MOBILE_SCREEN } from "@/shared/utils";
 import { MobileModal } from "../../MobileModal/MobileModal";
+// import { useUserData } from "@/shared/model/store";
 
 import styles from "./Authorization.module.scss";
 
@@ -17,11 +18,21 @@ export const Authorization: FC = () => {
 
     const navigate = useNavigate();
     const { isFilter } = useFilter();
+    // const { setPosition } = useUserData();
 
     useEffect(() => {
         const permission = "geolocation" in navigator;
         setHasPermission(permission);
         setIsOpenModal(true);
+
+        if (permission) {
+            navigator.geolocation.getCurrentPosition((pos) => {
+                // const { latitude, longitude } = pos.coords;
+
+                console.log(navigator.geolocation, pos);
+                // setPosition(latitude, longitude);
+            });
+        }
     }, []);
 
     const handleClick = useCallback(() => {
@@ -77,7 +88,7 @@ export const Authorization: FC = () => {
                     </Btn>
                 </>
             )}
-            {isOpenModal && (
+            {isOpenModal && MOBILE_SCREEN && (
                 <MobileModal setIsOpenModal={setIsOpenModal}>
                     <div className={styles.container}>
                         <Text

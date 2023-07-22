@@ -18,13 +18,13 @@ export const Registration: FC = () => {
 
     const navigate = useNavigate();
 
-    const { createUser } = Auth();
+    const { registration } = Auth();
     const { getLocation } = useLocation();
 
     const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        createUser(tel, pass, confirmPass, 1, "Пользователи")
+        registration(tel, pass, confirmPass, 1, "Пользователи")
             .then((res) => {
                 console.log(res);
                 setPass("");

@@ -38,3 +38,30 @@ export interface INotificationStore {
     isNotification: boolean;
     setIsNotification: (bool: boolean) => void;
 }
+
+export type TGroups = "Пользователи" | "Врачи" | "Администраторы";
+
+export interface IUserPosition {
+    lat: number;
+    lng: number;
+    city: string;
+    counrty: string;
+}
+
+export interface IUserData {
+    center_id: number[];
+    disease_id: number[];
+    group: TGroups;
+    number: string;
+    position: IUserPosition;
+    setCenter: (centerId: number) => void;
+    setDiseases: (diseaseId: number) => void;
+    setGroup: (group: TGroups) => void;
+    setNumber: (phone: string) => void;
+    setPosition: (
+        lat: number,
+        lng: number,
+        city: string,
+        counrty: string
+    ) => void;
+}
