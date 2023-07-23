@@ -1,6 +1,7 @@
 import { FC, useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router";
 import { MarkerF } from "@react-google-maps/api";
+import Geocode from "react-geocode";
 // import { IPosition } from "../../Map/types";
 
 import { Btn, Filter, MobileFilter, MobileSearch, Text } from "@/shared";
@@ -8,9 +9,10 @@ import { Map } from "../../Map/Map";
 import { useFilter } from "@/shared/model/store";
 import { MOBILE_SCREEN } from "@/shared/utils";
 import { MobileModal } from "../../MobileModal/MobileModal";
-// import { useUserData } from "@/shared/model/store";
+import { useUserData } from "@/shared/model/store";
 
 import styles from "./Authorization.module.scss";
+import { IGeocoderData } from "./types";
 
 export const Authorization: FC = () => {
     const [hasPermission, setHasPermission] = useState<boolean>(false);
@@ -18,7 +20,7 @@ export const Authorization: FC = () => {
 
     const navigate = useNavigate();
     const { isFilter } = useFilter();
-    // const { setPosition } = useUserData();
+    const { setPosition, position } = useUserData();
 
     useEffect(() => {
         const permission = "geolocation" in navigator;
@@ -26,12 +28,33 @@ export const Authorization: FC = () => {
         setIsOpenModal(true);
 
         if (permission) {
-            navigator.geolocation.getCurrentPosition((pos) => {
-                // const { latitude, longitude } = pos.coords;
+            navigator.geolocation.getCurrentPosition(
+                (pos: GeolocationPosition) => {
+                    const { latitude, longitude } = pos.coords;
+                    let city = "";
+                    let country = "";
 
-                console.log(navigator.geolocation, pos);
-                // setPosition(latitude, longitude);
-            });
+                    Geocode.setApiKey(import.meta.env.VITE_GOOGLE_MAP_API_KEY);
+                    Geocode.setLanguage("ru");
+                    Geocode.fromLatLng(
+                        latitude.toString(),
+                        longitude.toString()
+                    ).then((res: IGeocoderData) => {
+                        const addressComponents =
+                            res.results[0].address_components;
+
+                        for (const data of addressComponents) {
+                            if (data.types.includes("locality")) {
+                                city = data.long_name;
+                            } else if (data.types.includes("country")) {
+                                country = data.long_name;
+                            }
+                        }
+                    });
+
+                    setPosition(latitude, longitude, city, country);
+                }
+            );
         }
     }, []);
 
@@ -72,10 +95,15 @@ export const Authorization: FC = () => {
                         <Map
                             width="100%"
                             height="430px"
-                            position={{ lat: 0, lng: 0 }}
+                            position={{ lat: position.lat, lng: position.lng }}
                             zoom={14}
                         >
-                            <MarkerF position={{ lat: 0, lng: 0 }} />
+                            <MarkerF
+                                position={{
+                                    lat: position.lat,
+                                    lng: position.lng,
+                                }}
+                            />
                         </Map>
                         {MOBILE_SCREEN ? (
                             <MobileFilter data={["Здоров", "Болен"]} />
