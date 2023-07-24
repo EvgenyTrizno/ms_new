@@ -56,7 +56,7 @@ export const Authorization: FC = () => {
                 }
             );
         }
-    }, []);
+    }, [setPosition]);
 
     const handleClick = useCallback(() => {
         if (isFilter === "Болен") {

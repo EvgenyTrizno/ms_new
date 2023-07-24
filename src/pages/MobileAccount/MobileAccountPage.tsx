@@ -1,9 +1,11 @@
+/* eslint-disable react-refresh/only-export-components */
 import { FC } from "react";
 import { useNavigate } from "react-router";
 
 import { MobileContainer } from "@/widgets";
 import { useUserCondition } from "@/shared/model/store";
 import { BackArrow, Text } from "@/shared";
+import { withPageTransition } from "@/entities/withPageTransition";
 
 import man from "/assets/man.jpg";
 import styles from "./MobileAccountPage.module.scss";
@@ -292,4 +294,4 @@ const MobileAccountPage: FC = () => {
     );
 };
 
-export default MobileAccountPage;
+export default withPageTransition(MobileAccountPage);
