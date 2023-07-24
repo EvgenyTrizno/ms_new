@@ -11,11 +11,12 @@ import {
     INotificationStore,
     IUserData,
     TGroups,
+    IIsProfile,
 } from "./types";
 
 export const useMenu = create<IMenuStore>()(
     immer((set) => ({
-        isSelect: "Создать событие",
+        isSelect: "Главная",
         setIsSelect: (arg: TIsSelect) => {
             set((state) => {
                 state.isSelect = arg;
@@ -113,5 +114,15 @@ export const useUserData = create<IUserData>()(
                     (state.position.counrty = counrty);
             });
         },
+    }))
+);
+
+export const useProfile = create<IIsProfile>()(
+    immer((set) => ({
+        isProfile: false,
+        setIsProfile: (arg: boolean) =>
+            set((state) => {
+                state.isProfile = arg;
+            }),
     }))
 );

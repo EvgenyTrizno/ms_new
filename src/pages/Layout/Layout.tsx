@@ -11,6 +11,7 @@ import {
 } from "@/widgets";
 import { MOBILE_SCREEN } from "@/shared/utils";
 import { useExtraCall, useNotification } from "@/shared/model/store";
+import MobileAccountPage from "@/widgets/components/MobileAccount/MobileAccountPage";
 
 import extra from "/assets/extra-call.svg";
 import styles from "./Layout.module.scss";
@@ -26,6 +27,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                     {children}
                     <MobileMenu />
                     <ExtraCallMobile />
+                    <MobileAccountPage />
                 </div>
             ) : (
                 <>

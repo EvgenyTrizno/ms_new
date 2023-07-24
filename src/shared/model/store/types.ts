@@ -65,3 +65,8 @@ export interface IUserData {
         counrty: string
     ) => void;
 }
+
+export interface IIsProfile {
+    isProfile: boolean;
+    setIsProfile: (arg: boolean) => void;
+}

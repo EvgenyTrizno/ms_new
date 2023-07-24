@@ -46,9 +46,6 @@ const MobileMessagesPage = lazy(
 );
 const MobileProfile = lazy(() => import("@/pages/MobileProfile/MobileProfile"));
 const MobileChatPage = lazy(() => import("@/pages/MobileChat/MobileChatPage"));
-const MobileAccountPage = lazy(
-    () => import("@/pages/MobileAccount/MobileAccountPage")
-);
 const AccountSettingsPage = lazy(
     () => import("@/pages/Settings/AccountSettingsPage/AccountSettingsPage")
 );
@@ -157,11 +154,6 @@ export const routes: RouteData[] = [
         key: "mobile-profile_page",
     },
     { path: "/m/chat/:id", Component: MobileChatPage, key: "mobile-chat_page" },
-    {
-        path: "/m/account",
-        Component: MobileAccountPage,
-        key: "mobile-account_page",
-    },
     {
         path: "/m/settings/account",
         Component: AccountSettingsPage,

@@ -1,15 +1,14 @@
 import { FC } from "react";
-import { useNavigate } from "react-router";
 
 import { Icons, MobileSwitcher } from "@/shared";
-import { useUserCondition } from "@/shared/model/store";
+import { useProfile, useUserCondition } from "@/shared/model/store";
 
 import man from "/assets/man.jpg";
 import styles from "./MobileHeader.module.scss";
 
 export const MobileHeader: FC = () => {
-    const navigate = useNavigate();
     const { condition } = useUserCondition();
+    const { setIsProfile, isProfile } = useProfile();
 
     return (
         <div
@@ -22,7 +21,7 @@ export const MobileHeader: FC = () => {
                 src={man}
                 alt=""
                 className={styles.avatar}
-                onClick={() => navigate("/m/account")}
+                onClick={() => setIsProfile(!isProfile)}
             />
             <MobileSwitcher />
             <div className={styles.settings}>

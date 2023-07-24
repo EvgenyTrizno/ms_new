@@ -1,4 +1,12 @@
 .account {
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background);
+    top: 0;
+    left: 0;
+
     .header {
         background-color: var(--white);
         height: 70px;
@@ -60,4 +68,15 @@
             }
         }
     }
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
 }
