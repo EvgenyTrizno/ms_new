@@ -34,7 +34,7 @@ const ProfilePage: FC = () => {
                 id: useId(),
                 label: "Профиль",
                 icon: {
-                    helthy: user,
+                    healthy: user,
                     sick: userRed,
                 },
                 content: (
@@ -54,7 +54,7 @@ const ProfilePage: FC = () => {
                 id: useId(),
                 label: "Защита профиля",
                 icon: {
-                    helthy: shield,
+                    healthy: shield,
                     sick: shieldRed,
                 },
                 content: (
@@ -68,7 +68,7 @@ const ProfilePage: FC = () => {
                 id: useId(),
                 label: "Медицинский центр",
                 icon: {
-                    helthy: homeWithPlus,
+                    healthy: homeWithPlus,
                     sick: homeWithPlusRed,
                 },
                 content: <div>params</div>,
@@ -79,7 +79,7 @@ const ProfilePage: FC = () => {
                 id: useId(),
                 label: "Подписки",
                 icon: {
-                    helthy: heart,
+                    healthy: heart,
                     sick: heartRed,
                 },
                 content: <div>params</div>,
@@ -88,7 +88,7 @@ const ProfilePage: FC = () => {
                 id: useId(),
                 label: "Сохраненное",
                 icon: {
-                    helthy: archive,
+                    healthy: archive,
                     sick: archiveRed,
                 },
                 content: <div>params</div>,
@@ -97,7 +97,7 @@ const ProfilePage: FC = () => {
                 id: useId(),
                 label: "Покупки",
                 icon: {
-                    helthy: cart,
+                    healthy: cart,
                     sick: cartRed,
                 },
                 content: <div>params</div>,
@@ -124,7 +124,7 @@ const ProfilePage: FC = () => {
                                                 src={
                                                     sick
                                                         ? item.icon.sick
-                                                        : item.icon.helthy
+                                                        : item.icon.healthy
                                                 }
                                                 alt=""
                                             />
@@ -169,7 +169,7 @@ const ProfilePage: FC = () => {
                                                 src={
                                                     sick
                                                         ? item.icon.sick
-                                                        : item.icon.helthy
+                                                        : item.icon.healthy
                                                 }
                                                 alt=""
                                             />

@@ -1,12 +1,26 @@
-import { KeyboardEvent, ChangeEvent, FC, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import {
+    KeyboardEvent,
+    ChangeEvent,
+    FC,
+    useRef,
+    useState,
+    useEffect,
+} from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Btn, Text } from "@/shared";
+import { Auth } from "@/shared/api/Auth";
+import { useUserData } from "@/shared/model/store";
 
 import styles from "./Confirmation.module.scss";
 
 export const Confirmation: FC = () => {
     const [code, setCode] = useState("");
+    const [seconds, setSeconds] = useState<number>(60);
+
+    const navigate = useNavigate();
+    const { number } = useUserData();
+    const { sendVerifyCode } = Auth();
 
     const codeRefs = [
         useRef<HTMLInputElement>(null),
@@ -38,6 +52,26 @@ export const Confirmation: FC = () => {
             codeRefs[i - 1].current?.focus();
         }
     };
+
+    const handleClick = () => {
+        if (code && number) {
+            sendVerifyCode(number, +code)
+                .then((res) => console.log(res))
+                .then(() => navigate("/"));
+        }
+    };
+
+    useEffect(() => {
+        let interval: NodeJS.Timeout;
+
+        if (seconds > 0) {
+            interval = setInterval(() => {
+                setSeconds((prevSeconds) => prevSeconds - 1);
+            }, 1000);
+        }
+
+        return () => clearInterval(interval);
+    }, [seconds]);
 
     return (
         <div className={styles.confirmation}>
@@ -90,10 +124,16 @@ export const Confirmation: FC = () => {
             </div>
             <div className={styles.timer}>
                 <Text type="p" position="center" color="#262626" fz="20px">
-                    0 0 : 5 9
+                    {seconds === 0
+                        ? "Отправить код повторно"
+                        : seconds === 60
+                        ? "1:00"
+                        : `00:${seconds < 10 ? `0${seconds}` : seconds}`}
                 </Text>
             </div>
-            <Btn color="#0064FA">Зарегестрироваться</Btn>
+            <Btn color="#0064FA" onClick={handleClick}>
+                Зарегестрироваться
+            </Btn>
             <div className={styles.redirect}>
                 Уже имеется аккаунт?
                 <Link to="/auth/login" className={styles.link}>

@@ -16,7 +16,7 @@ import {
 
 export const useMenu = create<IMenuStore>()(
     immer((set) => ({
-        isSelect: "Главная",
+        isSelect: "Главная" as TIsSelect,
         setIsSelect: (arg: TIsSelect) => {
             set((state) => {
                 state.isSelect = arg;

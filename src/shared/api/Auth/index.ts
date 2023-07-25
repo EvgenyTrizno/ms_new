@@ -38,15 +38,15 @@ export const Auth = () => {
     };
 
     const sendVerifyCode = async (
-        phone_number: string,
-        code: number
+        number: string,
+        verification_code: number
     ): Promise<IVerifyCodeProps> => {
         const res: IVerifyCodeProps = await request(
             `${BASE_URL}/api/verify-code/`,
             "POST",
             {
-                phone_number,
-                code,
+                number,
+                verification_code,
             }
         );
 

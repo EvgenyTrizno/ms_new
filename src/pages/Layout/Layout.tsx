@@ -27,7 +27,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                     {children}
                     <MobileMenu />
                     <ExtraCallMobile />
-                    <MobileAccountPage />
+                    {/* <MobileAccountPage /> */}
                 </div>
             ) : (
                 <>
