@@ -2,8 +2,8 @@ import { FC, useState, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Text, Input, Btn, Checkbox } from "@/shared";
+import { useUserData } from "@/shared/model/store";
 import { Auth } from "@/shared/api/Auth";
-import { useLocation } from "@/shared/hooks";
 
 import facebook from "/assets/facebook.svg";
 import apple from "/assets/apple.svg";
@@ -17,9 +17,9 @@ export const Registration: FC = () => {
     const [checked, setChecked] = useState<boolean>(false);
 
     const navigate = useNavigate();
+    const { setNumber, setGroup, setPass1, setPass2 } = useUserData();
 
     const { registration } = Auth();
-    const { getLocation } = useLocation();
 
     const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -31,8 +31,11 @@ export const Registration: FC = () => {
                 setTel("");
                 setConfirmPass("");
                 setChecked(false);
+                setNumber(res.number);
+                setGroup(res.group);
+                setPass1(pass);
+                setPass2(confirmPass);
             })
-            .then(() => getLocation())
             .then(() => {
                 navigate("/auth");
             })

@@ -41,7 +41,7 @@ const MobileNotesPage: FC = () => {
                         filterBtn
                         onClick={() => navigate("/m/create-event")}
                     />
-                    <MobileFilter data={["Предстоящие", "История"]} />
+                    <MobileFilter data={["Подтвержденные", "Доп.проверка"]} />
                 </div>
                 <div className={styles.items}>
                     {![].length ? (

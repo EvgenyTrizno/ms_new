@@ -50,13 +50,24 @@
     }
 
     .content {
-        margin-top: 15px;
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
+        transition: grid-template-rows 500ms ease;
+        opacity: 0;
 
         .inner {
             display: flex;
             flex-direction: column;
             grid-gap: 25px;
         }
+    }
+
+    .contentOpen {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        margin-top: 15px;
+        transition: all 0.5s cubic-bezier(0.39, 0.58, 0.57, 1)
     }
 
     .grayBlock {

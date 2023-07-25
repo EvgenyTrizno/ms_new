@@ -12,10 +12,7 @@
     font-weight: 600;
     padding: 15px 25px;
     box-sizing: border-box;
-
-    span {
-        position: absolute;
-    }
+    transition: all ease .3s;
 }
 
 .btn:disabled {

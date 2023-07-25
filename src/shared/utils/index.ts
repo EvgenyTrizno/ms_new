@@ -7,4 +7,4 @@ type Libraries = (
 )[];
 
 export const MOBILE_SCREEN = window.screen.width <= 576;
-export const GOOGLE_LIBRARIES: Libraries = ["places"];
+export const GOOGLE_LIBRARIES: Libraries = ["places", "geometry"];

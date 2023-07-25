@@ -5,6 +5,7 @@
     border: 1px solid transparent;
     font-family: "Montserrat";
     font-weight: 500;
+    transition: ease .3s;
 
     .item {
         display: flex;
@@ -18,26 +19,45 @@
 
         svg {
             fill: var(--gray);
+            z-index: 1;
         }
     }
 
-    .healthy {
+    .item::before {
+        content: '';
+        width: 65px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        transform: scaleY(0);
+        transition: ease-in-out 600ms;
+    }
+
+    .item.healthy::before {
         background-color: var(--blue-100);
+        transform: scaleY(1);
         color: var(--blue);
         border-top-left-radius: var(--default-border);
         border-bottom-left-radius: var(--default-border);
-        
+    }
+
+    .healthy {
         svg {
             fill: var(--blue) !important;
         }
     }
 
-    .sick {
+    .item.sick::before {
+        transform: scaleY(1);
         background-color: #F7E6E8;
         color: var(--red-400);
         border-top-right-radius: var(--default-border);
         border-bottom-right-radius: var(--default-border);
+    }
 
+    .sick {
         svg {
             fill: var(--red-400);
         }

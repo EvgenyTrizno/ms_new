@@ -17,7 +17,7 @@ export const Auth = () => {
         password2: string,
         stage: StageType,
         group: TGroups,
-        center_id?: number,
+        main_center?: number,
         disease_id?: number[]
     ): Promise<ICreateUser> => {
         const data: ICreateUser = await request(
@@ -29,7 +29,7 @@ export const Auth = () => {
                 password1,
                 password2,
                 group,
-                center_id,
+                main_center,
                 disease_id,
             }
         );

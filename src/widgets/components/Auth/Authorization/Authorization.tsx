@@ -1,33 +1,51 @@
-import { FC, useEffect, useState, useCallback } from "react";
+import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { MarkerF } from "@react-google-maps/api";
 import Geocode from "react-geocode";
-// import { IPosition } from "../../Map/types";
+import { IGeocoderData } from "./types";
 
 import { Btn, Filter, MobileFilter, MobileSearch, Text } from "@/shared";
+import { useLocation } from "@/shared/hooks";
 import { Map } from "../../Map/Map";
 import { useFilter } from "@/shared/model/store";
 import { MOBILE_SCREEN } from "@/shared/utils";
 import { MobileModal } from "../../MobileModal/MobileModal";
+import { ICentersData } from "@/shared/api/Centers/types";
 import { useUserData } from "@/shared/model/store";
+import { Centers } from "@/shared/api/Centers";
+import { Auth } from "@/shared/api/Auth";
 
 import styles from "./Authorization.module.scss";
-import { IGeocoderData } from "./types";
 
 export const Authorization: FC = () => {
     const [hasPermission, setHasPermission] = useState<boolean>(false);
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+    const [centers, setCenters] = useState<ICentersData[]>([]);
+    const [distance, setDistance] = useState<string>("");
+    const { getLocation } = useLocation();
 
     const navigate = useNavigate();
     const { isFilter } = useFilter();
-    const { setPosition, position } = useUserData();
+    const {
+        setPosition,
+        position,
+        pass1,
+        pass2,
+        number,
+        group,
+        setCenter,
+        main_center,
+    } = useUserData();
+    const { getCentersByCity } = Centers();
+    const { registration } = Auth();
+
+    getLocation();
 
     useEffect(() => {
         const permission = "geolocation" in navigator;
-        setHasPermission(permission);
-        setIsOpenModal(true);
+        setHasPermission(!permission);
 
-        if (permission) {
+        if (permission === true) {
             navigator.geolocation.getCurrentPosition(
                 (pos: GeolocationPosition) => {
                     const { latitude, longitude } = pos.coords;
@@ -40,6 +58,7 @@ export const Authorization: FC = () => {
                         latitude.toString(),
                         longitude.toString()
                     ).then((res: IGeocoderData) => {
+                        setHasPermission(true);
                         const addressComponents =
                             res.results[0].address_components;
 
@@ -50,19 +69,67 @@ export const Authorization: FC = () => {
                                 country = data.long_name;
                             }
                         }
+
+                        getCentersByCity("Москва" || position.city).then(
+                            (res) => setCenters(res)
+                        );
                     });
 
                     setPosition(latitude, longitude, city, country);
+                },
+                (error: GeolocationPositionError) => {
+                    console.error("Ошибка при получении геолокации:", error);
+                    setHasPermission(false);
+                    setIsOpenModal(false);
                 }
             );
+        } else {
+            setHasPermission(false);
         }
-    }, [setPosition]);
 
-    const handleClick = useCallback(() => {
+        return () => {
+            setHasPermission(false);
+            setIsOpenModal(false);
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [setPosition, position.city]);
+
+    useEffect(() => {
+        try {
+            if (google && centers.length > 0 && position.lat && position.lng) {
+                setDistance(
+                    (
+                        +google.maps.geometry.spherical.computeDistanceBetween(
+                            { lat: position.lat, lng: position.lng },
+                            { lat: +centers[0].lat, lng: +centers[0].lng }
+                        ) / 1000
+                    ).toFixed()
+                );
+            }
+            // eslint-disable-next-line no-empty
+        } catch (e) {}
+    }, [centers, position.lat, position.lng]);
+
+    const handleSelectCenter = (id: number) => {
+        if (main_center === null) setCenter(id);
+        else {
+            return;
+        }
+    };
+
+    console.log(pass2);
+
+    const handleClick = () => {
+        if (main_center) {
+            registration(number, pass1, pass2, 2, group, main_center).then(
+                (res) => console.log(res)
+            );
+        }
+
         if (isFilter === "Болен") {
             navigate("/virus-list");
         }
-    }, [isFilter, navigate]);
+    };
 
     return (
         <div className={styles.authorization}>
@@ -88,15 +155,18 @@ export const Authorization: FC = () => {
                 <>
                     <div className={styles.box}>
                         <Text type="p" position="center" color="#262626">
-                            Также в 5 км от вас находятся наши агенты но перед
-                            этим вам необходимо указать свое состояние на данный
-                            момент
+                            Также в {distance} км от вас находятся наши агенты
+                            но перед этим вам необходимо указать свое состояние
+                            на данный момент
                         </Text>
                         <Map
                             width="100%"
                             height="430px"
-                            position={{ lat: position.lat, lng: position.lng }}
-                            zoom={14}
+                            position={{
+                                lat: position.lat,
+                                lng: position.lng,
+                            }}
+                            zoom={5}
                         >
                             <MarkerF
                                 position={{
@@ -104,6 +174,16 @@ export const Authorization: FC = () => {
                                     lng: position.lng,
                                 }}
                             />
+                            {centers.map((item) => (
+                                <MarkerF
+                                    key={item.id}
+                                    onClick={() => handleSelectCenter(item.id)}
+                                    position={{
+                                        lat: +item.lat,
+                                        lng: +item.lng,
+                                    }}
+                                />
+                            ))}
                         </Map>
                         {MOBILE_SCREEN ? (
                             <MobileFilter data={["Здоров", "Болен"]} />

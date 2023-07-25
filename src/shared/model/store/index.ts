@@ -39,7 +39,7 @@ export const useFilter = create<IFilterStore>()(
 export const useExtraCall = create<IExtraCall>()(
     immer((set) => ({
         isOpen: false,
-        setIsOpen: (arg) => {
+        setIsOpen: (arg: boolean) => {
             set((state) => {
                 state.isOpen = arg;
             });
@@ -71,10 +71,12 @@ export const useNotification = create<INotificationStore>()(
 
 export const useUserData = create<IUserData>()(
     immer((set) => ({
-        center_id: [],
+        main_center: null,
         disease_id: [],
         group: "Пользователи",
         number: "",
+        pass1: "",
+        pass2: "",
         position: {
             lat: 0,
             lng: 0,
@@ -83,7 +85,7 @@ export const useUserData = create<IUserData>()(
         },
         setCenter: (centerId: number) => {
             set((state) => {
-                state.center_id.push(centerId);
+                state.main_center = centerId as number;
             });
         },
         setDiseases: (diseaseId: number) => {
@@ -99,6 +101,16 @@ export const useUserData = create<IUserData>()(
         setNumber: (phone: string) => {
             set((state) => {
                 state.number = phone;
+            });
+        },
+        setPass1: (pass: string) => {
+            set((state) => {
+                state.pass1 = pass;
+            });
+        },
+        setPass2: (pass: string) => {
+            set((state) => {
+                state.pass2 = pass;
             });
         },
         setPosition: (

@@ -7,7 +7,7 @@ export const Virus = () => {
 
     const getVirusList = async () => {
         const data: IVirusListData[] = await request(
-            `${BASE_URL}/api/create/user/get_diseases/`
+            `${BASE_URL}/api/users/diseases/`
         );
 
         return data;

@@ -150,5 +150,10 @@ export const Account = () => {
         verifyEmail,
         sendVerifyCodeForVerifyEmail,
         getUserNotesByToken,
+        createNotesByUserToken,
+        deleteNote,
+        changeNotesData,
+        getNoteById,
+        getAllDoctors,
     };
 };

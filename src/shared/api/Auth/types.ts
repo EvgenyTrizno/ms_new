@@ -1,5 +1,5 @@
 export type StageType = 1 | 2 | 3;
-export type TGroups = "Пользователи" | "Администраторы";
+export type TGroups = "Пользователи" | "Администраторы" | "Врачи";
 
 export interface ICreateUser {
     number: string;
@@ -7,7 +7,7 @@ export interface ICreateUser {
     password2: string;
     stage: StageType;
     group: TGroups;
-    center_id: number | null;
+    main_center: number | null;
     disease_id: number[];
 }
 

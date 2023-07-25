@@ -49,15 +49,19 @@ export interface IUserPosition {
 }
 
 export interface IUserData {
-    center_id: number[];
+    main_center: number | null;
     disease_id: number[];
     group: TGroups;
     number: string;
     position: IUserPosition;
+    pass1: string;
+    pass2: string;
     setCenter: (centerId: number) => void;
     setDiseases: (diseaseId: number) => void;
     setGroup: (group: TGroups) => void;
     setNumber: (phone: string) => void;
+    setPass1: (pass1: string) => void;
+    setPass2: (pass2: string) => void;
     setPosition: (
         lat: number,
         lng: number,

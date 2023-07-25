@@ -1,4 +1,4 @@
-import { FC, useId } from "react";
+import { FC, useId, useState } from "react";
 
 import {
     CustomMobileHeader,
@@ -16,6 +16,9 @@ import cross from "/assets/cross-black-small.svg";
 import styles from "./MobileCreateEventPage.module.scss";
 
 const MobileCreateEventPage: FC = () => {
+    const [isChecked, setIsCheked] = useState<boolean>(false);
+    const [ids, setIds] = useState<string[]>([]);
+
     const data = [
         {
             id: useId(),
@@ -115,6 +118,8 @@ const MobileCreateEventPage: FC = () => {
         },
     ];
 
+    console.log(ids);
+
     return (
         <div className={styles.events}>
             <CustomMobileHeader>
@@ -167,10 +172,30 @@ const MobileCreateEventPage: FC = () => {
                                         <Text type="p" fz="15px">
                                             {item.title}
                                         </Text>
-                                        <MobileSwitch />
+                                        <MobileSwitch
+                                            checked={
+                                                isChecked &&
+                                                ids.includes(item.id)
+                                            }
+                                            onChange={(e) => {
+                                                setIsCheked(
+                                                    e?.target.checked as boolean
+                                                );
+                                                setIds([...ids, item.id]);
+                                            }}
+                                        />
                                     </div>
-                                    <div className={styles.content}>
-                                        <div className={styles.inner}>
+                                    <div
+                                        className={
+                                            isChecked && ids.includes(item.id)
+                                                ? `${styles.content} ${styles.contentOpen}`
+                                                : styles.content
+                                        }
+                                    >
+                                        <div
+                                            className={styles.inner}
+                                            style={{ minHeight: 0 }}
+                                        >
                                             <Text
                                                 type="p"
                                                 color="#7D7F82"
