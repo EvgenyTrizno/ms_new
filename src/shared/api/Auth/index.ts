@@ -2,6 +2,7 @@ import { useHttp } from "@/shared/hooks";
 import { BASE_URL } from "@/shared/config";
 import {
     ICreateUser,
+    ITokensResult,
     IVerifyCodeProps,
     StageType,
     TGroups,
@@ -37,6 +38,24 @@ export const Auth = () => {
         return data;
     };
 
+    const getToket = async (
+        number: string,
+        password: string
+    ): Promise<ITokensResult> => {
+        const data: ITokensResult = await request(
+            `${BASE_URL}/api/token/`,
+            "POST",
+            {
+                number,
+                password,
+            }
+        );
+
+        return data;
+    };
+
+    // const tokenСomparison;
+
     const sendVerifyCode = async (
         number: string,
         verification_code: number
@@ -53,11 +72,11 @@ export const Auth = () => {
         return res;
     };
 
-    const resendVerifyCode = async (phone_number: string) => {
+    const resendVerifyCode = async (number: string) => {
         const code: TResentVerifyCodeProps = await request(
             `${BASE_URL}/api/resend-sms/`,
             "POST",
-            { phone_number }
+            { number }
         );
 
         return code;
@@ -81,9 +100,16 @@ export const Auth = () => {
         return data;
     };
 
-    const recoveryPassword = async (number?: string, email?: string) => {
+    const recoveryPasswordByNumber = async (number: string) => {
         const data = await request(`${BASE_URL}/api/reset-password/`, "POST", {
             number,
+        });
+
+        return data;
+    };
+
+    const recoveryPasswordByEmail = async (email: string) => {
+        const data = await request(`${BASE_URL}/api/reset-password/`, "POST", {
             email,
         });
 
@@ -137,9 +163,11 @@ export const Auth = () => {
         updateAdmin,
         sendVerifyCode,
         resendVerifyCode,
-        recoveryPassword,
+        recoveryPasswordByNumber,
+        recoveryPasswordByEmail,
         sendVerifyCodeRecoveryPassOnEmail,
         sendVerifyCodeRecoveryPassOnPhone,
         changePassword,
+        getToket,
     };
 };

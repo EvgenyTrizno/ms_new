@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+
 import { Routing } from "./providers/Routing";
 import { routes } from "../pages";
 import { PSuspense } from "./providers/Suspense";

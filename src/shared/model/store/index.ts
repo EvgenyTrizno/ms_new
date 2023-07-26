@@ -72,6 +72,7 @@ export const useNotification = create<INotificationStore>()(
 export const useUserData = create<IUserData>()(
     immer((set) => ({
         main_center: null,
+        isAuth: false,
         disease_id: [],
         group: "Пользователи",
         number: "",
@@ -101,6 +102,11 @@ export const useUserData = create<IUserData>()(
         setNumber: (phone: string) => {
             set((state) => {
                 state.number = phone;
+            });
+        },
+        setAuth: (bool: boolean) => {
+            set((state) => {
+                state.isAuth = bool;
             });
         },
         setPass1: (pass: string) => {

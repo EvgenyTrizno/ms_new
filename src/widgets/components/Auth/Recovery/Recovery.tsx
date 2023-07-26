@@ -1,11 +1,34 @@
-import { FC, useState } from "react";
+import { FC, useState, FormEvent, ChangeEvent } from "react";
+import { TypeOfSelectedMethod } from "./types";
 
+import { Auth } from "@/shared/api/Auth";
 import { Btn, Input, Text } from "@/shared";
 
 import styles from "./Recovery.module.scss";
 
 export const Recovery: FC = () => {
-    const [isSelect, setIsSelect] = useState<string>("tel");
+    const [isSelect, setIsSelect] = useState<TypeOfSelectedMethod>("tel");
+    const [number, setNumber] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+
+    const { recoveryPasswordByEmail, recoveryPasswordByNumber } = Auth();
+
+    const disableBtn =
+        isSelect === "email" && !email
+            ? true
+            : isSelect === "tel" && !number
+            ? true
+            : false;
+
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault();
+
+        if (number) {
+            recoveryPasswordByNumber(number).then((res) => console.log(res));
+        } else if (email) {
+            recoveryPasswordByEmail(email).then((res) => console.log(res));
+        }
+    };
 
     return (
         <div className={styles.recovery}>
@@ -40,24 +63,40 @@ export const Recovery: FC = () => {
                 <div
                     className={styles.item}
                     style={
-                        isSelect === "mail"
+                        isSelect === "email"
                             ? { borderBottomColor: "#262626" }
                             : {}
                     }
-                    onClick={() => setIsSelect("mail")}
+                    onClick={() => setIsSelect("email")}
                 >
                     <Text type="p" fz="24px" color="#414141">
                         Эл. Почта
                     </Text>
                 </div>
             </div>
-            <form action="#" className={styles.form}>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 {isSelect === "tel" ? (
-                    <Input type="text" placeholder="Введите тел.номер" />
+                    <Input
+                        type="text"
+                        placeholder="Введите тел.номер"
+                        value={number}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                            setNumber(e.target.value)
+                        }
+                    />
                 ) : (
-                    <Input type="text" placeholder="Введите эл.почту" />
+                    <Input
+                        type="text"
+                        placeholder="Введите эл.почту"
+                        value={email}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                            setEmail(e.target.value)
+                        }
+                    />
                 )}
-                <Btn color="#0064FA">Продолжить</Btn>
+                <Btn color="#0064FA" type="submit" disabled={disableBtn}>
+                    Продолжить
+                </Btn>
             </form>
         </div>
     );

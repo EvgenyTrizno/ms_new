@@ -17,3 +17,8 @@ export interface IVerifyCodeProps {
 }
 
 export type TResentVerifyCodeProps = Omit<IVerifyCodeProps, "code">;
+
+export interface ITokensResult {
+    access: string;
+    refresh: string;
+}

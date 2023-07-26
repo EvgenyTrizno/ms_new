@@ -15,12 +15,12 @@ import { useUserData } from "@/shared/model/store";
 import styles from "./Confirmation.module.scss";
 
 export const Confirmation: FC = () => {
-    const [code, setCode] = useState("");
+    const [code, setCode] = useState<string>("");
     const [seconds, setSeconds] = useState<number>(60);
 
     const navigate = useNavigate();
-    const { number } = useUserData();
-    const { sendVerifyCode } = Auth();
+    const { number, pass1 } = useUserData();
+    const { sendVerifyCode, resendVerifyCode, getToket } = Auth();
 
     const codeRefs = [
         useRef<HTMLInputElement>(null),
@@ -28,6 +28,8 @@ export const Confirmation: FC = () => {
         useRef<HTMLInputElement>(null),
         useRef<HTMLInputElement>(null),
     ];
+
+    const noCode = code.length !== 4 || number === "";
 
     const handleCodeInputChange = (
         e: ChangeEvent<HTMLInputElement>,
@@ -53,11 +55,28 @@ export const Confirmation: FC = () => {
         }
     };
 
+    const setCookie = (name: string, value: string, days: number) => {
+        const date: Date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
+    };
+
     const handleClick = () => {
         if (code && number) {
             sendVerifyCode(number, +code)
                 .then((res) => console.log(res))
-                .then(() => navigate("/"));
+                .then(() =>
+                    getToket(number, pass1)
+                        // .then((res) => setCookie("access_token", res.access, 1))
+                        .then((res) => console.log(res))
+                        .then(() => navigate("/"))
+                );
+        }
+    };
+
+    const resendCodeHandler = () => {
+        if (number !== "") {
+            resendVerifyCode(number);
         }
     };
 
@@ -124,14 +143,21 @@ export const Confirmation: FC = () => {
             </div>
             <div className={styles.timer}>
                 <Text type="p" position="center" color="#262626" fz="20px">
-                    {seconds === 0
-                        ? "Отправить код повторно"
-                        : seconds === 60
-                        ? "1:00"
-                        : `00:${seconds < 10 ? `0${seconds}` : seconds}`}
+                    {seconds === 0 ? (
+                        <span
+                            style={{ cursor: "pointer" }}
+                            onClick={resendCodeHandler}
+                        >
+                            Отправить код повторно
+                        </span>
+                    ) : seconds === 60 ? (
+                        "1:00"
+                    ) : (
+                        `00:${seconds < 10 ? `0${seconds}` : seconds}`
+                    )}
                 </Text>
             </div>
-            <Btn color="#0064FA" onClick={handleClick}>
+            <Btn color="#0064FA" onClick={handleClick} disabled={noCode}>
                 Зарегестрироваться
             </Btn>
             <div className={styles.redirect}>
