@@ -55,11 +55,11 @@ export const Confirmation: FC = () => {
         }
     };
 
-    const setCookie = (name: string, value: string, days: number) => {
-        const date: Date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
-    };
+    // const setCookie = (name: string, value: string, days: number) => {
+    //     const date: Date = new Date();
+    //     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    //     document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
+    // };
 
     const handleClick = () => {
         if (code && number) {

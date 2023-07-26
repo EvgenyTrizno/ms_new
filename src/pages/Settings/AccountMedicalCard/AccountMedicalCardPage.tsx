@@ -27,7 +27,7 @@ const AccountMedicalCardPage: FC = () => {
                         placeholder="Введите запрос"
                         filterBtn={false}
                     />
-                    <MobileCalendar />
+                    <MobileCalendar info={false} />
                     <div className={styles.box}>
                         <Text type="p" fz="14px" color="#7D7F82">
                             10 Октябрь
