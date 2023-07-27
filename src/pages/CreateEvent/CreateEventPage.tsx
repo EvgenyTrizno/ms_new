@@ -1,13 +1,25 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 import { Layout } from "../Layout/Layout";
 import { Btn, Filter, Switch, Text } from "@/shared";
 import { Calendar, Card, Slider } from "@/widgets";
+import { Account } from "@/shared/api/Account";
+import { getRefreshTokenFromCookies } from "@/features";
 
 import info from "/assets/info-circle.svg";
 import styles from "./CreateEventPage.module.scss";
 
 const CreateEventPage: FC = () => {
+    const { getAllDoctors } = Account();
+
+    useEffect(() => {
+        if (getRefreshTokenFromCookies()) {
+            getAllDoctors(getRefreshTokenFromCookies() as string).then((res) =>
+                console.log(res)
+            );
+        }
+    }, []);
+
     return (
         <Layout>
             <div className={styles.container}>

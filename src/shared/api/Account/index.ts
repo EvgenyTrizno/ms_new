@@ -91,8 +91,10 @@ export const Account = () => {
         return data;
     };
 
-    const getAllDoctors = async () => {
-        const data = await request(`${BASE_URL}/api/notes/doctors/`);
+    const getAllDoctors = async (token: string) => {
+        const data = await request(`${BASE_URL}/api/notes/doctors/`, "GET", {
+            Authorization: token,
+        });
 
         return data;
     };

@@ -105,6 +105,7 @@ export const Menu: FC = () => {
             <div className={styles.list}>
                 {menuData.map((item) => (
                     <div
+                        key={item.id}
                         onClick={() =>
                             handleNavigate(item.path, item.label as TIsSelect)
                         }

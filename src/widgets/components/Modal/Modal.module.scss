@@ -6,7 +6,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    overflow: hidden;
+    background-color: rgba(38, 38, 38, 0.40);
+    backdrop-filter: blur(30px);
 
     .content {
         background-color: var(--white);

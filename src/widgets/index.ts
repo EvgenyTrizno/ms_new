@@ -31,6 +31,7 @@ import { NotificationModal } from "./components/NotificationModal/NotificationMo
 import { MobileCalendar } from "./components/MobileCalendar/MobileCalendar";
 import { MobileModal } from "./components/MobileModal/MobileModal";
 import { Modal } from "./components/Modal/Modal";
+import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorBoundaryFallback";
 
 export {
     Login,
@@ -66,4 +67,5 @@ export {
     MobileCalendar,
     MobileModal,
     Modal,
+    ErrorBoundaryFallback,
 };

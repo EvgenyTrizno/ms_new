@@ -30,6 +30,17 @@
     }
 }
 
+.btns {
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    margin-top: 42px;
+}
+
+.input {
+    margin-top: 20px;
+}
+
 @media screen and (max-width: 576px) {
     .authorization {
         width: 100vw;

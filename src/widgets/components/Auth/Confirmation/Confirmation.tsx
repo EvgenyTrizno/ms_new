@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Btn, Text } from "@/shared";
 import { Auth } from "@/shared/api/Auth";
 import { useUserData } from "@/shared/model/store";
+import { setCookie } from "@/features";
 
 import styles from "./Confirmation.module.scss";
 
@@ -55,20 +56,16 @@ export const Confirmation: FC = () => {
         }
     };
 
-    // const setCookie = (name: string, value: string, days: number) => {
-    //     const date: Date = new Date();
-    //     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    //     document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
-    // };
-
     const handleClick = () => {
         if (code && number) {
             sendVerifyCode(number, +code)
                 .then((res) => console.log(res))
                 .then(() =>
                     getToket(number, pass1)
-                        // .then((res) => setCookie("access_token", res.access, 1))
-                        .then((res) => console.log(res))
+                        .then((res) => {
+                            setCookie("access_token", res.access, 1);
+                            setCookie("refresh_token", res.refresh, 1);
+                        })
                         .then(() => navigate("/"))
                 );
         }

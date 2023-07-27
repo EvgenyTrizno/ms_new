@@ -51,7 +51,6 @@ export interface IUserPosition {
 export interface IUserData {
     main_center: number | null;
     disease_id: number[];
-    isAuth: boolean;
     group: TGroups;
     number: string;
     position: IUserPosition;
@@ -63,7 +62,6 @@ export interface IUserData {
     setNumber: (phone: string) => void;
     setPass1: (pass1: string) => void;
     setPass2: (pass2: string) => void;
-    setAuth: (bool: boolean) => void;
     setPosition: (
         lat: number,
         lng: number,

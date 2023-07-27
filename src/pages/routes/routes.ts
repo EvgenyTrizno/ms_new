@@ -13,9 +13,6 @@ const AuthMapPage = lazy(() => import("@/pages/Auth/AuthMapPage/AuthMapPage"));
 const AuthorizationPage = lazy(
     () => import("@/pages/Auth/AuthorizationPage/AuthorizationPage")
 );
-const VirusListPage = lazy(
-    () => import("@/pages/Auth/VirusListPage/VirusListPage")
-);
 const ConfirmationPage = lazy(
     () => import("@/pages/Auth/ConfirmationPage/ConfirmationPage")
 );
@@ -109,7 +106,6 @@ export const routes: RouteData[] = [
     { path: "/auth/recovery", Component: RecoveryPage, key: "recovery_page" },
     { path: "/auth/map", Component: AuthMapPage, key: "auth-map_page" },
     { path: "/auth", Component: AuthorizationPage, key: "auth_page" },
-    { path: "/virus-list", Component: VirusListPage, key: "virus-list_page" },
     { path: "/auth/confirm", Component: ConfirmationPage, key: "confirm_page" },
     { path: "/search", Component: SearchPage, key: "search_page" },
     { path: "/profile", Component: ProfilePage, key: "profile_page" },

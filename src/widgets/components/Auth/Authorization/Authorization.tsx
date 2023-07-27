@@ -1,10 +1,12 @@
 import { FC, useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 import { MarkerF } from "@react-google-maps/api";
 import Geocode from "react-geocode";
 import { IGeocoderData } from "./types";
+// import { IVirusListData } from "@/shared/api/Virus/types";
 
 import { Btn, Filter, MobileFilter, MobileSearch, Text } from "@/shared";
+import { Modal } from "../../Modal/Modal";
 import { useLocation } from "@/shared/hooks";
 import { Map } from "../../Map/Map";
 import { useFilter } from "@/shared/model/store";
@@ -14,6 +16,7 @@ import { ICentersData } from "@/shared/api/Centers/types";
 import { useUserData } from "@/shared/model/store";
 import { Centers } from "@/shared/api/Centers";
 import { Auth } from "@/shared/api/Auth";
+// import { Virus } from "@/shared/api/Virus";
 
 import styles from "./Authorization.module.scss";
 
@@ -22,9 +25,12 @@ export const Authorization: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const [centers, setCenters] = useState<ICentersData[]>([]);
     const [distance, setDistance] = useState<string>("");
-    const { getLocation } = useLocation();
+    // const [virus, setVirus] = useState<IVirusListData[]>();
 
-    const navigate = useNavigate();
+    const { getLocation } = useLocation();
+    // const { getVirusList } = Virus();
+
+    // const navigate = useNavigate();
     const { isFilter } = useFilter();
     const {
         setPosition,
@@ -80,7 +86,6 @@ export const Authorization: FC = () => {
                 (error: GeolocationPositionError) => {
                     console.error("Ошибка при получении геолокации:", error);
                     setHasPermission(false);
-                    setIsOpenModal(false);
                 }
             );
         } else {
@@ -110,14 +115,16 @@ export const Authorization: FC = () => {
         } catch (e) {}
     }, [centers, position.lat, position.lng]);
 
+    // useEffect(() => {
+    //     getVirusList().then((res) => setVirus(res));
+    // }, [isOpenModal]);
+
     const handleSelectCenter = (id: number) => {
         if (main_center === null) setCenter(id);
         else {
             return;
         }
     };
-
-    console.log(pass2);
 
     const handleClick = () => {
         if (main_center) {
@@ -127,75 +134,86 @@ export const Authorization: FC = () => {
         }
 
         if (isFilter === "Болен") {
-            navigate("/virus-list");
+            setIsOpenModal(true);
         }
     };
 
     return (
-        <div className={styles.authorization}>
-            <Text color="#262626" type="h2" position="center" fz="28px">
-                Регистрация
-            </Text>
-            {!hasPermission ? (
-                <>
-                    <div className={styles.box}>
-                        <Text type="p" position="center" color="#262626">
-                            Для того чтобы зарегестрироваться, вам необходимо
-                            указать свое состояние на данный момент
-                        </Text>
-                        {MOBILE_SCREEN ? (
-                            <div>sdsdsd</div>
-                        ) : (
-                            <Filter width="100%" data={["Здоров", "Болен"]} />
-                        )}
-                    </div>
-                    <Btn color="#0064FA">Продолжить</Btn>
-                </>
-            ) : (
-                <>
-                    <div className={styles.box}>
-                        <Text type="p" position="center" color="#262626">
-                            Также в {distance} км от вас находятся наши агенты
-                            но перед этим вам необходимо указать свое состояние
-                            на данный момент
-                        </Text>
-                        <Map
-                            width="100%"
-                            height="430px"
-                            position={{
-                                lat: position.lat,
-                                lng: position.lng,
-                            }}
-                            zoom={5}
-                        >
-                            <MarkerF
+        <>
+            <div className={styles.authorization}>
+                <Text color="#262626" type="h2" position="center" fz="28px">
+                    Регистрация
+                </Text>
+                {!hasPermission ? (
+                    <>
+                        <div className={styles.box}>
+                            <Text type="p" position="center" color="#262626">
+                                Для того чтобы зарегестрироваться, вам
+                                необходимо указать свое состояние на данный
+                                момент
+                            </Text>
+                            {MOBILE_SCREEN ? (
+                                <div>sdsdsd</div>
+                            ) : (
+                                <Filter
+                                    width="100%"
+                                    data={["Здоров", "Болен"]}
+                                />
+                            )}
+                        </div>
+                        <Btn color="#0064FA">Продолжить</Btn>
+                    </>
+                ) : (
+                    <>
+                        <div className={styles.box}>
+                            <Text type="p" position="center" color="#262626">
+                                Также в {distance} км от вас находятся наши
+                                агенты но перед этим вам необходимо указать свое
+                                состояние на данный момент
+                            </Text>
+                            <Map
+                                width="100%"
+                                height="430px"
                                 position={{
                                     lat: position.lat,
                                     lng: position.lng,
                                 }}
-                            />
-                            {centers.map((item) => (
+                                zoom={5}
+                            >
                                 <MarkerF
-                                    key={item.id}
-                                    onClick={() => handleSelectCenter(item.id)}
                                     position={{
-                                        lat: +item.lat,
-                                        lng: +item.lng,
+                                        lat: position.lat,
+                                        lng: position.lng,
                                     }}
                                 />
-                            ))}
-                        </Map>
-                        {MOBILE_SCREEN ? (
-                            <MobileFilter data={["Здоров", "Болен"]} />
-                        ) : (
-                            <Filter width="100%" data={["Здоров", "Болен"]} />
-                        )}
-                    </div>
-                    <Btn onClick={() => handleClick()} color="#0064FA">
-                        Продолжить
-                    </Btn>
-                </>
-            )}
+                                {centers.map((item) => (
+                                    <MarkerF
+                                        key={item.id}
+                                        onClick={() =>
+                                            handleSelectCenter(item.id)
+                                        }
+                                        position={{
+                                            lat: +item.lat,
+                                            lng: +item.lng,
+                                        }}
+                                    />
+                                ))}
+                            </Map>
+                            {MOBILE_SCREEN ? (
+                                <MobileFilter data={["Здоров", "Болен"]} />
+                            ) : (
+                                <Filter
+                                    width="100%"
+                                    data={["Здоров", "Болен"]}
+                                />
+                            )}
+                        </div>
+                        <Btn onClick={() => handleClick()} color="#0064FA">
+                            Продолжить
+                        </Btn>
+                    </>
+                )}
+            </div>
             {isOpenModal && MOBILE_SCREEN && (
                 <MobileModal setIsOpenModal={setIsOpenModal}>
                     <div className={styles.container}>
@@ -224,6 +242,26 @@ export const Authorization: FC = () => {
                     </div>
                 </MobileModal>
             )}
-        </div>
+            {isOpenModal && (
+                <Modal width="500px" setIsOpenModal={setIsOpenModal}>
+                    <Text type="h2" fz="26px" position="center">
+                        Интерес к какому заболеванию у вас имеется?
+                    </Text>
+                    <div className={styles.input}>
+                        <MobileSearch filterBtn={false} placeholder="Поиск" />
+                    </div>
+                    <div className={styles.btns}>
+                        <Btn
+                            color="transparent"
+                            border="1px solid #0064FA"
+                            textColor="#0064FA"
+                        >
+                            Отсутствует
+                        </Btn>
+                        <Btn color="#0064FA">Продолжить</Btn>
+                    </div>
+                </Modal>
+            )}
+        </>
     );
 };

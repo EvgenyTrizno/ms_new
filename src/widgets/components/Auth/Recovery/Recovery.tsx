@@ -1,8 +1,9 @@
-import { FC, useState, FormEvent, ChangeEvent } from "react";
+import { FC, useState, FormEvent, ChangeEvent, useEffect } from "react";
 import { TypeOfSelectedMethod } from "./types";
 
 import { Auth } from "@/shared/api/Auth";
 import { Btn, Input, Text } from "@/shared";
+import { getRefreshTokenFromCookies } from "@/features";
 
 import styles from "./Recovery.module.scss";
 
@@ -11,7 +12,11 @@ export const Recovery: FC = () => {
     const [number, setNumber] = useState<string>("");
     const [email, setEmail] = useState<string>("");
 
-    const { recoveryPasswordByEmail, recoveryPasswordByNumber } = Auth();
+    const {
+        recoveryPasswordByEmail,
+        recoveryPasswordByNumber,
+        sendVerifyCodeRecoveryPassOnPhone,
+    } = Auth();
 
     const disableBtn =
         isSelect === "email" && !email
@@ -24,11 +29,24 @@ export const Recovery: FC = () => {
         e.preventDefault();
 
         if (number) {
-            recoveryPasswordByNumber(number).then((res) => console.log(res));
+            recoveryPasswordByNumber(number)
+                .then((res) => console.log(res))
+                .then(() => sendVerifyCodeRecoveryPassOnPhone(number));
         } else if (email) {
             recoveryPasswordByEmail(email).then((res) => console.log(res));
         }
     };
+
+    useEffect(() => {
+        if (isSelect === "email" && number.length !== 0) {
+            setNumber("");
+        }
+
+        if (isSelect === "tel" && email.length !== 0) {
+            setEmail("");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isSelect]);
 
     return (
         <div className={styles.recovery}>

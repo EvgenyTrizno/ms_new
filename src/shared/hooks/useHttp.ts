@@ -8,21 +8,28 @@ export const useHttp = () => {
             url: string,
             method: TMethod = "GET",
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            body: Record<string, any> | null = null,
-            headers: Record<string, string> = {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
-                "Access-Control-Allow-Methods": "GET, PUT, PATCH, POST, DELETE",
-                "Access-Control-Allow-Headers": "Content-Type",
-            }
-        ) => {
+            body?: Record<string, any>,
+            headers?: Record<string, string>
+        ): Promise<any> => {
             try {
                 const options: RequestInit = {
                     method,
-                    headers,
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+                        "Access-Control-Allow-Methods":
+                            "GET, PUT, PATCH, POST, DELETE",
+                        "Access-Control-Allow-Headers": "Content-Type",
+                        ...headers,
+                    },
                 };
 
-                if (body) {
+                if (
+                    body &&
+                    (method === "POST" ||
+                        method === "PUT" ||
+                        method === "PATCH")
+                ) {
                     options.body = JSON.stringify(body);
                 }
 

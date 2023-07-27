@@ -7,6 +7,7 @@ import {
     StageType,
     TGroups,
     TResentVerifyCodeProps,
+    TAccessToken,
 } from "./types";
 
 export const Auth = () => {
@@ -54,7 +55,17 @@ export const Auth = () => {
         return data;
     };
 
-    // const tokenСomparison;
+    const tokenСomparison = async (refresh: string): Promise<TAccessToken> => {
+        const data: TAccessToken = await request(
+            `${BASE_URL}/api/token/refresh/`,
+            "POST",
+            {
+                refresh,
+            }
+        );
+
+        return data;
+    };
 
     const sendVerifyCode = async (
         number: string,
@@ -128,12 +139,12 @@ export const Auth = () => {
         return data;
     };
 
-    const sendVerifyCodeRecoveryPassOnPhone = async (phone: string) => {
+    const sendVerifyCodeRecoveryPassOnPhone = async (number: string) => {
         const data = await request(
             `${BASE_URL}/api/verify-reset-password/`,
             "POST",
             {
-                phone,
+                number,
             }
         );
 
@@ -169,5 +180,6 @@ export const Auth = () => {
         sendVerifyCodeRecoveryPassOnPhone,
         changePassword,
         getToket,
+        tokenСomparison,
     };
 };

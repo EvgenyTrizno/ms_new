@@ -22,3 +22,5 @@ export interface ITokensResult {
     access: string;
     refresh: string;
 }
+
+export type TAccessToken = Omit<ITokensResult, "refresh">;
