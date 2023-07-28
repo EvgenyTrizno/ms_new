@@ -1,98 +1,88 @@
-.medical {
+.container {
+    height: 100%;
     display: flex;
     flex-direction: column;
     grid-gap: 20px;
 
     .header {
         display: flex;
-        grid-gap: 10px;
         align-items: center;
+        grid-gap: 10px;
     }
 
-    .items {
-        display: grid;
-        grid-template-columns: repeat(3, 495px);
-        grid-gap: 30px 10px;
+    .info {
+        background-color: var(--white);
+        height: 160px;
+        padding: 40px;
+        border-radius: var(--default-border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-        .empty {
-            height: calc(100vh - 300px);
+        .data {
+            display: flex;
+            align-items: center;
+            grid-gap: 20px;
 
-            .inner {
-                display: flex;
-                flex-direction: column;
-                grid-gap: 20px;
-                align-items: center;
-                justify-content: center;
-                height: 100%;
-            }
-
-            .text {
-                width: 540px;
+            img {
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
             }
         }
 
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 15px;
+    }
+    
+    .items {
         .item {
+            height: 150px;
             background-color: var(--white);
-            padding: 30px;
             border-radius: var(--default-border);
+            padding: 30px;
             display: flex;
-            flex-direction: column;
-            grid-gap: 30px;
+            align-items: center;
+            justify-content: space-between;
 
-            .management {
+            .data {
                 display: flex;
-                justify-content: space-between;
+                flex-direction: column;
                 grid-gap: 10px;
-                align-items: center;
 
-                .item {
-                    border: 1px solid var(--gray-100);
-                    padding: 10px;
-                    width: 105px;
+                .status {
                     display: flex;
-                    justify-content: center;
                     align-items: center;
-                    cursor: pointer;
+                    grid-gap: 10px;
+
+                    .online {
+                        color: var(--green);
+                    }
+
+                    .offline {
+                        color: var(--red-400);
+                    }
                 }
             }
 
             .box {
                 display: flex;
-                flex-direction: column;
-                grid-gap: 20px;
-
-                .text {
-                    display: flex;
-                    flex-direction: column;
-                    grid-gap: 10px;
-                }
-
-                .list {
-                    display: flex;
-                    flex-direction: column;
-                    grid-gap: 10px;
-
-                    .li {
-                        display: flex;
-                        align-items: center;
-                        grid-gap: 10px;
-                        
-                        p {
-                            font-size: 14px !important;
-                        }
-                    }
-                }
+                align-items: center;
+                grid-gap: 70px;
             }
 
-            .time {
-                display: flex;
-                flex-direction: column;
-                grid-gap: 10px;
+            .count {
+                color: var(--blue);
             }
 
             .btns {
                 display: flex;
-                justify-content: space-between;
+                align-items: center;
+                grid-gap: 20px;
             }
         }
     }

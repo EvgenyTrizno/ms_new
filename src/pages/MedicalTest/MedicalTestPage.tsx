@@ -17,160 +17,106 @@ const MedicalTestPage: FC = () => {
 
     return (
         <Layout>
-            <div className={styles.medical}>
+            <div className={styles.container}>
                 <div className={styles.header}>
-                    <Search placeholder="Введите запрос" />
-                    <Btn color="#0064FA" width="60px" padding="0px">
-                        <img src={add} alt="" />
+                    <Search />
+                    <Btn color="#0064FA" width="70px">
+                        <img src={controler} alt="" />
                     </Btn>
                 </div>
-                <Filter data={["Предстоящие", "История"]} />
-                <div
-                    className={styles.items}
-                    style={
-                        data.length === 0
-                            ? { display: "block" }
-                            : { display: "grid" }
-                    }
-                >
-                    {data.length === 0 ? (
-                        <div className={styles.empty}>
-                            <div className={styles.inner}>
-                                <img src={ghost} alt="" />
-                                <Text type="h2" color="#262626" fz="32px">
-                                    Ничего нет
+                <div className={styles.info}>
+                    <div className={styles.data}>
+                        <img src={virus} alt="" />
+                        <div className={styles.text}>
+                            <Text type="h2" fz="24px">
+                                GGTD
+                            </Text>
+                            <Text type="p" color="#7D7F82" fz="18px">
+                                Изучено заболеваний: 50
+                            </Text>
+                        </div>
+                    </div>
+                    <div className={styles.text}>
+                        <Text type="p" fz="18px">
+                            Наблюдалось: 300 человек
+                        </Text>
+                        <Text type="p" fz="18px">
+                            Лечилось: 196 пациентов
+                        </Text>
+                    </div>
+                    <div className={styles.text}>
+                        <Text type="p" fz="18px">
+                            Кол-во специалистов: 11
+                        </Text>
+                        <Text type="p" fz="18px">
+                            Успешно вылечилось: 167 пациентов
+                        </Text>
+                    </div>
+                </div>
+                <Filter data={["Онлайн", "Оффлайн"]} />
+                <div className={styles.items}>
+                    <div className={styles.item}>
+                        <div className={styles.data}>
+                            <Text type="p" color="#7D7F82" fz="14px">
+                                Название
+                            </Text>
+                            <Text type="h2" fz="20px">
+                                Центр Неврологии
+                            </Text>
+                            <div className={styles.status}>
+                                <Text type="p" color="#7D7F82">
+                                    Доступно:
                                 </Text>
-                                <div className={styles.text}>
-                                    <Text
-                                        type="p"
-                                        fz="24px"
-                                        position="center"
-                                        color="#26262680"
-                                    >
-                                        Список пуст, создайте запись нажав на
-                                        кнопку “Плюс”
-                                    </Text>
-                                </div>
+                                <span className={styles.online}>Online</span>
+                                <div>/</div>
+                                <span className={styles.offline}>Offline</span>
                             </div>
                         </div>
-                    ) : (
-                        <>
-                            {data.map((item) => (
-                                <div className={styles.item} key={item}>
-                                    <div className={styles.management}>
-                                        <div className={styles.item}>
-                                            <img src={setting} alt="" />
-                                        </div>
-                                        <div className={styles.item}>
-                                            <img src={plane} alt="" />
-                                        </div>
-                                        <div className={styles.item}>
-                                            <img src={loading} alt="" />
-                                        </div>
-                                        <div className={styles.item}>
-                                            <img src={arrowRight} alt="" />
-                                        </div>
-                                    </div>
-                                    <div className={styles.box}>
-                                        <div className={styles.text}>
-                                            <Text
-                                                type="p"
-                                                color="#9B9B9B"
-                                                fz="12px"
-                                            >
-                                                Название записи
-                                            </Text>
-                                            <Text
-                                                type="h2"
-                                                color="#000"
-                                                fz="17px"
-                                            >
-                                                Восстановление
-                                            </Text>
-                                        </div>
-                                        <ul className={styles.list}>
-                                            <li className={styles.li}>
-                                                <Text type="p">Запись:</Text>
-                                                <Text
-                                                    type="p"
-                                                    color="#00CC5E"
-                                                    fz="13px"
-                                                >
-                                                    Online
-                                                </Text>
-                                            </li>
-                                            <li className={styles.li}>
-                                                <Text type="p">
-                                                    Предоставляет:
-                                                </Text>
-                                                <Text type="p">
-                                                    Московский Центр
-                                                </Text>
-                                            </li>
-                                            <li className={styles.li}>
-                                                <Text type="p">Ведущий:</Text>
-                                                <Text type="p">
-                                                    Иван Иванов
-                                                </Text>
-                                            </li>
-                                            <li className={styles.li}>
-                                                <Text type="p">Причина:</Text>
-                                                <Text type="p">
-                                                    Проверка мышц спины
-                                                </Text>
-                                            </li>
-                                        </ul>
-                                        <div className={styles.time}>
-                                            <Text
-                                                type="p"
-                                                color="#9B9B9B"
-                                                fz="12px"
-                                            >
-                                                Дата и время
-                                            </Text>
-                                            <ul className={styles.list}>
-                                                <li className={styles.li}>
-                                                    <Text type="p">Дата:</Text>
-                                                    <Text type="p">
-                                                        Не установлено
-                                                    </Text>
-                                                </li>
-                                                <li className={styles.li}>
-                                                    <Text type="p">
-                                                        Начало:
-                                                    </Text>
-                                                    <Text type="p">
-                                                        Не установлено
-                                                    </Text>
-                                                </li>
-                                                <li className={styles.li}>
-                                                    <Text type="p">
-                                                        Длительность:
-                                                    </Text>
-                                                    <Text type="p">
-                                                        40 минут
-                                                    </Text>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div className={styles.btns}>
-                                        <Btn color="#0064FA" width="210px">
-                                            Подтвердить
-                                        </Btn>
-                                        <Btn
-                                            color="#fff"
-                                            width="210px"
-                                            textColor="#0064FA"
-                                            border="2px solid #0064FA"
-                                        >
-                                            Отменить
-                                        </Btn>
-                                    </div>
-                                </div>
-                            ))}
-                        </>
-                    )}
+                        <div className={styles.box}>
+                            <div className={styles.text}>
+                                <Text type="p">
+                                    Помогло на 80%:
+                                    <span className={styles.count}>300</span>
+                                </Text>
+                                <Text type="p">
+                                    Помогло на 60%:
+                                    <span className={styles.count}>700</span>
+                                </Text>
+                            </div>
+                            <div className={styles.text}>
+                                <Text type="p">
+                                    Помогло на 40%:
+                                    <span className={styles.count}>300</span>
+                                </Text>
+                                <Text type="p">
+                                    Помогло на 20%:
+                                    <span className={styles.count}>700</span>
+                                </Text>
+                            </div>
+                            <div className={styles.text}>
+                                <Text type="p">
+                                    Публикации:
+                                    <span className={styles.count}>300</span>
+                                </Text>
+                                <Text type="p">
+                                    Выбор специалиста:
+                                    <span className={styles.count}>
+                                        На выбор
+                                    </span>
+                                </Text>
+                            </div>
+                        </div>
+                        <div className={styles.btns}>
+                            <Btn
+                                color="#0064FA"
+                                width="155px"
+                                onClick={() => navigate(`/notes/name`)}
+                            >
+                                Продолжить
+                            </Btn>
+                            <img src={arrow} alt="" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </Layout>

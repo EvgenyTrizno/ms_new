@@ -1,0 +1,83 @@
+.info {
+    .box {
+        .block {
+            margin: 15px 0 40px;
+            display: flex;
+            padding: 40px;
+            flex-direction: column;
+            gap: 24px;
+            border-radius: var(--default-border);
+            background-color: var(--system-light-grey);
+
+            ul {
+                li {
+                    padding: 24px 0;
+                    border-bottom: 2px solid rgba(#B1B2B4, 0.2);
+                    display: flex;
+                    grid-gap: 5px;
+                }
+
+                li:last-child {
+                    padding-bottom: 0px;
+                    border: none;
+                }
+
+                li:first-child {
+                    padding-top: 0px;
+                }
+            }
+        }
+
+        .media {
+            .nav {
+                display: flex;
+                grid-gap: 36px;
+                align-items: center;
+
+                .item {
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+
+                    p {
+                        margin-bottom: 12px;
+                    }
+
+                    .line {
+                        opacity: 0;
+                        background-color: var(--blue);
+                        height: 4px;
+                        width: 100%;
+                        border-radius: 8px 8px 0px 0px;
+                    }
+                }
+
+                .itemActive {
+                    p {
+                        font-weight: 600;
+                        color: var(--dark) !important;
+                    }
+
+                    .line {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .list {
+                display: grid;
+                grid-template-columns: repeat(5, 183px);
+                grid-gap: 12px;
+                padding: 16px;
+                border: 1px solid var(--system-light-grey);
+                border-radius: 20px;
+
+                .square {
+                    height: 183px;
+                    background-color: red;
+                    border-radius: var(--input-border);
+                }
+            }
+        }
+    }
+}

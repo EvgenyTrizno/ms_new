@@ -1,11 +1,13 @@
-import { FC, useState } from "react";
-import { Link } from "react-router-dom";
+import { ChangeEvent, FC, useState } from "react";
+import { Link, redirect } from "react-router-dom";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 
 import { Text } from "@/shared/ui/Text/Text";
 import { Input } from "@/shared/ui/Input/Input";
 import { Btn } from "@/shared/ui/Btn/Btn";
+import { Auth } from "@/shared/api/Auth";
+import { setCookie } from "@/features";
 
 import facebook from "/assets/facebook.svg";
 import apple from "/assets/apple.svg";
@@ -14,6 +16,17 @@ import styles from "./Login.module.scss";
 
 export const Login: FC = () => {
     const [isShow, setIsShow] = useState<boolean>(false);
+    const [pass, setPass] = useState<string>("");
+    const [number, setNumber] = useState<string>("");
+
+    const { getToket } = Auth();
+
+    const handleClick = () => {
+        getToket(number, pass).then((res) => {
+            setCookie("refresh_token", res.refresh, 1);
+            redirect("/");
+        });
+    };
 
     return (
         <div className={styles.login}>
@@ -25,6 +38,9 @@ export const Login: FC = () => {
                     type="text"
                     placeholder="Введите тел.номер или эл. почту"
                     borderColor="#E9EAEB"
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        setNumber(e.target.value)
+                    }
                 />
                 <div className={styles.inner}>
                     <Input
@@ -34,6 +50,9 @@ export const Login: FC = () => {
                         br="none"
                         btr="unset"
                         bbr="unset"
+                        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                            setPass(e.target.value)
+                        }
                     />
                     <div
                         onClick={() => setIsShow((bool) => !bool)}
@@ -50,7 +69,9 @@ export const Login: FC = () => {
             <Link className={styles.link} to="/">
                 Забыли пароль?
             </Link>
-            <Btn color="#0064FA">Войти</Btn>
+            <Btn color="#0064FA" onClick={handleClick}>
+                Войти
+            </Btn>
             <div className={styles.redirect}>
                 <Text type="p" position="center" color="#7D7F82">
                     Нет учетной записи? &nbsp;

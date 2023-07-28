@@ -4,7 +4,11 @@ export const setCookie = (name: string, value: string, days: number) => {
     document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
 };
 
+let isRedirected = false;
+
 export const getRefreshTokenFromCookies = () => {
+    if (isRedirected) return;
+
     try {
         const token = document.cookie
             .split(" ")
@@ -13,8 +17,14 @@ export const getRefreshTokenFromCookies = () => {
             .flat()[1]
             .replace(";", "");
 
-        return token;
+        if (token) {
+            return token;
+        } else {
+            isRedirected = true;
+            location.pathname = "/auth/login";
+            return;
+        }
     } catch (e) {
-        console.log(e);
+        return;
     }
 };

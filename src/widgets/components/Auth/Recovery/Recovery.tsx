@@ -3,7 +3,7 @@ import { TypeOfSelectedMethod } from "./types";
 
 import { Auth } from "@/shared/api/Auth";
 import { Btn, Input, Text } from "@/shared";
-import { getRefreshTokenFromCookies } from "@/features";
+// import { getRefreshTokenFromCookies } from "@/features";
 
 import styles from "./Recovery.module.scss";
 

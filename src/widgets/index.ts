@@ -32,6 +32,7 @@ import { MobileCalendar } from "./components/MobileCalendar/MobileCalendar";
 import { MobileModal } from "./components/MobileModal/MobileModal";
 import { Modal } from "./components/Modal/Modal";
 import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorBoundaryFallback";
+import { ChatInfo } from "./components/ChatInfo/ChatInfo";
 
 export {
     Login,
@@ -68,4 +69,5 @@ export {
     MobileModal,
     Modal,
     ErrorBoundaryFallback,
+    ChatInfo,
 };

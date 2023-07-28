@@ -1,18 +1,24 @@
-import { FC, useEffect, useState, MouseEvent } from "react";
+import { FC, useEffect, useState, MouseEvent, useRef } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Search } from "@/widgets";
+import { Search, ChatInfo } from "@/widgets";
 import { Filter, Input, PopUp, Text } from "@/shared";
 import { useFilter, useUserCondition } from "@/shared/model/store";
 import { ABSOLUTE_PATH } from "@/shared/config";
 
 import woman from "/assets/woman.jpg";
 import call from "/assets/call-calling.svg";
+import callRed from "/assets/call-calling-red.svg";
 import paperclip from "/assets/paperclip-blue.svg";
+import paperclipRed from "/assets/paperclip-red.svg";
 import sender from "/assets/send-blue.svg";
 import emoji from "/assets/emoji-normal.svg";
 import incoming from "/assets/call-incoming.svg";
 import read from "/assets/read-blue.svg";
+import readRed from "/assets/read-red.svg";
+import mircophone from "/assets/microphone-blue.svg";
+import mircophoneRed from "/assets/microphone-red.svg";
+import dots from "/assets/dots-more.svg";
 import styles from "./MessagesPage.module.scss";
 
 const MessagesPage: FC = () => {
@@ -25,6 +31,12 @@ const MessagesPage: FC = () => {
     const [isChat, setIsChat] = useState<boolean>(false);
     const [msg, setMsg] = useState<string>("");
     const [ws, setWs] = useState<WebSocket | null>(null);
+    const [isMouseDown, setIsMouseDown] = useState<boolean>(false);
+    const [isInfo, setIsInfo] = useState<boolean>(false);
+    const holdTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+    const sick = condition === "Болен";
+    const redMesage = `${styles.text} ${styles.myTextWithSick}`;
 
     useEffect(() => {
         setIsFilter("Сообщения");
@@ -80,7 +92,23 @@ const MessagesPage: FC = () => {
         }
     };
 
-    const sick = condition === "Болен";
+    const handleMouseDown = () => {
+        holdTimerRef.current = setTimeout(() => {
+            setIsMouseDown(true);
+        }, 1000);
+    };
+
+    const handleMouseDownOnMicrophone = () => {
+        holdTimerRef.current = setTimeout(() => {
+            setIsMouseDown(false);
+        }, 1000);
+    };
+
+    const handleMouseUp = () => {
+        if (holdTimerRef.current) {
+            clearTimeout(holdTimerRef.current);
+        }
+    };
 
     return (
         <Layout>
@@ -175,9 +203,17 @@ const MessagesPage: FC = () => {
                 </div>
                 {isChat && (
                     <div className={styles.view}>
-                        <div className={styles.info}>
+                        <div
+                            className={styles.info}
+                            style={{ borderColor: sick ? "#F7E6E8" : "" }}
+                        >
                             <div className={styles.data}>
-                                <img src={woman} alt="" />
+                                <img
+                                    src={woman}
+                                    style={{ cursor: "pointer" }}
+                                    alt=""
+                                    onClick={() => setIsInfo((prev) => !prev)}
+                                />
                                 <div className={styles.text}>
                                     <Text type="h2" fz="18px">
                                         Яковенко А. С.
@@ -187,114 +223,185 @@ const MessagesPage: FC = () => {
                                     </Text>
                                 </div>
                             </div>
-                            <img
-                                src={call}
-                                alt=""
-                                className={styles.call}
-                                onClick={(e: MouseEvent<HTMLImageElement>) => {
-                                    setY(e.clientY);
-                                    setIsOpen((prev) => !prev);
-                                    setIsSelect("Звонок");
-                                }}
-                            />
-                        </div>
-                        <div className={styles.chat}>
-                            <div className={styles.list}>
-                                <div className={styles.message}>
-                                    <img src={woman} alt="" />
-                                    <div className={styles.inner}>
-                                        <Text type="p" color="#333" fz="14px">
-                                            Виктор
-                                        </Text>
-                                        <div
-                                            className={`${styles.text} ${styles.myText}`}
-                                            onClick={(e: MouseEvent) =>
-                                                handleClick(e)
-                                            }
-                                        >
-                                            <Text type="p" color="#262626">
-                                                Привет. Я готов к чему-то
-                                            </Text>
-                                            <div className={styles.read}>
-                                                <img src={read} alt="" />
-                                            </div>
-                                        </div>
-                                        <div className={styles.time}>
-                                            <Text
-                                                type="p"
-                                                color="#7D7F82"
-                                                fz="12px"
-                                            >
-                                                8:00 PM
-                                            </Text>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.message}>
-                                    <img src={woman} alt="" />
-                                    <div className={styles.inner}>
-                                        <Text type="p" color="#333" fz="14px">
-                                            Александр
-                                        </Text>
-                                        <div
-                                            className={`${styles.text}`}
-                                            onClick={(e: MouseEvent) =>
-                                                handleClick(e)
-                                            }
-                                        >
-                                            <Text type="p" color="#262626">
-                                                Да, я обычно выделяю все ctrl+A,
-                                                потом всему сразу ставлю верх и
-                                                лево)))))
-                                            </Text>
-                                            <div className={styles.read}>
-                                                <img src={read} alt="" />
-                                            </div>
-                                        </div>
-                                        <div className={styles.time}>
-                                            <Text
-                                                type="p"
-                                                color="#7D7F82"
-                                                fz="12px"
-                                            >
-                                                8:00 PM
-                                            </Text>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.messageBlock}>
-                            <div className={styles.wrapper}>
-                                <img src={paperclip} alt="" />
-                                <div className={styles.inner}>
-                                    <Input
-                                        type="text"
-                                        placeholder="Поиск чатов"
-                                        br="none"
-                                        btr="unset"
-                                        bbr="unset"
-                                        value={msg}
-                                        onChange={(e) => setMsg(e.target.value)}
-                                    />
-                                    <div className={styles.btn}>
-                                        <img src={emoji} alt="" />
-                                    </div>
-                                </div>
+                            <div className={styles.callIcons}>
                                 <img
-                                    src={sender}
+                                    src={sick ? callRed : call}
                                     alt=""
-                                    className={styles.icon}
+                                    className={styles.call}
                                     onClick={(
                                         e: MouseEvent<HTMLImageElement>
                                     ) => {
                                         setY(e.clientY);
-                                        setIsSelect("Отправить");
                                         setIsOpen((prev) => !prev);
+                                        setIsSelect("Звонок");
                                     }}
                                 />
+                                {isInfo && (
+                                    <img
+                                        src={dots}
+                                        alt=""
+                                        style={{
+                                            marginLeft: "32px",
+                                            cursor: "pointer",
+                                        }}
+                                    />
+                                )}
                             </div>
                         </div>
+                        {isInfo ? (
+                            <div className={styles.chatInfo}>
+                                <ChatInfo />
+                            </div>
+                        ) : (
+                            <div className={styles.chat}>
+                                <div className={styles.list}>
+                                    <div className={styles.message}>
+                                        <img src={woman} alt="" />
+                                        <div className={styles.inner}>
+                                            <Text
+                                                type="p"
+                                                color="#333"
+                                                fz="14px"
+                                            >
+                                                Виктор
+                                            </Text>
+                                            <div
+                                                className={
+                                                    sick
+                                                        ? redMesage
+                                                        : `${styles.text} ${styles.myText}`
+                                                }
+                                                onClick={(e: MouseEvent) =>
+                                                    handleClick(e)
+                                                }
+                                            >
+                                                <Text type="p" color="#262626">
+                                                    Привет. Я готов к чему-то
+                                                </Text>
+                                                <div className={styles.read}>
+                                                    <img
+                                                        src={
+                                                            sick
+                                                                ? readRed
+                                                                : read
+                                                        }
+                                                        alt=""
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className={styles.time}>
+                                                <Text
+                                                    type="p"
+                                                    color="#7D7F82"
+                                                    fz="12px"
+                                                >
+                                                    8:00 PM
+                                                </Text>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={styles.message}>
+                                        <img src={woman} alt="" />
+                                        <div className={styles.inner}>
+                                            <Text
+                                                type="p"
+                                                color="#333"
+                                                fz="14px"
+                                            >
+                                                Александр
+                                            </Text>
+                                            <div
+                                                className={`${styles.text}`}
+                                                onClick={(e: MouseEvent) =>
+                                                    handleClick(e)
+                                                }
+                                            >
+                                                <Text type="p" color="#262626">
+                                                    Да, я обычно выделяю все
+                                                    ctrl+A, потом всему сразу
+                                                    ставлю верх и лево)))))
+                                                </Text>
+                                                <div className={styles.read}>
+                                                    <img
+                                                        src={
+                                                            sick
+                                                                ? readRed
+                                                                : read
+                                                        }
+                                                        alt=""
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className={styles.time}>
+                                                <Text
+                                                    type="p"
+                                                    color="#7D7F82"
+                                                    fz="12px"
+                                                >
+                                                    8:00 PM
+                                                </Text>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        {!isInfo && (
+                            <div className={styles.messageBlock}>
+                                <div className={styles.wrapper}>
+                                    <img
+                                        src={sick ? paperclipRed : paperclip}
+                                        alt=""
+                                    />
+                                    <div className={styles.inner}>
+                                        <Input
+                                            type="text"
+                                            placeholder="Поиск чатов"
+                                            br="none"
+                                            btr="unset"
+                                            bbr="unset"
+                                            value={msg}
+                                            onChange={(e) =>
+                                                setMsg(e.target.value)
+                                            }
+                                        />
+                                        <div className={styles.btn}>
+                                            <img src={emoji} alt="" />
+                                        </div>
+                                    </div>
+                                    {isMouseDown ? (
+                                        <img
+                                            src={
+                                                sick
+                                                    ? mircophoneRed
+                                                    : mircophone
+                                            }
+                                            alt=""
+                                            className={styles.icon}
+                                            onMouseDown={
+                                                handleMouseDownOnMicrophone
+                                            }
+                                            onMouseUp={handleMouseUp}
+                                        />
+                                    ) : (
+                                        <img
+                                            src={sender}
+                                            alt=""
+                                            className={styles.icon}
+                                            onMouseDown={handleMouseDown}
+                                            onMouseUp={handleMouseUp}
+                                            onClick={(
+                                                e: MouseEvent<HTMLImageElement>
+                                            ) => {
+                                                setY(e.clientY);
+                                                setIsSelect("Отправить");
+                                                setIsOpen((prev) => !prev);
+                                            }}
+                                        />
+                                    )}
+                                </div>
+                            </div>
+                        )}
                         {isOpen && isSelect === "Звонок" && (
                             <PopUp
                                 width="120px"
