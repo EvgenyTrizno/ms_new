@@ -142,10 +142,13 @@ export const Confirmation: FC = () => {
                 <Text type="p" position="center" color="#262626" fz="20px">
                     {seconds === 0 ? (
                         <span
-                            style={{ cursor: "pointer" }}
+                            style={{
+                                cursor: "pointer",
+                                textDecoration: "underline",
+                            }}
                             onClick={resendCodeHandler}
                         >
-                            Отправить код повторно
+                            Выслать код повторно
                         </span>
                     ) : seconds === 60 ? (
                         "1:00"
