@@ -1,19 +1,17 @@
 import { FC } from "react";
+import { useNavigate } from "react-router";
 
 import { Layout } from "../Layout/Layout";
 import { Btn, Filter, Text } from "@/shared";
 import { Search } from "@/widgets";
 
-import add from "/assets/add-circle.svg";
-import ghost from "/assets/ghost.svg";
-import setting from "/assets/setting.svg";
-import plane from "/assets/paper-plane.svg";
-import arrowRight from "/assets/arrow-right.svg";
-import loading from "/assets/loading.svg";
+import controler from "/assets/controler.svg";
+import arrow from "/assets/arrow-right-black.svg";
+import virus from "/assets/virus-icon.jpg";
 import styles from "./MedicalTestPage.module.scss";
 
 const MedicalTestPage: FC = () => {
-    const data = [1, 2, 3];
+    const navigate = useNavigate();
 
     return (
         <Layout>
