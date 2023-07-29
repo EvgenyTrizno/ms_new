@@ -9,6 +9,10 @@ import ghost from "/assets/ghost.svg";
 import calendar from "/assets/calendar.svg";
 import alarm from "/assets/alarm-clock.svg";
 import clock from "/assets/clock-fast-forward.svg";
+import settings from "/assets/setting.svg";
+import arrow from "/assets/arrow-right.svg";
+import plane from "/assets/paper-plane.svg";
+import loading from "/assets/loading-circle.svg";
 import styles from "./MedicalCardPage.module.scss";
 
 const MedicalCardPage: FC = () => {
@@ -23,7 +27,7 @@ const MedicalCardPage: FC = () => {
                         <img src={add} alt="" />
                     </Btn>
                 </div>
-                <Filter data={["Предстоящие", "История"]} />
+                <Filter data={["Подтвержденные", "Доп.проверка"]} />
                 <div
                     className={styles.items}
                     style={
@@ -145,6 +149,155 @@ const MedicalCardPage: FC = () => {
                                     </div>
                                 </div>
                             ))}
+                            <div className={styles.itemAny}>
+                                <div className={styles.managment}>
+                                    <div className={styles.item}>
+                                        <img src={settings} alt="" />
+                                    </div>
+                                    <div className={styles.item}>
+                                        <img src={plane} alt="" />
+                                    </div>
+                                    <div className={styles.item}>
+                                        <img src={loading} alt="" />
+                                    </div>
+                                    <div className={styles.item}>
+                                        <img src={arrow} alt="" />
+                                    </div>
+                                </div>
+                                <div className={styles.block}>
+                                    <div className={styles.title}>
+                                        <Text
+                                            type="p"
+                                            color="#7D7F82"
+                                            fz="12px"
+                                        >
+                                            Запись:
+                                        </Text>
+                                        <Text
+                                            type="h2"
+                                            color="#000000"
+                                            fz="17px"
+                                        >
+                                            Восстановление
+                                        </Text>
+                                    </div>
+                                    <div className={styles.box}>
+                                        <ul>
+                                            <li>
+                                                <Text
+                                                    type="p"
+                                                    color="#B1B2B4"
+                                                    fz="13px"
+                                                >
+                                                    Формат:
+                                                </Text>
+                                                <Text
+                                                    type="p"
+                                                    color="#00CC5E"
+                                                    fz="13px"
+                                                >
+                                                    Онлайн
+                                                </Text>
+                                            </li>
+                                            <li>
+                                                <Text
+                                                    type="p"
+                                                    color="#B1B2B4"
+                                                    fz="13px"
+                                                >
+                                                    Учреждение:
+                                                </Text>
+                                                <Text type="p" fz="13px">
+                                                    Московский Центр
+                                                </Text>
+                                            </li>
+                                            <li>
+                                                <Text
+                                                    type="p"
+                                                    fz="13px"
+                                                    color="#B1B2B4"
+                                                >
+                                                    Ведущий:
+                                                </Text>
+                                                <Text type="p" fz="13px">
+                                                    Иван Иванов
+                                                </Text>
+                                            </li>
+                                            <li>
+                                                <Text
+                                                    type="p"
+                                                    color="#B1B2B4"
+                                                    fz="13px"
+                                                >
+                                                    Причина:
+                                                </Text>
+                                                <Text type="p" fz="13px">
+                                                    Проверка мышц спины
+                                                </Text>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div className={styles.box}>
+                                        <ul>
+                                            <li>
+                                                <Text
+                                                    type="p"
+                                                    color="#9B9B9B"
+                                                    fz="13px"
+                                                >
+                                                    Дата и время
+                                                </Text>
+                                            </li>
+                                            <li>
+                                                <Text
+                                                    type="p"
+                                                    color="#B1B2B4"
+                                                    fz="13px"
+                                                >
+                                                    Дата:
+                                                </Text>
+                                                <Text type="p" fz="13px">
+                                                    Не установлено
+                                                </Text>
+                                            </li>
+                                            <li>
+                                                <Text
+                                                    type="p"
+                                                    fz="13px"
+                                                    color="#B1B2B4"
+                                                >
+                                                    Начало:
+                                                </Text>
+                                                <Text type="p" fz="13px">
+                                                    Не установлено
+                                                </Text>
+                                            </li>
+                                            <li>
+                                                <Text
+                                                    type="p"
+                                                    color="#B1B2B4"
+                                                    fz="13px"
+                                                >
+                                                    Длительность:
+                                                </Text>
+                                                <Text type="p" fz="13px">
+                                                    40 минут
+                                                </Text>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className={styles.btns}>
+                                    <Btn color="#0064FA">Подтвердить</Btn>
+                                    <Btn
+                                        color="transparent"
+                                        textColor="#0064FA"
+                                        border="1px solid #0064FA"
+                                    >
+                                        Отменить
+                                    </Btn>
+                                </div>
+                            </div>
                         </>
                     )}
                 </div>

@@ -16,7 +16,7 @@ export const Card: FC<ICard> = ({ checkbox }) => {
     return (
         <div
             className={styles.card}
-            onClick={() => setIsSelect(true)}
+            onClick={() => setIsSelect((prev) => !prev)}
             style={sick ? { borderColor: "#F7E6E8" } : {}}
         >
             <img src={woman} alt="woman" className={styles.img} />

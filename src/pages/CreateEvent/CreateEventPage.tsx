@@ -2,10 +2,11 @@ import { FC, useEffect, useId, useState } from "react";
 import { ICraeteEventData } from "./types";
 
 import { Layout } from "../Layout/Layout";
-import { Btn, Filter, Input, Switch, Text } from "@/shared";
+import { Btn, Filter, Switch, Text } from "@/shared";
 import { Calendar, Card, Slider } from "@/widgets";
 import { Account } from "@/shared/api/Account";
 import { getRefreshTokenFromCookies } from "@/features";
+import { useUserCondition } from "@/shared/model/store";
 
 import info from "/assets/info-circle.svg";
 import woman from "/assets/woman.jpg";
@@ -17,6 +18,7 @@ const CreateEventPage: FC = () => {
     const [ids, setIds] = useState<string>("");
     const [isAdd, setIsAdd] = useState<boolean>(false);
 
+    const { condition } = useUserCondition();
     const { getAllDoctors } = Account();
 
     useEffect(() => {
@@ -26,6 +28,8 @@ const CreateEventPage: FC = () => {
             );
         }
     }, []);
+
+    const sick = condition === "Болен";
 
     const data: ICraeteEventData[] = [
         {
@@ -254,7 +258,13 @@ const CreateEventPage: FC = () => {
                             </div>
                             <div className={styles.options}>
                                 {data.map((item) => (
-                                    <div className={styles.item} key={item.id}>
+                                    <div
+                                        className={styles.item}
+                                        key={item.id}
+                                        style={{
+                                            borderColor: sick ? "#F7E6E8" : "",
+                                        }}
+                                    >
                                         <div className={styles.block}>
                                             <Text type="p" fz="18px">
                                                 {item.title}

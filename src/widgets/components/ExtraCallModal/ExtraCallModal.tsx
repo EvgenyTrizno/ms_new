@@ -1,8 +1,10 @@
 import { FC, useEffect, useId, useState, MouseEvent } from "react";
 import { IExtraCallBtnData } from "../ExtraCallMobile/types";
+import { motion } from "framer-motion";
 
 import { useExtraCall } from "@/shared/model/store";
 import { useUserCondition } from "@/shared/model/store";
+import { Btn, Text } from "@/shared";
 
 import cross from "/assets/cross.svg";
 import amabulance from "/assets/amabulance-blue.svg";
@@ -12,20 +14,15 @@ import homeWithPlusRed from "/assets/home-with-plus-red.svg";
 import support from "/assets/support-blue.svg";
 import supportRed from "/assets/support-red.svg";
 import styles from "./ExtraCallModal.module.scss";
-import { Btn, Text } from "@/shared";
 
 export const ExtraCallModal: FC = () => {
-    const { setIsOpen } = useExtraCall();
+    const { setIsOpen, isOpen } = useExtraCall();
     const { condition } = useUserCondition();
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     useEffect(() => {
-        document.body.style.overflow = "hidden";
-
-        return () => {
-            document.body.style.overflow = "";
-        };
-    }, []);
+        document.body.style.overflow = `${isOpen ? "hidden" : ""}`;
+    }, [isOpen]);
 
     const sick = condition === "Болен";
 
@@ -37,7 +34,7 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: 120,
+                x: -120,
                 y: 0,
             },
         },
@@ -48,8 +45,8 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: 95,
-                y: 90,
+                x: -95,
+                y: -90,
             },
         },
 
@@ -61,7 +58,7 @@ export const ExtraCallModal: FC = () => {
             id: useId(),
             position: {
                 x: 0,
-                y: 120,
+                y: -120,
             },
         },
     ];
@@ -76,16 +73,33 @@ export const ExtraCallModal: FC = () => {
     };
 
     return (
-        <div className={styles.extra} onClick={handleSetIsOpen}>
+        <div
+            className={styles.extra}
+            onClick={handleSetIsOpen}
+            style={{
+                opacity: isOpen ? 1 : 0,
+                pointerEvents: isOpen ? "auto" : "none",
+            }}
+        >
             <div className={styles.extraBtn} onClick={handleSetIsOpen}>
                 <img src={cross} alt="" />
             </div>
             {!isOpenModal &&
                 data.map((item) => (
-                    <div
+                    <motion.div
+                        initial={{ x: 0, y: 0 }}
+                        animate={{
+                            x: isOpen ? item.position.x : 0,
+                            y: isOpen ? item.position.y : 0,
+                        }}
+                        exit={{ x: 0, y: 0 }}
+                        transition={{
+                            duration: 0.3,
+                            type: "spring",
+                            damping: 10,
+                        }}
                         className={`${styles.extraBtn} ${styles.select}`}
                         style={{
-                            transform: `translate(-${item.position.x}px, -${item.position.y}px)`,
                             backgroundColor: `${sick ? "#F7E6E8" : ""}`,
                         }}
                         onClick={handleClick}
@@ -95,9 +109,9 @@ export const ExtraCallModal: FC = () => {
                             src={sick ? item.icon.sick : item.icon.healthy}
                             alt=""
                         />
-                    </div>
+                    </motion.div>
                 ))}
-            {isOpenModal && (
+            {isOpenModal && isOpen && (
                 <div
                     className={styles.modal}
                     onClick={(e) => e.stopPropagation()}

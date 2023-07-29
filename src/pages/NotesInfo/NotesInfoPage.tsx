@@ -39,14 +39,10 @@ const NotesInfoPage: FC = () => {
     const sick = condition === "Болен";
 
     const options = {
-        responsive: true,
+        responsive: false,
         plugins: {
             legend: {
                 position: "top" as const,
-            },
-            title: {
-                display: true,
-                text: "Chart.js Line Chart",
             },
         },
     };

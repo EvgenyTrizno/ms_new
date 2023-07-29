@@ -14,6 +14,7 @@ import { useExtraCall, useNotification } from "@/shared/model/store";
 // import MobileAccountPage from "@/widgets/components/MobileAccount/MobileAccountPage";
 
 import extra from "/assets/extra-call.svg";
+import cross from "/assets/cross.svg";
 import styles from "./Layout.module.scss";
 
 export const Layout: FC<TProps> = ({ children }) => {
@@ -35,16 +36,13 @@ export const Layout: FC<TProps> = ({ children }) => {
                     <div className={styles.container}>
                         <Menu />
                         <div className={styles.main}>{children}</div>
-                        {isOpen ? (
-                            <ExtraCallModal />
-                        ) : (
-                            <div
-                                className={styles.extra}
-                                onClick={() => setIsOpen(true)}
-                            >
-                                <img src={extra} alt="" />
-                            </div>
-                        )}
+                        <ExtraCallModal />
+                        <div
+                            className={styles.extra}
+                            onClick={() => setIsOpen(true)}
+                        >
+                            <img src={!isOpen ? extra : cross} alt="" />
+                        </div>
                         {isNotification && <NotificationModal />}
                     </div>
                 </>
