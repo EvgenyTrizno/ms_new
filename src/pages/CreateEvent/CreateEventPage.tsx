@@ -15,7 +15,6 @@ import file from "/assets/file.svg";
 import styles from "./CreateEventPage.module.scss";
 
 const CreateEventPage: FC = () => {
-    const [ids, setIds] = useState<string>("");
     const [isAdd, setIsAdd] = useState<boolean>(false);
 
     const { condition } = useUserCondition();
