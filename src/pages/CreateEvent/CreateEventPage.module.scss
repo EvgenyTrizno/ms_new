@@ -182,6 +182,19 @@
                             background-color: var(--system-light-grey);
                             border-radius: 12px;
                         }
+
+                        .content {
+                            overflow: hidden;
+                            opacity: 0;
+                            display: grid;
+                            grid-template-rows: 0fr;
+                            transition: grid-template-rows 500ms ease;
+                        }
+
+                        .content.open {
+                            grid-template-rows: 1fr;
+                            opacity: 1;
+                        }
                     }
                 }
             }

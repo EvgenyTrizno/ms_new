@@ -16,6 +16,7 @@ import styles from "./CreateEventPage.module.scss";
 
 const CreateEventPage: FC = () => {
     const [isAdd, setIsAdd] = useState<boolean>(false);
+    const [ids, setIds] = useState<string[]>([]);
 
     const { condition } = useUserCondition();
     const { getAllDoctors } = Account();
@@ -268,19 +269,59 @@ const CreateEventPage: FC = () => {
                                             <Text type="p" fz="18px">
                                                 {item.title}
                                             </Text>
-                                            <Switch />
+                                            <Switch
+                                                onChange={(e) => {
+                                                    if (e?.target.checked) {
+                                                        setIds([
+                                                            ...ids,
+                                                            item.id,
+                                                        ]);
+                                                    } else {
+                                                        const id = ids.filter(
+                                                            (it) =>
+                                                                it !== item.id
+                                                        );
+
+                                                        setIds(id);
+                                                    }
+                                                }}
+                                            />
                                         </div>
-                                        <div className={styles.content}>
-                                            <div className={styles.label}>
-                                                <Text
-                                                    type="p"
-                                                    fz="15px"
-                                                    color="#7D7F82"
+                                        <div
+                                            className={
+                                                ids.includes(item.id)
+                                                    ? `${styles.content} ${styles.open}`
+                                                    : styles.content
+                                            }
+                                        >
+                                            <div style={{ minHeight: 0 }}>
+                                                <div
+                                                    className={styles.label}
+                                                    style={{
+                                                        transition: "ease .5s",
+                                                        pointerEvents:
+                                                            ids.includes(
+                                                                item.id
+                                                            )
+                                                                ? "auto"
+                                                                : "none",
+                                                        opacity: ids.includes(
+                                                            item.id
+                                                        )
+                                                            ? 1
+                                                            : 0,
+                                                    }}
                                                 >
-                                                    {item.subtitle}
-                                                </Text>
+                                                    <Text
+                                                        type="p"
+                                                        fz="15px"
+                                                        color="#7D7F82"
+                                                    >
+                                                        {item.subtitle}
+                                                    </Text>
+                                                </div>
+                                                {item.content}
                                             </div>
-                                            {item.content}
                                         </div>
                                     </div>
                                 ))}

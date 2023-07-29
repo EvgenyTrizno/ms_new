@@ -67,3 +67,7 @@ export interface IModalProps {
     height?: string;
     setIsOpenModal: (bool: boolean) => void;
 }
+
+export interface ISwitchProps {
+    onChange?: (e?: ChangeEvent<HTMLInputElement>) => void;
+}
