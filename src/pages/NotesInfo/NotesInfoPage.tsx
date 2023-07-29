@@ -1,9 +1,31 @@
 import { FC, useState } from "react";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import { faker } from "@faker-js/faker";
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
 
 import { Layout } from "../Layout/Layout";
 import { Btn, Text, GalleryModal } from "@/shared";
 import { Card, Comment, Circle, Slider } from "@/widgets";
-// import { Auth } from "../../shared/api/Auth";
+import { useUserCondition } from "@/shared/model/store";
 
 import virus from "/assets/virus-icon.jpg";
 import photo from "/assets/photo.jpg";
@@ -12,18 +34,54 @@ import styles from "./NotesInfoPage.module.scss";
 
 const NotesInfoPage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    // const { createAdmin } = Auth();
+    const { condition } = useUserCondition();
 
-    // useEffect(() => {
-    //     createAdmin(
-    //         "+123456789",
-    //         "test@gmail.com",
-    //         "test123",
-    //         "test123",
-    //         "User",
-    //         "User"
-    //     );
-    // });
+    const sick = condition === "Болен";
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: "top" as const,
+            },
+            title: {
+                display: true,
+                text: "Chart.js Line Chart",
+            },
+        },
+    };
+
+    const labels = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+    ];
+
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: "Dataset 1",
+                data: labels.map(() =>
+                    faker.number.int({ min: -1000, max: 1000 })
+                ),
+                borderColor: "rgb(255, 99, 132)",
+                backgroundColor: "rgba(255, 99, 132, 0.5)",
+            },
+            {
+                label: "Dataset 2",
+                data: labels.map(() =>
+                    faker.number.int({ min: -1000, max: 1000 })
+                ),
+                borderColor: "rgb(53, 162, 235)",
+                backgroundColor: "rgba(53, 162, 235, 0.5)",
+            },
+        ],
+    };
 
     return (
         <Layout>
@@ -119,9 +177,11 @@ const NotesInfoPage: FC = () => {
                                         percent={40}
                                         size={160}
                                         strokeWidth={12}
-                                        circleColor="#F2F4F5"
+                                        circleColor={"#F2F4F5"}
                                         textColor="#000"
-                                        percentColor="#FF8181"
+                                        percentColor={
+                                            sick ? "#D64657" : "#FF8181"
+                                        }
                                     />
 
                                     <div className={styles.text}>
@@ -131,7 +191,7 @@ const NotesInfoPage: FC = () => {
                                         <Text
                                             type="p"
                                             fz="14px"
-                                            color="#FF8181"
+                                            color={sick ? "#D64657" : "#FF8181"}
                                         >
                                             600 пациентов
                                         </Text>
@@ -142,9 +202,11 @@ const NotesInfoPage: FC = () => {
                                         percent={60}
                                         size={160}
                                         strokeWidth={12}
-                                        circleColor="#F2F4F5"
+                                        circleColor={"#F2F4F5"}
                                         textColor="#000"
-                                        percentColor="#81B3FF"
+                                        percentColor={
+                                            sick ? "#D64657" : "#81B3FF"
+                                        }
                                     />
                                     <div className={styles.text}>
                                         <Text type="h2" fz="16px">
@@ -153,7 +215,7 @@ const NotesInfoPage: FC = () => {
                                         <Text
                                             type="p"
                                             fz="14px"
-                                            color="#81B3FF"
+                                            color={sick ? "#D64657" : "#81B3FF"}
                                         >
                                             600 пациентов
                                         </Text>
@@ -183,7 +245,9 @@ const NotesInfoPage: FC = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.right}></div>
+                        <div className={styles.right}>
+                            <Line options={options} data={data} />
+                        </div>
                     </div>
                 </div>
                 <div className={styles.box}>
@@ -201,7 +265,6 @@ const NotesInfoPage: FC = () => {
                             </div>
                         ))}
                         <div className={`${styles.photo} ${styles.add}`}>
-                            <img src={photo} alt="" className={styles.bg} />
                             <img src={plus} alt="" className={styles.btn} />
                         </div>
                     </div>

@@ -8,6 +8,7 @@ import {
     Slider,
 } from "@/widgets";
 import { BackArrow, Btn, MobileFilter, MobileSwitch, Text } from "@/shared";
+import { ICraeteEventData } from "../CreateEvent/types";
 
 import info from "/assets/info-circle.svg";
 import sortArrow from "/assets/sort-arrow.svg";
@@ -19,7 +20,7 @@ const MobileCreateEventPage: FC = () => {
     const [isChecked, setIsCheked] = useState<boolean>(false);
     const [ids, setIds] = useState<string[]>([]);
 
-    const data = [
+    const data: ICraeteEventData[] = [
         {
             id: useId(),
             title: "Требуется ли переводчик",
