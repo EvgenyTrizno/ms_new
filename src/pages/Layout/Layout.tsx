@@ -37,12 +37,14 @@ export const Layout: FC<TProps> = ({ children }) => {
                         <Menu />
                         <div className={styles.main}>{children}</div>
                         <ExtraCallModal />
-                        <div
-                            className={styles.extra}
-                            onClick={() => setIsOpen(true)}
-                        >
-                            <img src={!isOpen ? extra : cross} alt="" />
-                        </div>
+                        {location.pathname !== "/messages" && (
+                            <div
+                                className={styles.extra}
+                                onClick={() => setIsOpen(true)}
+                            >
+                                <img src={!isOpen ? extra : cross} alt="" />
+                            </div>
+                        )}
                         {isNotification && <NotificationModal />}
                     </div>
                 </>

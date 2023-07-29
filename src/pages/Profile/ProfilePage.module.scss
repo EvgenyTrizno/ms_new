@@ -20,6 +20,11 @@
                     padding: 30px;
                     display: flex;
                     flex-direction: column;
+                    cursor: pointer;
+
+                    img {
+                        transition: all ease .5s;
+                    }
 
                     .nav {
                         display: flex;
@@ -47,6 +52,20 @@
                         input {
                             border-color: var(--gray-200);
                         }
+                    }
+
+                    
+                    .content {
+                        display: grid;
+                        grid-template-rows: 0fr;
+                        transition: grid-template-rows 400ms ease;
+                        opacity: 0;
+                        overflow: hidden;
+                    }
+                    
+                    .content.open {
+                        grid-template-rows: 1fr;
+                        opacity: 1;
                     }
                 }
             }

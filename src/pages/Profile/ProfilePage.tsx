@@ -116,7 +116,14 @@ const ProfilePage: FC = () => {
                         </Text>
                         <div className={styles.items}>
                             {data.main.map((item) => (
-                                <div className={styles.item} key={item.id}>
+                                <div
+                                    className={styles.item}
+                                    key={item.id}
+                                    onClick={() => {
+                                        setIsOpen((prev) => !prev);
+                                        setSelect(item.label);
+                                    }}
+                                >
                                     <div className={styles.nav}>
                                         <div className={styles.params}>
                                             <img
@@ -136,21 +143,29 @@ const ProfilePage: FC = () => {
                                             style={
                                                 isOpen && select === item.label
                                                     ? {
-                                                          transform: `rotate(90deg)`,
+                                                          transform: `rotate(-90deg)`,
                                                       }
-                                                    : {}
+                                                    : {
+                                                          transform:
+                                                              "rotate(90deg)",
+                                                      }
                                             }
                                             src={arrowRigth}
                                             alt=""
-                                            onClick={() => {
-                                                setIsOpen((prev) => !prev);
-                                                setSelect(item.label);
-                                            }}
                                         />
                                     </div>
-                                    {isOpen &&
-                                        select === item.label &&
-                                        item.content}
+                                    <div
+                                        className={
+                                            isOpen && select === item.label
+                                                ? `${styles.content} ${styles.open}`
+                                                : styles.content
+                                        }
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <div style={{ minHeight: 0 }}>
+                                            {item.content}
+                                        </div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -161,7 +176,14 @@ const ProfilePage: FC = () => {
                         </Text>
                         <div className={styles.items}>
                             {data.other.map((item) => (
-                                <div className={styles.item} key={item.id}>
+                                <div
+                                    className={styles.item}
+                                    key={item.id}
+                                    onClick={() => {
+                                        setIsOpen((prev) => !prev);
+                                        setSelect(item.label);
+                                    }}
+                                >
                                     <div className={styles.nav}>
                                         <div className={styles.params}>
                                             <img
@@ -182,20 +204,28 @@ const ProfilePage: FC = () => {
                                             style={
                                                 isOpen && select === item.label
                                                     ? {
-                                                          transform: `rotate(90deg)`,
+                                                          transform: `rotate(-90deg)`,
                                                       }
-                                                    : {}
+                                                    : {
+                                                          transform:
+                                                              "rotate(90deg)",
+                                                      }
                                             }
                                             alt=""
-                                            onClick={() => {
-                                                setIsOpen((prev) => !prev);
-                                                setSelect(item.label);
-                                            }}
                                         />
                                     </div>
-                                    {isOpen &&
-                                        select === item.label &&
-                                        item.content}
+                                    <div
+                                        className={
+                                            isOpen && select === item.label
+                                                ? `${styles.content} ${styles.open}`
+                                                : styles.content
+                                        }
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <div style={{ minHeight: 0 }}>
+                                            {item.content}
+                                        </div>
+                                    </div>
                                 </div>
                             ))}
                         </div>

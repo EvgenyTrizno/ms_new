@@ -17,6 +17,7 @@
         color: var(--dark-gray);
         padding: 20px 0;
         cursor: pointer;
+        transition: all ease .5s;
     }
 
     .active {

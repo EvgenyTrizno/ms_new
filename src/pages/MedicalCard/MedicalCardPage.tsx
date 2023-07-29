@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { motion } from "framer-motion";
 
 import { Layout } from "../Layout/Layout";
 import { Btn, Filter, Text } from "@/shared";
@@ -59,7 +60,20 @@ const MedicalCardPage: FC = () => {
                     ) : (
                         <>
                             {data.map((item) => (
-                                <div className={styles.item} key={item}>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{
+                                        opacity: 1,
+                                        y: 0,
+                                    }}
+                                    exit={{ opacity: 0, y: 20 }}
+                                    transition={{
+                                        duration: 0.4,
+                                        ease: "linear",
+                                    }}
+                                    className={styles.item}
+                                    key={item}
+                                >
                                     <div className={styles.box}>
                                         <div className={styles.text}>
                                             <Text
@@ -147,7 +161,7 @@ const MedicalCardPage: FC = () => {
                                             </Text>
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                             <div className={styles.itemAny}>
                                 <div className={styles.managment}>

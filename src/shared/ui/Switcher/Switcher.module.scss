@@ -18,28 +18,56 @@
 
         svg {
             fill: var(--gray);
+            z-index: 1;
         }
+    }
+
+    .item::before {
+        content: '';
+        width: 130px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        transform: scaleY(0);
+        transition: ease-in-out 400ms;
+    }
+
+    .healthy::before {
+        background-color: var(--blue-100);
+        border-top-left-radius: var(--default-border);
+        border-bottom-left-radius: var(--default-border);
+        transform: scaleY(1);
+        z-index: -1;
     }
 
     .healthy {
-        background-color: var(--blue-100);
         color: var(--blue);
-        border-top-left-radius: var(--default-border);
-        border-bottom-left-radius: var(--default-border);
-        
+        transition: ease-in-out 400ms;
+
         svg {
             fill: var(--blue) !important;
+            transition: ease-in-out 400ms;
         }
     }
 
-    .sick {
+    .sick::before {
         background-color: #F7E6E8;
         color: var(--red-400);
         border-top-right-radius: var(--default-border);
         border-bottom-right-radius: var(--default-border);
+        transform: scaleY(1);
+        z-index: -1;
+    }
+
+    .sick {
+        color: var(--red-400);
+        transition: ease-in-out 400ms;
 
         svg {
             fill: var(--red-400);
+            transition: ease-in-out 400ms;
         }
     }
 

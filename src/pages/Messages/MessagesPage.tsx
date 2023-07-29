@@ -1,4 +1,5 @@
 import { FC, useEffect, useState, MouseEvent, useRef } from "react";
+import { motion } from "framer-motion";
 
 import { Layout } from "../Layout/Layout";
 import { Search, ChatInfo } from "@/widgets";
@@ -402,7 +403,16 @@ const MessagesPage: FC = () => {
                                 </div>
                             </div>
                         )}
-                        {isOpen && isSelect === "Звонок" && (
+                        <motion.div
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{
+                                y: isOpen && isSelect === "Звонок" ? 10 : 30,
+                                opacity:
+                                    isOpen && isSelect === "Звонок" ? 1 : 0,
+                            }}
+                            transition={{ duration: 0.2 }}
+                            exit={{ y: 20, opacity: 0 }}
+                        >
                             <PopUp
                                 width="120px"
                                 right="25px"
@@ -424,7 +434,7 @@ const MessagesPage: FC = () => {
                                     </Text>
                                 </li>
                             </PopUp>
-                        )}
+                        </motion.div>
                         {isOpen && isSelect === "Отправить" && (
                             <PopUp
                                 width="180px"

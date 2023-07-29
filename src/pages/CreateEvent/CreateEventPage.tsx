@@ -27,6 +27,7 @@ const CreateEventPage: FC = () => {
                 console.log(res)
             );
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const sick = condition === "Болен";
