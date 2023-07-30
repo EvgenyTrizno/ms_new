@@ -7,7 +7,6 @@ import { MobileContainer, CustomMobileHeader } from "@/widgets";
 import arrow from "/assets/arrow-left-black.svg";
 import settings from "/assets/setting.svg";
 import plus from "/assets/plus-black.svg";
-import add from "/assets/add-circle.svg";
 import sender from "/assets/send.svg";
 import doctor from "/assets/doctor-male.svg";
 import arrowRight from "/assets/arrow-right-black.svg";
@@ -38,7 +37,6 @@ const MobileNotesPage: FC = () => {
                 <div className={styles.box}>
                     <MobileSearch
                         placeholder="Введите запрос"
-                        icon={add}
                         filterBtn={false}
                         onClick={() => navigate("/m/create-event")}
                     />
