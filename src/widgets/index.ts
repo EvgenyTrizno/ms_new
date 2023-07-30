@@ -33,6 +33,7 @@ import { MobileModal } from "./components/MobileModal/MobileModal";
 import { Modal } from "./components/Modal/Modal";
 import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorBoundaryFallback";
 import { ChatInfo } from "./components/ChatInfo/ChatInfo";
+import { MobileComment } from "./components/MobileComment/MobileComment";
 
 export {
     Login,
@@ -70,4 +71,5 @@ export {
     Modal,
     ErrorBoundaryFallback,
     ChatInfo,
+    MobileComment,
 };

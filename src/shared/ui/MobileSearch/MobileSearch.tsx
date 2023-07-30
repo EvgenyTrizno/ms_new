@@ -4,10 +4,10 @@ import { IMobileSearch } from "./types";
 import { Icons } from "../Icons/Icons";
 import { useUserCondition } from "@/shared/model/store";
 
+import controller from "/assets/controler.svg";
 import styles from "./MobileSearch.module.scss";
 
 export const MobileSearch: FC<IMobileSearch> = ({
-    icon,
     onClick,
     placeholder,
     filterBtn = true,
@@ -33,7 +33,7 @@ export const MobileSearch: FC<IMobileSearch> = ({
                     }
                     className={styles.btn}
                 >
-                    <img src={icon} alt="" />
+                    <img src={controller} alt="" />
                 </button>
             )}
         </div>

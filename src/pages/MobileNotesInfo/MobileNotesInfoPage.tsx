@@ -5,6 +5,7 @@ import {
     Circle,
     CustomMobileHeader,
     MobileCard,
+    MobileComment,
     MobileContainer,
 } from "@/widgets";
 import { BackArrow, MobileFilter, MobileSearch, Text } from "@/shared";
@@ -82,7 +83,6 @@ const MobileNotesInfoPage: FC = () => {
                         <Swiper
                             style={{ margin: 0 }}
                             slidesPerView={4}
-                            centeredSlides={true}
                             spaceBetween={8}
                         >
                             {[1, 2, 3, 4, 5].map((item) => (
@@ -113,29 +113,101 @@ const MobileNotesInfoPage: FC = () => {
                                     textColor="#262626"
                                     fontSize="16px"
                                 />
+                                <div className={styles.text}>
+                                    <Text type="h5" fz="11px">
+                                        Помогло на 40%
+                                    </Text>
+                                    <Text type="p" fz="10px" color="#D64657">
+                                        600 пациентов
+                                    </Text>
+                                </div>
                             </div>
                             <div className={styles.block}>
                                 <Circle
                                     size={76}
-                                    percentColor="#D64657"
-                                    percent={40}
+                                    percentColor="#0064FA"
+                                    percent={60}
                                     strokeWidth={5}
                                     circleColor="#E9EAEB"
                                     textColor="#262626"
                                     fontSize="16px"
                                 />
+                                <div className={styles.text}>
+                                    <Text type="h5" fz="11px">
+                                        Помогло на 40%
+                                    </Text>
+                                    <Text type="p" fz="10px" color="#0064FA">
+                                        600 пациентов
+                                    </Text>
+                                </div>
                             </div>
                             <div className={styles.block}>
                                 <Circle
                                     size={76}
-                                    percentColor="#D64657"
-                                    percent={40}
+                                    percentColor="#00CC5E"
+                                    percent={80}
                                     strokeWidth={5}
                                     circleColor="#E9EAEB"
                                     textColor="#262626"
                                     fontSize="16px"
                                 />
+                                <div className={styles.text}>
+                                    <Text type="h5" fz="11px">
+                                        Помогло на 40%
+                                    </Text>
+                                    <Text type="p" fz="10px" color="#00CC5E">
+                                        600 пациентов
+                                    </Text>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                    <div className={styles.box}>
+                        <Text type="p" fz="14px" color="#7D7F82">
+                            Статистика посещений
+                        </Text>
+                        <div className={styles.stats}>график</div>
+                    </div>
+                    <div className={styles.box}>
+                        <Text type="p" fz="14px" color="#7D7F82">
+                            Публикации
+                        </Text>
+                        <div className={styles.gallery}>
+                            <Swiper
+                                style={{ margin: 0 }}
+                                slidesPerView={4}
+                                spaceBetween={8}
+                            >
+                                <SwiperSlide className={styles.slide}>
+                                    <div className={styles.photo}></div>
+                                </SwiperSlide>
+                                <SwiperSlide className={styles.slide}>
+                                    <div className={styles.photo}></div>
+                                </SwiperSlide>
+                            </Swiper>
+                        </div>
+                    </div>
+                    <div className={styles.box}>
+                        <div className={styles.nav}>
+                            <Text type="p" fz="14px" color="#7D7F82">
+                                Отзывы пользователей
+                            </Text>
+                            <Text type="h3" fz="14px" color="#7D7F82">
+                                Посмотреть все
+                            </Text>
+                        </div>
+                        <div className={styles.comments}>
+                            <Swiper
+                                style={{ margin: 0 }}
+                                slidesPerView={1}
+                                spaceBetween={8}
+                            >
+                                {[1, 2, 3, 4].map((item) => (
+                                    <SwiperSlide className={styles.slide}>
+                                        <MobileComment key={item} />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
                         </div>
                     </div>
                 </div>

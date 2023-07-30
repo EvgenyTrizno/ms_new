@@ -1,0 +1,39 @@
+.comment {
+    width: 316px;
+    background-color: var(--white);
+    padding: 16px;
+    border: 1px solid var(--system-light-grey);
+    border-radius: 20px;
+
+    .reactions {
+        display: flex;
+        grid-gap: 16px;
+        align-items: center;
+    }
+    
+    .box {
+        display: flex;
+        align-items: center;
+        grid-gap: 6px;
+    }
+
+    .content {
+        margin: 24px 0;
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 6px;
+        }
+
+        .descr {
+            margin-top: 12px;
+        }
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+        grid-gap: 8px;
+    }
+}
