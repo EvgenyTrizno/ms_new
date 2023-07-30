@@ -8,6 +8,7 @@ export const Circle: FC<ICircleProps> = ({
     circleColor,
     percentColor,
     textColor,
+    fontSize,
 }) => {
     const radius = (size - strokeWidth) / 2;
     const circumference = 2 * Math.PI * radius;
@@ -49,7 +50,7 @@ export const Circle: FC<ICircleProps> = ({
                 y="50%"
                 dominantBaseline="middle"
                 textAnchor="middle"
-                fontSize="20px"
+                fontSize={fontSize || "20px"}
                 fill={textColor}
             >
                 {percent}%

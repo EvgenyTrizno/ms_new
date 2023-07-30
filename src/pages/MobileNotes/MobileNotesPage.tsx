@@ -4,8 +4,9 @@ import { useNavigate } from "react-router";
 import { Text, MobileFilter, MobileSearch, Btn } from "@/shared";
 import { MobileContainer, CustomMobileHeader } from "@/widgets";
 
-import arrow from "/assets/arrow-left.svg";
-import settings from "/assets/setting-black.svg";
+import arrow from "/assets/arrow-left-black.svg";
+import settings from "/assets/setting.svg";
+import plus from "/assets/plus-black.svg";
 import add from "/assets/add-circle.svg";
 import sender from "/assets/send.svg";
 import doctor from "/assets/doctor-male.svg";
@@ -30,7 +31,7 @@ const MobileNotesPage: FC = () => {
                             Записи
                         </Text>
                     </div>
-                    <img src={settings} alt="" />
+                    <img src={plus} alt="" />
                 </div>
             </CustomMobileHeader>
             <MobileContainer>
@@ -38,7 +39,7 @@ const MobileNotesPage: FC = () => {
                     <MobileSearch
                         placeholder="Введите запрос"
                         icon={add}
-                        filterBtn
+                        filterBtn={false}
                         onClick={() => navigate("/m/create-event")}
                     />
                     <MobileFilter data={["Подтвержденные", "Доп.проверка"]} />
@@ -57,8 +58,8 @@ const MobileNotesPage: FC = () => {
                                     fz="14px"
                                     color="#B1B2B4"
                                 >
-                                    Список пуст, создайте запись нажав на кнопку
-                                    “Плюс”
+                                    Список пуст, создайте запись с
+                                    дополнительной проверкой специалиста
                                 </Text>
                             </div>
                         </div>

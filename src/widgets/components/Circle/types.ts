@@ -5,4 +5,5 @@ export interface ICircleProps {
     circleColor: string;
     textColor: string;
     percentColor: string;
+    fontSize?: string;
 }

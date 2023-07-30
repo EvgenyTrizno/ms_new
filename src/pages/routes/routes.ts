@@ -89,6 +89,9 @@ const NotFoundPage = lazy(() => import("@/pages/404Page/NotFoundPage"));
 const MobileNotificationPage = lazy(
     () => import("@/pages/MobileNotification/MobileNotification")
 );
+const MobileNotesInfoPage = lazy(
+    () => import("@/pages/MobileNotesInfo/MobileNotesInfoPage")
+);
 
 export const routes: RouteData[] = [
     {
@@ -205,5 +208,10 @@ export const routes: RouteData[] = [
         path: "/m/notifications",
         Component: MobileNotificationPage,
         key: "mobile-notifications_page",
+    },
+    {
+        path: "/m/notes-info",
+        Component: MobileNotesInfoPage,
+        key: "mobile-notes-info_page",
     },
 ];
