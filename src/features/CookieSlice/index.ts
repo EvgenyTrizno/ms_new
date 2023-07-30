@@ -25,6 +25,9 @@ export const getRefreshTokenFromCookies = () => {
             return;
         }
     } catch (e) {
-        return;
+        if (location.pathname === "/auth/login") return;
+        else {
+            location.pathname = "/auth/login";
+        }
     }
 };

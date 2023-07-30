@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, useState } from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 
@@ -8,6 +8,7 @@ import { Input } from "@/shared/ui/Input/Input";
 import { Btn } from "@/shared/ui/Btn/Btn";
 import { Auth } from "@/shared/api/Auth";
 import { setCookie } from "@/features";
+import { MOBILE_SCREEN } from "@/shared/utils";
 
 import facebook from "/assets/facebook.svg";
 import apple from "/assets/apple.svg";
@@ -24,7 +25,7 @@ export const Login: FC = () => {
     const handleClick = () => {
         getToket(number, pass).then((res) => {
             setCookie("refresh_token", res.refresh, 1);
-            redirect("/");
+            location.pathname = MOBILE_SCREEN ? "/m/" : "/";
         });
     };
 
