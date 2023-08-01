@@ -24,6 +24,7 @@ export const Input: FC<IInput & InputHTMLAttributes<HTMLInputElement>> = ({
     height,
     borderRadius,
     padding,
+    name,
 }) => {
     return (
         <input
@@ -50,6 +51,7 @@ export const Input: FC<IInput & InputHTMLAttributes<HTMLInputElement>> = ({
             onChange={onChange}
             onBlur={onBlur}
             value={value}
+            name={name}
         />
     );
 };

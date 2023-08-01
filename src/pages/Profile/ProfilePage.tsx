@@ -1,4 +1,4 @@
-import { FC, useState, useId } from "react";
+import { FC, useState, useId, ChangeEvent, useEffect } from "react";
 import { IProfileParamsData } from "./types";
 
 import { Layout } from "../Layout/Layout";
@@ -6,7 +6,7 @@ import { User } from "@/widgets";
 import { Input, Text } from "@/shared";
 import { useUserCondition, useUserData } from "@/shared/model/store";
 import { Account } from "@/shared/api/Account";
-import { getRefreshTokenFromCookies } from "@/features";
+import { getAccessTokenFromCookies } from "@/features";
 
 import user from "/assets/user-blue.svg";
 import userRed from "/assets/user-red.svg";
@@ -34,27 +34,66 @@ const ProfilePage: FC = () => {
     const [city, setCity] = useState<string>();
     const [interest, setInterest] = useState<string>();
     const [login, setLogin] = useState<string>();
+    const [number, setNumber] = useState<string>();
+    const [dataChanged, setDataChanged] = useState<boolean>(false);
 
     const { condition } = useUserCondition();
-    const { changeProfileData } = Account();
-    const { number, setNumber, email, setEmail, position } = useUserData();
+    const { changeProfileData, getUserData } = Account();
+    const { email, setEmail, position } = useUserData();
 
     const sick = condition === "Болен";
-    const token = getRefreshTokenFromCookies();
-    console.log(token);
+    const token = getAccessTokenFromCookies();
+
+    // useEffect(() => {
+    //     if (token) {
+    //         console.log(token);
+    //         getUserData(token).then((res) => {
+    //             setFirst_Name(res)
+    //         });
+    //     }
+    // }, []);
 
     const handleOnBlur = () => {
-        if (token) {
+        if (dataChanged && token) {
             changeProfileData(
                 token,
-                first_name
-                // last_name,
-                // birthday,
-                // country,
-                // address,
-                // city,
-                // number
+                first_name,
+                last_name,
+                birthday,
+                country,
+                address,
+                city,
+                number
             ).then((res) => console.log(res));
+        }
+
+        setDataChanged(false);
+    };
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const inputName = e.target.name;
+        const value = e.target.value;
+
+        setDataChanged(true);
+
+        switch (inputName) {
+            case "first_name":
+                setFirst_Name(value);
+                break;
+            case "last_name":
+                setLast_Name(value);
+                break;
+            case "birthday":
+                setBirthday(new Date());
+                break;
+            case "country":
+                setCountry(value);
+                break;
+            case "city":
+                setCity(value);
+                break;
+            case "address":
+                setAdderess(value);
         }
     };
 
@@ -72,41 +111,49 @@ const ProfilePage: FC = () => {
                         <Input
                             type="text"
                             placeholder="Имя"
-                            onBlur={handleOnBlur}
                             value={first_name}
-                            onChange={(e) => setFirst_Name(e.target.value)}
+                            name="first_name"
+                            onBlur={handleOnBlur}
+                            onChange={handleChange}
                         />
                         <Input
                             type="text"
                             placeholder="Фамилия"
                             value={last_name}
-                            onChange={(e) => setLast_Name(e.target.value)}
+                            name="last_name"
+                            onBlur={handleOnBlur}
+                            onChange={handleChange}
                         />
                         <Input
                             type="text"
                             placeholder="Дата рождения"
-                            // value={birthday?.toString()}
-                            // onChange={(e) =>
-                            //     setBirthday(Date.parse(e.target.value))
-                            // }
+                            value={birthday?.toString()}
+                            name="birthday"
+                            onChange={handleChange}
                         />
                         <Input
                             type="text"
                             placeholder="Страна"
                             value={position.counrty || country}
-                            onChange={(e) => setCountry(e.target.value)}
+                            name="country"
+                            onBlur={handleOnBlur}
+                            onChange={handleChange}
                         />
                         <Input
                             type="text"
                             placeholder="Город"
                             value={position.city || city}
-                            onChange={(e) => setCity(e.target.value)}
+                            name="city"
+                            onBlur={handleOnBlur}
+                            onChange={handleChange}
                         />
                         <Input
                             type="text"
                             placeholder="Адрес"
                             value={address}
-                            onChange={(e) => setAdderess(e.target.value)}
+                            name="address"
+                            onBlur={handleOnBlur}
+                            onChange={handleChange}
                         />
                         <Input
                             type="text"

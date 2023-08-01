@@ -8,8 +8,9 @@ export const useHttp = () => {
             url: string,
             method: TMethod = "GET",
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            body?: Record<string, any>,
-            headers?: Record<string, string>
+            body?: Record<string, any> | null,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            headers?: Record<string, any>
         ): Promise<any> => {
             try {
                 const options: RequestInit = {
@@ -24,10 +25,8 @@ export const useHttp = () => {
                     },
                 };
 
-                console.log(options);
-
                 if (
-                    body &&
+                    body !== undefined &&
                     (method === "POST" ||
                         method === "PUT" ||
                         method === "PATCH")

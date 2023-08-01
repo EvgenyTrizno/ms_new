@@ -15,7 +15,7 @@ export const Account = () => {
         number?: string
     ) => {
         const data = await request(
-            `${BASE_URL}/api/users/`,
+            `${BASE_URL}/api/users-detail/`,
             "PUT",
             {
                 first_name,
@@ -27,7 +27,20 @@ export const Account = () => {
                 number,
             },
             {
-                Authorization: token,
+                Authorization: `Bearer ${token}`,
+            }
+        );
+
+        return data;
+    };
+
+    const getUserData = async (token: string) => {
+        const data = await request(
+            `${BASE_URL}/api/users-detail/`,
+            "GET",
+            null,
+            {
+                Authorization: `Bearer ${token}`,
             }
         );
 
@@ -164,5 +177,6 @@ export const Account = () => {
         changeNotesData,
         getNoteById,
         getAllDoctors,
+        getUserData,
     };
 };

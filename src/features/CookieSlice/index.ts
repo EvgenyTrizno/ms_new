@@ -5,17 +5,41 @@ export const setCookie = (name: string, value: string, days: number) => {
 };
 
 let isRedirected = false;
+const tokenRes = (token_name: string) => {
+    return document.cookie
+        .split(" ")
+        .map((item) => item.split("="))
+        .filter((item) => item[0] === token_name)
+        .flat()[1]
+        .replace(";", "");
+};
 
 export const getRefreshTokenFromCookies = () => {
     if (isRedirected) return;
 
     try {
-        const token = document.cookie
-            .split(" ")
-            .map((item) => item.split("="))
-            .filter((item) => item[0] === "refresh_token")
-            .flat()[1]
-            .replace(";", "");
+        const token = tokenRes("refresh_token");
+
+        if (token) {
+            return token;
+        } else {
+            isRedirected = true;
+            location.pathname = "/auth/login";
+            return;
+        }
+    } catch (e) {
+        if (location.pathname === "/auth/login") return;
+        else {
+            location.pathname = "/auth/login";
+        }
+    }
+};
+
+export const getAccessTokenFromCookies = () => {
+    if (isRedirected) return;
+
+    try {
+        const token = tokenRes("access_token");
 
         if (token) {
             return token;
