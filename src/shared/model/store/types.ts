@@ -53,6 +53,7 @@ export interface IUserData {
     disease_id: number[];
     group: TGroups;
     number: string;
+    email: string;
     position: IUserPosition;
     pass1: string;
     pass2: string;
@@ -60,6 +61,7 @@ export interface IUserData {
     setDiseases: (diseaseId: number) => void;
     setGroup: (group: TGroups) => void;
     setNumber: (phone: string) => void;
+    setEmail: (email: string) => void;
     setPass1: (pass1: string) => void;
     setPass2: (pass2: string) => void;
     setPosition: (

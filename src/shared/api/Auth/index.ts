@@ -139,27 +139,43 @@ export const Auth = () => {
         return data;
     };
 
-    const sendVerifyCodeRecoveryPassOnPhone = async (number: string) => {
+    const sendVerifyCodeRecoveryPassOnPhone = async (
+        number: string,
+        reset_code: string
+    ) => {
         const data = await request(
             `${BASE_URL}/api/verify-reset-password/`,
             "POST",
             {
                 number,
+                reset_code,
             }
         );
 
         return data;
     };
 
-    const changePassword = async (
-        email?: string,
-        number?: string,
-        password1?: string,
-        password2?: string
+    const changePasswordByNumber = async (
+        number: string,
+        password1: string,
+        password2: string
+    ) => {
+        const data = await request(`${BASE_URL}/api/change-password/`, "POST", {
+            number,
+            password1,
+            password2,
+        });
+
+        return data;
+    };
+
+    const changePasswordByEmail = async (
+        email: string,
+        password1: string,
+        password2: string
     ) => {
         const data = await request(`${BASE_URL}/api/change-password/`, "POST", {
             email,
-            number,
             password1,
             password2,
         });
@@ -178,7 +194,8 @@ export const Auth = () => {
         recoveryPasswordByEmail,
         sendVerifyCodeRecoveryPassOnEmail,
         sendVerifyCodeRecoveryPassOnPhone,
-        changePassword,
+        changePasswordByNumber,
+        changePasswordByEmail,
         getToket,
         tokenСomparison,
     };

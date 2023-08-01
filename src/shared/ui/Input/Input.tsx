@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC, InputHTMLAttributes } from "react";
 import { IInput } from "@/shared/types";
 
 import styles from "./Input.module.scss";
 
-export const Input: FC<IInput> = ({
+export const Input: FC<IInput & InputHTMLAttributes<HTMLInputElement>> = ({
     type = "text",
     placeholder,
     width = "100%",
@@ -19,6 +19,7 @@ export const Input: FC<IInput> = ({
     bgcolor,
     disabled,
     onChange,
+    onBlur,
     value,
     height,
     borderRadius,
@@ -47,6 +48,7 @@ export const Input: FC<IInput> = ({
                 padding,
             }}
             onChange={onChange}
+            onBlur={onBlur}
             value={value}
         />
     );

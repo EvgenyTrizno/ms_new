@@ -5,24 +5,31 @@ export const Account = () => {
     const { request } = useHttp();
 
     const changeProfileData = async (
-        userId: number,
+        token: string,
         first_name?: string,
         last_name?: string,
         birthday?: Date,
-        country?: number,
+        country?: string,
         address?: string,
         city?: string,
         number?: string
     ) => {
-        const data = await request(`${BASE_URL}/api/users/${userId}/`, "PUT", {
-            first_name,
-            last_name,
-            birthday,
-            country,
-            address,
-            city,
-            number,
-        });
+        const data = await request(
+            `${BASE_URL}/api/users/`,
+            "PUT",
+            {
+                first_name,
+                last_name,
+                birthday,
+                country,
+                address,
+                city,
+                number,
+            },
+            {
+                Authorization: token,
+            }
+        );
 
         return data;
     };

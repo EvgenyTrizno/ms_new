@@ -1,22 +1,20 @@
 import { FC, useState, FormEvent, ChangeEvent, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { TypeOfSelectedMethod } from "./types";
 
 import { Auth } from "@/shared/api/Auth";
 import { Btn, Input, Text } from "@/shared";
-// import { getRefreshTokenFromCookies } from "@/features";
 
 import styles from "./Recovery.module.scss";
+import { useUserData } from "@/shared/model/store";
 
 export const Recovery: FC = () => {
     const [isSelect, setIsSelect] = useState<TypeOfSelectedMethod>("tel");
-    const [number, setNumber] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
 
-    const {
-        recoveryPasswordByEmail,
-        recoveryPasswordByNumber,
-        sendVerifyCodeRecoveryPassOnPhone,
-    } = Auth();
+    const navigate = useNavigate();
+
+    const { recoveryPasswordByEmail, recoveryPasswordByNumber } = Auth();
+    const { setNumber, setEmail, email, number } = useUserData();
 
     const disableBtn =
         isSelect === "email" && !email
@@ -31,9 +29,16 @@ export const Recovery: FC = () => {
         if (number) {
             recoveryPasswordByNumber(number)
                 .then((res) => console.log(res))
-                .then(() => sendVerifyCodeRecoveryPassOnPhone(number));
+                .then(() =>
+                    navigate("/auth/confirm?redirect=recovery&type=number")
+                );
         } else if (email) {
-            recoveryPasswordByEmail(email).then((res) => console.log(res));
+            console.log(email);
+            recoveryPasswordByEmail(email)
+                .then((res) => console.log(res))
+                .then(() =>
+                    navigate("/auth/confirm?redirect=recovery&type=email")
+                );
         }
     };
 

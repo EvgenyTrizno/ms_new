@@ -6,7 +6,7 @@ import {
     useState,
     useEffect,
 } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 import { Btn, Text } from "@/shared";
 import { Auth } from "@/shared/api/Auth";
@@ -18,10 +18,17 @@ import styles from "./Confirmation.module.scss";
 export const Confirmation: FC = () => {
     const [code, setCode] = useState<string>("");
     const [seconds, setSeconds] = useState<number>(60);
+    const [searchParams] = useSearchParams();
 
     const navigate = useNavigate();
-    const { number, pass1 } = useUserData();
-    const { sendVerifyCode, resendVerifyCode, getToket } = Auth();
+
+    const { number, pass1, email } = useUserData();
+    const {
+        sendVerifyCode,
+        resendVerifyCode,
+        getToket,
+        sendVerifyCodeRecoveryPassOnPhone,
+    } = Auth();
 
     const codeRefs = [
         useRef<HTMLInputElement>(null),
@@ -31,6 +38,8 @@ export const Confirmation: FC = () => {
     ];
 
     const noCode = code.length !== 4 || number === "";
+    const type = searchParams.get("type");
+    const redirect = searchParams.get("redirect");
 
     const handleCodeInputChange = (
         e: ChangeEvent<HTMLInputElement>,
@@ -57,17 +66,27 @@ export const Confirmation: FC = () => {
     };
 
     const handleClick = () => {
-        if (code && number) {
-            sendVerifyCode(number, +code)
-                .then((res) => console.log(res))
-                .then(() =>
-                    getToket(number, pass1)
-                        .then((res) => {
-                            setCookie("access_token", res.access, 1);
-                            setCookie("refresh_token", res.refresh, 1);
-                        })
-                        .then(() => navigate("/"))
-                );
+        if (code) {
+            if (number && redirect === "registration") {
+                sendVerifyCode(number, +code)
+                    .then((res) => console.log(res))
+                    .then(() =>
+                        getToket(number, pass1)
+                            .then((res) => {
+                                setCookie("access_token", res.access, 1);
+                                setCookie("refresh_token", res.refresh, 1);
+                            })
+                            .then(() => navigate("/"))
+                    );
+            } else if (number && redirect === "recovery" && type === "number") {
+                sendVerifyCodeRecoveryPassOnPhone(number, code)
+                    .then((res) => console.log(res))
+                    .then(() => navigate("/create-new-password?type=number"));
+            } else if (email && redirect === "recovery" && type === "email") {
+                sendVerifyCodeRecoveryPassOnPhone(email, code)
+                    .then((res) => console.log(res))
+                    .then(() => navigate("/create-new-password?type=email"));
+            }
         }
     };
 
@@ -158,7 +177,9 @@ export const Confirmation: FC = () => {
                 </Text>
             </div>
             <Btn color="#0064FA" onClick={handleClick} disabled={noCode}>
-                Зарегестрироваться
+                {redirect === "registration"
+                    ? "Зарегестрироваться"
+                    : "Продолжить"}
             </Btn>
             <div className={styles.redirect}>
                 Уже имеется аккаунт?

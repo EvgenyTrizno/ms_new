@@ -208,7 +208,7 @@ export const Authorization: FC = () => {
                                 />
                             )}
                         </div>
-                        <Btn onClick={() => handleClick()} color="#0064FA">
+                        <Btn onClick={handleClick} color="#0064FA">
                             Продолжить
                         </Btn>
                     </>

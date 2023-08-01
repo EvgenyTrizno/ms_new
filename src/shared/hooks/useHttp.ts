@@ -24,6 +24,8 @@ export const useHttp = () => {
                     },
                 };
 
+                console.log(options);
+
                 if (
                     body &&
                     (method === "POST" ||

@@ -75,6 +75,7 @@ export const useUserData = create<IUserData>()(
         disease_id: [],
         group: "Пользователи",
         number: "",
+        email: "",
         pass1: "",
         pass2: "",
         position: {
@@ -101,6 +102,11 @@ export const useUserData = create<IUserData>()(
         setNumber: (phone: string) => {
             set((state) => {
                 state.number = phone;
+            });
+        },
+        setEmail: (email: string) => {
+            set((state) => {
+                state.email = email;
             });
         },
         setPass1: (pass: string) => {

@@ -4,7 +4,9 @@ import { IProfileParamsData } from "./types";
 import { Layout } from "../Layout/Layout";
 import { User } from "@/widgets";
 import { Input, Text } from "@/shared";
-import { useUserCondition } from "@/shared/model/store";
+import { useUserCondition, useUserData } from "@/shared/model/store";
+import { Account } from "@/shared/api/Account";
+import { getRefreshTokenFromCookies } from "@/features";
 
 import user from "/assets/user-blue.svg";
 import userRed from "/assets/user-red.svg";
@@ -24,9 +26,37 @@ import styles from "./ProfilePage.module.scss";
 const ProfilePage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [select, setSelect] = useState<string>();
+    const [first_name, setFirst_Name] = useState<string>();
+    const [last_name, setLast_Name] = useState<string>();
+    const [birthday, setBirthday] = useState<Date>();
+    const [country, setCountry] = useState<string>();
+    const [address, setAdderess] = useState<string>();
+    const [city, setCity] = useState<string>();
+    const [interest, setInterest] = useState<string>();
+    const [login, setLogin] = useState<string>();
+
     const { condition } = useUserCondition();
+    const { changeProfileData } = Account();
+    const { number, setNumber, email, setEmail, position } = useUserData();
 
     const sick = condition === "Болен";
+    const token = getRefreshTokenFromCookies();
+    console.log(token);
+
+    const handleOnBlur = () => {
+        if (token) {
+            changeProfileData(
+                token,
+                first_name
+                // last_name,
+                // birthday,
+                // country,
+                // address,
+                // city,
+                // number
+            ).then((res) => console.log(res));
+        }
+    };
 
     const data: IProfileParamsData = {
         main: [
@@ -39,14 +69,57 @@ const ProfilePage: FC = () => {
                 },
                 content: (
                     <form className={styles.form}>
-                        <Input type="text" placeholder="Имя" />
-                        <Input type="text" placeholder="Фамилия" />
-                        <Input type="text" placeholder="Дата рождения" />
-                        <Input type="text" placeholder="Страна" />
-                        <Input type="text" placeholder="Город" />
-                        <Input type="text" placeholder="Адрес" />
-                        <Input type="text" placeholder="Логин" />
-                        <Input type="text" placeholder="Интерес" />
+                        <Input
+                            type="text"
+                            placeholder="Имя"
+                            onBlur={handleOnBlur}
+                            value={first_name}
+                            onChange={(e) => setFirst_Name(e.target.value)}
+                        />
+                        <Input
+                            type="text"
+                            placeholder="Фамилия"
+                            value={last_name}
+                            onChange={(e) => setLast_Name(e.target.value)}
+                        />
+                        <Input
+                            type="text"
+                            placeholder="Дата рождения"
+                            // value={birthday?.toString()}
+                            // onChange={(e) =>
+                            //     setBirthday(Date.parse(e.target.value))
+                            // }
+                        />
+                        <Input
+                            type="text"
+                            placeholder="Страна"
+                            value={position.counrty || country}
+                            onChange={(e) => setCountry(e.target.value)}
+                        />
+                        <Input
+                            type="text"
+                            placeholder="Город"
+                            value={position.city || city}
+                            onChange={(e) => setCity(e.target.value)}
+                        />
+                        <Input
+                            type="text"
+                            placeholder="Адрес"
+                            value={address}
+                            onChange={(e) => setAdderess(e.target.value)}
+                        />
+                        <Input
+                            type="text"
+                            placeholder="Логин"
+                            value={login}
+                            onChange={(e) => setLogin(e.target.value)}
+                        />
+                        <Input
+                            type="text"
+                            placeholder="Интерес"
+                            value={interest}
+                            onChange={(e) => setInterest(e.target.value)}
+                        />
                     </form>
                 ),
             },
@@ -59,8 +132,18 @@ const ProfilePage: FC = () => {
                 },
                 content: (
                     <form className={styles.form}>
-                        <Input type="text" placeholder="Телефон" />
-                        <Input type="text" placeholder="Почта" />
+                        <Input
+                            type="text"
+                            placeholder="Телефон"
+                            value={number}
+                            onChange={(e) => setNumber(e.target.value)}
+                        />
+                        <Input
+                            type="text"
+                            placeholder="Почта"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </form>
                 ),
             },

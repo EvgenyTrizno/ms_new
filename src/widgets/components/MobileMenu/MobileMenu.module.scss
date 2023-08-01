@@ -1,7 +1,7 @@
 @media screen and (max-width: 576px) {
     .mobileMenu {
         width: 100vw;
-        height: 75px;
+        height: 76px;
         overflow: hidden;
         position: fixed;
         left: 0;
@@ -28,8 +28,8 @@
         }
 
         .extraBtn {
-            width: 80px;
-            height: 80px;
+            width: 58px;
+            height: 58px;
             position: fixed;
             left: 50%;
             margin-right: -50%;
@@ -40,7 +40,23 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            img {
+                width: 26px;
+                height: 26px;
+            }
         }
+
+        // .extraBtn::after {
+        //     content: '';
+        //     background: #000;
+        //     width: 10px;
+        //     height: 10px;
+        //     position: absolute;
+        //     right: -16px;
+        //     bottom: 17px;
+        //     border-radius: 4px 0 0 0;
+        // }
     }
 
     .mobileMenu:before,
@@ -52,10 +68,10 @@
     .mobileMenu:before {
         top: 0;
         left: 50%;
-        width: 90px;
-        height: 90px;
+        width: 70px;
+        height: 70px;
         margin-right: -50%;
-        transform: translate(-50%, -45.5px);
+        transform: translate(-50%, -50%);
         border-radius: 50%;
         box-shadow: 0px 0px 0px 580px var(--white);
         z-index: -1;

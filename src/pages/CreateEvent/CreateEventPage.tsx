@@ -3,7 +3,7 @@ import { ICraeteEventData } from "./types";
 
 import { Layout } from "../Layout/Layout";
 import { Btn, Filter, Switch, Text } from "@/shared";
-import { Calendar, Card, Slider } from "@/widgets";
+import { Calendar } from "@/widgets";
 import { Account } from "@/shared/api/Account";
 import { getRefreshTokenFromCookies } from "@/features";
 import { useUserCondition } from "@/shared/model/store";
@@ -243,92 +243,77 @@ const CreateEventPage: FC = () => {
                     <div className={styles.box}>
                         <div className={styles.text}>
                             <Text type="p" color="#7D7F82">
-                                Выберите специалиста
+                                Выберите формат записи
                             </Text>
                         </div>
-                        <Slider container="960px">
-                            {[1, 2, 3, 4, 5, 6].map(() => (
-                                <Card checkbox />
-                            ))}
-                        </Slider>
-                        <div className={styles.more}>
-                            <div className={styles.text}>
-                                <Text type="p" color="#7D7F82">
-                                    Выберите формат записи
-                                </Text>
-                            </div>
-                            <div className={styles.options}>
-                                {data.map((item) => (
-                                    <div
-                                        className={styles.item}
-                                        key={item.id}
-                                        style={{
-                                            borderColor: sick ? "#F7E6E8" : "",
-                                        }}
-                                    >
-                                        <div className={styles.block}>
-                                            <Text type="p" fz="18px">
-                                                {item.title}
-                                            </Text>
-                                            <Switch
-                                                onChange={(e) => {
-                                                    if (e?.target.checked) {
-                                                        setIds([
-                                                            ...ids,
-                                                            item.id,
-                                                        ]);
-                                                    } else {
-                                                        const id = ids.filter(
-                                                            (it) =>
-                                                                it !== item.id
-                                                        );
+                        <div className={styles.options}>
+                            {data.map((item) => (
+                                <div
+                                    className={styles.item}
+                                    key={item.id}
+                                    style={{
+                                        borderColor: sick ? "#F7E6E8" : "",
+                                    }}
+                                >
+                                    <div className={styles.block}>
+                                        <Text type="p" fz="18px">
+                                            {item.title}
+                                        </Text>
+                                        <Switch
+                                            onChange={(e) => {
+                                                if (e?.target.checked) {
+                                                    setIds([...ids, item.id]);
+                                                } else {
+                                                    const id = ids.filter(
+                                                        (it) => it !== item.id
+                                                    );
 
-                                                        setIds(id);
-                                                    }
+                                                    setIds(id);
+                                                }
+                                            }}
+                                        />
+                                    </div>
+                                    <div
+                                        className={
+                                            ids.includes(item.id)
+                                                ? `${styles.content} ${styles.open}`
+                                                : styles.content
+                                        }
+                                    >
+                                        <div style={{ minHeight: 0 }}>
+                                            <div
+                                                className={styles.label}
+                                                style={{
+                                                    transition: "ease .5s",
+                                                    pointerEvents: ids.includes(
+                                                        item.id
+                                                    )
+                                                        ? "auto"
+                                                        : "none",
+                                                    opacity: ids.includes(
+                                                        item.id
+                                                    )
+                                                        ? 1
+                                                        : 0,
                                                 }}
-                                            />
-                                        </div>
-                                        <div
-                                            className={
-                                                ids.includes(item.id)
-                                                    ? `${styles.content} ${styles.open}`
-                                                    : styles.content
-                                            }
-                                        >
-                                            <div style={{ minHeight: 0 }}>
-                                                <div
-                                                    className={styles.label}
-                                                    style={{
-                                                        transition: "ease .5s",
-                                                        pointerEvents:
-                                                            ids.includes(
-                                                                item.id
-                                                            )
-                                                                ? "auto"
-                                                                : "none",
-                                                        opacity: ids.includes(
-                                                            item.id
-                                                        )
-                                                            ? 1
-                                                            : 0,
-                                                    }}
+                                            >
+                                                <Text
+                                                    type="p"
+                                                    fz="15px"
+                                                    color="#7D7F82"
                                                 >
-                                                    <Text
-                                                        type="p"
-                                                        fz="15px"
-                                                        color="#7D7F82"
-                                                    >
-                                                        {item.subtitle}
-                                                    </Text>
-                                                </div>
-                                                {item.content}
+                                                    {item.subtitle}
+                                                </Text>
                                             </div>
+                                            {item.content}
                                         </div>
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                            ))}
                         </div>
-                        <Btn color="#0064FA">Записаться</Btn>
+                        <div className={styles.btn}>
+                            <Btn color="#0064FA">Записаться</Btn>
+                        </div>
                     </div>
                 </div>
             </div>
