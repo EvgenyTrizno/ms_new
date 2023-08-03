@@ -1,4 +1,9 @@
-import { ReactNode, HTMLInputTypeAttribute, ChangeEvent } from "react";
+import {
+    ReactNode,
+    HTMLInputTypeAttribute,
+    ChangeEvent,
+    LegacyRef,
+} from "react";
 
 export interface IText {
     type: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";

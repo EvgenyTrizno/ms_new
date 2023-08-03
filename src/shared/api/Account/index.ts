@@ -1,30 +1,21 @@
 import { BASE_URL } from "@/shared/config";
 import { useHttp } from "@/shared/hooks";
+import { IProfileData } from "./types";
+
+import noimage from "/assets/noimage.svg";
 
 export const Account = () => {
     const { request } = useHttp();
 
-    const changeProfileData = async (
+    const changeProfileName = async (
         token: string,
-        first_name?: string,
-        last_name?: string,
-        birthday?: Date,
-        country?: string,
-        address?: string,
-        city?: string,
-        number?: string
-    ) => {
-        const data = await request(
+        first_name: string
+    ): Promise<IProfileData> => {
+        const data: IProfileData = await request(
             `${BASE_URL}/api/users-detail/`,
             "PUT",
             {
                 first_name,
-                last_name,
-                birthday,
-                country,
-                address,
-                city,
-                number,
             },
             {
                 Authorization: `Bearer ${token}`,
@@ -34,11 +25,16 @@ export const Account = () => {
         return data;
     };
 
-    const getUserData = async (token: string) => {
-        const data = await request(
+    const changeProfileSurname = async (
+        token: string,
+        last_name: string
+    ): Promise<IProfileData> => {
+        const data: IProfileData = await request(
             `${BASE_URL}/api/users-detail/`,
-            "GET",
-            null,
+            "PUT",
+            {
+                last_name,
+            },
             {
                 Authorization: `Bearer ${token}`,
             }
@@ -47,26 +43,119 @@ export const Account = () => {
         return data;
     };
 
-    const verifyEmail = async (userId: number, email: string) => {
-        const data = await request(
-            `${BASE_URL}/api/verify-email/${userId}/`,
-            "POST",
+    const changeProfileBirthday = async (
+        token: string,
+        birthday: string
+    ): Promise<IProfileData> => {
+        const data: IProfileData = await request(
+            `${BASE_URL}/api/users-detail/`,
+            "PUT",
             {
-                email,
+                birthday,
+            },
+            {
+                Authorization: `Bearer ${token}`,
             }
         );
 
         return data;
     };
 
+    const changeProfileCountry = async (
+        token: string,
+        country: string
+    ): Promise<IProfileData> => {
+        const data: IProfileData = await request(
+            `${BASE_URL}/api/users-detail/`,
+            "PUT",
+            {
+                country,
+            },
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        );
+
+        return data;
+    };
+
+    const changeProfileCity = async (
+        token: string,
+        city: string
+    ): Promise<IProfileData> => {
+        const data: IProfileData = await request(
+            `${BASE_URL}/api/users-detail/`,
+            "PUT",
+            {
+                city,
+            },
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        );
+
+        return data;
+    };
+
+    const changeProfileAddress = async (
+        token: string,
+        address: string
+    ): Promise<IProfileData> => {
+        const data: IProfileData = await request(
+            `${BASE_URL}/api/users-detail/`,
+            "PUT",
+            {
+                address,
+            },
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        );
+
+        return data;
+    };
+
+    const getUserData = async (token: string): Promise<IProfileData> => {
+        const data: IProfileData = await request(
+            `${BASE_URL}/api/users-detail/`,
+            "GET",
+            null,
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        );
+
+        const _transformData = {
+            ...data,
+            image: data.image ?? noimage,
+        };
+
+        return _transformData;
+    };
+
+    const verifyEmail = async (token: string, email: string) => {
+        const data = await request(
+            `${BASE_URL}/api/verify-email/`,
+            "POST",
+            {
+                email,
+            },
+            { Authorization: `Bearer ${token}` }
+        );
+
+        return data;
+    };
+
     const sendVerifyCodeForVerifyEmail = async (
-        userId: number,
-        code: string
+        token: string,
+        email_verification_code: string,
+        email: string
     ) => {
         const data = await request(
-            `${BASE_URL}/api/verify-email-code/${userId}/`,
+            `${BASE_URL}/api/verify-email-code/`,
             "POST",
-            { code }
+            { email_verification_code, email },
+            { Authorization: `Bearer ${token}` }
         );
 
         return data;
@@ -168,7 +257,7 @@ export const Account = () => {
     };
 
     return {
-        changeProfileData,
+        changeProfileName,
         verifyEmail,
         sendVerifyCodeForVerifyEmail,
         getUserNotesByToken,
@@ -178,5 +267,10 @@ export const Account = () => {
         getNoteById,
         getAllDoctors,
         getUserData,
+        changeProfileSurname,
+        changeProfileBirthday,
+        changeProfileAddress,
+        changeProfileCountry,
+        changeProfileCity,
     };
 };

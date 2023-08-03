@@ -67,6 +67,23 @@
                         grid-template-rows: 1fr;
                         opacity: 1;
                     }
+
+                    .verify {
+                        display: flex;
+                        flex-direction: column;
+                        grid-gap: 8px;
+
+                        input {
+                            border-color: var(--green-400);
+                            color: #242628 !important;
+                        }
+                        
+                        span {
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: var(--green-400);
+                        }
+                    }
                 }
             }
         }

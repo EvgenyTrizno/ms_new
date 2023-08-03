@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes } from "react";
+import { FC, InputHTMLAttributes, useEffect, useRef } from "react";
 import { IInput } from "@/shared/types";
 
 import styles from "./Input.module.scss";
@@ -25,10 +25,26 @@ export const Input: FC<IInput & InputHTMLAttributes<HTMLInputElement>> = ({
     borderRadius,
     padding,
     name,
+    className,
+    onFocus,
 }) => {
+    const ref = useRef<string[]>([]);
+
+    useEffect(() => {
+        const arr: string[] = [];
+
+        if (className) {
+            arr.push(className);
+        }
+
+        ref.current = arr;
+    }, [className]);
+
+    const combinedClassName = ref.current.join(" ");
+
     return (
         <input
-            className={styles.input}
+            className={`${styles.input} ${combinedClassName}`}
             type={type}
             placeholder={placeholder}
             disabled={disabled}
@@ -50,6 +66,7 @@ export const Input: FC<IInput & InputHTMLAttributes<HTMLInputElement>> = ({
             }}
             onChange={onChange}
             onBlur={onBlur}
+            onFocus={onFocus}
             value={value}
             name={name}
         />

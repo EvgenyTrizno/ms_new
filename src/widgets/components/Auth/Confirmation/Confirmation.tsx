@@ -11,7 +11,9 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Btn, Text } from "@/shared";
 import { Auth } from "@/shared/api/Auth";
 import { useUserData } from "@/shared/model/store";
-import { setCookie } from "@/features";
+import { getAccessTokenFromCookies, setCookie } from "@/features";
+import { Account } from "@/shared/api/Account";
+import { MOBILE_SCREEN } from "@/shared/utils";
 
 import styles from "./Confirmation.module.scss";
 
@@ -29,6 +31,7 @@ export const Confirmation: FC = () => {
         getToket,
         sendVerifyCodeRecoveryPassOnPhone,
     } = Auth();
+    const { sendVerifyCodeForVerifyEmail } = Account();
 
     const codeRefs = [
         useRef<HTMLInputElement>(null),
@@ -37,9 +40,10 @@ export const Confirmation: FC = () => {
         useRef<HTMLInputElement>(null),
     ];
 
-    const noCode = code.length !== 4 || number === "";
+    const noCode = code.length !== 4;
     const type = searchParams.get("type");
     const redirect = searchParams.get("redirect");
+    const token = getAccessTokenFromCookies();
 
     const handleCodeInputChange = (
         e: ChangeEvent<HTMLInputElement>,
@@ -86,6 +90,17 @@ export const Confirmation: FC = () => {
                 sendVerifyCodeRecoveryPassOnPhone(email, code)
                     .then((res) => console.log(res))
                     .then(() => navigate("/create-new-password?type=email"));
+            } else if (
+                email &&
+                token &&
+                redirect === "verify" &&
+                type === "email"
+            ) {
+                sendVerifyCodeForVerifyEmail(token, code, email)
+                    .then((res) => console.log(res))
+                    .then(() =>
+                        navigate(`${MOBILE_SCREEN ? "/m/" : "/profile"}`)
+                    );
             }
         }
     };

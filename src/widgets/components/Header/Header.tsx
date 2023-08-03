@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { Text } from "@/shared";
@@ -19,6 +19,10 @@ export const Header: FC = () => {
     const { setIsNotification, isNotification } = useNotification();
 
     const sick = condition === "Болен";
+
+    // useEffect(() => {
+    //     getUserData().then((res) => console.log(res));
+    // }, []);
 
     return (
         <header className={styles.header}>
