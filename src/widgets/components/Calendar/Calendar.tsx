@@ -8,7 +8,14 @@ import arrowLeft from "/assets/arrow-left.svg";
 import arrowRight from "/assets/arrow-right.svg";
 import styles from "./Calendar.module.scss";
 
-export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
+export const Calendar: FC<ICalendare> = ({
+    width,
+    height,
+    info,
+    selectDate,
+    setSelectDate,
+    setSelectDateEnd,
+}) => {
     const currentDate: Date = new Date();
     const [currentMonth, setCurrentMonth] = useState<number>(
         currentDate.getMonth()
@@ -19,29 +26,49 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
     const [selectedDay, setSelectedDay] = useState<string>(
         currentDate.getDate().toString()
     );
-    const [timeStart, setTimeStart] = useState<string>();
-    const [timeEnd, setTimeEnd] = useState<string>();
+    const [timeStart, setTimeStart] = useState<string>("");
+    const [timeEnd, setTimeEnd] = useState<string>("");
     const [selectWeekDay, setSelectWeekDay] = useState<number>(
         currentDate.getDay() === 0 ? 6 : currentDate.getDay()
     );
-    const [selectDate, setSelectDate] = useState<Date>();
-    const [isShowValue, setIsShowValue] = useState<boolean>();
 
     useEffect(() => {
-        if (timeStart?.length) {
-            setSelectDate(
+        if (timeEnd?.length && setSelectDateEnd) {
+            setSelectDateEnd(
                 new Date(
-                    `${currentYear}-${
-                        currentMonth + 1
-                    }-${selectedDay} ${timeStart}`
+                    `${currentYear}-${currentMonth + 1}-${selectedDay} ${
+                        timeEnd.length < 5 ? "00:00" : timeEnd
+                    }`
                 )
             );
+        } else if (timeStart?.length && setSelectDate) {
+            console.log(11);
+
+            setSelectDate &&
+                setSelectDate(
+                    new Date(
+                        `${currentYear}-${currentMonth + 1}-${selectedDay} ${
+                            timeStart.length < 5 ? "00:00" : timeStart
+                        }`
+                    )
+                );
         } else {
-            setSelectDate(
-                new Date(`${currentYear}-${currentMonth + 1}-${selectedDay}`)
-            );
+            setSelectDate &&
+                setSelectDate(
+                    new Date(
+                        `${currentYear}-${currentMonth + 1}-${selectedDay}`
+                    )
+                );
         }
-    }, [currentMonth, currentYear, selectedDay, timeStart]);
+    }, [
+        currentMonth,
+        currentYear,
+        selectedDay,
+        setSelectDate,
+        setSelectDateEnd,
+        timeEnd,
+        timeStart,
+    ]);
 
     useEffect(() => {
         if (selectDate) {
@@ -90,8 +117,6 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
         "Суббота",
         "Воскресенье",
     ];
-
-    console.log(selectDate);
 
     const sick = condition === "Болен";
     const active = `${styles.item} ${styles.active}`;
@@ -149,25 +174,30 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
 
     const daysInMonth = getDaysInMonth(currentYear, currentMonth);
 
-    const handleFocus = () => {
-        setIsShowValue(true);
-    };
-
-    const handleBlur = () => {
-        setIsShowValue(false);
-    };
-
     const handleChangeTime = (e: ChangeEvent<HTMLInputElement>) => {
         const currentValue = e.target.value;
+        const name = e.target.name;
         const digitalOnly = currentValue.replace(/\D/g, "");
+        let formatedTime = digitalOnly;
+        const hours = +digitalOnly.slice(0, 2);
+        const minutes = +digitalOnly.slice(2, 4);
 
-        let formatedTime = "00:00";
+        if (digitalOnly.length > 0) {
+            if (hours > 23 || minutes > 59) {
+                return;
+            }
 
-        for (let i = 0; i < formatedTime.length; i++) {
-            if (i === 0) {
-                formatedTime = formatedTime[0].replace("0", digitalOnly[i]);
+            if (digitalOnly.length >= 2) {
+                formatedTime = digitalOnly.slice(0, 2);
+            }
+
+            if (digitalOnly.length >= 3) {
+                formatedTime += ":" + digitalOnly.slice(2, 4);
             }
         }
+
+        name === "timeStart" && setTimeStart(formatedTime);
+        name === "timeEnd" && setTimeEnd(formatedTime);
     };
 
     return (
@@ -243,6 +273,8 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                                 type="text"
                                 borderColor="#E9EAEB"
                                 placeholder="00:00"
+                                name="timeStart"
+                                value={timeStart}
                                 onChange={handleChangeTime}
                             />
                         </div>
@@ -255,8 +287,10 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                             <Input
                                 type="text"
                                 borderColor="#E9EAEB"
+                                name="timeEnd"
+                                value={timeEnd}
                                 placeholder="00:00"
-                                onChange={(e) => setTimeEnd(e.target.value)}
+                                onChange={handleChangeTime}
                             />
                         </div>
                     </div>

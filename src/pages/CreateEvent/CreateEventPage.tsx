@@ -1,8 +1,8 @@
-import { FC, useEffect, useId, useState } from "react";
+import { ChangeEvent, FC, useEffect, useId, useState } from "react";
 import { ICraeteEventData } from "./types";
 
 import { Layout } from "../Layout/Layout";
-import { Btn, Filter, Switch, Text } from "@/shared";
+import { Btn, Filter, Input, Switch, Text } from "@/shared";
 import { Calendar } from "@/widgets";
 import { Account } from "@/shared/api/Account";
 import {
@@ -21,6 +21,11 @@ const CreateEventPage: FC = () => {
     const [isAdd, setIsAdd] = useState<boolean>(false);
     const [ids, setIds] = useState<string[]>([]);
     const [status, setStatus] = useState<boolean>(true);
+    const [selectDate, setSelectDate] = useState<Date>();
+    const [selectDateEnd, setSelectDateEnd] = useState<Date>();
+    const [notifyDays, setNotifyDays] = useState<string>("");
+    const [notifyMinutes, setNotifyMinutes] = useState<string>("");
+    const [notify, setNotify] = useState<Date>();
 
     const { condition } = useUserCondition();
     const { isFilter } = useFilter();
@@ -42,9 +47,37 @@ const CreateEventPage: FC = () => {
         isFilter === "Онлайн" ? setStatus(true) : setStatus(false);
     }, [isFilter]);
 
+    useEffect(() => {
+        if (notifyMinutes) {
+            const minutes = selectDate?.getMinutes();
+            const changeMinutes = minutes && minutes - +notifyMinutes;
+
+            const changeDate = new Date(Date.parse(selectDate?.getDate()!)); // копия даты
+
+            console.log(changeDate, selectDate);
+
+            // setNotify(new Date());
+        }
+    }, [notifyDays, notifyMinutes, selectDate]);
+
     const handleClick = () => {
         accessToken &&
-            createNotesByUserToken(accessToken, 63, "Проверка", status);
+            createNotesByUserToken(
+                accessToken,
+                63,
+                "Проверка",
+                status,
+                selectDate?.toISOString(),
+                selectDateEnd?.toISOString()
+            );
+    };
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const name = e.target.name;
+        const value = e.target.value;
+
+        name === "day" && setNotifyDays(value);
+        name === "minutes" && setNotifyMinutes(value);
     };
 
     const data: ICraeteEventData[] = [
@@ -58,7 +91,14 @@ const CreateEventPage: FC = () => {
                         <Text type="p" fz="15px">
                             За
                         </Text>
-                        <div className={styles.grayBlock}>2</div>
+                        <Input
+                            type="text"
+                            className={styles.grayBlock}
+                            value={notifyDays}
+                            name="day"
+                            onChange={handleChange}
+                            placeholder="0"
+                        />
                         <Text type="p" fz="15px">
                             дня
                         </Text>
@@ -68,7 +108,14 @@ const CreateEventPage: FC = () => {
                         <Text type="p" fz="15px">
                             За
                         </Text>
-                        <div className={styles.grayBlock}>20</div>
+                        <Input
+                            type="text"
+                            className={styles.grayBlock}
+                            value={notifyMinutes}
+                            onChange={handleChange}
+                            name="minutes"
+                            placeholder="0"
+                        />
                         <Text type="p" fz="15px">
                             минут
                         </Text>
@@ -252,7 +299,14 @@ const CreateEventPage: FC = () => {
                         </div>
                         <div className={styles.calendar}>
                             <Filter data={["Онлайн", "Оффлайн"]} />
-                            <Calendar info height="750px" width="100%" />
+                            <Calendar
+                                info
+                                height="750px"
+                                width="100%"
+                                selectDate={selectDate}
+                                setSelectDate={setSelectDate}
+                                setSelectDateEnd={setSelectDateEnd}
+                            />
                         </div>
                     </div>
                     <div className={styles.box}>

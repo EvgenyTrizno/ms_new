@@ -54,14 +54,12 @@
                         }
 
                         .grayBlock {
-                            width: 140px;
+                            width: 140px !important;
                             height: 60px;
                             padding: 16px;
                             background-color: var(--system-light-grey);
                             border-radius: var(--default-border);
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
+                            text-align: center;
                         }
 
                         .line {
