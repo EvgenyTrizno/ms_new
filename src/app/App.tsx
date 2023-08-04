@@ -8,6 +8,7 @@ import { PSuspense } from "./providers/Suspense";
 import { Auth } from "@/shared/api/Auth";
 import { setCookie, getRefreshTokenFromCookies } from "@/features";
 import { ErrorBoundaryFallback } from "@/widgets";
+import { AnimatePresence, motion } from "framer-motion";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -31,13 +32,22 @@ const App = () => {
     return (
         <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
             <PSuspense>
-                <Routing>
-                    <Routes>
-                        {routes.map((page) => (
-                            <Route {...page} />
-                        ))}
-                    </Routes>
-                </Routing>
+                <AnimatePresence initial={true}>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <Routing>
+                            <Routes>
+                                {routes.map((page) => (
+                                    <Route {...page} />
+                                ))}
+                            </Routes>
+                        </Routing>
+                    </motion.div>
+                </AnimatePresence>
             </PSuspense>
         </ErrorBoundary>
     );

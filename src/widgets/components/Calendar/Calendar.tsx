@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, ChangeEvent } from "react";
 import { ICalendare } from "./types";
 
 import { Input, Text } from "@/shared";
@@ -25,11 +25,22 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
         currentDate.getDay() === 0 ? 6 : currentDate.getDay()
     );
     const [selectDate, setSelectDate] = useState<Date>();
+    const [isShowValue, setIsShowValue] = useState<boolean>();
 
     useEffect(() => {
-        setSelectDate(
-            new Date(`${currentYear}-${currentMonth + 1}-${selectedDay}`)
-        );
+        if (timeStart?.length) {
+            setSelectDate(
+                new Date(
+                    `${currentYear}-${
+                        currentMonth + 1
+                    }-${selectedDay} ${timeStart}`
+                )
+            );
+        } else {
+            setSelectDate(
+                new Date(`${currentYear}-${currentMonth + 1}-${selectedDay}`)
+            );
+        }
     }, [currentMonth, currentYear, selectedDay, timeStart]);
 
     useEffect(() => {
@@ -138,6 +149,27 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
 
     const daysInMonth = getDaysInMonth(currentYear, currentMonth);
 
+    const handleFocus = () => {
+        setIsShowValue(true);
+    };
+
+    const handleBlur = () => {
+        setIsShowValue(false);
+    };
+
+    const handleChangeTime = (e: ChangeEvent<HTMLInputElement>) => {
+        const currentValue = e.target.value;
+        const digitalOnly = currentValue.replace(/\D/g, "");
+
+        let formatedTime = "00:00";
+
+        for (let i = 0; i < formatedTime.length; i++) {
+            if (i === 0) {
+                formatedTime = formatedTime[0].replace("0", digitalOnly[i]);
+            }
+        }
+    };
+
     return (
         <div
             className={styles.calendar}
@@ -210,7 +242,8 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                             <Input
                                 type="text"
                                 borderColor="#E9EAEB"
-                                onChange={(e) => setTimeStart(e.target.value)}
+                                placeholder="00:00"
+                                onChange={handleChangeTime}
                             />
                         </div>
                         <div className={styles.box}>
@@ -222,6 +255,7 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                             <Input
                                 type="text"
                                 borderColor="#E9EAEB"
+                                placeholder="00:00"
                                 onChange={(e) => setTimeEnd(e.target.value)}
                             />
                         </div>
