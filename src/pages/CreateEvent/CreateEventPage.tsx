@@ -5,8 +5,11 @@ import { Layout } from "../Layout/Layout";
 import { Btn, Filter, Switch, Text } from "@/shared";
 import { Calendar } from "@/widgets";
 import { Account } from "@/shared/api/Account";
-import { getRefreshTokenFromCookies } from "@/features";
-import { useUserCondition } from "@/shared/model/store";
+import {
+    getRefreshTokenFromCookies,
+    getAccessTokenFromCookies,
+} from "@/features";
+import { useFilter, useUserCondition } from "@/shared/model/store";
 
 import info from "/assets/info-circle.svg";
 import woman from "/assets/woman.jpg";
@@ -17,20 +20,32 @@ import styles from "./CreateEventPage.module.scss";
 const CreateEventPage: FC = () => {
     const [isAdd, setIsAdd] = useState<boolean>(false);
     const [ids, setIds] = useState<string[]>([]);
+    const [status, setStatus] = useState<boolean>(true);
 
     const { condition } = useUserCondition();
-    const { getAllDoctors } = Account();
+    const { isFilter } = useFilter();
+    const { getAllDoctors, createNotesByUserToken } = Account();
+
+    const sick = condition === "Болен";
+    const refreshToken = getRefreshTokenFromCookies();
+    const accessToken = getAccessTokenFromCookies();
 
     useEffect(() => {
-        if (getRefreshTokenFromCookies()) {
-            getAllDoctors(getRefreshTokenFromCookies() as string).then((res) =>
+        refreshToken &&
+            getAllDoctors(refreshToken as string).then((res) =>
                 console.log(res)
             );
-        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const sick = condition === "Болен";
+    useEffect(() => {
+        isFilter === "Онлайн" ? setStatus(true) : setStatus(false);
+    }, [isFilter]);
+
+    const handleClick = () => {
+        accessToken &&
+            createNotesByUserToken(accessToken, 63, "Проверка", status);
+    };
 
     const data: ICraeteEventData[] = [
         {
@@ -312,7 +327,9 @@ const CreateEventPage: FC = () => {
                             ))}
                         </div>
                         <div className={styles.btn}>
-                            <Btn color="#0064FA">Записаться</Btn>
+                            <Btn color="#0064FA" onClick={handleClick}>
+                                Записаться
+                            </Btn>
                         </div>
                     </div>
                 </div>

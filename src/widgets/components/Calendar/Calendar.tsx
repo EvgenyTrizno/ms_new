@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import { ICalendare } from "./types";
 
 import { Input, Text } from "@/shared";
@@ -9,8 +9,6 @@ import arrowRight from "/assets/arrow-right.svg";
 import styles from "./Calendar.module.scss";
 
 export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
-    const { condition } = useUserCondition();
-
     const currentDate: Date = new Date();
     const [currentMonth, setCurrentMonth] = useState<number>(
         currentDate.getMonth()
@@ -21,6 +19,27 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
     const [selectedDay, setSelectedDay] = useState<string>(
         currentDate.getDate().toString()
     );
+    const [timeStart, setTimeStart] = useState<string>();
+    const [timeEnd, setTimeEnd] = useState<string>();
+    const [selectWeekDay, setSelectWeekDay] = useState<number>(
+        currentDate.getDay() === 0 ? 6 : currentDate.getDay()
+    );
+    const [selectDate, setSelectDate] = useState<Date>();
+
+    useEffect(() => {
+        setSelectDate(
+            new Date(`${currentYear}-${currentMonth + 1}-${selectedDay}`)
+        );
+    }, [currentMonth, currentYear, selectedDay, timeStart]);
+
+    useEffect(() => {
+        if (selectDate) {
+            const dayOfWeek = selectDate.getDay();
+            setSelectWeekDay(dayOfWeek === 0 ? 6 : dayOfWeek - 1);
+        }
+    }, [selectDate]);
+
+    const { condition } = useUserCondition();
 
     const months = [
         "Январь",
@@ -36,8 +55,33 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
         "Ноябрь",
         "Декабрь",
     ];
-
+    const decreasingMonths = [
+        "января",
+        "февраля",
+        "марта",
+        "апреля",
+        "мая",
+        "июня",
+        "июля",
+        "августа",
+        "сентября",
+        "октября",
+        "ноября",
+        "декабря",
+    ];
     const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+    const fullDays = [
+        "Понедельник",
+        "Вторник",
+        "Среда",
+        "Четверг",
+        "Пятница",
+        "Суббота",
+        "Воскресенье",
+    ];
+
+    console.log(selectDate);
+
     const sick = condition === "Болен";
     const active = `${styles.item} ${styles.active}`;
     const activeRed = `${styles.item} ${styles.activeRed}`;
@@ -163,7 +207,11 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                                     Время начала:
                                 </Text>
                             </div>
-                            <Input type="text" borderColor="#E9EAEB" />
+                            <Input
+                                type="text"
+                                borderColor="#E9EAEB"
+                                onChange={(e) => setTimeStart(e.target.value)}
+                            />
                         </div>
                         <div className={styles.box}>
                             <div className={styles.text}>
@@ -171,7 +219,11 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                                     Конечное время:
                                 </Text>
                             </div>
-                            <Input type="text" borderColor="#E9EAEB" />
+                            <Input
+                                type="text"
+                                borderColor="#E9EAEB"
+                                onChange={(e) => setTimeEnd(e.target.value)}
+                            />
                         </div>
                     </div>
                     <div
@@ -182,7 +234,9 @@ export const Calendar: FC<ICalendare> = ({ width, height, info }) => {
                         }
                     >
                         <Text type="p" fz="18px">
-                            Вторник, 8 октября 15:00
+                            {fullDays[selectWeekDay]}, {selectedDay}&nbsp;
+                            {decreasingMonths[currentMonth]}&nbsp;
+                            {timeStart}
                         </Text>
                     </div>
                 </>

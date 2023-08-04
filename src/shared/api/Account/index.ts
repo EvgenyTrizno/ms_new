@@ -178,24 +178,31 @@ export const Account = () => {
         doctor: number,
         problem: string,
         duration_note: number,
+        special_check: boolean,
         center: number,
-        file: string,
-        status: string
+        status: string[]
     ) => {
-        const data = await request(`${BASE_URL}/api/notes/${token}/`, "POST", {
-            user: userId,
-            title,
-            online,
-            time_start, //2023-07-22T15:19:38.601293+03:00 - формат
-            time_end, //2023-07-22T15:19:38.601293+03:00
-            notify, //2023-07-22T15:19:38.601293+03:00
-            doctor, // doctorID
-            problem,
-            duration_note,
-            center, // centerId,
-            file,
-            status,
-        });
+        const data = await request(
+            `${BASE_URL}/api/notes/`,
+            "POST",
+            {
+                user: userId,
+                title,
+                online,
+                time_start, //2023-07-22T15:19:38.601293+03:00 - формат
+                time_end, //2023-07-22T15:19:38.601293+03:00
+                notify, //2023-07-22T15:19:38.601293+03:00
+                doctor, // doctorID
+                problem,
+                duration_note,
+                center, // centerId,
+                status,
+                special_check,
+            },
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        );
 
         return data;
     };
