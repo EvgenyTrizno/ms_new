@@ -48,15 +48,33 @@ const CreateEventPage: FC = () => {
     }, [isFilter]);
 
     useEffect(() => {
-        if (notifyMinutes) {
-            const minutes = selectDate?.getMinutes();
-            const changeMinutes = minutes && minutes - +notifyMinutes;
+        if (selectDate) {
+            const dateCopy: Date = new Date(selectDate);
+            const minutes: number = selectDate.getMinutes();
+            const date: number = selectDate.getDate();
 
-            const changeDate = new Date(Date.parse(selectDate?.getDate()!)); // копия даты
+            if (notifyMinutes && notifyDays) {
+                const changeMinutes: number =
+                    +notifyMinutes + +notifyDays * 24 * 60;
 
-            console.log(changeDate, selectDate);
+                console.log(
+                    new Date(dateCopy.setMinutes(-changeMinutes)),
+                    -changeMinutes
+                );
+            } else if (notifyMinutes) {
+                const changeMinutes: number =
+                    minutes && minutes - +notifyMinutes;
+                const notifyDate: Date = new Date(
+                    dateCopy.setMinutes(changeMinutes)
+                );
 
-            // setNotify(new Date());
+                setNotify(notifyDate);
+            } else if (notifyDays) {
+                const changeDate: number = date && date - +notifyDays;
+                const notifyDate: Date = new Date(dateCopy.setDate(changeDate));
+
+                setNotify(notifyDate);
+            }
         }
     }, [notifyDays, notifyMinutes, selectDate]);
 
