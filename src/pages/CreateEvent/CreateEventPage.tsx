@@ -32,14 +32,13 @@ const CreateEventPage: FC = () => {
     const { getAllDoctors, createNotesByUserToken } = Account();
 
     const sick = condition === "Болен";
-    const refreshToken = getRefreshTokenFromCookies();
     const accessToken = getAccessTokenFromCookies();
 
     useEffect(() => {
-        refreshToken &&
-            getAllDoctors(refreshToken as string).then((res) =>
-                console.log(res)
-            );
+        console.log(accessToken);
+
+        accessToken &&
+            getAllDoctors(accessToken).then((res) => console.log(res));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -50,44 +49,44 @@ const CreateEventPage: FC = () => {
     useEffect(() => {
         if (selectDate) {
             const dateCopy: Date = new Date(selectDate);
-            const minutes: number = selectDate.getMinutes();
-            const date: number = selectDate.getDate();
 
             if (notifyMinutes && notifyDays) {
-                const changeMinutes: number =
+                const totalMinutesChange: number =
                     +notifyMinutes + +notifyDays * 24 * 60;
-
-                console.log(
-                    new Date(dateCopy.setMinutes(-changeMinutes)),
-                    -changeMinutes
+                const newDate: Date = new Date(
+                    dateCopy.getTime() - totalMinutesChange * 60000
                 );
+
+                setNotify(newDate);
             } else if (notifyMinutes) {
-                const changeMinutes: number =
-                    minutes && minutes - +notifyMinutes;
-                const notifyDate: Date = new Date(
-                    dateCopy.setMinutes(changeMinutes)
+                const minutesChange: number = +notifyMinutes;
+                const newDate: Date = new Date(
+                    dateCopy.getTime() - minutesChange * 60000
                 );
 
-                setNotify(notifyDate);
+                setNotify(newDate);
             } else if (notifyDays) {
-                const changeDate: number = date && date - +notifyDays;
-                const notifyDate: Date = new Date(dateCopy.setDate(changeDate));
+                const daysChange: number = +notifyDays;
+                const newDate: Date = new Date(
+                    dateCopy.getTime() - daysChange * 24 * 60 * 60000
+                );
 
-                setNotify(notifyDate);
+                setNotify(newDate);
             }
         }
     }, [notifyDays, notifyMinutes, selectDate]);
 
     const handleClick = () => {
-        accessToken &&
-            createNotesByUserToken(
-                accessToken,
-                63,
-                "Проверка",
-                status,
-                selectDate?.toISOString(),
-                selectDateEnd?.toISOString()
-            );
+        // accessToken &&
+        //     createNotesByUserToken(
+        //         accessToken,
+        //         63,
+        //         "Проверка",
+        //         status,
+        //         selectDate?.toISOString(),
+        //         selectDateEnd?.toISOString()
+        //         notify?.toISOString()
+        //     );
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

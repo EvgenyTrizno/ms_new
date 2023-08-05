@@ -209,7 +209,7 @@ export const Account = () => {
 
     const getAllDoctors = async (token: string) => {
         const data = await request(`${BASE_URL}/api/notes/doctors/`, "GET", {
-            Authorization: token,
+            Authorization: `Bearer ${token}`,
         });
 
         return data;
