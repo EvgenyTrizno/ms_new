@@ -10,6 +10,11 @@ export type TUsers = {
     last_name: string | null;
 };
 
+export type TCountry = {
+    name: string;
+    id: number;
+};
+
 export type TClinics = {
     name: string;
     image: string;
@@ -17,7 +22,7 @@ export type TClinics = {
     number: string | null;
     email: string | null;
     employees_number: number;
-    country: number;
+    country: TCountry;
     city: string;
     address: string;
     created_at: Date;

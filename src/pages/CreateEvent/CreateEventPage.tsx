@@ -5,10 +5,7 @@ import { Layout } from "../Layout/Layout";
 import { Btn, Filter, Input, Switch, Text } from "@/shared";
 import { Calendar } from "@/widgets";
 import { Account } from "@/shared/api/Account";
-import {
-    getRefreshTokenFromCookies,
-    getAccessTokenFromCookies,
-} from "@/features";
+import { getAccessTokenFromCookies } from "@/features";
 import { useFilter, useUserCondition } from "@/shared/model/store";
 
 import info from "/assets/info-circle.svg";
@@ -16,6 +13,7 @@ import woman from "/assets/woman.jpg";
 import arrow from "/assets/arrow-left-black.svg";
 import file from "/assets/file.svg";
 import styles from "./CreateEventPage.module.scss";
+import { IProfileData } from "@/shared/api/Account/types";
 
 const CreateEventPage: FC = () => {
     const [isAdd, setIsAdd] = useState<boolean>(false);
@@ -26,6 +24,10 @@ const CreateEventPage: FC = () => {
     const [notifyDays, setNotifyDays] = useState<string>("");
     const [notifyMinutes, setNotifyMinutes] = useState<string>("");
     const [notify, setNotify] = useState<Date>();
+    const [doctors, setDoctors] = useState<IProfileData[]>();
+    const [name, setName] = useState<string>("");
+    const [candidate, setCandidate] = useState<IProfileData[]>([]);
+    const [specialCheck, setSpecialCheck] = useState();
 
     const { condition } = useUserCondition();
     const { isFilter } = useFilter();
@@ -35,10 +37,8 @@ const CreateEventPage: FC = () => {
     const accessToken = getAccessTokenFromCookies();
 
     useEffect(() => {
-        console.log(accessToken);
-
         accessToken &&
-            getAllDoctors(accessToken).then((res) => console.log(res));
+            getAllDoctors(accessToken).then((res) => setDoctors(res));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -75,6 +75,16 @@ const CreateEventPage: FC = () => {
             }
         }
     }, [notifyDays, notifyMinutes, selectDate]);
+
+    useEffect(() => {
+        doctors &&
+            setCandidate(
+                doctors.filter(
+                    (item) =>
+                        item.first_name?.toLowerCase() === name.toLowerCase()
+                )
+            );
+    }, [doctors, name]);
 
     const handleClick = () => {
         // accessToken &&
@@ -205,6 +215,10 @@ const CreateEventPage: FC = () => {
                                     <input
                                         type="text"
                                         placeholder="Введите имя"
+                                        value={name}
+                                        onChange={(e) =>
+                                            setName(e.target.value)
+                                        }
                                     />
                                 </div>
                                 <div className={styles.result}>
@@ -285,6 +299,10 @@ const CreateEventPage: FC = () => {
             subtitle: "Выберите материал",
             content: (
                 <div className={styles.file}>
+                    <Input
+                        type="file"
+                        onChange={(e) => console.log(e.target.files)}
+                    />
                     <img src={file} alt="" />
                     <Text type="h3" color="#7D7F82">
                         Добавить файл
@@ -295,7 +313,7 @@ const CreateEventPage: FC = () => {
         {
             id: useId(),
             title: "Дополнительная проверка специалистов",
-            subtitle: "Уведомить",
+            subtitle: "",
             content: <div></div>,
         },
     ];

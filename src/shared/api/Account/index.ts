@@ -207,10 +207,15 @@ export const Account = () => {
         return data;
     };
 
-    const getAllDoctors = async (token: string) => {
-        const data = await request(`${BASE_URL}/api/notes/doctors/`, "GET", {
-            Authorization: `Bearer ${token}`,
-        });
+    const getAllDoctors = async (token: string): Promise<IProfileData[]> => {
+        const data: IProfileData[] = await request(
+            `${BASE_URL}/api/notes/doctors/`,
+            "GET",
+            null,
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        );
 
         return data;
     };

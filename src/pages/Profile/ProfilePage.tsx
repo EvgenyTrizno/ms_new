@@ -111,7 +111,7 @@ const ProfilePage: FC = () => {
                     console.log(res);
                     valueRefs[5].current = res.address ?? "";
                 });
-            } else if (valueRefs[8].current !== isEmail) {
+            } else if (valueRefs[8].current !== isEmail && !isEmail) {
                 console.log("1");
                 verifyEmail(token, isEmail).then((res) => {
                     console.log(res);

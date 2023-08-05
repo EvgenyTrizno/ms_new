@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from "react";
 import { MarkerF } from "@react-google-maps/api";
 import Geocode from "react-geocode";
 import { IGeocoderData } from "./types";
-// import { IVirusListData } from "@/shared/api/Virus/types";
+import { IVirusListData } from "@/shared/api/Virus/types";
 
 import { Btn, Filter, MobileFilter, MobileSearch, Text } from "@/shared";
 import { Modal } from "../../Modal/Modal";
@@ -16,7 +16,7 @@ import { ICentersData } from "@/shared/api/Centers/types";
 import { useUserData } from "@/shared/model/store";
 import { Centers } from "@/shared/api/Centers";
 import { Auth } from "@/shared/api/Auth";
-// import { Virus } from "@/shared/api/Virus";
+import { Virus } from "@/shared/api/Virus";
 
 import styles from "./Authorization.module.scss";
 
@@ -25,10 +25,11 @@ export const Authorization: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const [centers, setCenters] = useState<ICentersData[]>([]);
     const [distance, setDistance] = useState<string>("");
-    // const [virus, setVirus] = useState<IVirusListData[]>();
+    const [virus, setVirus] = useState<IVirusListData[]>();
+    const [value, setValue] = useState<string>("");
 
     const { getLocation } = useLocation();
-    // const { getVirusList } = Virus();
+    const { getVirusList } = Virus();
 
     // const navigate = useNavigate();
     const { isFilter } = useFilter();
@@ -115,9 +116,12 @@ export const Authorization: FC = () => {
         } catch (e) {}
     }, [centers, position.lat, position.lng]);
 
-    // useEffect(() => {
-    //     getVirusList().then((res) => setVirus(res));
-    // }, [isOpenModal]);
+    useEffect(() => {
+        isOpenModal && getVirusList().then((res) => setVirus(res));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isOpenModal]);
+
+    // console.log(virus?.filter(name => name === ));
 
     const handleSelectCenter = (id: number) => {
         if (main_center === null) setCenter(id);

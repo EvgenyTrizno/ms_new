@@ -72,7 +72,8 @@ const SearchPage: FC = () => {
                                                       type="p"
                                                       color="#7D7F82"
                                                   >
-                                                      {item.country},{item.city}
+                                                      {item.country.name},
+                                                      {item.city}
                                                   </Text>
                                               </div>
                                           </div>
@@ -107,7 +108,8 @@ const SearchPage: FC = () => {
                                                   disabled
                                               />
                                               <Text type="p" color="#7D7F82">
-                                                  {item.country},{item.city}
+                                                  {item.country.name},
+                                                  {item.city}
                                               </Text>
                                           </div>
                                       </div>
