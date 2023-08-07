@@ -56,6 +56,7 @@ export interface IUserData {
     email: string;
     position: IUserPosition;
     pass1: string;
+    img: string;
     pass2: string;
     setCenter: (centerId: number) => void;
     setDiseases: (diseaseId: number) => void;
@@ -64,6 +65,7 @@ export interface IUserData {
     setEmail: (email: string) => void;
     setPass1: (pass1: string) => void;
     setPass2: (pass2: string) => void;
+    setImg: (img: string) => void;
     setPosition: (
         lat: number,
         lng: number,

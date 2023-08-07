@@ -8,3 +8,8 @@ export type TMethod =
     | "TRACE"
     | "PATCH"
     | "CONNECT";
+
+export type TData = { detail: string };
+export interface ICustomError extends Error {
+    data?: TData;
+}

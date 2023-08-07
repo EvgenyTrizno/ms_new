@@ -23,7 +23,6 @@ import archive from "/assets/archive-tick-blue.svg";
 import archiveRed from "/assets/archive-tick-red.svg";
 import cart from "/assets/shopping-cart-blue.svg";
 import cartRed from "/assets/shopping-cart-red.svg";
-import noimage from "/assets/noimage.svg";
 import styles from "./ProfilePage.module.scss";
 
 const ProfilePage: FC = () => {
@@ -39,7 +38,6 @@ const ProfilePage: FC = () => {
     const [number, setNumber] = useState<string>("");
     const [isEmail, setIsEmail] = useState<string>("");
     const [emailСode, setEmailCode] = useState<string>("");
-    const [img, setImg] = useState<string>("");
     const [role, setRole] = useState<TGroups>("Пользователи");
     const [dataChanged, setDataChanged] = useState<boolean>(false);
     const [isShowValue, setIsShowValue] = useState<boolean>(false);
@@ -60,7 +58,7 @@ const ProfilePage: FC = () => {
     const navigate = useNavigate();
 
     const { condition } = useUserCondition();
-    const { setEmail } = useUserData();
+    const { setEmail, img } = useUserData();
     const {
         changeProfileName,
         getUserData,
@@ -131,7 +129,6 @@ const ProfilePage: FC = () => {
                 setLast_Name(res.last_name ?? "");
                 setAddress(res.address ?? "");
                 setNumber(res.number);
-                setImg(res.image ?? noimage);
                 setRole(res.group);
                 setBirthday(res.birthday ?? "");
                 setCountry(res.country);

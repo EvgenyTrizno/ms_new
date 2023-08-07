@@ -78,6 +78,7 @@ export const useUserData = create<IUserData>()(
         email: "",
         pass1: "",
         pass2: "",
+        img: "",
         position: {
             lat: 0,
             lng: 0,
@@ -117,6 +118,11 @@ export const useUserData = create<IUserData>()(
         setPass2: (pass: string) => {
             set((state) => {
                 state.pass2 = pass;
+            });
+        },
+        setImg: (img: string) => {
+            set((state) => {
+                state.img = img;
             });
         },
         setPosition: (

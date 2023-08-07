@@ -1,37 +1,24 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { Text } from "@/shared";
-import { useMenu } from "@/shared/model/store";
+import { useMenu, useUserData } from "@/shared/model/store";
 import { useUserCondition, useNotification } from "@/shared/model/store";
-import { Account } from "@/shared/api/Account";
 
 import logo from "/assets/logo.svg";
 import notification from "/assets/notification.svg";
 import notificationActive from "/assets/notification-active.svg";
 import styles from "./Header.module.scss";
-import { getAccessTokenFromCookies } from "@/features";
 
 export const Header: FC = () => {
-    const [img, setImg] = useState<string>("");
-
     const navigate = useNavigate();
     const location = useLocation();
     const { isSelect, setIsSelect } = useMenu();
     const { condition } = useUserCondition();
+    const { img } = useUserData();
     const { setIsNotification, isNotification } = useNotification();
-    const { getUserData } = Account();
 
     const sick = condition === "Болен";
-    const token = getAccessTokenFromCookies();
-
-    useEffect(() => {
-        token &&
-            getUserData(token).then((res) => {
-                console.log(res);
-                setImg(res.image);
-            });
-    }, []);
 
     return (
         <header className={styles.header}>

@@ -1,6 +1,6 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 /* eslint-disable no-useless-catch */
-import { TMethod } from "./types";
+import { ICustomError, TMethod } from "./types";
 
 export const useHttp = () => {
     const request = useCallback(
@@ -37,9 +37,12 @@ export const useHttp = () => {
                 const response = await fetch(url, options);
 
                 if (!response.ok) {
-                    throw new Error(
-                        `Не удалось выполнить запрос по адресу ${url}, статус ошибки: ${response.status}`
+                    const responseData = await response.json();
+                    const axiosError: ICustomError = new Error(
+                        `Неудалось выполнить запрос по адресу: ${url}, статут ошибки: ${response.status}`
                     );
+                    axiosError.data = responseData;
+                    throw axiosError;
                 }
 
                 const data = await response.json();

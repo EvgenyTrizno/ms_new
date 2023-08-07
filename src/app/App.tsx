@@ -1,33 +1,48 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { Routing } from "./providers/Routing";
 import { routes } from "../pages";
 import { PSuspense } from "./providers/Suspense";
 import { Auth } from "@/shared/api/Auth";
-import { setCookie, getRefreshTokenFromCookies } from "@/features";
+import { Account } from "@/shared/api/Account";
+import {
+    setCookie,
+    getRefreshTokenFromCookies,
+    getAccessTokenFromCookies,
+} from "@/features";
 import { ErrorBoundaryFallback } from "@/widgets";
-import { AnimatePresence, motion } from "framer-motion";
+import { useUserData } from "@/shared/model/store";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "./index.scss";
 
 const App = () => {
+    const { setImg } = useUserData();
     const { tokenСomparison } = Auth();
+    const { getUserData } = Account();
+
+    const token = getRefreshTokenFromCookies();
+    const accessToken = getAccessTokenFromCookies();
 
     useEffect(() => {
-        if (getRefreshTokenFromCookies()) {
-            const token = getRefreshTokenFromCookies();
-
-            if (token) {
-                tokenСomparison(token).then((res) => {
-                    setCookie("access_token", res.access, 1);
-                });
-            }
+        if (token) {
+            tokenСomparison(token).then((res) => {
+                setCookie("access_token", res.access, 1);
+            });
         }
-    }, [tokenСomparison]);
+    }, [token, tokenСomparison]);
+
+    useEffect(() => {
+        accessToken &&
+            getUserData(accessToken).then((res) => {
+                setImg(res.image);
+                console.log(res);
+            });
+    }, [accessToken, getUserData, setImg]);
 
     return (
         <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
