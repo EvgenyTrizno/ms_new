@@ -1,8 +1,11 @@
 import { useCallback, useState } from "react";
 /* eslint-disable no-useless-catch */
-import { ICustomError, TMethod } from "./types";
+import { ICustomError, TMethod, TStatus } from "./types";
 
 export const useHttp = () => {
+    const [error, setError] = useState<boolean>(false);
+    const [status, setStatus] = useState<TStatus>("idle");
+
     const request = useCallback(
         async (
             url: string,
@@ -12,6 +15,8 @@ export const useHttp = () => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             headers?: Record<string, any>
         ): Promise<any> => {
+            setStatus("loading");
+
             try {
                 const options: RequestInit = {
                     method,
@@ -35,6 +40,7 @@ export const useHttp = () => {
                 }
 
                 const response = await fetch(url, options);
+                setStatus("succeseeded");
 
                 if (!response.ok) {
                     const responseData = await response.json();
@@ -42,6 +48,7 @@ export const useHttp = () => {
                         `Неудалось выполнить запрос по адресу: ${url}, статут ошибки: ${response.status}`
                     );
                     axiosError.data = responseData;
+                    setError(true);
                     throw axiosError;
                 }
 
@@ -49,11 +56,12 @@ export const useHttp = () => {
 
                 return data;
             } catch (e) {
+                setError(true);
                 throw e;
             }
         },
         []
     );
 
-    return { request };
+    return { request, error, status };
 };

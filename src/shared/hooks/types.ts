@@ -13,3 +13,5 @@ export type TData = { detail: string };
 export interface ICustomError extends Error {
     data?: TData;
 }
+
+export type TStatus = "idle" | "loading" | "succeseeded";

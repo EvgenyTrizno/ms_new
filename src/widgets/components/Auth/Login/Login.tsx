@@ -2,6 +2,7 @@ import { ChangeEvent, FC, useState } from "react";
 import { Link } from "react-router-dom";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
+import { ICustomError } from "@/shared/hooks/types";
 
 import { Text } from "@/shared/ui/Text/Text";
 import { Input } from "@/shared/ui/Input/Input";
@@ -15,18 +16,27 @@ import apple from "/assets/apple.svg";
 import google from "/assets/google.svg";
 import styles from "./Login.module.scss";
 
+type TErrorType = "password" | "account";
+
 export const Login: FC = () => {
     const [isShow, setIsShow] = useState<boolean>(false);
     const [pass, setPass] = useState<string>("");
     const [number, setNumber] = useState<string>("");
+    const [errorType, setErrorType] = useState<TErrorType>();
 
     const { getToket } = Auth();
 
     const handleClick = () => {
-        getToket(number, pass).then((res) => {
-            setCookie("refresh_token", res.refresh, 1);
-            location.pathname = MOBILE_SCREEN ? "/m/" : "/";
-        });
+        getToket(number, pass)
+            .then((res) => {
+                setCookie("refresh_token", res.refresh, 1);
+                location.pathname = MOBILE_SCREEN ? "/m/" : "/";
+            })
+            .catch((e: ICustomError) => {
+                e.data?.detail === "Incorrect password"
+                    ? setErrorType("password")
+                    : setErrorType("account");
+            });
     };
 
     return (

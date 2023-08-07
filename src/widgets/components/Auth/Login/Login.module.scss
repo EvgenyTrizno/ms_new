@@ -31,6 +31,18 @@
             }
         }
 
+        label {
+            color: var(--red-400);
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            grid-gap: 5px;
+
+            input {
+                border-color: var(--red-400);
+            }
+        }
+
     }
 
     .link {
