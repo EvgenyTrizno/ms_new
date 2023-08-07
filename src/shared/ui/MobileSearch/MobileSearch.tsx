@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, InputHTMLAttributes } from "react";
 import { IMobileSearch } from "./types";
 
 import { Icons } from "../Icons/Icons";
@@ -7,11 +7,9 @@ import { useUserCondition } from "@/shared/model/store";
 import controller from "/assets/controler.svg";
 import styles from "./MobileSearch.module.scss";
 
-export const MobileSearch: FC<IMobileSearch> = ({
-    onClick,
-    placeholder,
-    filterBtn = true,
-}) => {
+export const MobileSearch: FC<
+    IMobileSearch & InputHTMLAttributes<HTMLInputElement>
+> = ({ onClick, onChange, placeholder, filterBtn = true }) => {
     const { condition } = useUserCondition();
 
     return (
@@ -22,7 +20,7 @@ export const MobileSearch: FC<IMobileSearch> = ({
             <button className={styles.icon}>
                 <Icons icon="search" />
             </button>
-            <input type="text" placeholder={placeholder} />
+            <input type="text" placeholder={placeholder} onChange={onChange} />
             {filterBtn && (
                 <button
                     onClick={onClick}

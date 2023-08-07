@@ -7,13 +7,13 @@ import { Calendar } from "@/widgets";
 import { Account } from "@/shared/api/Account";
 import { getAccessTokenFromCookies } from "@/features";
 import { useFilter, useUserCondition } from "@/shared/model/store";
+import { IProfileData } from "@/shared/api/Account/types";
 
 import info from "/assets/info-circle.svg";
 import woman from "/assets/woman.jpg";
 import arrow from "/assets/arrow-left-black.svg";
-import file from "/assets/file.svg";
+import fileIcon from "/assets/file.svg";
 import styles from "./CreateEventPage.module.scss";
-import { IProfileData } from "@/shared/api/Account/types";
 
 const CreateEventPage: FC = () => {
     const [isAdd, setIsAdd] = useState<boolean>(false);
@@ -24,10 +24,13 @@ const CreateEventPage: FC = () => {
     const [notifyDays, setNotifyDays] = useState<string>("");
     const [notifyMinutes, setNotifyMinutes] = useState<string>("");
     const [notify, setNotify] = useState<Date>();
-    const [doctors, setDoctors] = useState<IProfileData[]>();
+    const [doctors, setDoctors] = useState<IProfileData[]>([]);
     const [name, setName] = useState<string>("");
     const [candidate, setCandidate] = useState<IProfileData[]>([]);
-    const [specialCheck, setSpecialCheck] = useState();
+    const [specialCheck, setSpecialCheck] = useState<boolean>(false);
+    const [selectDoctors, setSelectDoctors] = useState<IProfileData[]>([]);
+    const [duration, setDuration] = useState<number>(0);
+    const [file, setFile] = useState<string>("");
 
     const { condition } = useUserCondition();
     const { isFilter } = useFilter();
@@ -77,26 +80,48 @@ const CreateEventPage: FC = () => {
     }, [notifyDays, notifyMinutes, selectDate]);
 
     useEffect(() => {
-        doctors &&
-            setCandidate(
-                doctors.filter(
-                    (item) =>
-                        item.first_name?.toLowerCase() === name.toLowerCase()
-                )
-            );
+        if (selectDate && selectDateEnd) {
+            const dateCopyStart = new Date(selectDate);
+            const dateCopyEnd = new Date(selectDateEnd);
+            const diff = +dateCopyEnd - +dateCopyStart;
+            const minutes = Math.floor(diff / (1000 * 60));
+
+            setDuration(minutes);
+        }
+    }, [selectDate, selectDateEnd]);
+
+    useEffect(() => {
+        doctors && name !== ""
+            ? setCandidate(
+                  doctors.filter((item) =>
+                      item.first_name
+                          ?.toLowerCase()
+                          .includes(name.toLowerCase())
+                  )
+              )
+            : setCandidate([]);
     }, [doctors, name]);
 
     const handleClick = () => {
-        // accessToken &&
-        //     createNotesByUserToken(
-        //         accessToken,
-        //         63,
-        //         "Проверка",
-        //         status,
-        //         selectDate?.toISOString(),
-        //         selectDateEnd?.toISOString()
-        //         notify?.toISOString()
-        //     );
+        accessToken &&
+            selectDate &&
+            selectDateEnd &&
+            notify &&
+            createNotesByUserToken(
+                accessToken,
+                63,
+                "Проверка",
+                status,
+                selectDate.toISOString(),
+                selectDateEnd.toISOString(),
+                notify.toISOString(),
+                selectDoctors[0].id,
+                "404",
+                duration,
+                specialCheck,
+                1,
+                file
+            ).then((res) => console.log(res));
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -160,36 +185,37 @@ const CreateEventPage: FC = () => {
                         {!isAdd && (
                             <>
                                 <div className={styles.accountsList}>
-                                    <div className={styles.account}>
-                                        <img src={woman} alt="" />
-                                        <div className={styles.data}>
-                                            <Text type="h3" fz="14px">
-                                                Михайлова Т. А.
-                                            </Text>
-                                            <Text
-                                                type="p"
-                                                fz="16px"
-                                                color="#7D7F82"
-                                            >
-                                                Хирург
-                                            </Text>
-                                        </div>
-                                    </div>
-                                    <div className={styles.account}>
-                                        <img src={woman} alt="" />
-                                        <div className={styles.data}>
-                                            <Text type="h3" fz="14px">
-                                                Михайлова Т. А.
-                                            </Text>
-                                            <Text
-                                                type="p"
-                                                fz="16px"
-                                                color="#7D7F82"
-                                            >
-                                                Хирург
-                                            </Text>
-                                        </div>
-                                    </div>
+                                    {selectDoctors &&
+                                        selectDoctors.map((item) => (
+                                            <div className={styles.account}>
+                                                <img
+                                                    src={item.image}
+                                                    alt={`${item.first_name}`}
+                                                />
+                                                <div className={styles.data}>
+                                                    <Text type="h3" fz="14px">
+                                                        {item.last_name}{" "}
+                                                        {item.first_name?.slice(
+                                                            0,
+                                                            1
+                                                        )}
+                                                        .{" "}
+                                                        {item.surname?.slice(
+                                                            0,
+                                                            1
+                                                        )}
+                                                        .
+                                                    </Text>
+                                                    <Text
+                                                        type="p"
+                                                        fz="16px"
+                                                        color="#7D7F82"
+                                                    >
+                                                        {item.group}
+                                                    </Text>
+                                                </div>
+                                            </div>
+                                        ))}
                                 </div>
                                 <div
                                     className={styles.add}
@@ -222,70 +248,60 @@ const CreateEventPage: FC = () => {
                                     />
                                 </div>
                                 <div className={styles.result}>
-                                    <div className={styles.resultItem}>
-                                        <div className={styles.resultBlock}>
-                                            <img src={woman} alt="" />
-                                            <div className={styles.data}>
-                                                <Text type="h4" fz="14px">
-                                                    Михайлова Т. А.
-                                                </Text>
-                                                <Text
-                                                    type="p"
-                                                    fz="12"
-                                                    color="#7D7F82"
-                                                >
-                                                    Хирург
-                                                </Text>
+                                    {candidate &&
+                                        candidate.map((item) => (
+                                            <div
+                                                onClick={() =>
+                                                    setSelectDoctors(
+                                                        !selectDoctors.includes(
+                                                            item
+                                                        )
+                                                            ? [
+                                                                  ...selectDoctors,
+                                                                  item,
+                                                              ]
+                                                            : [...selectDoctors]
+                                                    )
+                                                }
+                                                className={styles.resultItem}
+                                                style={{
+                                                    borderBottom:
+                                                        candidate &&
+                                                        candidate[
+                                                            candidate.length - 1
+                                                        ]
+                                                            ? "none"
+                                                            : "",
+                                                }}
+                                            >
+                                                <img
+                                                    src={item.image}
+                                                    alt={`${item.first_name}`}
+                                                />
+                                                <div className={styles.data}>
+                                                    <Text type="h2" fz="15px">
+                                                        {item.last_name}{" "}
+                                                        {item.first_name?.slice(
+                                                            0,
+                                                            1
+                                                        )}
+                                                        .{" "}
+                                                        {item.surname?.slice(
+                                                            0,
+                                                            1
+                                                        )}
+                                                        .
+                                                    </Text>
+                                                    <Text
+                                                        type="p"
+                                                        fz="13px"
+                                                        color="#7D7F82"
+                                                    >
+                                                        {item.group}
+                                                    </Text>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className={styles.resultBlock}>
-                                            <img src={woman} alt="" />
-                                            <div className={styles.data}>
-                                                <Text type="h4" fz="14px">
-                                                    Михайлова Т. А.
-                                                </Text>
-                                                <Text
-                                                    type="p"
-                                                    fz="12"
-                                                    color="#7D7F82"
-                                                >
-                                                    Хирург
-                                                </Text>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className={styles.resultItem}>
-                                        <div className={styles.resultBlock}>
-                                            <img src={woman} alt="" />
-                                            <div className={styles.data}>
-                                                <Text type="h4" fz="14px">
-                                                    Михайлова Т. А.
-                                                </Text>
-                                                <Text
-                                                    type="p"
-                                                    fz="12"
-                                                    color="#7D7F82"
-                                                >
-                                                    Хирург
-                                                </Text>
-                                            </div>
-                                        </div>
-                                        <div className={styles.resultBlock}>
-                                            <img src={woman} alt="" />
-                                            <div className={styles.data}>
-                                                <Text type="h4" fz="14px">
-                                                    Михайлова Т. А.
-                                                </Text>
-                                                <Text
-                                                    type="p"
-                                                    fz="12"
-                                                    color="#7D7F82"
-                                                >
-                                                    Хирург
-                                                </Text>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        ))}
                                 </div>
                             </div>
                         )}
@@ -301,9 +317,13 @@ const CreateEventPage: FC = () => {
                 <div className={styles.file}>
                     <Input
                         type="file"
-                        onChange={(e) => console.log(e.target.files)}
+                        onChange={(e) =>
+                            setFile(
+                                (e.target.files && e.target.files[0].name) ?? ""
+                            )
+                        }
                     />
-                    <img src={file} alt="" />
+                    <img src={fileIcon} alt="" />
                     <Text type="h3" color="#7D7F82">
                         Добавить файл
                     </Text>
@@ -313,8 +333,8 @@ const CreateEventPage: FC = () => {
         {
             id: useId(),
             title: "Дополнительная проверка специалистов",
-            subtitle: "",
-            content: <div></div>,
+            subtitle: null,
+            content: null,
         },
     ];
 

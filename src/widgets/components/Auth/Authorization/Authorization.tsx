@@ -1,11 +1,20 @@
 import { FC, useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
 // import { useNavigate } from "react-router";
 import { MarkerF } from "@react-google-maps/api";
 import Geocode from "react-geocode";
 import { IGeocoderData } from "./types";
 import { IVirusListData } from "@/shared/api/Virus/types";
 
-import { Btn, Filter, MobileFilter, MobileSearch, Text } from "@/shared";
+import {
+    Btn,
+    Checkbox,
+    Filter,
+    MobileFilter,
+    MobileSearch,
+    Text,
+} from "@/shared";
 import { Modal } from "../../Modal/Modal";
 import { useLocation } from "@/shared/hooks";
 import { Map } from "../../Map/Map";
@@ -25,8 +34,9 @@ export const Authorization: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const [centers, setCenters] = useState<ICentersData[]>([]);
     const [distance, setDistance] = useState<string>("");
-    const [virus, setVirus] = useState<IVirusListData[]>();
+    const [virus, setVirus] = useState<IVirusListData[]>([]);
     const [value, setValue] = useState<string>("");
+    const [filteredVirus, setFilteredVirus] = useState<IVirusListData[]>([]);
 
     const { getLocation } = useLocation();
     const { getVirusList } = Virus();
@@ -117,11 +127,26 @@ export const Authorization: FC = () => {
     }, [centers, position.lat, position.lng]);
 
     useEffect(() => {
-        isOpenModal && getVirusList().then((res) => setVirus(res));
+        isOpenModal &&
+            virus.length === 0 &&
+            getVirusList().then((res) => setVirus(res));
+
+        return () => {
+            setFilteredVirus([]);
+            setValue("");
+        };
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpenModal]);
 
-    // console.log(virus?.filter(name => name === ));
+    useEffect(() => {
+        value &&
+            setFilteredVirus(
+                virus.filter((item) =>
+                    item.name.toLowerCase().includes(value.toLowerCase())
+                )
+            );
+    }, [value, virus]);
 
     const handleSelectCenter = (id: number) => {
         if (main_center === null) setCenter(id);
@@ -229,7 +254,12 @@ export const Authorization: FC = () => {
                         >
                             Интерес к какому заболеванию у вас имеется?
                         </Text>
-                        <MobileSearch filterBtn={false} placeholder="Поиск" />
+                        <MobileSearch
+                            filterBtn={false}
+                            placeholder="Поиск"
+                            value={value}
+                            onChange={(e) => setValue(e.target.value)}
+                        />
                         <div className={styles.status}>
                             <Text
                                 type="p"
@@ -252,7 +282,32 @@ export const Authorization: FC = () => {
                         Интерес к какому заболеванию у вас имеется?
                     </Text>
                     <div className={styles.input}>
-                        <MobileSearch filterBtn={false} placeholder="Поиск" />
+                        <MobileSearch
+                            filterBtn={false}
+                            placeholder="Поиск"
+                            value={value}
+                            onChange={(e) => setValue(e.target.value)}
+                        />
+                    </div>
+                    <div className={styles.resultBox}>
+                        <AnimatePresence initial>
+                            {value &&
+                                filteredVirus.map((item) => (
+                                    <motion.div
+                                        className={styles.result}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 0.5 }}
+                                        key={item.id}
+                                    >
+                                        <label className={styles.label}>
+                                            <Checkbox />
+                                            {item.name}
+                                        </label>
+                                    </motion.div>
+                                ))}
+                        </AnimatePresence>
                     </div>
                     <div className={styles.btns}>
                         <Btn

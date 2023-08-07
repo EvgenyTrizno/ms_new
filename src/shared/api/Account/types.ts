@@ -12,7 +12,7 @@ export interface IProfileData {
     email: string | null;
     first_name: string | null;
     last_name: string | null;
-    surname: null;
+    surname: string | null;
     birthday: string;
     image: string;
     city: string;

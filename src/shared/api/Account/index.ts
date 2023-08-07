@@ -180,7 +180,8 @@ export const Account = () => {
         duration_note: number,
         special_check: boolean,
         center: number,
-        status: string[]
+        // status: string[],
+        file: string
     ) => {
         const data = await request(
             `${BASE_URL}/api/notes/`,
@@ -196,8 +197,9 @@ export const Account = () => {
                 problem,
                 duration_note,
                 center, // centerId,
-                status,
+                // status,
                 special_check,
+                file,
             },
             {
                 Authorization: `Bearer ${token}`,

@@ -1,6 +1,6 @@
 export interface ICraeteEventData {
     id: string;
     title: string;
-    subtitle: string;
-    content: JSX.Element;
+    subtitle: string | null;
+    content: JSX.Element | null;
 }

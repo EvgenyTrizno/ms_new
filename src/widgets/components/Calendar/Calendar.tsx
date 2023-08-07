@@ -42,8 +42,6 @@ export const Calendar: FC<ICalendare> = ({
                 )
             );
         } else if (timeStart?.length && setSelectDate) {
-            console.log(11);
-
             setSelectDate &&
                 setSelectDate(
                     new Date(

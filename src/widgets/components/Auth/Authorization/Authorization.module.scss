@@ -41,6 +41,45 @@
     margin-top: 20px;
 }
 
+.resultBox {
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+    margin-top: 20px;
+    max-height: 350px;
+}
+
+.resultBox {
+    scrollbar-width: auto;
+    scrollbar-color: #0064fa #0064fa;
+}
+
+.resultBox::-webkit-scrollbar {
+    width: 10px;
+}
+
+.resultBox::-webkit-scrollbar-track {
+    background: rgba(#0064FA, 0.2);
+    border-radius: var(--default-border);
+}
+
+.resultBox::-webkit-scrollbar-thumb {
+    background-color: #0064fa;
+    border-radius: var(--default-border);
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+
+    .label {
+        display: flex;
+        align-items: center;
+        grid-gap: 5px;
+    }
+}
+
+
 @media screen and (max-width: 576px) {
     .authorization {
         width: 100vw;
