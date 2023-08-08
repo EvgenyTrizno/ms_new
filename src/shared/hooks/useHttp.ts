@@ -30,6 +30,8 @@ export const useHttp = () => {
                     },
                 };
 
+                console.log(options);
+
                 if (
                     body !== undefined &&
                     (method === "POST" ||

@@ -23,6 +23,7 @@ export const Login: FC = () => {
     const [pass, setPass] = useState<string>("");
     const [number, setNumber] = useState<string>("");
     const [errorType, setErrorType] = useState<TErrorType>();
+    const [error, setError] = useState<boolean>(false);
 
     const { getToket } = Auth();
 
@@ -36,6 +37,7 @@ export const Login: FC = () => {
                 e.data?.detail === "Incorrect password"
                     ? setErrorType("password")
                     : setErrorType("account");
+                setError(true);
             });
     };
 
@@ -45,37 +47,63 @@ export const Login: FC = () => {
                 Вход
             </Text>
             <form action="#" className={styles.form}>
-                <Input
-                    type="text"
-                    placeholder="Введите тел.номер или эл. почту"
-                    borderColor="#E9EAEB"
-                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                        setNumber(e.target.value)
+                <label
+                    className={
+                        errorType === "account" && error ? styles.validate : ""
                     }
-                />
-                <div className={styles.inner}>
+                >
+                    {error && errorType === "account" && (
+                        <p>Введен неверный номер или email</p>
+                    )}
                     <Input
-                        type={isShow ? "text" : "password"}
-                        placeholder="Введите пароль"
+                        type="text"
+                        placeholder="Введите тел.номер или эл. почту"
                         borderColor="#E9EAEB"
-                        br="none"
-                        btr="unset"
-                        bbr="unset"
+                        onBlur={() => setError(false)}
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                            setPass(e.target.value)
+                            setNumber(e.target.value)
                         }
                     />
-                    <div
-                        onClick={() => setIsShow((bool) => !bool)}
-                        className={styles.btn}
-                    >
-                        {!isShow ? (
-                            <AiFillEyeInvisible size={25} />
-                        ) : (
-                            <AiFillEye size={25} />
-                        )}
+                </label>
+                <label
+                    className={
+                        errorType === "password" && error ? styles.validate : ""
+                    }
+                >
+                    {error && errorType === "password" && (
+                        <p>Введен неверный пароль</p>
+                    )}
+                    <div className={styles.inner}>
+                        <Input
+                            type={isShow ? "text" : "password"}
+                            placeholder="Введите пароль"
+                            borderColor="#E9EAEB"
+                            br="none"
+                            btr="unset"
+                            bbr="unset"
+                            onBlur={() => setError(false)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                                setPass(e.target.value)
+                            }
+                        />
+                        <div
+                            onClick={() => setIsShow((bool) => !bool)}
+                            style={{
+                                borderColor:
+                                    errorType === "password" && error
+                                        ? "#D64657"
+                                        : "",
+                            }}
+                            className={styles.btn}
+                        >
+                            {!isShow ? (
+                                <AiFillEyeInvisible size={25} />
+                            ) : (
+                                <AiFillEye size={25} />
+                            )}
+                        </div>
                     </div>
-                </div>
+                </label>
             </form>
             <Link className={styles.link} to="/">
                 Забыли пароль?

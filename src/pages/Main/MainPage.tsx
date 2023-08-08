@@ -1,13 +1,25 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 import { Layout } from "../Layout/Layout";
 import { Btn, Text } from "@/shared";
 import { Card, Post, Slider } from "@/widgets";
+import { News } from "@/shared/api/News";
+import { getAccessTokenFromCookies } from "@/features";
 
 import controller from "/assets/controler.svg";
 import styles from "./MainPage.module.scss";
+import { useUserData } from "@/shared/model/store";
 
 const MainPage: FC = () => {
+    const { getNews } = News();
+    const { img } = useUserData();
+
+    const token = getAccessTokenFromCookies();
+
+    useEffect(() => {
+        token && img && getNews(token).then((res) => console.log(res));
+    }, [img, token]);
+
     return (
         <Layout>
             <div className={styles.container}>

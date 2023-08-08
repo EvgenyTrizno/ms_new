@@ -25,20 +25,26 @@
                 height: 60px;
                 display: flex;
                 border-left: none;
+                transition: ease .3s;
                 padding-right: 20px;
                 border-top-right-radius: var(--input-border);
                 border-bottom-right-radius: var(--input-border);
             }
         }
 
-        label {
-            color: var(--red-400);
+        .validate {
             font-size: 14px;
             display: flex;
             flex-direction: column;
             grid-gap: 5px;
-
+            
+            p {
+                color: var(--red-400);
+                transition: ease 0.3s;
+            }
+            
             input {
+                transition: ease 0.3s;
                 border-color: var(--red-400);
             }
         }

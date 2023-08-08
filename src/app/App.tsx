@@ -34,7 +34,8 @@ const App = () => {
                 setCookie("access_token", res.access, 1);
             });
         }
-    }, [token, tokenСomparison]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         accessToken &&
@@ -42,7 +43,8 @@ const App = () => {
                 setImg(res.image);
                 console.log(res);
             });
-    }, [accessToken, getUserData, setImg]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
