@@ -18,6 +18,7 @@ const MainPage: FC = () => {
 
     useEffect(() => {
         token && img && getNews(token).then((res) => console.log(res));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [img, token]);
 
     return (

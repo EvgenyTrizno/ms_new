@@ -23,14 +23,26 @@ export const Layout: FC<TProps> = ({ children }) => {
 
     return (
         <div className={styles.layout}>
-            {MOBILE_SCREEN ? (
+            {window.matchMedia("(max-width: 480px)").matches && (
                 <div className={styles.mobileContainer}>
                     {children}
                     <MobileMenu />
                     <ExtraCallMobile />
                     {/* <MobileAccountPage /> */}
                 </div>
-            ) : (
+            )}
+            {window.matchMedia("(min-width: 481px)").matches && (
+                <div className={styles.mobileContainer}>
+                    {children}
+                    <MobileMenu />
+                    <ExtraCallMobile />
+                    {/* <MobileAccountPage /> */}
+                </div>
+            )}
+            {window.matchMedia("(min-width: 992px)").matches && (
+                <div>dssdsdds</div>
+            )}
+            {window.matchMedia("(min-width: 1200px)").matches && (
                 <>
                     <Header />
                     <div className={styles.container}>
