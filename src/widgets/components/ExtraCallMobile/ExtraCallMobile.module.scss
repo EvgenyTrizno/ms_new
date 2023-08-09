@@ -10,16 +10,29 @@
     background: rgba(38, 38, 38, 0.40);
     backdrop-filter: blur(30px);
 
-    .btn {
+    .block {
+        width: auto;
+        height: auto;
         position: absolute;
-        z-index: 101;
-        bottom: 75px;
-        width: 60px;
-        height: 60px;
-        background-color: var(--blue-300);
-        border-radius: 100%;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, 0px);
         display: flex;
         align-items: center;
         justify-content: center;
+
+        .btn {
+            position: absolute;
+            z-index: 101;
+            bottom: 75px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--blue-300);
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 }

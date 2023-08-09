@@ -23,8 +23,8 @@ export const ExtraCallMobile: FC = () => {
             },
             id: useId(),
             position: {
-                x: 90,
-                y: -40,
+                x: -70,
+                y: 50,
             },
         },
         {
@@ -34,16 +34,16 @@ export const ExtraCallMobile: FC = () => {
             },
             id: useId(),
             position: {
-                x: 165,
-                y: -95,
+                x: 0,
+                y: 0,
             },
         },
         {
             icon: { healthy: people, sick: people },
             id: useId(),
             position: {
-                x: 235,
-                y: -40,
+                x: 70,
+                y: 50,
             },
         },
     ];
@@ -69,7 +69,15 @@ export const ExtraCallMobile: FC = () => {
             transition={{ duration: 0.3 }}
             exit={{ opacity: 0 }}
         >
-            <div>
+            <div
+                className={styles.block}
+                style={{
+                    position: "absolute",
+                    bottom: "10%",
+                    width: "100%",
+                    textAlign: "center",
+                }}
+            >
                 {btns.map((btn) => (
                     <motion.div
                         className={styles.btn}
@@ -79,8 +87,8 @@ export const ExtraCallMobile: FC = () => {
                         initial={{ x: 0, y: 0 }}
                         whileTap={{ scale: 0.9 }}
                         animate={{
-                            x: isOpen ? btn.position.x : 165,
-                            y: isOpen ? btn.position.y : 25,
+                            x: isOpen ? btn.position.x : 0,
+                            y: isOpen ? btn.position.y : 110,
                         }}
                         transition={{
                             type: "spring",
@@ -88,7 +96,7 @@ export const ExtraCallMobile: FC = () => {
                             damping: 13,
                             stiffness: 100,
                         }}
-                        exit={{ x: 0, y: 0 }}
+                        exit={{ x: -0, y: -0 }}
                         key={btn.id}
                     >
                         <img
