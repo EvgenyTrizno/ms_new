@@ -31,7 +31,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                     {/* <MobileAccountPage /> */}
                 </div>
             )}
-            {window.matchMedia("(min-width: 481px)").matches && (
+            {window.matchMedia("(max-width: 768px)").matches && (
                 <div className={styles.mobileContainer}>
                     {children}
                     <MobileMenu />
@@ -39,9 +39,9 @@ export const Layout: FC<TProps> = ({ children }) => {
                     {/* <MobileAccountPage /> */}
                 </div>
             )}
-            {window.matchMedia("(min-width: 992px)").matches && (
+            {/* {window.matchMedia("(min-width: 992px)").matches && (
                 <div>dssdsdds</div>
-            )}
+            )} */}
             {window.matchMedia("(min-width: 1200px)").matches && (
                 <>
                     <Header />
