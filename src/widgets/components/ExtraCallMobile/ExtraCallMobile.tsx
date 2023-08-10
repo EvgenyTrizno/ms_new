@@ -14,6 +14,9 @@ export const ExtraCallMobile: FC = () => {
     const { isOpen, setIsOpen } = useExtraCall();
 
     const sick = condition === "Болен";
+    const media = window.matchMedia(
+        "(min-width: 576px) and (max-width: 768px)"
+    ).matches;
 
     const btns: IExtraCallBtnData[] = [
         {
@@ -23,8 +26,8 @@ export const ExtraCallMobile: FC = () => {
             },
             id: useId(),
             position: {
-                x: -70,
-                y: 50,
+                x: media ? -90 : -70,
+                y: media ? 30 : 50,
             },
         },
         {
@@ -35,15 +38,15 @@ export const ExtraCallMobile: FC = () => {
             id: useId(),
             position: {
                 x: 0,
-                y: 0,
+                y: media ? -20 : 0,
             },
         },
         {
             icon: { healthy: people, sick: people },
             id: useId(),
             position: {
-                x: 70,
-                y: 50,
+                x: media ? 90 : 70,
+                y: media ? 30 : 50,
             },
         },
     ];
@@ -72,10 +75,7 @@ export const ExtraCallMobile: FC = () => {
             <div
                 className={styles.block}
                 style={{
-                    position: "absolute",
                     bottom: "10%",
-                    width: "100%",
-                    textAlign: "center",
                 }}
             >
                 {btns.map((btn) => (

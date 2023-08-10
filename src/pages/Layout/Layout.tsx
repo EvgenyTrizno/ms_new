@@ -9,7 +9,6 @@ import {
     ExtraCallMobile,
     NotificationModal,
 } from "@/widgets";
-import { MOBILE_SCREEN } from "@/shared/utils";
 import { useExtraCall, useNotification } from "@/shared/model/store";
 // import MobileAccountPage from "@/widgets/components/MobileAccount/MobileAccountPage";
 
@@ -23,14 +22,6 @@ export const Layout: FC<TProps> = ({ children }) => {
 
     return (
         <div className={styles.layout}>
-            {window.matchMedia("(max-width: 480px)").matches && (
-                <div className={styles.mobileContainer}>
-                    {children}
-                    <MobileMenu />
-                    <ExtraCallMobile />
-                    {/* <MobileAccountPage /> */}
-                </div>
-            )}
             {window.matchMedia("(max-width: 768px)").matches && (
                 <div className={styles.mobileContainer}>
                     {children}
@@ -39,7 +30,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                     {/* <MobileAccountPage /> */}
                 </div>
             )}
-            {/* {window.matchMedia("(min-width: 992px)").matches && (
+            {/* {window.matchMedia("(max-width: 992px)").matches && (
                 <div>dssdsdds</div>
             )} */}
             {window.matchMedia("(min-width: 1200px)").matches && (

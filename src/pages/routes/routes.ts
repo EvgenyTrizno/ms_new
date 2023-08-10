@@ -104,7 +104,13 @@ export const routes: RouteData[] = [
         Component: LoginPage,
         key: "login_page",
     },
-    { path: "/", Component: MainPage, key: "main_page" },
+    {
+        path: "/",
+        Component: window.matchMedia("(max-width: 768px)").matches
+            ? MobileMainPage
+            : MainPage,
+        key: "main_page",
+    },
     { path: "*", Component: NotFoundPage, key: "error_page" },
     { path: "/auth/recovery", Component: RecoveryPage, key: "recovery_page" },
     { path: "/auth/map", Component: AuthMapPage, key: "auth-map_page" },

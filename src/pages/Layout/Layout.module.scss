@@ -25,9 +25,9 @@
             padding: 20px;
         }
     }
-}                   
+}
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
     .layout {
         .container {
             display: none !important;
@@ -39,7 +39,7 @@
 
         .mobileContainer {
             display: grid;
-            height: 100vh;
+            height: calc(100vh - 154px);
             grid-template-rows: calc(100vh - 105px) 105px;
         }
     }

@@ -17,15 +17,42 @@ export const Card: FC<ICard> = ({ checkbox }) => {
         <div
             className={styles.card}
             onClick={() => setIsSelect((prev) => !prev)}
-            style={sick ? { borderColor: "#F7E6E8" } : {}}
+            style={
+                sick &&
+                !window.matchMedia("(min-width: 576px) and (max-width: 768px)")
+                    .matches
+                    ? { borderColor: "#F7E6E8" }
+                    : window.matchMedia(
+                          "(min-width: 576px) and (max-width: 768px)"
+                      ).matches
+                    ? { borderColor: "#EFEFEF" }
+                    : {}
+            }
         >
             <img src={woman} alt="woman" className={styles.img} />
             <div className={styles.checkbox}>
                 {checkbox && <Checkbox checked={isSelect} />}
             </div>
             <div className={styles.box}>
-                <Text type="h3">Михайлова Т. А.</Text>
-                <Text type="p" position="center">
+                <Text
+                    type="h3"
+                    fz={
+                        window.matchMedia("(min-width: 1200px)").matches
+                            ? "16px"
+                            : "13px"
+                    }
+                >
+                    Михайлова Т. А.
+                </Text>
+                <Text
+                    type="p"
+                    position="center"
+                    fz={
+                        window.matchMedia("(min-width: 1200px)").matches
+                            ? "16px"
+                            : "12px"
+                    }
+                >
                     Хирург
                 </Text>
             </div>

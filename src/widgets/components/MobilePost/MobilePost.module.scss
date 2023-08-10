@@ -2,7 +2,7 @@
     background-color: var(--white);
     border-radius: 20px;
     border: 1px solid var(--system-light-grey);
-    padding: 15px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     grid-gap: 10px;
@@ -21,11 +21,13 @@
         .data {
             display: flex;
             flex-direction: column;
+            grid-gap: 10px;
         }
     }
 
     .images {
         img {
+            height: 150px;
             border-radius: 12px;
         }
     }
@@ -38,7 +40,7 @@
         .btns {
             display: flex;
             align-items: center;
-            grid-gap: 5px;
+            grid-gap: 6px;
 
             .btn {
                 width: 40px;
@@ -52,9 +54,44 @@
         .more {
             display: flex;
             align-items: center;
-            gg
-            p {
-                font-weight: 600;
+        }
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .mobilePost {
+        padding: 20px;
+        grid-gap: 20px;
+
+        .user {
+            img {
+                width: 54px;
+                height: 54px;
+            }
+        }
+
+        .data {
+            grid-gap: 6px !important;
+        }
+
+        .images {
+            img {
+                height: 340px;
+                width: 100%;
+            }
+        }
+
+        .managment {
+            .btns {
+                .btn {
+                    width: 46px;
+                    height: 46px;
+                    padding: 12px;
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
             }
         }
     }

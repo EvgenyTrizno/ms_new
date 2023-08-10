@@ -31,6 +31,23 @@
     margin-top: 10px;
 }
 
-@media screen and (max-width: 768px) {
-    
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .filterBtn {
+        display: flex;
+        align-items: center;
+        grid-gap: 8px;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .items {
+        grid-gap: 12px;
+        margin-top: 16px;
+    }
+
+    .box {
+        grid-gap: 16px;
+    }
 }

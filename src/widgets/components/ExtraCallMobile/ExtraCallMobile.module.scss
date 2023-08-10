@@ -36,3 +36,19 @@
         }
     }
 }
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .extra {
+        .block {
+            .btn {
+                width: 74px;
+                height: 74px;
+
+                img {
+                    width: 36px;
+                    height: 36px;    
+                }
+            }
+        }
+    }
+}

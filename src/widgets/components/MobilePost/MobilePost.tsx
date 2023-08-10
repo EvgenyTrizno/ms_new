@@ -18,7 +18,17 @@ export const MobilePost: FC = () => {
             <div className={styles.user}>
                 <img src={woman} alt="" />
                 <div className={styles.data}>
-                    <Text type="h2" color="#262626">
+                    <Text
+                        type="h2"
+                        color="#262626"
+                        fz={
+                            window.matchMedia(
+                                "(min-width: 576px) and (max-width: 768px)"
+                            ).matches
+                                ? "17px"
+                                : "16px"
+                        }
+                    >
                         Яковенко А. С.
                     </Text>
                     <Text type="p" color="#7D7F82">
@@ -27,7 +37,16 @@ export const MobilePost: FC = () => {
                 </div>
             </div>
             <div className={styles.descr}>
-                <Text type="p" fz="14px">
+                <Text
+                    type="p"
+                    fz={
+                        window.matchMedia(
+                            "(min-width: 576px) and (max-width: 768px)"
+                        )
+                            ? "16px"
+                            : "14px"
+                    }
+                >
                     Lorem Ipsum является текст-заполнитель обычно используется в
                     графических, печать и издательской индустрии для
                     предварительного просмотра макета
@@ -50,11 +69,17 @@ export const MobilePost: FC = () => {
                 </div>
                 <div className={styles.more}>
                     <Text
-                        type="p"
+                        type="h4"
                         color={`${
                             condition === "Болен" ? "#D64657" : "#0064FA"
                         }`}
-                        fz="13px"
+                        fz={
+                            window.matchMedia(
+                                "(min-width: 576px) and (max-width: 768px)"
+                            )
+                                ? "15px"
+                                : "13px"
+                        }
                     >
                         Подробнее
                     </Text>
