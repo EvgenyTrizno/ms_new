@@ -93,6 +93,8 @@ const MobileNotesInfoPage = lazy(
     () => import("@/pages/MobileNotesInfo/MobileNotesInfoPage")
 );
 
+const media = window.matchMedia("(max-width: 768px)").matches;
+
 export const routes: RouteData[] = [
     {
         path: "/auth/registration",
@@ -106,9 +108,7 @@ export const routes: RouteData[] = [
     },
     {
         path: "/",
-        Component: window.matchMedia("(max-width: 768px)").matches
-            ? MobileMainPage
-            : MainPage,
+        Component: media ? MobileMainPage : MainPage,
         key: "main_page",
     },
     { path: "*", Component: NotFoundPage, key: "error_page" },
@@ -122,9 +122,7 @@ export const routes: RouteData[] = [
     },
     {
         path: "/search",
-        Component: window.matchMedia("(max-width: 768px)").matches
-            ? MobileSearchPage
-            : SearchPage,
+        Component: media ? MobileSearchPage : SearchPage,
         key: "search_page",
     },
     { path: "/profile", Component: ProfilePage, key: "profile_page" },

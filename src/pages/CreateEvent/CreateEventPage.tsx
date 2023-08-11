@@ -10,7 +10,6 @@ import { useFilter, useUserCondition } from "@/shared/model/store";
 import { IProfileData } from "@/shared/api/Account/types";
 
 import info from "/assets/info-circle.svg";
-import woman from "/assets/woman.jpg";
 import arrow from "/assets/arrow-left-black.svg";
 import fileIcon from "/assets/file.svg";
 import styles from "./CreateEventPage.module.scss";

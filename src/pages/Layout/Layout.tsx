@@ -10,7 +10,7 @@ import {
     NotificationModal,
 } from "@/widgets";
 import { useExtraCall, useNotification } from "@/shared/model/store";
-// import MobileAccountPage from "@/widgets/components/MobileAccount/MobileAccountPage";
+import MobileAccountPage from "@/widgets/components/MobileAccount/MobileAccountPage";
 
 import extra from "/assets/extra-call.svg";
 import cross from "/assets/cross.svg";
@@ -27,7 +27,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                     {children}
                     <MobileMenu />
                     <ExtraCallMobile />
-                    {/* <MobileAccountPage /> */}
+                    <MobileAccountPage />
                 </div>
             )}
             {/* {window.matchMedia("(max-width: 992px)").matches && (
