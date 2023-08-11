@@ -32,7 +32,16 @@ export const MobileFilter: FC<IFilter> = ({ data }) => {
                     }`}
                     onClick={() => setIsFilter(item)}
                 >
-                    <Text type="p" fz="14px">
+                    <Text
+                        type="p"
+                        fz={
+                            window.matchMedia(
+                                "(min-width: 576px) and (max-width: 768px)"
+                            ).matches
+                                ? "16px"
+                                : "14px"
+                        }
+                    >
                         {item}
                     </Text>
                 </div>

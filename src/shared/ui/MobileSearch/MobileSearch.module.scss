@@ -1,6 +1,7 @@
 .search {
     background-color: var(--white);
     padding: 10px;
+    padding-left: 16px;
     border: 1px solid var(--system-light-grey);
     border-radius: var(--default-border);
     display: flex;
@@ -27,5 +28,20 @@
         align-items: center;
         justify-content: center;
         padding: 9px;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .search {
+        .btn {
+            min-width: 46px;
+            height: 40px;
+            padding: 12px;
+
+            img {
+                width: 21px;
+                height: 21px;
+            }
+        }
     }
 }

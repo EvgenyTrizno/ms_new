@@ -9,6 +9,7 @@ export const Rating: FC<IRatingProps> = ({
     disabled,
     width = "24px",
     height = "24px",
+    gap,
 }) => {
     const [value, setValue] = useState(defaultValue);
 
@@ -43,5 +44,12 @@ export const Rating: FC<IRatingProps> = ({
         );
     }
 
-    return <div className="rating">{stars}</div>;
+    return (
+        <div
+            className="rating"
+            style={{ display: "flex", gridGap: gap, alignItems: "center" }}
+        >
+            {stars}
+        </div>
+    );
 };

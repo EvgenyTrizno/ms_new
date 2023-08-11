@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import { MobileContainer, MobileHeader, Rating, Search } from "@/widgets";
-import { MobileFilter, Text } from "@/shared";
+import { MobileContainer, MobileHeader, Rating } from "@/widgets";
+import { MobileFilter, MobileSearch, Text } from "@/shared";
 import { useFilter, useUserCondition } from "@/shared/model/store";
 import { Layout } from "../Layout/Layout";
 
@@ -12,6 +12,10 @@ const MobileSearchPage: FC = () => {
     const { isFilter } = useFilter();
     const { condition } = useUserCondition();
 
+    const media = window.matchMedia(
+        "(min-width: 576px) and (max-width: 768px)"
+    ).matches;
+
     const renderElements = (filter: string) => {
         switch (filter) {
             case "Центры":
@@ -20,10 +24,10 @@ const MobileSearchPage: FC = () => {
                         <div className={styles.inner}>
                             <img src={center} alt="" />
                             <div className={styles.data}>
-                                <Text type="h2" fz="17px">
+                                <Text type="h2" fz={media ? "19px" : "17px"}>
                                     Центр 259
                                 </Text>
-                                <Text type="p" fz="12px">
+                                <Text type="p" fz={media ? "14px" : "12px"}>
                                     Constraints автоматом выставляется у
                                     элементов, которые ручками добавляются, а
                                     вот у иконок, к примеру, которые через
@@ -34,16 +38,21 @@ const MobileSearchPage: FC = () => {
                         <div className={styles.bottom}>
                             <div className={styles.rating}>
                                 <Rating
-                                    width="20px"
-                                    height="20px"
+                                    width={media ? "24px" : "20px"}
+                                    height={media ? "24px" : "20px"}
                                     defaultValue={4}
+                                    gap={media ? "4px" : "3px"}
                                 />
-                                <Text type="p" fz="13px">
+                                <Text type="p" fz={media ? "15px" : "13px"}>
                                     4.0
                                 </Text>
                             </div>
                             <div className={styles.country}>
-                                <Text type="p" color="#B1B2B4" fz="13px">
+                                <Text
+                                    type="p"
+                                    color="#B1B2B4"
+                                    fz={media ? "15px" : "13px"}
+                                >
                                     Россия, Москва
                                 </Text>
                             </div>
@@ -56,10 +65,10 @@ const MobileSearchPage: FC = () => {
                         <div className={styles.inner}>
                             <img src={center} alt="" />
                             <div className={styles.data}>
-                                <Text type="h2" fz="17px">
+                                <Text type="h2" fz={media ? "19px" : "17px"}>
                                     Центр 259
                                 </Text>
-                                <Text type="p" fz="12px">
+                                <Text type="p" fz={media ? "14px" : "12px"}>
                                     Constraints автоматом выставляется у
                                     элементов, которые ручками добавляются, а
                                     вот у иконок, к примеру, которые через
@@ -91,16 +100,21 @@ const MobileSearchPage: FC = () => {
                         <div className={styles.bottom}>
                             <div className={styles.rating}>
                                 <Rating
-                                    width="20px"
-                                    height="20px"
+                                    width={media ? "24px" : "20px"}
+                                    height={media ? "24px" : "20px"}
                                     defaultValue={4}
+                                    gap={media ? "4px" : "3px"}
                                 />
-                                <Text type="p" fz="13px">
+                                <Text type="p" fz={media ? "15px" : "13px"}>
                                     4.0
                                 </Text>
                             </div>
                             <div className={styles.country}>
-                                <Text type="p" color="#B1B2B4" fz="13px">
+                                <Text
+                                    type="p"
+                                    color="#B1B2B4"
+                                    fz={media ? "15px" : "13px"}
+                                >
                                     Россия, Москва
                                 </Text>
                             </div>
@@ -113,10 +127,10 @@ const MobileSearchPage: FC = () => {
                         <div className={styles.inner}>
                             <img src={center} alt="" />
                             <div className={styles.data}>
-                                <Text type="h2" fz="17px">
+                                <Text type="h2" fz={media ? "19px" : "17px"}>
                                     Центр 259
                                 </Text>
-                                <Text type="p" fz="12px">
+                                <Text type="p" fz={media ? "14px" : "12px"}>
                                     Constraints автоматом выставляется у
                                     элементов, которые ручками добавляются, а
                                     вот у иконок, к примеру, которые через
@@ -148,16 +162,21 @@ const MobileSearchPage: FC = () => {
                         <div className={styles.bottom}>
                             <div className={styles.rating}>
                                 <Rating
-                                    width="20px"
-                                    height="20px"
+                                    width={media ? "24px" : "20px"}
+                                    height={media ? "24px" : "20px"}
                                     defaultValue={4}
+                                    gap={media ? "4px" : "3px"}
                                 />
-                                <Text type="p" fz="13px">
+                                <Text type="p" fz={media ? "15px" : "13px"}>
                                     4.0
                                 </Text>
                             </div>
                             <div className={styles.country}>
-                                <Text type="p" color="#B1B2B4" fz="13px">
+                                <Text
+                                    type="p"
+                                    color="#B1B2B4"
+                                    fz={media ? "15px" : "13px"}
+                                >
                                     Россия, Москва
                                 </Text>
                             </div>
@@ -174,7 +193,11 @@ const MobileSearchPage: FC = () => {
             <MobileHeader />
             <MobileContainer>
                 <div className={styles.box}>
-                    <Search height="50px" placeholder="Поиск чатов" />
+                    <MobileSearch
+                        height="50px"
+                        placeholder="Поиск чатов"
+                        filterBtn
+                    />
                     <MobileFilter data={["Центры", "Клиники", "Врачи"]} />
                 </div>
                 <div className={styles.results}>{elements}</div>

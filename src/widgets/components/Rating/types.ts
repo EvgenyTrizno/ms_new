@@ -4,4 +4,5 @@ export interface IRatingProps {
     disabled?: boolean;
     width?: string;
     height?: string;
+    gap?: string;
 }

@@ -115,8 +115,18 @@ export const routes: RouteData[] = [
     { path: "/auth/recovery", Component: RecoveryPage, key: "recovery_page" },
     { path: "/auth/map", Component: AuthMapPage, key: "auth-map_page" },
     { path: "/auth", Component: AuthorizationPage, key: "auth_page" },
-    { path: "/auth/confirm", Component: ConfirmationPage, key: "confirm_page" },
-    { path: "/search", Component: SearchPage, key: "search_page" },
+    {
+        path: "/auth/confirm",
+        Component: ConfirmationPage,
+        key: "confirm_page",
+    },
+    {
+        path: "/search",
+        Component: window.matchMedia("(max-width: 768px)").matches
+            ? MobileSearchPage
+            : SearchPage,
+        key: "search_page",
+    },
     { path: "/profile", Component: ProfilePage, key: "profile_page" },
     {
         path: "/medical-card",
@@ -143,11 +153,6 @@ export const routes: RouteData[] = [
         key: "medical-test_page",
     },
     { path: "/m/", Component: MobileMainPage, key: "mobile-main_page" },
-    {
-        path: "/m/search",
-        Component: MobileSearchPage,
-        key: "mobile-search_page",
-    },
     {
         path: "/m/messages",
         Component: MobileMessagesPage,

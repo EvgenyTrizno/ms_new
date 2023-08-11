@@ -28,3 +28,12 @@
         background-color: var(--red-100);
     }
 }
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .mobileFilter {
+        .item {
+            height: 48px;
+            width: 246px;
+        }
+    }
+}

@@ -26,7 +26,7 @@ export const MobilePost: FC = () => {
                                 "(min-width: 576px) and (max-width: 768px)"
                             ).matches
                                 ? "17px"
-                                : "16px"
+                                : "14px"
                         }
                     >
                         Яковенко А. С.
@@ -42,7 +42,7 @@ export const MobilePost: FC = () => {
                     fz={
                         window.matchMedia(
                             "(min-width: 576px) and (max-width: 768px)"
-                        )
+                        ).matches
                             ? "16px"
                             : "14px"
                     }
@@ -76,7 +76,7 @@ export const MobilePost: FC = () => {
                         fz={
                             window.matchMedia(
                                 "(min-width: 576px) and (max-width: 768px)"
-                            )
+                            ).matches
                                 ? "15px"
                                 : "13px"
                         }
