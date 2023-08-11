@@ -29,7 +29,17 @@ const AccountMedicalCardPage: FC = () => {
                     />
                     <MobileCalendar info={false} />
                     <div className={styles.box}>
-                        <Text type="p" fz="14px" color="#7D7F82">
+                        <Text
+                            type="p"
+                            fz={
+                                window.matchMedia(
+                                    "(min-width: 576px) and (max-width: 768px)"
+                                ).matches
+                                    ? "16px"
+                                    : "14px"
+                            }
+                            color="#7D7F82"
+                        >
                             10 Октябрь
                         </Text>
                         <div className={styles.notes}>

@@ -41,6 +41,9 @@ export const MobileCalendar: FC<ICalendare> = ({ info, width, height }) => {
     const sick = condition === "Болен";
     const active = `${styles.item} ${styles.active}`;
     const activeRed = `${styles.item} ${styles.activeRed}`;
+    const media = window.matchMedia(
+        "(min-width: 576px) and (max-width: 768px)"
+    ).matches;
 
     const getDaysInMonth = (
         year: number,
@@ -97,10 +100,10 @@ export const MobileCalendar: FC<ICalendare> = ({ info, width, height }) => {
         <div className={styles.calendar} style={{ width, height }}>
             <div className={styles.nav}>
                 <div className={styles.date}>
-                    <Text type="h2" fz="17px">
+                    <Text type="h2" fz={media ? "19px" : "17px"}>
                         {months[currentMonth]}
                     </Text>
-                    <Text type="h2" fz="17px">
+                    <Text type="h2" fz={media ? "19px" : "17px"}>
                         {currentYear}
                     </Text>
                 </div>

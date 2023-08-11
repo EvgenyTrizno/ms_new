@@ -128,7 +128,7 @@ export const routes: RouteData[] = [
     { path: "/profile", Component: ProfilePage, key: "profile_page" },
     {
         path: "/medical-card",
-        Component: MedicalCardPage,
+        Component: media ? AccountMedicalCardPage : MedicalCardPage,
         key: "medical-card_page",
     },
     { path: "/notes", Component: NotesPage, key: "notes_page" },
@@ -197,11 +197,6 @@ export const routes: RouteData[] = [
         path: "/m/settings/account/medical-center",
         Component: AccountMedicalCenterPage,
         key: "mobile-medical-center_page",
-    },
-    {
-        path: "/m/account/medical-card",
-        Component: AccountMedicalCardPage,
-        key: "mobile-medical-card_page",
     },
     {
         path: "/m/create-event",
