@@ -7,6 +7,7 @@ import {
     Slider,
 } from "@/widgets";
 import { BackArrow, MobileSearch, Text } from "@/shared";
+import { TABLET } from "@/shared/utils";
 
 import poster from "/assets/center-icon.jpg";
 import styles from "./AccountSubscriptionsSettings.module.scss";
@@ -16,7 +17,7 @@ const AccountSubscriptionsSettingsPage: FC = () => {
         <div className={styles.subs}>
             <CustomMobileHeader>
                 <div className={styles.header}>
-                    <BackArrow path="/m/settings/account" />
+                    <BackArrow />
                     <Text type="h2" fz="19px">
                         Подписки
                     </Text>
@@ -26,30 +27,27 @@ const AccountSubscriptionsSettingsPage: FC = () => {
                 <MobileSearch placeholder="Введите запрос" filterBtn={false} />
                 <div className={styles.container}>
                     <div className={styles.block}>
-                        <Text type="p" fz="14px" color="#7D7F82">
+                        <Text
+                            type="p"
+                            fz={TABLET ? "16px" : "14px"}
+                            color="#7D7F82"
+                        >
                             Центры
                         </Text>
                         <Slider navigate={false} container="100%">
                             <div className={styles.card}>
                                 <img src={poster} alt="" />
                                 <div className={styles.text}>
-                                    <Text type="h2" fz="15px">
+                                    <Text
+                                        type="h2"
+                                        fz={TABLET ? "17px" : "15px"}
+                                    >
                                         Центр 259
                                     </Text>
-                                    <Text type="p" fz="10px">
-                                        Constraints автоматом выставляется у
-                                        элементов, которые ручками добавляются,
-                                        а...
-                                    </Text>
-                                </div>
-                            </div>
-                            <div className={styles.card}>
-                                <img src={poster} alt="" />
-                                <div className={styles.text}>
-                                    <Text type="h2" fz="15px">
-                                        Центр 259
-                                    </Text>
-                                    <Text type="p" fz="10px">
+                                    <Text
+                                        type="p"
+                                        fz={TABLET ? "12px" : "10px"}
+                                    >
                                         Constraints автоматом выставляется у
                                         элементов, которые ручками добавляются,
                                         а...
@@ -59,17 +57,27 @@ const AccountSubscriptionsSettingsPage: FC = () => {
                         </Slider>
                     </div>
                     <div className={styles.block}>
-                        <Text type="p" fz="14px" color="#7D7F82">
+                        <Text
+                            type="p"
+                            fz={TABLET ? "16px" : "14px"}
+                            color="#7D7F82"
+                        >
                             Клиники
                         </Text>
                         <Slider navigate={false} container="100%">
                             <div className={styles.clinic}>
                                 <img src={poster} alt="" />
                                 <div className={styles.text}>
-                                    <Text type="h2" fz="15px">
+                                    <Text
+                                        type="h2"
+                                        fz={TABLET ? "17px" : "15px"}
+                                    >
                                         Центр 259
                                     </Text>
-                                    <Text type="p" fz="12px">
+                                    <Text
+                                        type="p"
+                                        fz={TABLET ? "14px" : "12px"}
+                                    >
                                         Constraints автоматом выставляется у
                                         элемент
                                     </Text>
@@ -90,7 +98,11 @@ const AccountSubscriptionsSettingsPage: FC = () => {
                         </Slider>
                     </div>
                     <div className={styles.block}>
-                        <Text type="p" fz="14px" color="#7D7F82">
+                        <Text
+                            type="p"
+                            fz={TABLET ? "16px" : "14px"}
+                            color="#7D7F82"
+                        >
                             Специалисты
                         </Text>
                         <Slider navigate={false} container="100%">
