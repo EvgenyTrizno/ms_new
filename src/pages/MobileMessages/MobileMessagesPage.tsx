@@ -2,8 +2,8 @@ import { FC } from "react";
 import { useNavigate } from "react-router";
 
 import { Layout } from "../Layout/Layout";
-import { MobileContainer, MobileHeader, Search } from "@/widgets";
-import { MobileFilter, Text } from "@/shared";
+import { MobileContainer, MobileHeader } from "@/widgets";
+import { MobileFilter, MobileSearch, Text } from "@/shared";
 import { useFilter, useUserCondition } from "@/shared/model/store";
 
 import woman from "/assets/woman.jpg";
@@ -25,7 +25,11 @@ const MobileMessagesPage: FC = () => {
             <MobileHeader />
             <MobileContainer>
                 <div className={styles.box}>
-                    <Search height="50px" placeholder="Поиск чатов" />
+                    <MobileSearch
+                        height="50px"
+                        placeholder="Поиск чатов"
+                        filterBtn={false}
+                    />
                     <MobileFilter data={["Сообщения", "Звонки"]} />
                 </div>
                 <div className={styles.container}>
@@ -96,10 +100,12 @@ const MobileMessagesPage: FC = () => {
                                           </Text>
                                       </div>
                                   </div>
-                                  <Text type="p" color="#B1B2B4">
-                                      2:23
-                                  </Text>
-                                  <img src={info} alt="" />
+                                  <div className={styles.infoBox}>
+                                      <Text type="p" color="#B1B2B4">
+                                          2:23
+                                      </Text>
+                                      <img src={info} alt="" />
+                                  </div>
                               </div>
                           ))}
                 </div>

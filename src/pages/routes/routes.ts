@@ -131,7 +131,11 @@ export const routes: RouteData[] = [
         Component: media ? AccountMedicalCardPage : MedicalCardPage,
         key: "medical-card_page",
     },
-    { path: "/notes", Component: NotesPage, key: "notes_page" },
+    {
+        path: "/notes",
+        Component: media ? MobileNotesPage : NotesPage,
+        key: "notes_page",
+    },
     { path: "/notes/:name", Component: NotesInfoPage, key: "notes-info_page" },
     {
         path: "/create-event",
@@ -144,17 +148,15 @@ export const routes: RouteData[] = [
         Component: SelectCenterMapPage,
         key: "select-center-map_page",
     },
-    { path: "/messages", Component: MessagesPage, key: "messages_page" },
+    {
+        path: "/messages",
+        Component: media ? MobileMessagesPage : MessagesPage,
+        key: "messages_page",
+    },
     {
         path: "/medical-card-test",
         Component: MedicalTestPage,
         key: "medical-test_page",
-    },
-    { path: "/m/", Component: MobileMainPage, key: "mobile-main_page" },
-    {
-        path: "/m/messages",
-        Component: MobileMessagesPage,
-        key: "mobile-messages_page",
     },
     {
         path: "/m/profile/:id",
@@ -167,7 +169,6 @@ export const routes: RouteData[] = [
         Component: AccountSettingsPage,
         key: "mobile-account_page",
     },
-    { path: "/m/notes", Component: MobileNotesPage, key: "mobile-notes_page" },
     {
         path: "/m/settings/account/profile",
         Component: ProfileSettingsPage,

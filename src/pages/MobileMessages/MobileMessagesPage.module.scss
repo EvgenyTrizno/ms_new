@@ -23,7 +23,7 @@
         .user {
             display: flex;
             align-items: center;
-            grid-gap: 10px;
+            grid-gap: 12px;
 
             img {
                 width: 48px;
@@ -86,7 +86,7 @@
         align-items: center;
         padding: 20px 0;
         border-bottom: 1px solid var(--system-light-grey);
-        
+
         :last-child {
             border-bottom: none;
         }
@@ -103,5 +103,26 @@
                 border-radius: 100%;
             }
         }
+
+        .infoBox {
+            display: flex;
+            align-items: center;
+            grid-gap: 12px;
+        }
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .container {
+        .call {
+            .user {
+                grid-gap: 16px;
+            }
+
+            .infoBox {
+                grid-gap: 16px;
+            }
+        }
+
     }
 }

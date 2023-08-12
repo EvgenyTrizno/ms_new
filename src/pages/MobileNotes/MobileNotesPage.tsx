@@ -1,15 +1,11 @@
 import { FC } from "react";
 import { useNavigate } from "react-router";
 
-import { Text, MobileFilter, MobileSearch, Btn } from "@/shared";
-import { MobileContainer, CustomMobileHeader } from "@/widgets";
+import { Text, MobileFilter, MobileSearch } from "@/shared";
+import { MobileContainer, CustomMobileHeader, MobileNote } from "@/widgets";
 
 import arrow from "/assets/arrow-left-black.svg";
-import settings from "/assets/setting.svg";
 import plus from "/assets/plus-black.svg";
-import sender from "/assets/send.svg";
-import doctor from "/assets/doctor-male.svg";
-import arrowRight from "/assets/arrow-right-black.svg";
 import ghost from "/assets/ghost.svg";
 import styles from "./MobileNotesPage.module.scss";
 
@@ -40,7 +36,7 @@ const MobileNotesPage: FC = () => {
                         filterBtn={false}
                         onClick={() => navigate("/m/create-event")}
                     />
-                    <MobileFilter data={["Подтвержденные", "Доп.проверка"]} />
+                    <MobileFilter data={["Текущие", "Доп.проверка"]} />
                 </div>
                 <div className={styles.items}>
                     {![].length ? (
@@ -62,101 +58,7 @@ const MobileNotesPage: FC = () => {
                             </div>
                         </div>
                     ) : (
-                        <div className={styles.item}>
-                            <div className={styles.managment}>
-                                <div className={styles.param}>
-                                    <img src={settings} alt="" />
-                                </div>
-                                <div className={styles.param}>
-                                    <img src={sender} alt="" />
-                                </div>
-                                <div className={styles.param}>
-                                    <img src={doctor} alt="" />
-                                </div>
-                                <div className={styles.param}>
-                                    <img src={arrowRight} alt="" />
-                                </div>
-                            </div>
-                            <div className={styles.container}>
-                                <div className={styles.titles}>
-                                    <Text type="h2" fz="18px">
-                                        Восстановление
-                                    </Text>
-                                    <Text type="p" color="#7D7F82" fz="12px">
-                                        Название записи
-                                    </Text>
-                                </div>
-                                <ul className={styles.list}>
-                                    <li className={styles.li}>
-                                        <Text type="p" color="#B1B2B4">
-                                            Запись:
-                                        </Text>
-                                        <Text type="p" color="#00CC5E">
-                                            Онлайн
-                                        </Text>
-                                    </li>
-                                    <li className={styles.li}>
-                                        <Text type="p" color="#B1B2B4">
-                                            Предоставляет:
-                                        </Text>
-                                        <Text type="p">Московский Центр</Text>
-                                    </li>
-                                    <li className={styles.li}>
-                                        <Text type="p" color="#B1B2B4">
-                                            Ведущий:
-                                        </Text>
-                                        <Text type="p">Иван Иванов</Text>
-                                    </li>
-                                    <li className={styles.li}>
-                                        <Text type="p" color="#B1B2B4">
-                                            Причина:
-                                        </Text>
-                                        <Text type="p">
-                                            Проверка мышц спины
-                                        </Text>
-                                    </li>
-                                </ul>
-                                <div className={styles.line}></div>
-                                <Text type="p" fz="12px" color="#7D7F82">
-                                    Запланировать запись
-                                </Text>
-                                <div className={styles.blocks}>
-                                    <div className={styles.block}>
-                                        <Text type="p" fz="12px">
-                                            Вт
-                                        </Text>
-                                    </div>
-                                    <div className={styles.block}>
-                                        <Text type="p" fz="12px">
-                                            12:30
-                                        </Text>
-                                    </div>
-                                    <div className={styles.block}>
-                                        <Text type="p" fz="12px">
-                                            PM
-                                        </Text>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.btns}>
-                                <Btn
-                                    width="160px"
-                                    height="40px"
-                                    color="#0064FA"
-                                >
-                                    Подтвердить
-                                </Btn>
-                                <Btn
-                                    width="160px"
-                                    height="40px"
-                                    color="transparent"
-                                    border="1px solid #0064FA"
-                                    textColor="#0064FA"
-                                >
-                                    Отменить
-                                </Btn>
-                            </div>
-                        </div>
+                        <MobileNote />
                     )}
                 </div>
             </MobileContainer>

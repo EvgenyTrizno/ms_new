@@ -1,12 +1,13 @@
 import { FC } from "react";
 
 import {
+    Calendar,
     CustomMobileHeader,
-    MobileCalendar,
     MobileContainer,
     MobileNote,
 } from "@/widgets";
 import { BackArrow, MobileSearch, Text } from "@/shared";
+import { TABLET } from "@/shared/utils";
 
 import styles from "./AccountMedicalCardPage.module.scss";
 
@@ -27,17 +28,11 @@ const AccountMedicalCardPage: FC = () => {
                         placeholder="Введите запрос"
                         filterBtn={false}
                     />
-                    <MobileCalendar info={false} />
+                    <Calendar info={false} />
                     <div className={styles.box}>
                         <Text
                             type="p"
-                            fz={
-                                window.matchMedia(
-                                    "(min-width: 576px) and (max-width: 768px)"
-                                ).matches
-                                    ? "16px"
-                                    : "14px"
-                            }
+                            fz={TABLET ? "16px" : "14px"}
                             color="#7D7F82"
                         >
                             10 Октябрь

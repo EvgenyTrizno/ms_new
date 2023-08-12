@@ -6,7 +6,7 @@
     border-radius: var(--default-border);
     display: flex;
     align-items: center;
-    grid-gap: 10px;
+    grid-gap: 12px;
 
     input {
         height: 20px;
@@ -33,6 +33,8 @@
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
     .search {
+        grid-gap: 16px;
+
         .btn {
             min-width: 46px;
             height: 40px;
