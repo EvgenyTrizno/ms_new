@@ -14,7 +14,7 @@ const AccountSavedPage: FC = () => {
         <div className={styles.saved}>
             <CustomMobileHeader>
                 <div className={styles.header}>
-                    <BackArrow path="/m/settings/account" />
+                    <BackArrow />
                     <Text type="h2" fz="19px">
                         Сохраненное
                     </Text>

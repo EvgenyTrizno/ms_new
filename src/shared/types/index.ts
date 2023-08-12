@@ -36,6 +36,7 @@ export interface IInput {
     borderRadius?: string;
     value?: string | number | readonly string[];
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+    fz?: string;
 }
 
 export interface IBtn {
@@ -50,10 +51,6 @@ export interface IBtn {
     textColor?: string;
     height?: string;
     type?: "submit" | "reset" | "button";
-}
-
-export interface IBackArrow {
-    path: string;
 }
 
 export interface IIconData {

@@ -1,0 +1,33 @@
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: var(--white);
+    border-radius: 14px;
+    border: 1px solid var(--system-light-grey);
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .box {
+        display: flex;
+        align-items: center;
+        grid-gap: 10px;
+
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .item {
+        padding: 20px;
+        border-radius: var(--default-border);
+
+        img {
+            width: 28px;
+            height: 28px;
+        }
+    }
+}

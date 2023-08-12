@@ -4,7 +4,11 @@
     padding: 16px 24px;
     border: 1px solid var(--gray-200);
     font-family: 'Montserrat';
-    font-weight: 400;
+    font-weight: 500;
     color: #000 !important;
     border-radius: var(--input-border)
+}
+
+input::placeholder {
+    color: var(--gray);
 }

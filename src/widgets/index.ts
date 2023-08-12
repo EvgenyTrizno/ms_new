@@ -34,6 +34,7 @@ import { Modal } from "./components/Modal/Modal";
 import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorBoundaryFallback";
 import { ChatInfo } from "./components/ChatInfo/ChatInfo";
 import { MobileComment } from "./components/MobileComment/MobileComment";
+import { ParamsBlock } from "./components/ParamsBlock/ParamsBlock";
 
 export {
     Login,
@@ -72,4 +73,5 @@ export {
     ErrorBoundaryFallback,
     ChatInfo,
     MobileComment,
+    ParamsBlock,
 };

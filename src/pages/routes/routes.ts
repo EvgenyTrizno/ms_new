@@ -165,12 +165,12 @@ export const routes: RouteData[] = [
     },
     { path: "/m/chat/:id", Component: MobileChatPage, key: "mobile-chat_page" },
     {
-        path: "/m/settings/account",
+        path: "/account",
         Component: AccountSettingsPage,
         key: "mobile-account_page",
     },
     {
-        path: "/m/settings/account/profile",
+        path: "/settings/account/profile",
         Component: ProfileSettingsPage,
         key: "mobile-profile-settings_page",
     },
@@ -185,12 +185,12 @@ export const routes: RouteData[] = [
         key: "mobile-access_page",
     },
     {
-        path: "/m/settings/account/subscriptions",
+        path: "/account/subscriptions",
         Component: AccountSubscriptionsSettingsPage,
         key: "mobile-subscriptions_page",
     },
     {
-        path: "/m/settings/account/saved",
+        path: "/account/saved",
         Component: AccountSavedPage,
         key: "mobile-saved_page",
     },

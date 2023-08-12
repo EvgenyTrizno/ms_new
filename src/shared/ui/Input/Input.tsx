@@ -27,6 +27,7 @@ export const Input: FC<IInput & InputHTMLAttributes<HTMLInputElement>> = ({
     name,
     className,
     onFocus,
+    fz,
 }) => {
     const ref = useRef<string[]>([]);
 
@@ -50,19 +51,18 @@ export const Input: FC<IInput & InputHTMLAttributes<HTMLInputElement>> = ({
             disabled={disabled}
             style={{
                 width: width,
-                borderRadius,
+                borderRadius: !borderRadius
+                    ? `${btr} ${bbr} ${bbl} ${btl}`
+                    : borderRadius,
                 height,
                 borderColor: borderColor,
                 borderTop: bt,
                 borderRight: br,
                 borderBottom: bb,
                 borderLeft: bl,
-                borderTopRightRadius: btr,
-                borderBottomRightRadius: bbr,
-                borderTopLeftRadius: btl,
-                borderBottomLeftRadius: bbl,
                 backgroundColor: bgcolor,
                 padding,
+                fontSize: fz,
             }}
             onChange={onChange}
             onBlur={onBlur}

@@ -17,6 +17,44 @@
         justify-content: space-between;
     }
 
+    .notify {
+        padding: 16px;
+        border-radius: 14px;
+        margin-bottom: 32px;
+    }
+    
+    .notifyBlueBorder {
+        border: 1px solid var(--blue);
+    }
+
+    .notifyBlue {
+        background-color: var(--blue-100);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .notifyRed {
+        background-color: var(--blue-100);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .notifyRedBorder {
+        border: 1px solid var(--red-400);
+    }
+
     .data {
         display: flex;
         align-items: center;
@@ -41,28 +79,6 @@
         display: flex;
         flex-direction: column;
         grid-gap: 12px;
-
-        .item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px;
-            background-color: var(--white);
-            border-radius: 14px;
-            border: 1px solid var(--system-light-grey);
-
-            img {
-                width: 20px;
-                height: 20px;
-            }
-
-            .box {
-                display: flex;
-                align-items: center;
-                grid-gap: 10px;
-
-            }
-        }
     }
 }
 
@@ -71,6 +87,11 @@
         .data {
             grid-gap: 20px;
             margin-bottom: 32px;
+
+            img {
+                width: 90px;
+                height: 90px;
+            }
         }
 
         .params {
@@ -82,6 +103,25 @@
                     width: 28px;
                     height: 28px;
                 }
+            }
+        }
+
+        .notify {
+            padding: 20px;
+            border-radius: var(--default-border);
+        }
+
+        .notifyBlue {
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        .notifyRed {
+            img {
+                width: 24px;
+                height: 24px;
             }
         }
     }

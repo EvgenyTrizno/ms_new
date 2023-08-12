@@ -3,20 +3,25 @@ import { useNavigate } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { IParamsData } from "./types";
 
-import { MobileContainer } from "@/widgets";
+import { MobileContainer, ParamsBlock } from "@/widgets";
 import { useUserCondition } from "@/shared/model/store";
 import { BackArrow, Text } from "@/shared";
 import { useProfile } from "@/shared/model/store";
 
 import man from "/assets/man.jpg";
-import arrowRight from "/assets/arrow-right-gray.svg";
 import userBlue from "/assets/user-blue.svg";
 import userRed from "/assets/user-red.svg";
 import noteBlue from "/assets/note-blue.svg";
 import clipBoardBlue from "/assets/clipboard-text-blue.svg";
-import markerBlue from "/assets/marker-plus.svg";
+import markerBlue from "/assets/marker-blue.svg";
+import markerRed from "/assets/marker-red.svg";
+import houseWithPlusBlue from "/assets/home-with-plus-blue.svg";
+import houseWithPlusRed from "/assets/home-with-plus-red.svg";
 import logoutBlue from "/assets/logout-blue.svg";
+import arrowRight from "/assets/arrow-right-blue.svg";
+import arrowRightRed from "/assets/arrow-right-red.svg";
 import styles from "./MobileAccountPage.module.scss";
+import { TABLET } from "@/shared/utils";
 
 const MobileAccountPage: FC = () => {
     const { condition } = useUserCondition();
@@ -24,9 +29,9 @@ const MobileAccountPage: FC = () => {
     const navigate = useNavigate();
 
     const sick = condition === "Болен";
-    const media = window.matchMedia(
-        "(min-width: 576px) and (max-width: 768px)"
-    ).matches;
+    const classes = sick
+        ? `${styles.notify} ${styles.notifyRed} ${styles.notifyRedBorder}`
+        : `${styles.notify} ${styles.notifyBlue} ${styles.notifyBlueBorder}`;
 
     const data: IParamsData[] = [
         {
@@ -43,13 +48,19 @@ const MobileAccountPage: FC = () => {
         },
         {
             id: useId(),
+            icon: { healthy: houseWithPlusBlue, sick: houseWithPlusRed },
+            label: "Медицинский центр",
+            navigate: "/m/notes",
+        },
+        {
+            id: useId(),
             icon: { healthy: clipBoardBlue, sick: userRed },
             label: "Медицинская карта",
             navigate: "/m/account/medical-card",
         },
         {
             id: useId(),
-            icon: { healthy: markerBlue, sick: userRed },
+            icon: { healthy: markerBlue, sick: markerRed },
             label: "Местоположение",
             navigate: "",
         },
@@ -93,7 +104,7 @@ const MobileAccountPage: FC = () => {
                         }
                     >
                         <div onClick={() => setIsProfile(false)}>
-                            <BackArrow path="/m/" />
+                            <BackArrow />
                         </div>
                         <div>
                             <svg
@@ -122,16 +133,46 @@ const MobileAccountPage: FC = () => {
                         </div>
                     </div>
                     <MobileContainer>
+                        <div
+                            className={styles.notify}
+                            style={{
+                                border: sick
+                                    ? "1px solid #D64657"
+                                    : "1px solid #0064FA",
+                            }}
+                        >
+                            <Text
+                                type="p"
+                                fz={TABLET ? "16px" : "14px"}
+                                position="center"
+                                color={sick ? "#D64657" : "#0064FA"}
+                            >
+                                До основной записи осталось 22:59
+                            </Text>
+                        </div>
+                        <div className={classes}>
+                            <Text
+                                type="p"
+                                fz={TABLET ? "16px" : "14px"}
+                                color={sick ? "#D64657" : "#0064FA"}
+                            >
+                                Запись создана!
+                            </Text>
+                            <img
+                                src={sick ? arrowRightRed : arrowRight}
+                                alt=""
+                            />
+                        </div>
                         <div className={styles.data}>
                             <img src={man} alt="" />
                             <div className={styles.text}>
-                                <Text type="h2" fz={media ? "20px" : "18px"}>
+                                <Text type="h2" fz={TABLET ? "20px" : "18px"}>
                                     Яковенко А. С.
                                 </Text>
                                 <Text
                                     type="p"
                                     color="#7D7F82"
-                                    fz={media ? "17px" : "15px"}
+                                    fz={TABLET ? "17px" : "15px"}
                                 >
                                     Пользователь
                                 </Text>
@@ -139,26 +180,16 @@ const MobileAccountPage: FC = () => {
                         </div>
                         <div className={styles.params}>
                             {data.map((item) => (
-                                <div
+                                <ParamsBlock
                                     key={item.id}
-                                    className={styles.item}
                                     onClick={() => navigate(item.navigate)}
-                                >
-                                    <div className={styles.box}>
-                                        <img
-                                            src={
-                                                sick
-                                                    ? item.icon.sick
-                                                    : item.icon.healthy
-                                            }
-                                            alt=""
-                                        />
-                                        <Text type="p" fz="15px">
-                                            {item.label}
-                                        </Text>
-                                    </div>
-                                    <img src={arrowRight} alt="" />
-                                </div>
+                                    label={item.label}
+                                    img={
+                                        sick
+                                            ? item.icon.sick
+                                            : item.icon.healthy
+                                    }
+                                />
                             ))}
                         </div>
                     </MobileContainer>

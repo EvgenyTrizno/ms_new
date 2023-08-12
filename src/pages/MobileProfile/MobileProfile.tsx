@@ -25,7 +25,7 @@ const MobileProfile: FC = () => {
                         : {}
                 }
             >
-                <BackArrow path="/m/" />
+                <BackArrow />
                 <div className={styles.menu}>
                     <img src={call} alt="" />
                     <img src={dots} alt="" />
