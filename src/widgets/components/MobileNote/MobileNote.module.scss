@@ -12,19 +12,24 @@
         .top {
             display: flex;
             flex-direction: column;
-            grid-gap: 8px;
+            grid-gap: 6px;
 
             .nav {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
             }
         }
 
         .list {
             display: flex;
             flex-direction: column;
-            grid-gap: 16px;
+            grid-gap: 12px;
             
             li {
                 display: flex;
@@ -39,7 +44,7 @@
         height: 2px;
         background-color: var(--gray);
         opacity: 0.15;
-        margin: 20px 0;
+        margin: 16px 0;
     }
 
     .date {
@@ -60,8 +65,29 @@
     }
 }
 
-// @media screen and (min-width: 576px) and (max-width: 768px) {
-//     .note {
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .note {
+        padding: 24px;
+        
+        .content {
+            .top {
+                grid-gap: 8px;
 
-//     }
-// }
+                .nav {
+                    img {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+
+            .list {
+                grid-gap: 16px;
+            }
+        }
+
+        .line {
+            margin: 20px 0;
+        }
+    }
+}
