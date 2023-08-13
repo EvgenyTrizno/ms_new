@@ -136,7 +136,11 @@ export const routes: RouteData[] = [
         Component: media ? MobileNotesPage : NotesPage,
         key: "notes_page",
     },
-    { path: "/notes/:name", Component: NotesInfoPage, key: "notes-info_page" },
+    {
+        path: "/notes/:name",
+        Component: media ? MobileNotesInfoPage : NotesInfoPage,
+        key: "notes-info_page",
+    },
     {
         path: "/create-event",
         Component: CreateEventPage,
@@ -213,10 +217,5 @@ export const routes: RouteData[] = [
         path: "/m/notifications",
         Component: MobileNotificationPage,
         key: "mobile-notifications_page",
-    },
-    {
-        path: "/m/notes-info",
-        Component: MobileNotesInfoPage,
-        key: "mobile-notes-info_page",
     },
 ];
