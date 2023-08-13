@@ -92,7 +92,6 @@ const MobileAccountPage: FC = () => {
                     }}
                     style={{
                         pointerEvents: isProfile ? "auto" : "none",
-                        position: "absolute",
                     }}
                 >
                     <div
