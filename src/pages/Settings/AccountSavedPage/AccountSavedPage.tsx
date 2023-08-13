@@ -8,6 +8,7 @@ import file from "/assets/file.svg";
 import thumbnail from "/assets/file-question.svg";
 import photo from "/assets/center-icon.jpg";
 import styles from "./AccountSavedPage.module.scss";
+import { TABLET } from "@/shared/utils";
 
 const AccountSavedPage: FC = () => {
     return (
@@ -24,7 +25,11 @@ const AccountSavedPage: FC = () => {
                 <MobileSearch placeholder="Введите запрос" filterBtn={false} />
                 <div className={styles.container}>
                     <div className={styles.box}>
-                        <Text type="p" fz="14px" color="#7D7F82">
+                        <Text
+                            type="p"
+                            fz={TABLET ? "16px" : "14px"}
+                            color="#7D7F82"
+                        >
                             Файлы
                         </Text>
                         <Slider container="100%" navigate={false}>
@@ -73,7 +78,11 @@ const AccountSavedPage: FC = () => {
                         </Slider>
                     </div>
                     <div className={styles.box}>
-                        <Text type="p" fz="14px" color="#7D7F82">
+                        <Text
+                            type="p"
+                            fz={TABLET ? "16px" : "14px"}
+                            color="#7D7F82"
+                        >
                             Публиации
                         </Text>
                         <div className={styles.inner}>
