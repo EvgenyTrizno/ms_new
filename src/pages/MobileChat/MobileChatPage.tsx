@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { useNavigate } from "react-router";
 
-import { MobileContainer } from "@/widgets";
 import { Text } from "@/shared";
 import { useUserCondition } from "@/shared/model/store";
 
@@ -48,7 +47,7 @@ const MobileChatPage: FC = () => {
                 </div>
                 <img src={call} alt="" />
             </div>
-            <MobileContainer>
+            <div className={styles.chatContainer}>
                 {/* <div className={styles.chatBox}>
                     <div className={styles.date}>
                         <Text type="p" fz="12px" color="#7D7F82">
@@ -99,7 +98,7 @@ const MobileChatPage: FC = () => {
                         </Text>
                     </div>
                 </div>
-            </MobileContainer>
+            </div>
             <div className={styles.box}>
                 <img src={clips} alt="" />
                 <div className={styles.input}>
