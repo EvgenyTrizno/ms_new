@@ -7,5 +7,9 @@ interface IProps {
 }
 
 export const MobileContainer: FC<IProps> = ({ children }) => {
-    return <div className={styles.container}>{children}</div>;
+    return (
+        <div className={styles.container} id="mcontainer">
+            {children}
+        </div>
+    );
 };
