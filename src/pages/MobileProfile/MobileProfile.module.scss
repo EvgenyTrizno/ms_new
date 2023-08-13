@@ -118,3 +118,26 @@
         }
     }
 }
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .mobileProfile {
+        .profile {
+            .data {
+                img {
+                    width: 85px;
+                    height: 85px;
+                }
+            }
+
+            .info {
+                .box {
+                    ul {
+                        li {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
