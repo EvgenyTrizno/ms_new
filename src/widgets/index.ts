@@ -24,7 +24,7 @@ import { MobileCard } from "./components/MobileCard/MobileCard";
 import { MobilePost } from "./components/MobilePost/MobilePost";
 import { MobileContainer } from "./components/MobileContainer/MobileContainer";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
-import { MobileNote } from "./components/MobileNote/MobileNote";
+import { NoteBlock } from "./components/NoteBlock/NoteBlock";
 import { ExtraCallMobile } from "./components/ExtraCallMobile/ExtraCallMobile";
 import { CreatePass } from "./components/CreatePass/CreatePass";
 import { NotificationModal } from "./components/NotificationModal/NotificationModal";
@@ -35,6 +35,7 @@ import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorB
 import { ChatInfo } from "./components/ChatInfo/ChatInfo";
 import { MobileComment } from "./components/MobileComment/MobileComment";
 import { ParamsBlock } from "./components/ParamsBlock/ParamsBlock";
+import { SearchResultBlock } from "./components/SearchResultBlock/SearchResultBlock";
 
 export {
     Login,
@@ -63,7 +64,7 @@ export {
     MobilePost,
     MobileContainer,
     CustomMobileHeader,
-    MobileNote,
+    NoteBlock,
     ExtraCallMobile,
     CreatePass,
     NotificationModal,
@@ -74,4 +75,5 @@ export {
     ChatInfo,
     MobileComment,
     ParamsBlock,
+    SearchResultBlock,
 };
