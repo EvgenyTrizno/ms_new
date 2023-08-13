@@ -64,9 +64,10 @@ export const Header: FC = () => {
                             <img
                                 src={notification}
                                 alt=""
-                                onClick={() =>
-                                    setIsNotification(!isNotification)
-                                }
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setIsNotification(!isNotification);
+                                }}
                             />
                         ) : (
                             <img src={notificationActive} alt="" />
