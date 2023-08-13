@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 import { Text } from "@/shared";
 import { useNotification, useUserCondition } from "@/shared/model/store";
@@ -17,8 +17,21 @@ export const NotificationModal: FC = () => {
 
     const sick = condition === "Болен";
 
+    useEffect(() => {
+        const handleClick = () => {
+            setIsNotification(false);
+        };
+
+        document.addEventListener("click", handleClick);
+
+        return () => document.removeEventListener("click", handleClick);
+    }, []);
+
     return (
-        <div className={styles.notification}>
+        <div
+            className={styles.notification}
+            onClick={(e) => e.stopPropagation()}
+        >
             <div className={styles.nav}>
                 <Text type="h2" fz="25px">
                     Уведомления
