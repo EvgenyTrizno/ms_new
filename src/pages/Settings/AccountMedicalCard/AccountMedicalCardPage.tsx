@@ -4,7 +4,7 @@ import {
     Calendar,
     CustomMobileHeader,
     MobileContainer,
-    MobileNote,
+    NoteBlock,
 } from "@/widgets";
 import { BackArrow, MobileSearch, Text } from "@/shared";
 import { TABLET } from "@/shared/utils";
@@ -16,7 +16,7 @@ const AccountMedicalCardPage: FC = () => {
         <div className={styles.card}>
             <CustomMobileHeader>
                 <div className={styles.header}>
-                    <BackArrow path="/m/account" />
+                    <BackArrow />
                     <Text type="h2" fz="19px">
                         Медицинская карта
                     </Text>
@@ -38,7 +38,7 @@ const AccountMedicalCardPage: FC = () => {
                             10 Октябрь
                         </Text>
                         <div className={styles.notes}>
-                            <MobileNote />
+                            <NoteBlock />
                         </div>
                     </div>
                 </div>
