@@ -23,12 +23,12 @@ export const Layout: FC<TProps> = ({ children }) => {
     return (
         <div className={styles.layout}>
             {window.matchMedia("(max-width: 768px)").matches && (
-                <div className={styles.mobileContainer}>
+                <>
                     {children}
                     <MobileMenu />
                     <ExtraCallMobile />
                     <MobileAccountPage />
-                </div>
+                </>
             )}
             {/* {window.matchMedia("(max-width: 992px)").matches && (
                 <div>dssdsdds</div>
