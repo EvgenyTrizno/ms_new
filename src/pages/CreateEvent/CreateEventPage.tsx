@@ -176,8 +176,8 @@ const CreateEventPage: FC = () => {
         },
         {
             id: useId(),
-            title: "Добавить аккаунт",
-            subtitle: "Выберите время для уведомления",
+            title: "Отметить аккаунт",
+            subtitle: "",
             content: (
                 <div className={styles.accounts}>
                     <>
