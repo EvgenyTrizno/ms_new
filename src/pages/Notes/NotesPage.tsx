@@ -26,7 +26,7 @@ const NotesPage: FC = () => {
                     </Btn>
                 </div>
                 <div className={styles.wrapper}>
-                    <Calendar height="500px" info={false} />
+                    <Calendar height="500px" width="608px" info={false} />
                     <div className={styles.list}>
                         <Text type="p" color="#7D7F82">
                             10 Октябрь

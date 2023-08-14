@@ -6,7 +6,8 @@
     }
 
     .wrapper {
-        display: flex;
+        display: grid;
+        grid-template-columns: 608px auto;
         grid-gap: 40px;
         margin-top: 40px;
 
