@@ -1,63 +1,56 @@
 .container {
     display: flex;
     flex-direction: column;
-    grid-gap: 40px;
+    grid-gap: 20px;
+
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        grid-gap: 10px;
+    }
 
     .box {
         display: flex;
         flex-direction: column;
         grid-gap: 15px;
-        
+
         .info {
             background-color: var(--white);
-            height: 450px;
+            height: 160px;
             border-radius: var(--default-border);
             padding: 40px;
             display: flex;
-            flex-direction: column;
             grid-gap: 20px;
-            
-            .header {
+
+            img {
+                width: 80px;
+                height: 80px;
+                border-radius: 15px;
+            }
+
+            .data {
                 display: flex;
-                align-items: center;
                 justify-content: space-between;
-                
-                .data {
+                align-items: center;
+
+                .text {
                     display: flex;
-                    align-items: center;
-                    grid-gap: 20px;
-                    
-                    img {
-                        width: 80px;
-                        height: 80px;
-                        object-fit: cover;
-                    }
-                    
-                    .text {
-                        display: flex;
-                        flex-direction: column;
-                        grid-gap: 15px;
-                    }
+                    flex-direction: column;
+                    grid-gap: 15px;
                 }
             }
-            
+
             .address {
                 display: flex;
                 grid-gap: 80px;
                 margin-top: 30px;
-                
+
                 .box {
                     display: flex;
                     flex-direction: column;
                     grid-gap: 10px;
                 }
-            }
-            
-            .text {
-                display: flex;
-                flex-direction: column;
-                grid-gap: 10px;
-                width: 880px;
             }
         }
 
@@ -77,6 +70,7 @@
         .slider {
             height: 100%;
             width: 1500px;
+
             .window {
                 height: 100%;
                 width: 100%;
@@ -115,7 +109,7 @@
                             grid-gap: 10px;
                         }
                     }
-                }   
+                }
             }
 
             .right {
@@ -149,7 +143,7 @@
                 background-image: url("/assets/photo.jpg");
                 width: 370px;
                 height: 240px;
-                
+
                 .btn {
                     position: absolute;
                     top: 40%;
@@ -174,7 +168,7 @@
         }
 
         .comments {
-            
+
             .header {
                 display: flex;
                 align-items: center;
@@ -190,8 +184,60 @@
         }
     }
 
+    .list {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 10px;
+        
+        .item {
+            background-color: var(--white);
+            padding: 30px;
+            height: 146px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .block {
+                display: flex;
+                flex-direction: column;
+                grid-gap: 10px;
+
+                .statusWrapper {
+                    display: flex;
+                    align-items: center;
+                    grid-gap: 10px;
+
+                    .status {
+                        display: flex;
+                        align-items: center;
+                        grid-gap: 10px;
+                    }
+                }
+                
+            }
+
+            .infoBlock {
+                display: flex;
+                flex-direction: column;
+                grid-gap: 20px;
+
+                .infoItem {
+                    display: flex;
+                    align-items: center;
+                    grid-gap: 20px;
+                }
+            }
+
+            .inner {
+                display: flex;
+                align-items: center;
+                grid-gap: 20px;
+            }
+        }
+    }
+
     .modalImg {
-        // width: 100%;
         border-radius: 20px;
     }
 

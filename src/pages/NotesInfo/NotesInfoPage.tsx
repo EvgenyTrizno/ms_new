@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useRef, useEffect } from "react";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -23,20 +23,36 @@ ChartJS.register(
 );
 
 import { Layout } from "../Layout/Layout";
-import { Btn, Text, GalleryModal } from "@/shared";
-import { Card, Comment, Circle, Slider } from "@/widgets";
+import { Btn, Text, GalleryModal, Filter } from "@/shared";
+import { Card, Comment, Circle, Slider, Search } from "@/widgets";
 import { useUserCondition } from "@/shared/model/store";
 
 import virus from "/assets/virus-icon.jpg";
 import photo from "/assets/photo.jpg";
 import plus from "/assets/big-plus.svg";
+import controller from "/assets/controler.svg";
 import styles from "./NotesInfoPage.module.scss";
 
 const NotesInfoPage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { condition } = useUserCondition();
 
+    // useEffect(() => {
+    //     circlesRef.current = document.querySelector(
+    //         "#statsCircle"
+    //     ) as HTMLDivElement;
+
+    //     function handleScroll(e: Event) {
+
+    //     }
+
+    //     if (circlesRef.current) {
+    //         document.addEventListener("scroll", handleScroll);
+    //     }
+    // }, []);
+
     const sick = condition === "Болен";
+    // const circlesRef = useRef<HTMLDivElement>();
 
     const options = {
         responsive: false,
@@ -82,67 +98,47 @@ const NotesInfoPage: FC = () => {
     return (
         <Layout>
             <div className={styles.container}>
+                <div className={styles.top}>
+                    <Search placeholder="Введите запрос" />
+                    <Btn width="72px" color="#0064FA">
+                        <img src={controller} alt="" />
+                    </Btn>
+                </div>
                 <div className={styles.box}>
-                    <Text type="p" color="#7D7F82">
-                        Информация о центре
-                    </Text>
                     <div className={styles.info}>
-                        <div className={styles.box}>
-                            <div className={styles.header}>
-                                <div className={styles.data}>
-                                    <img src={virus} alt="" />
-                                    <div className={styles.text}>
-                                        <Text type="h2" fz="24px">
-                                            GGTD
-                                        </Text>
-                                        <Text
-                                            type="p"
-                                            color="#7D7F82"
-                                            fz="18px"
-                                        >
-                                            Изучено заболеваний: <span>50</span>
-                                        </Text>
-                                    </div>
-                                </div>
-                                <Btn color="#0064FA" width="140px">
-                                    Написать
-                                </Btn>
-                            </div>
-                            <div className={styles.address}>
-                                <div className={styles.box}>
-                                    <Text type="p" color="#7D7F82" fz="14px">
-                                        Адрес:
-                                    </Text>
-                                    <Text type="p">
-                                        Россия, Москва, Ленина 47
-                                    </Text>
-                                </div>
-                                <div className={styles.box}>
-                                    <Text type="p" color="#7D7F82" fz="14px">
-                                        Телефон:
-                                    </Text>
-                                    <Text type="p">+8 (988) 789-87-89</Text>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.box}>
+                        <img src={virus} alt="" />
+                        <div className={styles.data}>
                             <div className={styles.text}>
-                                <Text type="p" color="#7D7F82" fz="14px">
-                                    Информация о процедуре:
+                                <Text type="h2" fz="24px">
+                                    GGTD
                                 </Text>
-                                <Text type="p">
-                                    Lorem Ipsum является текст-заполнитель
-                                    обычно используется в графических, печать и
-                                    издательской индустрии для... Lorem Ipsum
-                                    является текст-заполнитель обычно
-                                    используется в графических, печать и
-                                    издательской индустрии для...
+                                <Text type="p" color="#7D7F82" fz="18px">
+                                    Изучено заболеваний: <span>50</span>
                                 </Text>
                             </div>
-                            <div className={styles.btn}>
-                                <Btn color="#0064FA" width="160px">
-                                    Записаться
-                                </Btn>
+                            <div className={styles.text}>
+                                <Text type="p" fz="18px">
+                                    Наблюдалось: 300 человек
+                                </Text>
+                                <Text type="p" color="#7D7F82" fz="18px">
+                                    Изучено заболеваний: <span>50</span>
+                                </Text>
+                            </div>
+                            <div className={styles.text}>
+                                <Text type="h2" fz="24px">
+                                    GGTD
+                                </Text>
+                                <Text type="p" color="#7D7F82" fz="18px">
+                                    Изучено заболеваний: <span>50</span>
+                                </Text>
+                            </div>
+                            <div className={styles.text}>
+                                <Text type="h2" fz="24px">
+                                    GGTD
+                                </Text>
+                                <Text type="p" color="#7D7F82" fz="18px">
+                                    Изучено заболеваний: <span>50</span>
+                                </Text>
                             </div>
                         </div>
                     </div>
@@ -150,7 +146,7 @@ const NotesInfoPage: FC = () => {
                 <div className={styles.box}>
                     <div className={styles.nav}>
                         <Text type="p" color="#7D7F82">
-                            Специалисты
+                            Все сотрудники центра
                         </Text>
                     </div>
                     <Slider container="1500px">
@@ -162,13 +158,89 @@ const NotesInfoPage: FC = () => {
                     </Slider>
                 </div>
                 <div className={styles.box}>
+                    <Filter data={["Онлайн", "Оффлайн"]} />
+                </div>
+                <div className={styles.list}>
+                    <div className={styles.item}>
+                        <div className={styles.block}>
+                            <Text type="p" color="#7D7F82" fz="14px">
+                                Название
+                            </Text>
+                            <Text type="h2" fz="20px">
+                                Центр Неврологии
+                            </Text>
+                            <div className={styles.statusWrapper}>
+                                <Text type="p" color="#7D7F82" fz="14px">
+                                    Доступно:
+                                </Text>
+                                <div className={styles.status}>
+                                    <Text type="p" fz="14px" color="#00CC5E">
+                                        Online
+                                    </Text>
+                                    /
+                                    <Text type="p" fz="14px" color="#D64657">
+                                        Offline
+                                    </Text>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.infoBlock}>
+                            <div className={styles.infoItem}>
+                                <Text type="p" color="#B1B2B4">
+                                    Помогло на 80%:
+                                </Text>
+                                <Text type="p">1300</Text>
+                            </div>
+                            <div className={styles.infoItem}>
+                                <Text type="p" color="#B1B2B4">
+                                    Помогло на 60%:
+                                </Text>
+                                <Text type="p">1300</Text>
+                            </div>
+                        </div>
+                        <div className={styles.infoBlock}>
+                            <div className={styles.infoItem}>
+                                <Text type="p" color="#B1B2B4">
+                                    Помогло на 40%:
+                                </Text>
+                                <Text type="p">1300</Text>
+                            </div>
+                            <div className={styles.infoItem}>
+                                <Text type="p" color="#B1B2B4">
+                                    Помогло на 20%:
+                                </Text>
+                                <Text type="p">1300</Text>
+                            </div>
+                        </div>
+                        <div className={styles.infoBlock}>
+                            <div className={styles.infoItem}>
+                                <Text type="p" color="#B1B2B4">
+                                    Публикации:
+                                </Text>
+                                <Text type="p">1300</Text>
+                            </div>
+                            <div className={styles.infoItem}>
+                                <Text type="p" color="#B1B2B4">
+                                    Выбор специалиста:
+                                </Text>
+                                <Text type="p">На выбор</Text>
+                            </div>
+                        </div>
+                        <div className={styles.inner}>
+                            <Btn color="#0064FA" height="50px" width="126px">
+                                Перейти
+                            </Btn>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.box}>
                     <Text type="p" color="#7D7F82">
                         Статистика о записи
                     </Text>
                     <div className={styles.wrapper}>
                         <div className={styles.left}>
-                            <div className={styles.stats}>
-                                <div className={styles.box}>
+                            <div className={styles.stats} id="statsCircle">
+                                <div className={styles.box} id="circle">
                                     <Circle
                                         percent={40}
                                         size={160}
