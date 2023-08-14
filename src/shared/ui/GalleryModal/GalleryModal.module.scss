@@ -1,17 +1,35 @@
 .modal {
     width: calc(100vw - 300px);
-    height: calc(100vh - 80px);
+    height: 100vh;
     position: fixed;
     z-index: 100;
     background-color: rgba( #000, .6);
     top: 80px;
     right: 0;
+    top: 0;
+    bottom: 0;
     overflow: hidden;
+    z-index: 12;
+
+    .arrows {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            cursor: pointer;
+        }
+    }
 
     .inner {
         display: flex;
         flex-direction: column;
-        grid-gap: 5px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -33,10 +51,10 @@
         }
 
         .list {
-            background-color: rgba(217, 217, 217, 0.3);
+            background-color: #d9d9d94d;
             padding: 20px;
             display: flex;
-            grid-gap: 10px;
+            grid-gap: 20px;
             border-radius: 30px;
 
             img {
