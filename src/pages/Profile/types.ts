@@ -7,8 +7,3 @@ export interface IProfileParamsItemsData {
     label: string;
     content: JSX.Element;
 }
-
-export interface IProfileParamsData {
-    main: IProfileParamsItemsData[];
-    other: IProfileParamsItemsData[];
-}
