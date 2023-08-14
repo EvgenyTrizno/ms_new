@@ -1,10 +1,10 @@
 import { FC, useState, useId, ChangeEvent, useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
-import { IProfileParamsData } from "./types";
+import { IProfileParamsItemsData } from "./types";
 import { TGroups } from "@/shared/model/store/types";
 
 import { Layout } from "../Layout/Layout";
-import { User } from "@/widgets";
+import { ReminderBlock, User } from "@/widgets";
 import { Input, Text } from "@/shared";
 import { useUserCondition, useUserData } from "@/shared/model/store";
 import { Account } from "@/shared/api/Account";
@@ -13,16 +13,16 @@ import { getAccessTokenFromCookies } from "@/features";
 import user from "/assets/user-blue.svg";
 import userRed from "/assets/user-red.svg";
 import arrowRigth from "/assets/arrow-right.svg";
-import shield from "/assets/shield-tick-blue.svg";
-import shieldRed from "/assets/shield-tick-red.svg";
+import noteBlue from "/assets/note-blue.svg";
+import noteRed from "/assets/note-red.svg";
 import homeWithPlus from "/assets/home-with-plus-blue.svg";
 import homeWithPlusRed from "/assets/home-with-plus-red.svg";
-import heart from "/assets/heart-blue.svg";
-import heartRed from "/assets/heart-red.svg";
-import archive from "/assets/archive-tick-blue.svg";
-import archiveRed from "/assets/archive-tick-red.svg";
-import cart from "/assets/shopping-cart-blue.svg";
-import cartRed from "/assets/shopping-cart-red.svg";
+import clipBoardBlue from "/assets/clipboard-text-blue.svg";
+import clipBoardRed from "/assets/clipboard-text-red.svg";
+import markerBlue from "/assets/marker-blue.svg";
+import markerRed from "/assets/marker-red.svg";
+import logouBlue from "/assets/logout-blue.svg";
+import logouRed from "/assets/logout-red.svg";
 import styles from "./ProfilePage.module.scss";
 
 const ProfilePage: FC = () => {
@@ -216,16 +216,16 @@ const ProfilePage: FC = () => {
         setIsShowValue(true);
     };
 
-    const data: IProfileParamsData = {
-        main: [
-            {
-                id: useId(),
-                label: "Профиль",
-                icon: {
-                    healthy: user,
-                    sick: userRed,
-                },
-                content: (
+    const data: IProfileParamsItemsData[] = [
+        {
+            id: useId(),
+            label: "Аккаунт",
+            icon: {
+                healthy: user,
+                sick: userRed,
+            },
+            content: (
+                <>
                     <form className={styles.form}>
                         <Input
                             type="text"
@@ -287,25 +287,38 @@ const ProfilePage: FC = () => {
                             name="login"
                             disabled
                         />
-                        <Input
-                            type="text"
-                            placeholder="Интерес"
-                            value={interest?.toString()}
-                        />
                     </form>
-                ),
-            },
-            {
-                id: useId(),
-                label: "Защита профиля",
-                icon: {
-                    healthy: shield,
-                    sick: shieldRed,
-                },
-                content: (
                     <form className={styles.form}>
-                        {number?.length ? (
-                            <label className={styles.verify}>
+                        <label className={styles.label}>
+                            <Text type="p" color="#26262680">
+                                Интерес
+                            </Text>
+                            <Input
+                                type="text"
+                                width=""
+                                placeholder="Интерес"
+                                value={interest?.toString()}
+                            />
+                        </label>
+                    </form>
+                    <form className={styles.form}>
+                        <label className={styles.label}>
+                            <Text type="p" color="#26262680">
+                                Номер
+                            </Text>
+                            {number?.length ? (
+                                <label className={styles.verify}>
+                                    <Input
+                                        type="text"
+                                        placeholder="Телефон"
+                                        value={number}
+                                        name="number"
+                                        onBlur={handleOnBlur}
+                                        onChange={handleChange}
+                                    />
+                                    <span>Телефон подтвержден</span>
+                                </label>
+                            ) : (
                                 <Input
                                     type="text"
                                     placeholder="Телефон"
@@ -313,21 +326,27 @@ const ProfilePage: FC = () => {
                                     name="number"
                                     onBlur={handleOnBlur}
                                     onChange={handleChange}
+                                    borderColor="#D64657"
                                 />
-                                <span>Телефон подтвержден</span>
-                            </label>
-                        ) : (
-                            <Input
-                                type="text"
-                                placeholder="Телефон"
-                                value={number}
-                                name="number"
-                                onBlur={handleOnBlur}
-                                onChange={handleChange}
-                            />
-                        )}
-                        {emailСode?.length ? (
-                            <label className={styles.verify}>
+                            )}
+                        </label>
+                        <label className={styles.label}>
+                            <Text type="p" color="#26262680">
+                                Эл. почта
+                            </Text>
+                            {emailСode?.length ? (
+                                <label className={styles.verify}>
+                                    <Input
+                                        type="text"
+                                        placeholder="Почта"
+                                        value={isEmail}
+                                        name="email"
+                                        onBlur={handleOnBlur}
+                                        onChange={handleChange}
+                                    />
+                                    <span>Почта подтверждена</span>
+                                </label>
+                            ) : (
                                 <Input
                                     type="text"
                                     placeholder="Почта"
@@ -335,66 +354,67 @@ const ProfilePage: FC = () => {
                                     name="email"
                                     onBlur={handleOnBlur}
                                     onChange={handleChange}
+                                    borderColor="#D64657"
                                 />
-                                <span>Почта подтверждена</span>
-                            </label>
-                        ) : (
-                            <Input
-                                type="text"
-                                placeholder="Почта"
-                                value={isEmail}
-                                name="email"
-                                onBlur={handleOnBlur}
-                                onChange={handleChange}
-                            />
-                        )}
+                            )}
+                        </label>
                     </form>
-                ),
+                </>
+            ),
+        },
+        {
+            id: useId(),
+            label: "Записи",
+            icon: {
+                healthy: noteBlue,
+                sick: noteRed,
             },
-            {
-                id: useId(),
-                label: "Медицинский центр",
-                icon: {
-                    healthy: homeWithPlus,
-                    sick: homeWithPlusRed,
-                },
-                content: <div>params</div>,
+            content: <div>params</div>,
+        },
+        {
+            id: useId(),
+            label: "Медицинский центр",
+            icon: {
+                healthy: homeWithPlus,
+                sick: homeWithPlusRed,
             },
-        ],
-        other: [
-            {
-                id: useId(),
-                label: "Подписки",
-                icon: {
-                    healthy: heart,
-                    sick: heartRed,
-                },
-                content: <div>params</div>,
+            content: <div>params</div>,
+        },
+        {
+            id: useId(),
+            label: "Медицинская карта",
+            icon: {
+                healthy: clipBoardBlue,
+                sick: clipBoardRed,
             },
-            {
-                id: useId(),
-                label: "Сохраненное",
-                icon: {
-                    healthy: archive,
-                    sick: archiveRed,
-                },
-                content: <div>params</div>,
+            content: <div>params</div>,
+        },
+        {
+            id: useId(),
+            label: "Местоположение",
+            icon: {
+                healthy: markerBlue,
+                sick: markerRed,
             },
-            {
-                id: useId(),
-                label: "Покупки",
-                icon: {
-                    healthy: cart,
-                    sick: cartRed,
-                },
-                content: <div>params</div>,
+            content: <div>params</div>,
+        },
+        {
+            id: useId(),
+            label: "Выход",
+            icon: {
+                healthy: logouBlue,
+                sick: logouRed,
             },
-        ],
-    };
+            content: <div>params</div>,
+        },
+    ];
 
     return (
         <Layout>
             <div className={styles.container}>
+                <div className={styles.reminder}>
+                    <ReminderBlock type="timer" />
+                </div>
                 <User
                     img={img}
                     last_name={last_name}
@@ -407,10 +427,13 @@ const ProfilePage: FC = () => {
                             Основные
                         </Text>
                         <div className={styles.items}>
-                            {data.main.map((item) => (
+                            {data.map((item) => (
                                 <div
                                     className={styles.item}
                                     key={item.id}
+                                    style={{
+                                        borderColor: sick ? "#F7E6E8" : "",
+                                    }}
                                     onClick={() => {
                                         setIsOpen((prev) => !prev);
                                         setSelect(item.label);
@@ -443,66 +466,6 @@ const ProfilePage: FC = () => {
                                                       }
                                             }
                                             src={arrowRigth}
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div
-                                        className={
-                                            isOpen && select === item.label
-                                                ? `${styles.content} ${styles.open}`
-                                                : styles.content
-                                        }
-                                        onClick={(e) => e.stopPropagation()}
-                                    >
-                                        <div style={{ minHeight: 0 }}>
-                                            {item.content}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className={styles.box}>
-                        <Text type="p" color="#7D7F82">
-                            Другое
-                        </Text>
-                        <div className={styles.items}>
-                            {data.other.map((item) => (
-                                <div
-                                    className={styles.item}
-                                    key={item.id}
-                                    onClick={() => {
-                                        setIsOpen((prev) => !prev);
-                                        setSelect(item.label);
-                                    }}
-                                >
-                                    <div className={styles.nav}>
-                                        <div className={styles.params}>
-                                            <img
-                                                className={styles.icon}
-                                                src={
-                                                    sick
-                                                        ? item.icon.sick
-                                                        : item.icon.healthy
-                                                }
-                                                alt=""
-                                            />
-                                            <Text type="p" fz="18px">
-                                                {item.label}
-                                            </Text>
-                                        </div>
-                                        <img
-                                            src={arrowRigth}
-                                            style={
-                                                isOpen && select === item.label
-                                                    ? {
-                                                          transform: `rotate(-90deg)`,
-                                                      }
-                                                    : {
-                                                          transform:
-                                                              "rotate(90deg)",
-                                                      }
-                                            }
                                             alt=""
                                         />
                                     </div>

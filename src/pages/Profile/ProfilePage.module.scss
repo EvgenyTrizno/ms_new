@@ -1,6 +1,10 @@
 .container {
     overflow: hidden;
 
+    .reminder {
+        margin-bottom: 30px;
+    }
+
     .settings {
         display: flex;
         grid-gap: 30px;
@@ -11,12 +15,13 @@
             .items {
                 display: flex;
                 flex-direction: column;
-                grid-gap: 10px;
+                grid-gap: 12px;
                 margin-top: 20px;
 
                 .item {
                     background-color: var(--white);
                     border-radius: var(--default-border);
+                    border: 1px solid var(--blue-100);
                     padding: 30px;
                     display: flex;
                     flex-direction: column;
@@ -52,8 +57,20 @@
                         input {
                             border-color: var(--gray-200);
                         }
+
+                        .label {
+                            display: flex;
+                            flex-direction: column;
+                            grid-gap: 12px;
+                        }
                     }
 
+                    .formBox {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        padding-top: 20px;
+                        width: 100%
+                    }
                     
                     .content {
                         display: grid;
