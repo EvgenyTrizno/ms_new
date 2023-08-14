@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { IParamsData } from "./types";
 
-import { MobileContainer, ParamsBlock } from "@/widgets";
+import { MobileContainer, ParamsBlock, ReminderBlock } from "@/widgets";
 import { useUserCondition } from "@/shared/model/store";
 import { BackArrow, Text } from "@/shared";
 import { useProfile } from "@/shared/model/store";
@@ -18,8 +18,6 @@ import markerRed from "/assets/marker-red.svg";
 import houseWithPlusBlue from "/assets/home-with-plus-blue.svg";
 import houseWithPlusRed from "/assets/home-with-plus-red.svg";
 import logoutBlue from "/assets/logout-blue.svg";
-import arrowRight from "/assets/arrow-right-blue.svg";
-import arrowRightRed from "/assets/arrow-right-red.svg";
 import styles from "./MobileAccountPage.module.scss";
 import { TABLET } from "@/shared/utils";
 
@@ -29,9 +27,6 @@ const MobileAccountPage: FC = () => {
     const navigate = useNavigate();
 
     const sick = condition === "Болен";
-    const classes = sick
-        ? `${styles.notify} ${styles.notifyRed} ${styles.notifyRedBorder}`
-        : `${styles.notify} ${styles.notifyBlue} ${styles.notifyBlueBorder}`;
 
     const data: IParamsData[] = [
         {
@@ -132,36 +127,7 @@ const MobileAccountPage: FC = () => {
                         </div>
                     </div>
                     <MobileContainer>
-                        <div
-                            className={styles.notify}
-                            style={{
-                                border: sick
-                                    ? "1px solid #D64657"
-                                    : "1px solid #0064FA",
-                            }}
-                        >
-                            <Text
-                                type="p"
-                                fz={TABLET ? "16px" : "14px"}
-                                position="left"
-                                color={sick ? "#D64657" : "#0064FA"}
-                            >
-                                До основной записи осталось 22:59
-                            </Text>
-                        </div>
-                        <div className={classes}>
-                            <Text
-                                type="p"
-                                fz={TABLET ? "16px" : "14px"}
-                                color={sick ? "#D64657" : "#0064FA"}
-                            >
-                                Запись создана!
-                            </Text>
-                            <img
-                                src={sick ? arrowRightRed : arrowRight}
-                                alt=""
-                            />
-                        </div>
+                        <ReminderBlock type="timer" />
                         <div className={styles.data}>
                             <img src={man} alt="" />
                             <div className={styles.text}>
