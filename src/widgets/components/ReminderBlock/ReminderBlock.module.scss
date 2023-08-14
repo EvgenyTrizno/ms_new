@@ -1,0 +1,44 @@
+.notify {
+    padding: 16px;
+    border-radius: 14px;
+}
+
+.notifyBlueBorder {
+    border: 1px solid var(--blue);
+}
+
+.notifyBlue {
+    background-color: var(--blue-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.notifyRed {
+    background-color: var(--blue-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.notifyRedBorder {
+    border: 1px solid var(--red-400);
+}
+
+@media screen and (min-width: 1200px) {
+    .notify {
+        width: 342px;
+        padding: 16px 20px;
+        border-radius: var(--mobile-default-border);
+    }
+}
