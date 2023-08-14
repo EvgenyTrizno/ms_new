@@ -13,7 +13,7 @@ import {
     getRefreshTokenFromCookies,
     getAccessTokenFromCookies,
 } from "@/features";
-import { ErrorBoundaryFallback } from "@/widgets";
+import { ErrorBoundaryFallback, Loader } from "@/widgets";
 import { useUserData } from "@/shared/model/store";
 
 import "swiper/css";
