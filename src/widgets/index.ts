@@ -36,6 +36,8 @@ import { ChatInfo } from "./components/ChatInfo/ChatInfo";
 import { MobileComment } from "./components/MobileComment/MobileComment";
 import { ParamsBlock } from "./components/ParamsBlock/ParamsBlock";
 import { SearchResultBlock } from "./components/SearchResultBlock/SearchResultBlock";
+import { ReminderBlock } from "./components/ReminderBlock/ReminderBlock";
+import { Loader } from "./components/Loader/Loader";
 
 export {
     Login,
@@ -76,4 +78,6 @@ export {
     MobileComment,
     ParamsBlock,
     SearchResultBlock,
+    ReminderBlock,
+    Loader,
 };
