@@ -25,6 +25,8 @@ export const NotificationModal: FC = () => {
         document.addEventListener("click", handleClick);
 
         return () => document.removeEventListener("click", handleClick);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
