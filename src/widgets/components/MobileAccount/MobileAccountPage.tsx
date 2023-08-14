@@ -143,7 +143,7 @@ const MobileAccountPage: FC = () => {
                             <Text
                                 type="p"
                                 fz={TABLET ? "16px" : "14px"}
-                                position="center"
+                                position="left"
                                 color={sick ? "#D64657" : "#0064FA"}
                             >
                                 До основной записи осталось 22:59
