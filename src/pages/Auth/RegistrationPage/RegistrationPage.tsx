@@ -1,13 +1,13 @@
 import { FC } from "react";
 
-import { Registration } from "@/widgets";
+import { Registration, RegistrationForPersonal } from "@/widgets";
 
 import styles from "./RegistrationPage.module.scss";
 
 const RegistrationPage: FC = () => {
     return (
         <div className={styles.registrationPage}>
-            <Registration />
+            <RegistrationForPersonal />
         </div>
     );
 };
