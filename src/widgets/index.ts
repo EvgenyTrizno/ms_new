@@ -1,5 +1,6 @@
 import { Login } from "./components/Auth/Login/Login";
 import { Registration } from "./components/Auth/Registration/Registration";
+import { RegistrationForPersonal } from "./components/Auth/RegistrationForPersonal/RegistrationForPersonal";
 import { Recovery } from "./components/Auth/Recovery/Recovery";
 import { Menu } from "./components/Menu/Menu";
 import { Header } from "./components/Header/Header";
@@ -38,6 +39,9 @@ import { ParamsBlock } from "./components/ParamsBlock/ParamsBlock";
 import { SearchResultBlock } from "./components/SearchResultBlock/SearchResultBlock";
 import { ReminderBlock } from "./components/ReminderBlock/ReminderBlock";
 import { Loader } from "./components/Loader/Loader";
+import { LoginForPersonal } from "./components/Auth/LoginForPersonal/LoginForPersonal";
+import { Interview } from "./components/Auth/Interview/Interview";
+import { SmallDropbox } from "./components/SmallDropbox/SmallDropbox";
 
 export {
     Login,
@@ -79,5 +83,9 @@ export {
     ParamsBlock,
     SearchResultBlock,
     ReminderBlock,
+    RegistrationForPersonal,
+    LoginForPersonal,
     Loader,
+    Interview,
+    SmallDropbox,
 };
