@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { RouteData } from "./types";
+import { InterviewPage } from "../Auth/InterviewPage/InterviewPage";
 
 const RegistrationPage = lazy(
     () => import("@/pages/Auth/RegistrationPage/RegistrationPage")
@@ -119,6 +120,11 @@ export const routes: RouteData[] = [
         path: "/auth/confirm",
         Component: ConfirmationPage,
         key: "confirm_page",
+    },
+    {
+        path: "/auth/interview",
+        Component: InterviewPage,
+        key: "interview_page",
     },
     {
         path: "/search",
