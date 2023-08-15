@@ -1,0 +1,45 @@
+.interview {
+    width: 570px;
+    max-height: 740px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--default-border);
+    color: var(--dark-gray);
+
+    .content {
+        margin: 42px 0;
+
+        .date {
+            &Blocks {
+                margin-top: 15px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                align-items: center;
+                justify-content: space-between;
+                grid-gap: 6px;
+
+                .dateBlock {
+                    height: 62px;
+                    background-color: var(--system-light-grey);
+                    border-radius: var(--mobile-default-border);
+                }
+            }
+        }
+
+        .notify {
+            margin-top: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: var(--mobile-default-border);
+            border: 1px solid var(--system-light-grey);
+            padding: 24px;
+        }
+    }
+
+}
