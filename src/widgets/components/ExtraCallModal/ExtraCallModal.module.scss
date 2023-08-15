@@ -20,9 +20,16 @@
         bottom: 40px;
         cursor: pointer;
         z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         img {
             z-index: 1;
+            max-width: 36px;
+            min-width: 36px;
+            max-height: 36px;
+            object-fit: cover;
         }
     }
 
