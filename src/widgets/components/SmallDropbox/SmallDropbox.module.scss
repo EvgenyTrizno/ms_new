@@ -1,0 +1,58 @@
+.dropbox {
+
+    .select {
+        width: 100%;
+        height: 62px;
+        padding: 16px;
+        border-radius: var(--mobile-default-border);
+        background-color: var(--system-light-grey);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .contentWrapper {
+        position: relative;
+
+        .content {
+            background-color: var(--white);
+            border: 1px solid var(--system-light-grey);
+            border-top: none;
+            position: absolute;
+            top: -12px;
+            z-index: 1;
+            width: 100%;
+            display: grid;
+            padding: 0 24px;
+            border-radius: 0px 0px var(--default-border) var(--default-border);
+            grid-template-rows: 0fr;
+            overflow: hidden;
+            transition: grid-template-rows 500ms ease-in-out;
+
+            .item {
+                padding-bottom: 20px;
+                cursor: pointer;
+                border-bottom: 2px solid var(--line-color);
+                display: flex;
+                align-items: center;
+                grid-gap: 14px;
+                height: 68px;
+            }
+
+            .item:first-child {
+                padding-top: 24px;
+            }
+
+            .item:last-child {
+                border-bottom: none;
+                padding-top: 20px;
+            }
+        }
+
+        .content.open {
+            grid-template-rows: 1fr;
+        }
+    }
+}
