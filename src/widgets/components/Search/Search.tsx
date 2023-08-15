@@ -16,6 +16,7 @@ export const Search: FC<ISeacrh> = ({ placeholder, height }) => {
                 width="100%"
                 borderColor="#E9EAEB"
                 bl="none"
+                borderRadius="0px 8px 8px 0px"
                 btl="unset"
                 bbl="unset"
                 bgcolor="#fff"
