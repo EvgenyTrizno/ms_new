@@ -1,7 +1,5 @@
 import { ChangeEvent, FC, useState } from "react";
 import { Link } from "react-router-dom";
-import { AiFillEyeInvisible } from "react-icons/ai";
-import { AiFillEye } from "react-icons/ai";
 import { ICustomError } from "@/shared/hooks/types";
 
 import { Text } from "@/shared/ui/Text/Text";
@@ -14,6 +12,8 @@ import { MOBILE_SCREEN } from "@/shared/utils";
 import facebook from "/assets/facebook.svg";
 import apple from "/assets/apple.svg";
 import google from "/assets/google.svg";
+import eyeClose from "/assets/eye-close.svg";
+import eyeOpen from "/assets/eye-open.svg";
 import styles from "./Login.module.scss";
 
 type TErrorType = "password" | "account";
@@ -58,6 +58,7 @@ export const Login: FC = () => {
                     <Input
                         type="text"
                         placeholder="Введите тел.номер или эл. почту"
+                        height="60px"
                         borderColor="#E9EAEB"
                         onBlur={() => setError(false)}
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -76,11 +77,14 @@ export const Login: FC = () => {
                     <div className={styles.inner}>
                         <Input
                             type={isShow ? "text" : "password"}
+                            height="60px"
                             placeholder="Введите пароль"
                             borderColor="#E9EAEB"
                             br="none"
                             btr="unset"
                             bbr="unset"
+                            value={pass}
+                            borderRadius="8px 0px 0px 8px"
                             onBlur={() => setError(false)}
                             onChange={(e: ChangeEvent<HTMLInputElement>) =>
                                 setPass(e.target.value)
@@ -97,9 +101,9 @@ export const Login: FC = () => {
                             className={styles.btn}
                         >
                             {!isShow ? (
-                                <AiFillEyeInvisible size={25} />
+                                <img src={eyeClose} alt="" />
                             ) : (
-                                <AiFillEye size={25} />
+                                <img src={eyeOpen} alt="" />
                             )}
                         </div>
                     </div>
@@ -108,7 +112,11 @@ export const Login: FC = () => {
             <Link className={styles.link} to="/">
                 Забыли пароль?
             </Link>
-            <Btn color="#0064FA" onClick={handleClick}>
+            <Btn
+                color="#0064FA"
+                onClick={handleClick}
+                disabled={!pass || !number}
+            >
                 Войти
             </Btn>
             <div className={styles.redirect}>
