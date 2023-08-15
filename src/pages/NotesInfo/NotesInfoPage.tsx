@@ -117,28 +117,40 @@ const NotesInfoPage: FC = () => {
                                 </Text>
                             </div>
                             <div className={styles.text}>
-                                <Text type="p" fz="18px">
-                                    Наблюдалось: 300 человек
-                                </Text>
-                                <Text type="p" color="#7D7F82" fz="18px">
-                                    Изучено заболеваний: <span>50</span>
-                                </Text>
+                                <div className={styles.textItem}>
+                                    <Text type="p" fz="18px">
+                                        Наблюдалось:
+                                    </Text>
+                                    <Text type="p" fz="18px" color="#7D7F82">
+                                        300 человек
+                                    </Text>
+                                </div>
+                                <div className={styles.textItem}>
+                                    <Text type="p" fz="18px">
+                                        Лечилось:
+                                    </Text>
+                                    <Text type="p" fz="18px" color="#7D7F82">
+                                        96 пациентов
+                                    </Text>
+                                </div>
                             </div>
                             <div className={styles.text}>
-                                <Text type="h2" fz="24px">
-                                    GGTD
-                                </Text>
-                                <Text type="p" color="#7D7F82" fz="18px">
-                                    Изучено заболеваний: <span>50</span>
-                                </Text>
-                            </div>
-                            <div className={styles.text}>
-                                <Text type="h2" fz="24px">
-                                    GGTD
-                                </Text>
-                                <Text type="p" color="#7D7F82" fz="18px">
-                                    Изучено заболеваний: <span>50</span>
-                                </Text>
+                                <div className={styles.textItem}>
+                                    <Text type="p" fz="18px">
+                                        Кол-во специалистов:
+                                    </Text>
+                                    <Text type="p" fz="18px" color="#7D7F82">
+                                        11
+                                    </Text>
+                                </div>
+                                <div className={styles.textItem}>
+                                    <Text type="p" fz="18px">
+                                        Успешно вылечилось:
+                                    </Text>
+                                    <Text type="p" fz="18px" color="#7D7F82">
+                                        167 пациентов
+                                    </Text>
+                                </div>
                             </div>
                         </div>
                     </div>

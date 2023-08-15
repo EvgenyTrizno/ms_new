@@ -31,13 +31,20 @@
 
             .data {
                 display: flex;
-                justify-content: space-between;
                 align-items: center;
+                grid-gap: 160px;
+                width: 100%;
 
                 .text {
                     display: flex;
                     flex-direction: column;
                     grid-gap: 15px;
+
+                    &Item {
+                        display: flex;
+                        align-items: center;
+                        grid-gap: 5px;
+                    }
                 }
             }
 
