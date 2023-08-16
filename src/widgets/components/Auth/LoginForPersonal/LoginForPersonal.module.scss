@@ -55,6 +55,15 @@
         }
 
     }
+
+    .link {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-bottom: 20px;
+        color: var(--dark-gray);
+        font-weight: 500;
+    }
 }
 
 @media screen and (max-width: 576px) {
