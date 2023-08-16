@@ -49,7 +49,7 @@ export const RegistrationForPersonal: FC = () => {
 
     const selectData = [
         "Регистрация врача ",
-        "Регистрацию клиники",
+        "Регистрация клиники",
         "Регистрация онлайн центра (администратора)",
         "Регистрация инвестора",
         "Регистрация аптеки",
@@ -81,7 +81,7 @@ export const RegistrationForPersonal: FC = () => {
                             />
                         ))}
                     </div>
-                    <label>
+                    <label style={{ margin: "32px 0px 26px" }}>
                         <Text type="p" color="#7D7F82">
                             Выберите цель регистрации
                         </Text>
@@ -136,6 +136,17 @@ export const RegistrationForPersonal: FC = () => {
                             </div>
                         </div>
                     </label>
+                    <div
+                        style={{
+                            paddingRight: 24,
+                            cursor: "pointer",
+                            marginBottom: 24,
+                        }}
+                    >
+                        <Text type="p" color="#0064FA" fz="15px" position="end">
+                            Подробнее
+                        </Text>
+                    </div>
                     <div>
                         <Btn
                             color="#0064FA"
