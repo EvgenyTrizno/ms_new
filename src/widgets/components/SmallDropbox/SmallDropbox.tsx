@@ -18,7 +18,7 @@ export const SmallDropbox: FC<ISmallDropboxProps> = ({
     return (
         <div className={styles.dropbox} onClick={() => setOpen(!open)}>
             <div className={styles.select}>
-                <Text type="p" position="center" fz="18px">
+                <Text type="p" position="center" fz="18px" color="#262626">
                     {select}
                 </Text>
             </div>
