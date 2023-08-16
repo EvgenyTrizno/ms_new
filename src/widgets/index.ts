@@ -42,6 +42,8 @@ import { Loader } from "./components/Loader/Loader";
 import { LoginForPersonal } from "./components/Auth/LoginForPersonal/LoginForPersonal";
 import { Interview } from "./components/Auth/Interview/Interview";
 import { SmallDropbox } from "./components/SmallDropbox/SmallDropbox";
+import { RecoveryForPersonal } from "./components/Auth/RecoveryForPersonal/RecoveryForPersonal";
+import { Balance } from "./components/Balance/Balance";
 
 export {
     Login,
@@ -88,4 +90,6 @@ export {
     Loader,
     Interview,
     SmallDropbox,
+    RecoveryForPersonal,
+    Balance,
 };
