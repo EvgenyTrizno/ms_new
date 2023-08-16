@@ -44,9 +44,11 @@
         grid-gap: 5px;
         justify-content: center;
         margin-top: 40px;
+        font-weight: 500;
 
         .link {
             color: var(--blue);
+            font-weight: 600;
         }
     }
 }

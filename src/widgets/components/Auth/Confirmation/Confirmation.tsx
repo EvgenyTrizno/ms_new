@@ -129,9 +129,15 @@ export const Confirmation: FC = () => {
                 Завершение
             </Text>
             <div className={styles.text}>
-                <Text type="p" fz="20px" position="center">
+                <Text
+                    type="p"
+                    fz="20px"
+                    position="center"
+                    color="#00000080"
+                    fw={400}
+                >
                     Введите код который был отправлен вам на номер, для
-                    восстановления доступа к аккаунту.
+                    восстановления доступа к<br /> аккаунту.
                 </Text>
             </div>
             <div className={styles.wrapper}>
