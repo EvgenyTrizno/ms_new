@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { FC, useState, useEffect, ChangeEvent } from "react";
 import { ICalendare } from "./types";
 
@@ -9,6 +10,45 @@ import arrowRight from "/assets/arrow-right.svg";
 import styles from "./Calendar.module.scss";
 import { PC, TABLET } from "@/shared/utils";
 
+export const months = [
+    "Январь",
+    "Февраль",
+    "Март",
+    "Апрель",
+    "Май",
+    "Июнь",
+    "Июль",
+    "Август",
+    "Сентябрь",
+    "Октябрь",
+    "Ноябрь",
+    "Декабрь",
+];
+export const decreasingMonths = [
+    "января",
+    "февраля",
+    "марта",
+    "апреля",
+    "мая",
+    "июня",
+    "июля",
+    "августа",
+    "сентября",
+    "октября",
+    "ноября",
+    "декабря",
+];
+export const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+export const fullDays = [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье",
+];
+
 export const Calendar: FC<ICalendare> = ({
     width,
     height,
@@ -16,6 +56,7 @@ export const Calendar: FC<ICalendare> = ({
     selectDate,
     setSelectDate,
     setSelectDateEnd,
+    borderColor,
 }) => {
     const currentDate: Date = new Date();
     const [currentMonth, setCurrentMonth] = useState<number>(
@@ -77,45 +118,6 @@ export const Calendar: FC<ICalendare> = ({
     }, [selectDate]);
 
     const { condition } = useUserCondition();
-
-    const months = [
-        "Январь",
-        "Февраль",
-        "Март",
-        "Апрель",
-        "Май",
-        "Июнь",
-        "Июль",
-        "Август",
-        "Сентябрь",
-        "Октябрь",
-        "Ноябрь",
-        "Декабрь",
-    ];
-    const decreasingMonths = [
-        "января",
-        "февраля",
-        "марта",
-        "апреля",
-        "мая",
-        "июня",
-        "июля",
-        "августа",
-        "сентября",
-        "октября",
-        "ноября",
-        "декабря",
-    ];
-    const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
-    const fullDays = [
-        "Понедельник",
-        "Вторник",
-        "Среда",
-        "Четверг",
-        "Пятница",
-        "Суббота",
-        "Воскресенье",
-    ];
 
     const sick = condition === "Болен";
     const active = `${styles.item} ${styles.active}`;
@@ -202,7 +204,16 @@ export const Calendar: FC<ICalendare> = ({
     return (
         <div
             className={styles.calendar}
-            style={{ width, height, borderColor: sick ? "#F7E6E8" : "" }}
+            style={{
+                width,
+                height,
+                borderColor:
+                    !borderColor && sick
+                        ? "#F7E6E8"
+                        : borderColor
+                        ? borderColor
+                        : "",
+            }}
         >
             <div className={styles.nav}>
                 <div className={styles.date}>

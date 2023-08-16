@@ -7,4 +7,5 @@ export interface ICalendare {
     selectDate?: Date;
     setSelectDate?: Dispatch<SetStateAction<Date | undefined>>;
     setSelectDateEnd?: Dispatch<SetStateAction<Date | undefined>>;
+    borderColor?: string;
 }
