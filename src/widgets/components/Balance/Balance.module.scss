@@ -1,0 +1,24 @@
+.balance {
+    width: 140px;
+    height: 42px;
+    // background-color: var(--red-100);
+    border-radius: var(--mobile-default-border);
+    position: relative;
+
+    .fill {
+        height: 100%;
+        width: 0;
+        background-color: var(--red-400);
+        transition: width .5s linear;
+        border-radius: 12px 0px 0px 12px
+    }
+
+    h2 {
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+    }
+}
