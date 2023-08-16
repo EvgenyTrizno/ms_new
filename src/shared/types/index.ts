@@ -13,6 +13,7 @@ export interface IText {
         | "match-parent";
     fz?: string | number;
     color?: string;
+    fw?: number;
 }
 
 export interface IInput {

@@ -9,13 +9,19 @@ export const Text: FC<IText> = ({
     position = "start",
     fz = 16,
     color = "",
+    fw,
 }) => {
     switch (type) {
         case "h1":
             return (
                 <h1
                     className={styles.h1}
-                    style={{ textAlign: position, fontSize: fz, color: color }}
+                    style={{
+                        textAlign: position,
+                        fontSize: fz,
+                        color: color,
+                        fontWeight: fw,
+                    }}
                 >
                     {children}
                 </h1>
@@ -24,7 +30,12 @@ export const Text: FC<IText> = ({
             return (
                 <h2
                     className={styles.h2}
-                    style={{ textAlign: position, fontSize: fz, color: color }}
+                    style={{
+                        textAlign: position,
+                        fontSize: fz,
+                        color: color,
+                        fontWeight: fw,
+                    }}
                 >
                     {children}
                 </h2>
@@ -33,7 +44,12 @@ export const Text: FC<IText> = ({
             return (
                 <h3
                     className={styles.h3}
-                    style={{ textAlign: position, fontSize: fz, color: color }}
+                    style={{
+                        textAlign: position,
+                        fontSize: fz,
+                        color: color,
+                        fontWeight: fw,
+                    }}
                 >
                     {children}
                 </h3>
@@ -42,7 +58,12 @@ export const Text: FC<IText> = ({
             return (
                 <h4
                     className={styles.h4}
-                    style={{ textAlign: position, fontSize: fz, color: color }}
+                    style={{
+                        textAlign: position,
+                        fontSize: fz,
+                        color: color,
+                        fontWeight: fw,
+                    }}
                 >
                     {children}
                 </h4>
@@ -51,7 +72,12 @@ export const Text: FC<IText> = ({
             return (
                 <h5
                     className={styles.h5}
-                    style={{ textAlign: position, fontSize: fz, color: color }}
+                    style={{
+                        textAlign: position,
+                        fontSize: fz,
+                        color: color,
+                        fontWeight: fw,
+                    }}
                 >
                     {children}
                 </h5>
@@ -60,7 +86,12 @@ export const Text: FC<IText> = ({
             return (
                 <h6
                     className={styles.h6}
-                    style={{ textAlign: position, fontSize: fz, color: color }}
+                    style={{
+                        textAlign: position,
+                        fontSize: fz,
+                        color: color,
+                        fontWeight: fw,
+                    }}
                 >
                     {children}
                 </h6>
@@ -69,7 +100,12 @@ export const Text: FC<IText> = ({
             return (
                 <p
                     className={styles.p}
-                    style={{ textAlign: position, fontSize: fz, color: color }}
+                    style={{
+                        textAlign: position,
+                        fontSize: fz,
+                        color: color,
+                        fontWeight: fw,
+                    }}
                 >
                     {children}
                 </p>
