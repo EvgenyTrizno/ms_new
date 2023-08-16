@@ -27,6 +27,10 @@
                     height: 62px;
                     background-color: var(--system-light-grey);
                     border-radius: var(--mobile-default-border);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
                 }
             }
         }
@@ -41,5 +45,16 @@
             padding: 24px;
         }
     }
+}
 
+.calendar {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity .3s linear;
+    pointer-events: none;
+}
+
+.modalContent {
+    margin: 20px 0 42px;
 }
