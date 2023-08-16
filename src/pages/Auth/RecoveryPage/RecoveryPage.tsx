@@ -1,13 +1,13 @@
 import { FC } from "react";
 
-import { Recovery } from "@/widgets";
+import { Recovery, RecoveryForPersonal } from "@/widgets";
 
 import styles from "./RecoveryPage.module.scss";
 
 const RecoveryPage: FC = () => {
     return (
         <div className={styles.recoveryPage}>
-            <Recovery />
+            <RecoveryForPersonal />
         </div>
     );
 };
