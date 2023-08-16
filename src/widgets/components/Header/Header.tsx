@@ -9,6 +9,7 @@ import logo from "/assets/logo.svg";
 import notification from "/assets/notification.svg";
 import notificationActive from "/assets/notification-active.svg";
 import styles from "./Header.module.scss";
+import { Balance } from "../Balance/Balance";
 
 export const Header: FC = () => {
     const navigate = useNavigate();
@@ -59,6 +60,7 @@ export const Header: FC = () => {
                     )}
                 </div>
                 <div className={styles.data}>
+                    <Balance />
                     <div className={styles.notification}>
                         {styles ? ( // заглушка
                             <img
