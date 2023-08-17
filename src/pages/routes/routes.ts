@@ -93,6 +93,7 @@ const MobileNotificationPage = lazy(
 const MobileNotesInfoPage = lazy(
     () => import("@/pages/MobileNotesInfo/MobileNotesInfoPage")
 );
+const UsersPage = lazy(() => import("@/pages/Users/UsersPage"));
 
 const media = window.matchMedia("(max-width: 768px)").matches;
 
@@ -223,5 +224,10 @@ export const routes: RouteData[] = [
         path: "/m/notifications",
         Component: MobileNotificationPage,
         key: "mobile-notifications_page",
+    },
+    {
+        path: "/users",
+        Component: UsersPage,
+        key: "users_page",
     },
 ];
