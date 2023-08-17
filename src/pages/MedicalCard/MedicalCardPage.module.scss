@@ -3,12 +3,6 @@
     flex-direction: column;
     grid-gap: 20px;
 
-    .header {
-        display: flex;
-        grid-gap: 10px;
-        align-items: center;
-    }
-
     .items {
         display: grid;
         grid-template-columns: repeat(3, 360px);

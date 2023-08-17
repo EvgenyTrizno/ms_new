@@ -5,7 +5,6 @@ import { Layout } from "../Layout/Layout";
 import { Btn, Filter, Text } from "@/shared";
 import { Search } from "@/widgets";
 
-import add from "/assets/add-circle.svg";
 import ghost from "/assets/ghost.svg";
 import calendar from "/assets/calendar.svg";
 import alarm from "/assets/alarm-clock.svg";
@@ -22,12 +21,7 @@ const MedicalCardPage: FC = () => {
     return (
         <Layout>
             <div className={styles.medical}>
-                <div className={styles.header}>
-                    <Search placeholder="Введите запрос" />
-                    <Btn color="#0064FA" width="60px" padding="0px">
-                        <img src={add} alt="" />
-                    </Btn>
-                </div>
+                <Search placeholder="Введите запрос" />
                 <Filter data={["Подтвержденные", "Доп.проверка"]} />
                 <div
                     className={styles.items}
