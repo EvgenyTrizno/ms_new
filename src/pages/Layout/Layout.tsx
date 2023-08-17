@@ -11,6 +11,7 @@ import {
 } from "@/widgets";
 import { useExtraCall, useNotification } from "@/shared/model/store";
 import MobileAccountPage from "@/widgets/components/MobileAccount/MobileAccountPage";
+import { PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
 
 import extra from "/assets/extra-call.svg";
 import cross from "/assets/cross.svg";
@@ -22,7 +23,7 @@ export const Layout: FC<TProps> = ({ children }) => {
 
     return (
         <div className={styles.layout}>
-            {window.matchMedia("(max-width: 768px)").matches && (
+            {TABLET && (
                 <>
                     {children}
                     <MobileMenu />
@@ -30,10 +31,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                     <MobileAccountPage />
                 </>
             )}
-            {/* {window.matchMedia("(max-width: 992px)").matches && (
-                <div>dssdsdds</div>
-            )} */}
-            {window.matchMedia("(min-width: 1200px)").matches && (
+            {(PC || SMALL_LAPTOP) && (
                 <>
                     <Header />
                     <div className={styles.container}>
