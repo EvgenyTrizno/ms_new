@@ -13,7 +13,7 @@ export const Balance: FC = () => {
         currency: "USD",
         minimumFractionDigits: 0,
     });
-    const currCount = 500 as number;
+    const currCount = 413 as number;
     const maxCount = 500 as number;
     const fillRef = useRef<HTMLDivElement | null>(null);
     const balanceRef = useRef<HTMLDivElement | null>(null);
@@ -34,7 +34,13 @@ export const Balance: FC = () => {
                 setColor("yellow");
             }
 
-            setWidth(width);
+            setTimeout(() => {
+                setWidth(width);
+            }, 500);
+
+            if (width === balanceWidth && fillRef.current) {
+                fillRef.current.style.borderRadius = "12px";
+            }
         }
     }, [currCount, maxCount]);
 
@@ -49,7 +55,7 @@ export const Balance: FC = () => {
                         : color === "yellow"
                         ? "#FFF3DC"
                         : color === "green"
-                        ? "#00CC5E"
+                        ? "green"
                         : "",
             }}
         >
