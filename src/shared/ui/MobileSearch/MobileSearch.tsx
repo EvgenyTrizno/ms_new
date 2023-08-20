@@ -1,24 +1,24 @@
 import { FC, InputHTMLAttributes } from "react";
 import { IMobileSearch } from "./types";
 
-import { Icons } from "../Icons/Icons";
 import { useUserCondition } from "@/shared/model/store";
 
 import controller from "/assets/controler.svg";
+import search from "/assets/search-gray.svg";
 import styles from "./MobileSearch.module.scss";
 
 export const MobileSearch: FC<
     IMobileSearch & InputHTMLAttributes<HTMLInputElement>
-> = ({ onClick, onChange, placeholder, filterBtn = true }) => {
+> = ({ onClick, onChange, placeholder, filterBtn = true, width }) => {
     const { condition } = useUserCondition();
 
     return (
         <div
             className={styles.search}
-            style={filterBtn === false ? { padding: "15px" } : {}}
+            style={{ padding: filterBtn === false ? "16px" : "", width }}
         >
             <button className={styles.icon}>
-                <Icons icon="search" />
+                <img src={search} alt="" />
             </button>
             <input type="text" placeholder={placeholder} onChange={onChange} />
             {filterBtn && (
