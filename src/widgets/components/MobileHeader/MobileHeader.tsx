@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Icons, MobileSwitcher } from "@/shared";
+import { MobileSwitcher } from "@/shared";
 import { useProfile, useUserCondition } from "@/shared/model/store";
 
 import man from "/assets/man.jpg";
@@ -25,7 +25,7 @@ export const MobileHeader: FC = () => {
             />
             <MobileSwitcher />
             <div className={styles.settings}>
-                <Icons icon="settings" />
+                {/* <Icons icon="settings" /> */}
             </div>
         </div>
     );
