@@ -1,140 +1,164 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
+import { animate, stagger } from "framer-motion";
 
 import { Layout } from "../Layout/Layout";
-import { Text } from "@/shared";
+import { MobileSearch, Text } from "@/shared";
 
-import woman from "/assets/woman.jpg";
-import arrowRightBlue from "/assets/arrow-right-blue.svg";
+import arrowDown from "/assets/arrow-down-gray.svg";
+import man from "/assets/man.jpg";
 import styles from "./UsersPage.module.scss";
 
 const UsersPage: FC = () => {
+    const [isFilter, setIsFilter] = useState<number>(1);
+
+    useEffect(() => {
+        animate(
+            "li",
+            {
+                opacity: [0, 1],
+            },
+            { delay: stagger(0.2) }
+        );
+    }, []);
+
     return (
         <Layout>
             <div className={styles.users}>
-                <div className={styles.box}>
-                    <div className={styles.view}>
-                        <div className={styles.info}>
-                            <img src={woman} alt="" />
-                            <div className={styles.text}>
-                                <Text type="h2" fz="21px">
-                                    Яковенко А. С.
-                                </Text>
-                                <Text type="p" fz="19px" color="#B1B2B4">
-                                    Пользователь
-                                </Text>
-                            </div>
-                        </div>
-                        <div className={styles.viewStats}>
-                            <div className={styles.viewBlock}>
-                                <Text type="p" fz="19px">
-                                    12 Обращений в центр
-                                </Text>
-                            </div>
-                            <div className={styles.viewBlock}>
-                                <Text type="p" fz="19px">
-                                    12 Вызовов в скорую
-                                </Text>
-                            </div>
-                            <div className={styles.alerts}>
-                                <div className={styles.alert}>
-                                    Норматив 20 минут
-                                </div>
-                                <div className={styles.alert}>
-                                    Прошло 9 минут
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.redirect}>
-                            <Text type="h4" color="#0064FA" fz="18px">
-                                Изучить подробнее
+                <div className={styles.search}>
+                    <Text type="h2" fz="24px">
+                        Всего пользователей - 3135
+                    </Text>
+                    <MobileSearch
+                        filterBtn={false}
+                        placeholder="Поиск"
+                        width="498px"
+                    />
+                </div>
+                <div className={styles.filters}>
+                    {[1, 2, 3].map((item) => (
+                        <div
+                            key={item}
+                            className={
+                                isFilter === item
+                                    ? `${styles.filter} ${styles.active}`
+                                    : styles.filter
+                            }
+                            onClick={() => setIsFilter(item)}
+                        >
+                            <Text type="h2" color="#B1B2B4" fz="19px">
+                                Москва 55
                             </Text>
-                            <img src={arrowRightBlue} alt="" />
+                        </div>
+                    ))}
+                </div>
+                <div className={styles.table}>
+                    <div className={styles.tableFilters}>
+                        <div
+                            className={styles.tableFilter}
+                            style={{ marginLeft: "36px" }}
+                        >
+                            <Text type="p" fz="17px" color="#7D7F82">
+                                Имя Фамилия
+                            </Text>
+                            <img src={arrowDown} alt="" />
+                        </div>
+                        <div
+                            className={styles.tableFilter}
+                            style={{ justifyContent: "center" }}
+                        >
+                            <Text type="p" fz="17px" color="#7D7F82">
+                                Дата Рождения
+                            </Text>
+                            <img src={arrowDown} alt="" />
+                        </div>
+                        <div
+                            className={styles.tableFilter}
+                            style={{ justifyContent: "center" }}
+                        >
+                            <Text type="p" fz="17px" color="#7D7F82">
+                                Болезнь · Проблема · Недуг
+                            </Text>
+                            <img src={arrowDown} alt="" />
+                        </div>
+                        <div
+                            className={styles.tableFilter}
+                            style={{ justifyContent: "flex-end" }}
+                        >
+                            <Text type="p" fz="17px" color="#7D7F82">
+                                Дата Поступления
+                            </Text>
+                            <img src={arrowDown} alt="" />
                         </div>
                     </div>
-                    <div className={styles.data}>
-                        <div className={styles.title}>
-                            <Text type="h2" fz="24px">
-                                Основные данные
-                            </Text>
-                        </div>
-                        <div className={styles.blocks}>
-                            <div className={styles.block}>
-                                <div className={styles.blockItem}>
-                                    <Text type="p" color="#7D7F82" fz="17px">
-                                        Дата Рождения
-                                    </Text>
-                                    <Text type="p" fz="19px">
+                    <ul className={styles.box}>
+                        {[1, 2, 3, 4, 5].map((_, i) => (
+                            <li className={styles.cols} key={i}>
+                                <div className={styles.col}>
+                                    <div className={styles.data}>
+                                        <Text
+                                            color="#7D7F82"
+                                            type="p"
+                                            fz="17px"
+                                        >
+                                            {`${i + 1}.`}
+                                        </Text>
+                                        <img src={man} alt="" />
+                                        <div className={styles.text}>
+                                            <Text type="h2" fz="19px">
+                                                Яковенко А. С.
+                                            </Text>
+                                            <Text
+                                                type="p"
+                                                fz="17px"
+                                                color="#B1B2B4"
+                                            >
+                                                Пользователь
+                                            </Text>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={styles.col}>
+                                    <Text type="p" fz="19px" position="center">
                                         24 Фев, 1994
                                     </Text>
                                 </div>
-                                <div className={styles.blockItem}>
-                                    <Text type="p" color="#7D7F82" fz="17px">
-                                        Интерес
-                                    </Text>
-                                    <Text type="p" fz="19px">
-                                        Хоккей
-                                    </Text>
+                                <div
+                                    className={styles.col}
+                                    style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                    }}
+                                >
+                                    <div
+                                        color={styles.disease}
+                                        style={{
+                                            backgroundColor: "#EBF3FF",
+                                            padding: "12px 16px",
+                                            borderRadius: 16,
+                                        }}
+                                    >
+                                        <Text
+                                            type="h3"
+                                            fz="19px"
+                                            color="#0064FA"
+                                        >
+                                            Ковид
+                                        </Text>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className={styles.block}>
-                                <div className={styles.blockItem}>
-                                    <Text type="p" color="#7D7F82" fz="17px">
-                                        Страна
-                                    </Text>
-                                    <Text type="p" fz="19px">
-                                        Россия
-                                    </Text>
-                                </div>
-                                <div className={styles.blockItem}>
-                                    <Text type="p" color="#7D7F82" fz="17px">
-                                        Город
-                                    </Text>
-                                    <Text type="p" fz="19px">
-                                        Ташкент
-                                    </Text>
-                                </div>
-                            </div>
-                            <div className={styles.block}>
-                                <div className={styles.blockItem}>
-                                    <Text type="p" color="#7D7F82" fz="17px">
-                                        Дата Поступления
-                                    </Text>
-                                    <Text type="p" fz="19px">
-                                        24 Фев 2022
-                                    </Text>
-                                </div>
-                                <div className={styles.blockItem}>
-                                    <Text type="p" color="#7D7F82" fz="17px">
-                                        Болезнь · Проблема · Недуг
-                                    </Text>
-                                    <Text type="p" fz="19px">
-                                        Ковид
-                                    </Text>
-                                </div>
-                            </div>
-                            <div className={styles.block}>
-                                <div className={styles.blockItem}>
-                                    <Text type="p" color="#7D7F82" fz="17px">
-                                        Дата Поступления
-                                    </Text>
-                                    <Text type="p" fz="19px">
+                                <div className={styles.col}>
+                                    <Text type="p" fz="19px" position="end">
                                         24 Фев, 1994
                                     </Text>
                                 </div>
-                                <div className={styles.blockItem}>
-                                    <Text type="p" color="#7D7F82" fz="17px">
-                                        Болезнь · Проблема · Недуг
-                                    </Text>
-                                    <Text type="p" fz="19px">
-                                        Ковид
-                                    </Text>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </Layout>
     );
 };
+
 export default UsersPage;

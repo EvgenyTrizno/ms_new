@@ -1,91 +1,99 @@
 .users {
-    .box {
-        background-color: var(--white);
-        padding: 24px;
-        border-radius: var(--default-border);
+    .search {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-        .view {
-            display: flex;
+    .filters {
+        display: flex;
+        align-items: center;
+        grid-gap: 16px;
+        margin: 42px 0;
+
+        .filter {
+            width: max-content;
+            padding: 12px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: var(--blue);
+
+            h2 {
+                color: var(--white) !important;
+            }
+        }
+    }
+
+    .table {
+        &Filters {
+            display: grid;
             align-items: center;
             justify-content: space-between;
+            grid-template-columns: 1.2fr repeat(3, 1fr);
+            padding: 0 0px 0px 24px;
+        }
 
-            .info {
-                display: flex;
-                align-items: center;
-                grid-gap: 24px;
+        &Filter {
+            width: 100%;
+            display: flex;
+            align-items: center;
 
-                img {
-                    width: 100px;
-                    height: 100px;
-                    border-radius: 100%;
-                    object-fit: cover;
-                }
-
-                .text {
-                    display: flex;
-                    flex-direction: column;
-                    grid-gap: 12px;
-                }
-            }
-
-            &Stats {
-                display: flex;
-                align-items: center;
-                grid-gap: 20px;
-
-                .alerts {
-                    display: flex;
-                    flex-direction: column;
-                    grid-gap: 10px;
-
-                    .alert {
-                        padding: 8px 12px;
-                        border-radius: 52px;
-                        border: 1px solid var(--system-light-grey);
-                        width: fit-content;
-                    }
-                }
-            }
-
-            &Block {
-                padding: 32px 24px;
-                background-color: var(--background);
-                border-radius: var(--default-border);
-            }
-
-            .redirect {
-                display: flex;
-                align-items: center;
+            p,
+            img {
                 cursor: pointer;
             }
         }
 
-        .data {
-            margin-top: 42px;
+        .box {
+            background-color: var(--white);
             padding: 24px;
-            border: 1px solid var(--system-light-grey);
             border-radius: var(--default-border);
+            margin-top: 20px;
 
-            .title {
-                margin-bottom: 42px;
+            .cols {
+                display: grid;
+                grid-template-columns: 1.2fr repeat(3, 1fr);
+                align-items: center;
+                padding: 24px 0;
+                border-bottom: 2px solid var(--system-light-grey);
+
+                .col {
+                    text-align: center;
+
+                    .data {
+                        display: flex;
+                        align-items: center;
+                        grid-gap: 16px;
+
+                        img {
+                            width: 70px;
+                            height: 70px;
+                            object-fit: cover;
+                            border-radius: 100%;
+                        }
+
+                        .text {
+                            display: flex;
+                            flex-direction: column;
+                            grid-gap: 8px;
+                        }
+
+                    }
+
+                    .disease {
+                        background-color: var(--blue-100);
+                        padding: 12px 16px;
+                        border-radius: var(--default-border);
+                    }
+
+                }
             }
 
-            .blocks {
-                display: flex;
-                align-items: center;
-                grid-gap: 203px;
-
-                .block {
-                    display: flex;
-                    flex-direction: column;
-                    grid-gap: 32px;
-
-                    .blockItem {
-                        display: flex;
-                        flex-direction: column;
-                        grid-gap: 16px;
-                    }
-                }
+            .cols:first-child {
+                padding-top: 0px;
             }
         }
     }
