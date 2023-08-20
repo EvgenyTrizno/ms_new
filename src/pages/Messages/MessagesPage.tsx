@@ -2,9 +2,9 @@ import { FC, useEffect, useState, MouseEvent, useRef } from "react";
 import { motion } from "framer-motion";
 
 import { Layout } from "../Layout/Layout";
-import { Search, ChatInfo } from "@/widgets";
-import { Filter, Input, PopUp, Text } from "@/shared";
-import { useFilter, useUserCondition } from "@/shared/model/store";
+import { ChatInfo } from "@/widgets";
+import { Btn, Filter, Input, MobileSearch, PopUp, Text } from "@/shared";
+import { useFilter, useUserCondition, useUserData } from "@/shared/model/store";
 import { ABSOLUTE_PATH } from "@/shared/config";
 
 import woman from "/assets/woman.jpg";
@@ -20,12 +20,18 @@ import readRed from "/assets/read-red.svg";
 import mircophone from "/assets/microphone-blue.svg";
 import mircophoneRed from "/assets/microphone-red.svg";
 import dots from "/assets/dots-more.svg";
+import controller from "/assets/controler.svg";
+import cross from "/assets/cross-close.svg";
+import crossBlue from "/assets/cross-close-small-blue.svg";
+import arrowDown from "/assets/arrow-down-gray.svg";
 import styles from "./MessagesPage.module.scss";
 
 const MessagesPage: FC = () => {
     const { isFilter, setIsFilter } = useFilter();
     const { condition } = useUserCondition();
+    const { group } = useUserData();
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpenFilters, setIsOpenFilters] = useState<boolean>(false);
     const [y, setY] = useState<number>(0);
     const [x, setX] = useState<number>(0);
     const [isSelect, setIsSelect] = useState<string>("");
@@ -38,6 +44,7 @@ const MessagesPage: FC = () => {
 
     const sick = condition === "Болен";
     const redMesage = `${styles.text} ${styles.myTextWithSick}`;
+    const filters = ["Город", "Пользователи", "Клиники", "Центры", "Звонки"];
 
     useEffect(() => {
         setIsFilter("Сообщения");
@@ -119,8 +126,63 @@ const MessagesPage: FC = () => {
             >
                 <div className={styles.sidebar}>
                     <div className={styles.box}>
-                        <Search placeholder="Поиск чатов" />
+                        <div className={styles.search}>
+                            <MobileSearch
+                                placeholder="Поиск чатов"
+                                height="52px"
+                                filterBtn={false}
+                            />
+                            {group === "Пользователи" && (
+                                <Btn
+                                    color="#0064FA"
+                                    width="52px"
+                                    height="52px"
+                                    padding="0px"
+                                    onClick={() =>
+                                        setIsOpenFilters((prev) => !prev)
+                                    }
+                                >
+                                    <img
+                                        src={isOpenFilters ? cross : controller}
+                                        alt=""
+                                    />
+                                </Btn>
+                            )}
+                        </div>
                         <Filter data={["Сообщения", "Звонки"]} width="490px" />
+                        {isOpenFilters && (
+                            <div className={styles.filtersBlock}>
+                                <div className={styles.selectedList}>
+                                    <div className={styles.selectedBlock}>
+                                        <Text
+                                            type="h2"
+                                            fz="17px"
+                                            color="#0064FA"
+                                        >
+                                            Москва
+                                        </Text>
+                                        <img src={crossBlue} alt="" />
+                                    </div>
+                                </div>
+                                <div className={styles.filtersList}>
+                                    {filters.map((item, i) => (
+                                        <div
+                                            className={styles.filtersBox}
+                                            key={i}
+                                        >
+                                            <Text
+                                                type="p"
+                                                fz="17px"
+                                                color="#7D7F82"
+                                            >
+                                                {item}
+                                            </Text>
+                                            <img src={arrowDown} alt="" />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                         <div className={styles.wrapper}>
                             <div className={styles.chats}>
                                 {isFilter === "Сообщения" ? (
