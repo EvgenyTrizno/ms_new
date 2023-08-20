@@ -9,7 +9,11 @@ import {
     ExtraCallMobile,
     NotificationModal,
 } from "@/widgets";
-import { useExtraCall, useNotification } from "@/shared/model/store";
+import {
+    useExtraCall,
+    useNotification,
+    useUserData,
+} from "@/shared/model/store";
 import MobileAccountPage from "@/widgets/components/MobileAccount/MobileAccountPage";
 import { PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
 
@@ -20,6 +24,7 @@ import styles from "./Layout.module.scss";
 export const Layout: FC<TProps> = ({ children }) => {
     const { isOpen, setIsOpen } = useExtraCall();
     const { isNotification } = useNotification();
+    const { group } = useUserData();
 
     return (
         <div className={styles.layout}>
@@ -38,14 +43,15 @@ export const Layout: FC<TProps> = ({ children }) => {
                         <Menu />
                         <div className={styles.main}>{children}</div>
                         <ExtraCallModal />
-                        {location.pathname !== "/messages" && (
-                            <div
-                                className={styles.extra}
-                                onClick={() => setIsOpen(true)}
-                            >
-                                <img src={!isOpen ? extra : cross} alt="" />
-                            </div>
-                        )}
+                        {location.pathname !== "/messages" &&
+                            group !== "Врачи" && (
+                                <div
+                                    className={styles.extra}
+                                    onClick={() => setIsOpen(true)}
+                                >
+                                    <img src={!isOpen ? extra : cross} alt="" />
+                                </div>
+                            )}
                         {isNotification && <NotificationModal />}
                     </div>
                 </>
