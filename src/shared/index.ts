@@ -7,7 +7,6 @@ import { Switch } from "./ui/Switch/Switch";
 import { Filter } from "./ui/Filter/Filter";
 import { GalleryModal } from "./ui/GalleryModal/GalleryModal";
 import { PopUp } from "./ui/PopUp/PopUp";
-import { Icons } from "./ui/Icons/Icons";
 import { MobileSwitcher } from "./ui/MobileSwitcher/MobileSwitcher";
 import { MobileFilter } from "./ui/MobileFilter/MobileFilter";
 import { MobileSearch } from "./ui/MobileSearch/MobileSearch";
@@ -26,7 +25,6 @@ export {
     Filter,
     GalleryModal,
     PopUp,
-    Icons,
     MobileSwitcher,
     MobileFilter,
     MobileSearch,
