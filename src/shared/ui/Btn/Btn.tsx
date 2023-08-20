@@ -18,6 +18,7 @@ export const Btn: FC<IBtn> = ({
     textColor,
     height,
     type,
+    fz,
 }) => {
     const { condition } = useUserCondition();
 
@@ -28,6 +29,7 @@ export const Btn: FC<IBtn> = ({
             className={styles.btn}
             type={type}
             style={{
+                fontSize: fz,
                 backgroundColor: `${
                     sick && color === "transparen"
                         ? "transparent"
