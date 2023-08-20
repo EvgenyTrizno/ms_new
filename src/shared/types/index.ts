@@ -52,6 +52,7 @@ export interface IBtn {
     textColor?: string;
     height?: string;
     type?: "submit" | "reset" | "button";
+    fz?: string;
 }
 
 export interface IIconData {
