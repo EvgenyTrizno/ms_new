@@ -50,12 +50,13 @@ export const LoginForPersonal: FC = () => {
                     }
                 >
                     {error && errorType === "account" && (
-                        <p>Введен неверный номер или email</p>
+                        <p>Введен неверный номер</p>
                     )}
                     <Input
                         type="text"
                         placeholder="Введите тел.номер или эл. почту"
                         height="60px"
+                        value={number}
                         borderColor="#E9EAEB"
                         onBlur={() => setError(false)}
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
