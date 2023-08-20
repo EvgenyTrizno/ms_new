@@ -5,10 +5,11 @@ import { Btn, Text } from "@/shared";
 import { Card, Post, Slider } from "@/widgets";
 import { News } from "@/shared/api/News";
 import { getAccessTokenFromCookies } from "@/features";
+import { useUserData } from "@/shared/model/store";
+import { PC } from "@/shared/utils";
 
 import controller from "/assets/controler.svg";
 import styles from "./MainPage.module.scss";
-import { useUserData } from "@/shared/model/store";
 
 const MainPage: FC = () => {
     const { getNews } = News();
@@ -36,12 +37,23 @@ const MainPage: FC = () => {
                 </div>
                 <div className={styles.posts}>
                     <div className={styles.filters}>
-                        <Btn color="#0064FA">
-                            <div className={styles.inner}>
+                        {PC ? (
+                            <Btn color="#0064FA">
+                                <div className={styles.inner}>
+                                    <img src={controller} alt="" />
+                                    Фильтры
+                                </div>
+                            </Btn>
+                        ) : (
+                            <Btn
+                                color="#0064FA"
+                                width="56px"
+                                height="56px"
+                                padding="0"
+                            >
                                 <img src={controller} alt="" />
-                                Фильтры
-                            </div>
-                        </Btn>
+                            </Btn>
+                        )}
                     </div>
                     {[1].map((item) => (
                         <Post key={item} />
