@@ -23,14 +23,6 @@ export const Header: FC = () => {
 
     return (
         <header className={styles.header}>
-            <div
-                className={styles.box}
-                style={sick ? { borderColor: "#F7E6E8" } : {}}
-            >
-                <div>
-                    <img src={logo} alt="" />
-                </div>
-            </div>
             <div className={styles.nav}>
                 <div className={styles.inner}>
                     <Text type="p">Главная</Text>
