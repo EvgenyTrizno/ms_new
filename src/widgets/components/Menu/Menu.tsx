@@ -1,15 +1,18 @@
-import { FC, useId, MouseEvent } from "react";
+import { FC, useId, MouseEvent, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { EActive, IMenuData } from "./types";
 import { TIsSelect } from "@/shared/model/store/types";
 
 import { Text, Switcher } from "@/shared";
 import { useUserCondition, useMenu, useUserData } from "@/shared/model/store";
+import { PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import logo from "/assets/logo.svg";
 import styles from "./Menu.module.scss";
 
 export const Menu: FC = () => {
+    const [isHovered, setIsHovered] = useState<boolean>(false);
+
     const navigate = useNavigate();
     const location = useLocation();
     const { setIsSelect } = useMenu();
@@ -473,14 +476,26 @@ export const Menu: FC = () => {
     };
 
     return (
-        <div className={styles.menu}>
+        <div
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className={
+                PC
+                    ? `${styles.menu} ${styles.open}`
+                    : SMALL_LAPTOP && isHovered
+                    ? `${styles.menu} ${styles.open}`
+                    : styles.menu
+            }
+        >
             <div className={styles.logo}>
                 <img src={logo} alt="" />
             </div>
             <div className={styles.container}>
-                <Text color="#B1B2B4" type="p">
-                    Состояние:
-                </Text>
+                {isHovered && SMALL_LAPTOP && (
+                    <Text color="#B1B2B4" type="p">
+                        Состояние:
+                    </Text>
+                )}
                 <Switcher />
                 <div className={styles.list}>
                     {group !== "Врачи" &&

@@ -8,7 +8,6 @@ import {
     Menu,
     ExtraCallMobile,
     NotificationModal,
-    Sidebar,
 } from "@/widgets";
 import {
     useExtraCall,
@@ -41,7 +40,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                 <>
                     <Header />
                     <div className={styles.container}>
-                        {SMALL_LAPTOP ? <Sidebar /> : <Menu />}
+                        <Menu />
                         <div className={styles.main}>{children}</div>
                         <ExtraCallModal />
                         {location.pathname !== "/messages" &&

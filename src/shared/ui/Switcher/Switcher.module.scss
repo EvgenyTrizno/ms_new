@@ -20,6 +20,11 @@
             fill: var(--gray);
             z-index: 1;
         }
+
+        p {
+            opacity: 1;
+            margin: 0;
+        }
     }
 
     .item::before {
@@ -78,6 +83,36 @@
         svg {
             fill: var(--dark);
             transition: ease-in-out .3s;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .switcher {
+        width: 64px;
+        height: 64px;
+        position: relative;
+
+        .item {
+            p {
+                opacity: 0;
+            }
+        }
+
+        .item::before {
+            max-width: 64px;
+            min-width: 64px;
+            height: 64px;
+            position: absolute;
+            right: 0;
+            border-radius: var(--default-border);
+        }
+
+        .sick, .healthy {
+            max-width: 64px;
+            min-width: 64px;
+            position: absolute;
+            right: 0;
         }
     }
 }
