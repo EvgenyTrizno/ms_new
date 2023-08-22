@@ -1,9 +1,10 @@
 .menu {
     width: 300px;
     height: 100vh;
-    top: 80px;
+    top: 0;
+    left: 0;
+    bottom: 0;
     background-color: var(--white);
-    padding: 30px 20px;
     color: var(--gray);
     position: fixed;
 
@@ -11,24 +12,38 @@
         margin-bottom: 10px;
     }
 
-    .list {
-        margin-top: 50px;
+    
+    .logo {
+        padding-bottom: 26px;
+        border-bottom: 1px solid var(--gray-100);
+        padding: 20px 40px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
 
-        .active {
-            background-color: var(--blue);
-            color: var(--white);
-
-            path {
-                stroke: white;
+    .container {
+        padding: 20px;
+        
+        .list {
+            margin-top: 20px;
+            
+            .active {
+                background-color: var(--blue);
+                color: var(--white);
+                
+                path {
+                    stroke: white;
+                }
             }
-        }
-
-        .activeRed {
-            background-color: var(--red-400);
-            color: var(--white);
-
-            path {
-                stroke: white;
+            
+            .activeRed {
+                background-color: var(--red-400);
+                color: var(--white);
+                
+                path {
+                    stroke: white;
+                }
             }
         }
 

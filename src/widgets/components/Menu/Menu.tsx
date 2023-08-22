@@ -6,6 +6,7 @@ import { TIsSelect } from "@/shared/model/store/types";
 import { Text, Switcher } from "@/shared";
 import { useUserCondition, useMenu, useUserData } from "@/shared/model/store";
 
+import logo from "/assets/logo.svg";
 import styles from "./Menu.module.scss";
 
 export const Menu: FC = () => {
@@ -473,67 +474,72 @@ export const Menu: FC = () => {
 
     return (
         <div className={styles.menu}>
-            <Text color="#B1B2B4" type="p">
-                Состояние:
-            </Text>
-            <Switcher />
-            <div className={styles.list}>
-                {group !== "Врачи" &&
-                    menuData.default.map((item) => (
-                        <div
-                            key={item.id}
-                            onClick={() =>
-                                handleNavigate(
-                                    item.path,
-                                    item.label as TIsSelect
-                                )
-                            }
-                            onMouseEnter={(e: MouseEvent<HTMLDivElement>) =>
-                                handleMouseEnter(e)
-                            }
-                            onMouseLeave={(e: MouseEvent<HTMLDivElement>) =>
-                                handleMouseLeave(e)
-                            }
-                            className={
-                                location.pathname === item.path && sick
-                                    ? activeRed
-                                    : location.pathname === item.path
-                                    ? active
-                                    : styles.item
-                            }
-                        >
-                            {item.icon}
-                            <Text type="p">{item.label}</Text>
-                        </div>
-                    ))}
-                {group === "Врачи" &&
-                    menuData.personal.map((item) => (
-                        <div
-                            key={item.id}
-                            onClick={() =>
-                                handleNavigate(
-                                    item.path,
-                                    item.label as TIsSelect
-                                )
-                            }
-                            onMouseEnter={(e: MouseEvent<HTMLDivElement>) =>
-                                handleMouseEnter(e)
-                            }
-                            onMouseLeave={(e: MouseEvent<HTMLDivElement>) =>
-                                handleMouseLeave(e)
-                            }
-                            className={
-                                location.pathname === item.path && sick
-                                    ? activeRed
-                                    : location.pathname === item.path
-                                    ? active
-                                    : styles.item
-                            }
-                        >
-                            {item.icon}
-                            <Text type="p">{item.label}</Text>
-                        </div>
-                    ))}
+            <div className={styles.logo}>
+                <img src={logo} alt="" />
+            </div>
+            <div className={styles.container}>
+                <Text color="#B1B2B4" type="p">
+                    Состояние:
+                </Text>
+                <Switcher />
+                <div className={styles.list}>
+                    {group !== "Врачи" &&
+                        menuData.default.map((item) => (
+                            <div
+                                key={item.id}
+                                onClick={() =>
+                                    handleNavigate(
+                                        item.path,
+                                        item.label as TIsSelect
+                                    )
+                                }
+                                onMouseEnter={(e: MouseEvent<HTMLDivElement>) =>
+                                    handleMouseEnter(e)
+                                }
+                                onMouseLeave={(e: MouseEvent<HTMLDivElement>) =>
+                                    handleMouseLeave(e)
+                                }
+                                className={
+                                    location.pathname === item.path && sick
+                                        ? activeRed
+                                        : location.pathname === item.path
+                                        ? active
+                                        : styles.item
+                                }
+                            >
+                                {item.icon}
+                                <Text type="p">{item.label}</Text>
+                            </div>
+                        ))}
+                    {group === "Врачи" &&
+                        menuData.personal.map((item) => (
+                            <div
+                                key={item.id}
+                                onClick={() =>
+                                    handleNavigate(
+                                        item.path,
+                                        item.label as TIsSelect
+                                    )
+                                }
+                                onMouseEnter={(e: MouseEvent<HTMLDivElement>) =>
+                                    handleMouseEnter(e)
+                                }
+                                onMouseLeave={(e: MouseEvent<HTMLDivElement>) =>
+                                    handleMouseLeave(e)
+                                }
+                                className={
+                                    location.pathname === item.path && sick
+                                        ? activeRed
+                                        : location.pathname === item.path
+                                        ? active
+                                        : styles.item
+                                }
+                            >
+                                {item.icon}
+                                <Text type="p">{item.label}</Text>
+                            </div>
+                        ))}
+                </div>
             </div>
         </div>
     );
