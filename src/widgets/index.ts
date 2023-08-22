@@ -44,6 +44,7 @@ import { Interview } from "./components/Auth/Interview/Interview";
 import { SmallDropbox } from "./components/SmallDropbox/SmallDropbox";
 import { RecoveryForPersonal } from "./components/Auth/RecoveryForPersonal/RecoveryForPersonal";
 import { Balance } from "./components/Balance/Balance";
+import { Sidebar } from "./components/Sidebar/Sidebar";
 
 export {
     Login,
@@ -92,4 +93,5 @@ export {
     SmallDropbox,
     RecoveryForPersonal,
     Balance,
+    Sidebar,
 };
