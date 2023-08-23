@@ -36,7 +36,7 @@
         justify-content: center;
         position: absolute;
         transform: scaleY(0);
-        transition: ease-in-out 400ms;
+        transition: transform .4s linear;
     }
 
     .healthy::before {
@@ -87,32 +87,46 @@
     }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-    .switcher {
+.switcher.close {
+    max-width: 64px;
+    height: 64px;
+    position: relative;
+    overflow: hidden;
+
+    .item {
+        min-width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        p {
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+        }
+
+        svg {
+            min-width: 24px;
+            height: 24px;
+            position: absolute;
+        }
+    }
+
+    .item::before {
         width: 64px;
         height: 64px;
         position: relative;
+    }
 
-        .item {
-            p {
-                opacity: 0;
-            }
-        }
+    .sick::before, .healthy::before {
+        border-radius: var(--default-border);
+        position: absolute;
+        left: 0;
+    }
 
-        .item::before {
-            max-width: 64px;
-            min-width: 64px;
-            height: 64px;
-            position: absolute;
-            right: 0;
-            border-radius: var(--default-border);
-        }
-
-        .sick, .healthy {
-            max-width: 64px;
-            min-width: 64px;
-            position: absolute;
-            right: 0;
-        }
+    .sick {
+        position: absolute;
+        width: 100%;
     }
 }

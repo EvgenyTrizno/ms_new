@@ -6,7 +6,7 @@ import { Card, Post, Slider } from "@/widgets";
 import { News } from "@/shared/api/News";
 import { getAccessTokenFromCookies } from "@/features";
 import { useUserData } from "@/shared/model/store";
-import { PC } from "@/shared/utils";
+import { PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import controller from "/assets/controler.svg";
 import styles from "./MainPage.module.scss";
@@ -37,7 +37,7 @@ const MainPage: FC = () => {
                 </div>
                 <div className={styles.posts}>
                     <div className={styles.filters}>
-                        {PC ? (
+                        {PC || SMALL_LAPTOP ? (
                             <Btn color="#0064FA">
                                 <div className={styles.inner}>
                                     <img src={controller} alt="" />

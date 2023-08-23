@@ -15,7 +15,7 @@ import {
     useUserData,
 } from "@/shared/model/store";
 import MobileAccountPage from "@/widgets/components/MobileAccount/MobileAccountPage";
-import { PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
+import { PC, SMALL_LAPTOP, TABLET, MOBILE } from "@/shared/utils";
 
 import extra from "/assets/extra-call.svg";
 import cross from "/assets/cross.svg";
@@ -28,7 +28,7 @@ export const Layout: FC<TProps> = ({ children }) => {
 
     return (
         <div className={styles.layout}>
-            {TABLET && (
+            {(MOBILE || TABLET) && (
                 <>
                     {children}
                     <MobileMenu />

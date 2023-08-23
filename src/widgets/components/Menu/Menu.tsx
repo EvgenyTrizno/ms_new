@@ -488,15 +488,20 @@ export const Menu: FC = () => {
             }
         >
             <div className={styles.logo}>
-                <img src={logo} alt="" />
+                {!isHovered && SMALL_LAPTOP && (
+                    <Text type="h2" color="#0064FA" fz="18px">
+                        Pre-rec
+                    </Text>
+                )}
+                {(isHovered || PC) && <img src={logo} alt="" />}
             </div>
             <div className={styles.container}>
-                {isHovered && SMALL_LAPTOP && (
+                {(PC || (isHovered && SMALL_LAPTOP)) && (
                     <Text color="#B1B2B4" type="p">
                         Состояние:
                     </Text>
                 )}
-                <Switcher />
+                <Switcher isHovered={isHovered} />
                 <div className={styles.list}>
                     {group !== "Врачи" &&
                         menuData.default.map((item) => (
