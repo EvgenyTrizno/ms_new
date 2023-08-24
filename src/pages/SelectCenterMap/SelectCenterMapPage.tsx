@@ -2,7 +2,7 @@ import { FC, useState, useRef } from "react";
 import { MarkerF, StandaloneSearchBox } from "@react-google-maps/api";
 
 import { CenterInfoCard, Map } from "@/widgets";
-import { Btn, Text, Icons } from "@/shared";
+import { Btn, Text } from "@/shared";
 
 import circle from "/assets/circle-blue.svg";
 import controler from "/assets/controler.svg";
@@ -45,7 +45,7 @@ const SelectCenterMapPage: FC = () => {
                     <div className={styles.inner}>
                         <div className={styles.search}>
                             <div className={styles.btn}>
-                                <Icons icon="search" />
+                                {/* <Icons icon="search" /> */}
                             </div>
                             <input
                                 type="text"

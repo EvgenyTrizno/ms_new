@@ -1,4 +1,4 @@
-import { FC, useState, useRef, useEffect } from "react";
+import { FC, useState } from "react";
 import {
     Chart as ChartJS,
     CategoryScale,

@@ -22,7 +22,7 @@ const AccountMedicalCenterPage: FC = () => {
             <CustomMobileHeader>
                 <div className={styles.header}>
                     <div className={styles.nav}>
-                        <BackArrow path="/m/settings/account" />
+                        <BackArrow />
                         <Text type="h2" fz="19px">
                             Медицинский центр
                         </Text>

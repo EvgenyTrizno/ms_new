@@ -5,7 +5,6 @@ import { Text } from "@/shared";
 import { useMenu, useUserData } from "@/shared/model/store";
 import { useUserCondition, useNotification } from "@/shared/model/store";
 
-import logo from "/assets/logo.svg";
 import notification from "/assets/notification.svg";
 import notificationActive from "/assets/notification-active.svg";
 import styles from "./Header.module.scss";

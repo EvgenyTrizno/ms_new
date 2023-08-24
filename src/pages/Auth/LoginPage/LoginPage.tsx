@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Login, LoginForPersonal } from "@/widgets";
+import { LoginForPersonal } from "@/widgets";
 
 import styles from "./LoginPage.module.scss";
 

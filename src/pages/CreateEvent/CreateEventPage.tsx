@@ -101,6 +101,8 @@ const CreateEventPage: FC = () => {
             : setCandidate([]);
     }, [doctors, name]);
 
+    setSpecialCheck(false);
+
     const handleClick = () => {
         accessToken &&
             selectDate &&

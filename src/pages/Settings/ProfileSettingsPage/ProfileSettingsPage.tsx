@@ -22,7 +22,7 @@ const ProfileSettingsPage: FC = () => {
         <div className={styles.profile}>
             <CustomMobileHeader>
                 <div className={styles.header}>
-                    <BackArrow path="/m/settings/account" />
+                    <BackArrow />
                     <Text type="h2" fz="19px">
                         Профиль
                     </Text>

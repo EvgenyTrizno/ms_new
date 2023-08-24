@@ -18,7 +18,7 @@ const MobileNotesInfoPage: FC = () => {
         <div className={styles.info}>
             <CustomMobileHeader>
                 <div className={styles.header}>
-                    <BackArrow path="/m/" />
+                    <BackArrow />
                     <Text type="h2" fz="19px">
                         Создать запись
                     </Text>

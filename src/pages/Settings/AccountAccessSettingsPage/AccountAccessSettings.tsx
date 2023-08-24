@@ -16,7 +16,7 @@ const AccountAccessSettings: FC = () => {
             <CustomMobileHeader>
                 <div className={styles.header}>
                     <div className={styles.box}>
-                        <BackArrow path="/m/settings/account" />
+                        <BackArrow />
                         <Text type="h2" fz="19px">
                             Доступ
                         </Text>

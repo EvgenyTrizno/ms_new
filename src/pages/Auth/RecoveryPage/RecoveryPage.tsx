@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Recovery, RecoveryForPersonal } from "@/widgets";
+import { RecoveryForPersonal } from "@/widgets";
 
 import styles from "./RecoveryPage.module.scss";
 

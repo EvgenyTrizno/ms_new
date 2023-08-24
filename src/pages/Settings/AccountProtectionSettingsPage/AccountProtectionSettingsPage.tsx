@@ -10,7 +10,7 @@ const AccountProtectionSettingsPage: FC = () => {
         <div className={styles.protection}>
             <CustomMobileHeader>
                 <div className={styles.header}>
-                    <BackArrow path="/m/settings/account" />
+                    <BackArrow />
                     <Text type="h2" fz="19px">
                         Защита профиля
                     </Text>

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { Line } from "react-chartjs-2";
 import {
     Chart as ChartJS,

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Registration, RegistrationForPersonal } from "@/widgets";
+import { RegistrationForPersonal } from "@/widgets";
 
 import styles from "./RegistrationPage.module.scss";
 

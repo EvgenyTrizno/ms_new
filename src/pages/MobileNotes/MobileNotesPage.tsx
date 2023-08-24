@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router";
 
 import { Text, MobileFilter, MobileSearch } from "@/shared";
-import { MobileContainer, CustomMobileHeader, MobileNote } from "@/widgets";
+import { MobileContainer, CustomMobileHeader, NoteBlock } from "@/widgets";
 
 import arrow from "/assets/arrow-left-black.svg";
 import plus from "/assets/plus-black.svg";
@@ -58,7 +58,7 @@ const MobileNotesPage: FC = () => {
                             </div>
                         </div>
                     ) : (
-                        <MobileNote />
+                        <NoteBlock />
                     )}
                 </div>
             </MobileContainer>

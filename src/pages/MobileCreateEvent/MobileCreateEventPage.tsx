@@ -125,7 +125,7 @@ const MobileCreateEventPage: FC = () => {
         <div className={styles.events}>
             <CustomMobileHeader>
                 <div className={styles.header}>
-                    <BackArrow path="/m/account" />
+                    <BackArrow />
                     <Text type="h2" fz="19px">
                         Создать событие
                     </Text>
