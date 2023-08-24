@@ -5,7 +5,7 @@ import { Layout } from "../Layout/Layout";
 import { ChatInfo } from "@/widgets";
 import { Btn, Filter, Input, MobileSearch, PopUp, Text } from "@/shared";
 import { useFilter, useUserCondition, useUserData } from "@/shared/model/store";
-import { ABSOLUTE_PATH } from "@/shared/config";
+// import { ABSOLUTE_PATH } from "@/shared/config";
 
 import woman from "/assets/woman.jpg";
 import call from "/assets/call-calling.svg";
