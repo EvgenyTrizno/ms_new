@@ -61,7 +61,7 @@ export const Switcher: FC<ISwitcherProps> = ({ isHovered }) => {
             >
                 {((!isHovered && SMALL_LAPTOP && condition === "Здоров") ||
                     (isHovered && SMALL_LAPTOP) ||
-                    (PC && !isHovered)) && (
+                    PC) && (
                     <svg
                         width="22"
                         height="20"
