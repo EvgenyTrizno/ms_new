@@ -90,6 +90,8 @@ const CreateEventPage: FC = () => {
     }, [selectDate, selectDateEnd]);
 
     useEffect(() => {
+        setSpecialCheck(false); // заглушка
+
         doctors && name !== ""
             ? setCandidate(
                   doctors.filter((item) =>
@@ -100,8 +102,6 @@ const CreateEventPage: FC = () => {
               )
             : setCandidate([]);
     }, [doctors, name]);
-
-    setSpecialCheck(false);
 
     const handleClick = () => {
         accessToken &&
