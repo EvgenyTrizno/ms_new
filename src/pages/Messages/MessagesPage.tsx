@@ -37,7 +37,7 @@ const MessagesPage: FC = () => {
     const [isSelect, setIsSelect] = useState<string>("");
     const [isChat, setIsChat] = useState<boolean>(false);
     const [msg, setMsg] = useState<string>("");
-    const [ws, setWs] = useState<WebSocket | null>(null);
+    // const [ws, setWs] = useState<WebSocket | null>(null);
     const [isMouseDown, setIsMouseDown] = useState<boolean>(false);
     const [isInfo, setIsInfo] = useState<boolean>(false);
     const holdTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -49,15 +49,15 @@ const MessagesPage: FC = () => {
     useEffect(() => {
         setIsFilter("Сообщения");
 
-        const ws = new WebSocket(
-            `ws://${ABSOLUTE_PATH}/ws/chat/8345f52b-6d74-4a54-9ae1-6c03c92e962b/99/`
-        );
+        // const ws = new WebSocket(
+        //     `ws://${ABSOLUTE_PATH}/ws/chat/8345f52b-6d74-4a54-9ae1-6c03c92e962b/99/`
+        // );
 
-        setWs(ws);
+        // setWs(ws);
 
-        return () => {
-            setIsFilter("");
-        };
+        // return () => {
+        //     setIsFilter("");
+        // };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -78,27 +78,27 @@ const MessagesPage: FC = () => {
         navigator.clipboard.writeText(text);
     };
 
-    const sendMsg = (msg: string, id: number, uuid: string) => {
-        if (ws && ws.readyState === WebSocket.OPEN) {
-            ws.send(
-                JSON.stringify({
-                    action: "send_message",
-                    chat_uuid: uuid,
-                    text: msg,
-                    user_id: id,
-                })
-            );
-        }
-    };
+    // const sendMsg = (msg: string, id: number, uuid: string) => {
+    //     if (ws && ws.readyState === WebSocket.OPEN) {
+    //         ws.send(
+    //             JSON.stringify({
+    //                 action: "send_message",
+    //                 chat_uuid: uuid,
+    //                 text: msg,
+    //                 user_id: id,
+    //             })
+    //         );
+    //     }
+    // };
 
-    const handleSendMsg = () => {
-        if (msg === "") return;
-        else {
-            sendMsg(msg, 99, "8345f52b-6d74-4a54-9ae1-6c03c92e962b");
-            console.log(msg);
-            setMsg("");
-        }
-    };
+    // const handleSendMsg = () => {
+    //     if (msg === "") return;
+    //     else {
+    //         sendMsg(msg, 99, "8345f52b-6d74-4a54-9ae1-6c03c92e962b");
+    //         console.log(msg);
+    //         setMsg("");
+    //     }
+    // };
 
     const handleMouseDown = () => {
         holdTimerRef.current = setTimeout(() => {
@@ -503,7 +503,7 @@ const MessagesPage: FC = () => {
                                 top={`${y / 1.43}px`}
                                 right="5px"
                             >
-                                <li onClick={handleSendMsg}>
+                                <li>
                                     <Text type="p" color="#000" fz="14px">
                                         Отправить позже
                                     </Text>
