@@ -41,47 +41,16 @@
                         }
                     }
                 }
-
-                .content {
-                    .list {
-                        display: flex;
-                        flex-direction: column;
-                        grid-gap: 15px;
-
-                        .li {
-                            display: flex;
-                            align-items: center;
-                            grid-gap: 5px;
-                        }
-                    }
-
-                    .line {
-                        height: 2px;
-                        width: 100%;
-                        background-color: var(--gray);
-                        margin: 25px 0;
-                        opacity: .1;
-                    }
-
-                    .bottom {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-
-                        img {
-                            width: 25px;
-                            height: 25px;
-                            object-fit: cover;
-                        }
-
-                        .block {
-                            display: flex;
-                            align-items: center;
-                            grid-gap: 10px;
-                        }
-                    }
-                }
             }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .container {
+        .wrapper {
+            display: flex;
+            flex-direction: column;
         }
     }
 }

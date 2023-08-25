@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import { Text } from "@/shared";
 import { useUserCondition } from "@/shared/model/store";
+import { TABLET } from "@/shared/utils";
 
 import woman from "/assets/woman.jpg";
 import post from "/assets/post.jpg";
@@ -21,13 +22,7 @@ export const MobilePost: FC = () => {
                     <Text
                         type="h2"
                         color="#262626"
-                        fz={
-                            window.matchMedia(
-                                "(min-width: 576px) and (max-width: 768px)"
-                            ).matches
-                                ? "17px"
-                                : "14px"
-                        }
+                        fz={TABLET ? "17px" : "14px"}
                     >
                         Яковенко А. С.
                     </Text>
@@ -73,13 +68,7 @@ export const MobilePost: FC = () => {
                         color={`${
                             condition === "Болен" ? "#D64657" : "#0064FA"
                         }`}
-                        fz={
-                            window.matchMedia(
-                                "(min-width: 576px) and (max-width: 768px)"
-                            ).matches
-                                ? "15px"
-                                : "13px"
-                        }
+                        fz={TABLET ? "15px" : "13px"}
                     >
                         Подробнее
                     </Text>

@@ -9,7 +9,7 @@ import arrowRight from "/assets/arrow-right-blue.svg";
 import arrowRightRed from "/assets/arrow-right-red.svg";
 import styles from "./ReminderBlock.module.scss";
 
-export const ReminderBlock: FC<ITypeProps> = ({ type }) => {
+export const ReminderBlock: FC<ITypeProps> = ({ type, width }) => {
     const { condition } = useUserCondition();
 
     const sick = condition === "Болен";
@@ -56,5 +56,5 @@ export const ReminderBlock: FC<ITypeProps> = ({ type }) => {
 
     const elements = renderElements();
 
-    return <div>{elements}</div>;
+    return <div style={{ width }}>{elements}</div>;
 };

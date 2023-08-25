@@ -5,6 +5,7 @@ import { Layout } from "../Layout/Layout";
 import { ChatInfo } from "@/widgets";
 import { Btn, Filter, Input, MobileSearch, PopUp, Text } from "@/shared";
 import { useFilter, useUserCondition, useUserData } from "@/shared/model/store";
+import { SMALL_LAPTOP } from "@/shared/utils";
 // import { ABSOLUTE_PATH } from "@/shared/config";
 
 import woman from "/assets/woman.jpg";
@@ -120,10 +121,7 @@ const MessagesPage: FC = () => {
 
     return (
         <Layout>
-            <div
-                className={styles.container}
-                style={{ borderColor: sick ? "#F7E6E8" : "" }}
-            >
+            <div className={styles.container}>
                 <div className={styles.sidebar}>
                     <div className={styles.box}>
                         <div className={styles.search}>
@@ -132,7 +130,7 @@ const MessagesPage: FC = () => {
                                 height="52px"
                                 filterBtn={false}
                             />
-                            {group === "Пользователи" && (
+                            {group === "Врачи" && (
                                 <Btn
                                     color="#0064FA"
                                     width="52px"
@@ -149,7 +147,10 @@ const MessagesPage: FC = () => {
                                 </Btn>
                             )}
                         </div>
-                        <Filter data={["Сообщения", "Звонки"]} width="490px" />
+                        <Filter
+                            data={["Сообщения", "Звонки"]}
+                            width={SMALL_LAPTOP ? "100%" : "490px"}
+                        />
                         {isOpenFilters && (
                             <div className={styles.filtersBlock}>
                                 <div className={styles.selectedList}>
@@ -266,10 +267,7 @@ const MessagesPage: FC = () => {
                 </div>
                 {isChat && (
                     <div className={styles.view}>
-                        <div
-                            className={styles.info}
-                            style={{ borderColor: sick ? "#F7E6E8" : "" }}
-                        >
+                        <div className={styles.info}>
                             <div className={styles.data}>
                                 <img
                                     src={woman}

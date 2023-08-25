@@ -36,3 +36,10 @@
         grid-gap: 10px;
     }
 }
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .user {
+        height: 130px;
+        padding: 25px 30px;
+    }
+}

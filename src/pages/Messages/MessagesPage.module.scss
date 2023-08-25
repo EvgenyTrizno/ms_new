@@ -4,7 +4,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    border: 1px solid var(--blue-100);
     display: grid;
     grid-template-columns: 530px 1fr;
     overflow: hidden;
@@ -373,5 +372,13 @@
                 cursor: pointer;
             }
         }
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1500px) {
+    .container {
+        width: calc(100vw - 116px);
+        height: calc(100vh - 80px);
+        grid-template-columns: 1fr;
     }
 }

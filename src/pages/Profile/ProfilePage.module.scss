@@ -106,3 +106,17 @@
         }
     }
 }
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .container {
+        .settings {
+            .box {
+                .items {
+                    .item {
+                        padding: 25px 30px;
+                    }
+                }
+            }
+        }
+    }
+}

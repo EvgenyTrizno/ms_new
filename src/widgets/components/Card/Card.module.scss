@@ -55,3 +55,16 @@
 
     }
 }
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .card {
+        min-width: 182px;
+        width: 182px;
+        height: 144px;
+
+        .img {
+            width: 65px;
+            height: 65px;
+        }
+    }
+}

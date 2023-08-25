@@ -7,7 +7,6 @@ import { ISearchResult } from "@/shared/api/Search/types";
 import { SearchRes } from "@/shared/api/Search";
 import { useFilter } from "@/shared/model/store";
 
-import arrowLeft from "/assets/arrow-left.svg";
 import controler from "/assets/controler.svg";
 import styles from "./SearchPage.module.scss";
 
@@ -25,9 +24,6 @@ const SearchPage: FC = () => {
         <Layout>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <div className={styles.back}>
-                        <img src={arrowLeft} alt="" />
-                    </div>
                     <Search placeholder="Поиск чатов" />
                     <Btn width="160px" color="#0064FA">
                         <div className={styles.btn}>

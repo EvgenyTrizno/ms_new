@@ -2,7 +2,7 @@ import { FC } from "react";
 import { INoteBlockProps } from "./types";
 
 import { Text } from "@/shared";
-import { MOBILE, PC, TABLET } from "@/shared/utils";
+import { MOBILE, PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
 
 import alarm from "/assets/alarm-clock.svg";
 import arrowRight from "/assets/arrow-right-black.svg";
@@ -18,14 +18,29 @@ export const NoteBlock: FC<INoteBlockProps> = ({ onClick }) => {
                     <div className={styles.nav}>
                         <Text
                             type="p"
-                            fz={PC ? "16px" : TABLET ? "14px" : "12px"}
+                            fz={
+                                PC || SMALL_LAPTOP
+                                    ? "16px"
+                                    : TABLET
+                                    ? "14px"
+                                    : "12px"
+                            }
                             color="#7D7F82"
                         >
                             Название записи
                         </Text>
                         <img src={arrowRight} alt="" onClick={onClick} />
                     </div>
-                    <Text type="h2" fz={PC ? "20px" : TABLET ? "18px" : "16px"}>
+                    <Text
+                        type="h2"
+                        fz={
+                            PC || SMALL_LAPTOP
+                                ? "20px"
+                                : TABLET
+                                ? "18px"
+                                : "16px"
+                        }
+                    >
                         Проверка мышц
                     </Text>
                 </div>
@@ -33,14 +48,26 @@ export const NoteBlock: FC<INoteBlockProps> = ({ onClick }) => {
                     <li>
                         <Text
                             type="p"
-                            fz={PC ? "14px" : TABLET ? "14px" : "12px"}
+                            fz={
+                                PC || SMALL_LAPTOP
+                                    ? "14px"
+                                    : TABLET
+                                    ? "14px"
+                                    : "12px"
+                            }
                             color="#B1B2B4"
                         >
                             Доступно:
                         </Text>
                         <Text
                             type="p"
-                            fz={PC ? "14px" : TABLET ? "14px" : "12px"}
+                            fz={
+                                PC || SMALL_LAPTOP
+                                    ? "14px"
+                                    : TABLET
+                                    ? "14px"
+                                    : "12px"
+                            }
                             color="#00CC5E"
                         >
                             Онлайн
@@ -49,14 +76,26 @@ export const NoteBlock: FC<INoteBlockProps> = ({ onClick }) => {
                     <li>
                         <Text
                             type="p"
-                            fz={PC ? "14px" : TABLET ? "14px" : "12px"}
+                            fz={
+                                PC || SMALL_LAPTOP
+                                    ? "14px"
+                                    : TABLET
+                                    ? "14px"
+                                    : "12px"
+                            }
                             color="#B1B2B4"
                         >
                             Центр:
                         </Text>
                         <Text
                             type="p"
-                            fz={PC ? "14px" : TABLET ? "14px" : "12px"}
+                            fz={
+                                PC || SMALL_LAPTOP
+                                    ? "14px"
+                                    : TABLET
+                                    ? "14px"
+                                    : "12px"
+                            }
                         >
                             Московский центр
                         </Text>
@@ -64,14 +103,26 @@ export const NoteBlock: FC<INoteBlockProps> = ({ onClick }) => {
                     <li>
                         <Text
                             type="p"
-                            fz={PC ? "14px" : TABLET ? "14px" : "12px"}
+                            fz={
+                                PC || SMALL_LAPTOP
+                                    ? "14px"
+                                    : TABLET
+                                    ? "14px"
+                                    : "12px"
+                            }
                             color="#B1B2B4"
                         >
                             Врач:
                         </Text>
                         <Text
                             type="p"
-                            fz={PC ? "14px" : TABLET ? "14px" : "12px"}
+                            fz={
+                                PC || SMALL_LAPTOP
+                                    ? "14px"
+                                    : TABLET
+                                    ? "14px"
+                                    : "12px"
+                            }
                         >
                             Невролог И.И
                         </Text>

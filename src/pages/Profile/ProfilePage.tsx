@@ -413,7 +413,7 @@ const ProfilePage: FC = () => {
         <Layout>
             <div className={styles.container}>
                 <div className={styles.reminder}>
-                    <ReminderBlock type="timer" />
+                    <ReminderBlock type="timer" width="340px" />
                 </div>
                 <User
                     img={img}

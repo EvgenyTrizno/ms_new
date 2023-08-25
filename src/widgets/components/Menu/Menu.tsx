@@ -7,7 +7,6 @@ import { Text, Switcher } from "@/shared";
 import { useUserCondition, useMenu, useUserData } from "@/shared/model/store";
 import { PC, SMALL_LAPTOP } from "@/shared/utils";
 
-import logo from "/assets/logo.svg";
 import styles from "./Menu.module.scss";
 
 export const Menu: FC = () => {
@@ -486,14 +485,30 @@ export const Menu: FC = () => {
                     ? `${styles.menu} ${styles.open}`
                     : styles.menu
             }
+            style={{ borderColor: sick ? "#F7E6E8" : "" }}
         >
-            <div className={styles.logo}>
+            <div
+                className={styles.logo}
+                style={{ borderColor: sick ? "#F7E6E8" : "" }}
+            >
                 {!isHovered && SMALL_LAPTOP && (
-                    <Text type="h2" color="#0064FA" fz="18px">
+                    <Text
+                        type="h2"
+                        color={sick ? "#D64657" : "#0064FA"}
+                        fz="18px"
+                    >
                         Pre-rec
                     </Text>
                 )}
-                {(isHovered || PC) && <img src={logo} alt="" />}
+                {(isHovered || PC) && (
+                    <Text
+                        type="h2"
+                        color={sick ? "#D64657" : "#0064FA"}
+                        fz="24px"
+                    >
+                        Pre-rec.io
+                    </Text>
+                )}
             </div>
             <div className={styles.container}>
                 {(PC || (isHovered && SMALL_LAPTOP)) && (
