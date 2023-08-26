@@ -22,7 +22,7 @@ const MedicalCardPage: FC = () => {
         <Layout>
             <div className={styles.medical}>
                 <Search placeholder="Введите запрос" />
-                <Filter data={["Подтвержденные", "Доп.проверка"]} />
+                <Filter data={["Текущие", "Доп.проверка"]} />
                 <div
                     className={styles.items}
                     style={
@@ -150,8 +150,7 @@ const MedicalCardPage: FC = () => {
                                                 fz="12px"
                                                 position="center"
                                             >
-                                                Добавлена в групповой чат для
-                                                обсуждения
+                                                Доступно в групповом чате
                                             </Text>
                                         </div>
                                     </div>
