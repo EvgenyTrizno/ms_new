@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import { RouteData } from "./types";
 import { InterviewPage } from "../Auth/InterviewPage/InterviewPage";
+import { SMALL_LAPTOP } from "@/shared/utils";
 
 const RegistrationPage = lazy(
     () => import("@/pages/Auth/RegistrationPage/RegistrationPage")
@@ -96,6 +97,7 @@ const MobileNotesInfoPage = lazy(
 const UserInfoPage = lazy(() => import("@/pages/UserInfo/UserInfoPage"));
 const UsersPage = lazy(() => import("@/pages/Users/UsersPage"));
 const BalancePage = lazy(() => import("@/pages/Balance/BalancePage"));
+const ChatPage = lazy(() => import("@/pages/Chat/ChatPage"));
 
 const media = window.matchMedia("(max-width: 768px)").matches;
 
@@ -241,5 +243,10 @@ export const routes: RouteData[] = [
         path: "/balance",
         Component: BalancePage,
         key: "users_page",
+    },
+    {
+        path: "/chat/:id",
+        Component: SMALL_LAPTOP ? ChatPage : NotFoundPage,
+        key: "chat_page",
     },
 ];
