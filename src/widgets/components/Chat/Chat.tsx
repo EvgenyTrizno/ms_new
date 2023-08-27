@@ -1,9 +1,11 @@
 import { FC, useState, MouseEvent, useRef } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
 
 import { useUserCondition } from "@/shared/model/store";
 import { Text, PopUp, Input } from "@/shared";
 import { ChatInfo } from "@/widgets";
+import { SMALL_LAPTOP } from "@/shared/utils";
 
 import woman from "/assets/woman.jpg";
 import call from "/assets/call-calling.svg";
@@ -17,6 +19,7 @@ import readRed from "/assets/read-red.svg";
 import mircophone from "/assets/microphone-blue.svg";
 import mircophoneRed from "/assets/microphone-red.svg";
 import dots from "/assets/dots-more.svg";
+import arrowLeft from "/assets/arrow-left-black.svg";
 import styles from "./Chat.module.scss";
 
 export const Chat: FC = () => {
@@ -34,6 +37,7 @@ export const Chat: FC = () => {
 
     const sick = condition === "Болен";
     const redMesage = `${styles.text} ${styles.myTextWithSick}`;
+    const navigate = useNavigate();
 
     const handleClick = (e: MouseEvent) => {
         const classes = e.currentTarget.classList.contains(styles.text);
@@ -72,8 +76,19 @@ export const Chat: FC = () => {
 
     return (
         <div className={styles.view}>
-            <div className={styles.info}>
+            <div
+                className={styles.info}
+                style={{ borderColor: sick ? "#F7E6E8" : "" }}
+            >
                 <div className={styles.data}>
+                    {SMALL_LAPTOP && (
+                        <img
+                            src={arrowLeft}
+                            alt=""
+                            className={styles.arrow}
+                            onClick={() => navigate(-1)}
+                        />
+                    )}
                     <img
                         src={woman}
                         style={{ cursor: "pointer" }}

@@ -93,6 +93,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        transition: border-color linear .3s;
 
         .callIcons {
             display: flex;
@@ -100,7 +101,14 @@
 
         .data {
             display: flex;
+            align-items: center;
             grid-gap: 15px;
+
+            .arrow {
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+            }
 
             img {
                 width: 65px;
