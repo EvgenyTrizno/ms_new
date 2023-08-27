@@ -6,7 +6,7 @@ import { Card, Post, Slider } from "@/widgets";
 import { News } from "@/shared/api/News";
 import { getAccessTokenFromCookies } from "@/features";
 import { useUserData } from "@/shared/model/store";
-import { PC, SMALL_LAPTOP } from "@/shared/utils";
+import { MOBILE_SCREEN, PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import controller from "/assets/controler.svg";
 import styles from "./MainPage.module.scss";
@@ -35,9 +35,19 @@ const MainPage: FC = () => {
                         ))}
                     </Slider>
                 </div>
+                {SMALL_LAPTOP && (
+                    <div className={styles.filters}>
+                        <Btn color="#0064FA" width="160px">
+                            <div className={styles.inner}>
+                                <img src={controller} alt="" />
+                                Фильтры
+                            </div>
+                        </Btn>
+                    </div>
+                )}
                 <div className={styles.posts}>
                     <div className={styles.filters}>
-                        {PC || SMALL_LAPTOP ? (
+                        {PC ? (
                             <Btn color="#0064FA">
                                 <div className={styles.inner}>
                                     <img src={controller} alt="" />
@@ -45,14 +55,16 @@ const MainPage: FC = () => {
                                 </div>
                             </Btn>
                         ) : (
-                            <Btn
-                                color="#0064FA"
-                                width="56px"
-                                height="56px"
-                                padding="0"
-                            >
-                                <img src={controller} alt="" />
-                            </Btn>
+                            MOBILE_SCREEN && (
+                                <Btn
+                                    color="#0064FA"
+                                    width="56px"
+                                    height="56px"
+                                    padding="0"
+                                >
+                                    <img src={controller} alt="" />
+                                </Btn>
+                            )
                         )}
                     </div>
                     {[1].map((item) => (
