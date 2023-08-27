@@ -24,6 +24,7 @@ const MessagesPage: FC = () => {
     const [isOpenFilters, setIsOpenFilters] = useState<boolean>(false);
     const [isChat, setIsChat] = useState<boolean>(false);
     // const [ws, setWs] = useState<WebSocket | null>(null);
+    const [id, setId] = useState<number>();
 
     const sick = condition === "Болен";
     const filters = ["Город", "Пользователи", "Клиники", "Центры", "Звонки"];
@@ -66,8 +67,13 @@ const MessagesPage: FC = () => {
     //     }
     // };
 
-    const handleClick = () => {
-        SMALL_LAPTOP ? navigate(`/chat/${1}`) : setIsChat(true);
+    const handleClick = (id: number) => {
+        if (SMALL_LAPTOP) {
+            navigate(`/chat/${1}`);
+        } else {
+            setIsChat(true);
+            setId(id);
+        }
     };
 
     return (
@@ -138,10 +144,16 @@ const MessagesPage: FC = () => {
                         <div className={styles.wrapper}>
                             <div className={styles.chats}>
                                 {isFilter === "Сообщения" ? (
-                                    [1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                                    [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
                                         <div
-                                            className={styles.chat}
-                                            onClick={handleClick}
+                                            className={
+                                                id === item && sick
+                                                    ? `${styles.chat} ${styles.chatActiveRed}`
+                                                    : id === item && !sick
+                                                    ? `${styles.chat} ${styles.chatActive}`
+                                                    : styles.chat
+                                            }
+                                            onClick={() => handleClick(item)}
                                         >
                                             <div className={styles.inner}>
                                                 <img src={woman} alt="" />

@@ -93,7 +93,6 @@
                     height: 0;
                     background-color: transparent;
 
-
                     .chat {
                         height: 105px;
                         padding: 20px 0;
@@ -105,6 +104,18 @@
                         cursor: pointer;
                     }
 
+                    .chat:first-child {
+                        border-radius: 12px 12px 0px 0px;
+                    }
+
+                    .chatActive {
+                        background: rgba(#EBF3FF, 0.4);
+                    }
+
+                    .chatActiveRed {
+                        background: rgba(#F7E6E8, 0.4);
+                    }
+
                     .inner {
                         display: flex;
                         grid-gap: 15px;
@@ -114,6 +125,7 @@
                         width: 65px;
                         height: 65px;
                         object-fit: cover;
+                        border-radius: 100%;
                     }
 
                     .data {
