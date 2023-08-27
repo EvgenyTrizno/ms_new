@@ -1,85 +1,50 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { Children, FC, useEffect, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import { ISlider } from "./types";
 
-import arrowLeft from "/assets/arrow-left.svg";
-import arrowRight from "/assets/arrow-right.svg";
-import styles from "./Slider.module.scss";
+import "swiper/css";
 
-export const Slider: FC<ISlider> = ({
-    children,
-    container,
-    navigate = true,
-}) => {
-    const ref = useRef<HTMLDivElement | null>(null);
-    const [position, setPosition] = useState(0);
+export const Slider: FC<ISlider> = ({ children }) => {
+    const el = useRef<Element | null>(null);
+    const cardRef = useRef<Element | null>(null);
+    const [per, setPer] = useState<number>();
 
     useEffect(() => {
-        const el = ref.current;
+        el.current = document.querySelector(".swiper");
+        cardRef.current = document.querySelector("#card");
 
-        if (el) {
-            const onWheel = (e: WheelEvent) => {
-                e.preventDefault();
-                el.scrollTo({
-                    left: el.scrollLeft + e.deltaY * 2,
-                    behavior: "smooth",
-                });
-            };
-
-            el.addEventListener("wheel", onWheel);
-
-            return () => el.removeEventListener("wheel", onWheel);
+        if (el.current && cardRef.current) {
+            setPer(
+                Math.floor(
+                    parseInt(window.getComputedStyle(el.current).width) /
+                        parseInt(window.getComputedStyle(cardRef.current).width)
+                )
+            );
         }
-    }, []);
-
-    useEffect(() => {
-        const changeScrollOffset = () => {
-            if (ref.current) {
-                const scrollContainer = ref.current;
-
-                scrollContainer.scrollTo({
-                    left: position,
-                    behavior: "smooth",
-                });
-            }
-        };
-
-        changeScrollOffset();
-    }, [position]);
-
-    const handleArrowClick = (pos: number) => {
-        if (ref.current) {
-            const scrollContainer = ref.current;
-            const newPosition = scrollContainer.scrollLeft + pos;
-            setPosition(newPosition);
-        }
-    };
+    }, [children]);
 
     return (
-        <div className={styles.slider}>
-            {navigate !== false && (
-                <div className={styles.arrows}>
-                    <img
-                        src={arrowLeft}
-                        alt=""
-                        className={styles.arrow}
-                        onClick={() => handleArrowClick(-160)}
-                    />
-                    <img
-                        src={arrowRight}
-                        alt=""
-                        className={styles.arrow}
-                        onClick={() => handleArrowClick(160)}
-                    />
-                </div>
-            )}
-
-            <div
-                className={styles.container}
-                style={{ width: container }}
-                ref={ref}
-            >
-                <div className={styles.slides}>{children}</div>
-            </div>
-        </div>
+        <Swiper
+            slidesPerView={per ?? 0}
+            spaceBetween={10}
+            modules={[Navigation]}
+        >
+            {Children.map(children, (item) => (
+                <SwiperSlide
+                    style={{
+                        maxWidth:
+                            (cardRef.current &&
+                                parseInt(
+                                    window.getComputedStyle(cardRef.current)
+                                        .width
+                                )) ??
+                            0,
+                    }}
+                >
+                    {item}
+                </SwiperSlide>
+            ))}
+        </Swiper>
     );
 };
