@@ -7,10 +7,8 @@ import {
     LineElement,
     Title,
     Tooltip,
-    Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
 
 ChartJS.register(
     CategoryScale,
@@ -18,8 +16,7 @@ ChartJS.register(
     PointElement,
     LineElement,
     Title,
-    Tooltip,
-    Legend
+    Tooltip
 );
 
 import { Layout } from "../Layout/Layout";
@@ -55,42 +52,55 @@ const NotesInfoPage: FC = () => {
     // const circlesRef = useRef<HTMLDivElement>();
 
     const options = {
-        responsive: false,
         plugins: {
             legend: {
                 position: "top" as const,
             },
+            title: {
+                display: false,
+            },
+            tooltip: {
+                enabled: false,
+            },
+        },
+        scales: {
+            y: {
+                grid: {
+                    color: "#E9EAEB",
+                    lineWidth: 1,
+                    borderDash: [10, 10],
+                },
+            },
+
+            x: {
+                grid: {
+                    display: false,
+                },
+            },
         },
     };
 
-    const labels = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-    ];
+    const labels = ["Класс А", "Класс А", "Класс А", "Класс А", "Класс А"];
 
     const data = {
         labels,
         datasets: [
             {
-                label: "Dataset 1",
-                data: labels.map(() =>
-                    faker.number.int({ min: -1000, max: 1000 })
-                ),
-                borderColor: "rgb(255, 99, 132)",
-                backgroundColor: "rgba(255, 99, 132, 0.5)",
+                data: [1, 10, 23, 2, 400],
+                borderColor: "#D64657",
+                borderRadius: "100%",
+                borderWidth: 3,
+                backgroundColor: "white",
+                pointBorderColor: "#D64657",
+                pointBorderWidth: 2,
             },
             {
-                label: "Dataset 2",
-                data: labels.map(() =>
-                    faker.number.int({ min: -1000, max: 1000 })
-                ),
-                borderColor: "rgb(53, 162, 235)",
-                backgroundColor: "rgba(53, 162, 235, 0.5)",
+                data: [10, 100, 23, 245, 1],
+                borderColor: "#0064FA",
+                backgroundColor: "white",
+                borderWidth: 3,
+                pointBorderColor: "#0064FA",
+                pointBorderWidth: 2,
             },
         ],
     };
