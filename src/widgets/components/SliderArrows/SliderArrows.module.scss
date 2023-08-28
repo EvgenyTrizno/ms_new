@@ -1,0 +1,16 @@
+.arrows {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+
+    .prev, .next {
+        cursor: pointer;
+        
+        img {
+            width: 24px;
+            height: 24px;
+            object-fit: cover;
+        }
+    }
+
+}
