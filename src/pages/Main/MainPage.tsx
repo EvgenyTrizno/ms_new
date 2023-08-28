@@ -2,11 +2,11 @@ import { FC, useEffect } from "react";
 
 import { Layout } from "../Layout/Layout";
 import { Btn, Text } from "@/shared";
-import { Card, Post, Slider } from "@/widgets";
+import { Card, Post, Slider, SliderArrows } from "@/widgets";
 import { News } from "@/shared/api/News";
 import { getAccessTokenFromCookies } from "@/features";
 import { useUserData } from "@/shared/model/store";
-import { MOBILE_SCREEN, PC, SMALL_LAPTOP } from "@/shared/utils";
+import { MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import controller from "/assets/controler.svg";
 import styles from "./MainPage.module.scss";
@@ -26,10 +26,13 @@ const MainPage: FC = () => {
         <Layout>
             <div className={styles.container}>
                 <div className={styles.box}>
-                    <Text type="p" color="#7D7F82">
-                        Специалисты из Узбекистана
-                    </Text>
-                    <Slider container="100%">
+                    <div className={styles.nav}>
+                        <Text type="p" color="#7D7F82">
+                            Специалисты из Узбекистана
+                        </Text>
+                        <SliderArrows />
+                    </div>
+                    <Slider slideWidth="190px">
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
                             <Card checkbox={false} key={item} />
                         ))}
@@ -55,7 +58,7 @@ const MainPage: FC = () => {
                                 </div>
                             </Btn>
                         ) : (
-                            MOBILE_SCREEN && (
+                            MOBILE && (
                                 <Btn
                                     color="#0064FA"
                                     width="56px"
@@ -67,7 +70,7 @@ const MainPage: FC = () => {
                             )
                         )}
                     </div>
-                    {[1].map((item) => (
+                    {[1, 2, 3, 4].map((item) => (
                         <Post key={item} />
                     ))}
                 </div>
