@@ -6,7 +6,6 @@ type Libraries = (
     | "visualization"
 )[];
 
-export const MOBILE_SCREEN = window.screen.width <= 576;
 export const MOBILE = window.matchMedia("(max-width: 576px)").matches;
 export const TABLET = window.matchMedia(
     "(min-width: 576px) and (max-width: 991px)"

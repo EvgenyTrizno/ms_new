@@ -15,7 +15,7 @@ export type TIsSelect =
     | "Настройки";
 export interface IMenuStore {
     isSelect: TIsSelect;
-    setIsSelect: (arg: TIsSelect) => void;
+    setIsSelect: (arg: TIsSelect | string) => void;
 }
 
 export interface IFilterStore {

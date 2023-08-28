@@ -5,7 +5,6 @@ import { useSearchParams } from "react-router-dom";
 import { Btn, Input, Text } from "@/shared";
 import { useUserData } from "@/shared/model/store";
 import { Auth } from "@/shared/api/Auth";
-import { MOBILE_SCREEN } from "@/shared/utils";
 
 import styles from "./CreatePass.module.scss";
 
@@ -26,11 +25,11 @@ export const CreatePass: FC = () => {
         if (type === "number") {
             changePasswordByNumber(number, pass, newPass)
                 .then((res) => console.log(res))
-                .then(() => navigate(MOBILE_SCREEN ? "/m/" : "/"));
+                .then(() => navigate("/"));
         } else {
             changePasswordByEmail(email, pass, newPass)
                 .then((res) => console.log(res))
-                .then(() => navigate(MOBILE_SCREEN ? "/m/" : "/"));
+                .then(() => navigate("/"));
         }
     };
 

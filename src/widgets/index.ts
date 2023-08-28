@@ -45,6 +45,7 @@ import { SmallDropbox } from "./components/SmallDropbox/SmallDropbox";
 import { RecoveryForPersonal } from "./components/Auth/RecoveryForPersonal/RecoveryForPersonal";
 import { Balance } from "./components/Balance/Balance";
 import { Chat } from "./components/Chat/Chat";
+import { SliderArrows } from "./components/SliderArrows/SliderArrows";
 
 export {
     Login,
@@ -94,4 +95,5 @@ export {
     RecoveryForPersonal,
     Balance,
     Chat,
+    SliderArrows,
 };

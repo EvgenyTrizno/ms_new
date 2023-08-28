@@ -7,7 +7,6 @@ import { Input } from "@/shared/ui/Input/Input";
 import { Btn } from "@/shared/ui/Btn/Btn";
 import { Auth } from "@/shared/api/Auth";
 import { setCookie } from "@/features";
-import { MOBILE_SCREEN } from "@/shared/utils";
 
 import eyeClose from "/assets/eye-close.svg";
 import eyeOpen from "/assets/eye-open.svg";
@@ -28,7 +27,7 @@ export const LoginForPersonal: FC = () => {
         getToket(number, pass)
             .then((res) => {
                 setCookie("refresh_token", res.refresh, 1);
-                location.pathname = MOBILE_SCREEN ? "/m/" : "/";
+                location.pathname = "/";
             })
             .catch((e: ICustomError) => {
                 e.data?.detail === "Incorrect password"

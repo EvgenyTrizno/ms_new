@@ -13,7 +13,6 @@ import { Auth } from "@/shared/api/Auth";
 import { useUserData } from "@/shared/model/store";
 import { getAccessTokenFromCookies, setCookie } from "@/features";
 import { Account } from "@/shared/api/Account";
-import { MOBILE_SCREEN } from "@/shared/utils";
 
 import styles from "./Confirmation.module.scss";
 
@@ -98,9 +97,7 @@ export const Confirmation: FC = () => {
             ) {
                 sendVerifyCodeForVerifyEmail(token, code, email)
                     .then((res) => console.log(res))
-                    .then(() =>
-                        navigate(`${MOBILE_SCREEN ? "/m/" : "/profile"}`)
-                    );
+                    .then(() => navigate("/profile"));
             }
         }
     };

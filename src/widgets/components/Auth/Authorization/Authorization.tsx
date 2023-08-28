@@ -1,12 +1,12 @@
 import { FC, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-
 // import { useNavigate } from "react-router";
 import { MarkerF } from "@react-google-maps/api";
 import Geocode from "react-geocode";
 import { IGeocoderData } from "./types";
-import { IVirusListData } from "@/shared/api/Virus/types";
 
+import { IVirusListData } from "@/shared/api/Virus/types";
+import { MOBILE } from "@/shared/utils";
 import {
     Btn,
     Checkbox,
@@ -19,7 +19,6 @@ import { Modal } from "../../Modal/Modal";
 import { useLocation } from "@/shared/hooks";
 import { Map } from "../../Map/Map";
 import { useFilter } from "@/shared/model/store";
-import { MOBILE_SCREEN } from "@/shared/utils";
 import { MobileModal } from "../../MobileModal/MobileModal";
 import { ICentersData } from "@/shared/api/Centers/types";
 import { useUserData } from "@/shared/model/store";
@@ -181,7 +180,7 @@ export const Authorization: FC = () => {
                                 необходимо указать свое состояние на данный
                                 момент
                             </Text>
-                            {MOBILE_SCREEN ? (
+                            {MOBILE ? (
                                 <div>sdsdsd</div>
                             ) : (
                                 <Filter
@@ -228,7 +227,7 @@ export const Authorization: FC = () => {
                                     />
                                 ))}
                             </Map>
-                            {MOBILE_SCREEN ? (
+                            {MOBILE ? (
                                 <MobileFilter data={["Здоров", "Болен"]} />
                             ) : (
                                 <Filter
@@ -243,7 +242,7 @@ export const Authorization: FC = () => {
                     </>
                 )}
             </div>
-            {isOpenModal && MOBILE_SCREEN && (
+            {isOpenModal && MOBILE && (
                 <MobileModal setIsOpenModal={setIsOpenModal}>
                     <div className={styles.container}>
                         <Text
