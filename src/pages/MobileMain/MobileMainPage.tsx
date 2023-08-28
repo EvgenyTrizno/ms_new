@@ -4,9 +4,8 @@ import {
     MobileCard,
     MobileHeader,
     MobilePost,
-    Slider,
     MobileContainer,
-    Card,
+    Slider,
 } from "@/widgets";
 import { Btn, Text } from "@/shared";
 import { useUserCondition } from "@/shared/model/store";
@@ -34,16 +33,9 @@ const MobileMainPage: FC = () => {
                     >
                         Специалисты из Узбекистана
                     </Text>
-                    <Slider container="100%" navigate={false}>
+                    <Slider slideWidth="80px">
                         {[1, 2, 3, 4, 5].map((item) => (
-                            <>
-                                {window.matchMedia("(max-width: 576px)")
-                                    .matches ? (
-                                    <MobileCard key={item} />
-                                ) : (
-                                    <Card checkbox={false} key={item} />
-                                )}
-                            </>
+                            <MobileCard key={item} />
                         ))}
                     </Slider>
                 </div>
