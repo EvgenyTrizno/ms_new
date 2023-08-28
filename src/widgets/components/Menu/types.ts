@@ -1,3 +1,4 @@
+import { TIsSelect } from "@/shared/model/store/types";
 import { ReactElement } from "react";
 
 export enum EActive {
@@ -16,7 +17,7 @@ export enum EActive {
 
 export interface IData {
     id: string;
-    label: string;
+    label: string | TIsSelect;
     path: EActive | string;
     icon: ReactElement;
 }
