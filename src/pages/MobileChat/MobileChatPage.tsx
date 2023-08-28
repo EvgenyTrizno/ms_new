@@ -28,11 +28,7 @@ const MobileChatPage: FC = () => {
                 }
             >
                 <div className={styles.user}>
-                    <img
-                        src={arrowLeft}
-                        alt=""
-                        onClick={() => navigate("/m/messages")}
-                    />
+                    <img src={arrowLeft} alt="" onClick={() => navigate(-1)} />
                     <div className={styles.data}>
                         <img src={woman} alt="" className={styles.avatar} />
                         <div className={styles.text}>
