@@ -95,7 +95,7 @@
 
                     .chat {
                         height: 105px;
-                        padding: 20px 0;
+                        padding: 20px;
                         border-bottom: 1px solid var(--gray-100);
                         position: relative;
                         display: flex;
@@ -104,16 +104,14 @@
                         cursor: pointer;
                     }
 
-                    .chat:first-child {
-                        border-radius: 12px 12px 0px 0px;
-                    }
-
                     .chatActive {
-                        background: rgba(#EBF3FF, 0.4);
+                        border-radius: 15px;
+                        background: var(--blue-100);
                     }
 
                     .chatActiveRed {
-                        background: rgba(#F7E6E8, 0.4);
+                        background: var(--red-100);
+                        border-radius: 15px;
                     }
 
                     .inner {
@@ -137,7 +135,7 @@
                     .time {
                         position: absolute;
                         top: 20px;
-                        right: 0;
+                        right: 20px;
                     }
 
                     .counter {
