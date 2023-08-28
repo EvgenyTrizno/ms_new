@@ -1,0 +1,55 @@
+.mobileHeader {
+    background-color: var(--white);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--blue-100);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    height: 82px;
+    z-index: 1;
+
+    .avatar {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+
+    .settings {
+        svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        path {
+            stroke: var(--dark);
+        }
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .mobileHeader {
+        height: 100px;
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+    .settings {
+        svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        path {
+            stroke: var(--dark);
+        }
+    }
+}

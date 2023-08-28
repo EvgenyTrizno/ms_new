@@ -1,0 +1,296 @@
+[33mcommit a5dc1985c662b29f44ea9d150e4f6503ad15e497[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:57:23 2023 +0300
+
+    tmp vercel fix
+
+[33mcommit a97ce68b35dd4aa4cf9cc4b7edec002ba71f1589[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:35:47 2023 +0300
+
+    changed
+
+[33mcommit f9ed7709481ae11768c7160258e4995d5cc64669[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:35:19 2023 +0300
+
+    routes changed
+
+[33mcommit e1d7356a116a0239add8bb0231ca6649474a2e1c[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:35:00 2023 +0300
+
+    changed navifate
+
+[33mcommit 1f8b7e4319430fee7225c39f42f91993540bb8a9[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:34:38 2023 +0300
+
+    added new slider
+
+[33mcommit 28a443976012cf571a1657a089078a8e411f28ad[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:33:52 2023 +0300
+
+    changed active chat
+
+[33mcommit 2ffa8c7a0f629de45db9daa85b5e32a9ac6a511a[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:32:50 2023 +0300
+
+    changed navigation
+
+[33mcommit b081b23ba24dcbf895ad882a3e33c8adcc6a0a91[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:31:01 2023 +0300
+
+    tmp
+
+[33mcommit 6fef937441a8abdf3a5151ee2fb35d577e3b9297[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:30:37 2023 +0300
+
+    added settings
+
+[33mcommit 4322a553104161ecf9b4eb02c6238a2b9dde0e01[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:30:15 2023 +0300
+
+    deleted
+
+[33mcommit a3bf73ce8d7b27bab3fbd098da2af64ac3c57366[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:29:49 2023 +0300
+
+    added new icons
+
+[33mcommit 9ff826f4eec924d9c879fa93f100797ee4970ee8[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:28:54 2023 +0300
+
+    slider update
+
+[33mcommit 6f75274cec6cf51ab953fc2099e998f30cb060ae[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:28:27 2023 +0300
+
+    added new slider
+
+[33mcommit 27710e95a86435c577783f325520595bfc7f220e[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:26:38 2023 +0300
+
+    added default styles for slider
+
+[33mcommit 14e49626d38e81c736893c161ef9c942970ba410[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:25:49 2023 +0300
+
+    types for mobile menu
+
+[33mcommit 0a3c7e7632b69520701d0c2b9882e89ed4407b7d[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Mon Aug 28 21:24:38 2023 +0300
+
+    added slider arrows
+
+[33mcommit 10f3a24a4e5ba860d18d50fff456422a4c232ee0[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sun Aug 27 22:21:35 2023 +0300
+
+    adaptive for btn
+
+[33mcommit f9ca301a110cef3bb7aa0f667d62e922322b1304[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sun Aug 27 22:21:12 2023 +0300
+
+    global slider styles
+
+[33mcommit 5386c1412a87b4f80ab0fdb98ed23286371d318f[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sun Aug 27 22:20:45 2023 +0300
+
+    chart update
+
+[33mcommit c359253a3fc98210e1e1385fa75836eecf4c2b03[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sun Aug 27 22:20:27 2023 +0300
+
+    added active chat
+
+[33mcommit 63653fbdb1c59672de2b7905234c77e8a09f3bec[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sun Aug 27 22:19:42 2023 +0300
+
+    slider changed
+
+[33mcommit 80a52db3cdceee6ca959eb45c2d0dfa9d72fb87f[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sun Aug 27 22:19:20 2023 +0300
+
+    added id
+
+[33mcommit 28c27266d15a4107a0994665c5756268799aabf8[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sun Aug 27 22:18:49 2023 +0300
+
+    added back arrow
+
+[33mcommit 132afe6a537a553268baded1fd51601e7e8d531d[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sat Aug 26 22:36:52 2023 +0300
+
+    added adaptive
+
+[33mcommit 4c6f27618a18684e4c14a6cfe4e91471c039d73e[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sat Aug 26 22:36:28 2023 +0300
+
+    added chat component
+
+[33mcommit 204ae756196059f412c37e5038069efe2129ed68[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sat Aug 26 22:35:46 2023 +0300
+
+    added width props
+
+[33mcommit 63490b6dda7e50effe1fc9b82653a0428fb257cb[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Fri Aug 25 22:44:06 2023 +0300
+
+    added adaptive
+
+[33mcommit b10554d0f98afd62d70e1aed8bf842abdfbf5b2b[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Fri Aug 25 22:43:49 2023 +0300
+
+    change bg
+
+[33mcommit e9829172ff2b21c6dc9ae8824a303ae0e741abd0[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Fri Aug 25 22:43:29 2023 +0300
+
+    logo deleted
+
+[33mcommit 40682b003f299e61d462dc2b982a603086970936[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Fri Aug 25 22:43:02 2023 +0300
+
+    deleted bg var
+
+[33mcommit 5e75be9ec8a43da430b1e2db846e7fa8cfa36e09[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Thu Aug 24 10:14:54 2023 +0300
+
+    vercel fixed
+
+[33mcommit 77c3bfcf434edde700ee30803830200eef43bf07[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Thu Aug 24 10:14:01 2023 +0300
+
+    added border
+
+[33mcommit b494f979a38c77ad14f5e71cd7c4c042c954308d[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Thu Aug 24 10:13:29 2023 +0300
+
+    bug fixed
+
+[33mcommit f09b6b40976dae55c8d478523d62a3b7c5c800ff[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Thu Aug 24 10:13:03 2023 +0300
+
+    vercel fixed
+
+[33mcommit 5e9e65999e869e9f2f544d5d2443469cd7f8d48d[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Thu Aug 24 09:58:38 2023 +0300
+
+    fixed bug with icon
+
+[33mcommit 09061a52219f6200674c3fd7807030ce99526c8f[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Thu Aug 24 09:46:05 2023 +0300
+
+    fix bug
+
+[33mcommit 2d79a58ad11d44fd8d94a9e6dcfccb72f1beff80[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Thu Aug 24 08:58:31 2023 +0300
+
+    vercel fix
+
+[33mcommit f5b12865379f1c35223589d85ccb0487550d87f0[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Wed Aug 23 21:18:47 2023 +0300
+
+    added test version of sidebar
+
+[33mcommit 1864cb1b9ad71116ea1166aaf5fe574cfb70c083[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Tue Aug 22 21:02:43 2023 +0300
+
+    added test version of sidebar
+
+[33mcommit 3350d7277e84e34d78f55f0c9488b3a657a38f5d[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Tue Aug 22 16:22:37 2023 +0300
+
+    path changed
+
+[33mcommit 04de7979870109678872275ed7028348ea93fc54[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Tue Aug 22 16:22:21 2023 +0300
+
+    height changed
+
+[33mcommit e26af509678518abeb5a343d56bb853c90a18fc7[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Tue Aug 22 16:21:59 2023 +0300
+
+    added sidebar
+
+[33mcommit b183a0bd26871d5d9d1dd74d335fdc48fc40ca9b[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Tue Aug 22 16:21:06 2023 +0300
+
+    position changed
+
+[33mcommit 005bec4b7fb1f092f78cf26299020b18f58c441c[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Tue Aug 22 16:20:36 2023 +0300
+
+    fix bug with logo and header
+
+[33mcommit ba996835b1936b243e133fc51aa074432549de2f[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Tue Aug 22 16:19:55 2023 +0300
+
+    added sidebar
+
+[33mcommit 9eb604e5b8a52562945c2e9821e273531253d2f0[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sun Aug 20 18:46:39 2023 +0300
+
+    upd types for btn
+
+[33mcommit 2ea9d266509265bdd013b0504aa63b5189014aa6[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sun Aug 20 18:46:13 2023 +0300
+
+    added filters for personal
+
+[33mcommit 73ea0daebf5fb50cc5b2d6a048b565795190681b[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sun Aug 20 18:45:36 2023 +0300
+
+    old icons removed
+
+[33mcommit d839ebd3dc63da996049d4e71fb307547d6bf456[m
+Author: Evgeny Trizno <zenatrizno9@gmail.com>
+Date:   Sun Aug 20 18:44:36 2023 +0300
+
+    path uodate
+
+[33mcommit 211dd122b0c5ff23981e33406f6aef4fabfbafd5[m
+Author: Evgeny Trizno <zenatrizno9@gmail.
