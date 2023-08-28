@@ -17,7 +17,7 @@ const MobileMessagesPage: FC = () => {
     const navigate = useNavigate();
 
     const handleOpenChat = (id: number) => {
-        navigate(`/m/chat/${id}`);
+        navigate(`/chat/${id}`);
     };
 
     return (
