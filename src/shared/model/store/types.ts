@@ -14,7 +14,7 @@ export type TIsSelect =
     | "Сообщения"
     | "Настройки";
 export interface IMenuStore {
-    isSelect: TIsSelect;
+    isSelect: TIsSelect | string;
     setIsSelect: (arg: TIsSelect | string) => void;
 }
 

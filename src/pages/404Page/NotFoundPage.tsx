@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { useBackOnPrevPage } from "@/shared/hooks";
 import { Btn, Text } from "@/shared";
-import { MOBILE_SCREEN } from "@/shared/utils";
+import { MOBILE } from "@/shared/utils";
 import { useUserCondition } from "@/shared/model/store";
 
 import notfound from "/assets/404-page-img.svg";
@@ -21,14 +21,14 @@ const NotFoundPage: FC = () => {
             <div className={styles.container}>
                 <Text
                     type="h2"
-                    fz={`${MOBILE_SCREEN ? "17px" : "26px"}`}
+                    fz={`${MOBILE ? "17px" : "26px"}`}
                     position="center"
                 >
                     Страница не найдена
                 </Text>
                 <Text
                     type="p"
-                    fz={`${MOBILE_SCREEN ? "14px" : "18px"}`}
+                    fz={`${MOBILE ? "14px" : "18px"}`}
                     color="#B1B2B4"
                     position="center"
                 >

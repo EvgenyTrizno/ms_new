@@ -81,7 +81,7 @@ const AccountMedicalCenterPage: FC = () => {
                         <Text type="p" color="#7D7F82" fz="14px">
                             Все сотрудники
                         </Text>
-                        <Slider container="100%" navigate={false}>
+                        <Slider slideWidth="80px">
                             <MobileCard />
                             <MobileCard />
                             <MobileCard />

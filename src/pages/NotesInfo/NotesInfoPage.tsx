@@ -171,7 +171,7 @@ const NotesInfoPage: FC = () => {
                             Все сотрудники центра
                         </Text>
                     </div>
-                    <Slider container="1500px">
+                    <Slider slideWidth="190px">
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
                             (item) => (
                                 <Card checkbox={false} key={item} />
