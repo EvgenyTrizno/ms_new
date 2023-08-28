@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { RouteData } from "./types";
 import { InterviewPage } from "../Auth/InterviewPage/InterviewPage";
-import { SMALL_LAPTOP } from "@/shared/utils";
+import { MOBILE, SMALL_LAPTOP } from "@/shared/utils";
 
 const RegistrationPage = lazy(
     () => import("@/pages/Auth/RegistrationPage/RegistrationPage")
@@ -178,7 +178,6 @@ export const routes: RouteData[] = [
         Component: MobileProfile,
         key: "mobile-profile_page",
     },
-    { path: "/m/chat/:id", Component: MobileChatPage, key: "mobile-chat_page" },
     {
         path: "/account",
         Component: AccountSettingsPage,
@@ -225,7 +224,7 @@ export const routes: RouteData[] = [
         key: "create-new-pass_page",
     },
     {
-        path: "/m/notifications",
+        path: "/notifications",
         Component: MobileNotificationPage,
         key: "mobile-notifications_page",
     },
@@ -246,7 +245,11 @@ export const routes: RouteData[] = [
     },
     {
         path: "/chat/:id",
-        Component: SMALL_LAPTOP ? ChatPage : NotFoundPage,
+        Component: SMALL_LAPTOP
+            ? ChatPage
+            : MOBILE
+            ? MobileChatPage
+            : NotFoundPage,
         key: "chat_page",
     },
 ];
