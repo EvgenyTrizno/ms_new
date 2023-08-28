@@ -4,6 +4,7 @@ import { MobileSwitcher } from "@/shared";
 import { useProfile, useUserCondition } from "@/shared/model/store";
 
 import man from "/assets/man.jpg";
+import settings from "/assets/setting-black.svg";
 import styles from "./MobileHeader.module.scss";
 
 export const MobileHeader: FC = () => {
@@ -25,7 +26,7 @@ export const MobileHeader: FC = () => {
             />
             <MobileSwitcher />
             <div className={styles.settings}>
-                {/* <Icons icon="settings" /> */}
+                <img src={settings} alt="" />
             </div>
         </div>
     );
