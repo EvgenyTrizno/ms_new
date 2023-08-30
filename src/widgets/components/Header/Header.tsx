@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IHeaderProps } from "./types";
 
 import { Text } from "@/shared";
@@ -13,7 +13,6 @@ import styles from "./Header.module.scss";
 
 export const Header: FC<IHeaderProps> = ({ width }) => {
     const navigate = useNavigate();
-    const location = useLocation();
     const { isSelect, setIsSelect } = useMenu();
     const { condition } = useUserCondition();
     const { img, group } = useUserData();
@@ -28,31 +27,14 @@ export const Header: FC<IHeaderProps> = ({ width }) => {
         >
             <div className={styles.nav}>
                 <div className={styles.inner}>
-                    <Text type="p">Главная</Text>
-                    <span>/</span>
-                    {isSelect === "Главная" || location.pathname === "/" ? (
-                        <div
-                            className={styles.text}
-                            onClick={() => navigate("/create-event")}
-                            style={{ cursor: "pointer" }}
+                    <div className={styles.text}>
+                        <Text
+                            color={`${sick ? "#D64657" : "#0064FA"}`}
+                            type="p"
                         >
-                            <Text
-                                color={`${sick ? "#D64657" : "#0064FA"}`}
-                                type="p"
-                            >
-                                Создать событие
-                            </Text>
-                        </div>
-                    ) : (
-                        <div className={styles.text}>
-                            <Text
-                                color={`${sick ? "#D64657" : "#0064FA"}`}
-                                type="p"
-                            >
-                                {isSelect}
-                            </Text>
-                        </div>
-                    )}
+                            {isSelect}
+                        </Text>
+                    </div>
                 </div>
                 <div className={styles.data}>
                     {group === "Врачи" && <Balance />}
