@@ -20,7 +20,7 @@ const NotesPage: FC = () => {
                     <Btn
                         color="#0064FA"
                         width="60px"
-                        onClick={() => navigate("/select-center-map")}
+                        onClick={() => navigate("/create-event")}
                         padding="0"
                     >
                         <img src={addCircle} alt="" />
