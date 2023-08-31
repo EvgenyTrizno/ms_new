@@ -135,7 +135,11 @@ export const Chat: FC = () => {
                 <div className={styles.chat}>
                     <div className={styles.list}>
                         <div className={styles.message}>
-                            <img src={woman} alt="" />
+                            <img
+                                src={woman}
+                                alt=""
+                                onClick={() => setIsInfo(true)}
+                            />
                             <div className={styles.inner}>
                                 <Text type="p" color="#333" fz="14px">
                                     Виктор
