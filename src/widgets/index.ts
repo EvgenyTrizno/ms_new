@@ -46,6 +46,7 @@ import { RecoveryForPersonal } from "./components/Auth/RecoveryForPersonal/Recov
 import { Balance } from "./components/Balance/Balance";
 import { Chat } from "./components/Chat/Chat";
 import { SliderArrows } from "./components/SliderArrows/SliderArrows";
+import { NotesCard } from "./components/NotesCard/NotesCard";
 
 export {
     Login,
@@ -96,4 +97,5 @@ export {
     Balance,
     Chat,
     SliderArrows,
+    NotesCard,
 };
