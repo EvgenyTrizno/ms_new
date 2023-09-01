@@ -14,15 +14,10 @@ const AccountAccessSettings: FC = () => {
     return (
         <div className={styles.access}>
             <CustomMobileHeader>
-                <div className={styles.header}>
-                    <div className={styles.box}>
-                        <BackArrow />
-                        <Text type="h2" fz="19px">
-                            Доступ
-                        </Text>
-                    </div>
-                    <Text type="h3" color="#0064FA" fz="13px">
-                        Добавить +
+                <div className={styles.box}>
+                    <BackArrow />
+                    <Text type="h2" fz="19px">
+                        Доступ
                     </Text>
                 </div>
             </CustomMobileHeader>
@@ -30,7 +25,7 @@ const AccountAccessSettings: FC = () => {
                 <div className={styles.container}>
                     <div className={styles.block}>
                         <Text type="p" fz="14px" color="#7D7F82">
-                            Имеется
+                            Принятые:
                         </Text>
                         <div className={styles.item}>
                             <div className={styles.data}>
@@ -77,7 +72,7 @@ const AccountAccessSettings: FC = () => {
                     </div>
                     <div className={styles.block}>
                         <Text type="p" fz="14px" color="#7D7F82">
-                            Отправлен
+                            Не принятые:
                         </Text>
                         <div className={styles.item}>
                             <div className={styles.data}>
