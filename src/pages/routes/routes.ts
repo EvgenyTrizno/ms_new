@@ -194,7 +194,7 @@ export const routes: RouteData[] = [
         key: "mobile-protection_page",
     },
     {
-        path: "/m/settings/account/access",
+        path: "/account/access",
         Component: AccountAccessSettings,
         key: "mobile-access_page",
     },
