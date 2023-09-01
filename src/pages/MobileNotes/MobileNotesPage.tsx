@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router";
 
 import { Text, MobileFilter, MobileSearch } from "@/shared";
-import { MobileContainer, CustomMobileHeader, NoteBlock } from "@/widgets";
+import { MobileContainer, CustomMobileHeader, NotesCard } from "@/widgets";
 
 import arrow from "/assets/arrow-left-black.svg";
 import plus from "/assets/plus-black.svg";
@@ -39,7 +39,7 @@ const MobileNotesPage: FC = () => {
                     <MobileFilter data={["Текущие", "Доп.проверка"]} />
                 </div>
                 <div className={styles.items}>
-                    {![].length ? (
+                    {![1].length ? (
                         <div className={styles.empty}>
                             <img src={ghost} alt="" />
                             <div className={styles.text}>
@@ -58,7 +58,7 @@ const MobileNotesPage: FC = () => {
                             </div>
                         </div>
                     ) : (
-                        <NoteBlock />
+                        <NotesCard />
                     )}
                 </div>
             </MobileContainer>
