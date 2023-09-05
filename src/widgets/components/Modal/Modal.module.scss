@@ -8,6 +8,7 @@
     left: 0;
     background-color: rgba(38, 38, 38, 0.40);
     backdrop-filter: blur(30px);
+    z-index: 2;
 
     .content {
         background-color: var(--white);
