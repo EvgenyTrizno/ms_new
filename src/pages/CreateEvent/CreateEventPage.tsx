@@ -2,8 +2,8 @@ import { ChangeEvent, FC, useEffect, useId, useState } from "react";
 import { ICraeteEventData } from "./types";
 
 import { Layout } from "../Layout/Layout";
-import { Btn, Filter, Input, Switch, Text } from "@/shared";
-import { Calendar } from "@/widgets";
+import { BackArrow, Btn, Filter, Input, Switch, Text } from "@/shared";
+import { Calendar, CustomMobileHeader } from "@/widgets";
 import { Account } from "@/shared/api/Account";
 import { getAccessTokenFromCookies } from "@/features";
 import { useFilter, useUserCondition } from "@/shared/model/store";
@@ -13,6 +13,7 @@ import info from "/assets/info-circle.svg";
 import arrow from "/assets/arrow-left-black.svg";
 import fileIcon from "/assets/file.svg";
 import styles from "./CreateEventPage.module.scss";
+import { MOBILE } from "@/shared/utils";
 
 const CreateEventPage: FC = () => {
     const [isAdd, setIsAdd] = useState<boolean>(false);
@@ -341,8 +342,13 @@ const CreateEventPage: FC = () => {
 
     return (
         <Layout>
-            <div className={styles.container}>
-                <Text type="h2" fz="36px">
+            {MOBILE && (
+                <CustomMobileHeader>
+                    <BackArrow />
+                </CustomMobileHeader>
+            )}
+            <div>
+                <Text type="h2" fz={MOBILE ? "22px" : "36px"}>
                     Создать событие
                 </Text>
                 <div className={styles.wrapper}>
@@ -354,10 +360,9 @@ const CreateEventPage: FC = () => {
                             <img src={info} alt="" />
                         </div>
                         <div className={styles.calendar}>
-                            <Filter data={["Онлайн", "Оффлайн"]} />
+                            <Filter width="100%" data={["Онлайн", "Оффлайн"]} />
                             <Calendar
                                 info
-                                height="750px"
                                 width="100%"
                                 selectDate={selectDate}
                                 setSelectDate={setSelectDate}
@@ -381,7 +386,10 @@ const CreateEventPage: FC = () => {
                                     }}
                                 >
                                     <div className={styles.block}>
-                                        <Text type="p" fz="18px">
+                                        <Text
+                                            type="p"
+                                            fz={MOBILE ? "15px" : "18px"}
+                                        >
                                             {item.title}
                                         </Text>
                                         <Switch
