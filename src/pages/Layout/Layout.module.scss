@@ -9,7 +9,6 @@
             right: 0;
             top: 80px;
             padding: 40px;
-
         }
 
         .extra {
@@ -30,10 +29,13 @@
 @media screen and (max-width: 768px) {
     .layout {
         .container {
-            display: none !important;
-
             .main {
-                display: none !important;
+                display: block;
+                width: 100vw;
+                padding: 0;
+                position: static;
+                top: 0;
+                right: 0;
             }
         }
     }
