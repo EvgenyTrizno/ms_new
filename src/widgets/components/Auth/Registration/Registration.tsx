@@ -1,4 +1,4 @@
-import { FC, useState, FormEvent } from "react";
+import { FC, useState, FormEvent, ChangeEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Text, Input, Btn, Checkbox } from "@/shared";
@@ -9,31 +9,32 @@ import facebook from "/assets/facebook.svg";
 import apple from "/assets/apple.svg";
 import google from "/assets/google.svg";
 import styles from "./Registration.module.scss";
+import { Modal } from "../../Modal/Modal";
 
 export const Registration: FC = () => {
     const [tel, setTel] = useState<string>("");
-    const [pass, setPass] = useState<string>("");
+    const [birthday, setBirthday] = useState<string>("");
     const [confirmPass, setConfirmPass] = useState<string>("");
     const [checked, setChecked] = useState<boolean>(false);
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
 
     const navigate = useNavigate();
-    const { setNumber, setGroup, setPass1, setPass2 } = useUserData();
+    const { setNumber, setGroup, setPass1, setPass2, pass1 } = useUserData();
 
     const { registration } = Auth();
 
     const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        registration(tel, pass, confirmPass, 1, "Пользователи")
+        registration(tel, pass1, confirmPass, 1, "Пользователи")
             .then((res) => {
                 console.log(res);
-                setPass("");
                 setTel("");
                 setConfirmPass("");
                 setChecked(false);
                 setNumber(res.number);
                 setGroup(res.group);
-                setPass1(pass);
+                setPass1(pass1);
                 setPass2(confirmPass);
             })
             .then(() => {
@@ -42,65 +43,117 @@ export const Registration: FC = () => {
             .catch((e) => console.log(e));
     };
 
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const name = e.target.name;
+        const value = e.target.value;
+
+        switch (name) {
+            case "birthday":
+                setBirthday(value);
+                break;
+            case "number":
+                setNumber(value);
+                break;
+            case "password":
+                setPass1(value);
+                break;
+            case "confirmPassword":
+                setPass2(value);
+                break;
+            default:
+                return;
+        }
+    };
+
     return (
-        <div className={styles.registration}>
-            <Text position="center" type="h2" fz="28px" color="#262626">
-                Регистрация
-            </Text>
-            <form action="#" className={styles.form} onSubmit={onSubmitHandler}>
-                <Input
-                    type="text"
-                    placeholder="Введите тел.номер"
-                    borderColor="#E9EAEB"
-                    onChange={(e) => setTel(e.target.value)}
-                    value={tel}
-                />
-                <Input
-                    type="password"
-                    placeholder="Введите пароль"
-                    borderColor="#E9EAEB"
-                    onChange={(e) => setPass(e.target.value)}
-                    value={pass}
-                />
-                <Input
-                    type="password"
-                    placeholder="Подтвердите пароль"
-                    borderColor="#E9EAEB"
-                    onChange={(e) => setConfirmPass(e.target.value)}
-                    value={confirmPass}
-                />
-                <div className={styles.policy}>
-                    <Checkbox
-                        checked={checked}
-                        onChange={() => setChecked((prev) => !prev)}
-                    />
-                    <Text color="#7D7F82" type="p">
-                        Я принимаю условия &nbsp;
-                        <Link to="/" className={styles.link}>
-                            данного соглашения
-                        </Link>
-                    </Text>
-                </div>
-                <Btn
-                    color="#0064FA"
-                    type="submit"
-                    disabled={
-                        tel !== "" &&
-                        pass !== "" &&
-                        confirmPass !== "" &&
-                        checked !== false
-                            ? false
-                            : true
-                    }
+        <>
+            <div className={styles.registration}>
+                <Text position="center" type="h2" fz="28px" color="#262626">
+                    Регистрация
+                </Text>
+                <form
+                    action="#"
+                    className={styles.form}
+                    onSubmit={onSubmitHandler}
                 >
-                    Продолжить
-                </Btn>
-            </form>
-            <div className={styles.btns}>
-                <img src={google} alt="google" />
-                <img src={facebook} alt="facebook" />
-                <img src={apple} alt="apple" />
+                    <Input
+                        type="text"
+                        placeholder="Дата рождения"
+                        value={birthday}
+                        onChange={handleChange}
+                        name="birthday"
+                    />
+                    <Input
+                        type="text"
+                        placeholder="Введите номер"
+                        borderColor="#E9EAEB"
+                        onChange={handleChange}
+                        value={tel}
+                        name="number"
+                    />
+                    <Input
+                        type="password"
+                        placeholder="Введите пароль"
+                        borderColor="#E9EAEB"
+                        onChange={handleChange}
+                        value={pass1}
+                        name="password"
+                    />
+                    <Input
+                        type="password"
+                        placeholder="Подтвердите пароль"
+                        borderColor="#E9EAEB"
+                        onChange={(e) => setConfirmPass(e.target.value)}
+                        value={confirmPass}
+                        name="confirmPassword"
+                    />
+                    <div className={styles.policy}>
+                        <Checkbox
+                            checked={checked}
+                            onChange={() => setChecked((prev) => !prev)}
+                        />
+                        <Text color="#7D7F82" type="p">
+                            Я согласен со&nbsp;
+                            <Link to="/" className={styles.link}>
+                                всеми условиями сайта
+                            </Link>
+                        </Text>
+                    </div>
+                    <Btn
+                        color="#0064FA"
+                        type="submit"
+                        disabled={
+                            tel !== "" &&
+                            pass1 !== "" &&
+                            confirmPass !== "" &&
+                            checked !== false
+                                ? false
+                                : true
+                        }
+                    >
+                        Продолжить
+                    </Btn>
+                </form>
+                <div className={styles.btns}>
+                    <img src={google} alt="google" />
+                    <img src={facebook} alt="facebook" />
+                    <img src={apple} alt="apple" />
+                </div>
             </div>
-        </div>
+            {isOpenModal && (
+                <Modal width="500px" setIsOpenModal={setIsOpenModal}>
+                    <Text type="h2" position="center" fz="20px">
+                        Предупреждение
+                    </Text>
+                    <div className={styles.warning}>
+                        <Text type="p" fw={400} position="center" fz="17px">
+                            Лица не достигшие 18 лет , могут находится на сайте
+                            только с позволения родителей
+                        </Text>
+                    </div>
+                    <Btn color="#0064FA">Продолжить</Btn>
+                </Modal>
+            )}
+        </>
     );
 };
