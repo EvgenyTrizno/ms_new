@@ -2,6 +2,7 @@ import { FC, useState, FormEvent, useEffect } from "react";
 
 import { Text, Input, Btn } from "@/shared";
 import { Modal } from "../../Modal/Modal";
+import { MOBILE } from "@/shared/utils";
 
 import arrowRight from "/assets/arrow-right-black.svg";
 import selectIcon from "/assets/tick-circle.svg";
@@ -73,6 +74,7 @@ export const RegistrationForPersonal: FC = () => {
                         {data.map((item, i) => (
                             <Input
                                 key={i}
+                                borderRadius={MOBILE ? "16px" : ""}
                                 type="text"
                                 placeholder={item.placeholder}
                                 borderColor="#E9EAEB"
@@ -82,7 +84,11 @@ export const RegistrationForPersonal: FC = () => {
                         ))}
                     </div>
                     <label style={{ margin: "32px 0px 26px" }}>
-                        <Text type="p" color="#7D7F82">
+                        <Text
+                            type="p"
+                            color="#7D7F82"
+                            fz={MOBILE ? "14px" : ""}
+                        >
                             Выберите цель регистрации
                         </Text>
                         <div className={styles.select}>
@@ -160,13 +166,17 @@ export const RegistrationForPersonal: FC = () => {
             </div>
             {isOpenModal && (
                 <Modal setIsOpenModal={setIsOpenModal} width="500px">
-                    <Text type="h2" position="center" fz="26px">
+                    <Text
+                        type="h2"
+                        position="center"
+                        fz={MOBILE ? "17px" : "26px"}
+                    >
                         На ваш телефон была отправлена ссылка
                     </Text>
                     <div className={styles.modalText}>
                         <Text
                             type="p"
-                            fz="18px"
+                            fz={MOBILE ? "14px" : "18px"}
                             color="#B1B2B4"
                             position="center"
                         >
@@ -174,7 +184,13 @@ export const RegistrationForPersonal: FC = () => {
                             заполнить
                         </Text>
                     </div>
-                    <Btn color="#0064FA" height="54px" padding="16px">
+                    <Btn
+                        br={MOBILE ? "12px" : ""}
+                        color="#0064FA"
+                        height={MOBILE ? "44px" : "54px"}
+                        padding="16px"
+                        fz={MOBILE ? "13px" : ""}
+                    >
                         Продолжить
                     </Btn>
                 </Modal>
