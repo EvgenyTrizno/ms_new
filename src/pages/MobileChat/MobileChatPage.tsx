@@ -10,7 +10,7 @@ import call from "/assets/call-calling.svg";
 import clips from "/assets/paperclip-blue.svg";
 import microphone from "/assets/microphone-blue.svg";
 import emoji from "/assets/emoji-normal.svg";
-import ghost from "/assets/ghost.svg";
+// import ghost from "/assets/ghost.svg";
 import styles from "./MobileChatPage.module.scss";
 
 const MobileChatPage: FC = () => {
@@ -44,7 +44,7 @@ const MobileChatPage: FC = () => {
                 <img src={call} alt="" />
             </div>
             <div className={styles.chatContainer}>
-                {/* <div className={styles.chatBox}>
+                <div className={styles.chatBox}>
                     <div className={styles.date}>
                         <Text type="p" fz="12px" color="#7D7F82">
                             Сегодня
@@ -77,8 +77,8 @@ const MobileChatPage: FC = () => {
                             </div>
                         </div>
                     </div>
-                </div> */}
-                <div className={styles.empty}>
+                </div>
+                {/* <div className={styles.empty}>
                     <img src={ghost} alt="" />
                     <div className={styles.text}>
                         <Text type="h2" fz="17px" position="center">
@@ -93,7 +93,7 @@ const MobileChatPage: FC = () => {
                             Отправьте сообщения что бы начать диалог
                         </Text>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className={styles.box}>
                 <img src={clips} alt="" />
