@@ -7,7 +7,7 @@ import {
     MobileContainer,
     Slider,
 } from "@/widgets";
-import { BackArrow, Btn, MobileFilter, MobileSwitch, Text } from "@/shared";
+import { BackArrow, Btn, MobileFilter, Switch, Text } from "@/shared";
 import { ICraeteEventData } from "../CreateEvent/types";
 
 import info from "/assets/info-circle.svg";
@@ -173,11 +173,7 @@ const MobileCreateEventPage: FC = () => {
                                         <Text type="p" fz="15px">
                                             {item.title}
                                         </Text>
-                                        <MobileSwitch
-                                            checked={
-                                                isChecked &&
-                                                ids.includes(item.id)
-                                            }
+                                        <Switch
                                             onChange={(e) => {
                                                 setIsCheked(
                                                     e?.target.checked as boolean
