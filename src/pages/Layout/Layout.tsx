@@ -14,7 +14,7 @@ import {
     useNotification,
     useUserData,
 } from "@/shared/model/store";
-import MobileAccountPage from "@/widgets/components/MobileAccount/MobileAccountPage";
+// import MobileAccountPage from "@/widgets/components/MobileAccount/MobileAccountPage";
 import { PC, SMALL_LAPTOP, TABLET, MOBILE } from "@/shared/utils";
 
 import extra from "/assets/extra-call.svg";
