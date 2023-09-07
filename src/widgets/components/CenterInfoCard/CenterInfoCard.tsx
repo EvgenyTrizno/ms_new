@@ -3,27 +3,16 @@ import { ICenterInfoCard } from "./types";
 
 import { Btn, Text } from "@/shared";
 
-import close from "/assets/close-circle.svg";
 import centerIcon from "/assets/center-icon.jpg";
 import styles from "./CenterInfoCard.module.scss";
 import { Rating } from "../Rating/Rating";
 
-export const CenterInfoCard: FC<ICenterInfoCard> = ({
-    setIsOpen,
-    top,
-    left,
-}) => {
+export const CenterInfoCard: FC<ICenterInfoCard> = ({ top, left, onClick }) => {
     return (
         <div className={styles.card} style={{ top, left }}>
             <div className={styles.rating}>
                 <Rating defaultValue={5} disabled width="35px" height="35px" />
             </div>
-            <img
-                src={close}
-                alt="close button"
-                className={styles.close}
-                onClick={() => setIsOpen(false)}
-            />
             <div className={styles.data}>
                 <div className={styles.box}>
                     <img src={centerIcon} alt="" className={styles.img} />
@@ -39,37 +28,39 @@ export const CenterInfoCard: FC<ICenterInfoCard> = ({
             </div>
             <ul className={styles.list}>
                 <li>
-                    <Text type="p" fz="20px">
+                    <Text type="p" fz="20px" color="#B1B2B4">
                         Колл-во специалистов:
                     </Text>
                     <span>7</span>
                 </li>
                 <li>
-                    <Text type="p" fz="20px">
+                    <Text type="p" fz="20px" color="#B1B2B4">
                         Наблюдалось:
                     </Text>
                     <span>300</span>
                 </li>
                 <li>
-                    <Text type="p" fz="20px">
+                    <Text type="p" fz="20px" color="#B1B2B4">
                         Наблюдается:
                     </Text>
                     <span>167</span>
                 </li>
                 <li>
-                    <Text type="p" fz="20px">
+                    <Text type="p" fz="20px" color="#B1B2B4">
                         “Онлайн” лечение:
                     </Text>
                     <span>11</span>
                 </li>
                 <li>
-                    <Text type="p" fz="20px">
+                    <Text type="p" fz="20px" color="#B1B2B4">
                         “Оффлайн” лечение:
                     </Text>
                     <span>5</span>
                 </li>
             </ul>
-            <Btn color="#0064FA">Продолжить</Btn>
+            <Btn color="#0064FA" onClick={onClick}>
+                Продолжить
+            </Btn>
         </div>
     );
 };
