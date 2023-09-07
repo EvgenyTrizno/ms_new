@@ -3,17 +3,17 @@ import { ICraeteEventData } from "./types";
 
 import { Layout } from "../Layout/Layout";
 import { BackArrow, Btn, Filter, Input, Switch, Text } from "@/shared";
-import { Calendar, CustomMobileHeader } from "@/widgets";
+import { Calendar, CustomMobileHeader, SelectCenterMap } from "@/widgets";
 import { Account } from "@/shared/api/Account";
 import { getAccessTokenFromCookies } from "@/features";
 import { useFilter, useUserCondition } from "@/shared/model/store";
 import { IProfileData } from "@/shared/api/Account/types";
+import { MOBILE } from "@/shared/utils";
 
 import info from "/assets/info-circle.svg";
 import arrow from "/assets/arrow-left-black.svg";
 import fileIcon from "/assets/file.svg";
 import styles from "./CreateEventPage.module.scss";
-import { MOBILE } from "@/shared/utils";
 
 const CreateEventPage: FC = () => {
     const [isAdd, setIsAdd] = useState<boolean>(false);
@@ -31,6 +31,7 @@ const CreateEventPage: FC = () => {
     const [selectDoctors, setSelectDoctors] = useState<IProfileData[]>([]);
     const [duration, setDuration] = useState<number>(0);
     const [file, setFile] = useState<string>("");
+    const [map, setMap] = useState<boolean>(true);
 
     const { condition } = useUserCondition();
     const { isFilter } = useFilter();
@@ -132,6 +133,10 @@ const CreateEventPage: FC = () => {
 
         name === "day" && setNotifyDays(value);
         name === "minutes" && setNotifyMinutes(value);
+    };
+
+    const onHandleClick = () => {
+        setMap(false);
     };
 
     const data: ICraeteEventData[] = [
@@ -341,118 +346,140 @@ const CreateEventPage: FC = () => {
     ];
 
     return (
-        <Layout>
-            {MOBILE && (
-                <CustomMobileHeader>
-                    <BackArrow />
-                </CustomMobileHeader>
-            )}
-            <div>
-                <Text type="h2" fz={MOBILE ? "22px" : "36px"}>
-                    Создать событие
-                </Text>
-                <div className={styles.wrapper}>
-                    <div className={styles.box}>
-                        <div className={styles.text}>
-                            <Text type="p" color="#7D7F82">
-                                Выберите формат записи
-                            </Text>
-                            <img src={info} alt="" />
-                        </div>
-                        <div className={styles.calendar}>
-                            <Filter width="100%" data={["Онлайн", "Оффлайн"]} />
-                            <Calendar
-                                info
-                                width="100%"
-                                selectDate={selectDate}
-                                setSelectDate={setSelectDate}
-                                setSelectDateEnd={setSelectDateEnd}
-                            />
-                        </div>
-                    </div>
-                    <div className={styles.box}>
-                        <div className={styles.text}>
-                            <Text type="p" color="#7D7F82">
-                                Выберите формат записи
-                            </Text>
-                        </div>
-                        <div className={styles.options}>
-                            {data.map((item) => (
-                                <div
-                                    className={styles.item}
-                                    key={item.id}
-                                    style={{
-                                        borderColor: sick ? "#F7E6E8" : "",
-                                    }}
-                                >
-                                    <div className={styles.block}>
-                                        <Text
-                                            type="p"
-                                            fz={MOBILE ? "15px" : "18px"}
-                                        >
-                                            {item.title}
-                                        </Text>
-                                        <Switch
-                                            onChange={(e) => {
-                                                if (e?.target.checked) {
-                                                    setIds([...ids, item.id]);
-                                                } else {
-                                                    const id = ids.filter(
-                                                        (it) => it !== item.id
-                                                    );
-
-                                                    setIds(id);
-                                                }
+        <>
+            {map ? (
+                <SelectCenterMap setMap={onHandleClick} />
+            ) : (
+                <Layout>
+                    {MOBILE && (
+                        <CustomMobileHeader>
+                            <BackArrow />
+                        </CustomMobileHeader>
+                    )}
+                    <div>
+                        <Text type="h2" fz={MOBILE ? "22px" : "36px"}>
+                            Создать событие
+                        </Text>
+                        <div className={styles.wrapper}>
+                            <div className={styles.box}>
+                                <div className={styles.text}>
+                                    <Text type="p" color="#7D7F82">
+                                        Выберите формат записи
+                                    </Text>
+                                    <img src={info} alt="" />
+                                </div>
+                                <div className={styles.calendar}>
+                                    <Filter
+                                        width="100%"
+                                        data={["Онлайн", "Оффлайн"]}
+                                    />
+                                    <Calendar
+                                        info
+                                        width="100%"
+                                        selectDate={selectDate}
+                                        setSelectDate={setSelectDate}
+                                        setSelectDateEnd={setSelectDateEnd}
+                                    />
+                                </div>
+                            </div>
+                            <div className={styles.box}>
+                                <div className={styles.text}>
+                                    <Text type="p" color="#7D7F82">
+                                        Выберите формат записи
+                                    </Text>
+                                </div>
+                                <div className={styles.options}>
+                                    {data.map((item) => (
+                                        <div
+                                            className={styles.item}
+                                            key={item.id}
+                                            style={{
+                                                borderColor: sick
+                                                    ? "#F7E6E8"
+                                                    : "",
                                             }}
-                                        />
-                                    </div>
-                                    <div
-                                        className={
-                                            ids.includes(item.id)
-                                                ? `${styles.content} ${styles.open}`
-                                                : styles.content
-                                        }
-                                    >
-                                        <div style={{ minHeight: 0 }}>
-                                            <div
-                                                className={styles.label}
-                                                style={{
-                                                    transition: "ease .5s",
-                                                    pointerEvents: ids.includes(
-                                                        item.id
-                                                    )
-                                                        ? "auto"
-                                                        : "none",
-                                                    opacity: ids.includes(
-                                                        item.id
-                                                    )
-                                                        ? 1
-                                                        : 0,
-                                                }}
-                                            >
+                                        >
+                                            <div className={styles.block}>
                                                 <Text
                                                     type="p"
-                                                    fz="15px"
-                                                    color="#7D7F82"
+                                                    fz={
+                                                        MOBILE ? "15px" : "18px"
+                                                    }
                                                 >
-                                                    {item.subtitle}
+                                                    {item.title}
                                                 </Text>
+                                                <Switch
+                                                    onChange={(e) => {
+                                                        if (e?.target.checked) {
+                                                            setIds([
+                                                                ...ids,
+                                                                item.id,
+                                                            ]);
+                                                        } else {
+                                                            const id =
+                                                                ids.filter(
+                                                                    (it) =>
+                                                                        it !==
+                                                                        item.id
+                                                                );
+
+                                                            setIds(id);
+                                                        }
+                                                    }}
+                                                />
                                             </div>
-                                            {item.content}
+                                            <div
+                                                className={
+                                                    ids.includes(item.id)
+                                                        ? `${styles.content} ${styles.open}`
+                                                        : styles.content
+                                                }
+                                            >
+                                                <div style={{ minHeight: 0 }}>
+                                                    <div
+                                                        className={styles.label}
+                                                        style={{
+                                                            transition:
+                                                                "ease .5s",
+                                                            pointerEvents:
+                                                                ids.includes(
+                                                                    item.id
+                                                                )
+                                                                    ? "auto"
+                                                                    : "none",
+                                                            opacity:
+                                                                ids.includes(
+                                                                    item.id
+                                                                )
+                                                                    ? 1
+                                                                    : 0,
+                                                        }}
+                                                    >
+                                                        <Text
+                                                            type="p"
+                                                            fz="15px"
+                                                            color="#7D7F82"
+                                                        >
+                                                            {item.subtitle}
+                                                        </Text>
+                                                    </div>
+                                                    {item.content}
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
-                        <div className={styles.btn}>
-                            <Btn color="#0064FA" onClick={handleClick}>
-                                Записаться
-                            </Btn>
+                                <div className={styles.btn}>
+                                    <Btn color="#0064FA" onClick={handleClick}>
+                                        Записаться
+                                    </Btn>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </Layout>
+                </Layout>
+            )}
+        </>
     );
 };
 
