@@ -1,0 +1,47 @@
+.map {
+    width: 100vw;
+    height: 100vh;
+
+    .inner {
+        display: flex;
+        width: 100%;    
+        position: absolute;
+        max-width: 1350px;
+        grid-gap: 10px;
+        top: 30px;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, 0);
+        
+        .search {
+            display: flex;
+            width: 100%;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--input-border);
+        
+            .btn {
+                background-color: var(--white);
+                border-bottom-left-radius: var(--input-border);
+                border-top-left-radius: var(--input-border);
+                padding-left: 20px;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .input {
+                background-color: var(--white);
+                height: 60px;
+                padding: 20px;
+                border-top-right-radius: var(--input-border);
+                border-bottom-right-radius: var(--input-border);
+                width: 100%;
+            }
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            grid-gap: 10px;
+        }
+    }
+}
