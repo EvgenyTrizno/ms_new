@@ -29,9 +29,6 @@ const CreateEventPage = lazy(
     () => import("@/pages/CreateEvent/CreateEventPage")
 );
 const MapPage = lazy(() => import("@/pages/Map/MapPage"));
-const SelectCenterMapPage = lazy(
-    () => import("@/pages/SelectCenterMap/SelectCenterMapPage")
-);
 const MessagesPage = lazy(() => import("@/pages/Messages/MessagesPage"));
 const MedicalTestPage = lazy(
     () => import("@/pages/MedicalTest/MedicalTestPage")
@@ -80,9 +77,6 @@ const AccountMedicalCenterPage = lazy(
 );
 const AccountMedicalCardPage = lazy(
     () => import("../Settings/AccountMedicalCard/AccountMedicalCardPage")
-);
-const MobileCreateEventPage = lazy(
-    () => import("../MobileCreateEvent/MobileCreateEventPage")
 );
 const CreateNewPassPage = lazy(
     () => import("@/pages/CreateNewPass/CreateNewPassPage")
@@ -159,11 +153,6 @@ export const routes: RouteData[] = [
     },
     { path: "/location", Component: MapPage, key: "map_page" },
     {
-        path: "/select-center-map",
-        Component: SelectCenterMapPage,
-        key: "select-center-map_page",
-    },
-    {
         path: "/messages",
         Component: media ? MobileMessagesPage : MessagesPage,
         key: "messages_page",
@@ -212,11 +201,6 @@ export const routes: RouteData[] = [
         path: "/m/settings/account/medical-center",
         Component: AccountMedicalCenterPage,
         key: "mobile-medical-center_page",
-    },
-    {
-        path: "/m/create-event",
-        Component: MobileCreateEventPage,
-        key: "mobile-create-event_page",
     },
     {
         path: "/create-new-password",
