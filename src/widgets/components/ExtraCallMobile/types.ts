@@ -7,4 +7,5 @@ export interface IExtraCallBtnData {
     icon: IIconData;
     id: string;
     position: IExtraCallBtnPositionData;
+    type: string;
 }
