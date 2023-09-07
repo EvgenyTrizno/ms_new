@@ -14,27 +14,19 @@ import {
     getAccessTokenFromCookies,
 } from "@/features";
 import { ErrorBoundaryFallback } from "@/widgets";
-import { useUserData, useUserCondition } from "@/shared/model/store";
+import { useUserData } from "@/shared/model/store";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "./index.scss";
 
 const App = () => {
-    const { condition } = useUserCondition();
     const { setImg } = useUserData();
     const { tokenСomparison } = Auth();
     const { getUserData } = Account();
 
     const token = getRefreshTokenFromCookies();
     const accessToken = getAccessTokenFromCookies();
-    const sick = condition === "Болен";
-
-    useEffect(() => {
-        sick
-            ? (document.body.style.background = "#fff9fb")
-            : (document.body.style.backgroundColor = "#f7fcff");
-    }, [sick]);
 
     useEffect(() => {
         if (token) {
