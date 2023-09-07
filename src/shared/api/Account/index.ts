@@ -2,8 +2,6 @@ import { BASE_URL } from "@/shared/config";
 import { useHttp } from "@/shared/hooks";
 import { IProfileData } from "./types";
 
-import noimage from "/assets/noimage.svg";
-
 export const Account = () => {
     const { request } = useHttp();
 
@@ -125,12 +123,7 @@ export const Account = () => {
             }
         );
 
-        const _transformData = {
-            ...data,
-            image: data.image ?? noimage,
-        };
-
-        return _transformData;
+        return data;
     };
 
     const verifyEmail = async (token: string, email: string) => {
