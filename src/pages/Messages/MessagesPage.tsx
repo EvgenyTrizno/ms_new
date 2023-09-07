@@ -161,7 +161,7 @@ const MessagesPage: FC = () => {
                                                     <Text
                                                         type="h2"
                                                         color="#262626"
-                                                        fz="20px"
+                                                        fz="16px"
                                                     >
                                                         Михайлова Т. А.
                                                     </Text>

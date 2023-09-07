@@ -209,8 +209,7 @@ export const Chat: FC = () => {
                                 type="text"
                                 placeholder="Поиск чатов"
                                 br="none"
-                                btr="unset"
-                                bbr="unset"
+                                borderRadius="10px 0px 0px 10px"
                                 value={msg}
                                 onChange={(e) => setMsg(e.target.value)}
                             />

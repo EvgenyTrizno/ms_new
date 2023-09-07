@@ -196,8 +196,18 @@
                             }
                         }
                     }
+
+                    .chat:hover {
+                        transition: all ease .5s;
+
+                        p {
+                            transition: all ease .5s;
+                            font-weight: 600;
+                        }
+                    }
                 }
             }
+
 
             .chats::-webkit-scrollbar {
                 scrollbar-width: none;

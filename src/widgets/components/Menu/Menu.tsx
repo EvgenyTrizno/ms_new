@@ -485,12 +485,8 @@ export const Menu: FC = () => {
                     ? `${styles.menu} ${styles.open}`
                     : styles.menu
             }
-            style={{ borderColor: sick ? "#F7E6E8" : "" }}
         >
-            <div
-                className={styles.logo}
-                style={{ borderColor: sick ? "#F7E6E8" : "" }}
-            >
+            <div className={styles.logo}>
                 {!isHovered && SMALL_LAPTOP && (
                     <Text
                         type="h2"

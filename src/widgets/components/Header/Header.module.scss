@@ -4,11 +4,11 @@
     display: flex;
     color: var(--gray);
     position: fixed;
-    width: calc(100vw - 301px);
+    width: calc(100vw - 300px);
     z-index: 10;
     right: 0;
     top: 0;
-    border-bottom: 1px solid var(--blue-100);
+    border-bottom: 1px solid var(--gray-100);
     transition: border-color .3s linear;
 
     .nav {
@@ -52,7 +52,7 @@
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
     .header {
-        width: calc(100vw - 117px);
+        width: calc(100vw - 116px);
 
         .nav {
             .inner {
