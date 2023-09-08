@@ -192,36 +192,39 @@ const MessagesPage: FC = () => {
                                     ))
                                 ) : (
                                     <div className={styles.calls}>
-                                        <div className={styles.call}>
-                                            <div className={styles.data}>
-                                                <div className={styles.icon}>
-                                                    <img
-                                                        src={incoming}
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <img src={woman} alt="" />
-                                                <div className={styles.text}>
-                                                    <Text
-                                                        type="h2"
-                                                        color="#262626"
-                                                        fz="20px"
-                                                    >
-                                                        Михайлова Т. А.
+                                        {[1, 2, 3, 4].map((item) => (
+                                            <div
+                                                className={styles.call}
+                                                key={item}
+                                            >
+                                                <img src={incoming} alt="" />
+                                                <img
+                                                    src={woman}
+                                                    alt=""
+                                                    className={styles.avatar}
+                                                />
+                                                <div className={styles.data}>
+                                                    <Text type="h2" fz="19px">
+                                                        Яковенко А. С.
                                                     </Text>
                                                     <Text
-                                                        type="p"
-                                                        fz="14px"
+                                                        fz="17px"
                                                         color="#7D7F82"
+                                                        type="p"
                                                     >
-                                                        Привет как настроение?
+                                                        Исходящий вызов (30
+                                                        минут)
                                                     </Text>
                                                 </div>
+                                                <Text
+                                                    type="p"
+                                                    fz="17px"
+                                                    color="#B1B2B4"
+                                                >
+                                                    2:23
+                                                </Text>
                                             </div>
-                                            <div className={styles.time}>
-                                                <Text type="p">2:23</Text>
-                                            </div>
-                                        </div>
+                                        ))}
                                     </div>
                                 )}
                             </div>
