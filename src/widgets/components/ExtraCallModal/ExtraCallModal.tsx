@@ -37,6 +37,7 @@ export const ExtraCallModal: FC = () => {
                 x: -120,
                 y: 0,
             },
+            type: "",
         },
         {
             icon: {
@@ -48,6 +49,7 @@ export const ExtraCallModal: FC = () => {
                 x: -95,
                 y: -90,
             },
+            type: "",
         },
 
         {
@@ -60,6 +62,7 @@ export const ExtraCallModal: FC = () => {
                 x: 0,
                 y: -120,
             },
+            type: "",
         },
     ];
 
