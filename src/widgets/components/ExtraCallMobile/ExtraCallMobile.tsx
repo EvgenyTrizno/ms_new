@@ -1,4 +1,4 @@
-import { FC, useId, MouseEvent, useState } from "react";
+import { FC, useId, MouseEvent, useState, useEffect } from "react";
 import { IExtraCallBtnData } from "./types";
 import { motion } from "framer-motion";
 import { TABLET } from "@/shared/utils";
@@ -16,6 +16,10 @@ export const ExtraCallMobile: FC = () => {
 
     const { condition } = useUserCondition();
     const { isOpen, setIsOpen } = useExtraCall();
+
+    useEffect(() => {
+        setIsOpenModal(true);
+    }, []);
 
     const sick = condition === "Болен";
 
@@ -127,7 +131,7 @@ export const ExtraCallMobile: FC = () => {
                         ))}
                 </div>
             </motion.div>
-            {/* {isOpenModal && <Modal setIsOpenModal={setIsOpenModal}></Modal>} */}
+            {isOpenModal && <Modal setIsOpenModal={setIsOpenModal}>ss</Modal>}
         </>
     );
 };
