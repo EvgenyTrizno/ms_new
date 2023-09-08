@@ -1,0 +1,33 @@
+.card {
+    padding: 30px;
+    background-color: var(--white);
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 30px;
+    border-radius: var(--default-border);
+    border: 1px solid var(--blue-100);
+
+    .name {
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 100%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+    }
+
+    .data {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
+        
+        .text {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 10px;
+        }
+    }
+}
