@@ -34,7 +34,7 @@ const AccountSubscriptionsSettingsPage: FC = () => {
                         >
                             Центры
                         </Text>
-                        <Slider slideWidth="280px">
+                        <Slider>
                             <div className={styles.card}>
                                 <img src={poster} alt="" />
                                 <div className={styles.text}>
@@ -64,7 +64,7 @@ const AccountSubscriptionsSettingsPage: FC = () => {
                         >
                             Клиники
                         </Text>
-                        <Slider slideWidth="280px">
+                        <Slider>
                             <div className={styles.clinic}>
                                 <img src={poster} alt="" />
                                 <div className={styles.text}>
@@ -105,7 +105,7 @@ const AccountSubscriptionsSettingsPage: FC = () => {
                         >
                             Специалисты
                         </Text>
-                        <Slider slideWidth="80px">
+                        <Slider>
                             <MobileCard />
                         </Slider>
                     </div>

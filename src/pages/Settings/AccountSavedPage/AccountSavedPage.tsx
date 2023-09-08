@@ -32,7 +32,7 @@ const AccountSavedPage: FC = () => {
                         >
                             Файлы
                         </Text>
-                        <Slider slideWidth="150px">
+                        <Slider>
                             <div className={styles.file}>
                                 <div className={styles.content}>
                                     <div className={styles.thumbnail}>

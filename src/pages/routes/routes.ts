@@ -92,6 +92,9 @@ const UserInfoPage = lazy(() => import("@/pages/UserInfo/UserInfoPage"));
 const UsersPage = lazy(() => import("@/pages/Users/UsersPage"));
 const BalancePage = lazy(() => import("@/pages/Balance/BalancePage"));
 const ChatPage = lazy(() => import("@/pages/Chat/ChatPage"));
+const AbountCenterPage = lazy(
+    () => import("@/pages/AboutCenter/AboutCenterPage")
+);
 
 const media = window.matchMedia("(max-width: 768px)").matches;
 
@@ -235,5 +238,10 @@ export const routes: RouteData[] = [
             ? MobileChatPage
             : NotFoundPage,
         key: "chat_page",
+    },
+    {
+        path: "/about-center",
+        Component: AbountCenterPage,
+        key: "abount-center_page",
     },
 ];

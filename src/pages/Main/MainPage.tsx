@@ -32,7 +32,7 @@ const MainPage: FC = () => {
                         </Text>
                         <SliderArrows />
                     </div>
-                    <Slider slideWidth="190px">
+                    <Slider>
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
                             <Card checkbox={false} key={item} />
                         ))}

@@ -33,7 +33,7 @@ const MobileMainPage: FC = () => {
                     >
                         Специалисты из Узбекистана
                     </Text>
-                    <Slider slideWidth="80px">
+                    <Slider>
                         {[1, 2, 3, 4, 5].map((item) => (
                             <MobileCard key={item} />
                         ))}

@@ -154,7 +154,7 @@ const MobileCreateEventPage: FC = () => {
                         <Text type="p" fz="12px" color="#B1B2B4">
                             Выберите специалиста
                         </Text>
-                        <Slider slideWidth="80px">
+                        <Slider>
                             <MobileCard />
                             <MobileCard />
                             <MobileCard />
