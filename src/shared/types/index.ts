@@ -1,4 +1,10 @@
-import { ReactNode, HTMLInputTypeAttribute, ChangeEvent } from "react";
+import {
+    ReactNode,
+    HTMLInputTypeAttribute,
+    ChangeEvent,
+    Dispatch,
+    SetStateAction,
+} from "react";
 
 export interface IText {
     type: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -70,3 +76,5 @@ export interface IModalProps {
 export interface ISwitchProps {
     onChange?: (e?: ChangeEvent<HTMLInputElement>) => void;
 }
+
+export type HandleClick<T> = Dispatch<SetStateAction<T>>;
