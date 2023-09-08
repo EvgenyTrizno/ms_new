@@ -47,6 +47,8 @@ import { Balance } from "./components/Balance/Balance";
 import { Chat } from "./components/Chat/Chat";
 import { SliderArrows } from "./components/SliderArrows/SliderArrows";
 import { NotesCard } from "./components/NotesCard/NotesCard";
+import { SelectCenterMap } from "./components/SelectCenterMap/SelectCenterMap";
+import { PersonalCard } from "./components/PersonalCard/PersonalCard";
 
 export {
     Login,
@@ -98,4 +100,6 @@ export {
     Chat,
     SliderArrows,
     NotesCard,
+    SelectCenterMap,
+    PersonalCard,
 };
