@@ -27,7 +27,7 @@ const MainPage: FC = () => {
             <div className={styles.container}>
                 <div className={styles.box}>
                     <div className={styles.nav}>
-                        <Text type="p" color="#7D7F82">
+                        <Text type="p" color="#7D7F82" fz="14px">
                             Специалисты из Узбекистана
                         </Text>
                         <SliderArrows />
