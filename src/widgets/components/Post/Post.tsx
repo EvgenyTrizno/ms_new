@@ -13,36 +13,43 @@ import archive from "/assets/archive-add.svg";
 import arrowRight from "/assets/arrow-right-blue.svg";
 import arrowRightRed from "/assets/arrow-right-red.svg";
 import styles from "./Post.module.scss";
+import "swiper/css/pagination";
 
 export const Post: FC = () => {
     const { condition } = useUserCondition();
 
     const sick = condition === "Болен";
+    const pagination = {
+        clickable: true,
+        renderBullet: () => {
+            return `<span class="${`${styles.pagination} ${styles.paginationRed}`}"></span>`;
+        },
+    };
+
+    console.log();
 
     return (
         <div className={styles.post}>
             <div className={styles.user}>
                 <img src={avatar} alt="" />
                 <div className={styles.data}>
-                    <Text type="h2" color="#262626" fz="24px">
+                    <Text type="h2" color="#262626" fz="18px">
                         Яковенко А. С.
                     </Text>
-                    <Text type="p" color="#00000080">
+                    <Text type="p" fz="14px" color="#00000080">
                         Пользователь
                     </Text>
                 </div>
             </div>
             <div className={styles.descr}>
-                <Text type="p" fz="18px" color="#3C3D3E">
+                <Text type="p" fz="14px" color="#3C3D3E">
                     Lorem Ipsum является текст-заполнитель обычно используется в
                     графических, печать и издательской индустрии для
                     предварительного просмотра макета
                 </Text>
             </div>
             <Swiper
-                pagination={{
-                    clickable: true,
-                }}
+                pagination={pagination}
                 modules={[Pagination]}
                 className={styles.slider}
             >

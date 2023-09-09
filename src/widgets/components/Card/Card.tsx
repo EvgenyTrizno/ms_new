@@ -30,11 +30,11 @@ export const Card: FC<ICard> = ({ checkbox }) => {
             <div className={styles.box}>
                 <Text
                     type="h3"
-                    fz={PC ? "16px" : SMALL_LAPTOP ? "14px" : "13px"}
+                    fz={PC ? "13px" : SMALL_LAPTOP ? "13px" : "13px"}
                 >
                     Михайлова Т. А.
                 </Text>
-                <Text type="p" position="center" fz={PC ? "16px" : "12px"}>
+                <Text type="p" position="center" fz={PC ? "12px" : "12px"}>
                     Хирург
                 </Text>
             </div>
