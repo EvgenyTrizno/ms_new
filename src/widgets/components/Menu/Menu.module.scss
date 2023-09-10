@@ -18,14 +18,14 @@
     
     .logo {
         border-bottom: 1px solid var(--gray-100);
-        height: 80px;
-        padding: 20px;
+        height: 65px;
+        padding: 16px;
         display: flex;
         align-items: center;
     }
 
     .container {
-        padding: 20px;
+        padding: 16px;
         
         .list {
             margin-top: 20px;
@@ -52,7 +52,7 @@
         .item {
             width: 64px;
             height: 64px;
-            border-radius: var(--default-border);
+            border-radius: var(--mobile-default-border);
             cursor: pointer;
             transition: all .3s ease-out;
             display: flex;
@@ -86,16 +86,16 @@
 }
 
 .menu.open {
-    width: 300px;
+    width: 248px;
 
     .container {
         .list {
             .item {
                 width: 100%;
-                height: 65px;
-                padding: 25px 20px;
+                height: 56px;
+                padding: 16px;
                 display: flex;
-                grid-gap: 20px;
+                grid-gap: 16px;
                 align-items: center;
                 
                 p {
@@ -105,6 +105,8 @@
 
                 svg {
                     margin: 0;
+                    width: 20px;
+                    height: 20px;
                 }
             }
         }

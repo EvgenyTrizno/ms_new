@@ -6,7 +6,6 @@ import { useExtraCall } from "@/shared/model/store";
 import { useUserCondition } from "@/shared/model/store";
 import { Btn, Text } from "@/shared";
 
-import cross from "/assets/cross.svg";
 import amabulance from "/assets/amabulance-blue.svg";
 import amabulanceRed from "/assets/amabulance-red.svg";
 import homeWithPlus from "/assets/home-with-plus-blue.svg";
@@ -84,9 +83,6 @@ export const ExtraCallModal: FC = () => {
                 pointerEvents: isOpen ? "auto" : "none",
             }}
         >
-            <div className={styles.extraBtn} onClick={handleSetIsOpen}>
-                <img src={cross} alt="" />
-            </div>
             {!isOpenModal &&
                 data.map((item) => (
                     <motion.div

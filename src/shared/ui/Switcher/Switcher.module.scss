@@ -5,13 +5,13 @@
     border: 1px solid transparent;
     font-family: "Montserrat";
     font-weight: 500;
+    height: 56px;
 
     .item {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 60px;
-        grid-gap: 10px;
+        grid-gap: 5px;
         width: 100%;
         color: var(--gray);
         cursor: pointer;
@@ -19,6 +19,8 @@
         svg {
             fill: var(--gray);
             z-index: 1;
+            width: 20px;
+            height: 20px;
         }
 
         p {
@@ -29,8 +31,8 @@
 
     .item::before {
         content: '';
-        width: 130px;
-        height: 60px;
+        width: 108px;
+        height: 56px;
         display: flex;
         align-items: center;
         justify-content: center;

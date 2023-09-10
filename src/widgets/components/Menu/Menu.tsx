@@ -500,7 +500,7 @@ export const Menu: FC = () => {
                     <Text
                         type="h2"
                         color={sick ? "#D64657" : "#0064FA"}
-                        fz="24px"
+                        fz="20px"
                     >
                         Pre-rec.io
                     </Text>
@@ -508,7 +508,7 @@ export const Menu: FC = () => {
             </div>
             <div className={styles.container}>
                 {(PC || (isHovered && SMALL_LAPTOP)) && (
-                    <Text color="#B1B2B4" type="p">
+                    <Text color="#B1B2B4" type="p" fz="14px">
                         Состояние:
                     </Text>
                 )}
@@ -539,7 +539,9 @@ export const Menu: FC = () => {
                                 }
                             >
                                 {item.icon}
-                                <Text type="p">{item.label}</Text>
+                                <Text type="p" fz="14px">
+                                    {item.label}
+                                </Text>
                             </div>
                         ))}
                     {group === "Врачи" &&
@@ -567,7 +569,9 @@ export const Menu: FC = () => {
                                 }
                             >
                                 {item.icon}
-                                <Text type="p">{item.label}</Text>
+                                <Text type="p" fz="14px">
+                                    {item.label}
+                                </Text>
                             </div>
                         ))}
                 </div>
