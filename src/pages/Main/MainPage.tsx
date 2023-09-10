@@ -43,7 +43,7 @@ const MainPage: FC = () => {
                         <Btn color="#0064FA" width="160px">
                             <div className={styles.inner}>
                                 <img src={controller} alt="" />
-                                Фильтры
+                                <Text type="p">Фильтры</Text>
                             </div>
                         </Btn>
                     </div>
@@ -51,10 +51,15 @@ const MainPage: FC = () => {
                 <div className={styles.posts}>
                     <div className={styles.filters}>
                         {PC ? (
-                            <Btn color="#0064FA">
+                            <Btn
+                                color="#0064FA"
+                                height="48px"
+                                br="12px"
+                                padding="14px"
+                            >
                                 <div className={styles.inner}>
                                     <img src={controller} alt="" />
-                                    Фильтры
+                                    <Text type="p">Фильтры</Text>
                                 </div>
                             </Btn>
                         ) : (
