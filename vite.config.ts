@@ -8,6 +8,11 @@ dotenv.config();
 export default defineConfig({
     plugins: [react()],
     server: {
+        watch: {
+            usePolling: true,
+        },
+        host: true,
+        strictPort: true,
         port: 3000,
     },
     resolve: {
