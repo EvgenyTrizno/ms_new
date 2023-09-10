@@ -14,7 +14,7 @@ import {
     getAccessTokenFromCookies,
 } from "@/features";
 import { ErrorBoundaryFallback } from "@/widgets";
-import { useUserData } from "@/shared/model/store";
+import { useUserData, useUserCondition } from "@/shared/model/store";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -24,9 +24,11 @@ const App = () => {
     const { setImg } = useUserData();
     const { tokenСomparison } = Auth();
     const { getUserData } = Account();
+    const { condition } = useUserCondition();
 
     const token = getRefreshTokenFromCookies();
     const accessToken = getAccessTokenFromCookies();
+    const sick = condition === "Болен";
 
     useEffect(() => {
         if (token) {
@@ -45,6 +47,12 @@ const App = () => {
             });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        !sick
+            ? (document.body.style.backgroundColor = "#F5F8FC")
+            : (document.body.style.backgroundColor = "#FFFAFA");
+    }, [sick]);
 
     return (
         <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
