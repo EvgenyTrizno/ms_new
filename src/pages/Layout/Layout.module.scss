@@ -1,28 +1,23 @@
 .layout {
-    .container {
-        display: grid;
-        grid-template-columns: 300px 1fr;
+    .main {
+        position: absolute;
+        width: calc(100% - 248px);
+        right: 0;
+        top: 65px;
+        padding: 16px;
+    }
 
-        .main {
-            position: absolute;
-            width: calc(100vw - 300px);
-            right: 0;
-            top: 80px;
-            padding: 16px;
-        }
-
-        .extra {
-            width: 75px;
-            height: 75px;
-            border-radius: 100%;
-            position: fixed;
-            background-color: var(--green);
-            z-index: 10;
-            right: 75px;
-            bottom: 40px;
-            cursor: pointer;
-            padding: 20px;
-        }
+    .extra {
+        width: 48px;
+        height: 48px;
+        border-radius: 100%;
+        position: fixed;
+        background-color: var(--green);
+        z-index: 10;
+        right: 75px;
+        bottom: 40px;
+        cursor: pointer;
+        padding: 12px;
     }
 }
 
