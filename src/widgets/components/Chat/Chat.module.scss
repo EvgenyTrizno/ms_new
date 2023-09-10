@@ -2,17 +2,17 @@
     .chatInfo {
         position: fixed;
         top: 185px;
-        height: calc(100vh - 105px);
-        width: calc(100vw - 830px);
+        height: calc(100vh - 100px);
+        width: calc(100vw - 778px);
         padding: 40px;
     }
 
     .chat {
         position: fixed;
-        top: 185px;
+        top: 170px;
         width: 100%;
-        height: calc(100vh - 285px);
-        width: calc(100vw - 830px);
+        height: calc(100vh - 270px);
+        width: calc(100vw - 778px);
         padding: 40px;
         display: flex;
         flex-direction: column;
@@ -85,12 +85,12 @@
     .info {
         background-color: var(--white);
         height: 105px;
-        width: calc(100vw - 830px);
+        width: calc(100vw - 778px);
         padding: 20px 40px 20px 20px;
         border: 1px solid var(--gray-100);
         border-top: none;
         position: fixed;
-        top: 80px;
+        top: 65px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -132,7 +132,7 @@
     }
 
     .messageBlock {
-        width: calc(100vw - 830px);
+        width: calc(100vw - 778px);
         height: 100px;
         background-color: var(--white);
         position: fixed;
