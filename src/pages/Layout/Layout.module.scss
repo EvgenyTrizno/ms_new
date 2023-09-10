@@ -21,6 +21,7 @@
     }
 }
 
+
 @media screen and (max-width: 768px) {
     .layout {
         .container {
@@ -38,13 +39,9 @@
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
     .layout {
-        .container {
-            grid-template-columns: 116px 1fr;
-
-            .main {
-                width: calc(100vw - 116px);
-                padding: 20px;
-            }
+        .main {
+            width: calc(100vw - 116px);
+            padding: 20px;
         }
     }
 }

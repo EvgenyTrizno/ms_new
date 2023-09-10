@@ -29,21 +29,23 @@ export const Layout: FC<TProps> = ({ children }) => {
     return (
         <div className={styles.layout}>
             {!MOBILE && !TABLET && <Header />}
-            {PC || SMALL_LAPTOP ? <Menu /> : <MobileMenu />}
-            <div className={styles.main}>{children}</div>
-            {MOBILE || TABLET ? <ExtraCallMobile /> : <ExtraCallModal />}
-            {location.pathname !== "/messages" &&
-                group !== "Врачи" &&
-                !MOBILE &&
-                !TABLET && (
-                    <div
-                        className={styles.extra}
-                        onClick={() => setIsOpen(true)}
-                    >
-                        <img src={!isOpen ? extra : cross} alt="" />
-                    </div>
-                )}
-            {isNotification && <NotificationModal />}
+            <div className={styles.container}>
+                {PC || SMALL_LAPTOP ? <Menu /> : <MobileMenu />}
+                <div className={styles.main}>{children}</div>
+                {MOBILE || TABLET ? <ExtraCallMobile /> : <ExtraCallModal />}
+                {location.pathname !== "/messages" &&
+                    group !== "Врачи" &&
+                    !MOBILE &&
+                    !TABLET && (
+                        <div
+                            className={styles.extra}
+                            onClick={() => setIsOpen(true)}
+                        >
+                            <img src={!isOpen ? extra : cross} alt="" />
+                        </div>
+                    )}
+                {isNotification && <NotificationModal />}
+            </div>
         </div>
     );
 };
