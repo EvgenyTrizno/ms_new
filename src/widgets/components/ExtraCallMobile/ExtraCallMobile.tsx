@@ -18,7 +18,7 @@ export const ExtraCallMobile: FC = () => {
     const { isOpen, setIsOpen } = useExtraCall();
 
     useEffect(() => {
-        setIsOpenModal(true);
+        setIsOpenModal(false);
     }, []);
 
     const sick = condition === "Болен";
