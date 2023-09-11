@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    grid-gap: 10px;
+    grid-gap: 20px;
 
     .box {
         display: flex;
@@ -46,6 +46,8 @@
 
 @media screen and (min-width: 768px) and (max-width: 1550px) {
     .container {
+        grid-gap: 15px;
+
         .filters {
             position: static;
             margin: 0 auto;

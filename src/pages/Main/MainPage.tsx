@@ -40,7 +40,7 @@ const MainPage: FC = () => {
                 </div>
                 {SMALL_LAPTOP && (
                     <div className={styles.filters}>
-                        <Btn color="#0064FA" width="160px">
+                        <Btn color="#0064FA" width="160px" height="56px">
                             <div className={styles.inner}>
                                 <img src={controller} alt="" />
                                 <Text type="p">Фильтры</Text>

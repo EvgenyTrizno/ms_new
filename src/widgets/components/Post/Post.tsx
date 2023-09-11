@@ -26,8 +26,6 @@ export const Post: FC = () => {
         },
     };
 
-    console.log();
-
     return (
         <div className={styles.post}>
             <div className={styles.user}>
