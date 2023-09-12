@@ -17,7 +17,7 @@ const MedicalCardPage: FC = () => {
     return (
         <Layout>
             <div className={styles.medical}>
-                <Search placeholder="Введите запрос" />
+                <Search placeholder="Введите запрос" height="48px" />
                 <Filter data={["Текущие", "Доп.проверка"]} />
                 <div
                     className={styles.items}

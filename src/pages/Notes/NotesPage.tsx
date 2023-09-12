@@ -16,7 +16,7 @@ const NotesPage: FC = () => {
         <Layout>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <Search placeholder="Введите запрос" />
+                    <Search placeholder="Введите запрос" height="48px" />
                     <Btn
                         color="#0064FA"
                         width="60px"
@@ -27,13 +27,9 @@ const NotesPage: FC = () => {
                     </Btn>
                 </div>
                 <div className={styles.wrapper}>
-                    <Calendar
-                        height="500px"
-                        width={SMALL_LAPTOP ? "100%" : "608px"}
-                        info={false}
-                    />
+                    <Calendar height="max-content" width="100%" info={false} />
                     <div className={styles.list}>
-                        <Text type="p" color="#7D7F82">
+                        <Text type="p" color="#7D7F82" fz="14px">
                             10 Октябрь
                         </Text>
                         {[1, 2, 3, 4, 5].map((item) => (

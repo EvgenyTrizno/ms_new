@@ -423,7 +423,7 @@ const ProfilePage: FC = () => {
                 />
                 <div className={styles.settings}>
                     <div className={styles.box}>
-                        <Text type="p" color="#7D7F82">
+                        <Text type="p" color="#7D7F82" fz="14px">
                             Основные
                         </Text>
                         <div className={styles.items}>
@@ -450,9 +450,7 @@ const ProfilePage: FC = () => {
                                                 }
                                                 alt=""
                                             />
-                                            <Text type="p" fz="18px">
-                                                {item.label}
-                                            </Text>
+                                            <Text type="p">{item.label}</Text>
                                         </div>
                                         <img
                                             style={

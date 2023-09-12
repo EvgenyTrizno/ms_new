@@ -1,23 +1,24 @@
 .container {
     width: 500px;
     background-color: var(--white);
-    height: 80px;
-    padding: 10px;
+    height: 70px;
+    padding: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: var(--default-border);
+    border-radius: var(--mobile-default-border);
     border: 1px solid var(--blue-100);
     font-weight: 500;
 
     .item {
         width: 100%;
         text-align: center;
-        border-radius: 10px;
         color: var(--dark-gray);
         padding: 20px 0;
         cursor: pointer;
         transition: all ease .5s;
+        font-size: 14px;
+        border-radius: var(--mobile-default-border);
     }
 
     .active {

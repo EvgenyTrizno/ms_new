@@ -33,7 +33,7 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: -120,
+                x: -60,
                 y: 0,
             },
             type: "",
@@ -45,7 +45,7 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: -95,
+                x: 30,
                 y: -90,
             },
             type: "",
@@ -58,8 +58,8 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: 0,
-                y: -120,
+                x: -35,
+                y: -65,
             },
             type: "",
         },
@@ -86,12 +86,12 @@ export const ExtraCallModal: FC = () => {
             {!isOpenModal &&
                 data.map((item) => (
                     <motion.div
-                        initial={{ x: 0, y: 0 }}
+                        initial={{ x: 35, y: 0 }}
                         animate={{
                             x: isOpen ? item.position.x : 0,
                             y: isOpen ? item.position.y : 0,
                         }}
-                        exit={{ x: 0, y: 0 }}
+                        exit={{ x: 35, y: 0 }}
                         transition={{
                             duration: 0.3,
                             type: "spring",

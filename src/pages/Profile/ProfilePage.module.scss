@@ -2,33 +2,35 @@
     overflow: hidden;
 
     .reminder {
-        margin-bottom: 30px;
+        margin-bottom: 16px;
     }
 
     .settings {
         display: flex;
         grid-gap: 30px;
         flex-direction: column;
-        margin-top: 30px;
+        margin-top: 16px;
 
         .box {
             .items {
                 display: flex;
                 flex-direction: column;
-                grid-gap: 12px;
-                margin-top: 20px;
+                grid-gap: 8px;
+                margin-top: 15px;
 
                 .item {
                     background-color: var(--white);
                     border-radius: var(--default-border);
                     border: 1px solid var(--blue-100);
-                    padding: 30px;
+                    padding: 25px;
                     display: flex;
                     flex-direction: column;
                     cursor: pointer;
 
                     img {
                         transition: all ease .5s;
+                        width: 24px;
+                        height: 24px;
                     }
 
                     .nav {
@@ -39,7 +41,7 @@
                     .params {
                         display: flex;
                         align-items: center;
-                        grid-gap: 10px;
+                        grid-gap: 12px;
 
                         .icon {
                             width: 25px;

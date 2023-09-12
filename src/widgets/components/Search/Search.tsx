@@ -25,9 +25,10 @@ export const Search: FC<ISeacrh> = ({ placeholder, height }) => {
                 width="100%"
                 borderColor={sick ? "#F7E6E8" : "#EBF3FF"}
                 bl="none"
-                borderRadius="0px 15px 15px 0px"
+                borderRadius="0px 12px 12px 0px"
                 btl="unset"
                 bbl="unset"
+                padding="12px 16px 12px 10px"
                 bgcolor="#fff"
                 type="text"
                 placeholder={placeholder}

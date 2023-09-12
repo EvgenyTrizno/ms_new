@@ -30,7 +30,7 @@ export const ReminderBlock: FC<ITypeProps> = ({ type, width }) => {
                 >
                     <Text
                         type="p"
-                        fz={TABLET || PC ? "16px" : "14px"}
+                        fz="14px"
                         position="left"
                         color={sick ? "#D64657" : "#0064FA"}
                     >

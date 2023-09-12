@@ -8,7 +8,7 @@ import { useUserCondition } from "@/shared/model/store";
 import arrowLeft from "/assets/arrow-left.svg";
 import arrowRight from "/assets/arrow-right.svg";
 import styles from "./Calendar.module.scss";
-import { PC, TABLET } from "@/shared/utils";
+import { PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
 
 export const months = [
     "Январь",
@@ -217,11 +217,17 @@ export const Calendar: FC<ICalendare> = ({
         >
             <div className={styles.nav}>
                 <div className={styles.date}>
-                    <Text type="h2" fz={PC ? "24px" : TABLET ? "19px" : "17px"}>
+                    <Text
+                        type="h2"
+                        fz={PC || SMALL_LAPTOP || TABLET ? "18px" : "17px"}
+                    >
                         {months[currentMonth]}
                     </Text>
                     &nbsp;
-                    <Text type="h2" fz={PC ? "24px" : TABLET ? "19px" : "17px"}>
+                    <Text
+                        type="h2"
+                        fz={PC || SMALL_LAPTOP || TABLET ? "18px" : "17px"}
+                    >
                         {currentYear}
                     </Text>
                 </div>

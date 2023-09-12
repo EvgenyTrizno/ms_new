@@ -16,114 +16,37 @@ export const NoteBlock: FC<INoteBlockProps> = ({ onClick }) => {
             <div className={styles.content}>
                 <div className={styles.top}>
                     <div className={styles.nav}>
-                        <Text
-                            type="p"
-                            fz={
-                                PC || SMALL_LAPTOP
-                                    ? "16px"
-                                    : TABLET
-                                    ? "14px"
-                                    : "12px"
-                            }
-                            color="#7D7F82"
-                        >
+                        <Text type="p" fz="14px" color="#7D7F82">
                             Название записи
                         </Text>
                         <img src={arrowRight} alt="" onClick={onClick} />
                     </div>
-                    <Text
-                        type="h2"
-                        fz={
-                            PC || SMALL_LAPTOP
-                                ? "20px"
-                                : TABLET
-                                ? "18px"
-                                : "16px"
-                        }
-                    >
+                    <Text type="h2" fz="18px">
                         Проверка мышц
                     </Text>
                 </div>
                 <ul className={styles.list}>
                     <li>
-                        <Text
-                            type="p"
-                            fz={
-                                PC || SMALL_LAPTOP
-                                    ? "14px"
-                                    : TABLET
-                                    ? "14px"
-                                    : "12px"
-                            }
-                            color="#B1B2B4"
-                        >
+                        <Text type="p" fz="12px" color="#B1B2B4">
                             Доступно:
                         </Text>
-                        <Text
-                            type="p"
-                            fz={
-                                PC || SMALL_LAPTOP
-                                    ? "14px"
-                                    : TABLET
-                                    ? "14px"
-                                    : "12px"
-                            }
-                            color="#00CC5E"
-                        >
+                        <Text type="p" fz="12px" color="#00CC5E">
                             Онлайн
                         </Text>
                     </li>
                     <li>
-                        <Text
-                            type="p"
-                            fz={
-                                PC || SMALL_LAPTOP
-                                    ? "14px"
-                                    : TABLET
-                                    ? "14px"
-                                    : "12px"
-                            }
-                            color="#B1B2B4"
-                        >
+                        <Text type="p" fz="12px" color="#B1B2B4">
                             Центр:
                         </Text>
-                        <Text
-                            type="p"
-                            fz={
-                                PC || SMALL_LAPTOP
-                                    ? "14px"
-                                    : TABLET
-                                    ? "14px"
-                                    : "12px"
-                            }
-                        >
+                        <Text type="p" fz="12px">
                             Московский центр
                         </Text>
                     </li>
                     <li>
-                        <Text
-                            type="p"
-                            fz={
-                                PC || SMALL_LAPTOP
-                                    ? "14px"
-                                    : TABLET
-                                    ? "14px"
-                                    : "12px"
-                            }
-                            color="#B1B2B4"
-                        >
+                        <Text type="p" fz="12px" color="#B1B2B4">
                             Врач:
                         </Text>
-                        <Text
-                            type="p"
-                            fz={
-                                PC || SMALL_LAPTOP
-                                    ? "14px"
-                                    : TABLET
-                                    ? "14px"
-                                    : "12px"
-                            }
-                        >
+                        <Text type="p" fz="12px">
                             Невролог И.И
                         </Text>
                     </li>
@@ -133,19 +56,19 @@ export const NoteBlock: FC<INoteBlockProps> = ({ onClick }) => {
             <div className={styles.date}>
                 <div className={styles.block}>
                     <img src={calendar} alt="" />
-                    <Text type="p" fz={MOBILE ? "12px" : TABLET ? "14px" : ""}>
+                    <Text type="p" fz="12px">
                         21 Декабря
                     </Text>
                 </div>
                 <div className={styles.block}>
                     <img src={alarm} alt="" />
-                    <Text type="p" fz={MOBILE ? "12px" : TABLET ? "14px" : ""}>
+                    <Text type="p" fz="12px">
                         21 Декабря
                     </Text>
                 </div>
                 <div className={styles.block}>
                     <img src={time} alt="" />
-                    <Text type="p" fz={MOBILE ? "12px" : TABLET ? "14px" : ""}>
+                    <Text type="p" fz="12px">
                         21 Декабря
                     </Text>
                 </div>

@@ -11,8 +11,6 @@
 
     .extraBtn {
         background-color: var(--green);
-        width: 75px;
-        height: 75px;
         border-radius: 100%;
         padding: 20px;
         position: fixed;
@@ -26,16 +24,16 @@
 
         img {
             z-index: 1;
-            max-width: 36px;
-            min-width: 36px;
-            max-height: 36px;
+            max-width: 23px;
+            min-width: 23px;
+            max-height: 23px;
             object-fit: cover;
         }
     }
 
     .select {
-        width: 70px;
-        height: 70px;
+        width: 55px;
+        height: 55px;
         background-color: var(--blue-200);
         border-radius: 100%;
     }

@@ -1,18 +1,18 @@
 .note {
     background-color: var(--white);
-    padding: 30px;
-    border-radius: 20px;
+    padding: 20px;
+    border-radius: var(--default-border);
     border: 1px solid var(--system-light-grey);
 
     .content {
         display: flex;
         flex-direction: column;
-        grid-gap: 32px;
+        grid-gap: 20px;
 
         .top {
             display: flex;
             flex-direction: column;
-            grid-gap: 6px;
+            grid-gap: 10px;
 
             .nav {
                 display: flex;
@@ -45,7 +45,7 @@
         height: 2px;
         background-color: var(--gray);
         opacity: 0.15;
-        margin: 24px 0;
+        margin: 20px 0;
     }
 
     .date {
@@ -56,7 +56,7 @@
         .block {
             display: flex;
             align-items: center;
-            grid-gap: 6px;
+            grid-gap: 8px;
 
             img {
                 width: 18px;
@@ -95,11 +95,11 @@
 
 @media screen and (min-width: 1200px) {
     .note {
-        padding: 30px;
+        padding: 20px;
 
         .content {
             .top {
-                grid-gap: 8px;
+                grid-gap: 10px;
 
                 .nav {
                     img {
@@ -111,7 +111,7 @@
         }
 
         .line {
-            margin: 25px 0;
+            margin: 20px 0;
         }
     }
 }

@@ -24,11 +24,19 @@ const SearchPage: FC = () => {
         <Layout>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <Search placeholder="Поиск чатов" />
-                    <Btn width="160px" color="#0064FA">
+                    <Search placeholder="Поиск чатов" height="48px" />
+                    <Btn
+                        width="160px"
+                        color="#0064FA"
+                        height="48px"
+                        br="12px"
+                        padding="14px 18px"
+                    >
                         <div className={styles.btn}>
                             <img src={controler} alt="" />
-                            Фильтры
+                            <Text type="p" fz="14px">
+                                Фильтры
+                            </Text>
                         </div>
                     </Btn>
                 </div>

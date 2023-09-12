@@ -1,16 +1,16 @@
 .box {
     display: flex;
     width: 100%;
-    border-radius: 15px;
+    height: 48px;
 
     .btn {
         background-color: var(--white);
         border: 1px solid var(--blue-100);
         cursor: unset;
-        padding-left: 20px;
         border-right: none;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        padding-left: 16px;
     }
 
     input {
