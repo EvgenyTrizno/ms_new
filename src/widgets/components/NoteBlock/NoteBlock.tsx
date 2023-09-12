@@ -2,7 +2,6 @@ import { FC } from "react";
 import { INoteBlockProps } from "./types";
 
 import { Text } from "@/shared";
-import { MOBILE, PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
 
 import alarm from "/assets/alarm-clock.svg";
 import arrowRight from "/assets/arrow-right-black.svg";

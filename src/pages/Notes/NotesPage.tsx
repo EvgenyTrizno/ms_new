@@ -4,7 +4,6 @@ import { useNavigate } from "react-router";
 import { Calendar, Search, NoteBlock } from "@/widgets";
 import { Layout } from "../Layout/Layout";
 import { Btn, Text } from "@/shared";
-import { SMALL_LAPTOP } from "@/shared/utils";
 
 import addCircle from "/assets/add-circle.svg";
 import styles from "./NotesPage.module.scss";
