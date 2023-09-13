@@ -154,20 +154,30 @@ export const MobileMenu: FC = () => {
 
     return (
         <div className={styles.mobileMenu}>
-            {data.default.map((item) => (
-                <div
-                    className={
-                        location.pathname === item.path
-                            ? `${styles.active}`
-                            : undefined
-                    }
-                    onClick={() => handleNavigate(item.path, item.label)}
-                >
-                    {item.icon}
-                </div>
-            ))}
+            <svg width="100%" viewBox="0 0 768 80" fill="none">
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M340.887 4.74975C339.881 2.06169 337.47 0 334.599 0H6C2.68629 0 0 2.68629 0 6V74C0 77.3137 2.68629 80 6 80H762C765.314 80 768 77.3137 768 74V6C768 2.68629 765.314 0 762 0H433.401C430.53 0 428.119 2.06168 427.113 4.74974C421.555 19.5873 404.356 30.4 384 30.4C363.644 30.4 346.445 19.5873 340.887 4.74975Z"
+                    fill="white"
+                />
+            </svg>
             <div className={styles.extraBtn} onClick={() => setIsOpen(!isOpen)}>
                 <img src={isOpen ? cross : extra} alt="" />
+            </div>
+            <div className={styles.container}>
+                {data.default.map((item) => (
+                    <div
+                        className={
+                            location.pathname === item.path
+                                ? `${styles.active}`
+                                : undefined
+                        }
+                        onClick={() => handleNavigate(item.path, item.label)}
+                    >
+                        {item.icon}
+                    </div>
+                ))}
             </div>
         </div>
     );
