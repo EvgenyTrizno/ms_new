@@ -19,9 +19,11 @@
     .logo {
         border-bottom: 1px solid var(--gray-100);
         height: 65px;
-        padding: 16px;
+        padding: 20px;
         display: flex;
         align-items: center;
+        justify-content: center;
+        object-fit: cover;
     }
 
     .container {
@@ -86,7 +88,7 @@
 }
 
 .menu.open {
-    width: 248px;
+    width: 256px;
 
     .container {
         .list {
@@ -111,4 +113,15 @@
             }
         }
     }
+}
+
+@media screen and (min-width: 1200px) {
+        .menu {
+            .logo {
+                img {
+                    width: 100%;
+                    height: 40px;
+                }
+            }
+        }
 }

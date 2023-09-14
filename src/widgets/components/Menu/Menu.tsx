@@ -7,6 +7,8 @@ import { Text, Switcher } from "@/shared";
 import { useUserCondition, useMenu, useUserData } from "@/shared/model/store";
 import { PC, SMALL_LAPTOP } from "@/shared/utils";
 
+import logo from "/assets/logo.svg";
+import bigLogo from "/assets/logo-with-text.svg";
 import styles from "./Menu.module.scss";
 
 export const Menu: FC = () => {
@@ -462,24 +464,8 @@ export const Menu: FC = () => {
             }
         >
             <div className={styles.logo}>
-                {!isHovered && SMALL_LAPTOP && (
-                    <Text
-                        type="h2"
-                        color={sick ? "#D64657" : "#0064FA"}
-                        fz="18px"
-                    >
-                        Pre-rec
-                    </Text>
-                )}
-                {(isHovered || PC) && (
-                    <Text
-                        type="h2"
-                        color={sick ? "#D64657" : "#0064FA"}
-                        fz="20px"
-                    >
-                        Pre-rec.io
-                    </Text>
-                )}
+                {!isHovered && SMALL_LAPTOP && <img alt="" src={logo} />}
+                {(isHovered || PC) && <img src={bigLogo} alt="" />}
             </div>
             <div className={styles.container}>
                 {(PC || (isHovered && SMALL_LAPTOP)) && (
