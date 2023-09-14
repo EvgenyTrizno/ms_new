@@ -104,10 +104,7 @@ const MessagesPage: FC = () => {
                                 </Btn>
                             )}
                         </div>
-                        <Filter
-                            data={["Сообщения", "Звонки"]}
-                            width={SMALL_LAPTOP ? "100%" : "490px"}
-                        />
+                        <Filter data={["Сообщения", "Звонки"]} width="100%" />
                         {isOpenFilters && (
                             <div className={styles.filtersBlock}>
                                 <div className={styles.selectedList}>
@@ -123,11 +120,8 @@ const MessagesPage: FC = () => {
                                     </div>
                                 </div>
                                 <div className={styles.filtersList}>
-                                    {filters.map((item, i) => (
-                                        <div
-                                            className={styles.filtersBox}
-                                            key={i}
-                                        >
+                                    {filters.map((item) => (
+                                        <div className={styles.filtersBox}>
                                             <Text
                                                 type="p"
                                                 fz="17px"
@@ -161,13 +155,13 @@ const MessagesPage: FC = () => {
                                                     <Text
                                                         type="h2"
                                                         color="#262626"
-                                                        fz="16px"
+                                                        fz="14px"
                                                     >
                                                         Михайлова Т. А.
                                                     </Text>
                                                     <Text
                                                         type="p"
-                                                        fz="14px"
+                                                        fz="12px"
                                                         color="#7D7F82"
                                                     >
                                                         Привет как настроение?
@@ -175,18 +169,22 @@ const MessagesPage: FC = () => {
                                                 </div>
                                             </div>
                                             <div className={styles.time}>
-                                                <Text type="p" color="#7D7F82">
+                                                <Text
+                                                    type="p"
+                                                    color="#7D7F82"
+                                                    fz="12px"
+                                                >
                                                     2:23
                                                 </Text>
-                                            </div>
-                                            <div
-                                                className={
-                                                    sick
-                                                        ? `${styles.counter} ${styles.counterRed}`
-                                                        : styles.counter
-                                                }
-                                            >
-                                                98
+                                                <div
+                                                    className={
+                                                        sick
+                                                            ? `${styles.counter} ${styles.counterRed}`
+                                                            : styles.counter
+                                                    }
+                                                >
+                                                    98
+                                                </div>
                                             </div>
                                         </div>
                                     ))
