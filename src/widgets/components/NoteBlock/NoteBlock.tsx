@@ -1,74 +1,76 @@
 import { FC } from "react";
-import { INoteBlockProps } from "./types";
 
 import { Text } from "@/shared";
 
-import alarm from "/assets/alarm-clock.svg";
-import arrowRight from "/assets/arrow-right-black.svg";
 import calendar from "/assets/calendar.svg";
-import time from "/assets/clock-fast-forward.svg";
+import alarm from "/assets/alarm-clock.svg";
+import clock from "/assets/clock-fast-forward.svg";
 import styles from "./NoteBlock.module.scss";
 
-export const NoteBlock: FC<INoteBlockProps> = ({ onClick }) => {
+export const NoteBlock: FC = () => {
     return (
-        <div className={styles.note}>
-            <div className={styles.content}>
-                <div className={styles.top}>
-                    <div className={styles.nav}>
-                        <Text type="p" fz="14px" color="#7D7F82">
-                            Название записи
-                        </Text>
-                        <img src={arrowRight} alt="" onClick={onClick} />
-                    </div>
-                    <Text type="h2" fz="18px">
-                        Проверка мышц
+        <div className={styles.item}>
+            <div className={styles.box}>
+                <div className={styles.text}>
+                    <Text type="p" color="#9B9B9B" fz="12px">
+                        Название записи
+                    </Text>
+                    <Text type="h2" color="#000" fz="17px">
+                        Восстановление
                     </Text>
                 </div>
                 <ul className={styles.list}>
-                    <li>
-                        <Text type="p" fz="12px" color="#B1B2B4">
-                            Доступно:
+                    <li className={styles.li}>
+                        <Text type="p" color="#B1B2B4">
+                            Формат:
                         </Text>
-                        <Text type="p" fz="12px" color="#00CC5E">
-                            Онлайн
-                        </Text>
-                    </li>
-                    <li>
-                        <Text type="p" fz="12px" color="#B1B2B4">
-                            Центр:
-                        </Text>
-                        <Text type="p" fz="12px">
-                            Московский центр
+                        <Text type="p" color="#00CC5E" fz="13px">
+                            Online
                         </Text>
                     </li>
-                    <li>
-                        <Text type="p" fz="12px" color="#B1B2B4">
-                            Врач:
+                    <li className={styles.li}>
+                        <Text type="p" color="#B1B2B4">
+                            Предназначена:
                         </Text>
-                        <Text type="p" fz="12px">
-                            Невролог И.И
+                        <Text type="p">Работа мышц спины</Text>
+                    </li>
+                    <li className={styles.li}>
+                        <Text type="p" color="#B1B2B4">
+                            Создана:
                         </Text>
+                        <Text type="p">Неврологом И.И. (Московский центр)</Text>
+                    </li>
+                    <li className={styles.li}>
+                        <Text type="p" color="#B1B2B4">
+                            Версия:
+                        </Text>
+                        <Text type="p">USA</Text>
                     </li>
                 </ul>
-            </div>
-            <div className={styles.line}></div>
-            <div className={styles.date}>
-                <div className={styles.block}>
-                    <img src={calendar} alt="" />
-                    <Text type="p" fz="12px">
-                        21 Декабря
-                    </Text>
+                <div className={styles.line}></div>
+                <div className={styles.date}>
+                    <div className={styles.block}>
+                        <img src={calendar} alt="" />
+                        <Text type="p" fz="12px">
+                            21 Декабря
+                        </Text>
+                    </div>
+                    <div className={styles.block}>
+                        <img src={alarm} alt="" />
+                        <Text type="p" fz="12px">
+                            14:45
+                        </Text>
+                    </div>
+                    <div className={styles.block}>
+                        <img src={clock} alt="" />
+                        <Text type="p" fz="12px">
+                            40 минут
+                        </Text>
+                    </div>
                 </div>
-                <div className={styles.block}>
-                    <img src={alarm} alt="" />
-                    <Text type="p" fz="12px">
-                        21 Декабря
-                    </Text>
-                </div>
-                <div className={styles.block}>
-                    <img src={time} alt="" />
-                    <Text type="p" fz="12px">
-                        21 Декабря
+                <div className={styles.text}>
+                    <Text type="p" fz="12px" position="center">
+                        Доступно в групповом чате
                     </Text>
                 </div>
             </div>
