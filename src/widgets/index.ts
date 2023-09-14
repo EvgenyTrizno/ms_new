@@ -25,7 +25,7 @@ import { MobileCard } from "./components/MobileCard/MobileCard";
 import { MobilePost } from "./components/MobilePost/MobilePost";
 import { MobileContainer } from "./components/MobileContainer/MobileContainer";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
-import { NoteBlock } from "./components/NoteBlock/NoteBlock";
+import { MedicalBlock } from "./components/MedicalBlock/MedicalBlock";
 import { ExtraCallMobile } from "./components/ExtraCallMobile/ExtraCallMobile";
 import { CreatePass } from "./components/CreatePass/CreatePass";
 import { NotificationModal } from "./components/NotificationModal/NotificationModal";
@@ -49,6 +49,7 @@ import { SliderArrows } from "./components/SliderArrows/SliderArrows";
 import { NotesCard } from "./components/NotesCard/NotesCard";
 import { SelectCenterMap } from "./components/SelectCenterMap/SelectCenterMap";
 import { PersonalCard } from "./components/PersonalCard/PersonalCard";
+import { NoteBlock } from "./components/NoteBlock/NoteBlock";
 
 export {
     Login,
@@ -77,7 +78,7 @@ export {
     MobilePost,
     MobileContainer,
     CustomMobileHeader,
-    NoteBlock,
+    MedicalBlock,
     ExtraCallMobile,
     CreatePass,
     NotificationModal,
@@ -102,4 +103,5 @@ export {
     NotesCard,
     SelectCenterMap,
     PersonalCard,
+    NoteBlock,
 };
