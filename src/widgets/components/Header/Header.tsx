@@ -26,7 +26,7 @@ export const Header: FC = () => {
                 <div className={styles.inner}>
                     <div className={styles.text}>
                         <Text
-                            fz="17px"
+                            fz="14px"
                             color={`${sick ? "#D64657" : "#0064FA"}`}
                             type="p"
                         >
