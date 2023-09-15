@@ -42,7 +42,7 @@ export const Login: FC = () => {
 
     return (
         <div className={styles.login}>
-            <Text position="center" type="h2" fz="28px" color="#262626">
+            <Text position="center" type="h2" fz="24px" color="#262626">
                 Вход
             </Text>
             <form action="#" className={styles.form}>
@@ -57,7 +57,7 @@ export const Login: FC = () => {
                     <Input
                         type="text"
                         placeholder="Введите тел.номер или эл. почту"
-                        height="60px"
+                        height="48px"
                         borderColor="#E9EAEB"
                         onBlur={() => setError(false)}
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -76,14 +76,14 @@ export const Login: FC = () => {
                     <div className={styles.inner}>
                         <Input
                             type={isShow ? "text" : "password"}
-                            height="60px"
+                            height="48px"
                             placeholder="Введите пароль"
                             borderColor="#E9EAEB"
                             br="none"
                             btr="unset"
                             bbr="unset"
                             value={pass}
-                            borderRadius="8px 0px 0px 8px"
+                            borderRadius="12px 0px 0px 12px"
                             onBlur={() => setError(false)}
                             onChange={(e: ChangeEvent<HTMLInputElement>) =>
                                 setPass(e.target.value)
@@ -113,13 +113,14 @@ export const Login: FC = () => {
             </Link>
             <Btn
                 color="#0064FA"
+                padding="16px"
                 onClick={handleClick}
                 disabled={!pass || !number}
             >
                 Войти
             </Btn>
             <div className={styles.redirect}>
-                <Text type="p" position="center" color="#7D7F82">
+                <Text type="p" position="center" color="#7D7F82" fz="14px">
                     Нет учетной записи? &nbsp;
                     <Link to="/auth/registration" className={styles.link}>
                         Зарегистрироваться
@@ -133,20 +134,16 @@ export const Login: FC = () => {
             </div>
             <div className={styles.btns}>
                 <div className={styles.btn}>
-                    <img
-                        src={facebook}
-                        alt="facebook"
-                        className={styles.icon}
-                    />
+                    <img src={google} alt="google" />
+                    <Text type="p">Войти с помощью Google</Text>
+                </div>
+                <div className={styles.btn}>
+                    <img src={facebook} alt="facebook" />
                     <Text type="p">Войти с помощью Facebook</Text>
                 </div>
                 <div className={styles.btn}>
-                    <img src={apple} alt="apple" className={styles.icon} />
+                    <img src={apple} alt="apple" />
                     <Text type="p">Войти с помощью Apple</Text>
-                </div>
-                <div className={styles.btn}>
-                    <img src={google} alt="google" className={styles.icon} />
-                    <Text type="p">Войти с помощью Google</Text>
                 </div>
             </div>
         </div>

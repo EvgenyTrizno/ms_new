@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 import { Layout } from "../Layout/Layout";
-import { Chat } from "@/widgets";
-import { Btn, Filter, MobileSearch, Text } from "@/shared";
+import { Chat, Search } from "@/widgets";
+import { Btn, Filter, Text } from "@/shared";
 import { useFilter, useUserCondition, useUserData } from "@/shared/model/store";
 import { PC, SMALL_LAPTOP } from "@/shared/utils";
 // import { ABSOLUTE_PATH } from "@/shared/config";
@@ -82,11 +82,7 @@ const MessagesPage: FC = () => {
                 <div className={styles.sidebar}>
                     <div className={styles.box}>
                         <div className={styles.search}>
-                            <MobileSearch
-                                placeholder="Поиск чатов"
-                                height="52px"
-                                filterBtn={false}
-                            />
+                            <Search height="48px" placeholder="Поиск чатов" />
                             {group === "Врачи" && (
                                 <Btn
                                     color="#0064FA"

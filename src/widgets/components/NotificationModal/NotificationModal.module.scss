@@ -3,12 +3,13 @@
     top: 70px;
     right: 110px;
     background-color: var(--white);
-    width: 570px;
-    padding: 30px;
+    width: 460px;
+    height: 453px;
+    padding: 24px;
     border-radius: 24px;
     border: 1px solid var(--system-light-grey);
     box-shadow: 0px 4px 4px 0px rgba(38, 38, 38, 0.04);
-    z-index: 100000;
+    z-index: 100;
 
     .nav {
         display: flex;
@@ -23,25 +24,28 @@
     }
 
     .list {
-        margin-top: 40px;
+        margin-top: 24px;
 
         .box {
             display: flex;
             flex-direction: column;
-            grid-gap: 20px;
+            grid-gap: 10px;
 
             .items {
+                overflow-y: scroll;
+                height: 340px;
+
                 .item {
                     display: flex;
                     align-items: center;
-                    grid-gap: 15px;
-                    padding: 25px 0;
-                    border-bottom: 2px solid var(--system-light-grey);
+                    grid-gap: 10px;
+                    padding: 20px 0;
+                    border-bottom: 1px solid var(--system-light-grey);
 
                     .circle {
-                        min-width: 55px;
-                        max-width: 55px;
-                        height: 55px;
+                        min-width: 48px;
+                        max-width: 48px;
+                        height: 48px;
                         object-fit: cover;
                         display: flex;
                         align-items: center;
@@ -50,10 +54,10 @@
                         position: relative;
 
                         .icon {
-                            width: 25px;
-                            height: 25px;
+                            width: 20px;
+                            height: 20px;
                             border-radius: 100%;
-                            border: 2px solid var(--background);
+                            border: 1px solid var(--background);
                             background-color: var(--blue);
                             position: absolute;
                             top: 0;
@@ -93,8 +97,30 @@
                 }
 
                 .item:last-child {
-                    border: none
+                    border: none;
+                    padding-bottom: 0px;
                 }
+
+                .item:first-child {
+                    padding-top: 0px;
+                }
+            }
+
+            .items::-webkit-scrollbar {
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .items::-webkit-scrollbar {
+                width: 0.5em;
+            }
+
+            .items::-webkit-scrollbar-thumb {
+                background-color: transparent;
+            }
+
+            .items::-webkit-scrollbar-track {
+                background-color: transparent;
             }
         }
     }

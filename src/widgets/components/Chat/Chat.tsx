@@ -96,10 +96,10 @@ export const Chat: FC = () => {
                         onClick={() => setIsInfo((prev) => !prev)}
                     />
                     <div className={styles.text}>
-                        <Text type="h2" fz="18px">
+                        <Text type="h2" fz="16px">
                             Яковенко А. С.
                         </Text>
-                        <Text type="p" color="#84C55D">
+                        <Text type="p" color="#84C55D" fz="14px">
                             Online
                         </Text>
                     </div>
@@ -141,7 +141,7 @@ export const Chat: FC = () => {
                                 onClick={() => setIsInfo(true)}
                             />
                             <div className={styles.inner}>
-                                <Text type="p" color="#333" fz="14px">
+                                <Text type="p" color="#333" fz="11px">
                                     Виктор
                                 </Text>
                                 <div
@@ -152,7 +152,12 @@ export const Chat: FC = () => {
                                     }
                                     onClick={(e: MouseEvent) => handleClick(e)}
                                 >
-                                    <Text type="p" color="#262626">
+                                    <Text
+                                        type="p"
+                                        color="#262626"
+                                        fw={400}
+                                        fz="14px"
+                                    >
                                         Привет. Я готов к чему-то
                                     </Text>
                                     <div className={styles.read}>
@@ -163,7 +168,7 @@ export const Chat: FC = () => {
                                     </div>
                                 </div>
                                 <div className={styles.time}>
-                                    <Text type="p" color="#7D7F82" fz="12px">
+                                    <Text type="p" color="#7D7F82" fz="10px">
                                         8:00 PM
                                     </Text>
                                 </div>
@@ -172,14 +177,19 @@ export const Chat: FC = () => {
                         <div className={styles.message}>
                             <img src={woman} alt="" />
                             <div className={styles.inner}>
-                                <Text type="p" color="#333" fz="14px">
+                                <Text type="p" color="#333" fz="11px">
                                     Александр
                                 </Text>
                                 <div
                                     className={`${styles.text}`}
                                     onClick={(e: MouseEvent) => handleClick(e)}
                                 >
-                                    <Text type="p" color="#262626">
+                                    <Text
+                                        type="p"
+                                        color="#262626"
+                                        fw={400}
+                                        fz="14px"
+                                    >
                                         Да, я обычно выделяю все ctrl+A, потом
                                         всему сразу ставлю верх и лево)))))
                                     </Text>
@@ -191,7 +201,7 @@ export const Chat: FC = () => {
                                     </div>
                                 </div>
                                 <div className={styles.time}>
-                                    <Text type="p" color="#7D7F82" fz="12px">
+                                    <Text type="p" color="#7D7F82" fz="10px">
                                         8:00 PM
                                     </Text>
                                 </div>
@@ -207,9 +217,10 @@ export const Chat: FC = () => {
                         <div className={styles.inner}>
                             <Input
                                 type="text"
-                                placeholder="Поиск чатов"
+                                placeholder="Напишите сообщение..."
                                 br="none"
-                                borderRadius="10px 0px 0px 10px"
+                                borderRadius="12px 0px 0px 12px"
+                                height="48px"
                                 value={msg}
                                 onChange={(e) => setMsg(e.target.value)}
                             />

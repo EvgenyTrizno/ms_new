@@ -1,19 +1,20 @@
 .view {
     .chatInfo {
         position: fixed;
-        top: 185px;
+        top: 145px;
         height: calc(100vh - 100px);
-        width: calc(100vw - 778px);
-        padding: 40px;
+        width: calc(100vw - 736px);
+        padding: 16px;
+        background-color: var(--white);
+        border-left: 1px solid var(--blue-100);
     }
 
     .chat {
         position: fixed;
-        top: 170px;
-        width: 100%;
-        height: calc(100vh - 270px);
-        width: calc(100vw - 778px);
-        padding: 40px;
+        top: 145px;
+        height: calc(100vh - 217px);
+        width: calc(100vw - 736px);
+        padding: 20px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -33,8 +34,8 @@
             }
 
             img {
-                width: 48px;
-                height: 48px;
+                width: 40px;
+                height: 40px;
                 object-fit: cover;
                 border-radius: 100%;
                 cursor: pointer;
@@ -47,13 +48,15 @@
             }
 
             .text {
-                padding: 15px;
+                padding: 12px 15px;
                 border-radius: 10px 10px 0px 10px;
+                width: max-content;
                 max-width: 700px;
                 background-color: var(--white);
                 display: flex;
                 grid-gap: 5px;
                 cursor: pointer;
+                word-wrap: break-word;
 
                 .read {
                     display: flex;
@@ -84,9 +87,9 @@
 
     .info {
         background-color: var(--white);
-        height: 105px;
-        width: calc(100vw - 778px);
-        padding: 20px 40px 20px 20px;
+        height: 80px;
+        width: calc(100vw - 736px);
+        padding: 12px 20px;
         border: 1px solid var(--gray-100);
         border-top: none;
         position: fixed;
@@ -103,7 +106,7 @@
         .data {
             display: flex;
             align-items: center;
-            grid-gap: 15px;
+            grid-gap: 16px;
 
             .arrow {
                 width: 24px;
@@ -112,32 +115,32 @@
             }
 
             img {
-                width: 65px;
-                height: 65px;
+                width: 56px;
+                height: 56px;
                 object-fit: cover;
+                border-radius: 100%;
             }
 
             .text {
                 display: flex;
                 flex-direction: column;
-                grid-gap: 10px;
+                grid-gap: 5px;
             }
         }
 
         .call {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             cursor: pointer;
         }
     }
 
     .messageBlock {
-        width: calc(100vw - 778px);
-        height: 100px;
+        width: calc(100vw - 736px);
         background-color: var(--white);
         position: fixed;
         bottom: 0;
-        padding: 20px;
+        padding: 12px 20px;
 
         .wrapper {
             display: flex;
@@ -152,15 +155,19 @@
                     border-color: var(--gray-200) !important;
                 }
 
+                input::placeholder {
+                    font-size: 14px;
+                }
+
                 .btn {
                     border: 1px solid var(--gray-200);
                     display: flex;
                     justify-content: center;
-                    padding: 15px 15px 15px 0;
                     border-left: none;
-                    border-top-right-radius: var(--input-border);
-                    border-bottom-right-radius: var(--input-border);
+                    border-top-right-radius: var(--mobile-default-border);
+                    border-bottom-right-radius: var(--mobile-default-border);
                     cursor: pointer;
+                    padding-right: 20px;
                 }
             }
         }

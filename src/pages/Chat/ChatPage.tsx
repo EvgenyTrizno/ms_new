@@ -7,7 +7,7 @@ import styles from "./ChatPage.module.scss";
 const ChatPage: FC = () => {
     return (
         <div className={styles.chat}>
-            <Header />
+            <Header width="100%" />
             <div className={styles.view}>
                 <Chat />
             </div>

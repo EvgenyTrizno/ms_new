@@ -112,7 +112,7 @@ export const Registration: FC = () => {
                             checked={checked}
                             onChange={() => setChecked((prev) => !prev)}
                         />
-                        <Text color="#7D7F82" type="p">
+                        <Text color="#7D7F82" type="p" fz="14px">
                             Я согласен со&nbsp;
                             <Link to="/" className={styles.link}>
                                 всеми условиями сайта

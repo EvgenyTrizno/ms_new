@@ -1,14 +1,15 @@
 import { FC } from "react";
 
-import { LoginForPersonal } from "@/widgets";
+import { Login } from "@/widgets";
+// import { LoginForPersonal } from "@/widgets";
 
 import styles from "./LoginPage.module.scss";
 
 const LoginPage: FC = () => {
     return (
         <div className={styles.loginPage}>
-            {/* <Login /> */}
-            <LoginForPersonal />
+            <Login />
+            {/* <LoginForPersonal /> */}
         </div>
     );
 };

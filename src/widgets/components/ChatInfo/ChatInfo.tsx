@@ -36,34 +36,42 @@ export const ChatInfo: FC = () => {
     return (
         <div className={styles.info}>
             <div className={styles.box}>
-                <Text type="p" color="#7D7F82">
+                <Text type="p" color="#7D7F82" fz="14px">
                     Информация
                 </Text>
                 <div className={styles.block}>
                     <ul>
                         <li>
-                            <Text type="p" color="#B1B2B4">
+                            <Text type="p" color="#B1B2B4" fz="14px">
                                 Специальность:
                             </Text>
-                            <Text type="p">Хирург</Text>
+                            <Text type="p" fz="14px">
+                                Хирург
+                            </Text>
                         </li>
                         <li>
-                            <Text type="p" color="#B1B2B4">
+                            <Text type="p" color="#B1B2B4" fz="14px">
                                 Числится:
                             </Text>
-                            <Text type="p">Лорем Ипсум</Text>
+                            <Text type="p" fz="14px">
+                                Лорем Ипсум
+                            </Text>
                         </li>
                         <li>
-                            <Text type="p" color="#B1B2B4">
+                            <Text type="p" color="#B1B2B4" fz="14px">
                                 Опыт работы:
                             </Text>
-                            <Text type="p">5 лет</Text>
+                            <Text type="p" fz="14px">
+                                5 лет
+                            </Text>
                         </li>
                         <li>
-                            <Text type="p" color="#B1B2B4">
+                            <Text type="p" color="#B1B2B4" fz="14px">
                                 Номер:
                             </Text>
-                            <Text type="p">+7 (989) 678-78-98</Text>
+                            <Text type="p" fz="14px">
+                                +7 (989) 678-78-98
+                            </Text>
                         </li>
                     </ul>
                 </div>
@@ -79,7 +87,7 @@ export const ChatInfo: FC = () => {
                                 key={item.id}
                                 onClick={() => setIsSelect(item.id)}
                             >
-                                <Text type="p" color="#7D7F82">
+                                <Text type="p" color="#7D7F82" fz="14px">
                                     {item.label}
                                 </Text>
                                 <div

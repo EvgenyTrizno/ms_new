@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
+import { IHeaderProps } from "./types";
 
 import { Text } from "@/shared";
 import { useMenu, useUserData } from "@/shared/model/store";
@@ -11,7 +12,7 @@ import notificationActive from "/assets/notification-active.svg";
 import noimage from "/assets/noimage.svg";
 import styles from "./Header.module.scss";
 
-export const Header: FC = () => {
+export const Header: FC<IHeaderProps> = ({ width }) => {
     const navigate = useNavigate();
     const { isSelect, setIsSelect } = useMenu();
     const { condition } = useUserCondition();
@@ -21,7 +22,7 @@ export const Header: FC = () => {
     const sick = condition === "Болен";
 
     return (
-        <header className={styles.header}>
+        <header className={styles.header} style={{ width }}>
             <div className={styles.nav}>
                 <div className={styles.inner}>
                     <div className={styles.text}>

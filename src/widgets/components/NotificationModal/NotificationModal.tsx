@@ -35,7 +35,7 @@ export const NotificationModal: FC = () => {
             onClick={(e) => e.stopPropagation()}
         >
             <div className={styles.nav}>
-                <Text type="h2" fz="25px">
+                <Text type="h2" fz="18px">
                     Уведомления
                 </Text>
                 <img
@@ -46,7 +46,7 @@ export const NotificationModal: FC = () => {
             </div>
             <div className={styles.list}>
                 <div className={styles.box}>
-                    <Text type="p" fz="16px" color="#7D7F82">
+                    <Text type="p" fz="12px" color="#7D7F82">
                         Сегодня
                     </Text>
                     <div className={styles.items}>
@@ -64,19 +64,24 @@ export const NotificationModal: FC = () => {
                                 </div>
                             </div>
                             <div className={styles.box}>
-                                <Text type="p" fz="16px" color="#7D7F82">
+                                <Text
+                                    type="p"
+                                    fz="14px"
+                                    color="#7D7F82"
+                                    fw={400}
+                                >
                                     Запрос на доступ был получен от &nbsp;
                                     <div className={styles.name}>
                                         <Text
                                             type="h2"
-                                            fz="16px"
+                                            fz="14px"
                                             color="#262626"
                                         >
                                             Михайлова Т. А.
                                         </Text>
                                     </div>
                                 </Text>
-                                <Text type="p" fz="14px" color="#B1B2B4">
+                                <Text type="p" fz="12px" color="#B1B2B4">
                                     1 час назад
                                 </Text>
                             </div>
@@ -92,10 +97,10 @@ export const NotificationModal: FC = () => {
                                 <img src={sick ? alarmRed : alarm} alt="" />
                             </div>
                             <div className={styles.box}>
-                                <Text type="p" fz="16px" color="#7D7F82">
+                                <Text type="p" fz="14px" color="#7D7F82">
                                     Напоминание о записи завтра в 12:00
                                 </Text>
-                                <Text type="p" fz="14px" color="#B1B2B4">
+                                <Text type="p" fz="12px" color="#B1B2B4">
                                     1 час назад
                                 </Text>
                             </div>
@@ -111,19 +116,19 @@ export const NotificationModal: FC = () => {
                                 <img src={sick ? alarmRed : alarm} alt="" />
                             </div>
                             <div className={styles.box}>
-                                <Text type="p" fz="16px" color="#7D7F82">
+                                <Text type="p" fz="14px" color="#7D7F82">
                                     Верификация лица была отклонена.
                                     <div className={styles.link}>
                                         <Text
                                             type="h2"
-                                            fz="16px"
+                                            fz="14px"
                                             color={sick ? "#D64657" : "#0064FA"}
                                         >
                                             Узнать причину
                                         </Text>
                                     </div>
                                 </Text>
-                                <Text type="p" fz="14px" color="#B1B2B4">
+                                <Text type="p" fz="12px" color="#B1B2B4">
                                     1 час назад
                                 </Text>
                             </div>
@@ -135,19 +140,19 @@ export const NotificationModal: FC = () => {
                                 <img src={close} alt="" />
                             </div>
                             <div className={styles.box}>
-                                <Text type="p" fz="16px" color="#7D7F82">
+                                <Text type="p" fz="14px" color="#7D7F82">
                                     Запись была отклонена вашим центром.
                                     <div className={styles.link}>
                                         <Text
                                             type="h2"
-                                            fz="16px"
+                                            fz="14px"
                                             color={sick ? "#D64657" : "#0064FA"}
                                         >
                                             Узнать причину
                                         </Text>
                                     </div>
                                 </Text>
-                                <Text type="p" fz="14px" color="#B1B2B4">
+                                <Text type="p" fz="12px" color="#B1B2B4">
                                     1 час назад
                                 </Text>
                             </div>
