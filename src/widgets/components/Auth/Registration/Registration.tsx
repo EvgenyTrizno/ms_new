@@ -76,37 +76,39 @@ export const Registration: FC = () => {
                     className={styles.form}
                     onSubmit={onSubmitHandler}
                 >
-                    <Input
-                        type="text"
-                        placeholder="Дата рождения"
-                        value={birthday}
-                        onChange={handleChange}
-                        name="birthday"
-                    />
-                    <Input
-                        type="text"
-                        placeholder="Введите номер"
-                        borderColor="#E9EAEB"
-                        onChange={handleChange}
-                        value={tel}
-                        name="number"
-                    />
-                    <Input
-                        type="password"
-                        placeholder="Введите пароль"
-                        borderColor="#E9EAEB"
-                        onChange={handleChange}
-                        value={pass1}
-                        name="password"
-                    />
-                    <Input
-                        type="password"
-                        placeholder="Подтвердите пароль"
-                        borderColor="#E9EAEB"
-                        onChange={(e) => setConfirmPass(e.target.value)}
-                        value={confirmPass}
-                        name="confirmPassword"
-                    />
+                    <div className={styles.inputs}>
+                        <Input
+                            type="text"
+                            placeholder="Дата рождения"
+                            value={birthday}
+                            onChange={handleChange}
+                            name="birthday"
+                        />
+                        <Input
+                            type="text"
+                            placeholder="Введите номер"
+                            borderColor="#E9EAEB"
+                            onChange={handleChange}
+                            value={tel}
+                            name="number"
+                        />
+                        <Input
+                            type="password"
+                            placeholder="Введите пароль"
+                            borderColor="#E9EAEB"
+                            onChange={handleChange}
+                            value={pass1}
+                            name="password"
+                        />
+                        <Input
+                            type="password"
+                            placeholder="Подтвердите пароль"
+                            borderColor="#E9EAEB"
+                            onChange={(e) => setConfirmPass(e.target.value)}
+                            value={confirmPass}
+                            name="confirmPassword"
+                        />
+                    </div>
                     <div className={styles.policy}>
                         <Checkbox
                             checked={checked}

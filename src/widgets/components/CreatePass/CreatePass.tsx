@@ -35,7 +35,7 @@ export const CreatePass: FC = () => {
 
     return (
         <form className={styles.createPass} onSubmit={handleSubmit}>
-            <Text position="center" type="h2" fz="28px" color="#262626">
+            <Text position="center" type="h2" fz="24px" color="#262626">
                 Создайте новый пароль
             </Text>
             <div className={styles.box}>

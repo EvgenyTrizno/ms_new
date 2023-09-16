@@ -1,18 +1,17 @@
 .confirmation {
-    width: 570px;
-    max-height: 740px;
+    width: 460px;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
     background-color: var(--white);
-    padding: 30px;
+    padding: 20px;
     border-radius: var(--default-border);
     color: var(--dark-gray);
 
     .text {
-        margin: 45px 0 0 0;
+        margin: 24px 0 0 0;
     }
 
     .wrapper {
@@ -20,22 +19,22 @@
         justify-content: center;
         align-items: center;
         grid-gap: 20px;
-        padding: 75px 0;
+        padding: 24px 0 10px;
 
         .item {
-            width: 75px;
-            height: 90px;
-            border: 1px solid #000;
-            border-radius: 10px;
+            width: 50px;
+            height: 60px;
+            border: 1px solid var(--dark-gray);
+            border-radius: var(--mobile-default-border);
             text-align: center;
-            font-size: 30px;
+            font-size: 20px;
             color: #000;
+            padding: 10px;
         }
     }
 
     .timer {
-        margin-bottom: 50px;
-        font-weight: 400 !important;
+        margin-bottom: 24px;
     }
 
     .redirect {
@@ -43,7 +42,7 @@
         align-items: center;
         grid-gap: 5px;
         justify-content: center;
-        margin-top: 40px;
+        margin-top: 20px;
         font-weight: 500;
 
         .link {

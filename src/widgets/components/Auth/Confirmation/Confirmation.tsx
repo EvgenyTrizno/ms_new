@@ -68,6 +68,12 @@ export const Confirmation: FC = () => {
         }
     };
 
+    const handleSetActive = () => {
+        for (let i = 0; i < codeRefs.length; i++) {
+            // if ()
+        }
+    };
+
     const handleClick = () => {
         if (code) {
             if (number && redirect === "registration") {
@@ -126,15 +132,10 @@ export const Confirmation: FC = () => {
                 Завершение
             </Text>
             <div className={styles.text}>
-                <Text
-                    type="p"
-                    fz="20px"
-                    position="center"
-                    color="#00000080"
-                    fw={400}
-                >
-                    Введите код который был отправлен вам на номер, для
-                    восстановления доступа к<br /> аккаунту.
+                <Text type="p" fz="14px" position="center" color="#262626">
+                    Введите код, который был отправлен вам на номер
+                    <br />
+                    +7-900-100-10-10. Никому не сообщайте код.
                 </Text>
             </div>
             <div className={styles.wrapper}>
@@ -181,11 +182,10 @@ export const Confirmation: FC = () => {
                         <span
                             style={{
                                 cursor: "pointer",
-                                textDecoration: "underline",
                             }}
                             onClick={resendCodeHandler}
                         >
-                            Выслать код повторно
+                            Отправить код снова
                         </span>
                     ) : seconds === 60 ? (
                         "1:00"

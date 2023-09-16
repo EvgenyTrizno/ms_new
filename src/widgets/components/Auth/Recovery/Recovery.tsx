@@ -55,16 +55,16 @@ export const Recovery: FC = () => {
 
     return (
         <div className={styles.recovery}>
-            <Text position="center" type="h2" fz="28px" color="#262626">
+            <Text position="center" type="h2" fz="24px" color="#262626">
                 Восстановление
             </Text>
             <div className={styles.subtitle}>
-                <Text type="h2" color="#262626" position="center" fz="20px">
+                <Text type="h2" color="#262626" position="center" fz="16px">
                     Не удается выполнить вход
                 </Text>
             </div>
             <div className={styles.text}>
-                <Text type="p" position="center" fz="20px">
+                <Text type="p" position="center" fz="14px" color="#262626">
                     Введите телефонный номер или электронную почту и мы отправим
                     вам код для восстановления доступа к аккаунту.
                 </Text>
@@ -79,7 +79,7 @@ export const Recovery: FC = () => {
                             : {}
                     }
                 >
-                    <Text type="p" fz="24px" color="#414141">
+                    <Text type="p" fz="20px" color="#414141">
                         Тел. Номер
                     </Text>
                 </div>
@@ -92,7 +92,7 @@ export const Recovery: FC = () => {
                     }
                     onClick={() => setIsSelect("email")}
                 >
-                    <Text type="p" fz="24px" color="#414141">
+                    <Text type="p" fz="20px" color="#414141">
                         Эл. Почта
                     </Text>
                 </div>

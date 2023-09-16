@@ -1,6 +1,5 @@
 .recovery {
-    width: 570px;
-    max-height: 740px;
+    width: 460px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -12,27 +11,23 @@
     color: var(--dark-gray);
 
     .subtitle {
-        margin: 65px 0 45px;
+        margin: 24px 0 10px;
     }
 
     .text {
-        margin-bottom: 70px;
-        font-weight: 400 !important;
+        margin-bottom: 24px;
     }
 
     .swithcer {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        position: relative;
-        width: 570px;
-        left: -30px;
 
         .item {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--gray);
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--gray);
             cursor: pointer;
         }
     }
@@ -40,8 +35,8 @@
     .form {
         display: flex;
         flex-direction: column;
-        grid-gap: 25px;
-        margin: 30px 0;
+        grid-gap: 24px;
+        margin: 30px 0 0;
     }
 }
 
