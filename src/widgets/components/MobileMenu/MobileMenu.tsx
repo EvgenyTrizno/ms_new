@@ -1,5 +1,5 @@
 import { FC, useId } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { IMenuData } from "../Menu/types";
 
 import { TIsSelect } from "@/shared/model/store/types";
@@ -12,7 +12,6 @@ import styles from "./MobileMenu.module.scss";
 
 export const MobileMenu: FC = () => {
     const navigate = useNavigate();
-    const location = useLocation();
     const { setIsSelect } = useMenu();
     const { isOpen, setIsOpen } = useExtraCall();
 

@@ -68,11 +68,11 @@ export const Confirmation: FC = () => {
         }
     };
 
-    const handleSetActive = () => {
-        for (let i = 0; i < codeRefs.length; i++) {
-            // if ()
-        }
-    };
+    // const handleSetActive = () => {
+    //     for (let i = 0; i < codeRefs.length; i++) {
+    //         // if ()
+    //     }
+    // };
 
     const handleClick = () => {
         if (code) {
