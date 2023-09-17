@@ -169,7 +169,7 @@ export const Authorization: FC = () => {
     return (
         <>
             <div className={styles.authorization}>
-                <Text color="#262626" type="h2" position="center" fz="28px">
+                <Text color="#262626" type="h2" position="center" fz="24px">
                     Регистрация
                 </Text>
                 {!hasPermission ? (
@@ -194,10 +194,16 @@ export const Authorization: FC = () => {
                 ) : (
                     <>
                         <div className={styles.box}>
-                            <Text type="p" position="center" color="#262626">
+                            <Text
+                                type="p"
+                                position="center"
+                                color="#262626"
+                                fz="14px"
+                            >
                                 Также в {distance} км от вас находятся наши
                                 агенты но перед этим вам необходимо указать свое
-                                состояние на данный момент
+                                состояние
+                                <br /> на данный момент
                             </Text>
                             <Map
                                 width="100%"

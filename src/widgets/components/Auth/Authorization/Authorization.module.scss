@@ -1,20 +1,20 @@
 .authorization {
-    width: 570px;
+    width: 460px;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
     background-color: var(--white);
-    padding: 30px;
-    border-radius: var(--default-border);
+    padding: 20px;
+    border-radius: var(--mobile-default-border);
     color: var(--dark-gray);
 
     .box {
         display: flex;
         flex-direction: column;
         grid-gap: 30px;
-        margin: 30px 0;
+        margin: 24px 0 20px;
     }
 
     .container {

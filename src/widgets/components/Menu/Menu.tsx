@@ -9,6 +9,7 @@ import { PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import logo from "/assets/logo.svg";
 import bigLogo from "/assets/logo-with-text.svg";
+import bigLogoRed from "/assets/logo-with-text-red.svg";
 import styles from "./Menu.module.scss";
 
 export const Menu: FC = () => {
@@ -465,7 +466,9 @@ export const Menu: FC = () => {
         >
             <div className={styles.logo}>
                 {!isHovered && SMALL_LAPTOP && <img alt="" src={logo} />}
-                {(isHovered || PC) && <img src={bigLogo} alt="" />}
+                {(isHovered || PC) && (
+                    <img src={sick ? bigLogoRed : bigLogo} alt="" />
+                )}
             </div>
             <div className={styles.container}>
                 {(PC || (isHovered && SMALL_LAPTOP)) && (

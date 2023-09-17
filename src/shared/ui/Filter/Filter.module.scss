@@ -1,7 +1,6 @@
 .container {
     width: 500px;
     background-color: var(--white);
-    height: 70px;
     padding: 8px;
     display: flex;
     align-items: center;
@@ -14,7 +13,7 @@
         width: 100%;
         text-align: center;
         color: var(--dark-gray);
-        padding: 20px 0;
+        padding: 16px 0;
         cursor: pointer;
         transition: all ease .5s;
         font-size: 14px;
