@@ -81,8 +81,8 @@ const MessagesPage: FC = () => {
             <div className={styles.container}>
                 <div className={styles.sidebar}>
                     <div className={styles.box}>
-                        <div className={styles.search}>
-                            <Search height="48px" placeholder="Поиск чатов" />
+                        <div className={styles.searchBox}>
+                            <Search placeholder="Поиск чатов" height="48px" />
                             {group === "Врачи" && (
                                 <Btn
                                     color="#0064FA"

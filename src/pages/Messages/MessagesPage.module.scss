@@ -17,16 +17,11 @@
             flex-direction: column;
             grid-gap: 10px;
             
-            .search {
+            .searchBox {
                 width: 100% !important;
                 display: flex;
                 align-items: center;
                 grid-gap: 12px;
-
-                button {
-                    min-width: 52px;
-                    max-width: 52px;
-                }
             }
 
             .filtersBlock {
