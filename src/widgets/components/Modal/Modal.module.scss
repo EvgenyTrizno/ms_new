@@ -12,14 +12,15 @@
 
     .content {
         background-color: var(--white);
-        border-radius: 25px;
-        padding: 32px;
+        border-radius: var(--mobile-default-border);
+        padding: 30px 20px 20px;
         position: absolute;
         top: 50%;
         left: 50%;
         margin-right: -50%;
         transform: translate(-50%, -50%);
-        width: 720px;
+        width: 460px;
+        border: 1px solid var(--blue-100);
     }
 }
 

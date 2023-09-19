@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 
 import { useUserCondition } from "@/shared/model/store";
 import { Text, PopUp, Input } from "@/shared";
-import { ChatInfo } from "@/widgets";
+import { ChatInfo, EmojiModal } from "@/widgets";
 import { SMALL_LAPTOP } from "@/shared/utils";
 
 import woman from "/assets/woman.jpg";
@@ -18,7 +18,7 @@ import read from "/assets/read-blue.svg";
 import readRed from "/assets/read-red.svg";
 import mircophone from "/assets/microphone-blue.svg";
 import mircophoneRed from "/assets/microphone-red.svg";
-import dots from "/assets/dots-more.svg";
+import back from "/assets/back-arrow-blue.svg";
 import arrowLeft from "/assets/arrow-left-black.svg";
 import styles from "./Chat.module.scss";
 
@@ -26,6 +26,7 @@ export const Chat: FC = () => {
     const { condition } = useUserCondition();
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const [y, setY] = useState<number>(0);
     const [x, setX] = useState<number>(0);
     const [isSelect, setIsSelect] = useState<string>("");
@@ -93,7 +94,7 @@ export const Chat: FC = () => {
                         src={woman}
                         style={{ cursor: "pointer" }}
                         alt=""
-                        onClick={() => setIsInfo((prev) => !prev)}
+                        onClick={() => setIsInfo(true)}
                     />
                     <div className={styles.text}>
                         <Text type="h2" fz="16px">
@@ -117,10 +118,11 @@ export const Chat: FC = () => {
                     />
                     {isInfo && (
                         <img
-                            src={dots}
+                            src={back}
                             alt=""
+                            onClick={() => setIsInfo(false)}
                             style={{
-                                marginLeft: "32px",
+                                marginLeft: "20px",
                                 cursor: "pointer",
                             }}
                         />
@@ -224,7 +226,10 @@ export const Chat: FC = () => {
                                 value={msg}
                                 onChange={(e) => setMsg(e.target.value)}
                             />
-                            <div className={styles.btn}>
+                            <div
+                                className={styles.btn}
+                                onClick={() => setIsOpenModal((prev) => !prev)}
+                            >
                                 <img src={emoji} alt="" />
                             </div>
                         </div>
@@ -333,6 +338,7 @@ export const Chat: FC = () => {
                     </li>
                 </PopUp>
             )}
+            {isOpenModal && <EmojiModal />}
         </div>
     );
 };

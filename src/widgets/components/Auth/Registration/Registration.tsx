@@ -143,12 +143,12 @@ export const Registration: FC = () => {
                 </div>
             </div>
             {isOpenModal && (
-                <Modal width="500px" setIsOpenModal={setIsOpenModal}>
-                    <Text type="h2" position="center" fz="20px">
+                <Modal setIsOpenModal={setIsOpenModal}>
+                    <Text type="h2" position="center" fz="24px">
                         Предупреждение
                     </Text>
                     <div className={styles.warning}>
-                        <Text type="p" fw={400} position="center" fz="17px">
+                        <Text type="p" position="center" fz="14px">
                             Лица не достигшие 18 лет , могут находится на сайте
                             только с позволения родителей
                         </Text>

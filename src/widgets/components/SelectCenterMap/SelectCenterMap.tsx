@@ -2,12 +2,11 @@ import { FC, useState, useRef } from "react";
 import { MarkerF, StandaloneSearchBox } from "@react-google-maps/api";
 import { ISelectCenterMapProps } from "./types";
 
-import { CenterInfoCard, Map } from "@/widgets";
+import { CenterInfoCard, Map, Search } from "@/widgets";
 import { Btn, Text } from "@/shared";
 
 import circle from "/assets/circle-blue.svg";
 import controler from "/assets/controler.svg";
-import search from "/assets/search-gray.svg";
 import styles from "./SelectCenterMap.module.scss";
 
 export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
@@ -45,23 +44,14 @@ export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
                     onLoad={handleSearchBoxLoad}
                 >
                     <div className={styles.inner}>
-                        <div className={styles.search}>
-                            <div className={styles.btn}>
-                                <img src={search} alt="" />
-                            </div>
-                            <input
-                                type="text"
-                                className={styles.input}
-                                placeholder="Поиск чатов"
-                            />
-                        </div>
-                        <Btn color="#0064FA" width="160px" br="8px">
-                            <div className={styles.box}>
-                                <img src={controler} alt="" />
-                                <Text type="p">Фильтры</Text>
-                            </div>
-                        </Btn>
+                        <Search />
                     </div>
+                    <Btn color="#0064FA" width="160px" br="8px">
+                        <div className={styles.box}>
+                            <img src={controler} alt="" />
+                            <Text type="p">Фильтры</Text>
+                        </div>
+                    </Btn>
                 </StandaloneSearchBox>
                 {isOpen && <CenterInfoCard onClick={setMap} top={y} />}
                 <MarkerF

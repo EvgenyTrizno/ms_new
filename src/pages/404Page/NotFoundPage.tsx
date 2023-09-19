@@ -21,18 +21,19 @@ const NotFoundPage: FC = () => {
             <div className={styles.container}>
                 <Text
                     type="h2"
-                    fz={`${MOBILE ? "17px" : "26px"}`}
+                    fz={`${MOBILE ? "17px" : "24px"}`}
                     position="center"
                 >
                     Страница не найдена
                 </Text>
                 <Text
                     type="p"
-                    fz={`${MOBILE ? "14px" : "18px"}`}
+                    fz={`${MOBILE ? "14px" : "16px"}`}
                     color="#B1B2B4"
                     position="center"
                 >
-                    Неправильно набран адрес или такой страницы не существует
+                    Неправильно набран адрес
+                    <br /> или такой страницы не существует
                 </Text>
             </div>
             <Btn color="#0064FA" onClick={backOnPrevPage}>

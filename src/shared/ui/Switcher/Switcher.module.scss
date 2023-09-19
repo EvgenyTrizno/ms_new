@@ -1,7 +1,7 @@
 .switcher {
     display: flex;
     align-items: center;
-    border-radius: 14px;
+    border-radius: var(--default-border);
     border: 1px solid transparent;
     font-family: "Montserrat";
     font-weight: 500;
@@ -90,14 +90,14 @@
 }
 
 .switcher.close {
-    max-width: 64px;
-    height: 64px;
+    max-width: 52px;
+    height: 52px;
     position: relative;
     overflow: hidden;
 
     .item {
-        min-width: 64px;
-        height: 64px;
+        min-width: 52px;
+        height: 52px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -109,15 +109,15 @@
         }
 
         svg {
-            min-width: 24px;
-            height: 24px;
+            min-width: 20px;
+            height: 20px;
             position: absolute;
         }
     }
 
     .item::before {
-        width: 64px;
-        height: 64px;
+        width: 52px;
+        height: 52px;
         position: relative;
     }
 
