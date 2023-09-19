@@ -21,7 +21,9 @@ const ConfirmationPage = lazy(
 const SearchPage = lazy(() => import("@/pages/SearchPage/SearchPage"));
 const ProfilePage = lazy(() => import("@/pages/Profile/ProfilePage"));
 const NotesPage = lazy(() => import("@/pages/Notes/NotesPage"));
-const MedicalCardPage = lazy(() => import("@/pages/MedicalCard/NotesPage"));
+const MedicalCardPage = lazy(
+    () => import("@/pages/MedicalCard/MedicalCardPage")
+);
 const NotesInfoPage = lazy(() => import("@/pages/NotesInfo/NotesInfoPage"));
 const CreateEventPage = lazy(
     () => import("@/pages/CreateEvent/CreateEventPage")
