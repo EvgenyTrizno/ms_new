@@ -50,6 +50,7 @@ import { NotesCard } from "./components/NotesCard/NotesCard";
 import { SelectCenterMap } from "./components/SelectCenterMap/SelectCenterMap";
 import { PersonalCard } from "./components/PersonalCard/PersonalCard";
 import { NoteBlock } from "./components/NoteBlock/NoteBlock";
+import { EmojiModal } from "./components/EmojiModal/EmojiModal";
 
 export {
     Login,
@@ -104,4 +105,5 @@ export {
     SelectCenterMap,
     PersonalCard,
     NoteBlock,
+    EmojiModal,
 };
