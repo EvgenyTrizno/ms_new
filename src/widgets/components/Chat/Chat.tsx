@@ -14,6 +14,7 @@ import paperclip from "/assets/paperclip-blue.svg";
 import paperclipRed from "/assets/paperclip-red.svg";
 import sender from "/assets/send-blue.svg";
 import emoji from "/assets/emoji-normal.svg";
+import emojiOpen from "/assets/emoji-open.svg";
 import read from "/assets/read-blue.svg";
 import readRed from "/assets/read-red.svg";
 import mircophone from "/assets/microphone-blue.svg";
@@ -230,7 +231,10 @@ export const Chat: FC = () => {
                                 className={styles.btn}
                                 onClick={() => setIsOpenModal((prev) => !prev)}
                             >
-                                <img src={emoji} alt="" />
+                                <img
+                                    src={isOpenModal ? emojiOpen : emoji}
+                                    alt=""
+                                />
                             </div>
                         </div>
                         {isMouseDown ? (

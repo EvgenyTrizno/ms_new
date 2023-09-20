@@ -165,11 +165,18 @@
                     border: 1px solid var(--gray-200);
                     display: flex;
                     justify-content: center;
+                    align-items: center;
                     border-left: none;
                     border-top-right-radius: var(--mobile-default-border);
                     border-bottom-right-radius: var(--mobile-default-border);
                     cursor: pointer;
                     padding-right: 20px;
+
+                    img {
+                        width: 24px;
+                        height: 24px;
+
+                    }
                 }
             }
         }
