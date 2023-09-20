@@ -1,0 +1,42 @@
+.connection {
+    background: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    .list {
+        display: grid;
+        grid-template-columns: repeat(4, 336px);
+        grid-gap: 30px;
+
+        .card {
+            width: 100%;
+
+            .text {
+                display: flex;
+                flex-direction: column;
+                grid-gap: 5px;
+            }
+        }
+
+        .cardWhite {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 24px;
+            background-color: var(--white);
+            padding: 30px 20px 20px;
+            border: 1px solid var(--blue-100);
+            border-radius: var(--mobile-default-border);
+
+            img {
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                margin: 0 auto; 
+                border-radius: 100%;
+            }
+        }
+    }
+}

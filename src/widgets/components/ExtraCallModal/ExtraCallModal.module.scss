@@ -1,5 +1,5 @@
 .extra {
-    position: fixed;
+    position: absolute;
     z-index: 10;
     right: 0;
     bottom: 0;
@@ -13,9 +13,7 @@
         background-color: var(--green);
         border-radius: 100%;
         padding: 20px;
-        position: fixed;
-        right: 75px;
-        bottom: 40px;
+        position: relative;
         cursor: pointer;
         z-index: 2;
         display: flex;

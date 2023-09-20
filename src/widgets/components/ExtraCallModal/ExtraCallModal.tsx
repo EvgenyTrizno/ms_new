@@ -12,7 +12,9 @@ import homeWithPlus from "/assets/home-with-plus-blue.svg";
 import homeWithPlusRed from "/assets/home-with-plus-red.svg";
 import support from "/assets/support-blue.svg";
 import supportRed from "/assets/support-red.svg";
+import connect from "/assets/connect-icon.svg";
 import styles from "./ExtraCallModal.module.scss";
+import { ConnectionModal } from "../ConnectionModal/ConnectionModal";
 
 export const ExtraCallModal: FC = () => {
     const { setIsOpen, isOpen } = useExtraCall();
@@ -45,8 +47,8 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: 30,
-                y: -90,
+                x: -35,
+                y: -75,
             },
             type: "",
         },
@@ -60,6 +62,18 @@ export const ExtraCallModal: FC = () => {
             position: {
                 x: -35,
                 y: -65,
+            },
+            type: "",
+        },
+        {
+            icon: {
+                healthy: connect,
+                sick: supportRed,
+            },
+            id: useId(),
+            position: {
+                x: 30,
+                y: 45,
             },
             type: "",
         },
@@ -83,6 +97,7 @@ export const ExtraCallModal: FC = () => {
                 pointerEvents: isOpen ? "auto" : "none",
             }}
         >
+            <ConnectionModal />
             {!isOpenModal &&
                 data.map((item) => (
                     <motion.div
