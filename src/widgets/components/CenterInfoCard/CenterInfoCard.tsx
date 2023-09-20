@@ -2,58 +2,71 @@ import { FC } from "react";
 import { ICenterInfoCard } from "./types";
 
 import { Btn, Text } from "@/shared";
+import { Rating } from "../Rating/Rating";
 
 import centerIcon from "/assets/center-icon.jpg";
+import cross from "/assets/cross-close-black.svg";
 import styles from "./CenterInfoCard.module.scss";
-import { Rating } from "../Rating/Rating";
 
 export const CenterInfoCard: FC<ICenterInfoCard> = ({ top, left, onClick }) => {
     return (
         <div className={styles.card} style={{ top, left }}>
-            <div className={styles.rating}>
-                <Rating defaultValue={5} disabled width="35px" height="35px" />
+            <div className={styles.top}>
+                <div className={styles.rating}>
+                    <Rating
+                        defaultValue={5}
+                        disabled
+                        width="20px"
+                        height="20px"
+                        gap="4px"
+                    />
+                    <Text type="p" fz="14px">
+                        5.0
+                    </Text>
+                </div>
+                <img src={cross} alt="" className={styles.close} />
             </div>
             <div className={styles.data}>
                 <div className={styles.box}>
                     <img src={centerIcon} alt="" className={styles.img} />
                     <div className={styles.text}>
-                        <Text type="h2" fz="32px">
+                        <Text type="h2" fz="18px">
                             Центр Неврологии
                         </Text>
-                        <Text type="p" fz="20px">
-                            Изучено заболеваний: <span>50</span>
+                        <Text type="p" fz="12px" color="#7D7F82">
+                            Язык: <span>рус/анг</span>
                         </Text>
                     </div>
                 </div>
             </div>
             <ul className={styles.list}>
                 <li>
-                    <Text type="p" fz="20px" color="#B1B2B4">
+                    <Text type="p" fz="14px">
                         Колл-во специалистов:
                     </Text>
-                    <span>7</span>
+                    <span>7{">"}</span>
                 </li>
                 <li>
-                    <Text type="p" fz="20px" color="#B1B2B4">
-                        Наблюдалось:
+                    <Text type="p" fz="14px">
+                        Ответственность:
                     </Text>
-                    <span>300</span>
+                    <span>62%</span>
                 </li>
                 <li>
-                    <Text type="p" fz="20px" color="#B1B2B4">
-                        Наблюдается:
+                    <Text type="p" fz="14px">
+                        Кол-во оборудования:
                     </Text>
-                    <span>167</span>
+                    <span>21</span>
                 </li>
                 <li>
-                    <Text type="p" fz="20px" color="#B1B2B4">
-                        “Онлайн” лечение:
+                    <Text type="p" fz="14px">
+                        Онлайн записи:
                     </Text>
                     <span>11</span>
                 </li>
                 <li>
-                    <Text type="p" fz="20px" color="#B1B2B4">
-                        “Оффлайн” лечение:
+                    <Text type="p" fz="14px">
+                        Офлайн записи:
                     </Text>
                     <span>5</span>
                 </li>
