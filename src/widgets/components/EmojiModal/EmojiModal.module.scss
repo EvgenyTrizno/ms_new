@@ -41,6 +41,7 @@
 
         .item:hover {
             background-color: var(--blue-100);
+            transition: 150ms ease-out;
         }
     }
 
