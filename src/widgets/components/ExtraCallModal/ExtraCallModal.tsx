@@ -35,8 +35,8 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: -60,
-                y: 0,
+                x: 45,
+                y: 170,
             },
             type: "",
         },
@@ -47,8 +47,8 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: -35,
-                y: -75,
+                x: 40,
+                y: 105,
             },
             type: "",
         },
@@ -60,8 +60,8 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: -35,
-                y: -65,
+                x: 85,
+                y: 60,
             },
             type: "",
         },
@@ -72,7 +72,7 @@ export const ExtraCallModal: FC = () => {
             },
             id: useId(),
             position: {
-                x: 30,
+                x: 145,
                 y: 45,
             },
             type: "",
@@ -98,33 +98,41 @@ export const ExtraCallModal: FC = () => {
             }}
         >
             <ConnectionModal />
-            {!isOpenModal &&
-                data.map((item) => (
-                    <motion.div
-                        initial={{ x: 35, y: 0 }}
-                        animate={{
-                            x: isOpen ? item.position.x : 0,
-                            y: isOpen ? item.position.y : 0,
-                        }}
-                        exit={{ x: 35, y: 0 }}
-                        transition={{
-                            duration: 0.3,
-                            type: "spring",
-                            damping: 10,
-                        }}
-                        className={`${styles.extraBtn} ${styles.select}`}
-                        style={{
-                            backgroundColor: `${sick ? "#F7E6E8" : ""}`,
-                        }}
-                        onClick={handleClick}
-                        key={item.id}
-                    >
-                        <img
-                            src={sick ? item.icon.sick : item.icon.healthy}
-                            alt=""
-                        />
-                    </motion.div>
-                ))}
+            <div className={styles.container}>
+                <div style={{ position: "relative", height: "100%" }}>
+                    {!isOpenModal &&
+                        data.map((item) => (
+                            <motion.div
+                                initial={{ x: 35, y: 0 }}
+                                animate={{
+                                    x: isOpen ? item.position.x : 0,
+                                    y: isOpen ? item.position.y : 0,
+                                }}
+                                exit={{ x: 35, y: 0 }}
+                                transition={{
+                                    duration: 0.3,
+                                    type: "spring",
+                                    damping: 10,
+                                }}
+                                className={`${styles.extraBtn} ${styles.select}`}
+                                style={{
+                                    backgroundColor: `${sick ? "#F7E6E8" : ""}`,
+                                }}
+                                onClick={handleClick}
+                                key={item.id}
+                            >
+                                <img
+                                    src={
+                                        sick
+                                            ? item.icon.sick
+                                            : item.icon.healthy
+                                    }
+                                    alt=""
+                                />
+                            </motion.div>
+                        ))}
+                </div>
+            </div>
             {isOpenModal && isOpen && (
                 <div
                     className={styles.modal}
