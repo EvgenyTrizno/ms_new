@@ -13,16 +13,18 @@ import { getAccessTokenFromCookies } from "@/features";
 import user from "/assets/user-blue.svg";
 import userRed from "/assets/user-red.svg";
 import arrowRigth from "/assets/arrow-right.svg";
-import noteBlue from "/assets/note-blue.svg";
-import noteRed from "/assets/note-red.svg";
+import keyBlue from "/assets/key-big-blue.svg";
 import homeWithPlus from "/assets/home-with-plus-blue.svg";
 import homeWithPlusRed from "/assets/home-with-plus-red.svg";
-import clipBoardBlue from "/assets/clipboard-text-blue.svg";
-import clipBoardRed from "/assets/clipboard-text-red.svg";
 import markerBlue from "/assets/marker-blue.svg";
 import markerRed from "/assets/marker-red.svg";
 import logouBlue from "/assets/logout-blue.svg";
 import logouRed from "/assets/logout-red.svg";
+import markBlue from "/assets/mark-blue.svg";
+import cartBlue from "/assets/shopping-cart-blue.svg";
+import cartRed from "/assets/shopping-cart-red.svg";
+import heartBlue from "/assets/heart-blue.svg";
+import heartRed from "/assets/heart-red.svg";
 import styles from "./ProfilePage.module.scss";
 
 const ProfilePage: FC = () => {
@@ -364,10 +366,37 @@ const ProfilePage: FC = () => {
         },
         {
             id: useId(),
-            label: "Записи",
+            label: "Доступ",
             icon: {
-                healthy: noteBlue,
-                sick: noteRed,
+                healthy: keyBlue,
+                sick: keyBlue,
+            },
+            content: <div>params</div>,
+        },
+        {
+            id: useId(),
+            label: "Подписки",
+            icon: {
+                healthy: heartBlue,
+                sick: heartRed,
+            },
+            content: <div>params</div>,
+        },
+        {
+            id: useId(),
+            label: "Сохраненное",
+            icon: {
+                healthy: markBlue,
+                sick: markBlue,
+            },
+            content: <div>params</div>,
+        },
+        {
+            id: useId(),
+            label: "Покупки",
+            icon: {
+                healthy: cartBlue,
+                sick: cartRed,
             },
             content: <div>params</div>,
         },
@@ -377,15 +406,6 @@ const ProfilePage: FC = () => {
             icon: {
                 healthy: homeWithPlus,
                 sick: homeWithPlusRed,
-            },
-            content: <div>params</div>,
-        },
-        {
-            id: useId(),
-            label: "Медицинская карта",
-            icon: {
-                healthy: clipBoardBlue,
-                sick: clipBoardRed,
             },
             content: <div>params</div>,
         },
@@ -413,7 +433,7 @@ const ProfilePage: FC = () => {
         <Layout>
             <div className={styles.container}>
                 <div className={styles.reminder}>
-                    <ReminderBlock type="timer" width="340px" />
+                    <ReminderBlock type="timer" width="max-content" />
                 </div>
                 <User
                     img={img}
