@@ -1,6 +1,5 @@
 import { FC, useState, MouseEvent, useRef } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router";
 
 import { useUserCondition } from "@/shared/model/store";
 import { Text, PopUp, Input } from "@/shared";
