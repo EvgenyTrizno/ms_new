@@ -70,7 +70,13 @@ export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
                         </Btn>
                     </div>
                 </StandaloneSearchBox>
-                {isOpen && <CenterInfoCard onClick={setMap} top={y} />}
+                {isOpen && (
+                    <CenterInfoCard
+                        setIsCardOpen={setIsOpen}
+                        onClick={setMap}
+                        top={y}
+                    />
+                )}
                 <MarkerF
                     position={{ lat: isLat, lng: isLng }}
                     icon={circle}

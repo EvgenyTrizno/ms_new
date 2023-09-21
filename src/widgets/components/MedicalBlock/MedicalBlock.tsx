@@ -4,21 +4,19 @@ import { INoteBlockProps } from "./types";
 import { Text } from "@/shared";
 
 import alarm from "/assets/alarm-clock.svg";
-import arrowRight from "/assets/arrow-right-black.svg";
 import calendar from "/assets/calendar.svg";
 import time from "/assets/clock-fast-forward.svg";
 import styles from "./MedicalBlock.module.scss";
 
 export const MedicalBlock: FC<INoteBlockProps> = ({ onClick }) => {
     return (
-        <div className={styles.note}>
+        <div className={styles.medical} onClick={onClick}>
             <div className={styles.content}>
                 <div className={styles.top}>
                     <div className={styles.nav}>
                         <Text type="p" fz="14px" color="#7D7F82">
                             Название записи
                         </Text>
-                        <img src={arrowRight} alt="" onClick={onClick} />
                     </div>
                     <Text type="h2" fz="18px">
                         Проверка мышц
