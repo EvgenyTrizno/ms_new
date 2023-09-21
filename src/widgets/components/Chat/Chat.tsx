@@ -5,7 +5,6 @@ import { useNavigate } from "react-router";
 import { useUserCondition } from "@/shared/model/store";
 import { Text, PopUp, Input } from "@/shared";
 import { ChatInfo, EmojiModal } from "@/widgets";
-import { SMALL_LAPTOP } from "@/shared/utils";
 
 import woman from "/assets/woman.jpg";
 import call from "/assets/call-calling.svg";
@@ -20,7 +19,6 @@ import readRed from "/assets/read-red.svg";
 import mircophone from "/assets/microphone-blue.svg";
 import mircophoneRed from "/assets/microphone-red.svg";
 import back from "/assets/back-arrow-blue.svg";
-import arrowLeft from "/assets/arrow-left-black.svg";
 import styles from "./Chat.module.scss";
 
 export const Chat: FC = () => {
@@ -39,7 +37,6 @@ export const Chat: FC = () => {
 
     const sick = condition === "Болен";
     const redMesage = `${styles.text} ${styles.myTextWithSick}`;
-    const navigate = useNavigate();
 
     const handleClick = (e: MouseEvent) => {
         const classes = e.currentTarget.classList.contains(styles.text);
@@ -83,12 +80,17 @@ export const Chat: FC = () => {
                 style={{ borderColor: sick ? "#F7E6E8" : "" }}
             >
                 <div className={styles.data}>
-                    {SMALL_LAPTOP && (
+                    {isInfo && (
                         <img
-                            src={arrowLeft}
+                            src={back}
                             alt=""
-                            className={styles.arrow}
-                            onClick={() => navigate(-1)}
+                            onClick={() => setIsInfo(false)}
+                            style={{
+                                marginRight: "20px",
+                                cursor: "pointer",
+                                width: 20,
+                                height: 20,
+                            }}
                         />
                     )}
                     <img
@@ -117,17 +119,6 @@ export const Chat: FC = () => {
                             setIsSelect("Звонок");
                         }}
                     />
-                    {isInfo && (
-                        <img
-                            src={back}
-                            alt=""
-                            onClick={() => setIsInfo(false)}
-                            style={{
-                                marginLeft: "20px",
-                                cursor: "pointer",
-                            }}
-                        />
-                    )}
                 </div>
             </div>
             {isInfo ? (
@@ -177,7 +168,9 @@ export const Chat: FC = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.message}>
+                        <div
+                            className={`${styles.message} ${styles.messageRight}`}
+                        >
                             <img src={woman} alt="" />
                             <div className={styles.inner}>
                                 <Text type="p" color="#333" fz="11px">
@@ -195,6 +188,47 @@ export const Chat: FC = () => {
                                     >
                                         Да, я обычно выделяю все ctrl+A, потом
                                         всему сразу ставлю верх и лево)))))
+                                    </Text>
+                                    <div className={styles.read}>
+                                        <img
+                                            src={sick ? readRed : read}
+                                            alt=""
+                                        />
+                                    </div>
+                                </div>
+                                <div className={styles.time}>
+                                    <Text type="p" color="#7D7F82" fz="10px">
+                                        8:00 PM
+                                    </Text>
+                                </div>
+                            </div>
+                        </div>{" "}
+                        <div className={styles.message}>
+                            <img
+                                src={woman}
+                                alt=""
+                                onClick={() => setIsInfo(true)}
+                            />
+                            <div className={styles.inner}>
+                                <Text type="p" color="#333" fz="11px">
+                                    Виктор
+                                </Text>
+                                <div
+                                    className={
+                                        sick
+                                            ? redMesage
+                                            : `${styles.text} ${styles.myText}`
+                                    }
+                                    onClick={(e: MouseEvent) => handleClick(e)}
+                                >
+                                    <Text
+                                        type="p"
+                                        color="#262626"
+                                        fw={400}
+                                        fz="14px"
+                                    >
+                                        Доступ открывается каждый месяц на один
+                                        день 🙄
                                     </Text>
                                     <div className={styles.read}>
                                         <img
