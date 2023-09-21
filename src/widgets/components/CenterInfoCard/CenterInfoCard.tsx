@@ -8,7 +8,12 @@ import centerIcon from "/assets/center-icon.jpg";
 import cross from "/assets/cross-close-black.svg";
 import styles from "./CenterInfoCard.module.scss";
 
-export const CenterInfoCard: FC<ICenterInfoCard> = ({ top, left, onClick }) => {
+export const CenterInfoCard: FC<ICenterInfoCard> = ({
+    top,
+    left,
+    onClick,
+    setIsCardOpen,
+}) => {
     return (
         <div className={styles.card} style={{ top, left }}>
             <div className={styles.top}>
@@ -24,7 +29,12 @@ export const CenterInfoCard: FC<ICenterInfoCard> = ({ top, left, onClick }) => {
                         5.0
                     </Text>
                 </div>
-                <img src={cross} alt="" className={styles.close} />
+                <img
+                    src={cross}
+                    alt=""
+                    className={styles.close}
+                    onClick={() => setIsCardOpen(false)}
+                />
             </div>
             <div className={styles.data}>
                 <div className={styles.box}>
