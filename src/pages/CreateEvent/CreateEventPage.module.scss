@@ -1,21 +1,14 @@
 .wrapper {
     display: grid;
-    grid-template-columns: 500px 1fr;
-    grid-gap: 40px;
-    margin-top: 20px;
+    grid-template-columns: 470px 1fr;
+    grid-gap: 16px;
+    margin-top: 16px;
 
     .box {
         .text {
             display: flex;
             align-items: center;
-            grid-gap: 5px;
-            margin-bottom: 15px;
-        }
-
-        .calendar {
-            display: flex;
-            flex-direction: column;
-            grid-gap: 5px;
+            grid-gap: 10px;
         }
 
         .employees {
@@ -23,14 +16,22 @@
             grid-gap: 10px;
         }
 
+        .selected {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 10px;
+            margin-bottom: 10px;
+        }
+
         .options {
             display: flex;
             flex-direction: column;
-            grid-gap: 5px;
+            grid-gap: 10px;
+            margin-top: 10px;
 
             .item {
                 background-color: var(--white);
-                padding: 30px;
+                padding: 24px;
                 border-radius: var(--default-border);
                 display: flex;
                 flex-direction: column;
@@ -191,7 +192,7 @@
         }
 
         .btn {
-            margin-top: 30px;
+            margin-top: 20px;
         }
     }
 }
