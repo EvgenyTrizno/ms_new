@@ -19,15 +19,36 @@
         transition: all ease .5s;
         font-size: 14px;
         border-radius: var(--mobile-default-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-gap: 8px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
     }
 
     .active {
         background-color: var(--blue-100);
         color: var(--blue);
+
+        svg {
+            path {
+                stroke: var(--blue);
+            }
+        }
     }
 
     .activeRed {
         background-color: var(--red-100);
         color: var(--red-400);
+
+        svg {
+            path {
+                stroke: var(--red-400);
+            }
+        }
     }
 }

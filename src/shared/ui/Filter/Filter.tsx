@@ -6,7 +6,7 @@ import { useUserCondition } from "@/shared/model/store";
 
 import styles from "./Filter.module.scss";
 
-export const Filter: FC<IFilter> = ({ data, width }) => {
+export const Filter: FC<IFilter> = ({ data, width, icons }) => {
     const [isSelect, setIsSelect] = useState<string>(data[0]);
     const { setIsFilter } = useFilter();
     const { condition } = useUserCondition();
@@ -25,7 +25,7 @@ export const Filter: FC<IFilter> = ({ data, width }) => {
             className={styles.container}
             style={{ width, borderColor: sick ? "#F7E6E8" : "" }}
         >
-            {data.map((item) => (
+            {data.map((item, i) => (
                 <div
                     className={`${
                         isSelect === item && sick
@@ -41,6 +41,7 @@ export const Filter: FC<IFilter> = ({ data, width }) => {
                     }}
                 >
                     {item}
+                    {item && icons && icons[i]}
                 </div>
             ))}
         </div>
