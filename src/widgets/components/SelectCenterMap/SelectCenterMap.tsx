@@ -60,12 +60,14 @@ export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
                             width="132px"
                             br="12px"
                             padding="14px 18px"
-                            height="48px"
                             fz="14px"
+                            height="48px"
                         >
                             <div className={styles.box}>
                                 <img src={controler} alt="" />
-                                <Text type="p">Фильтры</Text>
+                                <Text type="p" fz="14px">
+                                    Фильтры
+                                </Text>
                             </div>
                         </Btn>
                     </div>
