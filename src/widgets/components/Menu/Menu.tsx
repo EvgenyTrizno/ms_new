@@ -389,7 +389,11 @@ export const Menu: FC = () => {
             <div className={styles.logo}>
                 {!isHovered && SMALL_LAPTOP && <img alt="" src={logo} />}
                 {(isHovered || PC) && (
-                    <img src={sick ? bigLogoRed : bigLogo} alt="" />
+                    <img
+                        src={sick ? bigLogoRed : bigLogo}
+                        alt=""
+                        onClick={() => navigate("/")}
+                    />
                 )}
             </div>
             <div className={styles.container}>
