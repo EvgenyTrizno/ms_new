@@ -65,5 +65,6 @@
 }
 
 .item:hover {
+    transition: linear 0.2s;
     box-shadow: 0px 0px 25px 0px rgba(0, 100, 250, 0.15);
 }
