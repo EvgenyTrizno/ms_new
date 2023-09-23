@@ -8,8 +8,8 @@
 
     .list {
         display: grid;
-        grid-template-columns: repeat(4, 336px);
-        grid-gap: 30px;
+        grid-template-columns: repeat(4, 320px);
+        grid-gap: 24px;
 
         .card {
             width: 100%;
@@ -26,13 +26,13 @@
             flex-direction: column;
             grid-gap: 24px;
             background-color: var(--white);
-            padding: 30px 20px 20px;
+            padding: 30px 16px 16px;
             border: 1px solid var(--blue-100);
             border-radius: var(--mobile-default-border);
 
             img {
-                width: 150px;
-                height: 150px;
+                width: 130px;
+                height: 130px;
                 object-fit: cover;
                 margin: 0 auto; 
                 border-radius: 100%;

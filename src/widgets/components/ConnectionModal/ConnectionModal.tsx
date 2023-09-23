@@ -13,22 +13,19 @@ export const ConnectionModal: FC = () => {
                     <div className={`${styles.card} ${styles.cardWhite}`}>
                         <img src={woman} alt="" />
                         <div className={styles.text}>
-                            <Text type="h2" fz="17px">
+                            <Text type="h2" fz="16px">
                                 Иванова Светлана Васильевна
                             </Text>
                             <Text type="p" fz="14px">
                                 12 декабря 1999
                             </Text>
-                            <Text
-                                type="p"
-                                fz="14px"
-                                position="right"
-                                color="#7D7F82"
-                            >
+                            <Text type="p" fz="14px">
                                 Ташкент, Узбекистан
                             </Text>
                         </div>
-                        <Btn color="#0064FA">Связаться</Btn>
+                        <Btn color="#0064FA" height="48px">
+                            Связаться
+                        </Btn>
                     </div>
                 ))}
             </div>
