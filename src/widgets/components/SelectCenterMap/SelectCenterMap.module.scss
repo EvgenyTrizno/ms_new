@@ -4,7 +4,7 @@
 
     .inner {
         display: flex;
-        width: 100%;    
+        width: 100%;
         position: absolute;
         grid-gap: 10px;
         top: 16px;
@@ -26,15 +26,15 @@
                 padding: 12px 16px 12px 10px;
             }
         }
-        
-            .btn {
-                background-color: var(--white);
-                border-bottom-left-radius: var(--mobile-default-border);
-                border-top-left-radius: var(--mobile-default-border);
-                padding-left: 16px;
-                display: flex;
-                justify-content: center;
-            }
+
+        .btn {
+            background-color: var(--white);
+            border-bottom-left-radius: var(--mobile-default-border);
+            border-top-left-radius: var(--mobile-default-border);
+            padding-left: 16px;
+            display: flex;
+            justify-content: center;
+        }
 
         .box {
             display: flex;
@@ -45,6 +45,45 @@
             img {
                 width: 20px;
                 height: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .map {
+        .inner {
+            padding: 16px 9px 16px 16px;
+            width: calc(100% - 32px);
+            background-color: var(--white);
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            border: 1px solid var(--system-light-grey);
+            max-height: 48px;
+
+            .search {
+                border-radius: 0px;
+                border: none;
+
+                input {
+                    padding: 0;
+                    padding-left: 12px;
+                }
+            }
+
+            .btn {
+                padding: 0;
+            }
+
+            .box {
+                width: 34px;
+                justify-content: center;
+
+                img {
+                    width: 16px;
+                    height: 16px;
+                }
             }
         }
     }

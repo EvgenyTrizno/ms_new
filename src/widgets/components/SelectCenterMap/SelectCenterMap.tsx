@@ -9,6 +9,7 @@ import circle from "/assets/circle-blue.svg";
 import controler from "/assets/controler.svg";
 import search from "/assets/search-gray.svg";
 import styles from "./SelectCenterMap.module.scss";
+import { MOBILE } from "@/shared/utils";
 
 export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -57,17 +58,19 @@ export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
                         </div>
                         <Btn
                             color="#0064FA"
-                            width="132px"
+                            width={MOBILE ? "34px" : "132px"}
                             br="12px"
-                            padding="14px 18px"
+                            padding={MOBILE ? "0px" : "14px 18px"}
                             fz="14px"
-                            height="48px"
+                            height="34px"
                         >
                             <div className={styles.box}>
                                 <img src={controler} alt="" />
-                                <Text type="p" fz="14px">
-                                    Фильтры
-                                </Text>
+                                {!MOBILE && (
+                                    <Text type="p" fz="14px">
+                                        Фильтры
+                                    </Text>
+                                )}
                             </div>
                         </Btn>
                     </div>
@@ -76,7 +79,7 @@ export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
                     <CenterInfoCard
                         setIsCardOpen={setIsOpen}
                         onClick={setMap}
-                        top={y}
+                        top={!MOBILE ? y : undefined}
                     />
                 )}
                 <MarkerF
