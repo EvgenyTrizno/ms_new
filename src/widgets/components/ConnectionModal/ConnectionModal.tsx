@@ -3,6 +3,7 @@ import { FC } from "react";
 import { Btn, Text } from "@/shared";
 
 import woman from "/assets/woman.jpg";
+import user from "/assets/user-with-plus.svg";
 import styles from "./ConnectionModal.module.scss";
 
 export const ConnectionModal: FC = () => {
@@ -28,6 +29,14 @@ export const ConnectionModal: FC = () => {
                         </Btn>
                     </div>
                 ))}
+                <div className={styles.card}>
+                    <button className={styles.add}>
+                        <Text type="h2" color="#0064FA" fz="24px">
+                            Добавить
+                        </Text>
+                        <img src={user} alt="" />
+                    </button>
+                </div>
             </div>
         </div>
     );
