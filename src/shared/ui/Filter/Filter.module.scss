@@ -52,3 +52,12 @@
         }
     }
 }
+
+@media screen and (max-width: 576px) {
+    .container {
+        .item {
+            padding: 12px 0;
+            font-size: 14px;
+        }
+    }
+}

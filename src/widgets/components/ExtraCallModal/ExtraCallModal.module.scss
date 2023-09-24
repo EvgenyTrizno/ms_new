@@ -15,6 +15,25 @@
         height: 200px;
         right: 30px;
         bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .extraBtns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(20deg);
+
+            span {
+                transform: rotate(calc(var(--i) * (360deg / 8))) translateY(80px);
+            }
+
+            span img {
+                max-width: 24px;
+                max-height: 24px;
+            }
+        }
     }
 
     .extraBtn {
@@ -27,6 +46,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 55px;
+        height: 55px;
 
         img {
             z-index: 1;

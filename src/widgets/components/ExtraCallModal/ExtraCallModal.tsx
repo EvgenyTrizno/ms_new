@@ -1,4 +1,11 @@
-import { FC, useEffect, useId, useState, MouseEvent } from "react";
+import {
+    FC,
+    useEffect,
+    useId,
+    useState,
+    MouseEvent,
+    CSSProperties,
+} from "react";
 import { IExtraCallBtnData } from "../ExtraCallMobile/types";
 import { motion } from "framer-motion";
 
@@ -13,6 +20,7 @@ import homeWithPlusRed from "/assets/home-with-plus-red.svg";
 import support from "/assets/support-blue.svg";
 import supportRed from "/assets/support-red.svg";
 import connect from "/assets/connect-icon.svg";
+import cross from "/assets/cross.svg";
 import styles from "./ExtraCallModal.module.scss";
 import { ConnectionModal } from "../ConnectionModal/ConnectionModal";
 
@@ -88,6 +96,8 @@ export const ExtraCallModal: FC = () => {
         setIsOpenModal((prev) => !prev);
     };
 
+    const style = (i: number) => ({ "--i": i } as CSSProperties);
+
     return (
         <div
             className={styles.extra}
@@ -97,40 +107,50 @@ export const ExtraCallModal: FC = () => {
                 pointerEvents: isOpen ? "auto" : "none",
             }}
         >
-            <ConnectionModal />
+            {/* <ConnectionModal /> */}
             <div className={styles.container}>
-                <div style={{ position: "relative", height: "100%" }}>
-                    {!isOpenModal &&
-                        data.map((item) => (
-                            <motion.div
-                                initial={{ x: 35, y: 0 }}
-                                animate={{
-                                    x: isOpen ? item.position.x : 0,
-                                    y: isOpen ? item.position.y : 0,
-                                }}
-                                exit={{ x: 35, y: 0 }}
-                                transition={{
-                                    duration: 0.3,
-                                    type: "spring",
-                                    damping: 10,
-                                }}
-                                className={`${styles.extraBtn} ${styles.select}`}
-                                style={{
-                                    backgroundColor: `${sick ? "#F7E6E8" : ""}`,
-                                }}
-                                onClick={handleClick}
-                                key={item.id}
-                            >
-                                <img
-                                    src={
-                                        sick
-                                            ? item.icon.sick
-                                            : item.icon.healthy
-                                    }
-                                    alt=""
-                                />
-                            </motion.div>
-                        ))}
+                {/* {!isOpenModal &&
+                    data.map((item) => (
+                        <motion.div
+                            // initial={{ x: 35, y: 0 }}
+                            // animate={{
+                            //     x: isOpen ? item.position.x : 0,
+                            //     y: isOpen ? item.position.y : 0,
+                            // }}
+                            // exit={{ x: 35, y: 0 }}
+                            transition={{
+                                duration: 0.3,
+                                type: "spring",
+                                damping: 10,
+                            }}
+                            className={`${styles.extraBtn} ${styles.select}`}
+                            style={{
+                                backgroundColor: `${sick ? "#F7E6E8" : ""}`,
+                            }}
+                            onClick={handleClick}
+                            key={item.id}
+                        >
+                            <img
+                                src={sick ? item.icon.sick : item.icon.healthy}
+                                alt=""
+                            />
+                        </motion.div>
+                    ))} */}
+                <div className={styles.extraBtns}>
+                    <div className={styles.extraBtn}>
+                        <img src={cross} alt="" />
+                    </div>
+                    {data.map((item, i) => (
+                        <span
+                            style={style(i + 1)}
+                            className={`${styles.extraBtn} ${styles.select}`}
+                        >
+                            <img
+                                src={sick ? item.icon.sick : item.icon.healthy}
+                                alt=""
+                            />
+                        </span>
+                    ))}
                 </div>
             </div>
             {isOpenModal && isOpen && (

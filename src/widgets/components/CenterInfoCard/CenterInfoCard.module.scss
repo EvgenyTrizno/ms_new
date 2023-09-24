@@ -65,3 +65,15 @@
         }
     }
 }
+
+@media screen and (max-width: 576px) {
+    .card {
+        width: 100%;
+        bottom: 0 !important; 
+        left: 0;
+        max-height: 510px;
+        transform: none;
+        margin-right: 0;
+        border-radius: 24px 24px 0px 0px;
+    }
+}
