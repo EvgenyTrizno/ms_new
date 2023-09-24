@@ -1,6 +1,7 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { PaginationOptions } from "swiper/types";
 
 import { Text } from "@/shared";
 import { useUserCondition } from "@/shared/model/store";
@@ -17,14 +18,25 @@ import "swiper/css/pagination";
 
 export const Post: FC = () => {
     const { condition } = useUserCondition();
+    const [paginationKey, setPaginationKey] = useState<number>(0);
 
     const sick = condition === "Болен";
-    const pagination = {
+    const pagination: PaginationOptions = {
         clickable: true,
-        renderBullet: () => {
-            return `<span class="${`${styles.pagination} ${styles.paginationRed}`}"></span>`;
+        bulletClass: styles.pagination,
+        bulletActiveClass: sick ? styles.paginationRed : styles.paginationBlue,
+        renderBullet: (_, className: string) => {
+            return `<span class="${`${className}`}"></span>`;
         },
     };
+
+    useEffect(() => {
+        if (condition === "Болен") {
+            setPaginationKey(1);
+        } else {
+            setPaginationKey(0);
+        }
+    }, [condition]);
 
     return (
         <div className={styles.post}>
@@ -50,6 +62,7 @@ export const Post: FC = () => {
                 pagination={pagination}
                 modules={[Pagination]}
                 className={styles.slider}
+                key={paginationKey}
             >
                 <SwiperSlide>
                     <img src={post} alt="" className={styles.img} />
