@@ -2,7 +2,7 @@ import { FC } from "react";
 import { TProps } from "./types";
 
 import {
-    MobileMenu,
+    // MobileMenu,
     ExtraCallModal,
     Header,
     Menu,
@@ -30,7 +30,7 @@ export const Layout: FC<TProps> = ({ children }) => {
         <div className={styles.layout}>
             {!MOBILE && !TABLET && <Header />}
             <div className={styles.container}>
-                {PC || SMALL_LAPTOP ? <Menu /> : <MobileMenu />}
+                {PC || (SMALL_LAPTOP && <Menu />)}
                 <div className={styles.main}>{children}</div>
                 {MOBILE || TABLET ? <ExtraCallMobile /> : <ExtraCallModal />}
                 {location.pathname !== "/messages" &&

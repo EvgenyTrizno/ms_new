@@ -3,7 +3,13 @@ import { ICraeteEventData } from "./types";
 
 import { Layout } from "../Layout/Layout";
 import { BackArrow, Btn, Filter, Input, Switch, Text } from "@/shared";
-import { Calendar, CustomMobileHeader, SelectCenterMap } from "@/widgets";
+import {
+    Calendar,
+    CustomMobileHeader,
+    MobileHeader,
+    SelectCenterMap,
+    MobileContainer,
+} from "@/widgets";
 import { Account } from "@/shared/api/Account";
 import { getAccessTokenFromCookies } from "@/features";
 import { useFilter, useUserCondition } from "@/shared/model/store";
@@ -13,7 +19,6 @@ import { MOBILE } from "@/shared/utils";
 import info from "/assets/info-circle.svg";
 import arrow from "/assets/arrow-left-black.svg";
 import fileIcon from "/assets/file.svg";
-import call from "/assets/call-incoming.svg";
 import styles from "./CreateEventPage.module.scss";
 
 const CreateEventPage: FC = () => {
@@ -369,15 +374,19 @@ const CreateEventPage: FC = () => {
                             <BackArrow />
                         </CustomMobileHeader>
                     )}
-                    <div>
-                        <Text type="h2" fz="24px">
+                    <MobileContainer>
+                        <Text type="h2" fz={MOBILE ? "22px" : "24px"}>
                             Создать событие
                         </Text>
                         <div className={styles.wrapper}>
                             <div className={styles.box}>
                                 <div className={styles.selected}>
                                     <div className={styles.text}>
-                                        <Text type="p" color="#7D7F82">
+                                        <Text
+                                            type="p"
+                                            color="#7D7F82"
+                                            fz={MOBILE ? "15px" : ""}
+                                        >
                                             Выберите формат записи
                                         </Text>
                                         <img src={info} alt="" />
@@ -387,7 +396,11 @@ const CreateEventPage: FC = () => {
                                         data={["Онлайн", "Оффлайн"]}
                                     />
                                     <div className={styles.text}>
-                                        <Text type="p" color="#7D7F82">
+                                        <Text
+                                            type="p"
+                                            color="#7D7F82"
+                                            fz={MOBILE ? "15px" : ""}
+                                        >
                                             Выберите тип оповещения
                                         </Text>
                                         <img src={info} alt="" />
@@ -461,7 +474,11 @@ const CreateEventPage: FC = () => {
                             </div>
                             <div className={styles.box}>
                                 <div className={styles.text}>
-                                    <Text type="p" color="#7D7F82">
+                                    <Text
+                                        type="p"
+                                        color="#7D7F82"
+                                        fz={MOBILE ? "12px" : ""}
+                                    >
                                         Выберите формат записи
                                     </Text>
                                 </div>
@@ -542,13 +559,22 @@ const CreateEventPage: FC = () => {
                                     ))}
                                 </div>
                                 <div className={styles.btn}>
-                                    <Btn color="#0064FA" onClick={handleClick}>
-                                        Записаться
+                                    <Btn
+                                        color="#0064FA"
+                                        onClick={handleClick}
+                                        height={MOBILE ? "44px" : ""}
+                                    >
+                                        <Text
+                                            type="h2"
+                                            fz={MOBILE ? "13px" : ""}
+                                        >
+                                            Записаться
+                                        </Text>
                                     </Btn>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </MobileContainer>
                 </Layout>
             )}
         </>
