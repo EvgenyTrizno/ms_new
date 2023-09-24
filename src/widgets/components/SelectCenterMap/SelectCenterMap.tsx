@@ -62,7 +62,7 @@ export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
                             br="12px"
                             padding={MOBILE ? "0px" : "14px 18px"}
                             fz="14px"
-                            height="34px"
+                            height={MOBILE ? "34px" : "100%"}
                         >
                             <div className={styles.box}>
                                 <img src={controler} alt="" />
