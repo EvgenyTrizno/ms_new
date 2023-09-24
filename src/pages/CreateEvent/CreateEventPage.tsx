@@ -6,7 +6,6 @@ import { BackArrow, Btn, Filter, Input, Switch, Text } from "@/shared";
 import {
     Calendar,
     CustomMobileHeader,
-    MobileHeader,
     SelectCenterMap,
     MobileContainer,
 } from "@/widgets";

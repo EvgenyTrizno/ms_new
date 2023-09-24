@@ -7,7 +7,7 @@ import {
     CSSProperties,
 } from "react";
 import { IExtraCallBtnData } from "../ExtraCallMobile/types";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 import { useExtraCall } from "@/shared/model/store";
 import { useUserCondition } from "@/shared/model/store";
@@ -22,7 +22,7 @@ import supportRed from "/assets/support-red.svg";
 import connect from "/assets/connect-icon.svg";
 import cross from "/assets/cross.svg";
 import styles from "./ExtraCallModal.module.scss";
-import { ConnectionModal } from "../ConnectionModal/ConnectionModal";
+// import { ConnectionModal } from "../ConnectionModal/ConnectionModal";
 
 export const ExtraCallModal: FC = () => {
     const { setIsOpen, isOpen } = useExtraCall();
@@ -136,7 +136,7 @@ export const ExtraCallModal: FC = () => {
                             />
                         </motion.div>
                     ))} */}
-                <div className={styles.extraBtns}>
+                <div className={styles.extraBtns} onClick={handleClick}>
                     <div className={styles.extraBtn}>
                         <img src={cross} alt="" />
                     </div>
