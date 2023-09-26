@@ -416,7 +416,7 @@ const CreateEventPage: FC = () => {
                                             >
                                                 <path
                                                     d="M7.08301 8.75H12.9163"
-                                                    stroke="#0064FA"
+                                                    stroke="#7D7F82"
                                                     stroke-width="1.25"
                                                     stroke-miterlimit="10"
                                                     stroke-linecap="round"
@@ -424,7 +424,7 @@ const CreateEventPage: FC = () => {
                                                 />
                                                 <path
                                                     d="M5.83317 15.3568H9.1665L12.8748 17.8235C13.4248 18.1901 14.1665 17.7984 14.1665 17.1318V15.3568C16.6665 15.3568 18.3332 13.6901 18.3332 11.1901V6.1901C18.3332 3.6901 16.6665 2.02344 14.1665 2.02344H5.83317C3.33317 2.02344 1.6665 3.6901 1.6665 6.1901V11.1901C1.6665 13.6901 3.33317 15.3568 5.83317 15.3568Z"
-                                                    stroke="#0064FA"
+                                                    stroke="#7D7F82"
                                                     stroke-width="1.25"
                                                     stroke-miterlimit="10"
                                                     stroke-linecap="round"
