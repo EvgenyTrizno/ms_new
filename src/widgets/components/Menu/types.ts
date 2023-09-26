@@ -24,4 +24,5 @@ export interface IData {
 export interface IMenuData {
     default: IData[];
     personal: IData[];
+    admin: IData[];
 }
