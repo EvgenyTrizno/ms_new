@@ -1,0 +1,85 @@
+.clinic {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 16px;
+
+    .box {
+        background-color: var(--white);
+        padding: 20px;
+        border-radius: var(--mobile-default-border);
+        border: 1px solid var(--grey-100);
+    }
+
+    .info {
+        grid-gap: 16px;
+        display: grid;
+        grid-template-columns: 390px 422px 1fr;
+
+        .data {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 20px;
+
+            .centerAvatar {
+                width: 350px;
+                height: 350px;
+                border-radius: var(--mobile-default-border);
+            }
+
+            .verify {
+                display: flex;
+                align-items: center;
+                grid-gap: 5px;
+
+                span {
+                    background-color: var(--green-100);
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .btns {
+                display: flex;
+                align-items: center;
+                grid-gap: 10px;
+            }
+        }
+
+        .aboutContainer {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .about {
+                display: flex;
+                flex-direction: column;
+                grid-gap: 20px;
+
+                .text {
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: 10px;
+                }
+            }
+        }
+
+        .block {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 10px;
+
+            .admin {
+                img {
+                    width: 125px;
+                    height: 125px;
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
+}
