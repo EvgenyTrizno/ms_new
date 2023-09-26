@@ -95,6 +95,9 @@ const ChatPage = lazy(() => import("@/pages/Chat/ChatPage"));
 const AbountCenterPage = lazy(
     () => import("@/pages/AboutCenter/AboutCenterPage")
 );
+const ClinicProfilePage = lazy(
+    () => import("@/pages/ClinicProfile/ClinicProfile")
+);
 
 const media = window.matchMedia("(max-width: 768px)").matches;
 
@@ -243,5 +246,10 @@ export const routes: RouteData[] = [
         path: "/about-center",
         Component: AbountCenterPage,
         key: "abount-center_page",
+    },
+    {
+        path: "/clinic/:id",
+        Component: ClinicProfilePage,
+        key: "clinic-profile_page",
     },
 ];
