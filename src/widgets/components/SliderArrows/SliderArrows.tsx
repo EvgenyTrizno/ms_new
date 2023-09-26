@@ -44,19 +44,13 @@ export const SliderArrows: FC = () => {
                 onClick={handlePrev}
                 id="prevArrow"
             >
-                <svg
-                    width="9"
-                    height="14"
-                    viewBox="0 0 9 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg width="9" height="14" viewBox="0 0 9 14" fill="none">
                     <path
                         d="M7.5299 1.34315L1.87305 7L7.5299 12.6569"
                         stroke="#262626"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                     />
                 </svg>
             </div>
@@ -67,19 +61,13 @@ export const SliderArrows: FC = () => {
                 onClick={handleNext}
                 id="nextArrow"
             >
-                <svg
-                    width="9"
-                    height="14"
-                    viewBox="0 0 9 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg width="9" height="14" viewBox="0 0 9 14" fill="none">
                     <path
                         d="M1.84315 1.34315L7.5 7L1.84315 12.6569"
                         stroke="#262626"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                     />
                 </svg>
             </div>
