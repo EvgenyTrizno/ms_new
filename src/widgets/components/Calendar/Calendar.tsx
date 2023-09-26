@@ -8,7 +8,7 @@ import { useUserCondition } from "@/shared/model/store";
 import arrowLeft from "/assets/arrow-left.svg";
 import arrowRight from "/assets/arrow-right.svg";
 import styles from "./Calendar.module.scss";
-import { PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
+import { MOBILE, PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
 
 export const months = [
     "Январь",
@@ -281,30 +281,32 @@ export const Calendar: FC<ICalendare> = ({
                     <div className={styles.info}>
                         <div className={styles.box}>
                             <div className={styles.text}>
-                                <Text type="p" color="#7D7F82">
+                                <Text type="p" fz="14px">
                                     Время начала:
                                 </Text>
                             </div>
                             <Input
                                 type="text"
-                                borderColor="#E9EAEB"
+                                borderColor="#EBF3FF"
                                 placeholder="00:00"
                                 name="timeStart"
+                                padding="12px"
                                 value={timeStart}
                                 onChange={handleChangeTime}
                             />
                         </div>
                         <div className={styles.box}>
                             <div className={styles.text}>
-                                <Text type="p" color="#7D7F82">
+                                <Text type="p" fz="14px">
                                     Конечное время:
                                 </Text>
                             </div>
                             <Input
                                 type="text"
-                                borderColor="#E9EAEB"
+                                borderColor="#EBF3FF"
                                 name="timeEnd"
                                 value={timeEnd}
+                                padding="12px"
                                 placeholder="00:00"
                                 onChange={handleChangeTime}
                             />
@@ -317,7 +319,7 @@ export const Calendar: FC<ICalendare> = ({
                                 : styles.result
                         }
                     >
-                        <Text type="p" fz="18px">
+                        <Text type="p" fz={MOBILE ? "13px" : ""}>
                             {fullDays[selectWeekDay]}, {selectedDay}&nbsp;
                             {decreasingMonths[currentMonth]}&nbsp;
                             {timeStart}
