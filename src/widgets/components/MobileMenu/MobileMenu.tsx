@@ -125,6 +125,7 @@ export const MobileMenu: FC = () => {
             },
         ],
         personal: [],
+        admin: [],
     };
 
     return (
