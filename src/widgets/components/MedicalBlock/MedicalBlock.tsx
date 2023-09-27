@@ -7,10 +7,20 @@ import alarm from "/assets/alarm-clock.svg";
 import calendar from "/assets/calendar.svg";
 import time from "/assets/clock-fast-forward.svg";
 import styles from "./MedicalBlock.module.scss";
+import { useUserCondition } from "@/shared/model/store";
 
 export const MedicalBlock: FC<INoteBlockProps> = ({ onClick }) => {
+    const { condition } = useUserCondition();
+
+    const sick = condition === "Болен";
+
     return (
-        <div className={styles.medical} onClick={onClick}>
+        <div
+            className={
+                sick ? `${styles.medical} ${styles.medicalRed}` : styles.medical
+            }
+            onClick={onClick}
+        >
             <div className={styles.content}>
                 <div className={styles.top}>
                     <div className={styles.nav}>
