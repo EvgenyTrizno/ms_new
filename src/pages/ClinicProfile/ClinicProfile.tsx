@@ -1,4 +1,15 @@
 import { FC } from "react";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 
 import { Layout } from "../Layout/Layout";
 import { Rating, Search } from "@/widgets";
@@ -7,12 +18,47 @@ import { Btn, Text } from "@/shared";
 import center from "/assets/center-avatar.jpg";
 import man from "/assets/man.jpg";
 import arrow from "/assets/arrow-right.svg";
-import money from "/assets/money.svg";
-import hammer from "/assets/hammer.svg";
 import controller from "/assets/controler.svg";
 import styles from "./ClinicProfile.module.scss";
 
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
 const ClinicProfile: FC = () => {
+    const labels = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+    ];
+
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: "Dataset 1",
+                borderColor: "rgb(255, 99, 132)",
+                data: [1, 3, 5, 5],
+                backgroundColor: "rgba(255, 99, 132, 0.5)",
+            },
+            {
+                label: "Dataset 2",
+                borderColor: "rgb(53, 162, 235)",
+                data: [1, 3, 5, 5],
+                backgroundColor: "rgba(53, 162, 235, 0.5)",
+            },
+        ],
+    };
     return (
         <Layout>
             <div className={styles.clinic}>
@@ -130,7 +176,10 @@ const ClinicProfile: FC = () => {
                                         <Text type="h2" fz="18px">
                                             Алексеев Эрнест Владимирович
                                         </Text>
-                                        <div className={styles.text}>
+                                        <div
+                                            className={styles.text}
+                                            style={{ gridGap: 3 }}
+                                        >
                                             <Text type="h2" fz="16px">
                                                 Номер телефона
                                             </Text>
@@ -144,119 +193,100 @@ const ClinicProfile: FC = () => {
                         </div>
                         <div className={styles.block}>
                             <div className={styles.box}>
-                                <div
-                                    className={styles.colsX2}
-                                    style={{ gridGap: 20 }}
-                                >
-                                    <div>
+                                <div className={styles.stats}>
+                                    <div className={styles.text}>
                                         <Text type="h2" fz="18px">
-                                            Баланс на счету
+                                            Количество посещений за день
                                         </Text>
-                                        <div className={styles.bal}>
-                                            <div className={styles.sum}>
-                                                <Text type="p">За день</Text>
-                                                <div
-                                                    className={`${styles.sumBlock} ${styles.mt5}`}
-                                                >
-                                                    <Text type="h2" fz="28px">
-                                                        $
-                                                    </Text>
-                                                    <Text type="p" fz="20px">
-                                                        1,567
-                                                    </Text>
-                                                </div>
+                                        <div className={styles.row}>
+                                            <div className={styles.sumBlock}>
+                                                <Text type="h2" fz="28px">
+                                                    86
+                                                </Text>
+                                                <Text type="h2" fz="16px">
+                                                    Онлайн
+                                                </Text>
                                             </div>
-                                            <div className={styles.sum}>
-                                                <Text type="p">За день</Text>
-                                                <div
-                                                    className={`${styles.sumBlock} ${styles.mt5}`}
-                                                >
-                                                    <Text type="h2" fz="28px">
-                                                        $
-                                                    </Text>
-                                                    <Text type="h2" fz="20px">
-                                                        42,567
-                                                    </Text>
-                                                </div>
+                                            <div className={styles.sumBlock}>
+                                                <Text type="h2" fz="28px">
+                                                    86
+                                                </Text>
+                                                <Text type="h2" fz="16px">
+                                                    Оффлайн
+                                                </Text>
                                             </div>
                                         </div>
-                                        <Btn color="#0064FA" height="52px">
-                                            Подробнее
-                                        </Btn>
                                     </div>
-                                    <div>
-                                        <div className={styles.colsX2}>
-                                            <div className={styles.container}>
-                                                <Text type="h2" fz="18px">
-                                                    Последнии премии
+                                </div>
+                            </div>
+                            <div className={styles.box}>
+                                <div className={styles.text}>
+                                    <Text type="h2" fz="18px">
+                                        Записи
+                                    </Text>
+                                    <div className={styles.colsX2}>
+                                        <div className={styles.sumBlock}>
+                                            <Text type="h2" fz="28px">
+                                                86
+                                            </Text>
+                                            <div
+                                                className={styles.text}
+                                                style={{ gridGap: 0 }}
+                                            >
+                                                <Text type="h2" fz="16px">
+                                                    Всего
                                                 </Text>
-                                                <div className={styles.list}>
-                                                    {[1, 2, 3, 4, 5].map(
-                                                        (item) => (
-                                                            <div
-                                                                key={item}
-                                                                className={
-                                                                    styles.rowText
-                                                                }
-                                                            >
-                                                                <div
-                                                                    className={
-                                                                        styles.icon
-                                                                    }
-                                                                >
-                                                                    <img
-                                                                        src={
-                                                                            money
-                                                                        }
-                                                                        alt=""
-                                                                    />
-                                                                </div>
-                                                                <Text
-                                                                    type="p"
-                                                                    fz="14px"
-                                                                >
-                                                                    13 апреля
-                                                                    2023
-                                                                </Text>
-                                                            </div>
-                                                        )
-                                                    )}
-                                                </div>
+                                                <Text type="p" fz="14px">
+                                                    Записей
+                                                </Text>
                                             </div>
-                                            <div className={styles.container}>
-                                                <Text type="h2" fz="18px">
-                                                    Последнии штрафы
+                                        </div>
+                                        <div className={styles.sumBlock}>
+                                            <Text type="h2" fz="28px">
+                                                86
+                                            </Text>
+                                            <div
+                                                className={styles.text}
+                                                style={{ gridGap: 0 }}
+                                            >
+                                                <Text type="h2" fz="16px">
+                                                    Подтвержено
                                                 </Text>
-                                                <div className={styles.list}>
-                                                    {[1, 2, 3, 4, 5].map(
-                                                        (item) => (
-                                                            <div
-                                                                key={item}
-                                                                className={
-                                                                    styles.rowText
-                                                                }
-                                                            >
-                                                                <div
-                                                                    className={`${styles.icon} ${styles.iconRed}`}
-                                                                >
-                                                                    <img
-                                                                        src={
-                                                                            hammer
-                                                                        }
-                                                                        alt=""
-                                                                    />
-                                                                </div>
-                                                                <Text
-                                                                    type="p"
-                                                                    fz="14px"
-                                                                >
-                                                                    13 апреля
-                                                                    2023
-                                                                </Text>
-                                                            </div>
-                                                        )
-                                                    )}
-                                                </div>
+                                                <Text type="p" fz="14px">
+                                                    Записей
+                                                </Text>
+                                            </div>
+                                        </div>
+                                        <div className={styles.sumBlock}>
+                                            <Text type="h2" fz="28px">
+                                                86
+                                            </Text>
+                                            <div
+                                                className={styles.text}
+                                                style={{ gridGap: 0 }}
+                                            >
+                                                <Text type="h2" fz="16px">
+                                                    Отменено
+                                                </Text>
+                                                <Text type="p" fz="14px">
+                                                    Записей
+                                                </Text>
+                                            </div>
+                                        </div>
+                                        <div className={styles.sumBlock}>
+                                            <Text type="h2" fz="28px">
+                                                86
+                                            </Text>
+                                            <div
+                                                className={styles.text}
+                                                style={{ gridGap: 0 }}
+                                            >
+                                                <Text type="h2" fz="16px">
+                                                    Перенесено
+                                                </Text>
+                                                <Text type="p" fz="14px">
+                                                    Записей
+                                                </Text>
                                             </div>
                                         </div>
                                     </div>
@@ -267,98 +297,64 @@ const ClinicProfile: FC = () => {
                 </div>
                 <div
                     className={styles.colsX2}
-                    style={{ gridTemplateColumns: "770px 1fr" }}
+                    style={{ gridTemplateColumns: "360px 1fr" }}
                 >
-                    <div className={styles.box}>график</div>
-                    <div className={styles.stats}>
-                        <div className={styles.box}>
-                            <Text type="h2" fz="18px">
-                                Количество посещений за день
-                            </Text>
-                            <div
-                                className={styles.row}
-                                style={{ marginTop: 16 }}
-                            >
-                                <div className={styles.sumBlock}>
+                    <div className={styles.box}>
+                        <Text type="h2" fz="18px">
+                            Баланс на счету
+                        </Text>
+                        <div className={styles.bal}>
+                            <div className={styles.sum}>
+                                <Text type="p">За день</Text>
+                                <div
+                                    className={`${styles.sumBlock} ${styles.mt5}`}
+                                >
                                     <Text type="h2" fz="28px">
-                                        86
+                                        $
                                     </Text>
-                                    <Text type="h2" fz="20px">
-                                        Онлайн
-                                    </Text>
-                                </div>
-                                <div className={styles.sumBlock}>
-                                    <Text type="h2" fz="28px">
-                                        86
-                                    </Text>
-                                    <Text type="h2" fz="20px">
-                                        Оффлайн
+                                    <Text type="p" fz="20px">
+                                        1,567
                                     </Text>
                                 </div>
                             </div>
-                        </div>
-                        <div className={styles.box}>
-                            <div className={styles.colsX2}>
-                                <div className={styles.sumBlock}>
+                            <div className={styles.sum}>
+                                <Text type="p">За день</Text>
+                                <div
+                                    className={`${styles.sumBlock} ${styles.mt5}`}
+                                >
                                     <Text type="h2" fz="28px">
-                                        86
+                                        $
                                     </Text>
-                                    <div className={styles.text}>
-                                        <Text type="h2" fz="20px">
-                                            Всего
-                                        </Text>
-                                        <Text type="p" fz="14px">
-                                            Записей
-                                        </Text>
-                                    </div>
-                                </div>
-                                <div className={styles.sumBlock}>
-                                    <Text type="h2" fz="28px">
-                                        86
+                                    <Text type="h2" fz="20px">
+                                        42,567
                                     </Text>
-                                    <div className={styles.text}>
-                                        <Text type="h2" fz="20px">
-                                            Подтвержено
-                                        </Text>
-                                        <Text type="p" fz="14px">
-                                            Записей
-                                        </Text>
-                                    </div>
-                                </div>
-                                <div className={styles.sumBlock}>
-                                    <Text type="h2" fz="28px">
-                                        86
-                                    </Text>
-                                    <div className={styles.text}>
-                                        <Text type="h2" fz="20px">
-                                            Отменено
-                                        </Text>
-                                        <Text type="p" fz="14px">
-                                            Записей
-                                        </Text>
-                                    </div>
-                                </div>
-                                <div className={styles.sumBlock}>
-                                    <Text type="h2" fz="28px">
-                                        86
-                                    </Text>
-                                    <div className={styles.text}>
-                                        <Text type="h2" fz="20px">
-                                            Перенесено
-                                        </Text>
-                                        <Text type="p" fz="14px">
-                                            Записей
-                                        </Text>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div className={styles.box}>
+                        <div className={styles.text}>
+                            <div className={styles.nav}>
+                                <Text type="h2" fz="18px">
+                                    Премии и штрафы
+                                </Text>
+                            </div>
+                            <div className={styles.chart}>
+                                <Line width="100%" height="160px" data={data} />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className={styles.rowText}>
+                <div className={styles.searchContainer}>
                     <Search placeholder="Поиск специалиста или пациента" />
-                    <Btn color="#0064FA" fz="14px" width="133px" height="48px">
-                        <div className={styles.rowText}>
+                    <Btn
+                        color="#0064FA"
+                        fz="14px"
+                        width="133px"
+                        height="48px"
+                        padding="14px 18px"
+                    >
+                        <div className={styles.filter}>
                             <img src={controller} alt="" />
                             <Text type="p" fz="14px">
                                 Фильтры
