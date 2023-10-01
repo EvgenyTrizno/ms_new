@@ -418,15 +418,6 @@ const ProfilePage: FC = () => {
             },
             content: <div>params</div>,
         },
-        {
-            id: useId(),
-            label: "Выход",
-            icon: {
-                healthy: logouBlue,
-                sick: logouRed,
-            },
-            content: <div>params</div>,
-        },
     ];
 
     return (
