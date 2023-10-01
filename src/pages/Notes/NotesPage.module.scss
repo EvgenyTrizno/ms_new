@@ -91,6 +91,22 @@
             }
         }
     }
+
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 12px;
+    margin-bottom: 28px;
+}
+
+@media screen and (max-width: 576px) {
+    .notes {
+        .items {
+            grid-template-columns: 1fr;
+        }
+    }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
