@@ -8,6 +8,7 @@ import {
     LineElement,
     ChartOptions,
     Filler,
+    ChartData,
 } from "chart.js";
 // import { AnimatePresence, motion } from "framer-motion";
 
@@ -56,7 +57,7 @@ const BalancePage: FC = () => {
         "Aug",
     ];
 
-    const data = {
+    const data: ChartData<"line"> = {
         labels: month.map((item) => item.toUpperCase()),
         datasets: [
             {

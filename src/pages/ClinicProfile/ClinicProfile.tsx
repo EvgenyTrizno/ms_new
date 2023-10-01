@@ -5,17 +5,23 @@ import {
     LinearScale,
     PointElement,
     LineElement,
-    Title,
     Tooltip,
     Legend,
+    ChartData,
+    ChartOptions,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
 import { Layout } from "../Layout/Layout";
-import { Rating, Search } from "@/widgets";
+import {
+    BlueSliderArrows,
+    EmployeeData,
+    EmployeeInfoCard,
+    Rating,
+    Search,
+} from "@/widgets";
 import { Btn, Text } from "@/shared";
 
-import center from "/assets/center-avatar.jpg";
 import man from "/assets/man.jpg";
 import arrow from "/assets/arrow-right.svg";
 import controller from "/assets/controler.svg";
@@ -26,36 +32,129 @@ ChartJS.register(
     LinearScale,
     PointElement,
     LineElement,
-    Title,
     Tooltip,
     Legend
 );
 
 const ClinicProfile: FC = () => {
-    const labels = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-    ];
+    const labels = [0, 15, 30];
 
-    const data = {
+    const options: ChartOptions<"line"> = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                border: {
+                    display: false,
+                },
+                grid: {
+                    display: false,
+                },
+                ticks: {
+                    color: "#B1B2B4",
+                    font: {
+                        size: 12,
+                        weight: "medium",
+                    },
+                },
+            },
+            y: {
+                ticks: {
+                    color: "#B1B2B4",
+                    callback: (val) => val + "$",
+                    font: {
+                        size: 12,
+                        weight: "medium",
+                    },
+                },
+                border: {
+                    display: false,
+                },
+                grid: {
+                    display: false,
+                },
+            },
+        },
+        plugins: {
+            legend: {
+                display: true,
+                position: "bottom",
+                align: "start",
+                labels: {
+                    boxWidth: 5,
+                    boxHeight: 5,
+                    usePointStyle: true,
+                    borderRadius: 10,
+                    boxPadding: 0,
+                    useBorderRadius: true,
+                    color: "#262626",
+                    padding: 5,
+                    font: {
+                        size: 14,
+                        weight: "medium",
+                    },
+                },
+            },
+            tooltip: {
+                backgroundColor: "#0064FA",
+                caretSize: 0,
+                boxWidth: 10,
+                boxHeight: 0,
+                titleAlign: "center",
+                padding: 12,
+                usePointStyle: false,
+                callbacks: {
+                    afterLabel: () => {
+                        return undefined;
+                    },
+                    beforeLabel: () => {
+                        return undefined;
+                    },
+                    title: (tooltipItems) => {
+                        return tooltipItems[0].label;
+                    },
+                    label: () => {
+                        return "";
+                    },
+                    labelPointStyle: () => {
+                        return undefined;
+                    },
+                    footer: () => {
+                        return undefined;
+                    },
+                },
+                bodyFont: {
+                    size: 0,
+                    lineHeight: 0,
+                },
+                titleFont: {
+                    size: 12,
+                },
+            },
+        },
+        datasets: {},
+    };
+
+    const data: ChartData<"line"> = {
         labels,
         datasets: [
             {
-                label: "Dataset 1",
-                borderColor: "rgb(255, 99, 132)",
-                data: [1, 3, 5, 5],
-                backgroundColor: "rgba(255, 99, 132, 0.5)",
+                label: "Премии",
+                data: [10, 30, 50, 520],
+                backgroundColor: "#0064FA",
+                borderColor: "#0064FA",
+                pointBorderWidth: 2,
+                pointBackgroundColor: "white",
+                tension: 0.1,
             },
             {
-                label: "Dataset 2",
-                borderColor: "rgb(53, 162, 235)",
+                label: "Штрафы",
                 data: [1, 3, 5, 5],
-                backgroundColor: "rgba(53, 162, 235, 0.5)",
+                backgroundColor: "#D64657",
+                borderColor: "#D64657",
+                pointBorderWidth: 2,
+                pointBackgroundColor: "white",
+                tension: 0.1,
             },
         ],
     };
@@ -63,104 +162,8 @@ const ClinicProfile: FC = () => {
         <Layout>
             <div className={styles.clinic}>
                 <div className={styles.info}>
-                    <div className={styles.data}>
-                        <div className={styles.box}>
-                            <img
-                                src={center}
-                                alt=""
-                                className={styles.centerAvatar}
-                            />
-                        </div>
-                        <div className={styles.box}>
-                            <div className={styles.clinic}>
-                                <Text type="h2" fz="20px">
-                                    Начал работу с 23 июня 2022
-                                </Text>
-                                <div className={styles.verify}>
-                                    <Text type="p" fz="14px">
-                                        Контракт подписан
-                                    </Text>
-                                    <span>
-                                        <svg
-                                            width="10"
-                                            height="9"
-                                            viewBox="0 0 10 9"
-                                            fill="none"
-                                        >
-                                            <path
-                                                d="M7.96497 2.27734L3.89091 6.35148L2.03906 4.4996"
-                                                stroke="#00CC5E"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                            />
-                                        </svg>
-                                    </span>
-                                </div>
-                                <div className={styles.btns}>
-                                    <Btn color="#0064FA">Связаться</Btn>
-                                    <Btn color="#D64657">Пожаловаться</Btn>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.box}>
-                        <div className={styles.about}>
-                            <div className={styles.data}>
-                                <Text type="h2" fz="20px">
-                                    Здоровый горизонт
-                                </Text>
-                                <div className={styles.text}>
-                                    <Text type="h4" fz="16px">
-                                        Клиника
-                                    </Text>
-                                    <Text type="p" fz="14px">
-                                        Общая медицинская клиника
-                                    </Text>
-                                </div>
-                                <div className={styles.text}>
-                                    <Text type="h4" fz="16px">
-                                        Адрес
-                                    </Text>
-                                    <Text type="p" fz="14px">
-                                        Ташкент, Республика Узбекистан
-                                    </Text>
-                                    <Text type="p" fz="12px" color="#7D7F82">
-                                        ул. Донская, д. 5
-                                    </Text>
-                                </div>
-                                <div className={styles.text}>
-                                    <Text type="h4" fz="16px">
-                                        Номер телефона
-                                    </Text>
-                                    <Text type="p" fz="14px">
-                                        +7(923)-123-45-67
-                                    </Text>
-                                </div>
-                                <div className={styles.text}>
-                                    <Text type="h4" fz="16px">
-                                        Количество персонала
-                                    </Text>
-                                    <Text type="p" fz="14px" color="#7D7F82">
-                                        128 человек
-                                    </Text>
-                                </div>
-                                <div className={styles.text}>
-                                    <Text type="h4" fz="16px">
-                                        Что не указано в заполнении профиля
-                                    </Text>
-                                    <Text type="p" fz="14px" color="#7D7F82">
-                                        79 человек
-                                    </Text>
-                                </div>
-                            </div>
-                            <div className={styles.clinic}>
-                                <Text type="h2" fz="1   6px">
-                                    Какие болезни обслуживаются
-                                </Text>
-                                <Btn color="#0064FA">Полный перечень</Btn>
-                            </div>
-                        </div>
-                    </div>
+                    <EmployeeInfoCard type="clinic" />
+                    <EmployeeData type="clinic" />
                     <div className={styles.clinic}>
                         <div className={styles.block}>
                             <div className={styles.box}>
@@ -172,7 +175,7 @@ const ClinicProfile: FC = () => {
                                 </div>
                                 <div className={styles.admin}>
                                     <img src={man} alt="" />
-                                    <div className={styles.data}>
+                                    <div className={styles.text}>
                                         <Text type="h2" fz="18px">
                                             Алексеев Эрнест Владимирович
                                         </Text>
@@ -340,7 +343,12 @@ const ClinicProfile: FC = () => {
                                 </Text>
                             </div>
                             <div className={styles.chart}>
-                                <Line width="100%" height="160px" data={data} />
+                                <Line
+                                    width="100%"
+                                    height="160px"
+                                    data={data}
+                                    options={options}
+                                />
                             </div>
                         </div>
                     </div>
@@ -363,7 +371,13 @@ const ClinicProfile: FC = () => {
                     </Btn>
                 </div>
                 <div className={styles.box}>
-                    <div className={styles.colsX4}>
+                    <div
+                        className={styles.colsX4}
+                        style={{
+                            gridTemplateColumns: "repeat(4, 332px)",
+                            justifyContent: "space-between",
+                        }}
+                    >
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
                             <div key={item} className={styles.comment}>
                                 <div className={styles.rowText}>
@@ -379,6 +393,8 @@ const ClinicProfile: FC = () => {
                                             <Rating
                                                 defaultValue={5}
                                                 gap="5px"
+                                                width="20px"
+                                                height="20px"
                                             />
                                             <div className={styles.more}>
                                                 <Text
@@ -406,41 +422,7 @@ const ClinicProfile: FC = () => {
                             </div>
                         ))}
                     </div>
-                    <div className={styles.arrows}>
-                        <div className={styles.arrow}>
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 20 20"
-                                fill="none"
-                            >
-                                <path
-                                    d="M12.9167 16.6654L6.25008 9.9987L12.9167 3.33203"
-                                    stroke="#0064FA"
-                                    stroke-opacity="0.5"
-                                    stroke-width="1.25"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-                        </div>
-                        <div className={styles.arrow}>
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 20 20"
-                                fill="none"
-                            >
-                                <path
-                                    d="M7.9165 16.6654L14.5832 9.9987L7.9165 3.33203"
-                                    stroke="#0064FA"
-                                    stroke-width="1.25"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-                        </div>
-                    </div>
+                    <BlueSliderArrows />
                 </div>
             </div>
         </Layout>
