@@ -45,9 +45,6 @@ const MobileChatPage = lazy(() => import("@/pages/MobileChat/MobileChatPage"));
 const AccountSettingsPage = lazy(
     () => import("@/pages/Settings/AccountSettingsPage/AccountSettingsPage")
 );
-const MobileNotesPage = lazy(
-    () => import("@/pages/MobileNotes/MobileNotesPage")
-);
 const ProfileSettingsPage = lazy(
     () => import("@/pages/Settings/ProfileSettingsPage/ProfileSettingsPage")
 );
@@ -85,9 +82,6 @@ const NotFoundPage = lazy(() => import("@/pages/404Page/NotFoundPage"));
 const MobileNotificationPage = lazy(
     () => import("@/pages/MobileNotification/MobileNotification")
 );
-const MobileNotesInfoPage = lazy(
-    () => import("@/pages/MobileNotesInfo/MobileNotesInfoPage")
-);
 const UserInfoPage = lazy(() => import("@/pages/UserInfo/UserInfoPage"));
 const UsersPage = lazy(() => import("@/pages/Users/UsersPage"));
 const BalancePage = lazy(() => import("@/pages/Balance/BalancePage"));
@@ -98,6 +92,12 @@ const AbountCenterPage = lazy(
 const ClinicProfilePage = lazy(
     () => import("@/pages/ClinicProfile/ClinicProfile")
 );
+const CenterProfilePage = lazy(() => import("@/pages/CenterPage/CenterPage"));
+const EmployeeProfilePage = lazy(
+    () => import("@/pages/EmployeeProfilePage/EmployeeProfilePage")
+);
+const AppStatsPage = lazy(() => import("@/pages/AppStatsPage/AppStatsPage"));
+const LeadsPage = lazy(() => import("@/pages/LeadsPage/LeadsPage"));
 
 const media = window.matchMedia("(max-width: 768px)").matches;
 
@@ -144,12 +144,12 @@ export const routes: RouteData[] = [
     },
     {
         path: "/notes",
-        Component: media ? MobileNotesPage : NotesPage,
+        Component: NotesPage,
         key: "notes_page",
     },
     {
         path: "/notes/:name",
-        Component: media ? MobileNotesInfoPage : NotesInfoPage,
+        Component: NotesInfoPage,
         key: "notes-info_page",
     },
     {
@@ -252,4 +252,16 @@ export const routes: RouteData[] = [
         Component: ClinicProfilePage,
         key: "clinic-profile_page",
     },
+    {
+        path: "/center/:id",
+        Component: CenterProfilePage,
+        key: "center-profile_page",
+    },
+    {
+        path: "/employee/:id",
+        Component: EmployeeProfilePage,
+        key: "employee-profile_page",
+    },
+    { path: "/app", Component: AppStatsPage, key: "app-stats_page" },
+    { path: "/leads", Component: LeadsPage, key: "leads_page" },
 ];
