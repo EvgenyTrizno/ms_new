@@ -6,10 +6,17 @@ import calendar from "/assets/calendar.svg";
 import alarm from "/assets/alarm-clock.svg";
 import clock from "/assets/clock-fast-forward.svg";
 import styles from "./NoteBlock.module.scss";
+import { useUserCondition } from "@/shared/model/store";
 
 export const NoteBlock: FC = () => {
+    const { condition } = useUserCondition();
+
+    const sick = condition === "Болен";
+
     return (
-        <div className={styles.item}>
+        <div
+            className={sick ? `${styles.item} ${styles.itemRed}` : styles.item}
+        >
             <div className={styles.box}>
                 <div className={styles.text}>
                     <Text type="p" color="#9B9B9B" fz="12px">
