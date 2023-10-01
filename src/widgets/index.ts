@@ -52,6 +52,11 @@ import { PersonalCard } from "./components/PersonalCard/PersonalCard";
 import { NoteBlock } from "./components/NoteBlock/NoteBlock";
 import { EmojiModal } from "./components/EmojiModal/EmojiModal";
 import { ConnectionModal } from "./components/ConnectionModal/ConnectionModal";
+import { EmployeeInfoCard } from "./components/EmployeeInfoCard/EmployeeInfoCard";
+import { EmployeeData } from "./components/EmployeeData/EmployeeData";
+import { Fine } from "./components/Fine/Fine";
+import { BlueSliderArrows } from "./components/BlueSliderArrows/BlueSliderArrows";
+import { WhiteContentBlock } from "./components/WhiteContentBlock/WhiteContentBlock";
 
 export {
     Login,
@@ -108,4 +113,9 @@ export {
     NoteBlock,
     EmojiModal,
     ConnectionModal,
+    EmployeeInfoCard,
+    EmployeeData,
+    Fine,
+    BlueSliderArrows,
+    WhiteContentBlock,
 };
