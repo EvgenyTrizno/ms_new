@@ -5,8 +5,9 @@ import { IParamsData } from "./types";
 
 import { MobileContainer, ParamsBlock, ReminderBlock } from "@/widgets";
 import { useUserCondition } from "@/shared/model/store";
-import { BackArrow, Text } from "@/shared";
+import { Text } from "@/shared";
 import { useProfile } from "@/shared/model/store";
+import { TABLET } from "@/shared/utils";
 
 import man from "/assets/man.jpg";
 import userBlue from "/assets/user-blue.svg";
@@ -17,9 +18,8 @@ import markerBlue from "/assets/marker-blue.svg";
 import markerRed from "/assets/marker-red.svg";
 import houseWithPlusBlue from "/assets/home-with-plus-blue.svg";
 import houseWithPlusRed from "/assets/home-with-plus-red.svg";
-import logoutBlue from "/assets/logout-blue.svg";
+import arrow from "/assets/arrow-left-black.svg";
 import styles from "./MobileAccountPage.module.scss";
-import { TABLET } from "@/shared/utils";
 
 const MobileAccountPage: FC = () => {
     const { condition } = useUserCondition();
@@ -61,7 +61,7 @@ const MobileAccountPage: FC = () => {
         },
         {
             id: useId(),
-            icon: { healthy: logoutBlue, sick: userRed },
+            icon: { healthy: userRed, sick: userRed },
             label: "Выход",
             navigate: "",
         },
@@ -98,7 +98,7 @@ const MobileAccountPage: FC = () => {
                         }
                     >
                         <div onClick={() => setIsProfile(false)}>
-                            <BackArrow />
+                            <img src={arrow} alt="" />
                         </div>
                         <div>
                             <svg
