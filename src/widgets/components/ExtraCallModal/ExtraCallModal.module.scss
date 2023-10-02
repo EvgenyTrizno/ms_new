@@ -9,33 +9,6 @@
     background: rgba(38, 38, 38, 0.4);
     transition: ease 0.3s;
 
-    .container {
-        position: absolute;
-        width: 200px;
-        height: 200px;
-        right: 30px;
-        bottom: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .extraBtns {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: rotate(20deg);
-
-            span {
-                transform: rotate(calc(var(--i) * (360deg / 8))) translateY(80px);
-            }
-
-            span img {
-                max-width: 24px;
-                max-height: 24px;
-            }
-        }
-    }
-
     .extraBtn {
         background-color: var(--green);
         border-radius: 100%;
@@ -63,6 +36,16 @@
         height: 55px;
         background-color: var(--blue-200);
         border-radius: 100%;
+        position: static;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        grid-gap: 16px;
+        bottom: 30px;
+        right: 30px;
     }
 
     .modal {
