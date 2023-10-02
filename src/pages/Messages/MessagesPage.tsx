@@ -146,7 +146,11 @@ const MessagesPage: FC = () => {
                                             onClick={() => handleClick(item)}
                                         >
                                             <div className={styles.inner}>
-                                                <img src={woman} alt="" />
+                                                <img
+                                                    src={woman}
+                                                    alt=""
+                                                    className={styles.avatar}
+                                                />
                                                 <div className={styles.data}>
                                                     <Text
                                                         type="h2"
@@ -191,18 +195,22 @@ const MessagesPage: FC = () => {
                                                 className={styles.call}
                                                 key={item}
                                             >
-                                                <img src={incoming} alt="" />
+                                                <img
+                                                    src={incoming}
+                                                    alt=""
+                                                    className={styles.callImg}
+                                                />
                                                 <img
                                                     src={woman}
                                                     alt=""
                                                     className={styles.avatar}
                                                 />
                                                 <div className={styles.data}>
-                                                    <Text type="h2" fz="19px">
+                                                    <Text type="h2" fz="14px">
                                                         Яковенко А. С.
                                                     </Text>
                                                     <Text
-                                                        fz="17px"
+                                                        fz="12px"
                                                         color="#7D7F82"
                                                         type="p"
                                                     >
@@ -210,13 +218,15 @@ const MessagesPage: FC = () => {
                                                         минут)
                                                     </Text>
                                                 </div>
-                                                <Text
-                                                    type="p"
-                                                    fz="17px"
-                                                    color="#B1B2B4"
-                                                >
-                                                    2:23
-                                                </Text>
+                                                <div className={styles.time}>
+                                                    <Text
+                                                        type="p"
+                                                        fz="12px"
+                                                        color="#B1B2B4"
+                                                    >
+                                                        2:23
+                                                    </Text>
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
