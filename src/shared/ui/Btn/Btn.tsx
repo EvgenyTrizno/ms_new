@@ -30,14 +30,18 @@ export const Btn: FC<IBtn> = ({
             type={type}
             whileTap={{
                 background:
-                    color === "#D64657"
+                    color === "#D64657" || sick
                         ? "color-mix(in srgb, #D64657, #000 20%)"
                         : "color-mix(in srgb, #0064fa, #000 20%)",
             }}
             style={{
                 fontSize: fz,
                 backgroundColor: `${
-                    sick && color === "transparen" ? "transparent" : `${color}`
+                    sick
+                        ? "#D64657"
+                        : sick && color === "transparent"
+                        ? "#transparent"
+                        : `${color}`
                 }`,
                 width,
                 borderRadius: br,
