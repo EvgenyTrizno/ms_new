@@ -43,8 +43,8 @@
 
     .healthy::before {
         background-color: var(--blue-100);
-        border-top-left-radius: var(--default-border);
-        border-bottom-left-radius: var(--default-border);
+        border-top-left-radius: var(--mobile-default-border);
+        border-bottom-left-radius: var(--mobile-default-border);
         transform: scaleY(1);
         z-index: -1;
     }
@@ -62,8 +62,8 @@
     .sick::before {
         background-color: #F7E6E8;
         color: var(--red-400);
-        border-top-right-radius: var(--default-border);
-        border-bottom-right-radius: var(--default-border);
+        border-top-right-radius: var(--mobile-default-border);
+        border-bottom-right-radius: var(--mobile-default-border);
         transform: scaleY(1);
         z-index: -1;
     }
