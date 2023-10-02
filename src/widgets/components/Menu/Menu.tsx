@@ -818,6 +818,7 @@ export const Menu: FC = () => {
         <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            style={{ borderColor: sick ? "#F7E6E8" : "" }}
             className={
                 PC
                     ? `${styles.menu} ${styles.open}`
@@ -826,7 +827,12 @@ export const Menu: FC = () => {
                     : styles.menu
             }
         >
-            <div className={styles.logo}>
+            <div
+                className={styles.logo}
+                style={{
+                    borderColor: sick ? "#F7E6E8" : "",
+                }}
+            >
                 {!isHovered && SMALL_LAPTOP && <img alt="" src={logo} />}
                 {(isHovered || PC) && group === "Пользователи" && (
                     <img

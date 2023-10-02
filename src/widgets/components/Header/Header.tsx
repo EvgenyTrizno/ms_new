@@ -22,7 +22,10 @@ export const Header: FC<IHeaderProps> = ({ width }) => {
     const sick = condition === "Болен";
 
     return (
-        <header className={styles.header} style={{ width }}>
+        <header
+            className={styles.header}
+            style={{ width, borderColor: sick ? "#F7E6E8" : "" }}
+        >
             <div className={styles.nav}>
                 <div className={styles.inner}>
                     <div className={styles.text}>
