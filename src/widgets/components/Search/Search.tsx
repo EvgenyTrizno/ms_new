@@ -13,11 +13,11 @@ export const Search: FC<ISeacrh> = ({ placeholder, height }) => {
     const sick = condition === "Болен";
 
     return (
-        <div className={styles.box}>
-            <button
-                className={styles.btn}
-                style={{ borderColor: sick ? "#F7E6E8" : "#EBF3FF" }}
-            >
+        <div
+            className={styles.box}
+            style={{ borderColor: sick ? "#F7E6E8" : "#EBF3FF" }}
+        >
+            <button className={styles.btn}>
                 <img src={search} alt="" />
             </button>
             <Input
@@ -25,6 +25,9 @@ export const Search: FC<ISeacrh> = ({ placeholder, height }) => {
                 width="100%"
                 borderColor={sick ? "#F7E6E8" : "#EBF3FF"}
                 bl="none"
+                bb="none"
+                bt="none"
+                br="none"
                 borderRadius="0px 12px 12px 0px"
                 btl="unset"
                 bbl="unset"
