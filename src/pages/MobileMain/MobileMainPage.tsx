@@ -6,6 +6,7 @@ import {
     MobilePost,
     MobileContainer,
     Slider,
+    MobileMenu,
 } from "@/widgets";
 import { Btn, Text } from "@/shared";
 import { useUserCondition } from "@/shared/model/store";
@@ -96,6 +97,7 @@ const MobileMainPage: FC = () => {
                     </div>
                 </div>
             </MobileContainer>
+            <MobileMenu />
         </Layout>
     );
 };
