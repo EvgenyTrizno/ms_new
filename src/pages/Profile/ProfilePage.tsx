@@ -14,12 +14,11 @@ import user from "/assets/user-blue.svg";
 import userRed from "/assets/user-red.svg";
 import arrowRigth from "/assets/arrow-right.svg";
 import keyBlue from "/assets/key-big-blue.svg";
+import keyRed from "/assets/key-big-red.svg";
 import homeWithPlus from "/assets/home-with-plus-blue.svg";
 import homeWithPlusRed from "/assets/home-with-plus-red.svg";
 import markerBlue from "/assets/marker-blue.svg";
 import markerRed from "/assets/marker-red.svg";
-import logouBlue from "/assets/logout-blue.svg";
-import logouRed from "/assets/logout-red.svg";
 import markBlue from "/assets/mark-blue.svg";
 import cartBlue from "/assets/shopping-cart-blue.svg";
 import cartRed from "/assets/shopping-cart-red.svg";
@@ -369,7 +368,7 @@ const ProfilePage: FC = () => {
             label: "Доступ",
             icon: {
                 healthy: keyBlue,
-                sick: keyBlue,
+                sick: keyRed,
             },
             content: <div>params</div>,
         },
