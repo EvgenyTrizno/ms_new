@@ -12,10 +12,9 @@ import {
 import {
     useExtraCall,
     useNotification,
-    useProfile,
     useUserData,
 } from "@/shared/model/store";
-import MobileAccountPage from "@/widgets/components/MobileAccount/MobileAccountPage";
+import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
 import { PC, SMALL_LAPTOP, TABLET, MOBILE } from "@/shared/utils";
 
 import extra from "/assets/extra-call.svg";
@@ -26,11 +25,10 @@ export const Layout: FC<TProps> = ({ children }) => {
     const { isOpen, setIsOpen } = useExtraCall();
     const { isNotification } = useNotification();
     const { group } = useUserData();
-    const { isProfile } = useProfile();
 
     return (
         <div className={styles.layout}>
-            {isProfile && <MobileAccountPage />}
+            {MOBILE && <MobileAccountMenu />}
             {!MOBILE && !TABLET && <Header />}
             <div className={styles.container}>
                 {(PC || SMALL_LAPTOP) && <Menu />}
