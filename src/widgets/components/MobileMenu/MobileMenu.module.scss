@@ -15,12 +15,8 @@
         align-items: center;
         justify-content: space-between;
 
-        .box {
-            display: flex;
-            align-items: center;
-            grid-gap: 45px;
-
-            .active {
+        .active {
+            svg {
                 path {
                     stroke: var(--dark);
                 }
