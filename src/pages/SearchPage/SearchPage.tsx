@@ -1,14 +1,15 @@
 import { FC, useEffect, useState } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Rating, Search } from "@/widgets";
-import { Btn, Filter, Text } from "@/shared";
+import { CustomMobileHeader, MobileContainer, Rating, Search } from "@/widgets";
+import { BackArrow, Btn, Filter, Text } from "@/shared";
 import { ISearchResult } from "@/shared/api/Search/types";
 import { SearchRes } from "@/shared/api/Search";
 import { useFilter } from "@/shared/model/store";
 
 import controler from "/assets/controler.svg";
 import styles from "./SearchPage.module.scss";
+import { MOBILE } from "@/shared/utils";
 
 const SearchPage: FC = () => {
     const { getAllResult } = SearchRes();
@@ -22,7 +23,12 @@ const SearchPage: FC = () => {
 
     return (
         <Layout>
-            <div className={styles.container}>
+            {MOBILE && (
+                <CustomMobileHeader>
+                    <BackArrow />
+                </CustomMobileHeader>
+            )}
+            <MobileContainer>
                 <div className={styles.header}>
                     <Search placeholder="Поиск чатов" height="48px" />
                     <Btn
@@ -122,7 +128,7 @@ const SearchPage: FC = () => {
                             : null}
                     </div>
                 </div>
-            </div>
+            </MobileContainer>
         </Layout>
     );
 };
