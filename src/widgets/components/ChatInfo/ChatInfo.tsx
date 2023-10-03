@@ -39,7 +39,13 @@ export const ChatInfo: FC = () => {
                 <Text type="p" color="#7D7F82" fz="14px">
                     Информация
                 </Text>
-                <div className={styles.block}>
+                <div
+                    className={`${
+                        sick
+                            ? `${styles.block} ${styles.blockRed}`
+                            : styles.block
+                    }`}
+                >
                     <ul>
                         <li>
                             <Text type="p" color="#B1B2B4" fz="14px">
@@ -101,7 +107,10 @@ export const ChatInfo: FC = () => {
                             </div>
                         ))}
                     </div>
-                    <div className={styles.list}>
+                    <div
+                        className={styles.list}
+                        style={{ borderColor: sick ? "#F7E6E8" : "" }}
+                    >
                         <div className={styles.square}></div>
                         <div className={styles.square}></div>
                     </div>

@@ -1,12 +1,12 @@
 import { FC } from "react";
 
 import {
-    MobileCard,
     MobileHeader,
     MobilePost,
     MobileContainer,
     Slider,
     MobileMenu,
+    Card,
 } from "@/widgets";
 import { Btn, Text } from "@/shared";
 import { useUserCondition } from "@/shared/model/store";
@@ -36,7 +36,7 @@ const MobileMainPage: FC = () => {
                     </Text>
                     <Slider>
                         {[1, 2, 3, 4, 5].map((item) => (
-                            <MobileCard key={item} />
+                            <Card checkbox={false} key={item} />
                         ))}
                     </Slider>
                 </div>

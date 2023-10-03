@@ -2,12 +2,17 @@ import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
 import { MobileContainer, MobileHeader } from "@/widgets";
+import { useUserCondition } from "@/shared/model/store";
 import { Text } from "@/shared";
 
 import woman from "/assets/woman.jpg";
 import styles from "./MobileNotification.module.scss";
 
 const MobileNotification: FC = () => {
+    const { condition } = useUserCondition();
+
+    const sick = condition === "Болен";
+
     return (
         <Layout>
             <MobileHeader />
@@ -17,7 +22,10 @@ const MobileNotification: FC = () => {
                         Сегодня
                     </Text>
                     <div className={styles.list}>
-                        <div className={styles.notify}>
+                        <div
+                            className={styles.notify}
+                            style={{ borderColor: sick ? "#F7E6E8" : "" }}
+                        >
                             <div className={styles.icon}>
                                 <img src={woman} alt="" />
                             </div>

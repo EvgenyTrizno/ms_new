@@ -29,6 +29,16 @@
             }
         }
 
+        .blockRed {
+            border-color: var(--red-100);
+
+            ul {
+                li {
+                    border-color: var(--red-100);
+                }
+            }
+        }
+
         .media {
             .nav {
                 display: flex;
@@ -71,7 +81,7 @@
                 grid-template-columns: repeat(6, 1fr);
                 grid-gap: 12px;
                 padding: 16px;
-                border: 1px solid var(--system-light-grey);
+                border: 1px solid var(--blue-100);
                 border-radius: var(--mobile-default-border);
 
                 .square {

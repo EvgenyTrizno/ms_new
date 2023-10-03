@@ -21,7 +21,6 @@ import { Post } from "./components/Post/Post";
 import { ExtraCallModal } from "./components/ExtraCallModal/ExtraCallModal";
 import { MobileMenu } from "./components/MobileMenu/MobileMenu";
 import { MobileHeader } from "./components/MobileHeader/MobileHeader";
-import { MobileCard } from "./components/MobileCard/MobileCard";
 import { MobilePost } from "./components/MobilePost/MobilePost";
 import { MobileContainer } from "./components/MobileContainer/MobileContainer";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
@@ -81,7 +80,6 @@ export {
     ExtraCallModal,
     MobileMenu,
     MobileHeader,
-    MobileCard,
     MobilePost,
     MobileContainer,
     CustomMobileHeader,

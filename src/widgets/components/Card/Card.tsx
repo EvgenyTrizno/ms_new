@@ -3,7 +3,7 @@ import { ICard } from "./types";
 
 import { Checkbox, Text } from "@/shared";
 import { useUserCondition } from "@/shared/model/store";
-import { PC, SMALL_LAPTOP } from "@/shared/utils";
+import { MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import styles from "./Card.module.scss";
 import woman from "/assets/woman.jpg";
@@ -28,13 +28,19 @@ export const Card: FC<ICard> = ({ checkbox }) => {
                 {checkbox && <Checkbox checked={isSelect} />}
             </div>
             <div className={styles.box}>
+                {!MOBILE && (
+                    <Text
+                        type="h3"
+                        fz={PC ? "13px" : SMALL_LAPTOP ? "13px" : "13px"}
+                    >
+                        Михайлова Т. А.
+                    </Text>
+                )}
                 <Text
-                    type="h3"
-                    fz={PC ? "13px" : SMALL_LAPTOP ? "13px" : "13px"}
+                    type="p"
+                    position="center"
+                    fz={PC ? "12px" : MOBILE ? "10px" : "10px"}
                 >
-                    Михайлова Т. А.
-                </Text>
-                <Text type="p" position="center" fz={PC ? "12px" : "12px"}>
                     Хирург
                 </Text>
             </div>

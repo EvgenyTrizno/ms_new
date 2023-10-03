@@ -24,7 +24,7 @@ export const Header: FC<IHeaderProps> = ({ width }) => {
     return (
         <header
             className={styles.header}
-            style={{ width, borderColor: sick ? "#F7E6E8" : "" }}
+            style={{ width, borderColor: sick ? "#F7E6E8" : "#EBF3FF" }}
         >
             <div className={styles.nav}>
                 <div className={styles.inner}>
