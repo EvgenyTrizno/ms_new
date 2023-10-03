@@ -34,9 +34,6 @@ const MedicalTestPage = lazy(
     () => import("@/pages/MedicalTest/MedicalTestPage")
 );
 const MobileMainPage = lazy(() => import("@/pages/MobileMain/MobileMainPage"));
-const MobileSearchPage = lazy(
-    () => import("@/pages/MobileSearch/MobileSearchPage")
-);
 const MobileMessagesPage = lazy(
     () => import("@/pages/MobileMessages/MobileMessagesPage")
 );
