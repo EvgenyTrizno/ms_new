@@ -143,6 +143,11 @@ const MessagesPage: FC = () => {
                                                     ? `${styles.chat} ${styles.chatActive}`
                                                     : styles.chat
                                             }
+                                            style={{
+                                                borderColor: sick
+                                                    ? "#F7E6E8"
+                                                    : "#EBF3FF",
+                                            }}
                                             onClick={() => handleClick(item)}
                                         >
                                             <div className={styles.inner}>
@@ -192,6 +197,11 @@ const MessagesPage: FC = () => {
                                     <div className={styles.calls}>
                                         {[1, 2, 3, 4].map((item) => (
                                             <div
+                                                style={{
+                                                    borderColor: sick
+                                                        ? "#F7E6E8"
+                                                        : "#EBF3FF",
+                                                }}
                                                 className={styles.call}
                                                 key={item}
                                             >
