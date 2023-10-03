@@ -133,7 +133,7 @@ export const routes: RouteData[] = [
     },
     {
         path: "/search",
-        Component: media ? MobileSearchPage : SearchPage,
+        Component: SearchPage,
         key: "search_page",
     },
     { path: "/profile", Component: ProfilePage, key: "profile_page" },
