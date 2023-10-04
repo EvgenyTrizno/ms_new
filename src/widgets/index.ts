@@ -56,6 +56,7 @@ import { EmployeeData } from "./components/EmployeeData/EmployeeData";
 import { Fine } from "./components/Fine/Fine";
 import { BlueSliderArrows } from "./components/BlueSliderArrows/BlueSliderArrows";
 import { WhiteContentBlock } from "./components/WhiteContentBlock/WhiteContentBlock";
+import { WorldMap } from "./components/WorldMap/WorldMap";
 
 export {
     Login,
@@ -116,4 +117,5 @@ export {
     Fine,
     BlueSliderArrows,
     WhiteContentBlock,
+    WorldMap,
 };
