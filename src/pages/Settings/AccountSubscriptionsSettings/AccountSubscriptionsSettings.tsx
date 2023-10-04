@@ -1,11 +1,6 @@
 import { FC } from "react";
 
-import {
-    CustomMobileHeader,
-    MobileCard,
-    MobileContainer,
-    Slider,
-} from "@/widgets";
+import { Card, CustomMobileHeader, MobileContainer, Slider } from "@/widgets";
 import { BackArrow, MobileSearch, Text } from "@/shared";
 import { TABLET } from "@/shared/utils";
 
@@ -106,7 +101,7 @@ const AccountSubscriptionsSettingsPage: FC = () => {
                             Специалисты
                         </Text>
                         <Slider>
-                            <MobileCard />
+                            <Card checkbox={false} />
                         </Slider>
                     </div>
                 </div>

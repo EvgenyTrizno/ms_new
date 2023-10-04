@@ -2,9 +2,9 @@ import { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import {
+    Card,
     Circle,
     CustomMobileHeader,
-    MobileCard,
     MobileComment,
     MobileContainer,
 } from "@/widgets";
@@ -92,7 +92,7 @@ const MobileNotesInfoPage: FC = () => {
                                     }}
                                     key={item}
                                 >
-                                    <MobileCard />
+                                    <Card checkbox={false} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>

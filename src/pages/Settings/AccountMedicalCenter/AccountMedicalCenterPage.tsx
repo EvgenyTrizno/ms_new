@@ -1,11 +1,6 @@
 import { FC, useState } from "react";
 
-import {
-    CustomMobileHeader,
-    MobileCard,
-    MobileContainer,
-    Slider,
-} from "@/widgets";
+import { CustomMobileHeader, MobileContainer, Slider, Card } from "@/widgets";
 import { BackArrow, Btn, PopUp, Text } from "@/shared";
 
 import center from "/assets/center-icon.jpg";
@@ -82,11 +77,11 @@ const AccountMedicalCenterPage: FC = () => {
                             Все сотрудники
                         </Text>
                         <Slider>
-                            <MobileCard />
-                            <MobileCard />
-                            <MobileCard />
-                            <MobileCard />
-                            <MobileCard />
+                            <Card checkbox={false} />
+                            <Card checkbox={false} />
+                            <Card checkbox={false} />
+                            <Card checkbox={false} />
+                            <Card checkbox={false} />
                         </Slider>
                     </div>
                     <div className={styles.line}></div>
