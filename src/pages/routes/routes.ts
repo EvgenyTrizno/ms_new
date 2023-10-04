@@ -95,6 +95,10 @@ const EmployeeProfilePage = lazy(
 );
 const AppStatsPage = lazy(() => import("@/pages/AppStatsPage/AppStatsPage"));
 const LeadsPage = lazy(() => import("@/pages/LeadsPage/LeadsPage"));
+const AdminPanelMapPage = lazy(
+    () => import("@/pages/AdminPanelMap/AdminPanelMapPage")
+);
+const CountryInfoPage = lazy(() => import("@/pages/CountryInfo/CountryInfo"));
 
 const media = window.matchMedia("(max-width: 768px)").matches;
 
@@ -261,4 +265,10 @@ export const routes: RouteData[] = [
     },
     { path: "/app", Component: AppStatsPage, key: "app-stats_page" },
     { path: "/leads", Component: LeadsPage, key: "leads_page" },
+    { path: "/map", Component: AdminPanelMapPage, key: "admin-map_page" },
+    {
+        path: "/map/:country",
+        Component: CountryInfoPage,
+        key: "admin-country-info_page",
+    },
 ];
