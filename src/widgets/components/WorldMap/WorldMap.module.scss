@@ -1,0 +1,30 @@
+.map {
+    margin-top: 30px;
+
+    svg {
+        g {
+            path {
+                position: relative;
+                fill: var(--blue);
+                stroke: var(--white);
+                stroke-width: 2px;
+            }
+
+            path:hover {
+                fill: var(--red-400);
+            }
+        }
+    }
+}
+
+.tooltip {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    position: absolute;
+    color: var(--dark);
+    border-radius: 8px;
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    pointer-events: none;
+}
