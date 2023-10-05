@@ -5,14 +5,15 @@ import { Btn, Text } from "@/shared";
 import center from "/assets/center-avatar.jpg";
 import styles from "./EmployeeInfoCard.module.scss";
 import { IEmployeeCardType } from "./types";
+import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
 
 export const EmployeeInfoCard: FC<IEmployeeCardType> = ({ type }) => {
     return (
         <div className={styles.data}>
-            <div className={styles.box}>
+            <WhiteContentBlock>
                 <img src={center} alt="" className={styles.centerAvatar} />
-            </div>
-            <div className={styles.box} style={{ height: "100%" }}>
+            </WhiteContentBlock>
+            <WhiteContentBlock>
                 <Text type="h2" fz="20px">
                     Начал работу с 23 июня 2022
                 </Text>
@@ -52,7 +53,7 @@ export const EmployeeInfoCard: FC<IEmployeeCardType> = ({ type }) => {
                         Истекает через 3 месяца 23 дня
                     </Text>
                 )}
-            </div>
+            </WhiteContentBlock>
         </div>
     );
 };
