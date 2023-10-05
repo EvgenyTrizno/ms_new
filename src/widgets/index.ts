@@ -57,6 +57,10 @@ import { Fine } from "./components/Fine/Fine";
 import { BlueSliderArrows } from "./components/BlueSliderArrows/BlueSliderArrows";
 import { WhiteContentBlock } from "./components/WhiteContentBlock/WhiteContentBlock";
 import { WorldMap } from "./components/WorldMap/WorldMap";
+import { BlueBox } from "./components/BlueBox/BlueBox";
+import { Indicator } from "./components/Indicator/Indicator";
+import { AdminPanelContainer } from "./components/AdminPanelContainer/AdminPanelContainer";
+import { Cols } from "./components/Cols/Cols";
 
 export {
     Login,
@@ -118,4 +122,8 @@ export {
     BlueSliderArrows,
     WhiteContentBlock,
     WorldMap,
+    BlueBox,
+    Indicator,
+    AdminPanelContainer,
+    Cols,
 };
