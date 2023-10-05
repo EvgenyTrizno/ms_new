@@ -11,9 +11,7 @@ export const ParamsBlock: FC<IParamsBlockProps> = ({ onClick, label, img }) => {
         <div className={styles.item} onClick={onClick}>
             <div className={styles.box}>
                 <img src={img} alt="" />
-                <Text type="p" fz="15px">
-                    {label}
-                </Text>
+                <Text type="p">{label}</Text>
             </div>
             <img src={arrowRight} alt="" />
         </div>
