@@ -1,15 +1,16 @@
 import { FC } from "react";
+import { IEmployeeCardType } from "../EmployeeInfoCard/types";
 
 import { Text, Btn } from "@/shared";
+import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
 
 import styles from "./EmployeeData.module.scss";
-import { IEmployeeCardType } from "../EmployeeInfoCard/types";
 
 export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
     return (
         <>
             {type === "center" || type === "clinic" ? (
-                <div className={styles.box}>
+                <WhiteContentBlock>
                     <div className={styles.about}>
                         <div className={styles.text} style={{ gridGap: 16 }}>
                             <Text type="h2" fz="20px">
@@ -66,10 +67,10 @@ export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
                             <Btn color="#0064FA">Полный перечень</Btn>
                         </div>
                     </div>
-                </div>
+                </WhiteContentBlock>
             ) : (
-                <div className={styles.about}>
-                    <div className={styles.box}>
+                <div className={styles.about} style={{ gridGap: 16 }}>
+                    <WhiteContentBlock>
                         <div className={styles.text} style={{ gridGap: 20 }}>
                             <Text type="h2" fz="20px">
                                 Зайцев Станислав Юрьевич
@@ -110,8 +111,8 @@ export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
                                 </Text>
                             </div>
                         </div>
-                    </div>
-                    <div className={styles.box}>
+                    </WhiteContentBlock>
+                    <WhiteContentBlock>
                         <div className={styles.data}>
                             <svg
                                 width="56"
@@ -168,7 +169,7 @@ export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
                                 </svg>
                             </div>
                         </Btn>
-                    </div>
+                    </WhiteContentBlock>
                 </div>
             )}
         </>
