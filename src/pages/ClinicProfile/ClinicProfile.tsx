@@ -371,6 +371,7 @@ const ClinicProfile: FC = () => {
                     </Btn>
                 </div>
                 <div className={styles.box}>
+                    <Text type="h4">Специалисты (127)</Text>
                     <div
                         className={styles.colsX4}
                         style={{
