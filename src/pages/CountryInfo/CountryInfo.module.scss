@@ -1,0 +1,41 @@
+.chart {
+    height: 280px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+}
+
+.country {
+    margin-top: 16px;
+}
+
+.map {
+    position: relative;
+    path {
+        fill: var(--blue);
+        transform: scale(0.5);
+        position: absolute;
+    }
+}   
+
+.blocks {
+    display: flex;
+    grid-gap: 10px;
+    flex-wrap: wrap;
+
+    .top {
+        display: flex;
+        align-items: center;
+        grid-gap: 8px;
+    }
+
+    .bottom {
+        display: flex;
+        align-items: center;
+        grid-gap: 10px;
+        margin-top: 12px;
+    }
+}
