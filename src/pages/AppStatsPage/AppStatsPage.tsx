@@ -2,10 +2,14 @@ import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
 import { Text } from "@/shared";
-import { BlueSliderArrows } from "@/widgets";
+import {
+    AdminPanelContainer,
+    BlueBox,
+    BlueSliderArrows,
+    Cols,
+    WhiteContentBlock,
+} from "@/widgets";
 
-import woman from "/assets/woman.jpg";
-import arrow from "/assets/arrow-right-blue.svg";
 import playmarket from "/assets/playmarket.svg";
 import appstore from "/assets/appstore.svg";
 import styles from "./AppStatsPage.module.scss";
@@ -13,21 +17,39 @@ import styles from "./AppStatsPage.module.scss";
 const AppStatsPage: FC = () => {
     return (
         <Layout>
-            <div className={styles.app}>
-                <div
-                    className={styles.cols}
-                    style={{ gridTemplateColumns: "333px 1fr" }}
-                >
+            <AdminPanelContainer>
+                <Cols type="auto" gap={10}>
+                    <WhiteContentBlock>
+                        <Text type="h2" fz="18px">
+                            Болезни пациентов
+                        </Text>
+                        <div className={styles.chart}></div>
+                        <BlueSliderArrows />
+                    </WhiteContentBlock>
+                    <WhiteContentBlock>
+                        <Text type="h2" fz="18px">
+                            Количество скачиваний
+                        </Text>
+                        <div className={styles.chart}></div>
+                    </WhiteContentBlock>
+                </Cols>
+                <Cols type="custom" gap={10} cols={["1fr", "333px"]}>
+                    <div className={styles.box}>
+                        <Text type="h2" fz="18px">
+                            Возрастные группы пользователей
+                        </Text>
+                        <div className={styles.bar}></div>
+                    </div>
                     <div className={styles.stats}>
-                        <div className={styles.box}>
+                        <WhiteContentBlock>
                             <div className={styles.text}>
                                 <Text type="h4">Посещений за сутки</Text>
                                 <Text type="h2" fz="24px">
                                     13,856
                                 </Text>
                             </div>
-                        </div>
-                        <div className={styles.box}>
+                        </WhiteContentBlock>
+                        <WhiteContentBlock>
                             <div className={styles.text}>
                                 <Text type="h4">
                                     Зарегестрированные за сутки
@@ -36,7 +58,7 @@ const AppStatsPage: FC = () => {
                                     13,856
                                 </Text>
                             </div>
-                        </div>
+                        </WhiteContentBlock>
                         <div className={styles.box}>
                             <div className={styles.text}>
                                 <Text type="h4">
@@ -48,13 +70,7 @@ const AppStatsPage: FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.box}>
-                        <Text type="h2" fz="18px">
-                            Возрастные группы посетителей
-                        </Text>
-                        <div className={styles.bar}></div>
-                    </div>
-                </div>
+                </Cols>
                 <div
                     className={styles.cols}
                     style={{ gridTemplateColumns: "604px 1fr 270px" }}
@@ -65,68 +81,63 @@ const AppStatsPage: FC = () => {
                                 Экстренные вызовы за сутки
                             </Text>
                             <div className={styles.extra}>
-                                <div className={styles.blueBlock}>
-                                    <div className={styles.stats}>
-                                        <Text type="h4">
-                                            Медианное значение
-                                        </Text>
-                                        <Text type="h2" fz="24px">
-                                            16
-                                        </Text>
-                                    </div>
-                                </div>
-                                <div className={styles.blueBlock}>
-                                    <div className={styles.stats}>
-                                        <Text type="h4">
-                                            За последние сутки
-                                        </Text>
-                                        <Text
-                                            type="h2"
-                                            fz="24px"
-                                            color="#D64657"
-                                        >
-                                            32
-                                        </Text>
-                                    </div>
-                                </div>
+                                <Cols type="auto" gap={10}>
+                                    <BlueBox>
+                                        <div className={styles.stats}>
+                                            <Text type="h4">
+                                                Медианное значение
+                                            </Text>
+                                            <Text type="h2" fz="24px">
+                                                16
+                                            </Text>
+                                        </div>
+                                    </BlueBox>
+                                    <BlueBox>
+                                        <div className={styles.stats}>
+                                            <Text type="h4">
+                                                За последние сутки
+                                            </Text>
+                                            <Text
+                                                type="h2"
+                                                fz="24px"
+                                                color="#D64657"
+                                            >
+                                                32
+                                            </Text>
+                                        </div>
+                                    </BlueBox>
+                                </Cols>
                             </div>
-                            <div className={styles.top}>
-                                <Text type="h2" fz="18px">
-                                    Ковалева Елена Владимировна
-                                </Text>
-                                <Text type="p" color="#7D7F82" fz="14px">
-                                    2 часа назад
-                                </Text>
-                            </div>
-                            <div className={styles.data}>
-                                <img src={woman} alt="" />
-                                <div
-                                    className={styles.text}
-                                    style={{ gridGap: 5 }}
-                                >
-                                    <Text type="h5" fz="14px">
-                                        Причина:
-                                    </Text>
-                                    <Text type="p" fz="14px" color="#3C3D3E">
-                                        Пациент испытывает резкую боль в груди и
-                                        затрудненное дыхание, что может
-                                        указывать на возможный инфаркт миокарда.
-                                        Требуется срочная медицинская помощь для
-                                        оценки состояния сердца и немедленного
-                                        начала лечения.
-                                    </Text>
-                                    <div className={styles.nav}>
-                                        <Text
-                                            type="p"
-                                            fz="14px"
-                                            position="end"
-                                            color="#0064FA"
-                                        >
-                                            Перейти к записи
-                                        </Text>
-                                        <img src={arrow} alt="" />
-                                    </div>
-                                </div>
+                            <Text type="h2" fz="18px">
+                                Обращение в тех.поддержку
+                            </Text>
+                            <div className={styles.extra}>
+                                <Cols type="auto" gap={10}>
+                                    <BlueBox>
+                                        <div className={styles.stats}>
+                                            <Text type="h4">
+                                                Медианное значение
+                                            </Text>
+                                            <Text type="h2" fz="24px">
+                                                16
+                                            </Text>
+                                        </div>
+                                    </BlueBox>
+                                    <BlueBox>
+                                        <div className={styles.stats}>
+                                            <Text type="h4">
+                                                За последние сутки
+                                            </Text>
+                                            <Text
+                                                type="h2"
+                                                fz="24px"
+                                                color="#D64657"
+                                            >
+                                                32
+                                            </Text>
+                                        </div>
+                                    </BlueBox>
+                                </Cols>
                             </div>
                             <BlueSliderArrows />
                         </div>
@@ -137,7 +148,7 @@ const AppStatsPage: FC = () => {
                             <Text type="h2" fz="18px">
                                 За последние сутки
                             </Text>
-                            <div className={styles.blueBlock}>
+                            <BlueBox>
                                 <div className={styles.rowText}>
                                     <img src={appstore} alt="" />
                                     <Text type="h2" fz="20px">
@@ -149,8 +160,8 @@ const AppStatsPage: FC = () => {
                                         2163
                                     </Text>
                                 </div>
-                            </div>
-                            <div className={styles.blueBlock}>
+                            </BlueBox>
+                            <BlueBox>
                                 <div className={styles.rowText}>
                                     <img src={playmarket} alt="" />
                                     <Text type="h2" fz="20px">
@@ -162,21 +173,8 @@ const AppStatsPage: FC = () => {
                                         2163
                                     </Text>
                                 </div>
-                            </div>
+                            </BlueBox>
                         </div>
-                    </div>
-                </div>
-                <div className={styles.cols}>
-                    <div className={styles.box}>
-                        <Text type="h2" fz="18px">
-                            Болезни пациентов в этом месяце
-                        </Text>
-                        <BlueSliderArrows />
-                    </div>
-                    <div className={styles.box}>
-                        <Text type="h2" fz="18px">
-                            Средний показатель проведения времени на сайте
-                        </Text>
                     </div>
                 </div>
                 <div className={styles.cols}>
@@ -231,7 +229,64 @@ const AppStatsPage: FC = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+                <WhiteContentBlock>
+                    <div className={styles.nav}>
+                        <Text type="h2" fz="18px">
+                            Отправка SMS
+                        </Text>
+                    </div>
+                    <Cols type="auto" gap={12} count={3}>
+                        <BlueBox>
+                            <Text type="h4">За регистрацию</Text>
+                            <div className={styles.count}>
+                                <Text type="h2" fz="36px" position="center">
+                                    94 SMS
+                                </Text>
+                                <Text
+                                    type="h4"
+                                    fz="20px"
+                                    color="#7D7F82"
+                                    position="center"
+                                >
+                                    9.4$
+                                </Text>
+                            </div>
+                        </BlueBox>
+                        <BlueBox>
+                            <Text type="h4">За вход</Text>
+                            <div className={styles.count}>
+                                <Text type="h2" fz="36px" position="center">
+                                    94 SMS
+                                </Text>
+                                <Text
+                                    type="h4"
+                                    fz="20px"
+                                    color="#7D7F82"
+                                    position="center"
+                                >
+                                    9.4$
+                                </Text>
+                            </div>
+                        </BlueBox>
+                        <BlueBox>
+                            <Text type="h4">За восстановление</Text>
+                            <div className={styles.count}>
+                                <Text type="h2" fz="36px" position="center">
+                                    94 SMS
+                                </Text>
+                                <Text
+                                    type="h4"
+                                    fz="20px"
+                                    color="#7D7F82"
+                                    position="center"
+                                >
+                                    9.4$
+                                </Text>
+                            </div>
+                        </BlueBox>
+                    </Cols>
+                </WhiteContentBlock>
+            </AdminPanelContainer>
         </Layout>
     );
 };
