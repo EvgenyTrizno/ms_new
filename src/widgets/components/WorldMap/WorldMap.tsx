@@ -1,12 +1,13 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { useSelectCountry } from "@/shared/model/store";
 
 import { Layout } from "@/pages/Layout/Layout";
 import { Text } from "@/shared";
 
-import styles from "./WorldMap.module.scss";
 import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
 import countries from "./countrysData";
+import styles from "./WorldMap.module.scss";
 
 interface TooltipProp {
     y: number;
@@ -21,6 +22,7 @@ const Tooltip: FC<TooltipProp> = ({ x, y, text }) => (
 );
 
 export const WorldMap: FC = () => {
+    const { setCountry } = useSelectCountry();
     const [tooltip, setTooltip] = useState({
         active: false,
         x: 0,
@@ -48,7 +50,6 @@ export const WorldMap: FC = () => {
 
         el.forEach((item) => {
             const name = item.getAttribute("data-name") as string;
-            const ruName = item.getAttribute("data-name-ru") ?? "";
 
             if (name && countries[name]) {
                 item.setAttribute("data-name-ru", countries[name].ruName);
@@ -61,11 +62,26 @@ export const WorldMap: FC = () => {
                 )
             );
 
-            item.addEventListener("click", () => navigate(`/map/${ruName}`));
-
             item.addEventListener("mouseout", handleMouseOut);
         });
-    }, [handleMouseOut, navigate]);
+    }, [handleMouseOut]);
+
+    useEffect(() => {
+        const el = document.querySelectorAll("#countries path");
+
+        el.forEach((item) => {
+            const ruName = item.getAttribute("data-name-ru") ?? "";
+
+            item.addEventListener("click", (e) => {
+                const ev = e as MouseEvent;
+
+                const svg = ev.target as unknown as SVGPathElement;
+
+                navigate(`/map/${ruName}`);
+                setCountry(svg);
+            });
+        });
+    }, [navigate, setCountry]);
 
     return (
         <Layout>
@@ -86,7 +102,7 @@ export const WorldMap: FC = () => {
                         height="647px"
                         width="100%"
                     >
-                        <g className="" id="countries">
+                        <g id="countries">
                             <path
                                 className={styles.country}
                                 d="M705.095473,347.358975L703.185541,347.101503L699.259904,349.734781L698.161758,348.598999L698.420314,345.662495L696.381534,343.613834L692.809190,346.703602L691.914707,348.301657L690.980523,347.628542L688.972844,348.746781L688.125371,348.323054L686.033561,347.587345L684.488245,347.564174L683.652811,347.455957L682.344409,346.520899L681.909851,347.764979L679.572241,348.438463L679.018582,351.205398L675.266223,352.766604L674.686909,354.312810L672.595672,354.766275L669.767179,353.474360L668.636641,357.694527L667.874589,360.130031L669.081805,360.621575L667.895801,362.437648L669.021466,367.138651L671.122018,367.686762L671.349186,369.770679L668.833711,372.682517L673.480983,374.311011L680.406385,373.822025L684.010834,372.494781L684.107864,369.760841L685.653897,367.928997L692.251661,365.986526L692.098448,364.018170L693.276139,362.026616L695.041314,361.187620L693.951194,358.982338L696.589497,359.086936L697.236317,356.586326L698.617671,355.165008L697.644933,352.022243L699.264491,350.523488L706.834993,348.754680L708.449535,348.364676L707.955785,347.364479L705.095473,347.358975Z "
