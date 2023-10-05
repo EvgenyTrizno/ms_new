@@ -1,5 +1,3 @@
-import { ReactNode, ReactSVGElement } from "react";
-
 export interface IDiseasesStore {
     diseases: string[];
     setDiseases: (arg: string) => void;
