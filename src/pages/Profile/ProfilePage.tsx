@@ -437,7 +437,7 @@ const ProfilePage: FC = () => {
                             Основные
                         </Text>
                         <div className={styles.items}>
-                            {data.map((item) => (
+                            {data.map((item, i) => (
                                 <div
                                     className={styles.item}
                                     key={item.id}
@@ -466,11 +466,16 @@ const ProfilePage: FC = () => {
                                             style={
                                                 isOpen && select === item.label
                                                     ? {
-                                                          transform: `rotate(-90deg)`,
+                                                          transform:
+                                                              i > 1
+                                                                  ? `rotate(-90deg)`
+                                                                  : `rotate(90deg)`,
                                                       }
                                                     : {
                                                           transform:
-                                                              "rotate(90deg)",
+                                                              i > 1
+                                                                  ? "rotate(0deg)"
+                                                                  : "rotate(270deg)",
                                                       }
                                             }
                                             src={arrowRigth}
