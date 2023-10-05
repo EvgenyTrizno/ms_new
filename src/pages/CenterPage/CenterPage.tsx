@@ -14,11 +14,14 @@ import { Line } from "react-chartjs-2";
 
 import { Layout } from "../Layout/Layout";
 import {
+    AdminPanelContainer,
+    BlueSliderArrows,
     EmployeeData,
     EmployeeInfoCard,
     Fine,
     Rating,
     Search,
+    WhiteContentBlock,
 } from "@/widgets";
 import { Btn, Text } from "@/shared";
 
@@ -78,13 +81,13 @@ const CenterPage: FC = () => {
 
     return (
         <Layout>
-            <div className={styles.center}>
+            <AdminPanelContainer>
                 <div className={styles.info}>
                     <EmployeeInfoCard type="clinic" />
                     <EmployeeData type="clinic" />
                     <div className={styles.center}>
                         <div className={styles.block}>
-                            <div className={styles.box}>
+                            <WhiteContentBlock>
                                 <div className={styles.nav}>
                                     <Text type="h2" fz="20px">
                                         Администратор
@@ -99,9 +102,9 @@ const CenterPage: FC = () => {
                                         </Text>
                                     </div>
                                 </div>
-                            </div>
+                            </WhiteContentBlock>
                         </div>
-                        <div className={styles.box} style={{ height: "100%" }}>
+                        <WhiteContentBlock>
                             <div
                                 className={styles.colsX2}
                                 style={{ gridGap: 20, height: "100%" }}
@@ -184,14 +187,14 @@ const CenterPage: FC = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </WhiteContentBlock>
                     </div>
                 </div>
                 <div
                     className={styles.colsX2}
                     style={{ gridTemplateColumns: "770px 1fr" }}
                 >
-                    <div className={styles.box}>
+                    <WhiteContentBlock>
                         <div className={styles.text}>
                             <div className={styles.nav}>
                                 <Text type="h2" fz="18px">
@@ -207,9 +210,9 @@ const CenterPage: FC = () => {
                                 />
                             </div>
                         </div>
-                    </div>
+                    </WhiteContentBlock>
                     <div className={styles.block}>
-                        <div className={styles.box}>
+                        <WhiteContentBlock>
                             <div className={styles.stats}>
                                 <div className={styles.text}>
                                     <Text type="h2" fz="18px">
@@ -235,7 +238,7 @@ const CenterPage: FC = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </WhiteContentBlock>
                         <div className={styles.box}>
                             <div className={styles.text}>
                                 <Text type="h2" fz="18px">
@@ -328,7 +331,8 @@ const CenterPage: FC = () => {
                         </div>
                     </Btn>
                 </div>
-                <div className={styles.box}>
+                <WhiteContentBlock>
+                    <Text type="h4">Специалисты (127)</Text>
                     <div
                         className={styles.colsX4}
                         style={{
@@ -380,7 +384,9 @@ const CenterPage: FC = () => {
                             </div>
                         ))}
                     </div>
+                    <BlueSliderArrows />
                     <div className={styles.line}></div>
+                    <Text type="h4">Пациенты (1321)</Text>
                     <div
                         className={styles.colsX4}
                         style={{
@@ -432,44 +438,9 @@ const CenterPage: FC = () => {
                             </div>
                         ))}
                     </div>
-
-                    <div className={styles.arrows}>
-                        <div className={styles.arrow}>
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 20 20"
-                                fill="none"
-                            >
-                                <path
-                                    d="M12.9167 16.6654L6.25008 9.9987L12.9167 3.33203"
-                                    stroke="#0064FA"
-                                    stroke-opacity="0.5"
-                                    stroke-width="1.25"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-                        </div>
-                        <div className={styles.arrow}>
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 20 20"
-                                fill="none"
-                            >
-                                <path
-                                    d="M7.9165 16.6654L14.5832 9.9987L7.9165 3.33203"
-                                    stroke="#0064FA"
-                                    stroke-width="1.25"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <BlueSliderArrows />
+                </WhiteContentBlock>
+            </AdminPanelContainer>
         </Layout>
     );
 };
