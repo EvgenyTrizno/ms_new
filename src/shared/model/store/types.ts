@@ -1,3 +1,5 @@
+import { ReactNode, ReactSVGElement } from "react";
+
 export interface IDiseasesStore {
     diseases: string[];
     setDiseases: (arg: string) => void;
@@ -77,4 +79,11 @@ export interface IUserData {
 export interface IIsProfile {
     isProfile: boolean;
     setIsProfile: (arg: boolean) => void;
+}
+
+export interface ICountrySelectData {
+    name: string;
+    setName: (name: string) => void;
+    country: SVGPathElement | null;
+    setCountry: (country: SVGPathElement | null) => void;
 }
