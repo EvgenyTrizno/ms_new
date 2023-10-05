@@ -12,6 +12,7 @@ import {
     IUserData,
     TGroups,
     IIsProfile,
+    ICountrySelectData,
 } from "./types";
 
 export const useMenu = create<IMenuStore>()(
@@ -147,6 +148,21 @@ export const useProfile = create<IIsProfile>()(
         setIsProfile: (arg: boolean) =>
             set((state) => {
                 state.isProfile = arg;
+            }),
+    }))
+);
+
+export const useSelectCountry = create<ICountrySelectData>()(
+    immer((set) => ({
+        name: "",
+        setName: (name: string) =>
+            set((state) => {
+                state.name = name;
+            }),
+        country: null,
+        setCountry: (country) =>
+            set((state) => {
+                (state.country as unknown) = country;
             }),
     }))
 );
