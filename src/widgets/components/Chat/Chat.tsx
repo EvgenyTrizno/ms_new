@@ -2,8 +2,8 @@ import { FC, useState, MouseEvent, useRef } from "react";
 import { motion } from "framer-motion";
 
 import { useUserCondition } from "@/shared/model/store";
-import { Text, PopUp, Input } from "@/shared";
-import { ChatInfo, EmojiModal } from "@/widgets";
+import { Text, PopUp, Input, BackArrow } from "@/shared";
+import { ChatInfo, CustomMobileHeader, EmojiModal } from "@/widgets";
 
 import woman from "/assets/woman.jpg";
 import call from "/assets/call-calling.svg";
@@ -19,6 +19,7 @@ import mircophone from "/assets/microphone-blue.svg";
 import mircophoneRed from "/assets/microphone-red.svg";
 import back from "/assets/back-arrow-blue.svg";
 import styles from "./Chat.module.scss";
+import { MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
 
 export const Chat: FC = () => {
     const { condition } = useUserCondition();
@@ -74,52 +75,68 @@ export const Chat: FC = () => {
 
     return (
         <div className={styles.view}>
-            <div
-                className={styles.info}
-                style={{ borderColor: sick ? "#F7E6E8" : "" }}
-            >
-                <div className={styles.data}>
-                    {isInfo && (
+            {(PC || SMALL_LAPTOP) && (
+                <div
+                    className={styles.info}
+                    style={{ borderColor: sick ? "#F7E6E8" : "" }}
+                >
+                    <div className={styles.data}>
+                        {isInfo && (
+                            <img
+                                src={back}
+                                alt=""
+                                onClick={() => setIsInfo(false)}
+                                style={{
+                                    marginRight: "20px",
+                                    cursor: "pointer",
+                                    width: 20,
+                                    height: 20,
+                                }}
+                            />
+                        )}
                         <img
-                            src={back}
+                            src={woman}
+                            style={{ cursor: "pointer" }}
                             alt=""
-                            onClick={() => setIsInfo(false)}
-                            style={{
-                                marginRight: "20px",
-                                cursor: "pointer",
-                                width: 20,
-                                height: 20,
+                            onClick={() => setIsInfo(true)}
+                        />
+                        <div className={styles.text}>
+                            <Text type="h2" fz="16px">
+                                Яковенко А. С.
+                            </Text>
+                            <Text type="p" color="#84C55D" fz="14px">
+                                Online
+                            </Text>
+                        </div>
+                    </div>
+                    <div className={styles.callIcons}>
+                        <img
+                            src={sick ? callRed : call}
+                            alt=""
+                            className={styles.call}
+                            onClick={(e: MouseEvent<HTMLImageElement>) => {
+                                setY(e.clientY);
+                                setIsOpen((prev) => !prev);
+                                setIsSelect("Звонок");
                             }}
                         />
-                    )}
-                    <img
-                        src={woman}
-                        style={{ cursor: "pointer" }}
-                        alt=""
-                        onClick={() => setIsInfo(true)}
-                    />
-                    <div className={styles.text}>
-                        <Text type="h2" fz="16px">
-                            Яковенко А. С.
-                        </Text>
-                        <Text type="p" color="#84C55D" fz="14px">
-                            Online
-                        </Text>
                     </div>
                 </div>
-                <div className={styles.callIcons}>
-                    <img
-                        src={sick ? callRed : call}
-                        alt=""
-                        className={styles.call}
-                        onClick={(e: MouseEvent<HTMLImageElement>) => {
-                            setY(e.clientY);
-                            setIsOpen((prev) => !prev);
-                            setIsSelect("Звонок");
-                        }}
-                    />
-                </div>
-            </div>
+            )}
+            {MOBILE && (
+                <CustomMobileHeader>
+                    <BackArrow />
+                    <div className={styles.data}>
+                        <img src={woman} alt="" />
+                        <div className="">
+                            <Text type="h2">Яковенко А. С.</Text>
+                            <Text type="p" color="#7D7F82">
+                                Был(а) недавно
+                            </Text>
+                        </div>
+                    </div>
+                </CustomMobileHeader>
+            )}
             {isInfo ? (
                 <div className={styles.chatInfo}>
                     <ChatInfo />
@@ -128,15 +145,19 @@ export const Chat: FC = () => {
                 <div className={styles.chat}>
                     <div className={styles.list}>
                         <div className={styles.message}>
-                            <img
-                                src={woman}
-                                alt=""
-                                onClick={() => setIsInfo(true)}
-                            />
+                            {!MOBILE && (
+                                <img
+                                    src={woman}
+                                    alt=""
+                                    onClick={() => setIsInfo(true)}
+                                />
+                            )}
                             <div className={styles.inner}>
-                                <Text type="p" color="#333" fz="11px">
-                                    Виктор
-                                </Text>
+                                {!MOBILE && (
+                                    <Text type="p" color="#333" fz="11px">
+                                        Виктор
+                                    </Text>
+                                )}
                                 <div
                                     className={
                                         sick
@@ -170,11 +191,13 @@ export const Chat: FC = () => {
                         <div
                             className={`${styles.message} ${styles.messageRight}`}
                         >
-                            <img src={woman} alt="" />
+                            {!MOBILE && <img src={woman} alt="" />}
                             <div className={styles.inner}>
-                                <Text type="p" color="#333" fz="11px">
-                                    Александр
-                                </Text>
+                                {!MOBILE && (
+                                    <Text type="p" color="#333" fz="11px">
+                                        Александр
+                                    </Text>
+                                )}
                                 <div
                                     className={`${styles.text}`}
                                     onClick={(e: MouseEvent) => handleClick(e)}
@@ -201,17 +224,21 @@ export const Chat: FC = () => {
                                     </Text>
                                 </div>
                             </div>
-                        </div>{" "}
+                        </div>
                         <div className={styles.message}>
-                            <img
-                                src={woman}
-                                alt=""
-                                onClick={() => setIsInfo(true)}
-                            />
+                            {!MOBILE && (
+                                <img
+                                    src={woman}
+                                    alt=""
+                                    onClick={() => setIsInfo(true)}
+                                />
+                            )}
                             <div className={styles.inner}>
-                                <Text type="p" color="#333" fz="11px">
-                                    Виктор
-                                </Text>
+                                {!MOBILE && (
+                                    <Text type="p" color="#333" fz="11px">
+                                        Виктор
+                                    </Text>
+                                )}
                                 <div
                                     className={
                                         sick

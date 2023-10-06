@@ -188,20 +188,51 @@
             cursor: pointer;
         }
     }
+}   
+
+@media screen and (max-width: 576px) {
+    .view {
+
+        .data {
+            margin-left: 12px;
+            display: flex;
+            align-items: center;
+            grid-gap: 12px;
+
+            img {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        .chat {
+            width: 100%;
+
+            .list {
+                .text {
+                    max-width: 260px;
+                }
+            }
+        }
+
+        .messageBlock {
+            width: 100%;
+        }
+    }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1500px) {
     .view {
         .info {
-            width: 100vw;
+            width: 100%;
         }
 
         .chat {
-            width: 100vw;
+            width: 100%;
         }
 
         .messageBlock {
-            width: 100vw;
+            width: 100%;
         }
     }
 }
