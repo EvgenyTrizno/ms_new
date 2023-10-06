@@ -371,6 +371,11 @@ const CreateEventPage: FC = () => {
                     {MOBILE && (
                         <CustomMobileHeader>
                             <BackArrow />
+                            <div style={{ marginLeft: 12 }}>
+                                <Text type="h2" fz="19px">
+                                    Создать запись
+                                </Text>
+                            </div>
                         </CustomMobileHeader>
                     )}
                     <MobileContainer>
