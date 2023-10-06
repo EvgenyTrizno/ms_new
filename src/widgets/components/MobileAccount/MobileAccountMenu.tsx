@@ -148,7 +148,7 @@ export const MobileAccountMenu: FC = () => {
 
             if (deltaY > 50) {
                 setSwipedUp(true);
-            } else {
+            } else if (deltaY < -50) {
                 setSwipedUp(false);
             }
 
@@ -158,7 +158,7 @@ export const MobileAccountMenu: FC = () => {
 
     useEffect(() => {
         document.body.style.overflow = `${isProfile ? "hidden" : ""}`;
-    }, []);
+    }, [isProfile]);
 
     return (
         <AnimatePresence>
@@ -265,6 +265,7 @@ export const MobileAccountMenu: FC = () => {
                                 animate={{
                                     y: swipedUp ? 0 : "-50%",
                                     opacity: swipedUp ? 1 : 0,
+                                    pointerEvents: swipedUp ? "auto" : "none",
                                 }}
                                 transition={{ duration: 0.1 }}
                             >
