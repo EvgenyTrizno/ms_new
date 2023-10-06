@@ -38,19 +38,18 @@ const MobileMessagesPage = lazy(
     () => import("@/pages/MobileMessages/MobileMessagesPage")
 );
 const MobileProfile = lazy(() => import("@/pages/MobileProfile/MobileProfile"));
-const MobileChatPage = lazy(() => import("@/pages/MobileChat/MobileChatPage"));
 const AccountSettingsPage = lazy(
     () => import("@/pages/Settings/AccountSettingsPage/AccountSettingsPage")
 );
 const ProfileSettingsPage = lazy(
     () => import("@/pages/Settings/ProfileSettingsPage/ProfileSettingsPage")
 );
-const AccountProtectionSettingsPage = lazy(
-    () =>
-        import(
-            "@/pages/Settings/AccountProtectionSettingsPage/AccountProtectionSettingsPage"
-        )
-);
+// const AccountProtectionSettingsPage = lazy(
+//     () =>
+//         import(
+//             "@/pages/Settings/AccountProtectionSettingsPage/AccountProtectionSettingsPage"
+//         )
+// );
 const AccountAccessSettings = lazy(
     () =>
         import(
@@ -185,11 +184,11 @@ export const routes: RouteData[] = [
         Component: ProfileSettingsPage,
         key: "mobile-profile-settings_page",
     },
-    {
-        path: "/m/settings/account/protection",
-        Component: AccountProtectionSettingsPage,
-        key: "mobile-protection_page",
-    },
+    // {
+    //     path: "/m/settings/account/protection",
+    //     Component: AccountProtectionSettingsPage,
+    //     key: "mobile-protection_page",
+    // },
     {
         path: "/account/access",
         Component: AccountAccessSettings,
@@ -237,11 +236,7 @@ export const routes: RouteData[] = [
     },
     {
         path: "/chat/:id",
-        Component: SMALL_LAPTOP
-            ? ChatPage
-            : MOBILE
-            ? MobileChatPage
-            : NotFoundPage,
+        Component: SMALL_LAPTOP || MOBILE ? ChatPage : NotFoundPage,
         key: "chat_page",
     },
     {
