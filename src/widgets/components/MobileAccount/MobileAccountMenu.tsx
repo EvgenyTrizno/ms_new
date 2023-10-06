@@ -267,7 +267,7 @@ export const MobileAccountMenu: FC = () => {
                                     opacity: swipedUp ? 1 : 0,
                                     pointerEvents: swipedUp ? "auto" : "none",
                                 }}
-                                transition={{ duration: 0.1 }}
+                                transition={{ duration: 0.3 }}
                             >
                                 <Search placeholder="Поиск" />
                             </motion.div>
