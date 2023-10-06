@@ -4,3 +4,12 @@
             position: fixed;
     }
 }
+
+@media screen and (max-width: 576px) {
+    .chat {
+        .view {
+            top: 0;
+            position: static;
+        }
+    }
+}
