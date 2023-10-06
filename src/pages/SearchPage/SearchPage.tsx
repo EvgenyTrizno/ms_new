@@ -1,15 +1,21 @@
 import { FC, useEffect, useState } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { CustomMobileHeader, MobileContainer, Rating, Search } from "@/widgets";
-import { BackArrow, Btn, Filter, Text } from "@/shared";
+import {
+    MobileContainer,
+    MobileHeader,
+    MobileMenu,
+    Rating,
+    Search,
+} from "@/widgets";
+import { Btn, Filter, MobileSearch, Text } from "@/shared";
 import { ISearchResult } from "@/shared/api/Search/types";
 import { SearchRes } from "@/shared/api/Search";
 import { useFilter } from "@/shared/model/store";
 
 import controler from "/assets/controler.svg";
 import styles from "./SearchPage.module.scss";
-import { MOBILE } from "@/shared/utils";
+import { MOBILE, PC } from "@/shared/utils";
 
 const SearchPage: FC = () => {
     const { getAllResult } = SearchRes();
@@ -23,28 +29,31 @@ const SearchPage: FC = () => {
 
     return (
         <Layout>
-            {MOBILE && (
-                <CustomMobileHeader>
-                    <BackArrow />
-                </CustomMobileHeader>
-            )}
+            {MOBILE && <MobileHeader />}
             <MobileContainer>
                 <div className={styles.header}>
-                    <Search placeholder="Поиск чатов" height="48px" />
-                    <Btn
-                        width="160px"
-                        color="#0064FA"
-                        height="48px"
-                        br="12px"
-                        padding="14px 18px"
-                    >
-                        <div className={styles.btn}>
-                            <img src={controler} alt="" />
-                            <Text type="p" fz="14px">
-                                Фильтры
-                            </Text>
-                        </div>
-                    </Btn>
+                    {PC && (
+                        <>
+                            <Search placeholder="Поиск чатов" height="48px" />
+                            <Btn
+                                width="160px"
+                                color="#0064FA"
+                                height="48px"
+                                br="12px"
+                                padding="14px 18px"
+                            >
+                                <div className={styles.btn}>
+                                    <img src={controler} alt="" />
+                                    <Text type="p" fz="14px">
+                                        Фильтры
+                                    </Text>
+                                </div>
+                            </Btn>
+                        </>
+                    )}
+                    {MOBILE && (
+                        <MobileSearch placeholder="Поиск чатов" filterBtn />
+                    )}
                 </div>
                 <div className={styles.main}>
                     <div className={styles.box}>
@@ -128,6 +137,7 @@ const SearchPage: FC = () => {
                             : null}
                     </div>
                 </div>
+                {MOBILE && <MobileMenu />}
             </MobileContainer>
         </Layout>
     );
