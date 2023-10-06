@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { MobileContainer, MobileHeader } from "@/widgets";
+import { MobileContainer, MobileHeader, MobileMenu } from "@/widgets";
 import { useUserCondition } from "@/shared/model/store";
 import { Text } from "@/shared";
 
@@ -46,6 +46,7 @@ const MobileNotification: FC = () => {
                     </div>
                 </div>
             </MobileContainer>
+            <MobileMenu />
         </Layout>
     );
 };
