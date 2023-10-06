@@ -12,7 +12,10 @@ import { TABLET } from "@/shared/utils";
 import man from "/assets/man.jpg";
 import userBlue from "/assets/user-blue.svg";
 import userRed from "/assets/user-red.svg";
+import userCircleBlue from "/assets/user-circle-blue.svg";
 import noteBlue from "/assets/note-blue.svg";
+import notepadBlue from "/assets/notepad-blue.svg";
+import smsBlue from "/assets/sms-question-blue.svg";
 import clipBoardBlue from "/assets/clipboard-text-blue.svg";
 import markerBlue from "/assets/marker-blue.svg";
 import markerRed from "/assets/marker-red.svg";
@@ -20,6 +23,11 @@ import houseWithPlusBlue from "/assets/home-with-plus-blue.svg";
 import houseWithPlusRed from "/assets/home-with-plus-red.svg";
 import logoutBlue from "/assets/logout-blue.svg";
 import arrow from "/assets/arrow-left-black.svg";
+import callBlue from "/assets/call-blue.svg";
+import app from "/assets/app-icon-blue.svg";
+import salesBlue from "/assets/sales-blue.svg";
+import envelopBlue from "/assets/envelope-blue.svg";
+import botBlue from "/assets/bot-blue.svg";
 import styles from "./MobileAccountMenu.module.scss";
 
 export const MobileAccountMenu: FC = () => {
@@ -75,55 +83,55 @@ export const MobileAccountMenu: FC = () => {
         admin: [
             {
                 id: useId(),
-                icon: { healthy: logoutBlue, sick: userRed },
+                icon: { healthy: app, sick: app },
                 label: "Сайт и приложение",
                 navigate: "/app",
             },
             {
                 id: useId(),
-                icon: { healthy: logoutBlue, sick: userRed },
+                icon: { healthy: userBlue, sick: userBlue },
                 label: "Персонал",
                 navigate: "/app",
             },
             {
                 id: useId(),
-                icon: { healthy: logoutBlue, sick: userRed },
+                icon: { healthy: notepadBlue, sick: userRed },
                 label: "Карта",
                 navigate: "/app",
             },
             {
                 id: useId(),
-                icon: { healthy: logoutBlue, sick: userRed },
+                icon: { healthy: userCircleBlue, sick: userRed },
                 label: "Соц сети и почта",
                 navigate: "/app",
             },
             {
                 id: useId(),
-                icon: { healthy: logoutBlue, sick: userRed },
+                icon: { healthy: smsBlue, sick: userRed },
                 label: "Заявки и жалобы",
                 navigate: "/app",
             },
             {
                 id: useId(),
-                icon: { healthy: logoutBlue, sick: userRed },
+                icon: { healthy: callBlue, sick: userRed },
                 label: "Лиды",
                 navigate: "/app",
             },
             {
                 id: useId(),
-                icon: { healthy: logoutBlue, sick: userRed },
+                icon: { healthy: salesBlue, sick: userRed },
                 label: "Продажи",
                 navigate: "/app",
             },
             {
                 id: useId(),
-                icon: { healthy: logoutBlue, sick: userRed },
+                icon: { healthy: envelopBlue, sick: userRed },
                 label: "Реклама",
                 navigate: "/app",
             },
             {
                 id: useId(),
-                icon: { healthy: logoutBlue, sick: userRed },
+                icon: { healthy: botBlue, sick: userRed },
                 label: "Бот",
                 navigate: "/app",
             },
