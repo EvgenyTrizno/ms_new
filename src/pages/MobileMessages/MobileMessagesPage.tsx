@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router";
 
 import { Layout } from "../Layout/Layout";
-import { MobileContainer, MobileHeader } from "@/widgets";
+import { MobileContainer, MobileHeader, MobileMenu } from "@/widgets";
 import { MobileFilter, MobileSearch, Text } from "@/shared";
 import { useFilter, useUserCondition } from "@/shared/model/store";
 
@@ -94,7 +94,7 @@ const MobileMessagesPage: FC = () => {
                                           <Text
                                               type="p"
                                               color="#7D7F82"
-                                              fz="13px"
+                                              fz="12px"
                                           >
                                               Исходящий вызов (30 минут)
                                           </Text>
@@ -110,6 +110,7 @@ const MobileMessagesPage: FC = () => {
                           ))}
                 </div>
             </MobileContainer>
+            <MobileMenu />
         </Layout>
     );
 };
