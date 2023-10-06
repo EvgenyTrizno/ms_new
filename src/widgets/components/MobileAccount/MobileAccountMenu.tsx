@@ -1,4 +1,4 @@
-import { FC, useEffect, useId, useState } from "react";
+import { FC, useEffect, useId, useState, useRef, TouchEvent } from "react";
 import { useNavigate } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { IParamsData } from "./types";
@@ -23,7 +23,8 @@ import arrow from "/assets/arrow-left-black.svg";
 import styles from "./MobileAccountMenu.module.scss";
 
 export const MobileAccountMenu: FC = () => {
-    const [top, setTop] = useState<boolean>(false);
+    const [swipedUp, setSwipedUp] = useState(false);
+    const touchStartY = useRef<number | null>(null);
 
     const { condition } = useUserCondition();
     const { isProfile, setIsProfile } = useProfile();
@@ -136,35 +137,34 @@ export const MobileAccountMenu: FC = () => {
         personal: [],
     };
 
-    useEffect(() => {
-        const el = document.querySelector(`.${styles.account}`);
+    const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+        touchStartY.current = e.touches[0].clientY;
+    };
 
-        const handleScroll = () => {
-            const rect = el && el.getBoundingClientRect();
+    const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+        if (touchStartY.current !== null) {
+            const touchEndY = e.changedTouches[0].clientY;
+            const deltaY = touchEndY - touchStartY.current;
 
-            console.log(rect);
-
-            if (rect) {
-                setTop(true);
+            if (deltaY > 50) {
+                setSwipedUp(true);
             } else {
-                setTop(false);
+                setSwipedUp(false);
             }
-        };
 
-        el && el.addEventListener("scroll", handleScroll);
-
-        return () => {
-            el && el.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+            touchStartY.current = null;
+        }
+    };
 
     useEffect(() => {
         document.body.style.overflow = `${isProfile ? "hidden" : ""}`;
-    }, [isProfile]);
+    }, []);
 
     return (
         <AnimatePresence>
             <motion.div
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
                 className={styles.account}
                 initial={{ x: "-100%" }}
                 animate={{
@@ -249,15 +249,24 @@ export const MobileAccountMenu: FC = () => {
                             </div>
                         </>
                     )}
-                    <div className={styles.params}>
-                        {group === "Пользователи" && top && (
+                    <motion.div
+                        initial={{ y: "-50px" }}
+                        animate={{ y: swipedUp ? 0 : "-50px" }}
+                        transition={{ duration: 0.3 }}
+                        className={styles.params}
+                    >
+                        {group === "Пользователи" && (
                             <motion.div
-                                initial={{ x: "-100%", opacity: 0 }}
-                                animate={{
-                                    x: top ? 0 : "-100%",
-                                    opacity: top ? 1 : 0,
+                                initial={{
+                                    y: "-50%",
+                                    pointerEvents: "none",
+                                    opacity: 0,
                                 }}
-                                transition={{ duration: 0.3 }}
+                                animate={{
+                                    y: swipedUp ? 0 : "-50%",
+                                    opacity: swipedUp ? 1 : 0,
+                                }}
+                                transition={{ duration: 0.1 }}
                             >
                                 <Search placeholder="Поиск" />
                             </motion.div>
@@ -288,7 +297,7 @@ export const MobileAccountMenu: FC = () => {
                                     }
                                 />
                             ))}
-                    </div>
+                    </motion.div>
                 </MobileContainer>
             </motion.div>
         </AnimatePresence>
