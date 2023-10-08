@@ -15,7 +15,11 @@ export const MobileSearch: FC<
     return (
         <div
             className={styles.search}
-            style={{ padding: filterBtn === false ? "16px" : "", width }}
+            style={{
+                padding: filterBtn === false ? "16px" : "",
+                width,
+                borderColor: condition === "Болен" ? "#F7E6E8" : "",
+            }}
         >
             <button className={styles.icon}>
                 <img src={search} alt="" />
