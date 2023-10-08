@@ -14,11 +14,14 @@ import { Line } from "react-chartjs-2";
 
 import { Layout } from "../Layout/Layout";
 import {
+    AdminPanelContainer,
     BlueSliderArrows,
+    Cols,
     EmployeeData,
     EmployeeInfoCard,
     Rating,
     Search,
+    WhiteContentBlock,
 } from "@/widgets";
 import { Btn, Text } from "@/shared";
 
@@ -158,22 +161,23 @@ const ClinicProfile: FC = () => {
             },
         ],
     };
+
     return (
         <Layout>
-            <div className={styles.clinic}>
-                <div className={styles.info}>
+            <AdminPanelContainer>
+                <Cols gap={10} type="custom" cols={["360px", "400px", "1fr"]}>
                     <EmployeeInfoCard type="clinic" />
                     <EmployeeData type="clinic" />
                     <div className={styles.clinic}>
-                        <div className={styles.block}>
-                            <div className={styles.box}>
+                        <WhiteContentBlock>
+                            <div className={styles.admin}>
                                 <div className={styles.nav}>
                                     <Text type="h2" fz="20px">
                                         Администратор
                                     </Text>
                                     <img src={arrow} alt="" />
                                 </div>
-                                <div className={styles.admin}>
+                                <div className={styles.data}>
                                     <img src={man} alt="" />
                                     <div className={styles.text}>
                                         <Text type="h2" fz="18px">
@@ -193,116 +197,111 @@ const ClinicProfile: FC = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className={styles.block}>
-                            <div className={styles.box}>
-                                <div className={styles.stats}>
-                                    <div className={styles.text}>
-                                        <Text type="h2" fz="18px">
-                                            Количество посещений за день
-                                        </Text>
-                                        <div className={styles.row}>
-                                            <div className={styles.sumBlock}>
-                                                <Text type="h2" fz="28px">
-                                                    86
-                                                </Text>
-                                                <Text type="h2" fz="16px">
-                                                    Онлайн
-                                                </Text>
-                                            </div>
-                                            <div className={styles.sumBlock}>
-                                                <Text type="h2" fz="28px">
-                                                    86
-                                                </Text>
-                                                <Text type="h2" fz="16px">
-                                                    Оффлайн
-                                                </Text>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.box}>
+                        </WhiteContentBlock>
+                        <WhiteContentBlock>
+                            <div className={styles.stats}>
                                 <div className={styles.text}>
                                     <Text type="h2" fz="18px">
-                                        Записи
+                                        Количество посещений за день
                                     </Text>
-                                    <div className={styles.colsX2}>
+                                    <div className={styles.row}>
                                         <div className={styles.sumBlock}>
                                             <Text type="h2" fz="28px">
                                                 86
                                             </Text>
-                                            <div
-                                                className={styles.text}
-                                                style={{ gridGap: 0 }}
-                                            >
-                                                <Text type="h2" fz="16px">
-                                                    Всего
-                                                </Text>
-                                                <Text type="p" fz="14px">
-                                                    Записей
-                                                </Text>
-                                            </div>
+                                            <Text type="h2" fz="16px">
+                                                Онлайн
+                                            </Text>
                                         </div>
                                         <div className={styles.sumBlock}>
                                             <Text type="h2" fz="28px">
                                                 86
                                             </Text>
-                                            <div
-                                                className={styles.text}
-                                                style={{ gridGap: 0 }}
-                                            >
-                                                <Text type="h2" fz="16px">
-                                                    Подтвержено
-                                                </Text>
-                                                <Text type="p" fz="14px">
-                                                    Записей
-                                                </Text>
-                                            </div>
-                                        </div>
-                                        <div className={styles.sumBlock}>
-                                            <Text type="h2" fz="28px">
-                                                86
+                                            <Text type="h2" fz="16px">
+                                                Оффлайн
                                             </Text>
-                                            <div
-                                                className={styles.text}
-                                                style={{ gridGap: 0 }}
-                                            >
-                                                <Text type="h2" fz="16px">
-                                                    Отменено
-                                                </Text>
-                                                <Text type="p" fz="14px">
-                                                    Записей
-                                                </Text>
-                                            </div>
-                                        </div>
-                                        <div className={styles.sumBlock}>
-                                            <Text type="h2" fz="28px">
-                                                86
-                                            </Text>
-                                            <div
-                                                className={styles.text}
-                                                style={{ gridGap: 0 }}
-                                            >
-                                                <Text type="h2" fz="16px">
-                                                    Перенесено
-                                                </Text>
-                                                <Text type="p" fz="14px">
-                                                    Записей
-                                                </Text>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </WhiteContentBlock>
+                        <WhiteContentBlock>
+                            <div className={styles.text}>
+                                <Text type="h2" fz="18px">
+                                    Записи
+                                </Text>
+                                <Cols type="auto" gap={10} count={2}>
+                                    <div className={styles.sumBlock}>
+                                        <Text type="h2" fz="28px">
+                                            86
+                                        </Text>
+                                        <div
+                                            className={styles.text}
+                                            style={{ gridGap: 0 }}
+                                        >
+                                            <Text type="h2" fz="16px">
+                                                Всего
+                                            </Text>
+                                            <Text type="p" fz="14px">
+                                                Записей
+                                            </Text>
+                                        </div>
+                                    </div>
+                                    <div className={styles.sumBlock}>
+                                        <Text type="h2" fz="28px">
+                                            86
+                                        </Text>
+                                        <div
+                                            className={styles.text}
+                                            style={{ gridGap: 0 }}
+                                        >
+                                            <Text type="h2" fz="16px">
+                                                Подтвержено
+                                            </Text>
+                                            <Text type="p" fz="14px">
+                                                Записей
+                                            </Text>
+                                        </div>
+                                    </div>
+                                    <div className={styles.sumBlock}>
+                                        <Text type="h2" fz="28px">
+                                            86
+                                        </Text>
+                                        <div
+                                            className={styles.text}
+                                            style={{ gridGap: 0 }}
+                                        >
+                                            <Text type="h2" fz="16px">
+                                                Отменено
+                                            </Text>
+                                            <Text type="p" fz="14px">
+                                                Записей
+                                            </Text>
+                                        </div>
+                                    </div>
+                                    <div className={styles.sumBlock}>
+                                        <Text type="h2" fz="28px">
+                                            86
+                                        </Text>
+                                        <div
+                                            className={styles.text}
+                                            style={{ gridGap: 0 }}
+                                        >
+                                            <Text type="h2" fz="16px">
+                                                Перенесено
+                                            </Text>
+                                            <Text type="p" fz="14px">
+                                                Записей
+                                            </Text>
+                                        </div>
+                                    </div>
+                                </Cols>
+                            </div>
+                        </WhiteContentBlock>
                     </div>
-                </div>
-                <div
-                    className={styles.colsX2}
-                    style={{ gridTemplateColumns: "360px 1fr" }}
-                >
-                    <div className={styles.box}>
+                </Cols>
+                <Cols type="custom" gap={10} cols={["360px", "1fr"]}>
+                    <WhiteContentBlock>
                         <Text type="h2" fz="18px">
                             Баланс на счету
                         </Text>
@@ -334,8 +333,8 @@ const ClinicProfile: FC = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className={styles.box}>
+                    </WhiteContentBlock>
+                    <WhiteContentBlock>
                         <div className={styles.text}>
                             <div className={styles.nav}>
                                 <Text type="h2" fz="18px">
@@ -351,8 +350,8 @@ const ClinicProfile: FC = () => {
                                 />
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </WhiteContentBlock>
+                </Cols>
                 <div className={styles.searchContainer}>
                     <Search placeholder="Поиск специалиста или пациента" />
                     <Btn
@@ -370,7 +369,7 @@ const ClinicProfile: FC = () => {
                         </div>
                     </Btn>
                 </div>
-                <div className={styles.box}>
+                <WhiteContentBlock>
                     <Text type="h4">Специалисты (127)</Text>
                     <div
                         className={styles.colsX4}
@@ -424,8 +423,8 @@ const ClinicProfile: FC = () => {
                         ))}
                     </div>
                     <BlueSliderArrows />
-                </div>
-            </div>
+                </WhiteContentBlock>
+            </AdminPanelContainer>
         </Layout>
     );
 };

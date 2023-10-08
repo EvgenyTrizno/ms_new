@@ -1,170 +1,156 @@
+.admin {
+    display: flex;
+    flex-direction: column;
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+    }
+
+    .data {
+        display: flex;
+        align-items: center;
+        grid-gap: 16px;
+
+        img {
+            width: 92px;
+            height: 92px;
+            border-radius: 100%;
+        }
+    }
+}
+
 .clinic {
     display: flex;
     flex-direction: column;
     grid-gap: 10px;
+}
 
-    .box {
-        background-color: var(--white);
-        padding: 20px;
-        border-radius: var(--mobile-default-border);
-        border: 1px solid var(--gray-100);
-    }
+// .colsX3 {
+//     grid-template-columns: repeat(3, 1fr);
+// } @extend .colsX2;
 
-    .info {
-        grid-gap: 10px;
-        display: grid;
-        grid-template-columns: 360px 400px 1fr;
-
-        .block {
-            display: flex;
-            flex-direction: column;
-            grid-gap: 10px;
-
-            .admin {
-                display: flex;
-                align-items: center;
-                grid-gap: 20px;
-
-                img {
-                    width: 92px;
-                    height: 92px;
-                    border-radius: 100%;
-                }
-            }
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 16px;
-        }
-
-        // .colsX3 {
-        //     grid-template-columns: repeat(3, 1fr);
-        // } @extend .colsX2;
-
-        .container {
-            .list {
-                display: flex;
-                flex-direction: column;
-                grid-gap: 10px;
-                margin-top: 16px;
-            }
-
-            .icon {
-                width: 40px;
-                height: 40px;
-                background-color: var(--blue-100);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 100%;
-
-                &Red {
-                    background-color: var(--red-100);
-                }
-            }
-
-        }
-    }
-
-    .bal {
-        margin: 12px 0 0;
-        display: flex;
-        flex-direction: column;
-        grid-gap: 8px;
-    }
-
-    .text {
-        display: flex;
-        flex-direction: column;
-        grid-gap: 12px;
-    }
-
-    .chart {
-        width: 100%;
-        height: 160px;
-    }
-
-    .mt5 {
-        margin-top: 5px;
-    }
-
-    .sumBlock {
-        width: 100%;
-        border-radius: var(--mobile-default-border);
-        padding: 12px 30px;
-        border: 1px solid var(--blue-200);
-        display: flex;
-        align-items: center;
-        grid-gap: 10px;
-    }
-
-    .colsX2 {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px;
-    }
-
-    .colsX4 {
-        display: grid;
-        grid-gap: 24px 0;   
-        margin: 16px 0;
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .rowText {
-        display: flex;
-        align-items: center;
-        grid-gap: 10px;
-    }
-
-    .stats {
+.container {
+    .list {
         display: flex;
         flex-direction: column;
         grid-gap: 10px;
+        margin-top: 16px;
     }
 
-    .row {
+    .icon {
+        width: 40px;
+        height: 40px;
+        background-color: var(--blue-100);
         display: flex;
         align-items: center;
-        grid-gap: 8px;
-    }
+        justify-content: center;
+        border-radius: 100%;
 
-    .comment {
-        img {
-            width: 50px;
-            height: 50px;
+        &Red {
+            background-color: var(--red-100);
         }
     }
 
-    .bottom {
+}
+
+.bal {
+    margin: 12px 0 0;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 8px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 12px;
+}
+
+.chart {
+    width: 100%;
+    height: 160px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.sumBlock {
+    width: 100%;
+    border-radius: var(--mobile-default-border);
+    padding: 12px 30px;
+    border: 1px solid var(--blue-200);
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.colsX2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.colsX4 {
+    display: grid;
+    grid-gap: 24px 0;
+    margin: 16px 0;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.rowText {
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    grid-gap: 8px;
+}
+
+.comment {
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .more {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-
-        .more {
-            display: flex;
-            align-items: center;
-            grid-gap: 5px;
-        }
+        grid-gap: 5px;
     }
+}
 
-    .filter {
-        display: flex;
-        align-items: center;
-        grid-gap: 10px;
+.filter {
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
 
-        img {
-            width: 20px;
-            height: 20px;
-        }
+    img {
+        width: 20px;
+        height: 20px;
     }
+}
 
-    .searchContainer {
-        display: grid;
-        grid-template-columns: 1fr 133px;
-        grid-gap: 10px;
-    }
+.searchContainer {
+    display: grid;
+    grid-template-columns: 1fr 133px;
+    grid-gap: 10px;
 }

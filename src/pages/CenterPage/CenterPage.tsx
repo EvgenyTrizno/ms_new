@@ -5,10 +5,9 @@ import {
     LinearScale,
     PointElement,
     LineElement,
-    Title,
-    Tooltip,
-    Filler,
     Legend,
+    ChartOptions,
+    ChartData,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
@@ -31,53 +30,97 @@ import controller from "/assets/controler.svg";
 import money from "/assets/money.svg";
 import styles from "./CenterPage.module.scss";
 
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Filler,
-    Legend
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Legend);
 
 const CenterPage: FC = () => {
-    const options = {
+    const options: ChartOptions<"line"> = {
         responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                border: {
+                    display: false,
+                },
+                grid: {
+                    display: false,
+                },
+                ticks: {
+                    color: "#B1B2B4",
+                    font: {
+                        size: 12,
+                        weight: "medium",
+                    },
+                },
+            },
+            y: {
+                beginAtZero: true,
+                min: 0,
+                max: 100,
+                ticks: {
+                    stepSize: 50,
+                    color: "#B1B2B4",
+                    callback: (val) => val + "%",
+                    font: {
+                        size: 12,
+                        weight: "medium",
+                    },
+                },
+                border: {
+                    display: false,
+                },
+                grid: {
+                    display: false,
+                },
+            },
+        },
         plugins: {
             legend: {
-                position: "top" as const,
+                display: false,
             },
             title: {
-                display: true,
-                text: "Chart.js Line Chart",
+                display: false,
             },
         },
     };
 
-    const labels = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-    ];
+    const labels = [1, 15, 30];
 
-    const data = {
+    const data: ChartData<"line"> = {
         labels,
         datasets: [
             {
-                fill: true,
+                fill: false,
                 label: "Dataset 2",
-                data: [1, 2, 3],
-                borderColor: "rgb(53, 162, 235)",
+                data: [0, 10, 50, 10, 90, 60],
+                borderColor: "#0064FA",
                 backgroundColor: "rgba(53, 162, 235, 0.5)",
+                pointStyle: false,
+                tension: 0.5,
             },
         ],
     };
+
+    const myPlugin = {
+        id: "customShadow",
+        beforeDraw: (chart: ChartJS) => {
+            const ctx = chart.ctx;
+            ctx.save();
+
+            const originalLineDraw = ctx.stroke;
+            ctx.stroke = function () {
+                ctx.save();
+                ctx.shadowColor = "rgba(0, 100, 250, 0.25)";
+                ctx.shadowBlur = 5;
+                ctx.shadowOffsetX = 4;
+                ctx.shadowOffsetY = 4;
+                // eslint-disable-next-line prefer-rest-params
+                originalLineDraw.apply(this, arguments as any);
+                ctx.restore();
+            };
+        },
+    };
+
+    ChartJS.register(myPlugin);
 
     return (
         <Layout>
@@ -203,10 +246,9 @@ const CenterPage: FC = () => {
                             </div>
                             <div className={styles.chart}>
                                 <Line
-                                    width="100%"
-                                    height="160px"
                                     data={data}
                                     options={options}
+                                    height="auto"
                                 />
                             </div>
                         </div>
@@ -239,7 +281,7 @@ const CenterPage: FC = () => {
                                 </div>
                             </div>
                         </WhiteContentBlock>
-                        <div className={styles.box}>
+                        <WhiteContentBlock>
                             <div className={styles.text}>
                                 <Text type="h2" fz="18px">
                                     Записи
@@ -311,7 +353,7 @@ const CenterPage: FC = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </WhiteContentBlock>
                     </div>
                 </div>
                 <div className={styles.searchContainer}>

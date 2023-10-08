@@ -8,11 +8,12 @@ import {
     Tooltip,
     Filler,
     ChartOptions,
+    ChartData,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
 import { Layout } from "../Layout/Layout";
-import { EmployeeData, EmployeeInfoCard, Fine } from "@/widgets";
+import { Circle, EmployeeData, EmployeeInfoCard, Fine } from "@/widgets";
 import { Btn, Text } from "@/shared";
 
 import styles from "./EmployeeProfilePage.module.scss";
@@ -27,34 +28,94 @@ ChartJS.register(
 );
 
 const EmployeeProfilePage: FC = () => {
-    const options: ChartOptions = {
+    const options: ChartOptions<"line"> = {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: {},
+        scales: {
+            x: {
+                border: {
+                    display: false,
+                },
+                grid: {
+                    display: false,
+                },
+                ticks: {
+                    color: "#B1B2B4",
+                    font: {
+                        size: 12,
+                        weight: "medium",
+                    },
+                },
+            },
+            y: {
+                beginAtZero: true,
+                min: 0,
+                max: 100,
+                ticks: {
+                    stepSize: 50,
+                    color: "#B1B2B4",
+                    callback: (val) => val + "%",
+                    font: {
+                        size: 12,
+                        weight: "medium",
+                    },
+                },
+                border: {
+                    display: false,
+                },
+                grid: {
+                    display: false,
+                },
+            },
+        },
+        plugins: {
+            legend: {
+                display: false,
+            },
+            title: {
+                display: false,
+            },
+        },
     };
 
-    const labels = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-    ];
+    const labels = [1, 15, 30];
 
-    const data = {
+    const data: ChartData<"line"> = {
         labels,
         datasets: [
             {
-                fill: true,
+                fill: false,
                 label: "Dataset 2",
-                data: [1, 100, 200, 5],
-                borderColor: "rgb(53, 162, 235)",
+                data: [0, 10, 50, 10, 90, 60],
+                borderColor: "#0064FA",
                 backgroundColor: "rgba(53, 162, 235, 0.5)",
+                pointStyle: false,
+                tension: 0.5,
             },
         ],
     };
+
+    const myPlugin = {
+        id: "customShadow",
+        beforeDraw: (chart: ChartJS) => {
+            const ctx = chart.ctx;
+            ctx.save();
+
+            const originalLineDraw = ctx.stroke;
+            ctx.stroke = function () {
+                ctx.save();
+                ctx.shadowColor = "rgba(0, 100, 250, 0.25)";
+                ctx.shadowBlur = 5;
+                ctx.shadowOffsetX = 4;
+                ctx.shadowOffsetY = 4;
+                // eslint-disable-next-line prefer-rest-params
+                originalLineDraw.apply(this, arguments as any);
+                ctx.restore();
+            };
+        },
+    };
+
+    ChartJS.register(myPlugin);
 
     return (
         <Layout>
@@ -124,7 +185,16 @@ const EmployeeProfilePage: FC = () => {
                                     <Text type="p">
                                         С задачами справился на
                                     </Text>
-                                    <div className={styles.pie}></div>
+                                    <div className={styles.pie}>
+                                        <Circle
+                                            percent={50}
+                                            circleColor="white"
+                                            strokeWidth={20}
+                                            size={175}
+                                            textColor="#000"
+                                            percentColor="rgba(0, 204, 94, 0.70)"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                             <div

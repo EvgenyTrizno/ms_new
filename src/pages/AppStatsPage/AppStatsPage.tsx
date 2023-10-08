@@ -1,4 +1,17 @@
 import { FC } from "react";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    ChartOptions,
+    ChartData,
+    Tooltip,
+    Legend,
+    PointElement,
+    LineElement,
+} from "chart.js";
+import { Bar, Line } from "react-chartjs-2";
 
 import { Layout } from "../Layout/Layout";
 import { Text } from "@/shared";
@@ -14,7 +27,193 @@ import playmarket from "/assets/playmarket.svg";
 import appstore from "/assets/appstore.svg";
 import styles from "./AppStatsPage.module.scss";
 
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Tooltip,
+    Legend,
+    PointElement,
+    LineElement
+);
+
 const AppStatsPage: FC = () => {
+    const options: ChartOptions<"bar"> = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                border: {
+                    display: false,
+                },
+                grid: {
+                    display: false,
+                },
+                ticks: {
+                    color: "#3C3D3E",
+                    font: {
+                        size: 16,
+                        weight: "medium",
+                    },
+                },
+            },
+            y: {
+                ticks: {
+                    display: false,
+                },
+                border: {
+                    display: false,
+                },
+                grid: {
+                    display: false,
+                },
+            },
+        },
+        plugins: {
+            legend: {
+                display: false,
+            },
+        },
+    };
+
+    const labels = ["ОРВИ", "ОРВИ", "ОРВИ", "ОРВИ", "ОРВИ"];
+
+    const data: ChartData<"bar"> = {
+        labels,
+        datasets: [
+            {
+                label: "Dataset 1",
+                data: [217, 163, 112, 93, 72, 66],
+                backgroundColor: ["#0064FA"],
+                borderRadius: 12,
+                barThickness: 44,
+                borderSkipped: false,
+            },
+        ],
+    };
+
+    const labelsLine = [0, 15, 30];
+
+    const optionsLine: ChartOptions<"line"> = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                border: {
+                    display: false,
+                },
+                grid: {
+                    display: false,
+                },
+                ticks: {
+                    color: "#B1B2B4",
+                    font: {
+                        size: 12,
+                        weight: "medium",
+                    },
+                },
+            },
+            y: {
+                ticks: {
+                    color: "#B1B2B4",
+                    callback: (val) => val + "$",
+                    font: {
+                        size: 12,
+                        weight: "medium",
+                    },
+                },
+                border: {
+                    display: false,
+                },
+                grid: {
+                    display: false,
+                },
+            },
+        },
+        plugins: {
+            legend: {
+                display: true,
+                position: "bottom",
+                align: "start",
+                labels: {
+                    boxWidth: 5,
+                    boxHeight: 5,
+                    usePointStyle: true,
+                    borderRadius: 10,
+                    boxPadding: 0,
+                    useBorderRadius: true,
+                    color: "#262626",
+                    padding: 5,
+                    font: {
+                        size: 14,
+                        weight: "medium",
+                    },
+                },
+            },
+            tooltip: {
+                backgroundColor: "#0064FA",
+                caretSize: 0,
+                boxWidth: 10,
+                boxHeight: 0,
+                titleAlign: "center",
+                padding: 12,
+                usePointStyle: false,
+                callbacks: {
+                    afterLabel: () => {
+                        return undefined;
+                    },
+                    beforeLabel: () => {
+                        return undefined;
+                    },
+                    title: (tooltipItems) => {
+                        return tooltipItems[0].label;
+                    },
+                    label: () => {
+                        return "";
+                    },
+                    labelPointStyle: () => {
+                        return undefined;
+                    },
+                    footer: () => {
+                        return undefined;
+                    },
+                },
+                bodyFont: {
+                    size: 0,
+                    lineHeight: 0,
+                },
+                titleFont: {
+                    size: 12,
+                },
+            },
+        },
+        datasets: {},
+    };
+
+    const dataLine: ChartData<"line"> = {
+        labels: labelsLine,
+        datasets: [
+            {
+                label: "Премии",
+                data: [10, 30, 50, 520],
+                backgroundColor: "#0064FA",
+                borderColor: "#0064FA",
+                pointBorderWidth: 2,
+                pointBackgroundColor: "white",
+                tension: 0.1,
+            },
+            {
+                label: "Штрафы",
+                data: [1, 3, 5, 5],
+                backgroundColor: "#D64657",
+                borderColor: "#D64657",
+                pointBorderWidth: 2,
+                pointBackgroundColor: "white",
+                tension: 0.1,
+            },
+        ],
+    };
+
     return (
         <Layout>
             <AdminPanelContainer>
@@ -23,7 +222,9 @@ const AppStatsPage: FC = () => {
                         <Text type="h2" fz="18px">
                             Болезни пациентов
                         </Text>
-                        <div className={styles.chart}></div>
+                        <div className={styles.chart}>
+                            <Bar options={options} data={data} />
+                        </div>
                         <BlueSliderArrows />
                     </WhiteContentBlock>
                     <WhiteContentBlock>
@@ -38,7 +239,9 @@ const AppStatsPage: FC = () => {
                         <Text type="h2" fz="18px">
                             Возрастные группы пользователей
                         </Text>
-                        <div className={styles.bar}></div>
+                        <div className={styles.bar}>
+                            {/* <Bar options={options} data={data} /> */}
+                        </div>
                     </div>
                     <div className={styles.stats}>
                         <WhiteContentBlock>
@@ -142,7 +345,14 @@ const AppStatsPage: FC = () => {
                             <BlueSliderArrows />
                         </div>
                     </div>
-                    <div className={styles.box}></div>
+                    <div className={styles.box}>
+                        <Line
+                            width="100%"
+                            height="160px"
+                            data={dataLine}
+                            options={optionsLine}
+                        />
+                    </div>
                     <div className={styles.box}>
                         <div className={styles.downloads}>
                             <Text type="h2" fz="18px">
