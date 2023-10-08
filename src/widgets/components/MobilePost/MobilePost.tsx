@@ -15,7 +15,10 @@ export const MobilePost: FC = () => {
     const { condition } = useUserCondition();
 
     return (
-        <div className={styles.mobilePost}>
+        <div
+            className={styles.mobilePost}
+            style={{ borderColor: condition === "Болен" ? "#F7E6E8" : "" }}
+        >
             <div className={styles.user}>
                 <img src={woman} alt="" />
                 <div className={styles.data}>
