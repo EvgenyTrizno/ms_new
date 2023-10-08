@@ -45,7 +45,10 @@ export const NoteBlock: FC = () => {
                         <Text type="p" color="#B1B2B4">
                             Создана:
                         </Text>
-                        <Text type="p">Неврологом И.И. (Московский центр)</Text>
+                        <Text type="p">{`${"Неврологом И.И. (Московский центр)".slice(
+                            0,
+                            25
+                        )}...`}</Text>
                     </li>
                     <li className={styles.li}>
                         <Text type="p" color="#B1B2B4">

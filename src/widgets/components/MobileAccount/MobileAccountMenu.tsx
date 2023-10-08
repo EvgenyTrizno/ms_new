@@ -234,7 +234,7 @@ export const MobileAccountMenu: FC = () => {
                     )}
                 </div>
                 <MobileContainer>
-                    {group === "Администраторы" && (
+                    {group === "Пользователи" && (
                         <>
                             <ReminderBlock type="timer" />
                             <div className={styles.data}>
@@ -280,7 +280,7 @@ export const MobileAccountMenu: FC = () => {
                                 <Search placeholder="Поиск" />
                             </motion.div>
                         )}
-                        {group === "Администраторы" &&
+                        {group === "Пользователи" &&
                             data.default.map((item) => (
                                 <ParamsBlock
                                     key={item.id}
@@ -293,7 +293,7 @@ export const MobileAccountMenu: FC = () => {
                                     }
                                 />
                             ))}
-                        {group === "Пользователи" &&
+                        {group === "Администраторы" &&
                             data.admin.map((item) => (
                                 <ParamsBlock
                                     key={item.id}

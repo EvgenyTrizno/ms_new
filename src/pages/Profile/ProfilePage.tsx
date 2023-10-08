@@ -4,8 +4,13 @@ import { IProfileParamsItemsData } from "./types";
 import { TGroups } from "@/shared/model/store/types";
 
 import { Layout } from "../Layout/Layout";
-import { ReminderBlock, User } from "@/widgets";
-import { Input, Text } from "@/shared";
+import {
+    CustomMobileHeader,
+    MobileContainer,
+    ReminderBlock,
+    User,
+} from "@/widgets";
+import { BackArrow, Input, Text } from "@/shared";
 import { useUserCondition, useUserData } from "@/shared/model/store";
 import { Account } from "@/shared/api/Account";
 import { getAccessTokenFromCookies } from "@/features";
@@ -25,6 +30,7 @@ import cartRed from "/assets/shopping-cart-red.svg";
 import heartBlue from "/assets/heart-blue.svg";
 import heartRed from "/assets/heart-red.svg";
 import styles from "./ProfilePage.module.scss";
+import { MOBILE, PC } from "@/shared/utils";
 
 const ProfilePage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -419,18 +425,42 @@ const ProfilePage: FC = () => {
         },
     ];
 
+    const mobileData = {
+        main: [
+            "Имя",
+            "Фамилия",
+            "Дата рождения",
+            "Страна",
+            "Город",
+            "Номер телефона",
+            "Логин",
+        ],
+        interest: ["Интерес"],
+        number: ["Номер телефона"],
+        mail: ["Эл. Почта"],
+    };
+
     return (
         <Layout>
-            <div className={styles.container}>
-                <div className={styles.reminder}>
-                    <ReminderBlock type="timer" width="max-content" />
-                </div>
-                <User
-                    img={img}
-                    last_name={last_name}
-                    first_name={first_name}
-                    role={role}
-                />
+            {MOBILE && (
+                <CustomMobileHeader text="Профиль">
+                    <BackArrow />
+                </CustomMobileHeader>
+            )}
+            <MobileContainer>
+                {PC && (
+                    <>
+                        <div className={styles.reminder}>
+                            <ReminderBlock type="timer" width="max-content" />
+                        </div>
+                        <User
+                            img={img}
+                            last_name={last_name}
+                            first_name={first_name}
+                            role={role}
+                        />
+                    </>
+                )}
                 <div className={styles.settings}>
                     <div className={styles.box}>
                         <Text type="p" color="#7D7F82" fz="14px">
@@ -498,8 +528,63 @@ const ProfilePage: FC = () => {
                             ))}
                         </div>
                     </div>
+                    {MOBILE && (
+                        <>
+                            <div className={styles.box}>
+                                <Text type="p" color="#7D7F82" fz="14px">
+                                    Интерес
+                                </Text>
+                                <div className={styles.items}>
+                                    {mobileData.interest.map((item, i) => (
+                                        <div
+                                            key={i}
+                                            className={styles.mobileItem}
+                                        >
+                                            <Text type="p" fz="15px">
+                                                {item}
+                                            </Text>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className={styles.box}>
+                                <Text type="p" color="#7D7F82" fz="14px">
+                                    Номер
+                                </Text>
+                                <div className={styles.items}>
+                                    {mobileData.number.map((item, i) => (
+                                        <div
+                                            key={i}
+                                            className={styles.mobileItem}
+                                        >
+                                            <Text type="p" fz="15px">
+                                                {item}
+                                            </Text>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className={styles.box}>
+                                <Text type="p" color="#7D7F82" fz="14px">
+                                    Эл. почта
+                                </Text>
+                                <div className={styles.items}>
+                                    {mobileData.mail.map((item, i) => (
+                                        <div
+                                            key={i}
+                                            className={styles.mobileItem}
+                                        >
+                                            <Text type="p" fz="15px">
+                                                {item}
+                                            </Text>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </>
+                    )}
                 </div>
-            </div>
+            </MobileContainer>
         </Layout>
     );
 };

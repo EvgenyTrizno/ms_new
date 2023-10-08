@@ -1,107 +1,102 @@
-.container {
-    overflow: hidden;
+.reminder {
+    margin-bottom: 16px;
+}
 
-    .reminder {
-        margin-bottom: 16px;
-    }
+.settings {
+    display: flex;
+    grid-gap: 30px;
+    flex-direction: column;
 
-    .settings {
-        display: flex;
-        grid-gap: 30px;
-        flex-direction: column;
-        margin-top: 16px;
+    .box {
+        .items {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 8px;
+            margin-top: 15px;
 
-        .box {
-            .items {
+            .item {
+                background-color: var(--white);
+                border-radius: var(--default-border);
+                border: 1px solid var(--blue-100);
+                padding: 25px;
                 display: flex;
                 flex-direction: column;
-                grid-gap: 8px;
-                margin-top: 15px;
+                cursor: pointer;
 
-                .item {
-                    background-color: var(--white);
-                    border-radius: var(--default-border);
-                    border: 1px solid var(--blue-100);
-                    padding: 25px;
+                img {
+                    transition: all ease 0.5s;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .nav {
                     display: flex;
-                    flex-direction: column;
-                    cursor: pointer;
+                    justify-content: space-between;
+                }
 
-                    img {
-                        transition: all ease .5s;
-                        width: 24px;
-                        height: 24px;
+                .params {
+                    display: flex;
+                    align-items: center;
+                    grid-gap: 12px;
+
+                    .icon {
+                        width: 25px;
+                        height: 25px;
+                        object-fit: cover;
+                    }
+                }
+
+                .form {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-gap: 20px;
+                    margin-top: 20px;
+
+                    input {
+                        border-color: var(--gray-200);
                     }
 
-                    .nav {
-                        display: flex;
-                        justify-content: space-between;
-                    }
-
-                    .params {
-                        display: flex;
-                        align-items: center;
-                        grid-gap: 12px;
-
-                        .icon {
-                            width: 25px;
-                            height: 25px;
-                            object-fit: cover;
-                        }
-                    }
-
-                    .form {
-                        display: grid;
-                        grid-template-columns: repeat(2, 1fr);
-                        grid-gap: 20px;
-                        margin-top: 20px;
-
-                        input {
-                            border-color: var(--gray-200);
-                        }
-
-                        .label {
-                            display: flex;
-                            flex-direction: column;
-                            grid-gap: 12px;
-                        }
-                    }
-
-                    .formBox {
-                        display: grid;
-                        grid-template-columns: repeat(2, 1fr);
-                        padding-top: 20px;
-                        width: 100%
-                    }
-                    
-                    .content {
-                        display: grid;
-                        grid-template-rows: 0fr;
-                        transition: grid-template-rows 400ms ease;
-                        opacity: 0;
-                        overflow: hidden;
-                    }
-                    
-                    .content.open {
-                        grid-template-rows: 1fr;
-                        opacity: 1;
-                    }
-
-                    .verify {
+                    .label {
                         display: flex;
                         flex-direction: column;
-                        grid-gap: 8px;
+                        grid-gap: 12px;
+                    }
+                }
 
-                        input {
-                            border-color: var(--green-400);
-                            color: #242628 !important;
-                        }
-                        
-                        span {
-                            font-size: 14px;
-                            font-weight: 400;
-                            color: var(--green-400);
-                        }
+                .formBox {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    padding-top: 20px;
+                    width: 100%;
+                }
+
+                .content {
+                    display: grid;
+                    grid-template-rows: 0fr;
+                    transition: grid-template-rows 400ms ease;
+                    opacity: 0;
+                    overflow: hidden;
+                }
+
+                .content.open {
+                    grid-template-rows: 1fr;
+                    opacity: 1;
+                }
+
+                .verify {
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: 8px;
+
+                    input {
+                        border-color: var(--green-400);
+                        color: #242628 !important;
+                    }
+
+                    span {
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: var(--green-400);
                     }
                 }
             }
@@ -109,14 +104,34 @@
     }
 }
 
+@media screen and (max-width: 576px) {
+    .settings {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
+
+        .box {
+            .items {
+                margin-top: 12px;
+
+                .mobileItem {
+                    background-color: var(--white);
+                    padding: 16px;
+                    border-radius: 16px;
+                    border: 1px solid var(--blue-100);
+                }
+            }
+        }
+    }
+    
+}
+
 @media screen and (min-width: 992px) and (max-width: 1200px) {
-    .container {
-        .settings {
-            .box {
-                .items {
-                    .item {
-                        padding: 25px 30px;
-                    }
+    .settings {
+        .box {
+            .items {
+                .item {
+                    padding: 25px 30px;
                 }
             }
         }
