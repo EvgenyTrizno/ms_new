@@ -5,6 +5,7 @@ import { Text, Btn } from "@/shared";
 import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
 
 import styles from "./EmployeeData.module.scss";
+import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
 
 export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
     return (
@@ -12,12 +13,23 @@ export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
             {type === "center" || type === "clinic" ? (
                 <WhiteContentBlock>
                     <div className={styles.about}>
-                        <div className={styles.text} style={{ gridGap: 16 }}>
-                            <Text type="h2" fz="20px">
+                        <div
+                            className={styles.text}
+                            style={{ gridGap: SMALL_LAPTOP || LAPTOP ? 6 : 16 }}
+                        >
+                            <Text
+                                type="h2"
+                                fz={SMALL_LAPTOP || LAPTOP ? "15px" : "20px"}
+                            >
                                 Здоровый горизонт
                             </Text>
                             <div className={styles.text}>
-                                <Text type="h4" fz="16px">
+                                <Text
+                                    type="h4"
+                                    fz={
+                                        SMALL_LAPTOP || LAPTOP ? "13px" : "16px"
+                                    }
+                                >
                                     Клиника
                                 </Text>
                                 <Text type="p" fz="14px">
@@ -25,7 +37,12 @@ export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
                                 </Text>
                             </div>
                             <div className={styles.text}>
-                                <Text type="h4" fz="16px">
+                                <Text
+                                    type="h4"
+                                    fz={
+                                        SMALL_LAPTOP || LAPTOP ? "13px" : "16px"
+                                    }
+                                >
                                     Адрес
                                 </Text>
                                 <Text type="p" fz="14px">
@@ -36,7 +53,12 @@ export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
                                 </Text>
                             </div>
                             <div className={styles.text}>
-                                <Text type="h4" fz="16px">
+                                <Text
+                                    type="h4"
+                                    fz={
+                                        SMALL_LAPTOP || LAPTOP ? "13px" : "16px"
+                                    }
+                                >
                                     Номер телефона
                                 </Text>
                                 <Text type="p" fz="14px">
@@ -44,7 +66,12 @@ export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
                                 </Text>
                             </div>
                             <div className={styles.text}>
-                                <Text type="h4" fz="16px">
+                                <Text
+                                    type="h4"
+                                    fz={
+                                        SMALL_LAPTOP || LAPTOP ? "13px" : "16px"
+                                    }
+                                >
                                     Количество персонала
                                 </Text>
                                 <Text type="p" fz="14px" color="#7D7F82">
@@ -52,8 +79,13 @@ export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
                                 </Text>
                             </div>
                             <div className={styles.text}>
-                                <Text type="h4" fz="16px">
-                                    Что не указано в заполнении профиля
+                                <Text
+                                    type="h4"
+                                    fz={
+                                        SMALL_LAPTOP || LAPTOP ? "13px" : "16px"
+                                    }
+                                >
+                                    Не указано в заполнении профиля
                                 </Text>
                                 <Text type="p" fz="14px" color="#7D7F82">
                                     79 человек
@@ -61,10 +93,20 @@ export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
                             </div>
                         </div>
                         <div className={styles.text} style={{ gridGap: 10 }}>
-                            <Text type="h2" fz="16px">
+                            <Text
+                                type="h2"
+                                fz={SMALL_LAPTOP || LAPTOP ? "13px" : "16px"}
+                            >
                                 Какие болезни обслуживаются
                             </Text>
-                            <Btn color="#0064FA">Полный перечень</Btn>
+                            <Btn
+                                br={SMALL_LAPTOP || LAPTOP ? "9px" : ""}
+                                height={SMALL_LAPTOP || LAPTOP ? "35px" : ""}
+                                fz={SMALL_LAPTOP || LAPTOP ? "12px" : ""}
+                                color="#0064FA"
+                            >
+                                Полный перечень
+                            </Btn>
                         </div>
                     </div>
                 </WhiteContentBlock>

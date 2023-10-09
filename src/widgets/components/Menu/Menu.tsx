@@ -5,7 +5,7 @@ import { TIsSelect } from "@/shared/model/store/types";
 
 import { Text, Switcher } from "@/shared";
 import { useUserCondition, useMenu, useUserData } from "@/shared/model/store";
-import { PC, SMALL_LAPTOP } from "@/shared/utils";
+import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import logo from "/assets/logo.svg";
 import bigLogo from "/assets/logo-with-text.svg";
@@ -822,7 +822,7 @@ export const Menu: FC = () => {
             className={
                 PC
                     ? `${styles.menu} ${styles.open}`
-                    : SMALL_LAPTOP && isHovered
+                    : (LAPTOP || SMALL_LAPTOP) && isHovered
                     ? `${styles.menu} ${styles.open}`
                     : styles.menu
             }
@@ -833,7 +833,9 @@ export const Menu: FC = () => {
                     borderColor: sick ? "#F7E6E8" : "#EBF3FF",
                 }}
             >
-                {!isHovered && SMALL_LAPTOP && <img alt="" src={logo} />}
+                {!isHovered && (SMALL_LAPTOP || LAPTOP) && (
+                    <img alt="" src={logo} />
+                )}
                 {(isHovered || PC) && group === "Пользователи" && (
                     <img
                         src={sick ? bigLogoRed : bigLogo}
@@ -844,7 +846,7 @@ export const Menu: FC = () => {
                 {group === "Администраторы" && <Search placeholder="Поиск" />}
             </div>
             <div className={styles.container}>
-                {(PC || (isHovered && SMALL_LAPTOP)) &&
+                {(PC || (isHovered && (SMALL_LAPTOP || LAPTOP))) &&
                     group !== "Администраторы" &&
                     group !== "Врачи" && (
                         <Text color="#B1B2B4" type="p" fz="14px">

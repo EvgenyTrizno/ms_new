@@ -4,7 +4,7 @@ import { useUserCondition } from "@/shared/model/store";
 import { Text } from "../Text/Text";
 
 import styles from "./Switcher.module.scss";
-import { PC, SMALL_LAPTOP } from "@/shared/utils";
+import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
 
 interface ISwitcherProps {
     isHovered?: boolean;
@@ -41,7 +41,7 @@ export const Switcher: FC<ISwitcherProps> = ({ isHovered }) => {
     return (
         <div
             className={
-                !isHovered && SMALL_LAPTOP
+                !isHovered && (SMALL_LAPTOP || LAPTOP)
                     ? `${styles.switcher} ${styles.close}`
                     : styles.switcher
             }
@@ -59,8 +59,10 @@ export const Switcher: FC<ISwitcherProps> = ({ isHovered }) => {
                     condition === "Здоров" ? healthyClasses : styles.item
                 }
             >
-                {((!isHovered && SMALL_LAPTOP && condition === "Здоров") ||
-                    (isHovered && SMALL_LAPTOP) ||
+                {((!isHovered &&
+                    (SMALL_LAPTOP || LAPTOP) &&
+                    condition === "Здоров") ||
+                    (isHovered && (SMALL_LAPTOP || LAPTOP)) ||
                     PC) && (
                     <svg width="22" height="20" viewBox="0 0 22 20" fill="none">
                         <path d="M16.3721 4.87306C16.3721 4.44826 16.0285 4.10389 15.6047 4.10389C15.1808 4.10389 14.8372 4.44826 14.8372 4.87306V6.15502H13.5581C13.1343 6.15502 12.7907 6.49939 12.7907 6.92419C12.7907 7.34899 13.1343 7.69335 13.5581 7.69335L14.8372 7.69335V8.97528C14.8372 9.40008 15.1808 9.74445 15.6047 9.74445C16.0285 9.74445 16.3721 9.40008 16.3721 8.97528V7.69335H17.6512C18.075 7.69335 18.4186 7.34899 18.4186 6.92419C18.4186 6.49939 18.075 6.15502 17.6512 6.15502H16.3721V4.87306Z" />

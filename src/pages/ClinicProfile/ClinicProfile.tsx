@@ -23,6 +23,7 @@ import {
     Search,
     WhiteContentBlock,
 } from "@/widgets";
+import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
 import { Btn, Text } from "@/shared";
 
 import man from "/assets/man.jpg";
@@ -165,7 +166,15 @@ const ClinicProfile: FC = () => {
     return (
         <Layout>
             <AdminPanelContainer>
-                <Cols gap={10} type="custom" cols={["360px", "400px", "1fr"]}>
+                <Cols
+                    gap={10}
+                    type="custom"
+                    cols={
+                        PC
+                            ? ["360px", "400px", "1fr"]
+                            : ["256px", "269px", "1fr"]
+                    }
+                >
                     <EmployeeInfoCard type="clinic" />
                     <EmployeeData type="clinic" />
                     <div className={styles.clinic}>
@@ -179,18 +188,45 @@ const ClinicProfile: FC = () => {
                                 </div>
                                 <div className={styles.data}>
                                     <img src={man} alt="" />
-                                    <div className={styles.text}>
-                                        <Text type="h2" fz="18px">
+                                    <div
+                                        className={styles.text}
+                                        style={{
+                                            gridGap:
+                                                LAPTOP || SMALL_LAPTOP ? 6 : 10,
+                                        }}
+                                    >
+                                        <Text
+                                            type="h2"
+                                            fz={
+                                                SMALL_LAPTOP || LAPTOP
+                                                    ? "15px"
+                                                    : "18px"
+                                            }
+                                        >
                                             Алексеев Эрнест Владимирович
                                         </Text>
                                         <div
                                             className={styles.text}
                                             style={{ gridGap: 3 }}
                                         >
-                                            <Text type="h2" fz="16px">
+                                            <Text
+                                                type="h2"
+                                                fz={
+                                                    SMALL_LAPTOP || LAPTOP
+                                                        ? "13px"
+                                                        : "16px"
+                                                }
+                                            >
                                                 Номер телефона
                                             </Text>
-                                            <Text type="p" fz="14px">
+                                            <Text
+                                                type="p"
+                                                fz={
+                                                    SMALL_LAPTOP || LAPTOP
+                                                        ? "12px"
+                                                        : "14px"
+                                                }
+                                            >
                                                 +7(923)-123-45-67
                                             </Text>
                                         </div>
@@ -371,12 +407,14 @@ const ClinicProfile: FC = () => {
                 </div>
                 <WhiteContentBlock>
                     <Text type="h4">Специалисты (127)</Text>
-                    <div
-                        className={styles.colsX4}
-                        style={{
-                            gridTemplateColumns: "repeat(4, 332px)",
-                            justifyContent: "space-between",
-                        }}
+                    <Cols
+                        type="custom"
+                        gap={10}
+                        cols={
+                            PC
+                                ? ["332px", "332px", "332px", "332px"]
+                                : ["252px", "252px", "252px", "252px"]
+                        }
                     >
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
                             <div key={item} className={styles.comment}>
@@ -421,7 +459,7 @@ const ClinicProfile: FC = () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </Cols>
                     <BlueSliderArrows />
                 </WhiteContentBlock>
             </AdminPanelContainer>

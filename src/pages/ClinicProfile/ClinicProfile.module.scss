@@ -154,3 +154,16 @@
     grid-template-columns: 1fr 133px;
     grid-gap: 10px;
 }
+
+@media screen and (min-width: 1200px) and (max-width: 1550px) {
+    .admin {
+        .data {
+            grid-gap: 6px;
+
+            img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    }
+}

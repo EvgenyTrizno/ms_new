@@ -23,3 +23,9 @@
     align-items: center;
     grid-gap: 16px;
 }
+
+@media screen and (min-width: 1200px) and (max-width: 1550px) {
+    .text {
+        grid-gap: 6px;
+    }
+}

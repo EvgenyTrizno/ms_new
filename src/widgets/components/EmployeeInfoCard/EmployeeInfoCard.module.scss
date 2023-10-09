@@ -39,3 +39,18 @@
         grid-gap: 10px;
     }
 }
+
+@media screen and (min-width: 1200px) and (max-width: 1550px) {
+    .data {
+        .centerAvatar {
+            width: 232px;
+            height: 232px;
+            margin-bottom: 10px;
+            border-radius: 9px;
+        }
+
+        .verify {
+            margin: 5px 0 10px;
+        }
+    }
+}

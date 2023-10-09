@@ -4,3 +4,8 @@
     border-radius: var(--mobile-default-border);
     border: 1px solid var(--gray-100);
 }
+@media screen and (min-width: 1200px) and (max-width: 1550px) {
+    .box {
+        padding: 12px;
+    }
+}
