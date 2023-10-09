@@ -37,7 +37,7 @@ const MobileMainPage = lazy(() => import("@/pages/MobileMain/MobileMainPage"));
 const MobileMessagesPage = lazy(
     () => import("@/pages/MobileMessages/MobileMessagesPage")
 );
-const MobileProfile = lazy(() => import("@/pages/MobileProfile/MobileProfile"));
+// const MobileProfile = lazy(() => import("@/pages/MobileProfile/MobileProfile"));
 const AccountSettingsPage = lazy(
     () => import("@/pages/Settings/AccountSettingsPage/AccountSettingsPage")
 );
@@ -169,11 +169,11 @@ export const routes: RouteData[] = [
         Component: MedicalTestPage,
         key: "medical-test_page",
     },
-    {
-        path: "/m/profile/:id",
-        Component: MobileProfile,
-        key: "mobile-profile_page",
-    },
+    // {
+    //     path: "/m/profile/:id",
+    //     Component: MobileProfile,
+    //     key: "mobile-profile_page",
+    // },
     {
         path: "/account",
         Component: AccountSettingsPage,
