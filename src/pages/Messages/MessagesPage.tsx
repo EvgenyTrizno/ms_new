@@ -78,7 +78,7 @@ const MessagesPage: FC = () => {
 
     return (
         <Layout>
-            <div>
+            <div className={styles.container}>
                 <div className={styles.sidebar}>
                     <div className={styles.box}>
                         <div className={styles.searchBox}>
