@@ -14,7 +14,7 @@ import styles from "./AccountMedicalCardPage.module.scss";
 const AccountMedicalCardPage: FC = () => {
     return (
         <div className={styles.card}>
-            <CustomMobileHeader>
+            <CustomMobileHeader back>
                 <div className={styles.header}>
                     <BackArrow />
                     <Text type="h2" fz="19px">

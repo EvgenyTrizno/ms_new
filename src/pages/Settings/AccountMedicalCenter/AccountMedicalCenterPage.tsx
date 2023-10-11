@@ -14,7 +14,7 @@ const AccountMedicalCenterPage: FC = () => {
 
     return (
         <div className={styles.center}>
-            <CustomMobileHeader>
+            <CustomMobileHeader back>
                 <div className={styles.header}>
                     <div className={styles.nav}>
                         <BackArrow />

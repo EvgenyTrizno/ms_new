@@ -13,7 +13,7 @@ const AccountAccessSettings: FC = () => {
 
     return (
         <div className={styles.access}>
-            <CustomMobileHeader>
+            <CustomMobileHeader back>
                 <div className={styles.box}>
                     <BackArrow />
                     <Text type="h2" fz="19px">

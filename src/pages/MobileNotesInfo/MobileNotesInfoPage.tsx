@@ -16,7 +16,7 @@ import styles from "./MobileNotesInfoPage.module.scss";
 const MobileNotesInfoPage: FC = () => {
     return (
         <div className={styles.info}>
-            <CustomMobileHeader>
+            <CustomMobileHeader back>
                 <div className={styles.header}>
                     <BackArrow />
                     <Text type="h2" fz="19px">

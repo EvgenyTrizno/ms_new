@@ -8,7 +8,7 @@ import styles from "./AccountProtectionSettingsPage.module.scss";
 const AccountProtectionSettingsPage: FC = () => {
     return (
         <div className={styles.protection}>
-            <CustomMobileHeader>
+            <CustomMobileHeader back>
                 <div className={styles.header}>
                     <BackArrow />
                     <Text type="h2" fz="19px">

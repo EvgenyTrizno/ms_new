@@ -124,7 +124,7 @@ export const Chat: FC = () => {
                 </div>
             )}
             {MOBILE && (
-                <CustomMobileHeader>
+                <CustomMobileHeader back>
                     <BackArrow />
                     <div className={styles.data}>
                         <img src={woman} alt="" />

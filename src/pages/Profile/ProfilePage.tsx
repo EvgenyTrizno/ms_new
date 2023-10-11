@@ -443,7 +443,7 @@ const ProfilePage: FC = () => {
     return (
         <Layout>
             {MOBILE && (
-                <CustomMobileHeader text="Профиль">
+                <CustomMobileHeader back text="Профиль">
                     <BackArrow />
                 </CustomMobileHeader>
             )}

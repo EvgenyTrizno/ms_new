@@ -20,7 +20,7 @@ const ProfileSettingsPage: FC = () => {
 
     return (
         <div className={styles.profile}>
-            <CustomMobileHeader>
+            <CustomMobileHeader back>
                 <div className={styles.header}>
                     <BackArrow />
                     <Text type="h2" fz="19px">

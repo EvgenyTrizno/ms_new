@@ -13,7 +13,7 @@ import { TABLET } from "@/shared/utils";
 const AccountSavedPage: FC = () => {
     return (
         <div className={styles.saved}>
-            <CustomMobileHeader>
+            <CustomMobileHeader back>
                 <div className={styles.header}>
                     <BackArrow />
                     <Text type="h2" fz="19px">

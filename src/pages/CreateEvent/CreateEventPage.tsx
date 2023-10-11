@@ -369,7 +369,7 @@ const CreateEventPage: FC = () => {
             ) : (
                 <Layout>
                     {MOBILE && (
-                        <CustomMobileHeader>
+                        <CustomMobileHeader back>
                             <BackArrow />
                             <div style={{ marginLeft: 12 }}>
                                 <Text type="h2" fz="19px">

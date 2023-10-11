@@ -86,7 +86,7 @@ const AccountSettingsPage: FC = () => {
 
     return (
         <div className={styles.account}>
-            <CustomMobileHeader>
+            <CustomMobileHeader back>
                 <div className={styles.header}>
                     <BackArrow />
                     <Text type="h2" fz="19px">

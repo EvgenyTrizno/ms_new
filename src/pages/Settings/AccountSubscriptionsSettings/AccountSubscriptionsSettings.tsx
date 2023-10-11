@@ -10,7 +10,7 @@ import styles from "./AccountSubscriptionsSettings.module.scss";
 const AccountSubscriptionsSettingsPage: FC = () => {
     return (
         <div className={styles.subs}>
-            <CustomMobileHeader>
+            <CustomMobileHeader back>
                 <div className={styles.header}>
                     <BackArrow />
                     <Text type="h2" fz="19px">
