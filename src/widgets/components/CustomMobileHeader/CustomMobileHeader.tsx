@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useNavigate } from "react-router";
 import { IHeaderProps } from "./types";
 
 import { Text } from "@/shared";
@@ -8,6 +9,7 @@ import styles from "./CustomMobileHeader.module.scss";
 
 export const CustomMobileHeader: FC<IHeaderProps> = ({ children, text }) => {
     const { condition } = useUserCondition();
+    const navigate = useNavigate();
 
     return (
         <div
@@ -16,13 +18,27 @@ export const CustomMobileHeader: FC<IHeaderProps> = ({ children, text }) => {
                 condition === "Болен" ? { borderBottomColor: "#F7E6E8" } : {}
             }
         >
+            <svg
+                onClick={() => navigate(-1)}
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                style={{ marginRight: 12 }}
+            >
+                <path
+                    d="M21 26L11 16L21 6"
+                    stroke="#262626"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+            </svg>
             {children}
             {text && text.length && (
-                <div style={{ marginLeft: 12 }}>
-                    <Text type="h2" fz="19px">
-                        {text}
-                    </Text>
-                </div>
+                <Text type="h2" fz="19px">
+                    {text}
+                </Text>
             )}
         </div>
     );

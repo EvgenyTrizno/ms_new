@@ -33,10 +33,6 @@ const MessagesPage = lazy(() => import("@/pages/Messages/MessagesPage"));
 const MedicalTestPage = lazy(
     () => import("@/pages/MedicalTest/MedicalTestPage")
 );
-const MobileMainPage = lazy(() => import("@/pages/MobileMain/MobileMainPage"));
-const MobileMessagesPage = lazy(
-    () => import("@/pages/MobileMessages/MobileMessagesPage")
-);
 // const MobileProfile = lazy(() => import("@/pages/MobileProfile/MobileProfile"));
 const AccountSettingsPage = lazy(
     () => import("@/pages/Settings/AccountSettingsPage/AccountSettingsPage")
@@ -115,7 +111,7 @@ export const routes: RouteData[] = [
     },
     {
         path: "/",
-        Component: media ? MobileMainPage : MainPage,
+        Component: MainPage,
         key: "main_page",
     },
     { path: "*", Component: NotFoundPage, key: "error_page" },
@@ -161,7 +157,7 @@ export const routes: RouteData[] = [
     { path: "/location", Component: MapPage, key: "map_page" },
     {
         path: "/messages",
-        Component: media ? MobileMessagesPage : MessagesPage,
+        Component: MessagesPage,
         key: "messages_page",
     },
     {

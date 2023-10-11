@@ -24,6 +24,17 @@
     grid-gap: 16px;
 }
 
+@media screen and (max-width: 576px) {
+    .text {
+        grid-gap: 4px;
+    }
+    
+    .about {
+        grid-gap: 24px;
+        justify-content: start;
+    }
+}
+
 @media screen and (min-width: 1200px) and (max-width: 1550px) {
     .text {
         grid-gap: 6px;

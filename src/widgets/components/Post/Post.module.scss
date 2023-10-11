@@ -95,3 +95,77 @@
 .paginationRed {
     background-color: var(--red-400);
 }
+
+@media screen and (max-width: 576px) {
+    .post {
+        background-color: var(--white);
+        border-radius: 20px;
+        border: 1px solid var(--blue-100);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        grid-gap: 10px;
+        width: 100%;
+    
+        .user {
+            display: flex;
+            align-items: center;
+            grid-gap: 10px;
+            
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+            }
+    
+            .data {
+                display: flex;
+                flex-direction: column;
+                grid-gap: 10px;
+            }
+        }
+
+        .slider {
+            .img {
+                height: 150px;
+                object-fit: cover;
+            }
+        }
+    
+        .images {
+            height: 150px;
+
+            img {
+                border-radius: 12px;
+                width: 100%;
+                object-fit: cover;
+                height: 150px;
+            }
+        }
+    
+        .managment {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    
+            .btns {
+                display: flex;
+                align-items: center;
+                grid-gap: 6px;
+    
+                .btn {
+                    width: 40px;
+                    height: 40px;
+                    background-color: var(--system-light-grey);
+                    border-radius: 12px;
+                    padding: 10px;
+                }
+            }
+    
+            .more {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}

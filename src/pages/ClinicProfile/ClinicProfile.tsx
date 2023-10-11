@@ -17,13 +17,15 @@ import {
     AdminPanelContainer,
     BlueSliderArrows,
     Cols,
+    CustomMobileHeader,
     EmployeeData,
     EmployeeInfoCard,
+    MobileContainer,
     Rating,
     Search,
     WhiteContentBlock,
 } from "@/widgets";
-import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
+import { LAPTOP, MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
 import { Btn, Text } from "@/shared";
 
 import man from "/assets/man.jpg";
@@ -165,304 +167,384 @@ const ClinicProfile: FC = () => {
 
     return (
         <Layout>
-            <AdminPanelContainer>
-                <Cols
-                    gap={10}
-                    type="custom"
-                    cols={
-                        PC
-                            ? ["360px", "400px", "1fr"]
-                            : ["256px", "269px", "1fr"]
-                    }
-                >
-                    <EmployeeInfoCard type="clinic" />
-                    <EmployeeData type="clinic" />
-                    <div className={styles.clinic}>
-                        <WhiteContentBlock>
-                            <div className={styles.admin}>
-                                <div className={styles.nav}>
-                                    <Text type="h2" fz="20px">
-                                        Администратор
-                                    </Text>
-                                    <img src={arrow} alt="" />
-                                </div>
-                                <div className={styles.data}>
-                                    <img src={man} alt="" />
-                                    <div
-                                        className={styles.text}
-                                        style={{
-                                            gridGap:
-                                                LAPTOP || SMALL_LAPTOP ? 6 : 10,
-                                        }}
-                                    >
+            <CustomMobileHeader
+                back
+                text="Профиль клиники"
+            ></CustomMobileHeader>
+            <MobileContainer>
+                <AdminPanelContainer>
+                    <Cols
+                        gap={10}
+                        type="custom"
+                        cols={
+                            PC
+                                ? ["360px", "400px", "1fr"]
+                                : MOBILE
+                                ? ["auto"]
+                                : ["256px", "269px", "1fr"]
+                        }
+                    >
+                        <EmployeeInfoCard type="clinic" />
+                        <EmployeeData type="clinic" />
+                        <div className={styles.clinic}>
+                            <WhiteContentBlock>
+                                <div className={styles.admin}>
+                                    <div className={styles.nav}>
                                         <Text
                                             type="h2"
-                                            fz={
-                                                SMALL_LAPTOP || LAPTOP
-                                                    ? "15px"
-                                                    : "18px"
-                                            }
+                                            fz={MOBILE ? "17px" : "20px"}
                                         >
-                                            Алексеев Эрнест Владимирович
+                                            Администратор
                                         </Text>
+                                        <img src={arrow} alt="" />
+                                    </div>
+                                    <div className={styles.data}>
+                                        <img src={man} alt="" />
                                         <div
                                             className={styles.text}
-                                            style={{ gridGap: 3 }}
+                                            style={{
+                                                gridGap:
+                                                    LAPTOP || SMALL_LAPTOP
+                                                        ? 6
+                                                        : 10,
+                                            }}
                                         >
                                             <Text
                                                 type="h2"
-                                                fz={
-                                                    SMALL_LAPTOP || LAPTOP
-                                                        ? "13px"
-                                                        : "16px"
-                                                }
+                                                fz={MOBILE ? "15px" : "18px"}
                                             >
-                                                Номер телефона
+                                                Алексеев Э. В.
                                             </Text>
-                                            <Text
-                                                type="p"
-                                                fz={
-                                                    SMALL_LAPTOP || LAPTOP
-                                                        ? "12px"
-                                                        : "14px"
-                                                }
+                                            <div
+                                                className={styles.text}
+                                                style={{ gridGap: 3 }}
                                             >
-                                                +7(923)-123-45-67
-                                            </Text>
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        MOBILE ? "13px" : "16px"
+                                                    }
+                                                >
+                                                    Номер телефона
+                                                </Text>
+                                                <Text
+                                                    type="p"
+                                                    fz={
+                                                        MOBILE ? "14px" : "14px"
+                                                    }
+                                                >
+                                                    +7(923)-123-45-67
+                                                </Text>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </WhiteContentBlock>
-                        <WhiteContentBlock>
-                            <div className={styles.stats}>
+                            </WhiteContentBlock>
+                            <WhiteContentBlock>
+                                <div className={styles.stats}>
+                                    <div className={styles.text}>
+                                        <Text type="h2" fz="18px">
+                                            Количество посещений за день
+                                        </Text>
+                                        <div className={styles.row}>
+                                            <div className={styles.sumBlock}>
+                                                <Text type="h2" fz="28px">
+                                                    86
+                                                </Text>
+                                                <Text type="h2" fz="16px">
+                                                    Онлайн
+                                                </Text>
+                                            </div>
+                                            <div className={styles.sumBlock}>
+                                                <Text type="h2" fz="28px">
+                                                    86
+                                                </Text>
+                                                <Text type="h2" fz="16px">
+                                                    Оффлайн
+                                                </Text>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </WhiteContentBlock>
+                            <WhiteContentBlock>
                                 <div className={styles.text}>
                                     <Text type="h2" fz="18px">
-                                        Количество посещений за день
+                                        Записи
                                     </Text>
-                                    <div className={styles.row}>
+                                    <Cols type="auto" gap={10} count={2}>
                                         <div className={styles.sumBlock}>
-                                            <Text type="h2" fz="28px">
+                                            <Text
+                                                type="h2"
+                                                fz={MOBILE ? "24px" : "28px"}
+                                            >
                                                 86
                                             </Text>
-                                            <Text type="h2" fz="16px">
-                                                Онлайн
-                                            </Text>
+                                            <div
+                                                className={styles.text}
+                                                style={{ gridGap: 0 }}
+                                            >
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        MOBILE ? "14px" : "16px"
+                                                    }
+                                                >
+                                                    Всего
+                                                </Text>
+                                                <Text
+                                                    type="p"
+                                                    fz={
+                                                        MOBILE ? "12px" : "14px"
+                                                    }
+                                                >
+                                                    Записей
+                                                </Text>
+                                            </div>
                                         </div>
                                         <div className={styles.sumBlock}>
-                                            <Text type="h2" fz="28px">
+                                            <Text
+                                                type="h2"
+                                                fz={MOBILE ? "24px" : "28px"}
+                                            >
                                                 86
                                             </Text>
-                                            <Text type="h2" fz="16px">
-                                                Оффлайн
-                                            </Text>
+                                            <div
+                                                className={styles.text}
+                                                style={{ gridGap: 0 }}
+                                            >
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        MOBILE ? "14px" : "16px"
+                                                    }
+                                                >
+                                                    Подтвержено
+                                                </Text>
+                                                <Text
+                                                    type="p"
+                                                    fz={
+                                                        MOBILE ? "12px" : "14px"
+                                                    }
+                                                >
+                                                    Записей
+                                                </Text>
+                                            </div>
                                         </div>
+                                        <div className={styles.sumBlock}>
+                                            <Text
+                                                type="h2"
+                                                fz={MOBILE ? "24px" : "28px"}
+                                            >
+                                                86
+                                            </Text>
+                                            <div
+                                                className={styles.text}
+                                                style={{ gridGap: 0 }}
+                                            >
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        MOBILE ? "14px" : "16px"
+                                                    }
+                                                >
+                                                    Отменено
+                                                </Text>
+                                                <Text
+                                                    type="p"
+                                                    fz={
+                                                        MOBILE ? "12px" : "14px"
+                                                    }
+                                                >
+                                                    Записей
+                                                </Text>
+                                            </div>
+                                        </div>
+                                        <div className={styles.sumBlock}>
+                                            <Text
+                                                type="h2"
+                                                fz={MOBILE ? "24px" : "28px"}
+                                            >
+                                                86
+                                            </Text>
+                                            <div
+                                                className={styles.text}
+                                                style={{ gridGap: 0 }}
+                                            >
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        MOBILE ? "14px" : "16px"
+                                                    }
+                                                >
+                                                    Перенесено
+                                                </Text>
+                                                <Text
+                                                    type="p"
+                                                    fz={
+                                                        MOBILE ? "12px" : "14px"
+                                                    }
+                                                >
+                                                    Записей
+                                                </Text>
+                                            </div>
+                                        </div>
+                                    </Cols>
+                                </div>
+                            </WhiteContentBlock>
+                        </div>
+                    </Cols>
+                    <Cols
+                        type="custom"
+                        gap={10}
+                        cols={MOBILE ? [] : ["360px", "1fr"]}
+                    >
+                        <WhiteContentBlock>
+                            <Text type="h2" fz="18px">
+                                Баланс на счету
+                            </Text>
+                            <div className={styles.bal}>
+                                <div className={styles.sum}>
+                                    <Text type="p">За день</Text>
+                                    <div
+                                        className={`${styles.sumBlock} ${styles.mt5}`}
+                                    >
+                                        <Text type="h2" fz="28px">
+                                            $
+                                        </Text>
+                                        <Text type="p" fz="20px">
+                                            1,567
+                                        </Text>
+                                    </div>
+                                </div>
+                                <div className={styles.sum}>
+                                    <Text type="p">За день</Text>
+                                    <div
+                                        className={`${styles.sumBlock} ${styles.mt5}`}
+                                    >
+                                        <Text type="h2" fz="28px">
+                                            $
+                                        </Text>
+                                        <Text type="h2" fz="20px">
+                                            42,567
+                                        </Text>
                                     </div>
                                 </div>
                             </div>
                         </WhiteContentBlock>
                         <WhiteContentBlock>
                             <div className={styles.text}>
-                                <Text type="h2" fz="18px">
-                                    Записи
-                                </Text>
-                                <Cols type="auto" gap={10} count={2}>
-                                    <div className={styles.sumBlock}>
-                                        <Text type="h2" fz="28px">
-                                            86
-                                        </Text>
-                                        <div
-                                            className={styles.text}
-                                            style={{ gridGap: 0 }}
-                                        >
-                                            <Text type="h2" fz="16px">
-                                                Всего
-                                            </Text>
-                                            <Text type="p" fz="14px">
-                                                Записей
-                                            </Text>
-                                        </div>
-                                    </div>
-                                    <div className={styles.sumBlock}>
-                                        <Text type="h2" fz="28px">
-                                            86
-                                        </Text>
-                                        <div
-                                            className={styles.text}
-                                            style={{ gridGap: 0 }}
-                                        >
-                                            <Text type="h2" fz="16px">
-                                                Подтвержено
-                                            </Text>
-                                            <Text type="p" fz="14px">
-                                                Записей
-                                            </Text>
-                                        </div>
-                                    </div>
-                                    <div className={styles.sumBlock}>
-                                        <Text type="h2" fz="28px">
-                                            86
-                                        </Text>
-                                        <div
-                                            className={styles.text}
-                                            style={{ gridGap: 0 }}
-                                        >
-                                            <Text type="h2" fz="16px">
-                                                Отменено
-                                            </Text>
-                                            <Text type="p" fz="14px">
-                                                Записей
-                                            </Text>
-                                        </div>
-                                    </div>
-                                    <div className={styles.sumBlock}>
-                                        <Text type="h2" fz="28px">
-                                            86
-                                        </Text>
-                                        <div
-                                            className={styles.text}
-                                            style={{ gridGap: 0 }}
-                                        >
-                                            <Text type="h2" fz="16px">
-                                                Перенесено
-                                            </Text>
-                                            <Text type="p" fz="14px">
-                                                Записей
-                                            </Text>
-                                        </div>
-                                    </div>
-                                </Cols>
+                                <div className={styles.nav}>
+                                    <Text type="h2" fz="18px">
+                                        Премии и штрафы
+                                    </Text>
+                                </div>
+                                <div className={styles.chart}>
+                                    <Line
+                                        width="100%"
+                                        height="160px"
+                                        data={data}
+                                        options={options}
+                                    />
+                                </div>
                             </div>
                         </WhiteContentBlock>
+                    </Cols>
+                    <div className={styles.searchContainer}>
+                        <Search placeholder="Поиск специалиста или пациента" />
+                        {PC || LAPTOP || SMALL_LAPTOP ? (
+                            <Btn
+                                color="#0064FA"
+                                fz="14px"
+                                width="133px"
+                                height="48px"
+                                padding="14px 18px"
+                            >
+                                <div className={styles.filter}>
+                                    <img src={controller} alt="" />
+                                    <Text type="p" fz="14px">
+                                        Фильтры
+                                    </Text>
+                                </div>
+                            </Btn>
+                        ) : (
+                            <Btn
+                                width="48px"
+                                height="48px"
+                                color="#0064FA"
+                                padding="14px"
+                            >
+                                <img src={controller} alt="" />
+                            </Btn>
+                        )}
                     </div>
-                </Cols>
-                <Cols type="custom" gap={10} cols={["360px", "1fr"]}>
                     <WhiteContentBlock>
-                        <Text type="h2" fz="18px">
-                            Баланс на счету
-                        </Text>
-                        <div className={styles.bal}>
-                            <div className={styles.sum}>
-                                <Text type="p">За день</Text>
-                                <div
-                                    className={`${styles.sumBlock} ${styles.mt5}`}
-                                >
-                                    <Text type="h2" fz="28px">
-                                        $
-                                    </Text>
-                                    <Text type="p" fz="20px">
-                                        1,567
-                                    </Text>
-                                </div>
-                            </div>
-                            <div className={styles.sum}>
-                                <Text type="p">За день</Text>
-                                <div
-                                    className={`${styles.sumBlock} ${styles.mt5}`}
-                                >
-                                    <Text type="h2" fz="28px">
-                                        $
-                                    </Text>
-                                    <Text type="h2" fz="20px">
-                                        42,567
-                                    </Text>
-                                </div>
-                            </div>
+                        <div style={{ marginBottom: 12 }}>
+                            <Text type="h4">Специалисты (127)</Text>
                         </div>
-                    </WhiteContentBlock>
-                    <WhiteContentBlock>
-                        <div className={styles.text}>
-                            <div className={styles.nav}>
-                                <Text type="h2" fz="18px">
-                                    Премии и штрафы
-                                </Text>
-                            </div>
-                            <div className={styles.chart}>
-                                <Line
-                                    width="100%"
-                                    height="160px"
-                                    data={data}
-                                    options={options}
-                                />
-                            </div>
-                        </div>
-                    </WhiteContentBlock>
-                </Cols>
-                <div className={styles.searchContainer}>
-                    <Search placeholder="Поиск специалиста или пациента" />
-                    <Btn
-                        color="#0064FA"
-                        fz="14px"
-                        width="133px"
-                        height="48px"
-                        padding="14px 18px"
-                    >
-                        <div className={styles.filter}>
-                            <img src={controller} alt="" />
-                            <Text type="p" fz="14px">
-                                Фильтры
-                            </Text>
-                        </div>
-                    </Btn>
-                </div>
-                <WhiteContentBlock>
-                    <Text type="h4">Специалисты (127)</Text>
-                    <Cols
-                        type="custom"
-                        gap={10}
-                        cols={
-                            PC
-                                ? ["332px", "332px", "332px", "332px"]
-                                : ["252px", "252px", "252px", "252px"]
-                        }
-                    >
-                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
-                            <div key={item} className={styles.comment}>
-                                <div className={styles.rowText}>
-                                    <img src={man} alt="" />
-                                    <div
-                                        className={styles.text}
-                                        style={{ gridGap: 10 }}
-                                    >
-                                        <Text type="h2" fz="14px">
-                                            Ковалева Елена Владимировна
-                                        </Text>
-                                        <div className={styles.bottom}>
-                                            <Rating
-                                                defaultValue={5}
-                                                gap="5px"
-                                                width="20px"
-                                                height="20px"
-                                            />
-                                            <div className={styles.more}>
-                                                <Text
-                                                    type="p"
-                                                    color="#0064FA"
-                                                    fz="14px"
-                                                >
-                                                    Профиль
+                        <Cols
+                            type="custom"
+                            gap={10}
+                            cols={
+                                PC
+                                    ? ["332px", "332px", "332px", "332px"]
+                                    : MOBILE
+                                    ? []
+                                    : ["252px", "252px", "252px", "252px"]
+                            }
+                        >
+                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
+                                (item) => (
+                                    <div key={item} className={styles.comment}>
+                                        <div className={styles.rowText}>
+                                            <img src={man} alt="" />
+                                            <div
+                                                className={styles.text}
+                                                style={{ gridGap: 10 }}
+                                            >
+                                                <Text type="h2" fz="14px">
+                                                    Ковалева Елена Владимировна
                                                 </Text>
-                                                <svg
-                                                    width="17"
-                                                    height="16"
-                                                    viewBox="0 0 17 16"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M6.16484 13.5564C6.03817 13.5564 5.9115 13.5097 5.8115 13.4097C5.61817 13.2164 5.61817 12.8964 5.8115 12.703L10.1582 8.35638C10.4782 8.03638 10.4782 7.51638 10.1582 7.19638L5.8115 2.84971C5.61817 2.65638 5.61817 2.33638 5.8115 2.14305C6.00484 1.94971 6.32484 1.94971 6.51817 2.14305L10.8648 6.48971C11.2048 6.82971 11.3982 7.28971 11.3982 7.77638C11.3982 8.26305 11.2115 8.72305 10.8648 9.06305L6.51817 13.4097C6.41817 13.503 6.2915 13.5564 6.16484 13.5564Z"
-                                                        fill="#0064FA"
+                                                <div className={styles.bottom}>
+                                                    <Rating
+                                                        defaultValue={5}
+                                                        gap="5px"
+                                                        width="20px"
+                                                        height="20px"
                                                     />
-                                                </svg>
+                                                    <div
+                                                        className={styles.more}
+                                                    >
+                                                        <Text
+                                                            type="p"
+                                                            color="#0064FA"
+                                                            fz="14px"
+                                                        >
+                                                            Профиль
+                                                        </Text>
+                                                        <svg
+                                                            width="17"
+                                                            height="16"
+                                                            viewBox="0 0 17 16"
+                                                            fill="none"
+                                                        >
+                                                            <path
+                                                                d="M6.16484 13.5564C6.03817 13.5564 5.9115 13.5097 5.8115 13.4097C5.61817 13.2164 5.61817 12.8964 5.8115 12.703L10.1582 8.35638C10.4782 8.03638 10.4782 7.51638 10.1582 7.19638L5.8115 2.84971C5.61817 2.65638 5.61817 2.33638 5.8115 2.14305C6.00484 1.94971 6.32484 1.94971 6.51817 2.14305L10.8648 6.48971C11.2048 6.82971 11.3982 7.28971 11.3982 7.77638C11.3982 8.26305 11.2115 8.72305 10.8648 9.06305L6.51817 13.4097C6.41817 13.503 6.2915 13.5564 6.16484 13.5564Z"
+                                                                fill="#0064FA"
+                                                            />
+                                                        </svg>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        ))}
-                    </Cols>
-                    <BlueSliderArrows />
-                </WhiteContentBlock>
-            </AdminPanelContainer>
+                                )
+                            )}
+                        </Cols>
+                        <BlueSliderArrows />
+                    </WhiteContentBlock>
+                </AdminPanelContainer>
+            </MobileContainer>
         </Layout>
     );
 };

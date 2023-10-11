@@ -40,7 +40,14 @@
 
 @media screen and (max-width: 576px) {
     .container {
-        display: none;
+        display: block;
+
+        .line {
+            height: 2px;
+            background-color: var(--blue-100);
+            margin: 16px 0;
+            transition: .3s linear;
+        }
     }
 }
 

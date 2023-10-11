@@ -58,25 +58,27 @@ export const Post: FC = () => {
                     предварительного просмотра макета
                 </Text>
             </div>
-            <Swiper
-                pagination={pagination}
-                modules={[Pagination]}
-                className={styles.slider}
-                key={paginationKey}
-            >
-                <SwiperSlide>
-                    <img src={post} alt="" className={styles.img} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={post} alt="" className={styles.img} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={post} alt="" className={styles.img} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={post} alt="" className={styles.img} />
-                </SwiperSlide>
-            </Swiper>
+            <div className={styles.images}>
+                <Swiper
+                    pagination={pagination}
+                    modules={[Pagination]}
+                    className={styles.slider}
+                    key={paginationKey}
+                >
+                    <SwiperSlide>
+                        <img src={post} alt="" className={styles.img} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={post} alt="" className={styles.img} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={post} alt="" className={styles.img} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={post} alt="" className={styles.img} />
+                    </SwiperSlide>
+                </Swiper>
+            </div>
             <div className={styles.managment}>
                 <div className={styles.btns}>
                     <div className={styles.btn}>
