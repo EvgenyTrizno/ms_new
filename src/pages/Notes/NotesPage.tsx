@@ -25,7 +25,7 @@ const NotesPage: FC = () => {
     return (
         <Layout>
             {MOBILE && (
-                <CustomMobileHeader>
+                <CustomMobileHeader back>
                     <BackArrow />
                 </CustomMobileHeader>
             )}
