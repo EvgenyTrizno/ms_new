@@ -4,6 +4,7 @@
     height: 100%;
     border: 1px solid var(--blue-100);
     border-radius: var(--mobile-default-border);
+    box-sizing: border-box;
 
     .btn {
         background-color: var(--white);
@@ -12,5 +13,16 @@
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
         padding-left: 16px;
+    }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1920px) {
+    .box {
+        .btn {
+            img {
+                width: 16px;
+                height: 16px;
+            }
+        }
     }
 }

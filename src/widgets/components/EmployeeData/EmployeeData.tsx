@@ -13,75 +13,124 @@ export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
             {type === "center" || type === "clinic" ? (
                 <WhiteContentBlock>
                     <div className={styles.about}>
-                        <div
-                            className={styles.text}
-                            style={{ gridGap: MOBILE ? 12 : 16 }}
-                        >
-                            <Text type="h2" fz={MOBILE ? "17px" : "20px"}>
-                                Здоровый горизонт
-                            </Text>
-                            <div className={styles.text}>
-                                <Text type="h4" fz={MOBILE ? "14px" : "16px"}>
-                                    Клиника
-                                </Text>
-                                <Text type="p" fz="14px">
-                                    Общая медицинская клиника
-                                </Text>
+                        <Text type="h2" fz={MOBILE || LAPTOP ? "17px" : "20px"}>
+                            Здоровый горизонт
+                        </Text>
+                        <div className={styles.info}>
+                            <div className={styles.content}>
+                                <div className={styles.text}>
+                                    <Text
+                                        type="h4"
+                                        fz={
+                                            MOBILE
+                                                ? "14px"
+                                                : LAPTOP
+                                                ? "15px"
+                                                : "16px"
+                                        }
+                                    >
+                                        Клиника
+                                    </Text>
+                                    <Text type="p" fz="14px">
+                                        Общая медицинская клиника
+                                    </Text>
+                                </div>
+                                <div className={styles.text}>
+                                    <Text
+                                        type="h4"
+                                        fz={
+                                            MOBILE
+                                                ? "14px"
+                                                : LAPTOP
+                                                ? "15px"
+                                                : "16px"
+                                        }
+                                    >
+                                        Адрес
+                                    </Text>
+                                    <Text type="p" fz="14px">
+                                        Ташкент, Республика Узбекистан
+                                    </Text>
+                                    <Text type="p" fz="12px" color="#7D7F82">
+                                        ул. Донская, д. 5
+                                    </Text>
+                                </div>
+                                <div className={styles.text}>
+                                    <Text
+                                        type="h4"
+                                        fz={
+                                            MOBILE
+                                                ? "14px"
+                                                : LAPTOP
+                                                ? "15px"
+                                                : "16px"
+                                        }
+                                    >
+                                        Номер телефона
+                                    </Text>
+                                    <Text type="p" fz="14px">
+                                        +7(923)-123-45-67
+                                    </Text>
+                                </div>
+                                <div className={styles.text}>
+                                    <Text
+                                        type="h4"
+                                        fz={
+                                            MOBILE
+                                                ? "14px"
+                                                : LAPTOP
+                                                ? "15px"
+                                                : "16px"
+                                        }
+                                    >
+                                        Количество персонала
+                                    </Text>
+                                    <Text type="p" fz="14px" color="#7D7F82">
+                                        128 человек
+                                    </Text>
+                                </div>
+                                <div className={styles.text}>
+                                    <Text
+                                        type="h4"
+                                        fz={
+                                            MOBILE
+                                                ? "14px"
+                                                : LAPTOP
+                                                ? "15px"
+                                                : "16px"
+                                        }
+                                    >
+                                        Не указано в заполнении профиля
+                                    </Text>
+                                    <Text type="p" fz="14px" color="#7D7F82">
+                                        79 человек
+                                    </Text>
+                                </div>
                             </div>
-                            <div className={styles.text}>
-                                <Text type="h4" fz={MOBILE ? "14px" : "16px"}>
-                                    Адрес
-                                </Text>
-                                <Text type="p" fz="14px">
-                                    Ташкент, Республика Узбекистан
-                                </Text>
-                                <Text type="p" fz="12px" color="#7D7F82">
-                                    ул. Донская, д. 5
-                                </Text>
-                            </div>
-                            <div className={styles.text}>
-                                <Text type="h4" fz={MOBILE ? "14px" : "16px"}>
-                                    Номер телефона
-                                </Text>
-                                <Text type="p" fz="14px">
-                                    +7(923)-123-45-67
-                                </Text>
-                            </div>
-                            <div className={styles.text}>
-                                <Text type="h4" fz={MOBILE ? "14px" : "16px"}>
-                                    Количество персонала
-                                </Text>
-                                <Text type="p" fz="14px" color="#7D7F82">
-                                    128 человек
-                                </Text>
-                            </div>
-                            <div className={styles.text}>
-                                <Text type="h4" fz={MOBILE ? "14px" : "16px"}>
-                                    Не указано в заполнении профиля
-                                </Text>
-                                <Text type="p" fz="14px" color="#7D7F82">
-                                    79 человек
-                                </Text>
-                            </div>
-                        </div>
-                        <div
-                            className={styles.text}
-                            style={{ gridGap: MOBILE ? 8 : 10 }}
-                        >
-                            <Text
-                                type="h2"
-                                fz={SMALL_LAPTOP || LAPTOP ? "13px" : "16px"}
+                            <div
+                                className={styles.text}
+                                style={{ gridGap: MOBILE ? 8 : 10 }}
                             >
-                                Какие болезни обслуживаются
-                            </Text>
-                            <Btn
-                                br={SMALL_LAPTOP || LAPTOP ? "9px" : ""}
-                                height={SMALL_LAPTOP || LAPTOP ? "35px" : ""}
-                                fz={SMALL_LAPTOP || LAPTOP ? "12px" : ""}
-                                color="#0064FA"
-                            >
-                                Полный перечень
-                            </Btn>
+                                <Text
+                                    type="h2"
+                                    fz={
+                                        SMALL_LAPTOP || LAPTOP ? "15px" : "16px"
+                                    }
+                                >
+                                    Какие болезни обслуживаются
+                                </Text>
+                                <Btn
+                                    br={SMALL_LAPTOP || LAPTOP ? "9px" : ""}
+                                    height={
+                                        SMALL_LAPTOP || LAPTOP ? "37px" : ""
+                                    }
+                                    fz={SMALL_LAPTOP || LAPTOP ? "14px" : ""}
+                                    padding={LAPTOP ? "10px" : ""}
+                                    color="#0064FA"
+                                >
+                                    Полный перечень
+                                </Btn>
+                            </div>
                         </div>
                     </div>
                 </WhiteContentBlock>

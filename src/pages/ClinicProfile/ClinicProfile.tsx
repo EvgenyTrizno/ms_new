@@ -167,18 +167,22 @@ const ClinicProfile: FC = () => {
 
     return (
         <Layout>
-            <CustomMobileHeader
-                back
-                text="Профиль клиники"
-            ></CustomMobileHeader>
+            {MOBILE && (
+                <CustomMobileHeader
+                    back
+                    text="Профиль клиники"
+                ></CustomMobileHeader>
+            )}
             <MobileContainer>
                 <AdminPanelContainer>
                     <Cols
-                        gap={10}
+                        gap={LAPTOP ? 8 : 10}
                         type="custom"
                         cols={
                             PC
                                 ? ["360px", "400px", "1fr"]
+                                : LAPTOP
+                                ? ["288px", "330px", "1fr"]
                                 : MOBILE
                                 ? ["auto"]
                                 : ["256px", "269px", "1fr"]
@@ -192,7 +196,11 @@ const ClinicProfile: FC = () => {
                                     <div className={styles.nav}>
                                         <Text
                                             type="h2"
-                                            fz={MOBILE ? "17px" : "20px"}
+                                            fz={
+                                                MOBILE || LAPTOP
+                                                    ? "17px"
+                                                    : "20px"
+                                            }
                                         >
                                             Администратор
                                         </Text>
@@ -211,9 +219,13 @@ const ClinicProfile: FC = () => {
                                         >
                                             <Text
                                                 type="h2"
-                                                fz={MOBILE ? "15px" : "18px"}
+                                                fz={
+                                                    MOBILE || LAPTOP
+                                                        ? "15px"
+                                                        : "18px"
+                                                }
                                             >
-                                                Алексеев Э. В.
+                                                Алексеев Эрнест Владимирович
                                             </Text>
                                             <div
                                                 className={styles.text}
@@ -222,7 +234,11 @@ const ClinicProfile: FC = () => {
                                                 <Text
                                                     type="h2"
                                                     fz={
-                                                        MOBILE ? "13px" : "16px"
+                                                        MOBILE
+                                                            ? "13px"
+                                                            : LAPTOP
+                                                            ? "15px"
+                                                            : "16px"
                                                     }
                                                 >
                                                     Номер телефона
@@ -230,7 +246,9 @@ const ClinicProfile: FC = () => {
                                                 <Text
                                                     type="p"
                                                     fz={
-                                                        MOBILE ? "14px" : "14px"
+                                                        MOBILE || LAPTOP
+                                                            ? "14px"
+                                                            : "14px"
                                                     }
                                                 >
                                                     +7(923)-123-45-67
@@ -243,23 +261,46 @@ const ClinicProfile: FC = () => {
                             <WhiteContentBlock>
                                 <div className={styles.stats}>
                                     <div className={styles.text}>
-                                        <Text type="h2" fz="18px">
+                                        <Text
+                                            type="h2"
+                                            fz={LAPTOP ? "17px" : "18px"}
+                                        >
                                             Количество посещений за день
                                         </Text>
                                         <div className={styles.row}>
                                             <div className={styles.sumBlock}>
-                                                <Text type="h2" fz="28px">
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        LAPTOP ? "26px" : "28px"
+                                                    }
+                                                >
                                                     86
                                                 </Text>
-                                                <Text type="h2" fz="16px">
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        LAPTOP ? "15px" : "16px"
+                                                    }
+                                                >
                                                     Онлайн
                                                 </Text>
                                             </div>
                                             <div className={styles.sumBlock}>
-                                                <Text type="h2" fz="28px">
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        LAPTOP ? "26px" : "28px"
+                                                    }
+                                                >
                                                     86
                                                 </Text>
-                                                <Text type="h2" fz="16px">
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        LAPTOP ? "15px" : "16px"
+                                                    }
+                                                >
                                                     Оффлайн
                                                 </Text>
                                             </div>
@@ -269,68 +310,17 @@ const ClinicProfile: FC = () => {
                             </WhiteContentBlock>
                             <WhiteContentBlock>
                                 <div className={styles.text}>
-                                    <Text type="h2" fz="18px">
+                                    <Text
+                                        type="h2"
+                                        fz={LAPTOP ? "17px" : "18px"}
+                                    >
                                         Записи
                                     </Text>
-                                    <Cols type="auto" gap={10} count={2}>
-                                        <div className={styles.sumBlock}>
-                                            <Text
-                                                type="h2"
-                                                fz={MOBILE ? "24px" : "28px"}
-                                            >
-                                                86
-                                            </Text>
-                                            <div
-                                                className={styles.text}
-                                                style={{ gridGap: 0 }}
-                                            >
-                                                <Text
-                                                    type="h2"
-                                                    fz={
-                                                        MOBILE ? "14px" : "16px"
-                                                    }
-                                                >
-                                                    Всего
-                                                </Text>
-                                                <Text
-                                                    type="p"
-                                                    fz={
-                                                        MOBILE ? "12px" : "14px"
-                                                    }
-                                                >
-                                                    Записей
-                                                </Text>
-                                            </div>
-                                        </div>
-                                        <div className={styles.sumBlock}>
-                                            <Text
-                                                type="h2"
-                                                fz={MOBILE ? "24px" : "28px"}
-                                            >
-                                                86
-                                            </Text>
-                                            <div
-                                                className={styles.text}
-                                                style={{ gridGap: 0 }}
-                                            >
-                                                <Text
-                                                    type="h2"
-                                                    fz={
-                                                        MOBILE ? "14px" : "16px"
-                                                    }
-                                                >
-                                                    Подтвержено
-                                                </Text>
-                                                <Text
-                                                    type="p"
-                                                    fz={
-                                                        MOBILE ? "12px" : "14px"
-                                                    }
-                                                >
-                                                    Записей
-                                                </Text>
-                                            </div>
-                                        </div>
+                                    <Cols
+                                        type="auto"
+                                        gap={LAPTOP ? 8 : 10}
+                                        count={2}
+                                    >
                                         <div className={styles.sumBlock}>
                                             <Text
                                                 type="h2"
@@ -396,20 +386,25 @@ const ClinicProfile: FC = () => {
                     </Cols>
                     <Cols
                         type="custom"
-                        gap={10}
+                        gap={LAPTOP ? 8 : 10}
                         cols={MOBILE ? [] : ["360px", "1fr"]}
                     >
                         <WhiteContentBlock>
-                            <Text type="h2" fz="18px">
+                            <Text type="h2" fz={LAPTOP ? "17px" : "18px"}>
                                 Баланс на счету
                             </Text>
                             <div className={styles.bal}>
                                 <div className={styles.sum}>
-                                    <Text type="p">За день</Text>
+                                    <Text type="p" fz={LAPTOP ? "14px" : ""}>
+                                        За день
+                                    </Text>
                                     <div
                                         className={`${styles.sumBlock} ${styles.mt5}`}
                                     >
-                                        <Text type="h2" fz="28px">
+                                        <Text
+                                            type="h2"
+                                            fz={LAPTOP ? "26px" : "28px"}
+                                        >
                                             $
                                         </Text>
                                         <Text type="p" fz="20px">
@@ -418,11 +413,16 @@ const ClinicProfile: FC = () => {
                                     </div>
                                 </div>
                                 <div className={styles.sum}>
-                                    <Text type="p">За день</Text>
+                                    <Text type="p" fz={LAPTOP ? "14px" : ""}>
+                                        Вся сумма
+                                    </Text>
                                     <div
                                         className={`${styles.sumBlock} ${styles.mt5}`}
                                     >
-                                        <Text type="h2" fz="28px">
+                                        <Text
+                                            type="h2"
+                                            fz={LAPTOP ? "26px" : "28px"}
+                                        >
                                             $
                                         </Text>
                                         <Text type="h2" fz="20px">
@@ -435,7 +435,10 @@ const ClinicProfile: FC = () => {
                         <WhiteContentBlock>
                             <div className={styles.text}>
                                 <div className={styles.nav}>
-                                    <Text type="h2" fz="18px">
+                                    <Text
+                                        type="h2"
+                                        fz={LAPTOP ? "17px" : "18px"}
+                                    >
                                         Премии и штрафы
                                     </Text>
                                 </div>
@@ -451,18 +454,25 @@ const ClinicProfile: FC = () => {
                         </WhiteContentBlock>
                     </Cols>
                     <div className={styles.searchContainer}>
-                        <Search placeholder="Поиск специалиста или пациента" />
+                        <Search
+                            placeholder="Поиск специалиста или пациента"
+                            height={LAPTOP ? "37px" : ""}
+                        />
                         {PC || LAPTOP || SMALL_LAPTOP ? (
                             <Btn
                                 color="#0064FA"
                                 fz="14px"
                                 width="133px"
-                                height="48px"
-                                padding="14px 18px"
+                                br={LAPTOP ? "9px" : ""}
+                                height={LAPTOP ? "37px" : "48px"}
+                                padding={LAPTOP ? "10px 18px" : "14px 18px"}
                             >
                                 <div className={styles.filter}>
                                     <img src={controller} alt="" />
-                                    <Text type="p" fz="14px">
+                                    <Text
+                                        type="p"
+                                        fz={LAPTOP ? "15px" : "14px"}
+                                    >
                                         Фильтры
                                     </Text>
                                 </div>
@@ -484,9 +494,9 @@ const ClinicProfile: FC = () => {
                         </div>
                         <Cols
                             type="custom"
-                            gap={10}
+                            gap={LAPTOP ? 8 : 10}
                             cols={
-                                PC
+                                PC || LAPTOP
                                     ? ["332px", "332px", "332px", "332px"]
                                     : MOBILE
                                     ? []
@@ -508,7 +518,11 @@ const ClinicProfile: FC = () => {
                                                 <div className={styles.bottom}>
                                                     <Rating
                                                         defaultValue={5}
-                                                        gap="5px"
+                                                        gap={
+                                                            LAPTOP
+                                                                ? "4px"
+                                                                : "5px"
+                                                        }
                                                         width="20px"
                                                         height="20px"
                                                     />

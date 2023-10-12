@@ -1,8 +1,21 @@
 .about {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100%;
+
+    .info {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 16px;
+        }
+    }
 }
 
 .text {
@@ -35,8 +48,18 @@
     }
 }
 
-@media screen and (min-width: 1200px) and (max-width: 1550px) {
+@media screen and (min-width: 1440px) and (max-width: 1920px) {
     .text {
-        grid-gap: 6px;
+        grid-gap: 3px;
+    }
+    
+    .about {
+        .info {
+            margin-top: 10px;
+
+            .content {
+                grid-gap: 8px;
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ export const SMALL_LAPTOP = window.matchMedia(
     "(min-width: 992px) and (max-width: 1199px)"
 ).matches;
 export const LAPTOP = window.matchMedia(
-    "(min-width: 1200px) and (max-width: 1550px)"
+    "(min-width: 1440px) and (max-width: 1919px)"
 ).matches;
 export const PC = window.matchMedia("(min-width: 1551px)").matches;
 export const GOOGLE_LIBRARIES: Libraries = ["places", "geometry"];

@@ -6,6 +6,7 @@ import { useUserCondition } from "@/shared/model/store";
 
 import search from "/assets/search-gray.svg";
 import styles from "./Search.module.scss";
+import { LAPTOP } from "@/shared/utils";
 
 export const Search: FC<ISeacrh> = ({ placeholder, height }) => {
     const { condition } = useUserCondition();
@@ -21,7 +22,7 @@ export const Search: FC<ISeacrh> = ({ placeholder, height }) => {
                 <img src={search} alt="" />
             </button>
             <Input
-                height={height}
+                height={height && parseInt(height) - 2 + "px"}
                 width="100%"
                 borderColor={sick ? "#F7E6E8" : "#EBF3FF"}
                 bl="none"
@@ -31,7 +32,7 @@ export const Search: FC<ISeacrh> = ({ placeholder, height }) => {
                 borderRadius="0px 12px 12px 0px"
                 btl="unset"
                 bbl="unset"
-                padding="12px 16px 12px 10px"
+                padding={LAPTOP ? "10px 16px 10px 8px" : "12px 16px 12px 10px"}
                 bgcolor="#fff"
                 type="text"
                 placeholder={placeholder}
