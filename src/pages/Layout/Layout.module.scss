@@ -40,11 +40,19 @@
     }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1550px) {
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
     .layout {
         .main {
             width: calc(100vw - 84px);
             padding: 20px;
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .layout {
+        .main {
+            width: calc(100vw - 256px);
         }
     }
 }
