@@ -11,10 +11,10 @@ export const TABLET = window.matchMedia(
     "(min-width: 576px) and (max-width: 991px)"
 ).matches;
 export const SMALL_LAPTOP = window.matchMedia(
-    "(min-width: 992px) and (max-width: 1199px)"
+    "(min-width: 1024px) and (max-width: 1439px)"
 ).matches;
 export const LAPTOP = window.matchMedia(
-    "(min-width: 1440px) and (max-width: 1920px)"
+    "(min-width: 1440px) and (max-width: 1919px)"
 ).matches;
-export const PC = window.matchMedia("(min-width: 2560px)").matches;
+export const PC = window.matchMedia("(min-width: 1920px)").matches;
 export const GOOGLE_LIBRARIES: Libraries = ["places", "geometry"];

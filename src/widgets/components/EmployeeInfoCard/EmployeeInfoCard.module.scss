@@ -10,16 +10,17 @@
     justify-content: space-between;
 
     .centerAvatar {
-        width: 320px;
-        height: 320px;
+        width: 280px;
+        height: 280px;
         border-radius: var(--mobile-default-border);
+        margin-bottom: 16px;
     }
 
     .verify {
         display: flex;
         align-items: center;
         grid-gap: 5px;
-        margin: 16px 0 10px;
+        margin: 5px 0 16px;
 
         span {
             background-color: var(--green-100);
@@ -71,7 +72,16 @@
     }
 }
 
-@media screen and (min-width: 1440px) and (max-width: 1920px) {
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+   .data {
+    .centerAvatar {
+        width: 232px;
+        height: 232px;
+    }
+   } 
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
     .data {
 
         .inner {

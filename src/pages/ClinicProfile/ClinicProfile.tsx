@@ -180,7 +180,7 @@ const ClinicProfile: FC = () => {
                         type="custom"
                         cols={
                             PC
-                                ? ["360px", "400px", "1fr"]
+                                ? ["312px", "350px", "1fr"]
                                 : LAPTOP
                                 ? ["288px", "330px", "1fr"]
                                 : MOBILE
@@ -199,7 +199,7 @@ const ClinicProfile: FC = () => {
                                             fz={
                                                 MOBILE || LAPTOP
                                                     ? "17px"
-                                                    : "20px"
+                                                    : "18px"
                                             }
                                         >
                                             Администратор
@@ -214,7 +214,7 @@ const ClinicProfile: FC = () => {
                                                 gridGap:
                                                     LAPTOP || SMALL_LAPTOP
                                                         ? 6
-                                                        : 10,
+                                                        : 8,
                                             }}
                                         >
                                             <Text
@@ -222,7 +222,7 @@ const ClinicProfile: FC = () => {
                                                 fz={
                                                     MOBILE || LAPTOP
                                                         ? "15px"
-                                                        : "18px"
+                                                        : "16px"
                                                 }
                                             >
                                                 Алексеев Эрнест Владимирович
@@ -489,15 +489,15 @@ const ClinicProfile: FC = () => {
                         )}
                     </div>
                     <WhiteContentBlock>
-                        <div style={{ marginBottom: 12 }}>
+                        <div style={{ marginBottom: 16 }}>
                             <Text type="h4">Специалисты (127)</Text>
                         </div>
                         <Cols
                             type="custom"
-                            gap={LAPTOP ? 8 : 10}
+                            gap={LAPTOP ? 8 : 24}
                             cols={
                                 PC || LAPTOP
-                                    ? ["332px", "332px", "332px", "332px"]
+                                    ? ["1fr", "1fr", "1fr", "1fr"]
                                     : MOBILE
                                     ? []
                                     : ["252px", "252px", "252px", "252px"]

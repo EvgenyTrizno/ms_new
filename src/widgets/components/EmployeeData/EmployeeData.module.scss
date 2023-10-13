@@ -13,7 +13,7 @@
         .content {
             display: flex;
             flex-direction: column;
-            grid-gap: 16px;
+            grid-gap: 12px;
         }
     }
 }
@@ -48,7 +48,7 @@
     }
 }
 
-@media screen and (min-width: 1440px) and (max-width: 1920px) {
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
     .text {
         grid-gap: 3px;
     }

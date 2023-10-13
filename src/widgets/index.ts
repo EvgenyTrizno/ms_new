@@ -61,6 +61,7 @@ import { BlueBox } from "./components/BlueBox/BlueBox";
 import { Indicator } from "./components/Indicator/Indicator";
 import { AdminPanelContainer } from "./components/AdminPanelContainer/AdminPanelContainer";
 import { Cols } from "./components/Cols/Cols";
+import { InfoText } from "./components/InfoText/InfoText";
 
 export {
     Login,
@@ -126,4 +127,5 @@ export {
     Indicator,
     AdminPanelContainer,
     Cols,
+    InfoText,
 };

@@ -820,9 +820,9 @@ export const Menu: FC = () => {
             onMouseLeave={() => setIsHovered(false)}
             style={{ borderColor: sick ? "#F7E6E8" : "#EBF3FF" }}
             className={
-                PC
+                PC || LAPTOP
                     ? `${styles.menu} ${styles.open}`
-                    : (LAPTOP || SMALL_LAPTOP) && isHovered
+                    : isHovered
                     ? `${styles.menu} ${styles.open}`
                     : styles.menu
             }
@@ -833,10 +833,8 @@ export const Menu: FC = () => {
                     borderColor: sick ? "#F7E6E8" : "#EBF3FF",
                 }}
             >
-                {!isHovered && (SMALL_LAPTOP || LAPTOP) && (
-                    <img alt="" src={logo} />
-                )}
-                {(isHovered || PC) && group === "Пользователи" && (
+                {!isHovered && SMALL_LAPTOP && <img alt="" src={logo} />}
+                {(isHovered || PC || LAPTOP) && group === "Пользователи" && (
                     <img
                         src={sick ? bigLogoRed : bigLogo}
                         alt=""
@@ -846,7 +844,7 @@ export const Menu: FC = () => {
                 {group === "Администраторы" && <Search placeholder="Поиск" />}
             </div>
             <div className={styles.container}>
-                {(PC || (isHovered && (SMALL_LAPTOP || LAPTOP))) &&
+                {(PC || LAPTOP || (isHovered && SMALL_LAPTOP)) &&
                     group !== "Администраторы" &&
                     group !== "Врачи" && (
                         <Text color="#B1B2B4" type="p" fz="14px">
