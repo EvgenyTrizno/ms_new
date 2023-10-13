@@ -7,16 +7,16 @@ import {
     LineElement,
     Tooltip,
     Filler,
-    ChartOptions,
-    ChartData,
+    // ChartOptions,
+    // ChartData,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+// import { Line } from "react-chartjs-2";
 
 import { Layout } from "../Layout/Layout";
 import {
     AdminPanelContainer,
     BlueBox,
-    Circle,
+    // Circle,
     Cols,
     EmployeeData,
     EmployeeInfoCard,
@@ -42,72 +42,72 @@ ChartJS.register(
 );
 
 const EmployeeProfilePage: FC = () => {
-    const options: ChartOptions<"line"> = {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            x: {
-                border: {
-                    display: false,
-                },
-                grid: {
-                    display: false,
-                },
-                ticks: {
-                    color: "#B1B2B4",
-                    font: {
-                        size: 12,
-                        weight: "medium",
-                    },
-                },
-            },
-            y: {
-                beginAtZero: true,
-                min: 0,
-                max: 100,
-                ticks: {
-                    stepSize: 50,
-                    color: "#B1B2B4",
-                    callback: (val) => val + "%",
-                    font: {
-                        size: 12,
-                        weight: "medium",
-                    },
-                },
-                border: {
-                    display: false,
-                },
-                grid: {
-                    display: false,
-                },
-            },
-        },
-        plugins: {
-            legend: {
-                display: false,
-            },
-            title: {
-                display: false,
-            },
-        },
-    };
+    // const options: ChartOptions<"line"> = {
+    //     responsive: true,
+    //     maintainAspectRatio: false,
+    //     scales: {
+    //         x: {
+    //             border: {
+    //                 display: false,
+    //             },
+    //             grid: {
+    //                 display: false,
+    //             },
+    //             ticks: {
+    //                 color: "#B1B2B4",
+    //                 font: {
+    //                     size: 12,
+    //                     weight: "medium",
+    //                 },
+    //             },
+    //         },
+    //         y: {
+    //             beginAtZero: true,
+    //             min: 0,
+    //             max: 100,
+    //             ticks: {
+    //                 stepSize: 50,
+    //                 color: "#B1B2B4",
+    //                 callback: (val) => val + "%",
+    //                 font: {
+    //                     size: 12,
+    //                     weight: "medium",
+    //                 },
+    //             },
+    //             border: {
+    //                 display: false,
+    //             },
+    //             grid: {
+    //                 display: false,
+    //             },
+    //         },
+    //     },
+    //     plugins: {
+    //         legend: {
+    //             display: false,
+    //         },
+    //         title: {
+    //             display: false,
+    //         },
+    //     },
+    // };
 
-    const labels = [1, 15, 30];
+    // const labels = [1, 15, 30];
 
-    const data: ChartData<"line"> = {
-        labels,
-        datasets: [
-            {
-                fill: false,
-                label: "Dataset 2",
-                data: [0, 10, 50, 10, 90, 60],
-                borderColor: "#0064FA",
-                backgroundColor: "rgba(53, 162, 235, 0.5)",
-                pointStyle: false,
-                tension: 0.5,
-            },
-        ],
-    };
+    // const data: ChartData<"line"> = {
+    //     labels,
+    //     datasets: [
+    //         {
+    //             fill: false,
+    //             label: "Dataset 2",
+    //             data: [0, 10, 50, 10, 90, 60],
+    //             borderColor: "#0064FA",
+    //             backgroundColor: "rgba(53, 162, 235, 0.5)",
+    //             pointStyle: false,
+    //             tension: 0.5,
+    //         },
+    //     ],
+    // };
 
     const myPlugin = {
         id: "customShadow",
