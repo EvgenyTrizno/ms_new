@@ -20,7 +20,7 @@ import {
     Cols,
     EmployeeData,
     EmployeeInfoCard,
-    Fine,
+    DiseaseInfo,
     InfoText,
     WhiteContentBlock,
 } from "@/widgets";
@@ -145,15 +145,21 @@ const EmployeeProfilePage: FC = () => {
                 >
                     <EmployeeInfoCard type="employee" />
                     <EmployeeData type="employee" />
-                    <WhiteContentBlock>
+                    <WhiteContentBlock
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between",
+                        }}
+                    >
                         <Text type="h4">
                             {SMALL_LAPTOP
                                 ? "История болезней"
                                 : "История болезней / 15 раз за 13/10/2023 по 13/12/2023"}
                         </Text>
-                        <Cols type="auto" gap={12} count={2}>
-                            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                                <Fine key={item} />
+                        <Cols type="auto" gap={12} count={SMALL_LAPTOP ? 1 : 2}>
+                            {[1, 2, 3].map((item) => (
+                                <DiseaseInfo key={item} />
                             ))}
                         </Cols>
                         <Btn color="#0064FA">Вся история болезней</Btn>
@@ -166,17 +172,38 @@ const EmployeeProfilePage: FC = () => {
                     </div>
                     <Cols type="auto" gap={10} count={3}>
                         <BlueBox>
-                            <Text type="h4">Пропущенные</Text>
+                            <Text type="h4" fz={SMALL_LAPTOP ? "15px" : ""}>
+                                Пропущенные
+                            </Text>
                             <div className={styles.notes}>
                                 {[1, 2, 3].map((item) => (
                                     <div className={styles.note} key={item}>
                                         <div className={styles.data}>
-                                            <img src={man} alt="" />
+                                            <img
+                                                src={man}
+                                                alt=""
+                                                className={styles.avatar}
+                                            />
                                             <div className={styles.text}>
-                                                <Text type="h2" fz="15px">
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        SMALL_LAPTOP
+                                                            ? "14px"
+                                                            : "15px"
+                                                    }
+                                                >
                                                     Гастроэнтеролог
                                                 </Text>
-                                                <Text type="p" fz="15px">
+                                                <Text
+                                                    type="p"
+                                                    fz={
+                                                        SMALL_LAPTOP
+                                                            ? "12px"
+                                                            : "15px"
+                                                    }
+                                                    color="#3C3D3E"
+                                                >
                                                     Ковалева Елена Владимировна
                                                 </Text>
                                             </div>
@@ -196,17 +223,38 @@ const EmployeeProfilePage: FC = () => {
                             </div>
                         </BlueBox>
                         <BlueBox>
-                            <Text type="h4">Текущие</Text>
+                            <Text type="h4" fz={SMALL_LAPTOP ? "15px" : ""}>
+                                Текущие
+                            </Text>
                             <div className={styles.notes}>
                                 {[1, 2, 3].map((item) => (
                                     <div className={styles.note} key={item}>
                                         <div className={styles.data}>
-                                            <img src={man} alt="" />
+                                            <img
+                                                src={man}
+                                                alt=""
+                                                className={styles.avatar}
+                                            />
                                             <div className={styles.text}>
-                                                <Text type="h2" fz="15px">
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        SMALL_LAPTOP
+                                                            ? "14px"
+                                                            : "15px"
+                                                    }
+                                                >
                                                     Гастроэнтеролог
                                                 </Text>
-                                                <Text type="p" fz="15px">
+                                                <Text
+                                                    type="p"
+                                                    fz={
+                                                        SMALL_LAPTOP
+                                                            ? "12px"
+                                                            : "15px"
+                                                    }
+                                                    color="#3C3D3E"
+                                                >
                                                     Ковалева Елена Владимировна
                                                 </Text>
                                             </div>
@@ -226,17 +274,38 @@ const EmployeeProfilePage: FC = () => {
                             </div>
                         </BlueBox>
                         <BlueBox>
-                            <Text type="h4">Не установленные</Text>
+                            <Text type="h4" fz={SMALL_LAPTOP ? "15px" : ""}>
+                                Не установленные
+                            </Text>
                             <div className={styles.notes}>
                                 {[1, 2, 3].map((item) => (
                                     <div className={styles.note} key={item}>
                                         <div className={styles.data}>
-                                            <img src={man} alt="" />
+                                            <img
+                                                src={man}
+                                                alt=""
+                                                className={styles.avatar}
+                                            />
                                             <div className={styles.text}>
-                                                <Text type="h2" fz="15px">
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        SMALL_LAPTOP
+                                                            ? "14px"
+                                                            : "15px"
+                                                    }
+                                                >
                                                     Гастроэнтеролог
                                                 </Text>
-                                                <Text type="p" fz="15px">
+                                                <Text
+                                                    type="p"
+                                                    fz={
+                                                        SMALL_LAPTOP
+                                                            ? "12px"
+                                                            : "15px"
+                                                    }
+                                                    color="#3C3D3E"
+                                                >
                                                     Ковалева Елена Владимировна
                                                 </Text>
                                             </div>
@@ -260,7 +329,7 @@ const EmployeeProfilePage: FC = () => {
                 <Cols gap={10} type="custom" cols={["460px", "1fr"]}>
                     <WhiteContentBlock>
                         <div className={styles.condition}>
-                            <Text type="h4">
+                            <Text type="h4" fz={SMALL_LAPTOP ? "15px" : ""}>
                                 Сколько раз перемещал кнопку на
                             </Text>
                             <svg
@@ -340,16 +409,24 @@ const EmployeeProfilePage: FC = () => {
                         </div>
                     </WhiteContentBlock>
                     <WhiteContentBlock>
-                        <Text type="h4">Хронология болезней</Text>
+                        <Text type="h4" fz={SMALL_LAPTOP ? "15px" : ""}>
+                            Хронология болезней
+                        </Text>
                     </WhiteContentBlock>
                 </Cols>
                 <Cols
                     type="custom"
                     gap={10}
-                    cols={["362px", "362px", "400px", "1fr"]}
+                    cols={
+                        SMALL_LAPTOP
+                            ? ["1fr", "1fr"]
+                            : ["362px", "362px", "400px", "1fr"]
+                    }
                 >
                     <WhiteContentBlock>
-                        <Text type="h4">Предоставлен:</Text>
+                        <Text type="h4" fz={SMALL_LAPTOP ? "15px" : ""}>
+                            Предоставлен:
+                        </Text>
                         <div className={styles.container}>
                             <Cols type="auto" gap={10} count={1}>
                                 {[1, 2, 3].map((item) => (
@@ -395,7 +472,9 @@ const EmployeeProfilePage: FC = () => {
                         </div>
                     </WhiteContentBlock>
                     <WhiteContentBlock>
-                        <Text type="h4">Запрошен:</Text>
+                        <Text type="h4" fz={SMALL_LAPTOP ? "15px" : ""}>
+                            Запрошен:
+                        </Text>
                         <div className={styles.container}>
                             <Cols type="auto" gap={10} count={1}>
                                 {[1, 2, 3].map((item) => (
@@ -442,7 +521,9 @@ const EmployeeProfilePage: FC = () => {
                     </WhiteContentBlock>
                     <WhiteContentBlock>
                         <div className={styles.resultsInner}>
-                            <Text type="h4">Поисковые запросы</Text>
+                            <Text type="h4" fz={SMALL_LAPTOP ? "15px" : ""}>
+                                Поисковые запросы
+                            </Text>
                             <div className={styles.results}>
                                 <div className={styles.result}>
                                     <img src={search} alt="" />
@@ -467,7 +548,9 @@ const EmployeeProfilePage: FC = () => {
                         </div>
                     </WhiteContentBlock>
                     <WhiteContentBlock>
-                        <Text type="h4">Платные услуги</Text>
+                        <Text type="h4" fz={SMALL_LAPTOP ? "15px" : ""}>
+                            Платные услуги
+                        </Text>
                         <div className={styles.container}>
                             <div className={styles.notfound}>
                                 <img src={notfound} alt="" />

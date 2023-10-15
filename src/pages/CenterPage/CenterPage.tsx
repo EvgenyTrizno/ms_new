@@ -17,12 +17,13 @@ import {
     BlueSliderArrows,
     EmployeeData,
     EmployeeInfoCard,
-    Fine,
     Rating,
     Search,
     WhiteContentBlock,
+    Cols,
 } from "@/widgets";
 import { Btn, Text } from "@/shared";
+import { PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import man from "/assets/man.jpg";
 import arrow from "/assets/arrow-right.svg";
@@ -125,14 +126,25 @@ const CenterPage: FC = () => {
     return (
         <Layout>
             <AdminPanelContainer>
-                <div className={styles.info}>
+                <Cols
+                    type="custom"
+                    gap={10}
+                    cols={
+                        PC
+                            ? ["360px", "400px", "1fr"]
+                            : ["256px", "269px", "1fr"]
+                    }
+                >
                     <EmployeeInfoCard type="clinic" />
                     <EmployeeData type="clinic" />
                     <div className={styles.center}>
                         <div className={styles.block}>
                             <WhiteContentBlock>
                                 <div className={styles.nav}>
-                                    <Text type="h2" fz="20px">
+                                    <Text
+                                        type="h2"
+                                        fz={SMALL_LAPTOP ? "15px" : "20px"}
+                                    >
                                         Администратор
                                     </Text>
                                     <img src={arrow} alt="" />
@@ -224,7 +236,8 @@ const CenterPage: FC = () => {
                                         </Text>
                                         <div className={styles.list}>
                                             {[1, 2, 3, 4, 5].map((item) => (
-                                                <Fine key={item} />
+                                                // <Fine key={item} />
+                                                <div></div>
                                             ))}
                                         </div>
                                     </div>
@@ -232,7 +245,7 @@ const CenterPage: FC = () => {
                             </div>
                         </WhiteContentBlock>
                     </div>
-                </div>
+                </Cols>
                 <div
                     className={styles.colsX2}
                     style={{ gridTemplateColumns: "770px 1fr" }}

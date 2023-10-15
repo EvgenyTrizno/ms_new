@@ -50,14 +50,14 @@ export const EmployeeInfoCard: FC<IEmployeeCardType> = ({ type }) => {
                                             <Btn
                                                 color="#0064FA"
                                                 height={
-                                                    MOBILE || PC
+                                                    MOBILE || PC || SMALL_LAPTOP
                                                         ? "42px"
                                                         : LAPTOP
                                                         ? "37px"
                                                         : ""
                                                 }
                                                 fz={
-                                                    MOBILE || PC
+                                                    MOBILE || PC || SMALL_LAPTOP
                                                         ? "15px"
                                                         : LAPTOP
                                                         ? "14px"
@@ -68,7 +68,7 @@ export const EmployeeInfoCard: FC<IEmployeeCardType> = ({ type }) => {
                                                         ? "0px"
                                                         : LAPTOP
                                                         ? "10px 12px"
-                                                        : PC
+                                                        : PC || SMALL_LAPTOP
                                                         ? "12px"
                                                         : ""
                                                 }
@@ -83,7 +83,7 @@ export const EmployeeInfoCard: FC<IEmployeeCardType> = ({ type }) => {
                                             <Btn
                                                 color="#D64657"
                                                 height={
-                                                    MOBILE || PC
+                                                    MOBILE || PC || SMALL_LAPTOP
                                                         ? "42px"
                                                         : LAPTOP
                                                         ? "37px"
@@ -94,19 +94,21 @@ export const EmployeeInfoCard: FC<IEmployeeCardType> = ({ type }) => {
                                                         ? "0px"
                                                         : LAPTOP
                                                         ? "10px 12px"
-                                                        : PC
+                                                        : PC || SMALL_LAPTOP
                                                         ? "12px"
                                                         : ""
                                                 }
                                                 fz={
-                                                    MOBILE || PC
+                                                    MOBILE || PC || SMALL_LAPTOP
                                                         ? "15px"
                                                         : LAPTOP
                                                         ? "14px"
                                                         : ""
                                                 }
                                                 br={
-                                                    MOBILE || LAPTOP
+                                                    MOBILE ||
+                                                    LAPTOP ||
+                                                    SMALL_LAPTOP
                                                         ? "9px"
                                                         : ""
                                                 }
@@ -126,7 +128,8 @@ export const EmployeeInfoCard: FC<IEmployeeCardType> = ({ type }) => {
                                             alt=""
                                             className={styles.centerAvatar}
                                         />
-                                        {type === ("clinic" || "center") ? (
+                                        {type === "clinic" ||
+                                        type === "center" ? (
                                             <div className={styles.btns}>
                                                 <Btn color="#0064FA">
                                                     Связаться

@@ -73,19 +73,23 @@
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
-   .data {
-    .centerAvatar {
-        width: 232px;
-        height: 232px;
+    .data {
+        .centerAvatar {
+            width: 232px;
+            height: 232px;
+        }
+
+        .verify {
+            margin: 5px 0 10px;
+        }
     }
-   } 
 }
 
 @media screen and (min-width: 1440px) and (max-width: 1919px) {
     .data {
 
         .inner {
-            padding: 0; 
+            padding: 0;
         }
 
         .verify {

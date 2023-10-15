@@ -48,6 +48,22 @@
     }
 }
 
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .text {
+        grid-gap: 2px;
+    }
+
+    .about {
+        .info {
+            margin-top: 6px;
+
+            .content {
+                grid-gap: 6px;
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 1440px) and (max-width: 1919px) {
     .text {
         grid-gap: 3px;

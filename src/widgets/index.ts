@@ -53,7 +53,7 @@ import { EmojiModal } from "./components/EmojiModal/EmojiModal";
 import { ConnectionModal } from "./components/ConnectionModal/ConnectionModal";
 import { EmployeeInfoCard } from "./components/EmployeeInfoCard/EmployeeInfoCard";
 import { EmployeeData } from "./components/EmployeeData/EmployeeData";
-import { Fine } from "./components/Fine/Fine";
+import { DiseaseInfo } from "./components/DiseaseInfo/DiseaseInfo";
 import { BlueSliderArrows } from "./components/BlueSliderArrows/BlueSliderArrows";
 import { WhiteContentBlock } from "./components/WhiteContentBlock/WhiteContentBlock";
 import { WorldMap } from "./components/WorldMap/WorldMap";
@@ -119,7 +119,7 @@ export {
     ConnectionModal,
     EmployeeInfoCard,
     EmployeeData,
-    Fine,
+    DiseaseInfo,
     BlueSliderArrows,
     WhiteContentBlock,
     WorldMap,

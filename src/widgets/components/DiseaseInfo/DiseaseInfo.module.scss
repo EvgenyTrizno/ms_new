@@ -1,4 +1,4 @@
-.fine {
+.info {
     display: flex;
     align-items: center;
     grid-gap: 10px;
@@ -11,9 +11,12 @@
         align-items: center;
         justify-content: center;
         border-radius: 100%;
+        background-color: var(--red-100);
+    }
 
-        &Red {
-            background-color: var(--red-100);
-        }
+    .data {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 4px;  
     }
 }

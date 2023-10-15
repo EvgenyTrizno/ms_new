@@ -1,14 +1,8 @@
-.info {
-    grid-gap: 10px;
-    display: grid;
-    grid-template-columns: 360px 400px 1fr;
-
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 16px;
-    }
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
 }
 
 .center {
@@ -163,4 +157,17 @@
     display: grid;
     grid-template-columns: 1fr 133px;
     grid-gap: 10px;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .center {
+        .block {
+            .admin {
+                img {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+        }
+    }
 }
