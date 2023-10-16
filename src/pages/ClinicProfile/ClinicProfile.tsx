@@ -31,7 +31,7 @@ import { LAPTOP, MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
 import { Btn, Text } from "@/shared";
 
 import man from "/assets/man.jpg";
-import arrow from "/assets/arrow-right.svg";
+// import arrow from "/assets/arrow-right.svg";
 import controller from "/assets/controler.svg";
 import styles from "./ClinicProfile.module.scss";
 

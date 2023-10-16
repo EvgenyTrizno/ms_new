@@ -24,7 +24,7 @@ import {
     CenterOwner,
 } from "@/widgets";
 import { Btn, Text } from "@/shared";
-import { PC, SMALL_LAPTOP } from "@/shared/utils";
+import { PC } from "@/shared/utils";
 
 import man from "/assets/man.jpg";
 import controller from "/assets/controler.svg";
@@ -217,7 +217,7 @@ const CenterPage: FC = () => {
                                         <div className={styles.list}>
                                             {[1, 2, 3, 4, 5].map((item) => (
                                                 // <Fine key={item} />
-                                                <div></div>
+                                                <div key={item}></div>
                                             ))}
                                         </div>
                                     </div>
