@@ -62,6 +62,10 @@ import { Indicator } from "./components/Indicator/Indicator";
 import { AdminPanelContainer } from "./components/AdminPanelContainer/AdminPanelContainer";
 import { Cols } from "./components/Cols/Cols";
 import { InfoText } from "./components/InfoText/InfoText";
+import { CenterOwner } from "./components/CenterOwner/CenterOwner";
+import { RequestBlock } from "./components/RequestBlock/RequestBlock";
+import { MailLayout } from "./components/MailLayout/MailLayout";
+import { MailHeader } from "./components/MailHeader/MailHeader";
 
 export {
     Login,
@@ -128,4 +132,8 @@ export {
     AdminPanelContainer,
     Cols,
     InfoText,
+    CenterOwner,
+    RequestBlock,
+    MailLayout,
+    MailHeader,
 };
