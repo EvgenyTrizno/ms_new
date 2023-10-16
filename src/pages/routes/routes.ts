@@ -95,6 +95,8 @@ const AdminPanelMapPage = lazy(
 );
 const CountryInfoPage = lazy(() => import("@/pages/CountryInfo/CountryInfo"));
 const CityInfoPage = lazy(() => import("@/pages/CityInfoPage/CityInfoPage"));
+const RequestsPage = lazy(() => import("@/pages/RequestsPage/RequestsPage"));
+const MailPage = lazy(() => import("@/pages/MailPage/MailPage"));
 
 const media = window.matchMedia("(max-width: 768px)").matches;
 
@@ -268,4 +270,6 @@ export const routes: RouteData[] = [
         Component: CityInfoPage,
         key: "admin-city-info_page",
     },
+    { path: "/requests", Component: RequestsPage, key: "requests_page" },
+    { path: "/mail", Component: MailPage, key: "mail_page" },
 ];
