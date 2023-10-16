@@ -162,12 +162,22 @@ const EmployeeProfilePage: FC = () => {
                                 <DiseaseInfo key={item} />
                             ))}
                         </Cols>
-                        <Btn color="#0064FA">Вся история болезней</Btn>
+                        <Btn
+                            color="#0064FA"
+                            height={SMALL_LAPTOP ? "35px" : ""}
+                            padding={SMALL_LAPTOP ? "10px 16px" : ""}
+                            br={SMALL_LAPTOP ? "9px" : ""}
+                            fz={SMALL_LAPTOP ? "12px" : ""}
+                        >
+                            Вся история болезней
+                        </Btn>
                     </WhiteContentBlock>
                 </Cols>
                 <WhiteContentBlock>
                     <div className={styles.nav}>
-                        <Text type="h4">Записи</Text>
+                        <Text type="h4" fz={SMALL_LAPTOP ? "15px" : ""}>
+                            Записи
+                        </Text>
                         <InfoText text="Все записи" />
                     </div>
                     <Cols type="auto" gap={10} count={3}>
@@ -375,34 +385,58 @@ const EmployeeProfilePage: FC = () => {
                         </div>
                         <div className={styles.stats}>
                             <div className={styles.item}>
-                                <Text type="h4" fz="15px">
+                                <Text
+                                    type="h4"
+                                    fz={SMALL_LAPTOP ? "13px" : "15px"}
+                                >
                                     Боль в горле
                                 </Text>
-                                <Text type="p" fz="13px">
+                                <Text
+                                    type="p"
+                                    fz={SMALL_LAPTOP ? "11px" : "13px"}
+                                >
                                     17:50 17 февраля 2023
                                 </Text>
                             </div>
                             <div className={styles.item}>
-                                <Text type="h4" fz="15px">
+                                <Text
+                                    type="h4"
+                                    fz={SMALL_LAPTOP ? "13px" : "15px"}
+                                >
                                     Боль в горле
                                 </Text>
-                                <Text type="p" fz="13px">
+                                <Text
+                                    type="p"
+                                    fz={SMALL_LAPTOP ? "11px" : "13px"}
+                                >
                                     17:50 17 февраля 2023
                                 </Text>
                             </div>
                             <div className={styles.item}>
-                                <Text type="h4" fz="15px">
+                                <Text
+                                    type="h4"
+                                    fz={SMALL_LAPTOP ? "13px" : "15px"}
+                                >
                                     Боль в горле
                                 </Text>
-                                <Text type="p" fz="13px">
+                                <Text
+                                    type="p"
+                                    fz={SMALL_LAPTOP ? "11px" : "13px"}
+                                >
                                     17:50 17 февраля 2023
                                 </Text>
                             </div>
                             <div className={styles.item}>
-                                <Text type="h4" fz="15px">
+                                <Text
+                                    type="h4"
+                                    fz={SMALL_LAPTOP ? "13px" : "15px"}
+                                >
                                     Боль в горле
                                 </Text>
-                                <Text type="p" fz="13px">
+                                <Text
+                                    type="p"
+                                    fz={SMALL_LAPTOP ? "11px" : "13px"}
+                                >
                                     17:50 17 февраля 2023
                                 </Text>
                             </div>
@@ -527,24 +561,47 @@ const EmployeeProfilePage: FC = () => {
                             <div className={styles.results}>
                                 <div className={styles.result}>
                                     <img src={search} alt="" />
-                                    <Text type="p" fw={400} color="#3C3D3E">
+                                    <Text
+                                        type="p"
+                                        fz={SMALL_LAPTOP ? "13px" : ""}
+                                        fw={400}
+                                        color="#3C3D3E"
+                                    >
                                         Что делать при ангине?
                                     </Text>
                                 </div>
                                 <div className={styles.result}>
                                     <img src={search} alt="" />
-                                    <Text type="p" fw={400} color="#3C3D3E">
+                                    <Text
+                                        type="p"
+                                        fz={SMALL_LAPTOP ? "13px" : ""}
+                                        fw={400}
+                                        color="#3C3D3E"
+                                    >
                                         Что делать при ангине?
                                     </Text>
                                 </div>
                                 <div className={styles.result}>
                                     <img src={search} alt="" />
-                                    <Text type="p" fw={400} color="#3C3D3E">
+                                    <Text
+                                        type="p"
+                                        fz={SMALL_LAPTOP ? "13px" : ""}
+                                        fw={400}
+                                        color="#3C3D3E"
+                                    >
                                         Что делать при ангине?
                                     </Text>
                                 </div>
                             </div>
-                            <Btn color="#0064FA">Все поисковые запросы</Btn>
+                            <Btn
+                                color="#0064FA"
+                                height={SMALL_LAPTOP ? "35px" : ""}
+                                br={SMALL_LAPTOP ? "9px" : ""}
+                                padding={SMALL_LAPTOP ? "10px 16px" : ""}
+                                fz={SMALL_LAPTOP ? "12px" : ""}
+                            >
+                                Все поисковые запросы
+                            </Btn>
                         </div>
                     </WhiteContentBlock>
                     <WhiteContentBlock>

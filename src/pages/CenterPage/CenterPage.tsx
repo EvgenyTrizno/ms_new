@@ -21,12 +21,12 @@ import {
     Search,
     WhiteContentBlock,
     Cols,
+    CenterOwner,
 } from "@/widgets";
 import { Btn, Text } from "@/shared";
 import { PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import man from "/assets/man.jpg";
-import arrow from "/assets/arrow-right.svg";
 import controller from "/assets/controler.svg";
 import money from "/assets/money.svg";
 import styles from "./CenterPage.module.scss";
@@ -138,27 +138,7 @@ const CenterPage: FC = () => {
                     <EmployeeInfoCard type="clinic" />
                     <EmployeeData type="clinic" />
                     <div className={styles.center}>
-                        <div className={styles.block}>
-                            <WhiteContentBlock>
-                                <div className={styles.nav}>
-                                    <Text
-                                        type="h2"
-                                        fz={SMALL_LAPTOP ? "15px" : "20px"}
-                                    >
-                                        Администратор
-                                    </Text>
-                                    <img src={arrow} alt="" />
-                                </div>
-                                <div className={styles.admin}>
-                                    <img src={man} alt="" />
-                                    <div className={styles.text}>
-                                        <Text type="h2" fz="18px">
-                                            Собственность Pre-Recover
-                                        </Text>
-                                    </div>
-                                </div>
-                            </WhiteContentBlock>
-                        </div>
+                        <CenterOwner type="center" />
                         <WhiteContentBlock>
                             <div
                                 className={styles.colsX2}

@@ -16,10 +16,12 @@ import { Layout } from "../Layout/Layout";
 import {
     AdminPanelContainer,
     BlueSliderArrows,
+    CenterOwner,
     Cols,
     CustomMobileHeader,
     EmployeeData,
     EmployeeInfoCard,
+    InfoText,
     MobileContainer,
     Rating,
     Search,
@@ -191,79 +193,19 @@ const ClinicProfile: FC = () => {
                         <EmployeeInfoCard type="clinic" />
                         <EmployeeData type="clinic" />
                         <div className={styles.clinic}>
-                            <WhiteContentBlock>
-                                <div className={styles.admin}>
-                                    <div className={styles.nav}>
-                                        <Text
-                                            type="h2"
-                                            fz={
-                                                MOBILE || LAPTOP
-                                                    ? "17px"
-                                                    : "18px"
-                                            }
-                                        >
-                                            Администратор
-                                        </Text>
-                                        <img src={arrow} alt="" />
-                                    </div>
-                                    <div className={styles.data}>
-                                        <img src={man} alt="" />
-                                        <div
-                                            className={styles.text}
-                                            style={{
-                                                gridGap:
-                                                    LAPTOP || SMALL_LAPTOP
-                                                        ? 6
-                                                        : 8,
-                                            }}
-                                        >
-                                            <Text
-                                                type="h2"
-                                                fz={
-                                                    MOBILE || LAPTOP
-                                                        ? "15px"
-                                                        : "16px"
-                                                }
-                                            >
-                                                Алексеев Эрнест Владимирович
-                                            </Text>
-                                            <div
-                                                className={styles.text}
-                                                style={{ gridGap: 3 }}
-                                            >
-                                                <Text
-                                                    type="h2"
-                                                    fz={
-                                                        MOBILE
-                                                            ? "13px"
-                                                            : LAPTOP
-                                                            ? "15px"
-                                                            : "16px"
-                                                    }
-                                                >
-                                                    Номер телефона
-                                                </Text>
-                                                <Text
-                                                    type="p"
-                                                    fz={
-                                                        MOBILE || LAPTOP
-                                                            ? "14px"
-                                                            : "14px"
-                                                    }
-                                                >
-                                                    +7(923)-123-45-67
-                                                </Text>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </WhiteContentBlock>
+                            <CenterOwner type="clinic" />
                             <WhiteContentBlock>
                                 <div className={styles.stats}>
                                     <div className={styles.text}>
                                         <Text
                                             type="h2"
-                                            fz={LAPTOP ? "17px" : "18px"}
+                                            fz={
+                                                LAPTOP
+                                                    ? "17px"
+                                                    : SMALL_LAPTOP
+                                                    ? "15px"
+                                                    : "18px"
+                                            }
                                         >
                                             Количество посещений за день
                                         </Text>
@@ -272,7 +214,11 @@ const ClinicProfile: FC = () => {
                                                 <Text
                                                     type="h2"
                                                     fz={
-                                                        LAPTOP ? "26px" : "28px"
+                                                        LAPTOP
+                                                            ? "26px"
+                                                            : SMALL_LAPTOP
+                                                            ? "24px"
+                                                            : "28px"
                                                     }
                                                 >
                                                     86
@@ -280,7 +226,11 @@ const ClinicProfile: FC = () => {
                                                 <Text
                                                     type="h2"
                                                     fz={
-                                                        LAPTOP ? "15px" : "16px"
+                                                        LAPTOP
+                                                            ? "15px"
+                                                            : SMALL_LAPTOP
+                                                            ? "13px"
+                                                            : "16px"
                                                     }
                                                 >
                                                     Онлайн
@@ -290,7 +240,11 @@ const ClinicProfile: FC = () => {
                                                 <Text
                                                     type="h2"
                                                     fz={
-                                                        LAPTOP ? "26px" : "28px"
+                                                        LAPTOP
+                                                            ? "26px"
+                                                            : SMALL_LAPTOP
+                                                            ? "24px"
+                                                            : "28px"
                                                     }
                                                 >
                                                     86
@@ -298,7 +252,11 @@ const ClinicProfile: FC = () => {
                                                 <Text
                                                     type="h2"
                                                     fz={
-                                                        LAPTOP ? "15px" : "16px"
+                                                        LAPTOP
+                                                            ? "15px"
+                                                            : SMALL_LAPTOP
+                                                            ? "13px"
+                                                            : "16px"
                                                     }
                                                 >
                                                     Оффлайн
@@ -312,7 +270,13 @@ const ClinicProfile: FC = () => {
                                 <div className={styles.text}>
                                     <Text
                                         type="h2"
-                                        fz={LAPTOP ? "17px" : "18px"}
+                                        fz={
+                                            LAPTOP
+                                                ? "17px"
+                                                : SMALL_LAPTOP
+                                                ? "15px"
+                                                : "18px"
+                                        }
                                     >
                                         Записи
                                     </Text>
@@ -324,7 +288,11 @@ const ClinicProfile: FC = () => {
                                         <div className={styles.sumBlock}>
                                             <Text
                                                 type="h2"
-                                                fz={MOBILE ? "24px" : "28px"}
+                                                fz={
+                                                    MOBILE || SMALL_LAPTOP
+                                                        ? "24px"
+                                                        : "28px"
+                                                }
                                             >
                                                 86
                                             </Text>
@@ -335,7 +303,11 @@ const ClinicProfile: FC = () => {
                                                 <Text
                                                     type="h2"
                                                     fz={
-                                                        MOBILE ? "14px" : "16px"
+                                                        MOBILE
+                                                            ? "14px"
+                                                            : SMALL_LAPTOP
+                                                            ? "13px"
+                                                            : "16px"
                                                     }
                                                 >
                                                     Отменено
@@ -364,7 +336,11 @@ const ClinicProfile: FC = () => {
                                                 <Text
                                                     type="h2"
                                                     fz={
-                                                        MOBILE ? "14px" : "16px"
+                                                        MOBILE
+                                                            ? "14px"
+                                                            : SMALL_LAPTOP
+                                                            ? "13px"
+                                                            : "16px"
                                                     }
                                                 >
                                                     Перенесено
@@ -500,6 +476,8 @@ const ClinicProfile: FC = () => {
                                     ? ["1fr", "1fr", "1fr", "1fr"]
                                     : MOBILE
                                     ? []
+                                    : SMALL_LAPTOP
+                                    ? ["repeat(3, 1fr)"]
                                     : ["252px", "252px", "252px", "252px"]
                             }
                         >
@@ -510,9 +488,20 @@ const ClinicProfile: FC = () => {
                                             <img src={man} alt="" />
                                             <div
                                                 className={styles.text}
-                                                style={{ gridGap: 10 }}
+                                                style={{
+                                                    gridGap: SMALL_LAPTOP
+                                                        ? 6
+                                                        : 10,
+                                                }}
                                             >
-                                                <Text type="h2" fz="14px">
+                                                <Text
+                                                    type="h2"
+                                                    fz={
+                                                        SMALL_LAPTOP
+                                                            ? "12px"
+                                                            : "14px"
+                                                    }
+                                                >
                                                     Ковалева Елена Владимировна
                                                 </Text>
                                                 <div className={styles.bottom}>
@@ -521,33 +510,22 @@ const ClinicProfile: FC = () => {
                                                         gap={
                                                             LAPTOP
                                                                 ? "4px"
+                                                                : SMALL_LAPTOP
+                                                                ? "2px"
                                                                 : "5px"
                                                         }
-                                                        width="20px"
-                                                        height="20px"
+                                                        width={
+                                                            SMALL_LAPTOP
+                                                                ? "16px"
+                                                                : "20px"
+                                                        }
+                                                        height={
+                                                            SMALL_LAPTOP
+                                                                ? "16px"
+                                                                : "20px"
+                                                        }
                                                     />
-                                                    <div
-                                                        className={styles.more}
-                                                    >
-                                                        <Text
-                                                            type="p"
-                                                            color="#0064FA"
-                                                            fz="14px"
-                                                        >
-                                                            Профиль
-                                                        </Text>
-                                                        <svg
-                                                            width="17"
-                                                            height="16"
-                                                            viewBox="0 0 17 16"
-                                                            fill="none"
-                                                        >
-                                                            <path
-                                                                d="M6.16484 13.5564C6.03817 13.5564 5.9115 13.5097 5.8115 13.4097C5.61817 13.2164 5.61817 12.8964 5.8115 12.703L10.1582 8.35638C10.4782 8.03638 10.4782 7.51638 10.1582 7.19638L5.8115 2.84971C5.61817 2.65638 5.61817 2.33638 5.8115 2.14305C6.00484 1.94971 6.32484 1.94971 6.51817 2.14305L10.8648 6.48971C11.2048 6.82971 11.3982 7.28971 11.3982 7.77638C11.3982 8.26305 11.2115 8.72305 10.8648 9.06305L6.51817 13.4097C6.41817 13.503 6.2915 13.5564 6.16484 13.5564Z"
-                                                                fill="#0064FA"
-                                                            />
-                                                        </svg>
-                                                    </div>
+                                                    <InfoText text="Профиль" />
                                                 </div>
                                             </div>
                                         </div>
