@@ -1,0 +1,4 @@
+.mailHeader {
+    display: grid;
+    grid-template-columns: 125px 1fr calc(1fr / 2) 125px;
+}
