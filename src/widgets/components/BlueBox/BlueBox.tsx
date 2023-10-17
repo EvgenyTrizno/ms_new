@@ -7,6 +7,10 @@ interface IBlueBoxProps {
     style?: CSSProperties;
 }
 
-export const BlueBox: FC<IBlueBoxProps> = ({ children }) => {
-    return <div className={styles.block}>{children}</div>;
+export const BlueBox: FC<IBlueBoxProps> = ({ children, style }) => {
+    return (
+        <div className={styles.block} style={style}>
+            {children}
+        </div>
+    );
 };
