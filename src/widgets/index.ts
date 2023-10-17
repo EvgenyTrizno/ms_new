@@ -66,6 +66,11 @@ import { CenterOwner } from "./components/CenterOwner/CenterOwner";
 import { RequestBlock } from "./components/RequestBlock/RequestBlock";
 import { MailLayout } from "./components/MailLayout/MailLayout";
 import { MailHeader } from "./components/MailHeader/MailHeader";
+import { MailMessage } from "./components/MailMessage/MailMessage";
+import { MailManage } from "./components/MailManage/MailManage";
+import { SocialNetworkInfoBlock } from "./components/SocialNetworkInfoBlock/SocialNetworkInfoBlock";
+import { SocialNetworkInfoLayout } from "./components/SocialNetworkInfoLayout/SocialNetworkInfoLayout";
+import { IncomeBlock } from "./components/IncomeBlock/IncomeBlock";
 
 export {
     Login,
@@ -136,4 +141,9 @@ export {
     RequestBlock,
     MailLayout,
     MailHeader,
+    MailMessage,
+    MailManage,
+    SocialNetworkInfoBlock,
+    SocialNetworkInfoLayout,
+    IncomeBlock,
 };
