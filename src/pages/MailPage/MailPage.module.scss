@@ -2,3 +2,13 @@
     margin: 0 auto;
     width: 50%;
 }
+
+.list {
+    margin-top: 30px;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .list {
+        margin-top: 20px;
+    }
+}
