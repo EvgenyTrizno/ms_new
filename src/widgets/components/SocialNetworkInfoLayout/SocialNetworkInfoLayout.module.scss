@@ -1,0 +1,31 @@
+.top {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 5px;
+
+    .count {
+        display: flex;
+        align-items: center;
+        grid-gap: 8px;
+    }
+}
+
+.unread {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--blue-100);
+
+    .text {
+        display: flex;
+        align-items: center;
+        grid-gap: 10px;
+    }
+}
