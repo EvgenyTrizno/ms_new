@@ -1,0 +1,16 @@
+.manage {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+    justify-content: flex-end;
+
+    img {
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .manage {
+        grid-gap: 12px;
+    }
+}
