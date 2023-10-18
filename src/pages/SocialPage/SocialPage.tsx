@@ -14,6 +14,7 @@ import {
     Indicator,
     BlueBox,
     BlueSliderArrows,
+    IncomeBlock,
 } from "@/widgets";
 import { Text } from "@/shared";
 
@@ -23,6 +24,11 @@ import read from "/assets/read-blue.svg";
 import styles from "./SocialPage.module.scss";
 
 const SocialPage: FC = () => {
+    const incomeData = [
+        { title: "Расходы", sum: 1567 },
+        { title: "Вся сумма", sum: 42567 },
+    ];
+
     return (
         <Layout>
             <AdminPanelContainer>
@@ -248,6 +254,14 @@ const SocialPage: FC = () => {
                         </BlueBox>
                     </Cols>
                 </WhiteContentBlock>
+                <Cols type="custom" gap={10} cols={["352px", "1fr"]}>
+                    <IncomeBlock title="Деньги на рекламу" data={incomeData} />
+                    <WhiteContentBlock>
+                        <Text type="h2" fz="18px">
+                            Реклама и расходы
+                        </Text>
+                    </WhiteContentBlock>
+                </Cols>
             </AdminPanelContainer>
         </Layout>
     );
