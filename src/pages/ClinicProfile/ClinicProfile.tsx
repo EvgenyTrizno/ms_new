@@ -15,12 +15,14 @@ import { Line } from "react-chartjs-2";
 import { Layout } from "../Layout/Layout";
 import {
     AdminPanelContainer,
+    BlueBox,
     BlueSliderArrows,
     CenterOwner,
     Cols,
     CustomMobileHeader,
     EmployeeData,
     EmployeeInfoCard,
+    IncomeBlock,
     InfoText,
     MobileContainer,
     Rating,
@@ -167,6 +169,17 @@ const ClinicProfile: FC = () => {
         ],
     };
 
+    const incomeData = [
+        {
+            title: "За день",
+            sum: 1567,
+        },
+        {
+            title: "Вся сумма",
+            sum: 42567,
+        },
+    ];
+
     return (
         <Layout>
             {MOBILE && (
@@ -210,7 +223,15 @@ const ClinicProfile: FC = () => {
                                             Количество посещений за день
                                         </Text>
                                         <div className={styles.row}>
-                                            <div className={styles.sumBlock}>
+                                            <BlueBox
+                                                style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    width: "100%",
+                                                    gridGap: 10,
+                                                    padding: "12px 16px",
+                                                }}
+                                            >
                                                 <Text
                                                     type="h2"
                                                     fz={
@@ -235,8 +256,16 @@ const ClinicProfile: FC = () => {
                                                 >
                                                     Онлайн
                                                 </Text>
-                                            </div>
-                                            <div className={styles.sumBlock}>
+                                            </BlueBox>
+                                            <BlueBox
+                                                style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    width: "100%",
+                                                    gridGap: 10,
+                                                    padding: "12px 16px",
+                                                }}
+                                            >
                                                 <Text
                                                     type="h2"
                                                     fz={
@@ -261,7 +290,7 @@ const ClinicProfile: FC = () => {
                                                 >
                                                     Оффлайн
                                                 </Text>
-                                            </div>
+                                            </BlueBox>
                                         </div>
                                     </div>
                                 </div>
@@ -285,7 +314,14 @@ const ClinicProfile: FC = () => {
                                         gap={LAPTOP ? 8 : 10}
                                         count={2}
                                     >
-                                        <div className={styles.sumBlock}>
+                                        <BlueBox
+                                            style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gridGap: 10,
+                                                padding: "12px 16px",
+                                            }}
+                                        >
                                             <Text
                                                 type="h2"
                                                 fz={
@@ -321,8 +357,15 @@ const ClinicProfile: FC = () => {
                                                     Записей
                                                 </Text>
                                             </div>
-                                        </div>
-                                        <div className={styles.sumBlock}>
+                                        </BlueBox>
+                                        <BlueBox
+                                            style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gridGap: 10,
+                                                padding: "12px 16px",
+                                            }}
+                                        >
                                             <Text
                                                 type="h2"
                                                 fz={MOBILE ? "24px" : "28px"}
@@ -354,7 +397,7 @@ const ClinicProfile: FC = () => {
                                                     Записей
                                                 </Text>
                                             </div>
-                                        </div>
+                                        </BlueBox>
                                     </Cols>
                                 </div>
                             </WhiteContentBlock>
@@ -365,49 +408,10 @@ const ClinicProfile: FC = () => {
                         gap={LAPTOP ? 8 : 10}
                         cols={MOBILE ? [] : ["360px", "1fr"]}
                     >
-                        <WhiteContentBlock>
-                            <Text type="h2" fz={LAPTOP ? "17px" : "18px"}>
-                                Баланс на счету
-                            </Text>
-                            <div className={styles.bal}>
-                                <div className={styles.sum}>
-                                    <Text type="p" fz={LAPTOP ? "14px" : ""}>
-                                        За день
-                                    </Text>
-                                    <div
-                                        className={`${styles.sumBlock} ${styles.mt5}`}
-                                    >
-                                        <Text
-                                            type="h2"
-                                            fz={LAPTOP ? "26px" : "28px"}
-                                        >
-                                            $
-                                        </Text>
-                                        <Text type="p" fz="20px">
-                                            1,567
-                                        </Text>
-                                    </div>
-                                </div>
-                                <div className={styles.sum}>
-                                    <Text type="p" fz={LAPTOP ? "14px" : ""}>
-                                        Вся сумма
-                                    </Text>
-                                    <div
-                                        className={`${styles.sumBlock} ${styles.mt5}`}
-                                    >
-                                        <Text
-                                            type="h2"
-                                            fz={LAPTOP ? "26px" : "28px"}
-                                        >
-                                            $
-                                        </Text>
-                                        <Text type="h2" fz="20px">
-                                            42,567
-                                        </Text>
-                                    </div>
-                                </div>
-                            </div>
-                        </WhiteContentBlock>
+                        <IncomeBlock
+                            title="Баланс на счету"
+                            data={incomeData}
+                        />
                         <WhiteContentBlock>
                             <div className={styles.text}>
                                 <div className={styles.nav}>
