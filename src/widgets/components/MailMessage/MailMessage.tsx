@@ -29,12 +29,11 @@ export const MailMessage: FC<IMailHeaderProps> = ({ date }) => {
                     Ваше резюме вчера просматривали 3 компании
                 </Text>
             </div>
-            {!SMALL_LAPTOP ||
-                (date && (
-                    <Text type="h4" color="#1D2226" position="center">
-                        12:30
-                    </Text>
-                ))}
+            {(!SMALL_LAPTOP || date) && (
+                <Text type="h4" color="#1D2226" position="center">
+                    12:30
+                </Text>
+            )}
             <MailManage />
         </div>
     );
