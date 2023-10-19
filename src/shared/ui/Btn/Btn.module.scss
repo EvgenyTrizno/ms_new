@@ -18,3 +18,12 @@
 .btn:disabled {
     background-color: #7EB2FF !important;
 }
+
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+    .btn {
+        padding: 12px;
+        font-size: 15px;
+        border-radius: 12px;
+        height: 42px;
+    }
+}

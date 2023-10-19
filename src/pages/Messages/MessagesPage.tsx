@@ -115,7 +115,10 @@ const MessagesPage: FC = () => {
                                     </Btn>
                                 )}
                             </div>
-                            <Filter data={["Сообщения", "Звонки"]} />
+                            <Filter
+                                data={["Сообщения", "Звонки"]}
+                                width="100%"
+                            />
                             {isOpenFilters && (
                                 <div className={styles.filtersBlock}>
                                     <div className={styles.selectedList}>

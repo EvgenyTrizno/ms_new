@@ -14,11 +14,14 @@
 
 .map {
     position: relative;
-    path {
-        fill: var(--blue);
-        transform: scale(0.5);
-        position: absolute;
-    }
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+
+    // path {
+    //     position: absolute;
+    //     z-index: 1;
+    // }
 }   
 
 .blocks {

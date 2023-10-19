@@ -16,12 +16,11 @@ import styles from "./CountryInfo.module.scss";
 const CountryInfo: FC = () => {
     const { country } = useSelectCountry();
     const svgRef = useRef<SVGSVGElement | null>(null);
-    const gRef = useRef<SVGGElement | null>(null);
 
     useEffect(() => {
         if (svgRef.current && country instanceof SVGPathElement) {
-            if (gRef.current) {
-                gRef.current.appendChild(country.cloneNode(true));
+            if (svgRef.current) {
+                svgRef.current.appendChild(country.cloneNode(true));
             }
         }
     }, [country]);
@@ -399,14 +398,12 @@ const CountryInfo: FC = () => {
                         </Text>
                         <svg
                             className={styles.map}
-                            height="300px"
-                            width="100%"
-                            x="50"
-                            y="50"
+                            width="680"
+                            height="265"
+                            viewBox="0 0 680 265"
+                            preserveAspectRatio="xMidYMid meet"
                             ref={svgRef}
-                        >
-                            <g ref={gRef}></g>
-                        </svg>
+                        ></svg>
                     </WhiteContentBlock>
                     <WhiteContentBlock>
                         <div className={styles.blocks}>

@@ -40,7 +40,7 @@ export const Filter: FC<IFilter> = ({ data, width, icons }) => {
                         setIsFilter(item);
                     }}
                 >
-                    {item}
+                    <span>{item}</span>
                     {item && icons && icons[i]}
                 </div>
             ))}

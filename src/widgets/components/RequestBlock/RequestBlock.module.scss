@@ -1,7 +1,41 @@
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.status {
+    padding: 4px;
+    border-radius: 100%;
+    background-color: var(--green-100);
+}
+
 .form {
-    display: grid;
+    display: flex;
     grid-gap: 8px;
     margin: 12px 0 24px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    flex-direction: column;
+
+    .top {
+        display: flex;
+        align-items: center;
+        grid-gap: 6px;
+    }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+    .form {
+        margin: 12px 0;
+        grid-gap: 5px;
+
+        .top {
+            grid-gap: 5px;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .form {
+        margin: 10px 0 12px;
+    }
 }
