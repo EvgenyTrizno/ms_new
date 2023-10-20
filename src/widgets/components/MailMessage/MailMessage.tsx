@@ -3,7 +3,7 @@ import { IMailHeaderProps } from "../MailHeader/MailHeader";
 
 import { Text } from "@/shared";
 import { MailManage } from "../MailManage/MailManage";
-import { SMALL_LAPTOP } from "@/shared/utils";
+import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
 
 import styles from "./MailMessage.module.scss";
 
@@ -26,10 +26,15 @@ export const MailMessage: FC<IMailHeaderProps> = ({ date }) => {
                 </Text>
                 &nbsp;
                 <Text type="p" color="#787B86" fz={SMALL_LAPTOP ? "14px" : ""}>
-                    Ваше резюме вчера просматривали 3 компании
+                    {LAPTOP
+                        ? "Ваше резюме вчера просматривали 3 компании".slice(
+                              0,
+                              4
+                          ) + "..."
+                        : " Ваше резюме вчера просматривали 3 компании"}
                 </Text>
             </div>
-            {(!SMALL_LAPTOP || date) && (
+            {date && (
                 <Text type="h4" color="#1D2226" position="center">
                     12:30
                 </Text>

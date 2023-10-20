@@ -2,3 +2,9 @@
     display: grid;
     grid-template-columns: 125px 1fr calc(1fr / 2) 125px;
 }
+
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+    .mailHeader {
+        grid-template-columns: 125px 1fr 125px 125px;
+    }
+}

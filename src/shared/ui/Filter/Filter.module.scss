@@ -72,8 +72,11 @@
 
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
     .container {
+        grid-gap: 5px;
+
         .item {
             font-size: 14px;
+            padding: 10px 20px;
         }
     }
 }

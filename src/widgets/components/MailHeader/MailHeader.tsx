@@ -14,8 +14,7 @@ export const MailHeader: FC<IMailHeaderProps> = ({ date = true }) => {
         <div
             className={styles.mailHeader}
             style={{
-                gridTemplateColumns:
-                    !date || SMALL_LAPTOP ? "125px 1fr 125px" : "",
+                gridTemplateColumns: !date ? "125px 1fr 125px" : "",
             }}
         >
             <Text type="h4" fz={SMALL_LAPTOP ? "12px" : "14px"} color="#7D7F82">
@@ -24,7 +23,7 @@ export const MailHeader: FC<IMailHeaderProps> = ({ date = true }) => {
             <Text type="h4" fz={SMALL_LAPTOP ? "12px" : "14px"} color="#7D7F82">
                 Сообщение
             </Text>
-            {(!SMALL_LAPTOP || date) && (
+            {date && (
                 <Text type="h4" fz="14px" color="#7D7F82" position="center">
                     Дата
                 </Text>

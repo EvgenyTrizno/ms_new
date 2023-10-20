@@ -29,3 +29,28 @@
         grid-gap: 10px;
     }
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .top {
+    grid-gap: 10px;
+    
+    .icon {
+        width: 56px;
+        height: 56px;
+    }
+  }
+  
+  .data {
+    .count {
+        grid-gap: 4px;
+    }
+  }
+
+  .unread {
+    padding-top: 10px;
+
+    .text {
+        grid-gap: 6px;
+    }
+  }
+}

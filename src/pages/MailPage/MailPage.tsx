@@ -10,7 +10,7 @@ import {
 import { Filter, Text } from "@/shared";
 
 import styles from "./MailPage.module.scss";
-import { SMALL_LAPTOP } from "@/shared/utils";
+import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
 
 const MailPage: FC = () => {
     return (
@@ -30,30 +30,36 @@ const MailPage: FC = () => {
                 <Text
                     type="p"
                     position="center"
-                    fz={SMALL_LAPTOP ? "14px" : ""}
+                    fz={SMALL_LAPTOP || LAPTOP ? "14px" : ""}
                     color="#7D7F82"
                 >
                     Сегодня
                 </Text>
                 <MailLayout>
-                    <MailHeader date />
+                    <MailHeader date={SMALL_LAPTOP ? false : true} />
                     <div className={styles.list}>
                         {[1, 2, 3, 4].map((item) => (
-                            <MailMessage date key={item} />
+                            <MailMessage
+                                date={SMALL_LAPTOP ? false : true}
+                                key={item}
+                            />
                         ))}
                     </div>
                 </MailLayout>
                 <Text
                     type="p"
                     position="center"
-                    fz={SMALL_LAPTOP ? "14px" : ""}
+                    fz={SMALL_LAPTOP || LAPTOP ? "14px" : ""}
                     color="#7D7F82"
                 >
                     Полученные ранее
                 </Text>
                 <MailLayout>
                     {[1, 2, 3, 4].map((item) => (
-                        <MailMessage date key={item} />
+                        <MailMessage
+                            date={SMALL_LAPTOP ? false : true}
+                            key={item}
+                        />
                     ))}
                 </MailLayout>
             </AdminPanelContainer>

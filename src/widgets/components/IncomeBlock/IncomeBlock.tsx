@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { BlueBox } from "../BlueBox/BlueBox";
 import { Text } from "@/shared";
-import { LAPTOP } from "@/shared/utils";
+import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
 import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
 
 import styles from "./IncomeBlock.module.scss";
@@ -20,7 +20,10 @@ interface IIncomeBlockProps {
 export const IncomeBlock: FC<IIncomeBlockProps> = ({ title, data }) => {
     return (
         <WhiteContentBlock>
-            <Text type="h2" fz={LAPTOP ? "17px" : "18px"}>
+            <Text
+                type="h2"
+                fz={LAPTOP ? "17px" : SMALL_LAPTOP ? "15px" : "18px"}
+            >
                 {title}
             </Text>
             <div className={styles.bal}>
