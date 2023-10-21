@@ -71,6 +71,9 @@ import { MailManage } from "./components/MailManage/MailManage";
 import { SocialNetworkInfoBlock } from "./components/SocialNetworkInfoBlock/SocialNetworkInfoBlock";
 import { SocialNetworkInfoLayout } from "./components/SocialNetworkInfoLayout/SocialNetworkInfoLayout";
 import { IncomeBlock } from "./components/IncomeBlock/IncomeBlock";
+import { Row } from "./components/Row/Row";
+import { Inner } from "./components/Inner/Inner";
+import { Rows } from "./components/Rows/Rows";
 
 export {
     Login,
@@ -146,4 +149,7 @@ export {
     SocialNetworkInfoBlock,
     SocialNetworkInfoLayout,
     IncomeBlock,
+    Row,
+    Inner,
+    Rows,
 };
