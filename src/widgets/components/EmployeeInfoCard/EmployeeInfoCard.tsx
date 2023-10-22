@@ -47,72 +47,8 @@ export const EmployeeInfoCard: FC<IEmployeeCardType> = ({ type }) => {
                                     </div>
                                     {type === ("clinic" || "center") && (
                                         <div className={styles.btns}>
-                                            <Btn
-                                                color="#0064FA"
-                                                height={
-                                                    MOBILE || PC || SMALL_LAPTOP
-                                                        ? "42px"
-                                                        : LAPTOP
-                                                        ? "37px"
-                                                        : ""
-                                                }
-                                                fz={
-                                                    MOBILE || PC || SMALL_LAPTOP
-                                                        ? "15px"
-                                                        : LAPTOP
-                                                        ? "14px"
-                                                        : ""
-                                                }
-                                                padding={
-                                                    MOBILE
-                                                        ? "0px"
-                                                        : LAPTOP
-                                                        ? "10px 12px"
-                                                        : PC || SMALL_LAPTOP
-                                                        ? "12px"
-                                                        : ""
-                                                }
-                                                br={
-                                                    MOBILE || LAPTOP || LAPTOP
-                                                        ? "9px"
-                                                        : ""
-                                                }
-                                            >
-                                                Связаться
-                                            </Btn>
-                                            <Btn
-                                                color="#D64657"
-                                                height={
-                                                    MOBILE || PC || SMALL_LAPTOP
-                                                        ? "42px"
-                                                        : LAPTOP
-                                                        ? "37px"
-                                                        : ""
-                                                }
-                                                padding={
-                                                    MOBILE
-                                                        ? "0px"
-                                                        : LAPTOP
-                                                        ? "10px 12px"
-                                                        : PC || SMALL_LAPTOP
-                                                        ? "12px"
-                                                        : ""
-                                                }
-                                                fz={
-                                                    MOBILE || PC || SMALL_LAPTOP
-                                                        ? "15px"
-                                                        : LAPTOP
-                                                        ? "14px"
-                                                        : ""
-                                                }
-                                                br={
-                                                    MOBILE ||
-                                                    LAPTOP ||
-                                                    SMALL_LAPTOP
-                                                        ? "9px"
-                                                        : ""
-                                                }
-                                            >
+                                            <Btn color="#0064FA">Связаться</Btn>
+                                            <Btn color="#D64657">
                                                 Пожаловаться
                                             </Btn>
                                         </div>

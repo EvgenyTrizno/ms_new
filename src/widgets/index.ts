@@ -74,6 +74,8 @@ import { IncomeBlock } from "./components/IncomeBlock/IncomeBlock";
 import { Row } from "./components/Row/Row";
 import { Inner } from "./components/Inner/Inner";
 import { Rows } from "./components/Rows/Rows";
+import { CenterView } from "./components/CenterView/CenterView";
+import { MainText } from "./components/MainText/MainText";
 
 export {
     Login,
@@ -152,4 +154,6 @@ export {
     Row,
     Inner,
     Rows,
+    CenterView,
+    MainText,
 };

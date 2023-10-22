@@ -1,13 +1,13 @@
 .btn {
-    height: 52px;
-    border-radius: var(--mobile-default-border);
-    font-size: 16px;
+    height: 42px;
+    border-radius: 10px;
+    font-size: 15px;
     color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    padding: 16px 24px;
+    padding: 12px 18px;
     transition: opacity ease-out .5s;
 }
 
@@ -21,9 +21,15 @@
 
 @media screen and (min-width: 1440px) and (max-width: 1919px) {
     .btn {
-        padding: 12px;
-        font-size: 15px;
-        border-radius: 12px;
-        height: 42px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .btn {
+        font-size: 12px;
+        padding: 10px 12px;
+        height: 35px;
+        border-radius: 8px;
     }
 }

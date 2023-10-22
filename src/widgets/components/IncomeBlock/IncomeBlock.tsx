@@ -37,15 +37,28 @@ export const IncomeBlock: FC<IIncomeBlockProps> = ({ title, data }) => {
                                 display: "flex",
                                 alignItems: "center",
                                 width: "100%",
-                                padding: "12px 16px",
+                                padding: LAPTOP
+                                    ? "10px 14px"
+                                    : SMALL_LAPTOP
+                                    ? "10px 12px"
+                                    : "12px 16px",
                                 gridGap: 10,
                                 marginTop: 5,
                             }}
                         >
-                            <Text type="h2" fz={LAPTOP ? "26px" : "28px"}>
+                            <Text
+                                type="h2"
+                                fz={
+                                    LAPTOP
+                                        ? "26px"
+                                        : SMALL_LAPTOP
+                                        ? "24px"
+                                        : "28px"
+                                }
+                            >
                                 $
                             </Text>
-                            <Text type="p" fz="20px">
+                            <Text type="p" fz={SMALL_LAPTOP ? "15px" : "20px"}>
                                 {item.sum.toLocaleString("en-US")}
                             </Text>
                         </BlueBox>

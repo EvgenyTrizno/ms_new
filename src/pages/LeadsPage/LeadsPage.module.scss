@@ -1,0 +1,18 @@
+.icon {
+    width: 48px;
+    height: 48px;
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+    .icon {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .icon {
+        width: 36px;
+        height: 36px;
+    }
+}

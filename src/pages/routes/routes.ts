@@ -84,7 +84,7 @@ const AbountCenterPage = lazy(
 const ClinicProfilePage = lazy(
     () => import("@/pages/ClinicProfile/ClinicProfile")
 );
-const CenterProfilePage = lazy(() => import("@/pages/CenterPage/CenterPage"));
+// const CenterProfilePage = lazy(() => import("@/pages/CenterPage/CenterPage"));
 const EmployeeProfilePage = lazy(
     () => import("@/pages/EmployeeProfilePage/EmployeeProfilePage")
 );
@@ -250,7 +250,7 @@ export const routes: RouteData[] = [
     },
     {
         path: "/center/:id",
-        Component: CenterProfilePage,
+        Component: ClinicProfilePage,
         key: "center-profile_page",
     },
     {

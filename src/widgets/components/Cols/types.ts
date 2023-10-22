@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, CSSProperties } from "react";
 
 export interface ColsProps {
     children: ReactNode;
@@ -6,4 +6,5 @@ export interface ColsProps {
     gap: number | "auto";
     cols?: string[];
     type: "auto" | "custom";
+    style?: CSSProperties;
 }

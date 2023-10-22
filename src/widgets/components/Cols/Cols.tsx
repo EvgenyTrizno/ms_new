@@ -6,14 +6,15 @@ export const Cols: FC<ColsProps> = ({
     count = 2,
     type,
     gap,
+    style,
     cols,
 }) => {
-    console.log(cols?.join(" "));
     return (
         <>
             {type === "auto" && (
                 <div
                     style={{
+                        ...style,
                         display: "grid",
                         gridTemplateColumns: `repeat(${count}, 1fr)`,
                         gridGap: gap,
@@ -25,6 +26,7 @@ export const Cols: FC<ColsProps> = ({
             {type === "custom" && (
                 <div
                     style={{
+                        ...style,
                         display: "grid",
                         gridTemplateColumns: cols?.join(" "),
                         gridGap: gap,
