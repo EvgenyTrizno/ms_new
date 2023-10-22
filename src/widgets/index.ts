@@ -76,6 +76,7 @@ import { Inner } from "./components/Inner/Inner";
 import { Rows } from "./components/Rows/Rows";
 import { CenterView } from "./components/CenterView/CenterView";
 import { MainText } from "./components/MainText/MainText";
+import { UserReport } from "./components/UserReport/UserReport";
 
 export {
     Login,
@@ -156,4 +157,5 @@ export {
     Rows,
     CenterView,
     MainText,
+    UserReport,
 };

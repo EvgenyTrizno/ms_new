@@ -15,6 +15,11 @@
         border: 1px solid var(--blue);
         cursor: pointer;
         transition: 200ms ease-out;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
     }
 
     .arrow:first-child {
@@ -27,6 +32,20 @@
         svg {
             path {
                 stroke: var(--white);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .arrows {
+        .arrow {
+            width: 32px;
+            height: 32px;
+
+            img {
+                width: 16px;
+                height: 16px;
             }
         }
     }

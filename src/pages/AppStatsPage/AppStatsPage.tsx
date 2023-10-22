@@ -20,6 +20,9 @@ import {
     BlueBox,
     BlueSliderArrows,
     Cols,
+    Inner,
+    MainText,
+    UserReport,
     WhiteContentBlock,
 } from "@/widgets";
 
@@ -219,30 +222,24 @@ const AppStatsPage: FC = () => {
             <AdminPanelContainer>
                 <Cols type="auto" gap={10}>
                     <WhiteContentBlock>
-                        <Text type="h2" fz="18px">
-                            Болезни пациентов
-                        </Text>
+                        <MainText text="Болезни пациентов" />
                         <div className={styles.chart}>
                             <Bar options={options} data={data} />
                         </div>
                         <BlueSliderArrows />
                     </WhiteContentBlock>
                     <WhiteContentBlock>
-                        <Text type="h2" fz="18px">
-                            Количество скачиваний
-                        </Text>
+                        <MainText text="Количество скачиваний" />
                         <div className={styles.chart}></div>
                     </WhiteContentBlock>
                 </Cols>
                 <Cols type="custom" gap={10} cols={["1fr", "333px"]}>
-                    <div className={styles.box}>
-                        <Text type="h2" fz="18px">
-                            Возрастные группы пользователей
-                        </Text>
+                    <WhiteContentBlock>
+                        <MainText text="Возрастные группы пользователей" />
                         <div className={styles.bar}>
                             {/* <Bar options={options} data={data} /> */}
                         </div>
-                    </div>
+                    </WhiteContentBlock>
                     <div className={styles.stats}>
                         <WhiteContentBlock>
                             <div className={styles.text}>
@@ -262,7 +259,7 @@ const AppStatsPage: FC = () => {
                                 </Text>
                             </div>
                         </WhiteContentBlock>
-                        <div className={styles.box}>
+                        <WhiteContentBlock>
                             <div className={styles.text}>
                                 <Text type="h4">
                                     Удаленные аккаунты за сутки
@@ -271,18 +268,16 @@ const AppStatsPage: FC = () => {
                                     13,856
                                 </Text>
                             </div>
-                        </div>
+                        </WhiteContentBlock>
                     </div>
                 </Cols>
                 <div
                     className={styles.cols}
                     style={{ gridTemplateColumns: "604px 1fr 270px" }}
                 >
-                    <div className={styles.box}>
+                    <WhiteContentBlock>
                         <div className={styles.block}>
-                            <Text type="h2" fz="18px">
-                                Экстренные вызовы за сутки
-                            </Text>
+                            <MainText text="Экстренные вызовы за сутки" />
                             <div className={styles.extra}>
                                 <Cols type="auto" gap={10}>
                                     <BlueBox>
@@ -344,20 +339,18 @@ const AppStatsPage: FC = () => {
                             </div>
                             <BlueSliderArrows />
                         </div>
-                    </div>
-                    <div className={styles.box}>
+                    </WhiteContentBlock>
+                    <WhiteContentBlock>
                         <Line
                             width="100%"
                             height="160px"
                             data={dataLine}
                             options={optionsLine}
                         />
-                    </div>
-                    <div className={styles.box}>
+                    </WhiteContentBlock>
+                    <WhiteContentBlock>
                         <div className={styles.downloads}>
-                            <Text type="h2" fz="18px">
-                                За последние сутки
-                            </Text>
+                            <MainText text="За последние сутки" />
                             <BlueBox>
                                 <div className={styles.rowText}>
                                     <img src={appstore} alt="" />
@@ -385,15 +378,15 @@ const AppStatsPage: FC = () => {
                                 </div>
                             </BlueBox>
                         </div>
-                    </div>
+                    </WhiteContentBlock>
                 </div>
                 <div className={styles.cols}>
-                    <div className={styles.box}>
+                    <WhiteContentBlock>
                         <div className={styles.text}>
-                            <Text type="h2" fz="18px">
-                                Часто задаваемые вопросы тех.поддержке у
-                                пользователей
-                            </Text>
+                            <MainText
+                                text="Часто задаваемые вопросы тех.поддержке у
+                                пользователей"
+                            />
                             <div className={styles.questions}>
                                 {[1, 2, 3, 4].map((item) => (
                                     <div
@@ -412,13 +405,13 @@ const AppStatsPage: FC = () => {
                                 ))}
                             </div>
                         </div>
-                    </div>
-                    <div className={styles.box}>
+                    </WhiteContentBlock>
+                    <WhiteContentBlock>
                         <div className={styles.text}>
-                            <Text type="h2" fz="18px">
-                                Часто задаваемые вопросы в тех.поддержке у
-                                сотрудников
-                            </Text>
+                            <MainText
+                                text="Часто задаваемые вопросы в тех.поддержке у
+                                сотрудников"
+                            />
                             <div className={styles.questions}>
                                 {[1, 2, 3, 4].map((item) => (
                                     <div
@@ -437,17 +430,26 @@ const AppStatsPage: FC = () => {
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </WhiteContentBlock>
                 </div>
                 <WhiteContentBlock>
+                    <Inner>
+                        <MainText text="Жалобы пользователей" />
+                        <Cols type="auto" gap={40} count={4}>
+                            {[1, 2, 3, 4].map((item) => (
+                                <UserReport key={item} />
+                            ))}
+                        </Cols>
+                        <BlueSliderArrows />
+                    </Inner>
+                </WhiteContentBlock>
+                <WhiteContentBlock>
                     <div className={styles.nav}>
-                        <Text type="h2" fz="18px">
-                            Отправка SMS
-                        </Text>
+                        <MainText text="Отправка SMS" />
                     </div>
-                    <Cols type="auto" gap={12} count={3}>
+                    <Cols type="auto" gap={12} count={2}>
                         <BlueBox>
-                            <Text type="h4">За регистрацию</Text>
+                            <Text type="h4">Потрачено за регистрации</Text>
                             <div className={styles.count}>
                                 <Text type="h2" fz="36px" position="center">
                                     94 SMS
@@ -463,23 +465,7 @@ const AppStatsPage: FC = () => {
                             </div>
                         </BlueBox>
                         <BlueBox>
-                            <Text type="h4">За вход</Text>
-                            <div className={styles.count}>
-                                <Text type="h2" fz="36px" position="center">
-                                    94 SMS
-                                </Text>
-                                <Text
-                                    type="h4"
-                                    fz="20px"
-                                    color="#7D7F82"
-                                    position="center"
-                                >
-                                    9.4$
-                                </Text>
-                            </div>
-                        </BlueBox>
-                        <BlueBox>
-                            <Text type="h4">За восстановление</Text>
+                            <Text type="h4">Потрачено за восстановления</Text>
                             <div className={styles.count}>
                                 <Text type="h2" fz="36px" position="center">
                                     94 SMS
