@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Text } from "@/shared";
-import { Row } from "../../../shared/ui/Row";
+import { Text } from "@/shared/ui/Text";
+import { Row } from "@/shared/ui/Row";
 
 import center from "/assets/center-avatar.jpg";
 import styles from "./CenterView.module.scss";

@@ -1,12 +1,9 @@
 import { ChangeEvent, FC, useState } from "react";
 import { Link } from "react-router-dom";
-import { ICustomError } from "@/shared/hooks/types";
 
 import { Text } from "@/shared/ui/Text";
 import { Input } from "@/shared/ui/Input";
 import { Btn } from "@/shared/ui/Btn";
-import { Auth } from "@/shared/api/Auth";
-import { setCookie } from "@/features";
 
 import eyeClose from "/assets/eye-close.svg";
 import eyeOpen from "/assets/eye-open.svg";
@@ -20,22 +17,6 @@ export const LoginForPersonal: FC = () => {
     const [number, setNumber] = useState<string>("");
     const [errorType, setErrorType] = useState<TErrorType>();
     const [error, setError] = useState<boolean>(false);
-
-    const { getToket } = Auth();
-
-    const handleClick = () => {
-        getToket(number, pass)
-            .then((res) => {
-                setCookie("refresh_token", res.refresh, 1);
-                location.pathname = "/";
-            })
-            .catch((e: ICustomError) => {
-                e.data?.detail === "Incorrect password"
-                    ? setErrorType("password")
-                    : setErrorType("account");
-                setError(true);
-            });
-    };
 
     return (
         <div className={styles.login}>
@@ -109,11 +90,7 @@ export const LoginForPersonal: FC = () => {
             <Link className={styles.link} to="/">
                 Забыли пароль?
             </Link>
-            <Btn
-                color="#0064FA"
-                onClick={handleClick}
-                disabled={!pass || !number}
-            >
+            <Btn color="#0064FA" disabled={!pass || !number}>
                 Войти
             </Btn>
         </div>

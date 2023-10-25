@@ -6,31 +6,16 @@ import {
     useState,
     useEffect,
 } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
-import { Btn, Text } from "@/shared";
-import { Auth } from "@/shared/api/Auth";
-import { useUserData } from "@/shared/model/store";
-import { getAccessTokenFromCookies, setCookie } from "@/features";
-import { Account } from "@/shared/api/Account";
-
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 import styles from "./Confirmation.module.scss";
 
 export const Confirmation: FC = () => {
     const [code, setCode] = useState<string>("");
     const [seconds, setSeconds] = useState<number>(60);
     const [searchParams] = useSearchParams();
-
-    const navigate = useNavigate();
-
-    const { number, pass1, email } = useUserData();
-    const {
-        sendVerifyCode,
-        resendVerifyCode,
-        getToket,
-        sendVerifyCodeRecoveryPassOnPhone,
-    } = Auth();
-    const { sendVerifyCodeForVerifyEmail } = Account();
 
     const codeRefs = [
         useRef<HTMLInputElement>(null),
@@ -40,9 +25,7 @@ export const Confirmation: FC = () => {
     ];
 
     const noCode = code.length !== 4;
-    const type = searchParams.get("type");
     const redirect = searchParams.get("redirect");
-    const token = getAccessTokenFromCookies();
 
     const handleCodeInputChange = (
         e: ChangeEvent<HTMLInputElement>,
@@ -73,46 +56,6 @@ export const Confirmation: FC = () => {
     //         // if ()
     //     }
     // };
-
-    const handleClick = () => {
-        if (code) {
-            if (number && redirect === "registration") {
-                sendVerifyCode(number, +code)
-                    .then((res) => console.log(res))
-                    .then(() =>
-                        getToket(number, pass1)
-                            .then((res) => {
-                                setCookie("access_token", res.access, 1);
-                                setCookie("refresh_token", res.refresh, 1);
-                            })
-                            .then(() => navigate("/"))
-                    );
-            } else if (number && redirect === "recovery" && type === "number") {
-                sendVerifyCodeRecoveryPassOnPhone(number, code)
-                    .then((res) => console.log(res))
-                    .then(() => navigate("/create-new-password?type=number"));
-            } else if (email && redirect === "recovery" && type === "email") {
-                sendVerifyCodeRecoveryPassOnPhone(email, code)
-                    .then((res) => console.log(res))
-                    .then(() => navigate("/create-new-password?type=email"));
-            } else if (
-                email &&
-                token &&
-                redirect === "verify" &&
-                type === "email"
-            ) {
-                sendVerifyCodeForVerifyEmail(token, code, email)
-                    .then((res) => console.log(res))
-                    .then(() => navigate("/profile"));
-            }
-        }
-    };
-
-    const resendCodeHandler = () => {
-        if (number !== "") {
-            resendVerifyCode(number);
-        }
-    };
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
@@ -183,7 +126,6 @@ export const Confirmation: FC = () => {
                             style={{
                                 cursor: "pointer",
                             }}
-                            onClick={resendCodeHandler}
                         >
                             Отправить код снова
                         </span>
@@ -194,7 +136,7 @@ export const Confirmation: FC = () => {
                     )}
                 </Text>
             </div>
-            <Btn color="#0064FA" onClick={handleClick} disabled={noCode}>
+            <Btn color="#0064FA" disabled={noCode}>
                 {redirect === "registration"
                     ? "Зарегестрироваться"
                     : "Продолжить"}

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import arrow from "/assets/arrow-top-green.svg";
 import arrowRed from "/assets/arrow-top-red.svg";

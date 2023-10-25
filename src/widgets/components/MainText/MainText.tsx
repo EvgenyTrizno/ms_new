@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
 
 interface ITextProps {

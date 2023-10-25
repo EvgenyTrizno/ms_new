@@ -1,7 +1,8 @@
 import { FC } from "react";
 
-import { Like, Dislike } from "@/features";
-import { Text } from "@/shared";
+import { Like } from "@/features/Like/ui";
+import { Dislike } from "@/features/Dislike/Dislike";
+import { Text } from "@/shared/ui/Text";
 import { Rating } from "../Rating/Rating";
 import { IComment } from "./types";
 

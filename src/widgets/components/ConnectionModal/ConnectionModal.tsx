@@ -1,6 +1,7 @@
 import { FC } from "react";
 
-import { Btn, Text } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 
 import woman from "/assets/woman.jpg";
 import user from "/assets/user-with-plus.svg";

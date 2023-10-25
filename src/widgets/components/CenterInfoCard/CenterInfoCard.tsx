@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { ICenterInfoCard } from "./types";
 
-import { Btn, Text } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 import { Rating } from "../Rating/Rating";
 
 import centerIcon from "/assets/center-icon.jpg";

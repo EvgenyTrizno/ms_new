@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { IMailHeaderProps } from "../MailHeader/MailHeader";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { MailManage } from "../MailManage/MailManage";
 import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
 

@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router";
 import { EActive, IMenuData } from "./types";
 import { TIsSelect } from "@/shared/model/store/types";
 
-import { Text, Switcher } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { useUserCondition, useMenu, useUserData } from "@/shared/model/store";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
 
@@ -851,7 +851,7 @@ export const Menu: FC = () => {
                             Состояние:
                         </Text>
                     )}
-                <Switcher isHovered={isHovered} />
+                {/* <Switcher isHovered={isHovered} /> */}
                 <div
                     className={styles.list}
                     style={{ marginTop: group === "Пользователи" ? "" : 0 }}

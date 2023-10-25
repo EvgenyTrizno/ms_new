@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router";
 import { IHeaderProps } from "./types";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { useUserCondition } from "@/shared/model/store";
 
 import styles from "./CustomMobileHeader.module.scss";

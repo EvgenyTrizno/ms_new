@@ -1,6 +1,8 @@
 import { FC, useState, FormEvent, useEffect } from "react";
 
-import { Text, Input, Btn } from "@/shared";
+import { Text } from "@/shared/ui/Text";
+import { Input } from "@/shared/ui/Input";
+import { Btn } from "@/shared/ui/Btn";
 import { Modal } from "../../../../shared/ui/Modal";
 import { MOBILE } from "@/shared/utils";
 

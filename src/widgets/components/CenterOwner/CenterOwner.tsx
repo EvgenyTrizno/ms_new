@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";
-import { Text } from "@/shared";
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
+import { Text } from "@/shared/ui/Text";
 import { SMALL_LAPTOP, MOBILE, LAPTOP } from "@/shared/utils";
 
 import man from "/assets/man.jpg";

@@ -1,7 +1,10 @@
 import { FC, useState, FormEvent, ChangeEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { Text, Input, Btn, Checkbox } from "@/shared";
+// import { Checkbox } from "@/shared";
+import { Text } from "@/shared/ui/Text";
+import { Input } from "@/shared/ui/Input";
+import { Btn } from "@/shared/ui/Btn";
 import { useUserData } from "@/shared/model/store";
 import { Auth } from "@/shared/api/Auth";
 
@@ -110,10 +113,10 @@ export const Registration: FC = () => {
                         />
                     </div>
                     <div className={styles.policy}>
-                        <Checkbox
+                        {/* <Checkbox
                             checked={checked}
                             onChange={() => setChecked((prev) => !prev)}
-                        />
+                        /> */}
                         <Text color="#7D7F82" type="p" fz="14px">
                             Я согласен со&nbsp;
                             <Link to="/" className={styles.link}>

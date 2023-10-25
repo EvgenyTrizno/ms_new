@@ -2,7 +2,10 @@ import { FC, useState, MouseEvent, useRef } from "react";
 import { motion } from "framer-motion";
 
 import { useUserCondition } from "@/shared/model/store";
-import { Text, PopUp, Input, BackArrow } from "@/shared";
+// import { PopUp, BackArrow } from "@/shared";
+import { Text } from "@/shared/ui/Text";
+import { Input } from "@/shared/ui/Input";
+
 import { ChatInfo, CustomMobileHeader, EmojiModal } from "@/widgets";
 
 import woman from "/assets/woman.jpg";
@@ -125,7 +128,7 @@ export const Chat: FC = () => {
             )}
             {MOBILE && (
                 <CustomMobileHeader back>
-                    <BackArrow />
+                    {/* <BackArrow /> */}
                     <div className={styles.data}>
                         <img src={woman} alt="" />
                         <div className="">
@@ -322,7 +325,7 @@ export const Chat: FC = () => {
                     </div>
                 </div>
             )}
-            <motion.div
+            {/* <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{
                     y: isOpen && isSelect === "Звонок" ? 10 : 30,
@@ -348,8 +351,8 @@ export const Chat: FC = () => {
                         </Text>
                     </li>
                 </PopUp>
-            </motion.div>
-            {isOpen && isSelect === "Отправить" && (
+            </motion.div> */}
+            {/* {isOpen && isSelect === "Отправить" && (
                 <PopUp width="180px" top={`${y / 1.43}px`} right="5px">
                     <li>
                         <Text type="p" color="#000" fz="14px">
@@ -372,8 +375,8 @@ export const Chat: FC = () => {
                         </Text>
                     </li>
                 </PopUp>
-            )}
-            {isOpen && isSelect === "Сообщение" && (
+            )} */}
+            {/* {isOpen && isSelect === "Сообщение" && (
                 <PopUp width="120x" top={`${y / 1.2}px`} left={`${x}px`}>
                     <li>
                         <Text type="p" color="#000" fz="14px">
@@ -401,7 +404,7 @@ export const Chat: FC = () => {
                         </Text>
                     </li>
                 </PopUp>
-            )}
+            )} */}
             {isOpenModal && <EmojiModal />}
         </div>
     );

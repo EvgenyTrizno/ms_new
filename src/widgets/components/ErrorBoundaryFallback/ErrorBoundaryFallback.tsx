@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { useUserCondition } from "@/shared/model/store";
-import { Btn } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
 
 import error from "/assets/error-boundary-fallback.svg";
 import errorRed from "/assets/error-boundary-fallback-red.svg";

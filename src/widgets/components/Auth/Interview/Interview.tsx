@@ -1,6 +1,8 @@
 import { FC, useState, useEffect, MouseEvent } from "react";
 
-import { Btn, Switch, Text } from "@/shared";
+// import { Switch } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 import { Calendar, decreasingMonths } from "../../Calendar/Calendar";
 import { SmallDropbox } from "../../SmallDropbox/SmallDropbox";
 import { Modal } from "../../../../shared/ui/Modal";
@@ -71,7 +73,7 @@ export const Interview: FC = () => {
                         <Text type="p" fz="18px" color="#262626">
                             Уведомить
                         </Text>
-                        <Switch />
+                        {/* <Switch /> */}
                     </div>
                 </div>
                 <Btn color="#0064FA">Продолжить</Btn>

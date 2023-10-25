@@ -3,14 +3,15 @@ import { useNavigate } from "react-router";
 import { TypeOfSelectedMethod } from "./types";
 
 import { Auth } from "@/shared/api/Auth";
-import { Btn, Input, Text } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Input } from "@/shared/ui/Input";
+import { Text } from "@/shared/ui/Text";
 
 import styles from "./Recovery.module.scss";
 import { useUserData } from "@/shared/model/store";
 
 export const Recovery: FC = () => {
     const [isSelect, setIsSelect] = useState<TypeOfSelectedMethod>("tel");
-
     const navigate = useNavigate();
 
     const { recoveryPasswordByEmail, recoveryPasswordByNumber } = Auth();

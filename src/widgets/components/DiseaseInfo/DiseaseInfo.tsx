@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import styles from "./DiseaseInfo.module.scss";
 import { InfoText } from "../../../shared/ui/InfoText";

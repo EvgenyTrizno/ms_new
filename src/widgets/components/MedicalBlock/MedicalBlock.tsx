@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { INoteBlockProps } from "./types";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import alarm from "/assets/alarm-clock.svg";
 import calendar from "/assets/calendar.svg";

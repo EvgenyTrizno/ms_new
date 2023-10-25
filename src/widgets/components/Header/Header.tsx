@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { IHeaderProps } from "./types";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { useMenu, useUserData } from "@/shared/model/store";
 import { useUserCondition, useNotification } from "@/shared/model/store";
 import { Balance } from "../Balance/Balance";

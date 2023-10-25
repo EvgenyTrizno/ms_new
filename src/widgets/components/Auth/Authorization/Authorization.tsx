@@ -7,15 +7,10 @@ import { IGeocoderData } from "./types";
 
 import { IVirusListData } from "@/shared/api/Virus/types";
 import { MOBILE } from "@/shared/utils";
-import {
-    Btn,
-    Checkbox,
-    Filter,
-    MobileFilter,
-    MobileSearch,
-    Text,
-} from "@/shared";
-import { Modal } from "../../../../shared/ui/Modal";
+// import { Checkbox, Filter, MobileFilter, MobileSearch } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
+import { Modal } from "@/shared/ui/Modal";
 import { useLocation } from "@/shared/hooks";
 import { Map } from "../../Map/Map";
 import { useFilter } from "@/shared/model/store";
@@ -180,14 +175,14 @@ export const Authorization: FC = () => {
                                 необходимо указать свое состояние на данный
                                 момент
                             </Text>
-                            {MOBILE ? (
+                            {/* {MOBILE ? (
                                 <div>sdsdsd</div>
                             ) : (
                                 <Filter
                                     width="100%"
                                     data={["Здоров", "Болен"]}
                                 />
-                            )}
+                            )} */}
                         </div>
                         <Btn color="#0064FA">Продолжить</Btn>
                     </>
@@ -233,14 +228,14 @@ export const Authorization: FC = () => {
                                     />
                                 ))}
                             </Map>
-                            {MOBILE ? (
+                            {/* {MOBILE ? (
                                 <MobileFilter data={["Здоров", "Болен"]} />
                             ) : (
                                 <Filter
                                     width="100%"
                                     data={["Здоров", "Болен"]}
                                 />
-                            )}
+                            )} */}
                         </div>
                         <Btn onClick={handleClick} color="#0064FA">
                             Продолжить
@@ -259,12 +254,12 @@ export const Authorization: FC = () => {
                         >
                             Интерес к какому заболеванию у вас имеется?
                         </Text>
-                        <MobileSearch
+                        {/* <MobileSearch
                             filterBtn={false}
                             placeholder="Поиск"
                             value={value}
                             onChange={(e) => setValue(e.target.value)}
-                        />
+                        /> */}
                         <div className={styles.status}>
                             <Text
                                 type="p"
@@ -287,12 +282,12 @@ export const Authorization: FC = () => {
                         Интерес к какому заболеванию у вас имеется?
                     </Text>
                     <div className={styles.input}>
-                        <MobileSearch
+                        {/* <MobileSearch
                             filterBtn={false}
                             placeholder="Поиск"
                             value={value}
                             onChange={(e) => setValue(e.target.value)}
-                        />
+                        /> */}
                     </div>
                     <div className={styles.resultBox}>
                         <AnimatePresence initial>
@@ -307,7 +302,7 @@ export const Authorization: FC = () => {
                                         key={item.id}
                                     >
                                         <label className={styles.label}>
-                                            <Checkbox />
+                                            {/* <Checkbox /> */}
                                             {item.name}
                                         </label>
                                     </motion.div>

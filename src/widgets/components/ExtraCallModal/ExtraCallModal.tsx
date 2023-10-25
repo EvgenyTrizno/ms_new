@@ -5,7 +5,8 @@ import { IExtraCallBtnData } from "../ExtraCallMobile/types";
 
 import { useExtraCall } from "@/shared/model/store";
 import { useUserCondition } from "@/shared/model/store";
-import { Btn, Text } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 
 import amabulance from "/assets/amabulance-blue.svg";
 import amabulanceRed from "/assets/amabulance-red.svg";

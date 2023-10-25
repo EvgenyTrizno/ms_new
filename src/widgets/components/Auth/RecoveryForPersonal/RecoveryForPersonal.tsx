@@ -2,7 +2,9 @@ import { FC, FormEvent, ChangeEvent } from "react";
 import { useNavigate } from "react-router";
 
 import { Auth } from "@/shared/api/Auth";
-import { Btn, Input, Text } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Input } from "@/shared/ui/Input";
+import { Text } from "@/shared/ui/Text";
 
 import styles from "./RecoveryForPersonal.module.scss";
 import { useUserData } from "@/shared/model/store";

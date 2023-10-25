@@ -2,7 +2,8 @@
 import { FC, useState, useEffect, ChangeEvent } from "react";
 import { ICalendare } from "./types";
 
-import { Input, Text } from "@/shared";
+import { Input } from "@/shared/ui/Input";
+import { Text } from "@/shared/ui/Text";
 import { useUserCondition } from "@/shared/model/store";
 
 import arrowLeft from "/assets/arrow-left.svg";

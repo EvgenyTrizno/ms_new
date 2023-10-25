@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { SMALL_LAPTOP } from "@/shared/utils";
 
 import styles from "./MailHeader.module.scss";

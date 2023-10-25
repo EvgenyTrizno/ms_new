@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { IEmployeeCardType } from "../EmployeeInfoCard/types";
 
-import { Text, Btn } from "@/shared";
-import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";
+import { Text } from "@/shared/ui/Text";
+import { Btn } from "@/shared/ui/Btn";
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 
 import styles from "./EmployeeData.module.scss";
 import { LAPTOP, MOBILE, SMALL_LAPTOP } from "@/shared/utils";

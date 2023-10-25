@@ -2,7 +2,9 @@ import { FC, FormEvent, useState } from "react";
 import { useNavigate } from "react-router";
 import { useSearchParams } from "react-router-dom";
 
-import { Btn, Input, Text } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Input } from "@/shared/ui/Input";
+import { Text } from "@/shared/ui/Text";
 import { useUserData } from "@/shared/model/store";
 import { Auth } from "@/shared/api/Auth";
 
