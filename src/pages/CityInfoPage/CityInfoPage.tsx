@@ -7,9 +7,9 @@ import {
     BlueBox,
     BlueSliderArrows,
     Indicator,
-    WhiteContentBlock,
 } from "@/widgets";
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 
 import styles from "./CityInfoPage.module.scss";
 

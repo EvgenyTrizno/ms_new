@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { ICustomError } from "@/shared/hooks/types";
 
 import { Text } from "@/shared/ui/Text";
-import { Input } from "@/shared/ui/Input/Input";
-import { Btn } from "@/shared/ui/Btn/Btn";
+import { Input } from "@/shared/ui/Input";
+import { Btn } from "@/shared/ui/Btn";
 import { Auth } from "@/shared/api/Auth";
 import { setCookie } from "@/features";
 

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 import { Calendar, MedicalBlock } from "@/widgets";
 import { Layout } from "../Layout/Layout";
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import styles from "./MedicalCardPage.module.scss";
 

@@ -12,6 +12,9 @@ import {
 import { Line } from "react-chartjs-2";
 
 import { Layout } from "../Layout/Layout";
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
+import { Text } from "@/shared/ui/Text";
+import { Btn } from "@/shared/ui/Btn";
 import {
     AdminPanelContainer,
     BlueSliderArrows,
@@ -19,11 +22,9 @@ import {
     EmployeeInfoCard,
     Rating,
     Search,
-    WhiteContentBlock,
     Cols,
     CenterOwner,
 } from "@/widgets";
-import { Btn, Text } from "@/shared";
 import { PC } from "@/shared/utils";
 
 import man from "/assets/man.jpg";

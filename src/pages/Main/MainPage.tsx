@@ -1,37 +1,23 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Btn, Text } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 import {
-    Card,
     MobileContainer,
     MobileHeader,
     MobileMenu,
-    Post,
     Slider,
     SliderArrows,
 } from "@/widgets";
-import { News } from "@/shared/api/News";
-import { getAccessTokenFromCookies } from "@/features";
-import { useUserCondition, useUserData } from "@/shared/model/store";
+import { Card } from "@/entities/Card/ui";
+import { PostLayout as Post } from "@/widgets/components/Post/ui";
 import { MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import controller from "/assets/controler.svg";
 import styles from "./MainPage.module.scss";
 
 const MainPage: FC = () => {
-    const { getNews } = News();
-    const { img } = useUserData();
-    const { condition } = useUserCondition();
-
-    const token = getAccessTokenFromCookies();
-    const sick = condition === "Болен";
-
-    useEffect(() => {
-        token && img && getNews(token).then((res) => console.log(res));
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [img, token]);
-
     return (
         <Layout>
             {MOBILE && <MobileHeader />}
@@ -46,14 +32,14 @@ const MainPage: FC = () => {
                         </div>
                         <Slider>
                             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-                                <Card checkbox={false} key={item} />
+                                <Card checkbox name="" key={item} />
                             ))}
                         </Slider>
                     </div>
                     {MOBILE && (
                         <div
                             className={styles.line}
-                            style={{ backgroundColor: sick ? "#F7E6E8" : "" }}
+                            // style={{ backgroundColor: sick ? "#F7E6E8" : "" }}
                         ></div>
                     )}
                     {SMALL_LAPTOP && (

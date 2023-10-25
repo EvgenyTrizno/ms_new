@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Layout } from "../Layout/Layout";
 import { MobileContainer, MobileHeader, MobileMenu } from "@/widgets";
 import { useUserCondition } from "@/shared/model/store";
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import woman from "/assets/woman.jpg";
 import styles from "./MobileNotification.module.scss";

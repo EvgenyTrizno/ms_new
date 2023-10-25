@@ -1,7 +1,8 @@
 import { FC } from "react";
 
 import { useBackOnPrevPage } from "@/shared/hooks";
-import { Btn, Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
+import { Btn } from "@/shared/ui/Btn";
 import { MOBILE } from "@/shared/utils";
 import { useUserCondition } from "@/shared/model/store";
 

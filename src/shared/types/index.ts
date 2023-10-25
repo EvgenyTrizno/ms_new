@@ -51,14 +51,6 @@ export interface IIconData {
     healthy: string;
     sick: string;
 }
-
-export interface IModalProps {
-    children: ReactNode;
-    width?: string;
-    height?: string;
-    setIsOpenModal: (bool: boolean) => void;
-}
-
 export interface ISwitchProps {
     onChange?: (e?: ChangeEvent<HTMLInputElement>) => void;
 }

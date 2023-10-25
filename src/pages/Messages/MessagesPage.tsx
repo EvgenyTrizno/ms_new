@@ -9,7 +9,9 @@ import {
     MobileMenu,
     Search,
 } from "@/widgets";
-import { Btn, Filter, Text } from "@/shared";
+// import { Filter } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 import { useFilter, useUserCondition, useUserData } from "@/shared/model/store";
 import { MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
 // import { ABSOLUTE_PATH } from "@/shared/config";
@@ -115,10 +117,10 @@ const MessagesPage: FC = () => {
                                     </Btn>
                                 )}
                             </div>
-                            <Filter
+                            {/* <Filter
                                 data={["Сообщения", "Звонки"]}
                                 width="100%"
-                            />
+                            /> */}
                             {isOpenFilters && (
                                 <div className={styles.filtersBlock}>
                                     <div className={styles.selectedList}>

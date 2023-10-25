@@ -15,7 +15,7 @@ import {
     MobileSearch,
     Text,
 } from "@/shared";
-import { Modal } from "../../../../shared/ui/Modal/Modal";
+import { Modal } from "../../../../shared/ui/Modal";
 import { useLocation } from "@/shared/hooks";
 import { Map } from "../../Map/Map";
 import { useFilter } from "@/shared/model/store";

@@ -20,8 +20,11 @@ ChartJS.register(
 );
 
 import { Layout } from "../Layout/Layout";
-import { Btn, Text, GalleryModal, Filter } from "@/shared";
-import { Card, Comment, Circle, Slider, Search } from "@/widgets";
+// import { GalleryModal, Filter } from "@/shared";
+import { Comment, Circle, Slider, Search } from "@/widgets";
+import { Card } from "@/entities/Card/ui";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 import { useUserCondition } from "@/shared/model/store";
 
 import virus from "/assets/virus-icon.jpg";
@@ -174,13 +177,13 @@ const NotesInfoPage: FC = () => {
                     <Slider>
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
                             (item) => (
-                                <Card checkbox={false} key={item} />
+                                <Card name="" checkbox={false} key={item} />
                             )
                         )}
                     </Slider>
                 </div>
                 <div className={styles.box}>
-                    <Filter data={["Онлайн", "Оффлайн"]} />
+                    {/* <Filter data={["Онлайн", "Оффлайн"]} /> */}
                 </div>
                 <div className={styles.list}>
                     <div className={styles.item}>
@@ -389,12 +392,12 @@ const NotesInfoPage: FC = () => {
                         </div>
                     </div>
                 </div>
-                {isOpen && (
+                {/* {isOpen && (
                     <GalleryModal
                         setIsOpen={setIsOpen}
                         images={[photo, photo, photo]}
                     />
-                )}
+                )} */}
             </div>
         </Layout>
     );

@@ -2,13 +2,14 @@ import { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import {
-    Card,
     Circle,
     CustomMobileHeader,
     MobileComment,
     MobileContainer,
 } from "@/widgets";
-import { BackArrow, MobileFilter, MobileSearch, Text } from "@/shared";
+// import { BackArrow, MobileFilter, MobileSearch } from "@/shared";
+import { Card } from "@/entities/Card/ui";
+import { Text } from "@/shared/ui/Text";
 
 import photo from "/assets/center-icon.jpg";
 import styles from "./MobileNotesInfoPage.module.scss";
@@ -18,7 +19,7 @@ const MobileNotesInfoPage: FC = () => {
         <div className={styles.info}>
             <CustomMobileHeader back>
                 <div className={styles.header}>
-                    <BackArrow />
+                    {/* <BackArrow /> */}
                     <Text type="h2" fz="19px">
                         Создать запись
                     </Text>
@@ -26,7 +27,7 @@ const MobileNotesInfoPage: FC = () => {
             </CustomMobileHeader>
             <MobileContainer>
                 <div className={styles.container}>
-                    <MobileSearch filterBtn placeholder="Введите запрос" />
+                    {/* <MobileSearch filterBtn placeholder="Введите запрос" /> */}
                     <div className={styles.info}>
                         <div className={styles.top}>
                             <img src={photo} alt="" />
@@ -92,12 +93,12 @@ const MobileNotesInfoPage: FC = () => {
                                     }}
                                     key={item}
                                 >
-                                    <Card checkbox={false} />
+                                    <Card name="" checkbox={false} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
                     </div>
-                    <MobileFilter data={["Онлайн", "Оффлайн"]} />
+                    {/* <MobileFilter data={["Онлайн", "Оффлайн"]} /> */}
                     <div className={styles.box}>
                         <Text type="p" fz="14px" color="#7D7F82">
                             Статистика о записи

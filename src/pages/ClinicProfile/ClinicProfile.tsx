@@ -23,14 +23,15 @@ import {
     EmployeeData,
     EmployeeInfoCard,
     IncomeBlock,
-    InfoText,
     MobileContainer,
     Rating,
     Search,
-    WhiteContentBlock,
 } from "@/widgets";
 import { LAPTOP, MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
-import { Btn, Text } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
+import { InfoText } from "@/shared/ui/InfoText";
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 
 import man from "/assets/man.jpg";
 // import arrow from "/assets/arrow-right.svg";

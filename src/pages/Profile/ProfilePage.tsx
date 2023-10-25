@@ -1,19 +1,18 @@
-import { FC, useState, useId, ChangeEvent, useEffect, useRef } from "react";
-import { useNavigate } from "react-router";
+import { FC, useState, useId, ChangeEvent } from "react";
+// import { useNavigate } from "react-router";
 import { IProfileParamsItemsData } from "./types";
-import { TGroups } from "@/shared/model/store/types";
 
 import { Layout } from "../Layout/Layout";
 import {
     CustomMobileHeader,
     MobileContainer,
     ReminderBlock,
-    User,
+    // User,
 } from "@/widgets";
-import { BackArrow, Input, Text } from "@/shared";
-import { useUserCondition, useUserData } from "@/shared/model/store";
-import { Account } from "@/shared/api/Account";
-import { getAccessTokenFromCookies } from "@/features";
+// import { BackArrow } from "@/shared";
+import { Input } from "@/shared/ui/Input";
+import { Text } from "@/shared/ui/Text";
+import { useUserCondition } from "@/shared/model/store";
 
 import user from "/assets/user-blue.svg";
 import userRed from "/assets/user-red.svg";
@@ -35,154 +34,37 @@ import { MOBILE, PC } from "@/shared/utils";
 const ProfilePage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [select, setSelect] = useState<string>("");
-    const [first_name, setFirst_Name] = useState<string>("");
-    const [last_name, setLast_Name] = useState<string>("");
+    // const [first_name, setFirst_Name] = useState<string>("");
+    // const [last_name, setLast_Name] = useState<string>("");
     const [birthday, setBirthday] = useState<string>("");
-    const [country, setCountry] = useState<string>("");
-    const [address, setAddress] = useState<string>("");
-    const [city, setCity] = useState<string>("");
-    const [interest, setInterest] = useState<number[]>();
-    const [number, setNumber] = useState<string>("");
-    const [isEmail, setIsEmail] = useState<string>("");
-    const [emailСode, setEmailCode] = useState<string>("");
-    const [role, setRole] = useState<TGroups>("Пользователи");
-    const [dataChanged, setDataChanged] = useState<boolean>(false);
+    // const [country, setCountry] = useState<string>("");
+    // const [address, setAddress] = useState<string>("");
+    // const [city, setCity] = useState<string>("");
+    // const [interest, setInterest] = useState<number[]>();
+    // const [number, setNumber] = useState<string>("");
+    // const [isEmail, setIsEmail] = useState<string>("");
+    // const [emailСode, setEmailCode] = useState<string>("");
+    // const [role, setRole] = useState<TGroups>("Пользователи");
+    // const [dataChanged, setDataChanged] = useState<boolean>(false);
     const [isShowValue, setIsShowValue] = useState<boolean>(false);
     const [inputDateValue, setInputDateValue] = useState<string>("ГГГГ-ММ-ДД");
 
-    const valueRefs = [
-        useRef<string>(""), //first_name
-        useRef<string>(""), // last_name
-        useRef<string>(""), //birthday
-        useRef<string>(""), // country
-        useRef<string>(""), // city
-        useRef<string>(""), // address
-        useRef<string>(""), // login
-        useRef<string>(""), // interest
-        useRef<string>(""),
-        // useRef<string>(),
-    ];
-    const navigate = useNavigate();
+    // const valueRefs = [
+    //     useRef<string>(""), //first_name
+    //     useRef<string>(""), // last_name
+    //     useRef<string>(""), //birthday
+    //     useRef<string>(""), // country
+    //     useRef<string>(""), // city
+    //     useRef<string>(""), // address
+    //     useRef<string>(""), // login
+    //     useRef<string>(""), // interest
+    //     useRef<string>(""),
+    //     // useRef<string>(),
+    // ];
 
     const { condition } = useUserCondition();
-    const { setEmail, img } = useUserData();
-    const {
-        changeProfileName,
-        getUserData,
-        changeProfileSurname,
-        changeProfileBirthday,
-        changeProfileCountry,
-        changeProfileAddress,
-        changeProfileCity,
-        verifyEmail,
-    } = Account();
 
     const sick = condition === "Болен";
-    const token = getAccessTokenFromCookies();
-
-    const handleOnBlur = () => {
-        if (dataChanged && token) {
-            if (valueRefs[0].current !== first_name) {
-                changeProfileName(token, first_name).then((res) => {
-                    console.log(res);
-                    valueRefs[0].current = res.first_name ?? "";
-                });
-            } else if (valueRefs[1].current !== last_name) {
-                changeProfileSurname(token, last_name).then((res) => {
-                    console.log(res);
-                    valueRefs[1].current = res.last_name ?? "";
-                });
-            } else if (
-                valueRefs[2].current !== birthday &&
-                birthday !== "ГГГГ-ММ-ДД"
-            ) {
-                changeProfileBirthday(token, birthday).then((res) => {
-                    console.log(res);
-                    valueRefs[2].current = res.birthday ?? "";
-                    setInputDateValue("ГГГГ-ММ-ДД");
-                });
-            } else if (valueRefs[3].current !== country) {
-                changeProfileCountry(token, country).then((res) => {
-                    console.log(res);
-                    valueRefs[3].current = res.country;
-                });
-            } else if (valueRefs[4].current !== city) {
-                changeProfileCity(token, city).then((res) => {
-                    console.log(res);
-                    valueRefs[4].current = res.city;
-                });
-            } else if (valueRefs[5].current !== address) {
-                changeProfileAddress(token, address).then((res) => {
-                    console.log(res);
-                    valueRefs[5].current = res.address ?? "";
-                });
-            } else if (valueRefs[8].current !== isEmail && !isEmail) {
-                console.log("1");
-                verifyEmail(token, isEmail).then((res) => {
-                    console.log(res);
-                    setEmail(isEmail);
-                    navigate("/auth/confirm?redirect=verify&type=email");
-                });
-            }
-        }
-
-        setDataChanged(false);
-    };
-
-    useEffect(() => {
-        if (token) {
-            getUserData(token).then((res) => {
-                setFirst_Name(res.first_name ?? "");
-                setLast_Name(res.last_name ?? "");
-                setAddress(res.address ?? "");
-                setNumber(res.number);
-                setRole(res.group);
-                setBirthday(res.birthday ?? "");
-                setCountry(res.country);
-                setCity(res.city);
-                setInterest(res.disease);
-                setIsEmail(res.email ?? "");
-                setEmailCode(res.email_verification_code.toString() ?? "");
-                valueRefs[0].current = res.first_name ?? "";
-                valueRefs[1].current = res.last_name ?? "";
-                valueRefs[2].current = res.birthday;
-                valueRefs[3].current = res.country;
-                valueRefs[4].current = res.city;
-                valueRefs[5].current = res.address ?? "";
-                valueRefs[8].current = isEmail ?? "";
-            });
-        }
-    }, []);
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const inputName = e.target.name;
-        const value = e.target.value;
-
-        setDataChanged(true);
-
-        switch (inputName) {
-            case "first_name":
-                setFirst_Name(value);
-                break;
-            case "last_name":
-                setLast_Name(value);
-                break;
-            case "country":
-                setCountry(value);
-                break;
-            case "city":
-                setCity(value);
-                break;
-            case "address":
-                setAddress(value);
-                break;
-            case "number":
-                setNumber(value);
-                break;
-            case "email":
-                setIsEmail(value);
-        }
-    };
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const currentValue = e.target.value;
@@ -212,12 +94,12 @@ const ProfilePage: FC = () => {
 
         setInputDateValue(formattedDate);
         setBirthday(formattedDate);
-        setDataChanged(true);
+        // setDataChanged(true);
     };
 
-    const onBlurHandlerOnDate = () => {
-        setIsShowValue(false);
-    };
+    // const onBlurHandlerOnDate = () => {
+    //     setIsShowValue(false);
+    // };
 
     const onFocusHandler = () => {
         setIsShowValue(true);
@@ -237,18 +119,18 @@ const ProfilePage: FC = () => {
                         <Input
                             type="text"
                             placeholder="Имя"
-                            value={first_name}
+                            // value={first_name}
                             name="first_name"
-                            onBlur={handleOnBlur}
-                            onChange={handleChange}
+                            // onBlur={handleOnBlur}
+                            // onChange={handleChange}
                         />
                         <Input
                             type="text"
                             placeholder="Фамилия"
-                            value={last_name}
+                            // value={last_name}
                             name="last_name"
-                            onBlur={handleOnBlur}
-                            onChange={handleChange}
+                            // onBlur={handleOnBlur}
+                            // onChange={handleChange}
                         />
                         <Input
                             className={styles.inputDate}
@@ -258,39 +140,39 @@ const ProfilePage: FC = () => {
                             name="birthday"
                             onFocus={onFocusHandler}
                             onChange={handleInputChange}
-                            onBlur={() => {
-                                onBlurHandlerOnDate();
-                                handleOnBlur();
-                            }}
+                            // onBlur={() => {
+                            //     onBlurHandlerOnDate();
+                            //     handleOnBlur();
+                            // }}
                         />
                         <Input
                             type="text"
                             placeholder="Страна"
-                            value={country}
+                            // value={country}
                             name="country"
-                            onBlur={handleOnBlur}
-                            onChange={handleChange}
+                            // onBlur={handleOnBlur}
+                            // onChange={handleChange}
                         />
                         <Input
                             type="text"
                             placeholder="Город"
-                            value={city}
+                            // value={city}
                             name="city"
-                            onBlur={handleOnBlur}
-                            onChange={handleChange}
+                            // onBlur={handleOnBlur}
+                            // onChange={handleChange}
                         />
                         <Input
                             type="text"
                             placeholder="Адрес"
-                            value={address}
+                            // value={address}
                             name="address"
-                            onBlur={handleOnBlur}
-                            onChange={handleChange}
+                            // onBlur={handleOnBlur}
+                            // onChange={handleChange}
                         />
                         <Input
                             type="text"
                             placeholder="Логин"
-                            value={number}
+                            // value={number}
                             name="login"
                             disabled
                         />
@@ -304,7 +186,7 @@ const ProfilePage: FC = () => {
                                 type="text"
                                 width=""
                                 placeholder="Интерес"
-                                value={interest?.toString()}
+                                // value={interest?.toString()}
                             />
                         </label>
                     </form>
@@ -313,15 +195,15 @@ const ProfilePage: FC = () => {
                             <Text type="p" color="#26262680">
                                 Номер
                             </Text>
-                            {number?.length ? (
+                            {/* {number?.length ? (
                                 <label className={styles.verify}>
                                     <Input
                                         type="text"
                                         placeholder="Телефон"
                                         value={number}
                                         name="number"
-                                        onBlur={handleOnBlur}
-                                        onChange={handleChange}
+                                        // onBlur={handleOnBlur}
+                                        // onChange={handleChange}
                                     />
                                     <span>Телефон подтвержден</span>
                                 </label>
@@ -331,25 +213,25 @@ const ProfilePage: FC = () => {
                                     placeholder="Телефон"
                                     value={number}
                                     name="number"
-                                    onBlur={handleOnBlur}
-                                    onChange={handleChange}
+                                    // onBlur={handleOnBlur}
+                                    // onChange={handleChange}
                                     borderColor="#D64657"
                                 />
-                            )}
+                            )} */}
                         </label>
                         <label className={styles.label}>
                             <Text type="p" color="#26262680">
                                 Эл. почта
                             </Text>
-                            {emailСode?.length ? (
+                            {/* {emailСode?.length ? (
                                 <label className={styles.verify}>
                                     <Input
                                         type="text"
                                         placeholder="Почта"
                                         value={isEmail}
                                         name="email"
-                                        onBlur={handleOnBlur}
-                                        onChange={handleChange}
+                                        // onBlur={handleOnBlur}
+                                        // onChange={handleChange}
                                     />
                                     <span>Почта подтверждена</span>
                                 </label>
@@ -359,11 +241,11 @@ const ProfilePage: FC = () => {
                                     placeholder="Почта"
                                     value={isEmail}
                                     name="email"
-                                    onBlur={handleOnBlur}
-                                    onChange={handleChange}
+                                    // onBlur={handleOnBlur}
+                                    // onChange={handleChange}
                                     borderColor="#D64657"
                                 />
-                            )}
+                            )} */}
                         </label>
                     </form>
                 </>
@@ -444,7 +326,7 @@ const ProfilePage: FC = () => {
         <Layout>
             {MOBILE && (
                 <CustomMobileHeader back text="Профиль">
-                    <BackArrow />
+                    {/* <BackArrow /> */}
                 </CustomMobileHeader>
             )}
             <MobileContainer>
@@ -453,12 +335,12 @@ const ProfilePage: FC = () => {
                         <div className={styles.reminder}>
                             <ReminderBlock type="timer" width="max-content" />
                         </div>
-                        <User
-                            img={img}
+                        {/* <User
+                            // img={img}
                             last_name={last_name}
                             first_name={first_name}
                             role={role}
-                        />
+                        /> */}
                     </>
                 )}
                 <div className={styles.settings}>

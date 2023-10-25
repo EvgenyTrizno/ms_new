@@ -1,7 +1,7 @@
 import { FC, useState, FormEvent, useEffect } from "react";
 
 import { Text, Input, Btn } from "@/shared";
-import { Modal } from "../../../../shared/ui/Modal/Modal";
+import { Modal } from "../../../../shared/ui/Modal";
 import { MOBILE } from "@/shared/utils";
 
 import arrowRight from "/assets/arrow-right-black.svg";

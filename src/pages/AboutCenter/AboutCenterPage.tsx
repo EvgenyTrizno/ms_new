@@ -1,7 +1,8 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Input, Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
+import { Input } from "@/shared/ui/Input";
 
 import woman from "/assets/woman.jpg";
 import styles from "./AboutCenterPage.module.scss";

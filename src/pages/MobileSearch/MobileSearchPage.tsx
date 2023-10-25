@@ -1,7 +1,8 @@
 import { FC } from "react";
 
 import { MobileContainer, MobileHeader, SearchResultBlock } from "@/widgets";
-import { MobileFilter, MobileSearch, Text } from "@/shared";
+// import { MobileFilter, MobileSearch } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { useFilter } from "@/shared/model/store";
 import { Layout } from "../Layout/Layout";
 
@@ -57,12 +58,12 @@ const MobileSearchPage: FC = () => {
             <MobileHeader />
             <MobileContainer>
                 <div className={styles.box}>
-                    <MobileSearch
+                    {/* <MobileSearch
                         height="50px"
                         placeholder="Поиск чатов"
                         filterBtn
                     />
-                    <MobileFilter data={["Центры", "Клиники", "Врачи"]} />
+                    <MobileFilter data={["Центры", "Клиники", "Врачи"]} /> */}
                 </div>
                 <div className={styles.results}>{elements}</div>
             </MobileContainer>

@@ -1,7 +1,7 @@
 import { FC, InputHTMLAttributes, useEffect, useRef } from "react";
 import { IInput } from "@/shared/types";
 
-import styles from "./Input.module.scss";
+import styles from "./styles.module.scss";
 
 export const Input: FC<IInput & InputHTMLAttributes<HTMLInputElement>> = ({
     type = "text",

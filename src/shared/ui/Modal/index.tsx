@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
-import { IModalProps } from "@/shared/types";
+import { IModalProps } from "./types";
 
-import styles from "./Modal.module.scss";
+import styles from "./styles.module.scss";
 
 export const Modal: FC<IModalProps> = ({
     width,

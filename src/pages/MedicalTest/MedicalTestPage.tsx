@@ -2,7 +2,9 @@ import { FC } from "react";
 import { useNavigate } from "react-router";
 
 import { Layout } from "../Layout/Layout";
-import { Btn, Filter, Text } from "@/shared";
+// import { Filter } from "@/shared";
+import { Text } from "@/shared/ui/Text";
+import { Btn } from "@/shared/ui/Btn";
 import { Search } from "@/widgets";
 
 import controler from "/assets/controler.svg";
@@ -51,7 +53,7 @@ const MedicalTestPage: FC = () => {
                         </Text>
                     </div>
                 </div>
-                <Filter data={["Онлайн", "Оффлайн"]} />
+                {/* <Filter data={["Онлайн", "Оффлайн"]} /> */}
                 <div className={styles.items}>
                     <div className={styles.item}>
                         <div className={styles.data}>

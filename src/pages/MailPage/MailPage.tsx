@@ -7,7 +7,8 @@ import {
     MailLayout,
     MailMessage,
 } from "@/widgets";
-import { Filter, Text } from "@/shared";
+// import { Filter, Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import styles from "./MailPage.module.scss";
 import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
@@ -17,7 +18,7 @@ const MailPage: FC = () => {
         <Layout>
             <AdminPanelContainer>
                 <div className={styles.filter}>
-                    <Filter
+                    {/* <Filter
                         width="100%"
                         data={[
                             "Все сообщения (156)",
@@ -25,7 +26,7 @@ const MailPage: FC = () => {
                             "Избранное",
                             "Удаленные",
                         ]}
-                    />
+                    /> */}
                 </div>
                 <Text
                     type="p"

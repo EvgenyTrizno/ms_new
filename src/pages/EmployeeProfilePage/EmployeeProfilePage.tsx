@@ -21,10 +21,11 @@ import {
     EmployeeData,
     EmployeeInfoCard,
     DiseaseInfo,
-    InfoText,
-    WhiteContentBlock,
 } from "@/widgets";
-import { Btn, Text } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
+import { InfoText } from "@/shared/ui/InfoText";
 
 import man from "/assets/man.jpg";
 import notfound from "/assets/404-page-img.svg";

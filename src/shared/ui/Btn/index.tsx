@@ -4,7 +4,7 @@ import { IBtn } from "@/shared/types";
 
 import { useUserCondition } from "@/shared/model/store";
 
-import styles from "./Btn.module.scss";
+import styles from "./styles.module.scss";
 
 export const Btn: FC<IBtn> = ({
     color,

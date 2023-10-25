@@ -2,14 +2,16 @@ import { FC, useState } from "react";
 import { useNavigate } from "react-router";
 
 import { Layout } from "../Layout/Layout";
-import { Filter, Text, Btn, BackArrow, MobileSearch } from "@/shared";
+// import { Filter, BackArrow, MobileSearch } from "@/shared";
 import {
     CustomMobileHeader,
     MobileContainer,
-    Modal,
     NoteBlock,
     Search,
 } from "@/widgets";
+import { Text } from "@/shared/ui/Text";
+import { Modal } from "@/shared/ui/Modal";
+import { Btn } from "@/shared/ui/Btn";
 
 import ghost from "/assets/ghost.svg";
 import addCircle from "/assets/add-circle.svg";
@@ -26,17 +28,18 @@ const NotesPage: FC = () => {
         <Layout>
             {MOBILE && (
                 <CustomMobileHeader back>
-                    <BackArrow />
+                    {/* <BackArrow /> */}
                 </CustomMobileHeader>
             )}
             <MobileContainer>
                 <div className={styles.notes}>
                     {MOBILE ? (
-                        <MobileSearch
-                            placeholder="Введите запрос"
-                            filterBtn
-                            height="52px"
-                        />
+                        // <MobileSearch
+                        //     placeholder="Введите запрос"
+                        //     filterBtn
+                        //     height="52px"
+                        // />
+                        <div></div>
                     ) : (
                         <div className={styles.header}>
                             <Search
@@ -55,7 +58,7 @@ const NotesPage: FC = () => {
                             </Btn>
                         </div>
                     )}
-                    <Filter data={["Текущие", "Доп.проверка"]} />
+                    {/* <Filter data={["Текущие", "Доп.проверка"]} /> */}
                     <div
                         className={styles.items}
                         style={

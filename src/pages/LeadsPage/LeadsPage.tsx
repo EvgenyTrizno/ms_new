@@ -4,16 +4,16 @@ import { Layout } from "../Layout/Layout";
 import {
     AdminPanelContainer,
     BlueSliderArrows,
-    WhiteContentBlock,
     Cols,
-    Row,
     Inner,
-    Rows,
     BlueBox,
     CenterView,
     MainText,
 } from "@/widgets";
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
+import { Row } from "@/shared/ui/Row";
+import { Rows } from "@/shared/ui/Rows";
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import hospital from "/assets/hospital.svg";

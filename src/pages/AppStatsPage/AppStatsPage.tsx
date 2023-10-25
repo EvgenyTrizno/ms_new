@@ -14,7 +14,8 @@ import {
 import { Bar, Line } from "react-chartjs-2";
 
 import { Layout } from "../Layout/Layout";
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import {
     AdminPanelContainer,
     BlueBox,
@@ -23,7 +24,6 @@ import {
     Inner,
     MainText,
     UserReport,
-    WhiteContentBlock,
 } from "@/widgets";
 
 import playmarket from "/assets/playmarket.svg";
