@@ -28,4 +28,5 @@
   "references": [{ "path": "./tsconfig.node.json" }],
   "sassOptions": {
     "includePaths": ["./src"]
-  }}
+  }
+}

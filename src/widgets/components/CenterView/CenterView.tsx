@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { Text } from "@/shared";
-import { Row } from "../Row/Row";
+import { Row } from "../../../shared/ui/Row";
 
 import center from "/assets/center-avatar.jpg";
 import styles from "./CenterView.module.scss";
 import { Rating } from "../Rating/Rating";
-import { InfoText } from "../InfoText/InfoText";
+import { InfoText } from "../../../shared/ui/InfoText";
 import { Cols } from "../Cols/Cols";
 import { SMALL_LAPTOP } from "@/shared/utils";
 

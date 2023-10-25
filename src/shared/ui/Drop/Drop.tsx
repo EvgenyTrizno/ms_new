@@ -2,7 +2,7 @@ import { FC, useState, useId } from "react";
 import { IDrop } from "./types";
 
 import styles from "./Drop.module.scss";
-import { Text } from "../Text/Text";
+import { Text } from "../Text";
 
 export const Drop: FC<IDrop> = ({ data }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);

@@ -1,12 +1,12 @@
 import { FC } from "react";
 
-import { Row } from "../Row/Row";
-import { Rows } from "../Rows/Rows";
-import { Text } from "@/shared";
+import { Row } from "@/shared/ui/Row";
+import { Rows } from "@/shared/ui/Rows";
+import { Text } from "@/shared/ui/Text";
 
 import woman from "/assets/woman.jpg";
 import styles from "./UserReport.module.scss";
-import { InfoText } from "../InfoText/InfoText";
+import { InfoText } from "../../../shared/ui/InfoText";
 
 export const UserReport: FC = () => {
     return (

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
+import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";
 import { Btn, Text } from "@/shared";
 import { BlueBox } from "../BlueBox/BlueBox";
 

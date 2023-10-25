@@ -1,7 +1,7 @@
 import { FC, MouseEvent } from "react";
 
 import { useUserCondition } from "@/shared/model/store";
-import { Text } from "../Text/Text";
+import { Text } from "../Text";
 
 import styles from "./Switcher.module.scss";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";

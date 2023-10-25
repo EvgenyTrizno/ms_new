@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
+import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";
 
 interface IMailLayout {
     children: ReactNode;

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
+import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";
 import { Text } from "@/shared";
 import { SMALL_LAPTOP, MOBILE, LAPTOP } from "@/shared/utils";
 

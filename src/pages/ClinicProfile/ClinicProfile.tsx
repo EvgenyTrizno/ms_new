@@ -451,7 +451,13 @@ const ClinicProfile: FC = () => {
                                     <img src={controller} alt="" />
                                     <Text
                                         type="p"
-                                        fz={LAPTOP ? "15px" : "14px"}
+                                        fz={
+                                            LAPTOP
+                                                ? "15px"
+                                                : SMALL_LAPTOP
+                                                ? "12px"
+                                                : "14px"
+                                        }
                                     >
                                         Фильтры
                                     </Text>
@@ -477,7 +483,7 @@ const ClinicProfile: FC = () => {
                             gap={LAPTOP ? 8 : 24}
                             cols={
                                 PC || LAPTOP
-                                    ? ["1fr", "1fr", "1fr", "1fr"]
+                                    ? ["1fr", "1fr", "1fr"]
                                     : MOBILE
                                     ? []
                                     : SMALL_LAPTOP

@@ -29,6 +29,7 @@ import {
 import playmarket from "/assets/playmarket.svg";
 import appstore from "/assets/appstore.svg";
 import styles from "./AppStatsPage.module.scss";
+import { LAPTOP } from "@/shared/utils";
 
 ChartJS.register(
     CategoryScale,
@@ -273,7 +274,11 @@ const AppStatsPage: FC = () => {
                 </Cols>
                 <div
                     className={styles.cols}
-                    style={{ gridTemplateColumns: "604px 1fr 270px" }}
+                    style={{
+                        gridTemplateColumns: LAPTOP
+                            ? "450px 1fr 270px"
+                            : "604px 1fr 270px",
+                    }}
                 >
                     <WhiteContentBlock>
                         <div className={styles.block}>

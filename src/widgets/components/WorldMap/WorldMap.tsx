@@ -5,7 +5,7 @@ import { useSelectCountry } from "@/shared/model/store";
 import { Layout } from "@/pages/Layout/Layout";
 import { Text } from "@/shared";
 
-import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
+import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";
 // import countries from "./countrysData";
 import styles from "./WorldMap.module.scss";
 

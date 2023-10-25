@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Text } from "@/shared";
 
 import styles from "./DiseaseInfo.module.scss";
-import { InfoText } from "../InfoText/InfoText";
+import { InfoText } from "../../../shared/ui/InfoText";
 
 export const DiseaseInfo: FC = () => {
     return (

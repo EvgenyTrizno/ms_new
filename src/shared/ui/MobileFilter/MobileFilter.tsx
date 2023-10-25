@@ -2,7 +2,7 @@ import { FC, useEffect } from "react";
 import { IFilter } from "../Filter/types";
 
 import { useFilter, useUserCondition } from "@/shared/model/store";
-import { Text } from "../Text/Text";
+import { Text } from "../Text";
 import { TABLET } from "@/shared/utils";
 
 import styles from "./MobileFilter.module.scss";

@@ -5,7 +5,7 @@ import { Btn, Text } from "@/shared";
 import center from "/assets/center-avatar.jpg";
 import styles from "./EmployeeInfoCard.module.scss";
 import { IEmployeeCardType } from "./types";
-import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
+import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";
 import { LAPTOP, MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
 
 export const EmployeeInfoCard: FC<IEmployeeCardType> = ({ type }) => {
@@ -47,8 +47,22 @@ export const EmployeeInfoCard: FC<IEmployeeCardType> = ({ type }) => {
                                     </div>
                                     {type === ("clinic" || "center") && (
                                         <div className={styles.btns}>
-                                            <Btn color="#0064FA">Связаться</Btn>
-                                            <Btn color="#D64657">
+                                            <Btn
+                                                color="#0064FA"
+                                                height="35px"
+                                                fz="12px"
+                                                br="8px"
+                                                padding="10px 12px"
+                                            >
+                                                Связаться
+                                            </Btn>
+                                            <Btn
+                                                color="#D64657"
+                                                height="35px"
+                                                fz="12px"
+                                                br="8px"
+                                                padding="10px 12px"
+                                            >
                                                 Пожаловаться
                                             </Btn>
                                         </div>

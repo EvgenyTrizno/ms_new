@@ -9,7 +9,7 @@ import facebook from "/assets/facebook.svg";
 import apple from "/assets/apple.svg";
 import google from "/assets/google.svg";
 import styles from "./Registration.module.scss";
-import { Modal } from "../../Modal/Modal";
+import { Modal } from "../../../../shared/ui/Modal/Modal";
 
 export const Registration: FC = () => {
     const [tel, setTel] = useState<string>("");

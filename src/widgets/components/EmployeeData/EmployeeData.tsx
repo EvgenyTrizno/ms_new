@@ -2,7 +2,7 @@ import { FC } from "react";
 import { IEmployeeCardType } from "../EmployeeInfoCard/types";
 
 import { Text, Btn } from "@/shared";
-import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
+import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";
 
 import styles from "./EmployeeData.module.scss";
 import { LAPTOP, MOBILE, SMALL_LAPTOP } from "@/shared/utils";
@@ -231,14 +231,8 @@ export const EmployeeData: FC<IEmployeeCardType> = ({ type }) => {
                                 </Text>
                                 <Btn
                                     br="9px"
-                                    height={
-                                        SMALL_LAPTOP || LAPTOP ? "37px" : "42px"
-                                    }
-                                    fz={
-                                        SMALL_LAPTOP || LAPTOP ? "14px" : "15px"
-                                    }
-                                    padding={LAPTOP ? "10px" : "12px"}
                                     color="#0064FA"
+                                    fz={SMALL_LAPTOP ? "12px" : ""}
                                 >
                                     Полный перечень
                                 </Btn>

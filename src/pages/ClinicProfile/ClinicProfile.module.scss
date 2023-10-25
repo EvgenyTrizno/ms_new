@@ -25,7 +25,6 @@
 .clinic {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 // .colsX3 {
@@ -208,8 +207,7 @@
     }
 
     .clinic {
-        grid-gap: 0;
-        justify-content: space-between;
+        grid-gap: 8px;
     }
 
     .filter {

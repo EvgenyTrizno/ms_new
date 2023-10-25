@@ -3,7 +3,7 @@ import { FC } from "react";
 import { BlueBox } from "../BlueBox/BlueBox";
 import { Text } from "@/shared";
 import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
-import { WhiteContentBlock } from "../WhiteContentBlock/WhiteContentBlock";
+import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";
 
 import styles from "./IncomeBlock.module.scss";
 

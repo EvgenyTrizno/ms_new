@@ -4,7 +4,6 @@ import { RegistrationForPersonal } from "./components/Auth/RegistrationForPerson
 import { Recovery } from "./components/Auth/Recovery/Recovery";
 import { Menu } from "./components/Menu/Menu";
 import { Header } from "./components/Header/Header";
-import { Card } from "./components/Card/Card";
 import { Calendar } from "./components/Calendar/Calendar";
 import { Authorization } from "./components/Auth/Authorization/Authorization";
 import { VirusList } from "./components/VirusList/VirusList";
@@ -17,11 +16,9 @@ import { Circle } from "./components/Circle/Circle";
 import { Map } from "./components/Map/Map";
 import { Rating } from "./components/Rating/Rating";
 import { Slider } from "./components/Slider/Slider";
-import { Post } from "./components/Post/Post";
 import { ExtraCallModal } from "./components/ExtraCallModal/ExtraCallModal";
 import { MobileMenu } from "./components/MobileMenu/MobileMenu";
 import { MobileHeader } from "./components/MobileHeader/MobileHeader";
-import { MobilePost } from "./components/MobilePost/MobilePost";
 import { MobileContainer } from "./components/MobileContainer/MobileContainer";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
 import { MedicalBlock } from "./components/MedicalBlock/MedicalBlock";
@@ -30,7 +27,6 @@ import { CreatePass } from "./components/CreatePass/CreatePass";
 import { NotificationModal } from "./components/NotificationModal/NotificationModal";
 import { MobileCalendar } from "./components/MobileCalendar/MobileCalendar";
 import { MobileModal } from "./components/MobileModal/MobileModal";
-import { Modal } from "./components/Modal/Modal";
 import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorBoundaryFallback";
 import { ChatInfo } from "./components/ChatInfo/ChatInfo";
 import { MobileComment } from "./components/MobileComment/MobileComment";
@@ -55,13 +51,11 @@ import { EmployeeInfoCard } from "./components/EmployeeInfoCard/EmployeeInfoCard
 import { EmployeeData } from "./components/EmployeeData/EmployeeData";
 import { DiseaseInfo } from "./components/DiseaseInfo/DiseaseInfo";
 import { BlueSliderArrows } from "./components/BlueSliderArrows/BlueSliderArrows";
-import { WhiteContentBlock } from "./components/WhiteContentBlock/WhiteContentBlock";
 import { WorldMap } from "./components/WorldMap/WorldMap";
 import { BlueBox } from "./components/BlueBox/BlueBox";
 import { Indicator } from "./components/Indicator/Indicator";
 import { AdminPanelContainer } from "./components/AdminPanelContainer/AdminPanelContainer";
 import { Cols } from "./components/Cols/Cols";
-import { InfoText } from "./components/InfoText/InfoText";
 import { CenterOwner } from "./components/CenterOwner/CenterOwner";
 import { RequestBlock } from "./components/RequestBlock/RequestBlock";
 import { MailLayout } from "./components/MailLayout/MailLayout";
@@ -71,9 +65,7 @@ import { MailManage } from "./components/MailManage/MailManage";
 import { SocialNetworkInfoBlock } from "./components/SocialNetworkInfoBlock/SocialNetworkInfoBlock";
 import { SocialNetworkInfoLayout } from "./components/SocialNetworkInfoLayout/SocialNetworkInfoLayout";
 import { IncomeBlock } from "./components/IncomeBlock/IncomeBlock";
-import { Row } from "./components/Row/Row";
 import { Inner } from "./components/Inner/Inner";
-import { Rows } from "./components/Rows/Rows";
 import { CenterView } from "./components/CenterView/CenterView";
 import { MainText } from "./components/MainText/MainText";
 import { UserReport } from "./components/UserReport/UserReport";
@@ -82,7 +74,6 @@ export {
     Login,
     Registration,
     Menu,
-    Card,
     Calendar,
     Header,
     Recovery,
@@ -97,11 +88,9 @@ export {
     Circle,
     Rating,
     Slider,
-    Post,
     ExtraCallModal,
     MobileMenu,
     MobileHeader,
-    MobilePost,
     MobileContainer,
     CustomMobileHeader,
     MedicalBlock,
@@ -110,7 +99,6 @@ export {
     NotificationModal,
     MobileCalendar,
     MobileModal,
-    Modal,
     ErrorBoundaryFallback,
     ChatInfo,
     MobileComment,
@@ -136,13 +124,11 @@ export {
     EmployeeData,
     DiseaseInfo,
     BlueSliderArrows,
-    WhiteContentBlock,
     WorldMap,
     BlueBox,
     Indicator,
     AdminPanelContainer,
     Cols,
-    InfoText,
     CenterOwner,
     RequestBlock,
     MailLayout,
@@ -152,9 +138,7 @@ export {
     SocialNetworkInfoBlock,
     SocialNetworkInfoLayout,
     IncomeBlock,
-    Row,
     Inner,
-    Rows,
     CenterView,
     MainText,
     UserReport,
