@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import users from "/assets/users-gray.svg";
 import messages from "/assets/messages-gray.svg";

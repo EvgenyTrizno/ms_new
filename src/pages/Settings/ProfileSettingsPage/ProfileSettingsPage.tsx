@@ -1,7 +1,9 @@
 import { FC } from "react";
 
 import { CustomMobileHeader, MobileContainer } from "@/widgets";
-import { BackArrow, Input, Text } from "@/shared";
+// import { BackArrow } from "@/shared";
+import { Input } from "@/shared/ui/Input";
+import { Text } from "@/shared/ui/Text";
 
 import man from "/assets/man.jpg";
 import pencilBlue from "/assets/pencil-blue.svg";
@@ -22,7 +24,7 @@ const ProfileSettingsPage: FC = () => {
         <div className={styles.profile}>
             <CustomMobileHeader back>
                 <div className={styles.header}>
-                    <BackArrow />
+                    {/* <BackArrow /> */}
                     <Text type="h2" fz="19px">
                         Профиль
                     </Text>

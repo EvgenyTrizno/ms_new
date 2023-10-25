@@ -5,7 +5,7 @@ import { IParamsData } from "./types";
 
 import { MobileContainer, ParamsBlock, ReminderBlock, Search } from "@/widgets";
 import { useUserCondition, useUserData } from "@/shared/model/store";
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { useProfile } from "@/shared/model/store";
 import { TABLET } from "@/shared/utils";
 

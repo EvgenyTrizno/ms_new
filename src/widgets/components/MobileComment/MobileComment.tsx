@@ -1,7 +1,8 @@
 import { FC } from "react";
 
-import { Dislike, Like } from "@/features";
-import { Text } from "@/shared";
+import { Like } from "@/features/Like/ui";
+import { Dislike } from "@/features/Dislike/Dislike";
+import { Text } from "@/shared/ui/Text";
 
 import styles from "./MobileComment.module.scss";
 import { Rating } from "../Rating/Rating";

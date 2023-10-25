@@ -1,7 +1,7 @@
 import { FC, ChangeEvent } from "react";
 import { IUserProps } from "./types";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import noimage from "/assets/noimage.svg";
 import styles from "./User.module.scss";

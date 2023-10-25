@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import calendar from "/assets/calendar.svg";
 import alarm from "/assets/alarm-clock.svg";

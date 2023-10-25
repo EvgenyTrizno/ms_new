@@ -2,7 +2,8 @@ import { FC, useEffect, useState } from "react";
 import { animate, stagger } from "framer-motion";
 
 import { Layout } from "../Layout/Layout";
-import { MobileSearch, Text } from "@/shared";
+// import { MobileSearch } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import arrowDown from "/assets/arrow-down-gray.svg";
 import man from "/assets/man.jpg";
@@ -28,11 +29,11 @@ const UsersPage: FC = () => {
                     <Text type="h2" fz="24px">
                         Всего пользователей - 3135
                     </Text>
-                    <MobileSearch
+                    {/* <MobileSearch
                         filterBtn={false}
                         placeholder="Поиск"
                         width="498px"
-                    />
+                    /> */}
                 </div>
                 <div className={styles.filters}>
                     {[1, 2, 3].map((item) => (

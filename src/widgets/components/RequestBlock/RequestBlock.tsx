@@ -1,7 +1,8 @@
 import { FC } from "react";
 
-import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";
-import { Btn, Text } from "@/shared";
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 import { BlueBox } from "../BlueBox/BlueBox";
 
 // import cross from "/assets/cross-red.svg";

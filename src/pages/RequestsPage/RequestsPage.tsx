@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Filter } from "@/shared";
+// import { Filter } from "@/shared";
 
 import styles from "./RequestsPage.module.scss";
 import { AdminPanelContainer, Cols, RequestBlock, Search } from "@/widgets";
@@ -10,18 +10,18 @@ import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
 const RequestsPage: FC = () => {
     const topContent = {
         content: [
-            <Filter
-                width="100%"
-                data={[
-                    "Все (156)",
-                    "Центры",
-                    "Клиники",
-                    "Инвесторы",
-                    "Аптеки",
-                    "Реаб.центры",
-                    "Больницы",
-                ]}
-            />,
+            // <Filter
+            //     width="100%"
+            //     data={[
+            //         "Все (156)",
+            //         "Центры",
+            //         "Клиники",
+            //         "Инвесторы",
+            //         "Аптеки",
+            //         "Реаб.центры",
+            //         "Больницы",
+            //     ]}
+            // />,
             <Search
                 height="52px"
                 placeholder="Поиск специалиста или пациента"

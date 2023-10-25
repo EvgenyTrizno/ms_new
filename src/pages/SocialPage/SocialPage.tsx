@@ -4,19 +4,19 @@ import { Layout } from "../Layout/Layout";
 import {
     AdminPanelContainer,
     Cols,
-    InfoText,
     MailHeader,
     MailLayout,
     MailMessage,
     SocialNetworkInfoBlock,
     SocialNetworkInfoLayout,
-    WhiteContentBlock,
     Indicator,
     BlueBox,
     BlueSliderArrows,
     IncomeBlock,
 } from "@/widgets";
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
+import { InfoText } from "@/shared/ui/InfoText";
 
 import telegram from "/assets/telegram-icon.svg";
 import users from "/assets/users-black.svg";

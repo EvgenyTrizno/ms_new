@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { ISmallDropboxProps } from "./types";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import selectImg from "/assets/tick-circle.svg";
 import styles from "./SmallDropbox.module.scss";

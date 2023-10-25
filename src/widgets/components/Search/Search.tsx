@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { ISeacrh } from "./types";
 
-import { Input } from "@/shared";
+import { Input } from "@/shared/ui/Input";
 import { useUserCondition } from "@/shared/model/store";
 
 import search from "/assets/search-gray.svg";

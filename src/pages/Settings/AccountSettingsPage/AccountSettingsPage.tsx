@@ -3,7 +3,9 @@ import { useNavigate } from "react-router";
 import { IAccountData } from "./types";
 
 import { MobileContainer, CustomMobileHeader, ParamsBlock } from "@/widgets";
-import { BackArrow, Input, Text } from "@/shared";
+// import { BackArrow } from "@/shared";
+import { Text } from "@/shared/ui/Text";
+import { Input } from "@/shared/ui/Input";
 import { useUserCondition } from "@/shared/model/store";
 import { MOBILE, TABLET } from "@/shared/utils";
 
@@ -88,7 +90,7 @@ const AccountSettingsPage: FC = () => {
         <div className={styles.account}>
             <CustomMobileHeader back>
                 <div className={styles.header}>
-                    <BackArrow />
+                    {/* <BackArrow /> */}
                     <Text type="h2" fz="19px">
                         Аккаунт
                     </Text>

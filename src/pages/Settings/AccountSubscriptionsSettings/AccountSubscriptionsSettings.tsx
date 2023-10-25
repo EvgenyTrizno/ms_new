@@ -1,7 +1,9 @@
 import { FC } from "react";
 
-import { Card, CustomMobileHeader, MobileContainer, Slider } from "@/widgets";
-import { BackArrow, MobileSearch, Text } from "@/shared";
+import { CustomMobileHeader, MobileContainer, Slider } from "@/widgets";
+import { Card } from "@/entities/Card/ui";
+// import { BackArrow, MobileSearch } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { TABLET } from "@/shared/utils";
 
 import poster from "/assets/center-icon.jpg";
@@ -12,14 +14,14 @@ const AccountSubscriptionsSettingsPage: FC = () => {
         <div className={styles.subs}>
             <CustomMobileHeader back>
                 <div className={styles.header}>
-                    <BackArrow />
+                    {/* <BackArrow /> */}
                     <Text type="h2" fz="19px">
                         Подписки
                     </Text>
                 </div>
             </CustomMobileHeader>
             <MobileContainer>
-                <MobileSearch placeholder="Введите запрос" filterBtn={false} />
+                {/* <MobileSearch placeholder="Введите запрос" filterBtn={false} /> */}
                 <div className={styles.container}>
                     <div className={styles.block}>
                         <Text
@@ -101,7 +103,7 @@ const AccountSubscriptionsSettingsPage: FC = () => {
                             Специалисты
                         </Text>
                         <Slider>
-                            <Card checkbox={false} />
+                            <Card name="" checkbox={false} />
                         </Slider>
                     </div>
                 </div>

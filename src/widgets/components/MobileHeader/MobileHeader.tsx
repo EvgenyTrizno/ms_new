@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { MobileSwitcher } from "@/shared";
+// import { MobileSwitcher } from "@/shared";
 import { useProfile, useUserCondition } from "@/shared/model/store";
 
 import man from "/assets/man.jpg";
@@ -24,7 +24,7 @@ export const MobileHeader: FC = () => {
                 className={styles.avatar}
                 onClick={() => setIsProfile(!isProfile)}
             />
-            <MobileSwitcher />
+            {/* <MobileSwitcher /> */}
             <div className={styles.settings}>
                 <img src={settings} alt="" />
             </div>

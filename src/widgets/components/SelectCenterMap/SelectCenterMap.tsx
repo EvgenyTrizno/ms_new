@@ -3,7 +3,8 @@ import { MarkerF, StandaloneSearchBox } from "@react-google-maps/api";
 import { ISelectCenterMapProps } from "./types";
 
 import { CenterInfoCard, Map } from "@/widgets";
-import { Btn, Text } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 
 import circle from "/assets/circle-blue.svg";
 import controler from "/assets/controler.svg";

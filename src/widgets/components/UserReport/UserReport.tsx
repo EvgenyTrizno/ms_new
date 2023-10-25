@@ -6,7 +6,7 @@ import { Text } from "@/shared/ui/Text";
 
 import woman from "/assets/woman.jpg";
 import styles from "./UserReport.module.scss";
-import { InfoText } from "../../../shared/ui/InfoText";
+import { InfoText } from "@/shared/ui/InfoText";
 
 export const UserReport: FC = () => {
     return (

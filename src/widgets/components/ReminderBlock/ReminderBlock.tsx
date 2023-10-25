@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { ITypeProps } from "./types";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { useUserCondition } from "@/shared/model/store";
 import { PC, TABLET } from "@/shared/utils";
 

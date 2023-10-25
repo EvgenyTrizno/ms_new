@@ -1,7 +1,9 @@
 import { FC, useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
-import { Btn, Checkbox, Text } from "@/shared";
+// import { Checkbox } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 import { IVirusListData } from "@/shared/api/Virus/types";
 import { Virus } from "@/shared/api/Virus";
 
@@ -64,7 +66,7 @@ export const VirusList: FC = () => {
                         key={item.id}
                         onClick={() => handleSelectDisease(item.id)}
                     >
-                        <Checkbox />
+                        {/* <Checkbox /> */}
                         <Text type="p" fz="10px" color="#7D7F82">
                             {item.name}
                         </Text>

@@ -1,7 +1,8 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout/Layout";
-import { Btn, Text } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 
 import woman from "/assets/woman.jpg";
 import arrowRightBlue from "/assets/arrow-right-blue.svg";

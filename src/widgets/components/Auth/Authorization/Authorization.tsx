@@ -14,7 +14,6 @@ import { Modal } from "@/shared/ui/Modal";
 import { useLocation } from "@/shared/hooks";
 import { Map } from "../../Map/Map";
 import { useFilter } from "@/shared/model/store";
-import { MobileModal } from "../../MobileModal/MobileModal";
 import { ICentersData } from "@/shared/api/Centers/types";
 import { useUserData } from "@/shared/model/store";
 import { Centers } from "@/shared/api/Centers";
@@ -244,7 +243,7 @@ export const Authorization: FC = () => {
                 )}
             </div>
             {isOpenModal && MOBILE && (
-                <MobileModal setIsOpenModal={setIsOpenModal}>
+                <Modal setIsOpenModal={setIsOpenModal}>
                     <div className={styles.container}>
                         <Text
                             type="h3"
@@ -274,7 +273,7 @@ export const Authorization: FC = () => {
                             Продолжить
                         </Btn>
                     </div>
-                </MobileModal>
+                </Modal>
             )}
             {isOpenModal && (
                 <Modal width="500px" setIsOpenModal={setIsOpenModal}>

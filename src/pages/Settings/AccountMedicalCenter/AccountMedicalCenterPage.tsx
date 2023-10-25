@@ -1,7 +1,10 @@
 import { FC, useState } from "react";
 
-import { CustomMobileHeader, MobileContainer, Slider, Card } from "@/widgets";
-import { BackArrow, Btn, PopUp, Text } from "@/shared";
+import { CustomMobileHeader, MobileContainer, Slider } from "@/widgets";
+import { Card } from "@/entities/Card/ui";
+// import { BackArrow, PopUp } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 
 import center from "/assets/center-icon.jpg";
 import verify from "/assets/verify.svg";
@@ -17,7 +20,7 @@ const AccountMedicalCenterPage: FC = () => {
             <CustomMobileHeader back>
                 <div className={styles.header}>
                     <div className={styles.nav}>
-                        <BackArrow />
+                        {/* <BackArrow /> */}
                         <Text type="h2" fz="19px">
                             Медицинский центр
                         </Text>
@@ -77,11 +80,11 @@ const AccountMedicalCenterPage: FC = () => {
                             Все сотрудники
                         </Text>
                         <Slider>
-                            <Card checkbox={false} />
-                            <Card checkbox={false} />
-                            <Card checkbox={false} />
-                            <Card checkbox={false} />
-                            <Card checkbox={false} />
+                            <Card name="" checkbox={false} />
+                            <Card name="" checkbox={false} />
+                            <Card name="" checkbox={false} />
+                            <Card name="" checkbox={false} />
+                            <Card name="" checkbox={false} />
                         </Slider>
                     </div>
                     <div className={styles.line}></div>
@@ -160,7 +163,7 @@ const AccountMedicalCenterPage: FC = () => {
                         </div>
                     </div>
                 </div>
-                {isOpen && (
+                {/* {isOpen && (
                     <PopUp top={`${y / 1.1}px`} right="25px">
                         <li>
                             <Text type="p" fz="14px" position="center">
@@ -188,7 +191,7 @@ const AccountMedicalCenterPage: FC = () => {
                             </Text>
                         </li>
                     </PopUp>
-                )}
+                )} */}
                 <Btn color="#0064FA" height="40px" br="12px">
                     Добавить центр +
                 </Btn>

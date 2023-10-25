@@ -1,7 +1,8 @@
 import { FC } from "react";
 
 import { CustomMobileHeader, MobileContainer, Slider } from "@/widgets";
-import { BackArrow, MobileSearch, Text } from "@/shared";
+// import { BackArrow, MobileSearch } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import dots from "/assets/dots-more.svg";
 import file from "/assets/file.svg";
@@ -15,14 +16,14 @@ const AccountSavedPage: FC = () => {
         <div className={styles.saved}>
             <CustomMobileHeader back>
                 <div className={styles.header}>
-                    <BackArrow />
+                    {/* <BackArrow /> */}
                     <Text type="h2" fz="19px">
                         Сохраненное
                     </Text>
                 </div>
             </CustomMobileHeader>
             <MobileContainer>
-                <MobileSearch placeholder="Введите запрос" filterBtn={false} />
+                {/* <MobileSearch placeholder="Введите запрос" filterBtn={false} /> */}
                 <div className={styles.container}>
                     <div className={styles.box}>
                         <Text

@@ -8,7 +8,9 @@ import {
     Rating,
     Search,
 } from "@/widgets";
-import { Btn, Filter, MobileSearch, Text } from "@/shared";
+// import { Filter, MobileSearch } from "@/shared";
+import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
 import { ISearchResult } from "@/shared/api/Search/types";
 import { SearchRes } from "@/shared/api/Search";
 import { useFilter } from "@/shared/model/store";
@@ -51,13 +53,13 @@ const SearchPage: FC = () => {
                             </Btn>
                         </>
                     )}
-                    {MOBILE && (
+                    {/* {MOBILE && (
                         <MobileSearch placeholder="Поиск чатов" filterBtn />
-                    )}
+                    )} */}
                 </div>
                 <div className={styles.main}>
                     <div className={styles.box}>
-                        <Filter data={["Центры", "Клиника", "Врачи"]} />
+                        {/* <Filter data={["Центры", "Клиника", "Врачи"]} /> */}
                     </div>
                     <div className={styles.items}>
                         {isFilter === "Центры"

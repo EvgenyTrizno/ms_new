@@ -6,7 +6,8 @@ import {
     MobileContainer,
     NoteBlock,
 } from "@/widgets";
-import { BackArrow, MobileSearch, Text } from "@/shared";
+// import { BackArrow, MobileSearch } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { TABLET } from "@/shared/utils";
 
 import styles from "./AccountMedicalCardPage.module.scss";
@@ -16,7 +17,7 @@ const AccountMedicalCardPage: FC = () => {
         <div className={styles.card}>
             <CustomMobileHeader back>
                 <div className={styles.header}>
-                    <BackArrow />
+                    {/* <BackArrow /> */}
                     <Text type="h2" fz="19px">
                         Медицинская карта
                     </Text>
@@ -24,10 +25,10 @@ const AccountMedicalCardPage: FC = () => {
             </CustomMobileHeader>
             <MobileContainer>
                 <div className={styles.container}>
-                    <MobileSearch
+                    {/* <MobileSearch
                         placeholder="Введите запрос"
                         filterBtn={false}
-                    />
+                    /> */}
                     <Calendar info={false} />
                     <div className={styles.box}>
                         <Text

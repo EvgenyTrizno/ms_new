@@ -25,8 +25,6 @@ import { MedicalBlock } from "./components/MedicalBlock/MedicalBlock";
 import { ExtraCallMobile } from "./components/ExtraCallMobile/ExtraCallMobile";
 import { CreatePass } from "./components/CreatePass/CreatePass";
 import { NotificationModal } from "./components/NotificationModal/NotificationModal";
-import { MobileCalendar } from "./components/MobileCalendar/MobileCalendar";
-import { MobileModal } from "./components/MobileModal/MobileModal";
 import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorBoundaryFallback";
 import { ChatInfo } from "./components/ChatInfo/ChatInfo";
 import { MobileComment } from "./components/MobileComment/MobileComment";
@@ -97,8 +95,6 @@ export {
     ExtraCallMobile,
     CreatePass,
     NotificationModal,
-    MobileCalendar,
-    MobileModal,
     ErrorBoundaryFallback,
     ChatInfo,
     MobileComment,

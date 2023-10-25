@@ -1,6 +1,6 @@
 import { FC, useEffect } from "react";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { useNotification, useUserCondition } from "@/shared/model/store";
 
 import cross from "/assets/cross-black-small.svg";

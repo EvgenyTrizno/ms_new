@@ -3,7 +3,7 @@ import { ISearchBlockProps } from "./types";
 
 import { Rating } from "@/widgets";
 import { TABLET } from "@/shared/utils";
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 import { useUserCondition } from "@/shared/model/store";
 
 import center from "/assets/center-icon.jpg";

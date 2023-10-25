@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { IParamsBlockProps } from "./types";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import arrowRight from "/assets/arrow-right-gray.svg";
 import styles from "./ParamsBlock.module.scss";

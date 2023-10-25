@@ -1,7 +1,8 @@
 import { FC, useState, MouseEvent } from "react";
 
 import { CustomMobileHeader, MobileContainer } from "@/widgets";
-import { BackArrow, MobilePopUp, Text } from "@/shared";
+// import { BackArrow, MobilePopUp } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import woman from "/assets/woman.jpg";
 import more from "/assets/dots-more.svg";
@@ -15,7 +16,7 @@ const AccountAccessSettings: FC = () => {
         <div className={styles.access}>
             <CustomMobileHeader back>
                 <div className={styles.box}>
-                    <BackArrow />
+                    {/* <BackArrow /> */}
                     <Text type="h2" fz="19px">
                         Доступ
                     </Text>
@@ -119,7 +120,7 @@ const AccountAccessSettings: FC = () => {
                     </div>
                 </div>
             </MobileContainer>
-            {isOpen && (
+            {/* {isOpen && (
                 <MobilePopUp right="40px" top={`${y}px`}>
                     <li>
                         <Text type="p">Изменить</Text>
@@ -130,7 +131,7 @@ const AccountAccessSettings: FC = () => {
                         </Text>
                     </li>
                 </MobilePopUp>
-            )}
+            )} */}
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Text } from "@/shared";
+import { Text } from "@/shared/ui/Text";
 
 import woman from "/assets/woman.jpg";
 import styles from "./PersonalCard.module.scss";
