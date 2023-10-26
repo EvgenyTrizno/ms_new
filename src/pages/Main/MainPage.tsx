@@ -11,7 +11,7 @@ import {
     SliderArrows,
 } from "@/widgets";
 import { Card } from "@/entities/Card/ui";
-import { PostLayout as Post } from "@/widgets/components/Post/ui";
+import { Post } from "@/widgets/components/Post/ui";
 import { MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import controller from "/assets/controler.svg";
