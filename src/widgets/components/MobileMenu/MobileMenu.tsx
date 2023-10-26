@@ -1,6 +1,6 @@
 import { FC, useId } from "react";
 import { useNavigate } from "react-router";
-import { IMenuData } from "../Menu/types";
+import { IMenuData } from "../Menu/model/types";
 
 import { TIsSelect } from "@/shared/model/store/types";
 import { useMenu } from "@/shared/model/store";

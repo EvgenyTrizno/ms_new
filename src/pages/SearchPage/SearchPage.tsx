@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 import {
     MobileContainer,
     MobileHeader,
@@ -8,16 +8,15 @@ import {
     Rating,
     Search,
 } from "@/widgets";
-// import { Filter, MobileSearch } from "@/shared";
-import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
 import { ISearchResult } from "@/shared/api/Search/types";
 import { SearchRes } from "@/shared/api/Search";
 import { useFilter } from "@/shared/model/store";
+import { MOBILE } from "@/shared/utils";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
+import { Filter } from "@/shared/ui/Filter";
 
-import controler from "/assets/controler.svg";
 import styles from "./SearchPage.module.scss";
-import { MOBILE, PC } from "@/shared/utils";
 
 const SearchPage: FC = () => {
     const { getAllResult } = SearchRes();
@@ -34,32 +33,12 @@ const SearchPage: FC = () => {
             {MOBILE && <MobileHeader />}
             <MobileContainer>
                 <div className={styles.header}>
-                    {PC && (
-                        <>
-                            <Search placeholder="Поиск чатов" height="48px" />
-                            <Btn
-                                width="160px"
-                                color="#0064FA"
-                                height="48px"
-                                br="12px"
-                                padding="14px 18px"
-                            >
-                                <div className={styles.btn}>
-                                    <img src={controler} alt="" />
-                                    <Text type="p" fz="14px">
-                                        Фильтры
-                                    </Text>
-                                </div>
-                            </Btn>
-                        </>
-                    )}
-                    {/* {MOBILE && (
-                        <MobileSearch placeholder="Поиск чатов" filterBtn />
-                    )} */}
+                    <Search placeholder="Поиск чатов" height="48px" />
+                    <FilterBtn onClick={() => console.log("1")} />
                 </div>
                 <div className={styles.main}>
                     <div className={styles.box}>
-                        {/* <Filter data={["Центры", "Клиника", "Врачи"]} /> */}
+                        <Filter data={["Центры", "Клиника", "Врачи"]} />
                     </div>
                     <div className={styles.items}>
                         {isFilter === "Центры"

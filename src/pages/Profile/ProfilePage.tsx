@@ -2,7 +2,7 @@ import { FC, useState, useId, ChangeEvent } from "react";
 // import { useNavigate } from "react-router";
 import { IProfileParamsItemsData } from "./types";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 import {
     CustomMobileHeader,
     MobileContainer,

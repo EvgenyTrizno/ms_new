@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { animate, stagger } from "framer-motion";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 // import { MobileSearch } from "@/shared";
 import { Text } from "@/shared/ui/Text";
 

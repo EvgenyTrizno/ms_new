@@ -3,7 +3,6 @@
     width: 150px;
     height: 134px;
     background-color: var(--white);
-    padding: 16px;
     border: 1px solid var(--blue-100);
     border-radius: var(--default-border);
     position: relative;
@@ -12,7 +11,6 @@
     align-items: center;
     justify-content: center;
     grid-gap: 10px;
-    cursor: pointer;
 
     .checkbox {
         position: absolute;
@@ -26,18 +24,6 @@
         object-fit: cover;
         border-radius: 1000px;
     }
-
-    .box {
-        h3 {
-            color: var(--dark);
-            font-size: 16px;
-        }
-
-        p {
-            color: var(--dark-gray);
-            margin-top: 4px;
-        }
-    }
 }
 
 @media screen and (max-width: 576px) {
@@ -45,7 +31,6 @@
         min-width: 80px;
         max-width: 80px;
         height: 100px;
-        padding: 12px;
         display: flex;
         flex-direction: column;
         grid-gap: 10px;

@@ -11,7 +11,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Text } from "@/shared/ui/Text";
 import { Btn } from "@/shared/ui/Btn";

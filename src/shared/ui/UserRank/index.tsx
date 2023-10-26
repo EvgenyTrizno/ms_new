@@ -3,9 +3,9 @@ import { IUserRankProps } from "./types";
 
 import { Text } from "../Text";
 
-export const UserRank: FC<IUserRankProps> = ({ rank }) => {
+export const UserRank: FC<IUserRankProps> = ({ rank, position }) => {
     return (
-        <Text type="p" fz="14px" color="#7D7F82">
+        <Text type="p" fz="14px" color="#3C3D3E" position={position}>
             {rank}
         </Text>
     );

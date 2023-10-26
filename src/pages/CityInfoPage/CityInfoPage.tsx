@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 import { Cols } from "@/widgets/components/Cols/Cols";
 import {
     AdminPanelContainer,

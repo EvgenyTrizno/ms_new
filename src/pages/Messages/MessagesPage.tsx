@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 import {
     Chat,
     MobileContainer,

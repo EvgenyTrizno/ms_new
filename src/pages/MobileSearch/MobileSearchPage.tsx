@@ -4,7 +4,7 @@ import { MobileContainer, MobileHeader, SearchResultBlock } from "@/widgets";
 // import { MobileFilter, MobileSearch } from "@/shared";
 import { Text } from "@/shared/ui/Text";
 import { useFilter } from "@/shared/model/store";
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 
 import styles from "./MobileSearchPage.module.scss";
 

@@ -1,16 +1,16 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { IHeaderProps } from "./types";
+import { IHeaderProps } from "../model/types";
 
 import { Text } from "@/shared/ui/Text";
 import { useMenu, useUserData } from "@/shared/model/store";
 import { useUserCondition, useNotification } from "@/shared/model/store";
-import { Balance } from "../Balance/Balance";
+import { Balance } from "../../Balance/Balance";
 
 import notification from "/assets/notification.svg";
 import notificationActive from "/assets/notification-active.svg";
 import noimage from "/assets/noimage.svg";
-import styles from "./Header.module.scss";
+import styles from "./styles.module.scss";
 
 export const Header: FC<IHeaderProps> = ({ width }) => {
     const navigate = useNavigate();

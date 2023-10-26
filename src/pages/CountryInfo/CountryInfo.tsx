@@ -1,7 +1,7 @@
 import { FC, useRef, useEffect } from "react";
 import { useSelectCountry } from "@/shared/model/store";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 import { BlueBox, BlueSliderArrows, Indicator } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";

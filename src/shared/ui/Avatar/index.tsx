@@ -4,21 +4,40 @@ import { AvatarProps } from "./types";
 
 import styles from "./styles.module.scss";
 
-export const Avatar: FC<AvatarProps> = ({ type }): JSX.Element => {
-    console.log(type);
-
+export const Avatar: FC<AvatarProps> = ({ type, size, img }): JSX.Element => {
     const generateAvatar = () => {
         switch (type) {
             case "center":
-                return <img src="" alt="" className={styles.centerImg} />;
+                return (
+                    <img
+                        src={img}
+                        alt=""
+                        style={{ width: size, height: size }}
+                        className={styles.centerImg}
+                    />
+                );
             case "clinic":
-                return <img src="" alt="" className={styles.clinicImg} />;
+                return (
+                    <img
+                        src={img}
+                        alt=""
+                        style={{ width: size, height: size }}
+                        className={styles.clinicImg}
+                    />
+                );
             case "user":
-                return <img src="" alt="" className={styles.userImg} />;
+                return (
+                    <img
+                        src={img}
+                        alt=""
+                        style={{ width: size, height: size }}
+                        className={styles.userImg}
+                    />
+                );
         }
     };
 
-    const img = generateAvatar();
+    const image = generateAvatar();
 
-    return img;
+    return image;
 };

@@ -12,7 +12,7 @@ import {
 } from "chart.js";
 // import { Line } from "react-chartjs-2";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 import {
     AdminPanelContainer,
     BlueBox,

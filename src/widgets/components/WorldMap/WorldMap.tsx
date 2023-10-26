@@ -2,7 +2,7 @@ import { FC, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useSelectCountry } from "@/shared/model/store";
 
-import { Layout } from "@/pages/Layout/Layout";
+import { Layout } from "@/pages/Layout";
 import { Text } from "@/shared/ui/Text";
 
 import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";

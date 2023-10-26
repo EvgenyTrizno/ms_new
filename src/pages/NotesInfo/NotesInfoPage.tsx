@@ -19,7 +19,7 @@ ChartJS.register(
     Tooltip
 );
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 // import { GalleryModal, Filter } from "@/shared";
 import { Comment, Circle, Slider, Search } from "@/widgets";
 import { Card } from "@/entities/Card/ui";

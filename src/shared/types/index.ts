@@ -30,6 +30,7 @@ export interface IInput {
     value?: string | number | readonly string[];
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     fz?: string;
+    border?: string;
 }
 
 export interface IBtn {

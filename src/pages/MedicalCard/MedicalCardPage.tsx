@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router";
 
 import { Calendar, MedicalBlock } from "@/widgets";
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 import { Text } from "@/shared/ui/Text";
 
 import styles from "./MedicalCardPage.module.scss";

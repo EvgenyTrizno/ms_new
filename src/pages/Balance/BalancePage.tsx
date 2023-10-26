@@ -14,7 +14,7 @@ import {
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Filler);
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 import { Text } from "@/shared/ui/Text";
 
 import arrowDown from "/assets/arrow-down-gray.svg";

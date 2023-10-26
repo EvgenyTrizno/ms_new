@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useNavigate } from "react-router";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 // import { Filter } from "@/shared";
 import { Text } from "@/shared/ui/Text";
 import { Btn } from "@/shared/ui/Btn";

@@ -28,6 +28,7 @@ export const Input: FC<IInput & InputHTMLAttributes<HTMLInputElement>> = ({
     className,
     onFocus,
     fz,
+    border,
 }) => {
     const ref = useRef<string[]>([]);
 
@@ -63,6 +64,7 @@ export const Input: FC<IInput & InputHTMLAttributes<HTMLInputElement>> = ({
                 backgroundColor: bgcolor,
                 padding,
                 fontSize: fz,
+                border,
             }}
             onChange={onChange}
             onBlur={onBlur}

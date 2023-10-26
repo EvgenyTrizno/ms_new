@@ -1,17 +1,18 @@
 import { FC, useId, MouseEvent, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { EActive, IMenuData } from "./types";
+import { EActive, IMenuData } from "../model/types";
 import { TIsSelect } from "@/shared/model/store/types";
 
 import { Text } from "@/shared/ui/Text";
+import { HealthyStatus } from "@/shared/ui/HealthyStatus";
 import { useUserCondition, useMenu, useUserData } from "@/shared/model/store";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
+import { Search } from "../../../../shared/ui/Search";
 
 import logo from "/assets/logo.svg";
 import bigLogo from "/assets/logo-with-text.svg";
 import bigLogoRed from "/assets/logo-with-text-red.svg";
-import styles from "./Menu.module.scss";
-import { Search } from "../Search/Search";
+import styles from "./styles.module.scss";
 
 export const Menu: FC = () => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -851,7 +852,7 @@ export const Menu: FC = () => {
                             Состояние:
                         </Text>
                     )}
-                {/* <Switcher isHovered={isHovered} /> */}
+                <HealthyStatus isHovered={isHovered} />
                 <div
                     className={styles.list}
                     style={{ marginTop: group === "Пользователи" ? "" : 0 }}

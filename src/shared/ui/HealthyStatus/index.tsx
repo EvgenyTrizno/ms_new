@@ -2,15 +2,15 @@ import { FC, MouseEvent } from "react";
 
 import { useUserCondition } from "@/shared/model/store";
 import { Text } from "../Text";
-
-import styles from "./Switcher.module.scss";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
+
+import styles from "./styles.module.scss";
 
 interface ISwitcherProps {
     isHovered?: boolean;
 }
 
-export const Switcher: FC<ISwitcherProps> = ({ isHovered }) => {
+export const HealthyStatus: FC<ISwitcherProps> = ({ isHovered }) => {
     const { condition, setCondition } = useUserCondition();
 
     const healthyClasses = `${styles.healthy} ${styles.item}`;

@@ -3,14 +3,12 @@ import { MarkerF, StandaloneSearchBox } from "@react-google-maps/api";
 import { ISelectCenterMapProps } from "./types";
 
 import { CenterInfoCard, Map } from "@/widgets";
-import { Btn } from "@/shared/ui/Btn";
-import { Text } from "@/shared/ui/Text";
+import { MOBILE } from "@/shared/utils";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
 
 import circle from "/assets/circle-blue.svg";
-import controler from "/assets/controler.svg";
 import search from "/assets/search-gray.svg";
 import styles from "./SelectCenterMap.module.scss";
-import { MOBILE } from "@/shared/utils";
 
 export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -57,23 +55,7 @@ export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
                                 placeholder="Поиск чатов"
                             />
                         </div>
-                        <Btn
-                            color="#0064FA"
-                            width={MOBILE ? "34px" : "132px"}
-                            br="12px"
-                            padding={MOBILE ? "0px" : "14px 18px"}
-                            fz="14px"
-                            height={MOBILE ? "34px" : "100%"}
-                        >
-                            <div className={styles.box}>
-                                <img src={controler} alt="" />
-                                {!MOBILE && (
-                                    <Text type="p" fz="14px">
-                                        Фильтры
-                                    </Text>
-                                )}
-                            </div>
-                        </Btn>
+                        <FilterBtn onClick={() => ({})} />
                     </div>
                 </StandaloneSearchBox>
                 {isOpen && (

@@ -13,7 +13,7 @@ import {
 } from "chart.js";
 import { Bar, Line } from "react-chartjs-2";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import {

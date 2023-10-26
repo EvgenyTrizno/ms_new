@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 // import { Filter } from "@/shared";
 
 import styles from "./RequestsPage.module.scss";

@@ -1,6 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { IPostLayoutProps } from "../types";
 import { PaginationOptions } from "swiper/types";
 
 import { getFullUsernameWithInitials } from "@/entities/User/lib/helpers/getFullUsernameWithInitials";
@@ -10,14 +11,14 @@ import { Rows } from "@/shared/ui/Rows";
 import { Avatar } from "@/shared/ui/Avatar";
 import { Username } from "@/shared/ui/Username";
 import { useUserCondition } from "@/shared/model/store"; // убрать
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
+import { UserGroup } from "@/shared/ui/UserGroup";
 
 import post from "/assets/post.jpg";
+import woman from "/assets/woman.jpg";
 import styles from "./styles.module.scss";
 
 import "swiper/css/pagination";
-import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
-import { UserGroup } from "@/shared/ui/UserGroup";
-import { IPostLayoutProps } from "../types";
 
 export const PostLayout: FC<IPostLayoutProps> = ({ actionsGUI, postInfo }) => {
     const [paginationKey, setPaginationKey] = useState<number>(0);
@@ -43,17 +44,18 @@ export const PostLayout: FC<IPostLayoutProps> = ({ actionsGUI, postInfo }) => {
 
     return (
         <WhiteContentBlock className={styles.post}>
-            <Row gap={20}>
-                <Avatar type="user" />
-                <Rows gap={10} rows={["auto", "auto"]}>
+            <Row gap={10}>
+                <Avatar type="user" img={woman} size={60} />
+                <Rows gap={5} rows={["auto", "auto"]}>
                     <Username
                         name={getFullUsernameWithInitials(
                             "Яковенко",
                             "Александра",
                             "Сергеевна"
                         )}
+                        fz="18px"
                     />
-                    <UserGroup group="Пользователи" />
+                    <UserGroup group="Пользователи" fz="14px" />
                 </Rows>
             </Row>
             <div className={styles.descr}>

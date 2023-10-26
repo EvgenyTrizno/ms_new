@@ -1,7 +1,6 @@
 import { FC } from "react";
 
-import { Layout } from "../Layout/Layout";
-import { Btn } from "@/shared/ui/Btn";
+import { Layout } from "../Layout";
 import { Text } from "@/shared/ui/Text";
 import {
     MobileContainer,
@@ -10,11 +9,13 @@ import {
     Slider,
     SliderArrows,
 } from "@/widgets";
-import { Card } from "@/entities/Card/ui";
+import { Card } from "@/shared/ui/Card";
 import { Post } from "@/widgets/components/Post/ui";
-import { MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
+import { getFullUsernameWithInitials } from "@/entities/User/lib/helpers/getFullUsernameWithInitials";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
+import { Row } from "@/shared/ui/Row";
+import { MOBILE } from "@/shared/utils";
 
-import controller from "/assets/controler.svg";
 import styles from "./MainPage.module.scss";
 
 const MainPage: FC = () => {
@@ -24,15 +25,26 @@ const MainPage: FC = () => {
             <MobileContainer>
                 <div className={styles.container}>
                     <div className={styles.box}>
-                        <div className={styles.nav}>
+                        <Row
+                            gap={0}
+                            style={{ justifyContent: "space-between" }}
+                        >
                             <Text type="p" color="#7D7F82" fz="14px">
                                 Специалисты из Узбекистана
                             </Text>
                             <SliderArrows />
-                        </div>
+                        </Row>
                         <Slider>
                             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-                                <Card checkbox name="" key={item} />
+                                <Card
+                                    checkbox
+                                    name={getFullUsernameWithInitials(
+                                        "Михайлова",
+                                        "Татьяна",
+                                        "Александровна"
+                                    )}
+                                    key={item}
+                                />
                             ))}
                         </Slider>
                     </div>
@@ -42,42 +54,10 @@ const MainPage: FC = () => {
                             // style={{ backgroundColor: sick ? "#F7E6E8" : "" }}
                         ></div>
                     )}
-                    {SMALL_LAPTOP && (
-                        <div className={styles.filters}>
-                            <Btn color="#0064FA" width="160px" height="56px">
-                                <div className={styles.inner}>
-                                    <img src={controller} alt="" />
-                                    <Text type="p">Фильтры</Text>
-                                </div>
-                            </Btn>
-                        </div>
-                    )}
+
                     <div className={styles.posts}>
                         <div className={styles.filters}>
-                            {PC ? (
-                                <Btn
-                                    color="#0064FA"
-                                    height="48px"
-                                    br="12px"
-                                    padding="14px"
-                                >
-                                    <div className={styles.inner}>
-                                        <img src={controller} alt="" />
-                                        <Text type="p">Фильтры</Text>
-                                    </div>
-                                </Btn>
-                            ) : (
-                                MOBILE && (
-                                    <Btn
-                                        color="#0064FA"
-                                        width="56px"
-                                        height="56px"
-                                        padding="0"
-                                    >
-                                        <img src={controller} alt="" />
-                                    </Btn>
-                                )
-                            )}
+                            <FilterBtn onClick={() => console.log("1")} />
                         </div>
                         {[1, 2, 3, 4].map((item) => (
                             <Post key={item} />

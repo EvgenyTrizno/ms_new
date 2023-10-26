@@ -4,11 +4,11 @@ import { TProps } from "./types";
 import {
     // MobileMenu,
     ExtraCallModal,
-    Header,
-    Menu,
     ExtraCallMobile,
     NotificationModal,
 } from "@/widgets";
+import { Header } from "@/widgets/components/Header/ui";
+import { Menu } from "@/widgets/components/Menu/ui";
 import {
     useExtraCall,
     useNotification,

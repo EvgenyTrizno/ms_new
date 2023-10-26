@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { useNavigate } from "react-router";
 
-import { Layout } from "../Layout/Layout";
+import { Layout } from "../Layout";
 // import { Filter, BackArrow, MobileSearch } from "@/shared";
 import {
     CustomMobileHeader,
