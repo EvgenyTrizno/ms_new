@@ -2,23 +2,21 @@ import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 import { Layout } from "../Layout";
-import {
-    Chat,
-    MobileContainer,
-    MobileHeader,
-    MobileMenu,
-    Search,
-} from "@/widgets";
-// import { Filter } from "@/shared";
-import { Btn } from "@/shared/ui/Btn";
+import { MobileHeader, MobileMenu } from "@/widgets";
+import { Filter } from "@/shared/ui/Filter";
 import { Text } from "@/shared/ui/Text";
+import { Container } from "@/shared/ui/Container";
+import { Search } from "@/shared/ui/Search";
 import { useFilter, useUserCondition, useUserData } from "@/shared/model/store";
 import { MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
+import { Chat } from "@/entities/Chat/ui/ChatLayout";
+import { Row } from "@/shared/ui/Row";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
+import { Rows } from "@/shared/ui/Rows";
 // import { ABSOLUTE_PATH } from "@/shared/config";
 
 import woman from "/assets/woman.jpg";
 import incoming from "/assets/call-incoming.svg";
-import controller from "/assets/controler.svg";
 import cross from "/assets/cross-close.svg";
 import crossBlue from "/assets/cross-close-small-blue.svg";
 import arrowDown from "/assets/arrow-down-gray.svg";
@@ -86,41 +84,21 @@ const MessagesPage: FC = () => {
 
     return (
         <Layout>
-            <MobileContainer>
+            <Container>
                 {MOBILE && <MobileHeader />}
                 <div className={styles.container}>
                     <div className={styles.sidebar}>
-                        <div className={styles.box}>
-                            <div className={styles.searchBox}>
-                                <Search
-                                    placeholder="Поиск чатов"
-                                    height="48px"
-                                />
+                        <Rows gap={10} rows={["auto"]}>
+                            <Row gap={10}>
+                                <Search placeholder="Поиск чатов" />
                                 {group === "Врачи" && (
-                                    <Btn
-                                        color="#0064FA"
-                                        width="52px"
-                                        height="52px"
-                                        padding="0px"
-                                        onClick={() =>
-                                            setIsOpenFilters((prev) => !prev)
-                                        }
-                                    >
-                                        <img
-                                            src={
-                                                isOpenFilters
-                                                    ? cross
-                                                    : controller
-                                            }
-                                            alt=""
-                                        />
-                                    </Btn>
+                                    <FilterBtn onClick={() => ({})} />
                                 )}
-                            </div>
-                            {/* <Filter
+                            </Row>
+                            <Filter
                                 data={["Сообщения", "Звонки"]}
                                 width="100%"
-                            /> */}
+                            />
                             {isOpenFilters && (
                                 <div className={styles.filtersBlock}>
                                     <div className={styles.selectedList}>
@@ -290,11 +268,11 @@ const MessagesPage: FC = () => {
                                     )}
                                 </div>
                             </div>
-                        </div>
+                        </Rows>
                     </div>
-                    {isChat && PC && <Chat />}
+                    {isChat && <Chat />}
                 </div>
-            </MobileContainer>
+            </Container>
             {MOBILE && <MobileMenu />}
         </Layout>
     );

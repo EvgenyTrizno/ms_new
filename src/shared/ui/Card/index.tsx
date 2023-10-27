@@ -3,8 +3,8 @@ import { ICard } from "./types";
 
 import { MOBILE } from "@/shared/utils";
 import { Avatar } from "@/shared/ui/Avatar";
-import { Username } from "@/shared/ui/Username";
-import { UserRank } from "@/shared/ui/UserRank";
+import { Username } from "@/entities/User/ui/Username";
+import { UserRank } from "@/entities/User/ui/UserRank";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Rows } from "../Rows";
 
@@ -14,7 +14,7 @@ import styles from "./styles.module.scss";
 export const Card: FC<ICard> = ({ checkbox, onClick, name }) => {
     return (
         <WhiteContentBlock className={styles.card} onClick={onClick}>
-            <Avatar type="user" img={woman} size={55} />
+            <Avatar type="user" img={woman} size="M" />
             <div className={styles.checkbox}>{checkbox}</div>
             <Rows gap={5} rows={["auto", "auto"]}>
                 {!MOBILE && <Username name={name} />}

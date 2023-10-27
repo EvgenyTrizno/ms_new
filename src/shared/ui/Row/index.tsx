@@ -6,11 +6,15 @@ interface IRowProps {
     children: ReactNode;
     style?: CSSProperties;
     gap: number;
+    className?: string;
 }
 
-export const Row: FC<IRowProps> = ({ children, style, gap }) => {
+export const Row: FC<IRowProps> = ({ children, style, gap, className }) => {
     return (
-        <div className={styles.row} style={{ ...style, gridGap: gap }}>
+        <div
+            className={`${className ?? ""} ${styles.row}`}
+            style={{ ...style, gridGap: gap }}
+        >
             {children}
         </div>
     );

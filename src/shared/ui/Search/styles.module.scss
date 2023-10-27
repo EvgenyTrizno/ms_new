@@ -1,21 +1,3 @@
-.box {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    border: 1px solid var(--blue-100);
-    border-radius: var(--mobile-default-border);
-    box-sizing: border-box;
-
-    .btn {
-        background-color: var(--white);
-        cursor: unset;
-        border-right: none;
-        border-top-left-radius: 12px;
-        border-bottom-left-radius: 12px;
-        padding-left: 16px;
-    }
-}
-
 .search {
     width: 100%;    
     background-color: var(--white);
@@ -24,15 +6,5 @@
     display: flex;
     align-items: center;
     grid-gap: 10px;
-}
-
-@media screen and (min-width: 1440px) and (max-width: 1920px) {
-    .box {
-        .btn {
-            img {
-                width: 16px;
-                height: 16px;
-            }
-        }
-    }
+    border: 1px solid var(--blue-100);
 }

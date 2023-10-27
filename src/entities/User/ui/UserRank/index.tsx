@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { IUserRankProps } from "./types";
 
-import { Text } from "../Text";
+import { Text } from "../../../../shared/ui/Text";
 
 export const UserRank: FC<IUserRankProps> = ({ rank, position }) => {
     return (

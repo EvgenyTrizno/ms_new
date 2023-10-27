@@ -7,7 +7,6 @@ import { MOBILE } from "@/shared/utils";
 import { FilterBtn } from "@/shared/ui/FilterBtn";
 
 import circle from "/assets/circle-blue.svg";
-import search from "/assets/search-gray.svg";
 import styles from "./SelectCenterMap.module.scss";
 
 export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
@@ -47,7 +46,7 @@ export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
                     <div className={styles.inner}>
                         <div className={styles.search}>
                             <div className={styles.btn}>
-                                <img src={search} alt="" />
+                                {/* <img src={search} alt="" /> */}
                             </div>
                             <input
                                 type="text"

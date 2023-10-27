@@ -7,7 +7,6 @@ import { Authorization } from "./components/Auth/Authorization/Authorization";
 import { VirusList } from "./components/VirusList/VirusList";
 import { Confirmation } from "./components/Auth/Confirmation/Confirmation";
 import { User } from "./components/User/User";
-import { Search } from "../shared/ui/Search";
 import { Comment } from "./components/Comment/Comment";
 import { CenterInfoCard } from "./components/CenterInfoCard/CenterInfoCard";
 import { Circle } from "./components/Circle/Circle";
@@ -17,7 +16,6 @@ import { Slider } from "./components/Slider/Slider";
 import { ExtraCallModal } from "./components/ExtraCallModal/ExtraCallModal";
 import { MobileMenu } from "./components/MobileMenu/MobileMenu";
 import { MobileHeader } from "./components/MobileHeader/MobileHeader";
-import { MobileContainer } from "./components/MobileContainer/MobileContainer";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
 import { MedicalBlock } from "./components/MedicalBlock/MedicalBlock";
 import { ExtraCallMobile } from "./components/ExtraCallMobile/ExtraCallMobile";
@@ -35,12 +33,10 @@ import { Interview } from "./components/Auth/Interview/Interview";
 import { SmallDropbox } from "./components/SmallDropbox/SmallDropbox";
 import { RecoveryForPersonal } from "./components/Auth/RecoveryForPersonal/RecoveryForPersonal";
 import { Balance } from "./components/Balance/Balance";
-import { Chat } from "./components/Chat/Chat";
 import { SliderArrows } from "./components/SliderArrows/SliderArrows";
 import { NotesCard } from "./components/NotesCard/NotesCard";
 import { SelectCenterMap } from "./components/SelectCenterMap/SelectCenterMap";
 import { PersonalCard } from "./components/PersonalCard/PersonalCard";
-import { NoteBlock } from "./components/NoteBlock/NoteBlock";
 import { EmojiModal } from "./components/EmojiModal/EmojiModal";
 import { ConnectionModal } from "./components/ConnectionModal/ConnectionModal";
 import { EmployeeInfoCard } from "./components/EmployeeInfoCard/EmployeeInfoCard";
@@ -76,7 +72,6 @@ export {
     VirusList,
     Confirmation,
     User,
-    Search,
     Comment,
     CenterInfoCard,
     Circle,
@@ -85,7 +80,6 @@ export {
     ExtraCallModal,
     MobileMenu,
     MobileHeader,
-    MobileContainer,
     CustomMobileHeader,
     MedicalBlock,
     ExtraCallMobile,
@@ -104,12 +98,10 @@ export {
     SmallDropbox,
     RecoveryForPersonal,
     Balance,
-    Chat,
     SliderArrows,
     NotesCard,
     SelectCenterMap,
     PersonalCard,
-    NoteBlock,
     EmojiModal,
     ConnectionModal,
     EmployeeInfoCard,

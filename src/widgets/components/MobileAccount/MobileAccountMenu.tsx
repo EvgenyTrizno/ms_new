@@ -3,7 +3,8 @@ import { useNavigate } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { IParamsData } from "./types";
 
-import { MobileContainer, ParamsBlock, ReminderBlock, Search } from "@/widgets";
+import { ParamsBlock, ReminderBlock } from "@/widgets";
+import { Search } from "@/shared/ui/Search";
 import { useUserCondition, useUserData } from "@/shared/model/store";
 import { Text } from "@/shared/ui/Text";
 import { useProfile } from "@/shared/model/store";
@@ -29,6 +30,7 @@ import salesBlue from "/assets/sales-blue.svg";
 import envelopBlue from "/assets/envelope-blue.svg";
 import botBlue from "/assets/bot-blue.svg";
 import styles from "./MobileAccountMenu.module.scss";
+import { Container } from "@/shared/ui/Container";
 
 export const MobileAccountMenu: FC = () => {
     const [swipedUp, setSwipedUp] = useState(false);
@@ -233,7 +235,7 @@ export const MobileAccountMenu: FC = () => {
                         </Text>
                     )}
                 </div>
-                <MobileContainer>
+                <Container>
                     {group === "Пользователи" && (
                         <>
                             <ReminderBlock type="timer" />
@@ -307,7 +309,7 @@ export const MobileAccountMenu: FC = () => {
                                 />
                             ))}
                     </motion.div>
-                </MobileContainer>
+                </Container>
             </motion.div>
         </AnimatePresence>
     );

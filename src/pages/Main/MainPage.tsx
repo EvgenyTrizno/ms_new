@@ -2,19 +2,14 @@ import { FC } from "react";
 
 import { Layout } from "../Layout";
 import { Text } from "@/shared/ui/Text";
-import {
-    MobileContainer,
-    MobileHeader,
-    MobileMenu,
-    Slider,
-    SliderArrows,
-} from "@/widgets";
+import { MobileHeader, MobileMenu, Slider, SliderArrows } from "@/widgets";
 import { Card } from "@/shared/ui/Card";
 import { Post } from "@/widgets/components/Post/ui";
 import { getFullUsernameWithInitials } from "@/entities/User/lib/helpers/getFullUsernameWithInitials";
 import { FilterBtn } from "@/shared/ui/FilterBtn";
 import { Row } from "@/shared/ui/Row";
 import { MOBILE } from "@/shared/utils";
+import { Container } from "@/shared/ui/Container";
 
 import styles from "./MainPage.module.scss";
 
@@ -22,7 +17,7 @@ const MainPage: FC = () => {
     return (
         <Layout>
             {MOBILE && <MobileHeader />}
-            <MobileContainer>
+            <Container>
                 <div className={styles.container}>
                     <div className={styles.box}>
                         <Row
@@ -64,7 +59,7 @@ const MainPage: FC = () => {
                         ))}
                     </div>
                 </div>
-            </MobileContainer>
+            </Container>
             {MOBILE && <MobileMenu />}
         </Layout>
     );

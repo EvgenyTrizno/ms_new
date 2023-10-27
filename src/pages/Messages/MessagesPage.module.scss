@@ -12,201 +12,188 @@
         background-color: var(--white);
         padding: 16px;
 
-        .box {
+        .filtersBlock {     
             display: flex;
             flex-direction: column;
-            grid-gap: 10px;
-            
-            .searchBox {
-                width: 100% !important;
+            grid-gap: 24px;
+
+            .selectedList {
                 display: flex;
                 align-items: center;
-                grid-gap: 12px;
-            }
+                grid-gap: 8px;
+                flex-wrap: wrap;
 
-            .filtersBlock {
-                display: flex;
-                flex-direction: column;
-                grid-gap: 24px;
-
-                .selectedList {
+                .selectedBlock {
+                    padding: 12px 16px 12px 12px;
+                    border-radius: 10px;
+                    background-color: var(--blue-100);
                     display: flex;
                     align-items: center;
-                    grid-gap: 8px;
-                    flex-wrap: wrap;
-                    
-                    .selectedBlock {
-                        padding: 12px 16px 12px 12px;
-                        border-radius: 10px;
-                        background-color: var(--blue-100);
-                        display: flex;
-                        align-items: center;
-                        grid-gap: 6px;
-                        height: 42px;
+                    grid-gap: 6px;
+                    height: 42px;
 
-                        img {
-                            width: 14px;
-                            height: 14px;
-                            cursor: pointer;
-                        }
-                    }
-                }
-
-                .filtersList {
-                    display: flex;
-                    align-items: center;
-                    grid-gap: 8px;
-                    flex-wrap: wrap;
-
-                    .filtersBox {
-                        padding: 12px;
-                        border-radius: 10px;
-                        background-color: var(--background);
-                        display: flex;
-                        align-items: center;
-                        height: 42px;
+                    img {
+                        width: 14px;
+                        height: 14px;
                         cursor: pointer;
-
-                        img {
-                            width: 24px;
-                            height: 24px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                        }
                     }
                 }
             }
 
-            .wrapper {
-                overflow-y: scroll;
-                height: calc(100vh - 220px);
-                scrollbar-width: thin;
-                scrollbar-color: transparent transparent;
+            .filtersList {
+                display: flex;
+                align-items: center;
+                grid-gap: 8px;
+                flex-wrap: wrap;
 
-                .chats {
-                    background-color: transparent;
+                .filtersBox {
+                    padding: 12px;
+                    border-radius: 10px;
+                    background-color: var(--background);
+                    display: flex;
+                    align-items: center;
+                    height: 42px;
+                    cursor: pointer;
 
-                    .chat {
+                    img {
+                        width: 24px;
+                        height: 24px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+
+        .wrapper {
+            overflow-y: scroll;
+            height: calc(100vh - 220px);
+            scrollbar-width: thin;
+            scrollbar-color: transparent transparent;
+
+            .chats {
+                background-color: transparent;
+
+                .chat {
+                    padding: 12px;
+                    border-bottom: 1px solid var(--gray-100);
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    cursor: pointer;
+                }
+
+                .chatActive {
+                    height: calc(100% - 5px);
+                    border-radius: var(--mobile-default-border);
+                    background: var(--blue-100);
+                }
+
+                .chatActiveRed {
+                    background: var(--red-100);
+                    border-radius: 15px;
+                }
+
+                .inner {
+                    display: flex;
+                    align-items: center;
+                    grid-gap: 20px;
+                }
+
+                .avatar {
+                    width: 56px;
+                    height: 56px;
+                    object-fit: cover;
+                    border-radius: 100%;
+                }
+
+                .data {
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: 10px;
+                }
+
+                .time {
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: 12px;
+                }
+
+                .counter {
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 100%;
+                    background-color: var(--blue);
+                    color: var(--white);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5px;
+                    font-size: 10px;
+                    font-weight: 500;
+                }
+
+                .counterRed {
+                    background-color: var(--red-400);
+                }
+
+                .calls {
+                    .call {
                         padding: 12px;
                         border-bottom: 1px solid var(--gray-100);
+                        display: flex;
+                        align-items: center;
+                        grid-gap: 19px;
                         position: relative;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        cursor: pointer;
-                    }
 
-                    .chatActive {
-                        height: calc(100% - 5px);
-                        border-radius: var(--mobile-default-border);
-                        background: var(--blue-100);
-                    }
-
-                    .chatActiveRed {
-                        background: var(--red-100);
-                        border-radius: 15px;
-                    }
-
-                    .inner {
-                        display: flex;
-                        align-items: center;
-                        grid-gap: 20px;
-                    }
-
-                    .avatar {
-                        width: 56px;
-                        height: 56px;
-                        object-fit: cover;
-                        border-radius: 100%;
-                    }
-
-                    .data {
-                        display: flex;
-                        flex-direction: column;
-                        grid-gap: 10px;
-                    }
-
-                    .time {
-                        display: flex;
-                        flex-direction: column;
-                        grid-gap: 12px;
-                    }
-
-                    .counter {
-                        width: 22px;
-                        height: 22px;
-                        border-radius: 100%;
-                        background-color: var(--blue);
-                        color: var(--white);
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        padding: 5px;
-                        font-size: 10px;
-                        font-weight: 500;
-                    }
-
-                    .counterRed {
-                        background-color: var(--red-400);
-                    }
-
-                    .calls {
-                        .call {
-                            padding: 12px;
-                            border-bottom: 1px solid var(--gray-100);
-                            display: flex;
-                            align-items: center;
-                            grid-gap: 19px;
-                            position: relative;
-
-                            .time {
-                                position: absolute;
-                                top: 12px;
-                                right: 12px;
-                            }
-
-                            .callImg {
-                                width: 24px;
-                                height: 24px;
-                            }
-
-                            .data {
-                                display: flex;
-                                grid-gap: 8px;
-                                flex-direction: column;
-                            }
+                        .time {
+                            position: absolute;
+                            top: 12px;
+                            right: 12px;
                         }
-                    }
 
-                    .chat:hover {
-                        transition: all ease .5s;
+                        .callImg {
+                            width: 24px;
+                            height: 24px;
+                        }
 
-                        p {
-                            transition: all ease .5s;
-                            font-weight: 600;
+                        .data {
+                            display: flex;
+                            grid-gap: 8px;
+                            flex-direction: column;
                         }
                     }
                 }
+
+                .chat:hover {
+                    transition: all ease .5s;
+
+                    p {
+                        transition: all ease .5s;
+                        font-weight: 600;
+                    }
+                }
             }
+        }
 
 
-            .chats::-webkit-scrollbar {
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-            }
+        .chats::-webkit-scrollbar {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
 
-            .wrapper::-webkit-scrollbar {
-                width: 0.5em;
-            }
+        .wrapper::-webkit-scrollbar {
+            width: 0.5em;
+        }
 
-            .wrapper::-webkit-scrollbar-thumb {
-                background-color: transparent;
-            }
+        .wrapper::-webkit-scrollbar-thumb {
+            background-color: transparent;
+        }
 
-            .wrapper::-webkit-scrollbar-track {
-                background-color: transparent;
-            }
+        .wrapper::-webkit-scrollbar-track {
+            background-color: transparent;
         }
     }
 }

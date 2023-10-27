@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { IUsernameProps } from "./types";
 
-import { Text } from "../Text";
+import { Text } from "../../../../shared/ui/Text";
 
 export const Username: FC<IUsernameProps> = ({ name, fz }) => {
     return (

@@ -3,9 +3,9 @@ import { INoteBlockProps } from "./types";
 
 import { Text } from "@/shared/ui/Text";
 
-import alarm from "/assets/alarm-clock.svg";
-import calendar from "/assets/calendar.svg";
-import time from "/assets/clock-fast-forward.svg";
+// import alarm from "/assets/alarm-clock.svg";
+// import calendar from "/assets/calendar.svg";
+// import time from "/assets/clock-fast-forward.svg";
 import styles from "./MedicalBlock.module.scss";
 import { useUserCondition } from "@/shared/model/store";
 
@@ -62,19 +62,19 @@ export const MedicalBlock: FC<INoteBlockProps> = ({ onClick }) => {
             <div className={styles.line}></div>
             <div className={styles.date}>
                 <div className={styles.block}>
-                    <img src={calendar} alt="" />
+                    {/* <img src={calendar} alt="" /> */}
                     <Text type="p" fz="12px">
                         21 Декабря
                     </Text>
                 </div>
                 <div className={styles.block}>
-                    <img src={alarm} alt="" />
+                    {/* <img src={alarm} alt="" /> */}
                     <Text type="p" fz="12px">
                         21 Декабря
                     </Text>
                 </div>
                 <div className={styles.block}>
-                    <img src={time} alt="" />
+                    {/* <img src={time} alt="" /> */}
                     <Text type="p" fz="12px">
                         21 Декабря
                     </Text>

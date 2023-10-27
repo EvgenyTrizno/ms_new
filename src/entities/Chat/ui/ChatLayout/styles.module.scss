@@ -1,5 +1,3 @@
-.view {
-    position: relative;
 
     .chatInfo {
         position: fixed;
@@ -90,57 +88,7 @@
             }
         }
     }
-
-    .info {
-        background-color: var(--white);
-        height: 80px;
-        width: calc(100vw - 736px);
-        padding: 12px 20px;
-        border: 1px solid var(--blue-100);
-        border-top: none;
-        position: fixed;
-        top: 65px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: border-color linear .3s;
-
-        .callIcons {
-            display: flex;
-        }
-
-        .data {
-            display: flex;
-            align-items: center;
-
-            .arrow {
-                width: 24px;
-                height: 24px;
-                cursor: pointer;
-            }
-
-            img {
-                width: 56px;
-                height: 56px;
-                object-fit: cover;
-                border-radius: 100%;
-            }
-
-            .text {
-                display: flex;
-                flex-direction: column;
-                grid-gap: 5px;
-                margin-left: 16px;
-            }
-        }
-
-        .call {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
-    }
-
+    
     .messageBlock {
         width: calc(100vw - 736px);
         background-color: var(--white);
@@ -188,8 +136,7 @@
         .icon {
             cursor: pointer;
         }
-    }
-}   
+        }
 
 @media screen and (max-width: 576px) {
     .view {

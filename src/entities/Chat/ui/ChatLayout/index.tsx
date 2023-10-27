@@ -5,24 +5,18 @@ import { useUserCondition } from "@/shared/model/store";
 // import { PopUp, BackArrow } from "@/shared";
 import { Text } from "@/shared/ui/Text";
 import { Input } from "@/shared/ui/Input";
-
 import { ChatInfo, CustomMobileHeader, EmojiModal } from "@/widgets";
+import { LAPTOP, MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
+import { SendMessage } from "@/features/SendMessage";
+import { Rows } from "@/shared/ui/Rows";
 
 import woman from "/assets/woman.jpg";
-import call from "/assets/call-calling.svg";
-import callRed from "/assets/call-calling-red.svg";
-import paperclip from "/assets/paperclip-blue.svg";
-import paperclipRed from "/assets/paperclip-red.svg";
-import sender from "/assets/send-blue.svg";
 import emoji from "/assets/emoji-normal.svg";
 import emojiOpen from "/assets/emoji-open.svg";
 import read from "/assets/read-blue.svg";
 import readRed from "/assets/read-red.svg";
-import mircophone from "/assets/microphone-blue.svg";
-import mircophoneRed from "/assets/microphone-red.svg";
-import back from "/assets/back-arrow-blue.svg";
-import styles from "./Chat.module.scss";
-import { MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
+import styles from "./styles.module.scss";
+import { ChatHeader } from "../ChatHeader";
 
 export const Chat: FC = () => {
     const { condition } = useUserCondition();
@@ -77,54 +71,9 @@ export const Chat: FC = () => {
     };
 
     return (
-        <div className={styles.view}>
-            {(PC || SMALL_LAPTOP) && (
-                <div
-                    className={styles.info}
-                    style={{ borderColor: sick ? "#F7E6E8" : "" }}
-                >
-                    <div className={styles.data}>
-                        {isInfo && (
-                            <img
-                                src={back}
-                                alt=""
-                                onClick={() => setIsInfo(false)}
-                                style={{
-                                    marginRight: "20px",
-                                    cursor: "pointer",
-                                    width: 20,
-                                    height: 20,
-                                }}
-                            />
-                        )}
-                        <img
-                            src={woman}
-                            style={{ cursor: "pointer" }}
-                            alt=""
-                            onClick={() => setIsInfo(true)}
-                        />
-                        <div className={styles.text}>
-                            <Text type="h2" fz="16px">
-                                Яковенко А. С.
-                            </Text>
-                            <Text type="p" color="#84C55D" fz="14px">
-                                Online
-                            </Text>
-                        </div>
-                    </div>
-                    <div className={styles.callIcons}>
-                        <img
-                            src={sick ? callRed : call}
-                            alt=""
-                            className={styles.call}
-                            onClick={(e: MouseEvent<HTMLImageElement>) => {
-                                setY(e.clientY);
-                                setIsOpen((prev) => !prev);
-                                setIsSelect("Звонок");
-                            }}
-                        />
-                    </div>
-                </div>
+        <Rows gap={0} rows={["auto"]}>
+            {(PC || SMALL_LAPTOP || LAPTOP) && (
+                <ChatHeader call={undefined} actions={undefined} />
             )}
             {MOBILE && (
                 <CustomMobileHeader back>
@@ -279,7 +228,6 @@ export const Chat: FC = () => {
             {!isInfo && (
                 <div className={styles.messageBlock}>
                     <div className={styles.wrapper}>
-                        <img src={sick ? paperclipRed : paperclip} alt="" />
                         <div className={styles.inner}>
                             <Input
                                 type="text"
@@ -300,28 +248,7 @@ export const Chat: FC = () => {
                                 />
                             </div>
                         </div>
-                        {isMouseDown ? (
-                            <img
-                                src={sick ? mircophoneRed : mircophone}
-                                alt=""
-                                className={styles.icon}
-                                onMouseDown={handleMouseDownOnMicrophone}
-                                onMouseUp={handleMouseUp}
-                            />
-                        ) : (
-                            <img
-                                src={sender}
-                                alt=""
-                                className={styles.icon}
-                                onMouseDown={handleMouseDown}
-                                onMouseUp={handleMouseUp}
-                                onClick={(e: MouseEvent<HTMLImageElement>) => {
-                                    setY(e.clientY);
-                                    setIsSelect("Отправить");
-                                    setIsOpen((prev) => !prev);
-                                }}
-                            />
-                        )}
+                        <SendMessage onClick={() => ({})} />
                     </div>
                 </div>
             )}
@@ -406,6 +333,6 @@ export const Chat: FC = () => {
                 </PopUp>
             )} */}
             {isOpenModal && <EmojiModal />}
-        </div>
+        </Rows>
     );
 };

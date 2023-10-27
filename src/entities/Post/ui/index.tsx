@@ -9,10 +9,10 @@ import { Text } from "@/shared/ui/Text";
 import { Row } from "@/shared/ui/Row";
 import { Rows } from "@/shared/ui/Rows";
 import { Avatar } from "@/shared/ui/Avatar";
-import { Username } from "@/shared/ui/Username";
+import { Username } from "@/entities/User/ui/Username";
 import { useUserCondition } from "@/shared/model/store"; // убрать
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
-import { UserGroup } from "@/shared/ui/UserGroup";
+import { UserGroup } from "@/entities/User/ui/UserGroup";
 
 import post from "/assets/post.jpg";
 import woman from "/assets/woman.jpg";
@@ -45,7 +45,7 @@ export const PostLayout: FC<IPostLayoutProps> = ({ actionsGUI, postInfo }) => {
     return (
         <WhiteContentBlock className={styles.post}>
             <Row gap={10}>
-                <Avatar type="user" img={woman} size={60} />
+                <Avatar type="user" img={woman} size="M" />
                 <Rows gap={5} rows={["auto", "auto"]}>
                     <Username
                         name={getFullUsernameWithInitials(

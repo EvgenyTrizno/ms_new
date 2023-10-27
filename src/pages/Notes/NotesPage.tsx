@@ -1,28 +1,28 @@
 import { FC, useState } from "react";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 
 import { Layout } from "../Layout";
-// import { Filter, BackArrow, MobileSearch } from "@/shared";
-import {
-    CustomMobileHeader,
-    MobileContainer,
-    NoteBlock,
-    Search,
-} from "@/widgets";
+// import { BackArrow} from "@/shared";
+import { CustomMobileHeader } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
 import { Modal } from "@/shared/ui/Modal";
 import { Btn } from "@/shared/ui/Btn";
+import { MOBILE } from "@/shared/utils";
+import { AddBtn } from "@/shared/ui/AddBtn";
+import { Filter } from "@/shared/ui/Filter";
+import { Row } from "@/shared/ui/Row";
+import { Container } from "@/shared/ui/Container";
+import { Search } from "@/shared/ui/Search";
+import { NoteBlock } from "@/entities/Note/ui/NoteBlock";
 
 import ghost from "/assets/ghost.svg";
-import addCircle from "/assets/add-circle.svg";
 import styles from "./NotesPage.module.scss";
-import { MOBILE } from "@/shared/utils";
 
 const NotesPage: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
 
     const data = [1, 2, 3, 4];
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     return (
         <Layout>
@@ -31,72 +31,49 @@ const NotesPage: FC = () => {
                     {/* <BackArrow /> */}
                 </CustomMobileHeader>
             )}
-            <MobileContainer>
-                <div className={styles.notes}>
-                    {MOBILE ? (
-                        // <MobileSearch
-                        //     placeholder="Введите запрос"
-                        //     filterBtn
-                        //     height="52px"
-                        // />
-                        <div></div>
-                    ) : (
-                        <div className={styles.header}>
-                            <Search
-                                placeholder="Введите запрос"
-                                height="48px"
-                            />
-                            <Btn
-                                color="#0064FA"
-                                width="48px"
-                                height="48px"
-                                onClick={() => navigate("/create-event")}
-                                padding="14px"
-                                br="12px"
-                            >
-                                <img src={addCircle} alt="" />
-                            </Btn>
-                        </div>
-                    )}
-                    {/* <Filter data={["Текущие", "Доп.проверка"]} /> */}
-                    <div
-                        className={styles.items}
-                        style={
-                            data.length === 0
-                                ? { display: "block" }
-                                : { display: "grid" }
-                        }
-                    >
-                        {data.length === 0 ? (
-                            <div className={styles.empty}>
-                                <div className={styles.inner}>
-                                    <img src={ghost} alt="" />
-                                    <Text type="h2" color="#262626" fz="32px">
-                                        Ничего нет
+            <Container>
+                <Row gap={10}>
+                    <Search placeholder="Введите запрос" height="48px" />
+                    <AddBtn onClick={() => ({})} />
+                </Row>
+                <Filter data={["Текущие", "Доп.проверка"]} />
+                <div
+                    className={styles.items}
+                    style={
+                        data.length === 0
+                            ? { display: "block" }
+                            : { display: "grid" }
+                    }
+                >
+                    {data.length === 0 ? (
+                        <div className={styles.empty}>
+                            <div className={styles.inner}>
+                                <img src={ghost} alt="" />
+                                <Text type="h2" color="#262626" fz="32px">
+                                    Ничего нет
+                                </Text>
+                                <div className={styles.text}>
+                                    <Text
+                                        type="p"
+                                        fz="24px"
+                                        position="center"
+                                        color="#26262680"
+                                    >
+                                        Список пуст, создайте запись нажав на
+                                        кнопку “Плюс”
                                     </Text>
-                                    <div className={styles.text}>
-                                        <Text
-                                            type="p"
-                                            fz="24px"
-                                            position="center"
-                                            color="#26262680"
-                                        >
-                                            Список пуст, создайте запись нажав
-                                            на кнопку “Плюс”
-                                        </Text>
-                                    </div>
                                 </div>
                             </div>
-                        ) : (
-                            <>
-                                {data.map((item) => (
-                                    <NoteBlock key={item} />
-                                ))}
-                            </>
-                        )}
-                    </div>
+                        </div>
+                    ) : (
+                        <>
+                            {data.map((item) => (
+                                <NoteBlock key={item} />
+                            ))}
+                        </>
+                    )}
                 </div>
-            </MobileContainer>
+            </Container>
             {isOpenModal && (
                 <Modal setIsOpenModal={setIsOpenModal}>
                     <div className={styles.modalContent}>

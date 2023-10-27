@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { IUserGroupProps } from "./types";
 
-import { Text } from "../Text";
+import { Text } from "../../../../shared/ui/Text";
 
 export const UserGroup: FC<IUserGroupProps> = ({ group, fz }) => {
     return (

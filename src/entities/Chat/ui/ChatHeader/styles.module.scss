@@ -1,0 +1,14 @@
+.chatHeader {
+    background-color: var(--white);
+    height: 80px;
+    width: calc(100vw - 736px);
+    padding: 12px 20px;
+    border: 1px solid var(--blue-100);
+    border-top: none;
+    position: fixed;
+    top: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color linear .3s;
+}
