@@ -1,10 +1,14 @@
 import { FC } from "react";
 
-import { AvatarProps } from "./types";
+import { AvatarProps, AvatarType, SizeType } from "./types";
 
 import styles from "./styles.module.scss";
 
-export const Avatar: FC<AvatarProps> = ({ type, size, img }): JSX.Element => {
+export const Avatar: FC<AvatarProps<AvatarType | "custom">> = ({
+    type,
+    size,
+    img,
+}): JSX.Element => {
     const generateSize = () => {
         const sizes = {
             S: 48,
@@ -13,7 +17,10 @@ export const Avatar: FC<AvatarProps> = ({ type, size, img }): JSX.Element => {
             XL: 100,
         };
 
-        return { width: sizes[size], height: sizes[size] };
+        return {
+            width: type !== "custom" ? sizes[size as SizeType] : size,
+            height: type !== "custom" ? sizes[size as SizeType] : size,
+        };
     };
 
     const generateAvatar = () => {
@@ -37,6 +44,15 @@ export const Avatar: FC<AvatarProps> = ({ type, size, img }): JSX.Element => {
                     />
                 );
             case "user":
+                return (
+                    <img
+                        src={img}
+                        alt=""
+                        style={generateSize()}
+                        className={styles.userImg}
+                    />
+                );
+            case "custom":
                 return (
                     <img
                         src={img}

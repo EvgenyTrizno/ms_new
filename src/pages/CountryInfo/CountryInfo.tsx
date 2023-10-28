@@ -5,7 +5,7 @@ import { Layout } from "../Layout";
 import { BlueBox, BlueSliderArrows, Indicator } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
-import { Cols } from "@/widgets/components/Cols/Cols";
+import { Cols } from "@/shared/ui/Cols";
 
 import styles from "./CountryInfo.module.scss";
 

@@ -6,7 +6,7 @@ import center from "/assets/center-avatar.jpg";
 import styles from "./CenterView.module.scss";
 import { Rating } from "../Rating/Rating";
 import { InfoText } from "../../../shared/ui/InfoText";
-import { Cols } from "../Cols/Cols";
+import { Cols } from "../../../shared/ui/Cols";
 import { SMALL_LAPTOP } from "@/shared/utils";
 
 export const CenterView: FC = () => {

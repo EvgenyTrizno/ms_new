@@ -1,0 +1,22 @@
+.text {
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--dark);
+    padding: 12px 15px;
+}
+
+.from {
+    border-radius: 10px 10px 10px 0px;
+    background-color: var(--blue-200);
+}
+
+.to {
+    border-radius: 10px 10px 0px 10px;
+    background-color: var(--white);
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}

@@ -7,12 +7,13 @@ interface IRowsProps {
     rows: string[];
     gap: number;
     style?: CSSProperties;
+    className?: string;
 }
 
-export const Rows: FC<IRowsProps> = ({ children, rows, gap }) => {
+export const Rows: FC<IRowsProps> = ({ children, rows, gap, className }) => {
     return (
         <div
-            className={styles.rows}
+            className={`${className ?? ""} ${styles.rows}`}
             style={{ gridGap: gap, gridTemplateRows: rows.join(" ") }}
         >
             {children}

@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout";
-import { Cols } from "@/widgets/components/Cols/Cols";
+import { Cols } from "@/shared/ui/Cols";
 import {
     AdminPanelContainer,
     BlueBox,

@@ -1,0 +1,30 @@
+.chat {
+    padding: 12px;
+    border-bottom: 1px solid var(--blue-100);
+    position: relative;
+}
+
+.active {
+    background-color: var(--blue-100);
+    border-radius: 12px;
+}
+
+.time {
+    position: absolute;
+    right: 12px;
+
+}
+
+.count {
+    padding: 6px;
+    border-radius: 100%;
+    background-color: var(--blue);
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 12px;
+    bottom: 15px;
+}

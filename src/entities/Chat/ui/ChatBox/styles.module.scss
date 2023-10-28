@@ -1,0 +1,79 @@
+.chat {
+    position: fixed;
+    top: 145px;
+    height: calc(100vh - 217px);
+    width: calc(100vw - 736px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 10px;
+
+        .message {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            grid-gap: 10px;
+        }
+
+        .messageRight {
+            justify-content: flex-end;
+        }
+
+        img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+
+        .inner {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 5px;
+        }
+
+        .text {
+            padding: 12px 15px;
+            border-radius: 10px 10px 0px 10px;
+            width: max-content;
+            max-width: 700px;
+            background-color: var(--white);
+            display: flex;
+            grid-gap: 5px;
+            cursor: pointer;
+            word-wrap: break-word;
+
+            .read {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+
+                img {
+                    min-width: 14px;
+                    max-width: 14px;
+                    height: 8px;
+                }
+            }
+        }
+
+        .myText {
+            background-color: var(--blue-200);
+        }
+
+        .myTextWithSick {
+            background-color: var(--red-100);
+        }
+
+        .time {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}

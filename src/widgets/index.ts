@@ -47,7 +47,6 @@ import { WorldMap } from "./components/WorldMap/WorldMap";
 import { BlueBox } from "./components/BlueBox/BlueBox";
 import { Indicator } from "./components/Indicator/Indicator";
 import { AdminPanelContainer } from "./components/AdminPanelContainer/AdminPanelContainer";
-import { Cols } from "./components/Cols/Cols";
 import { CenterOwner } from "./components/CenterOwner/CenterOwner";
 import { RequestBlock } from "./components/RequestBlock/RequestBlock";
 import { MailLayout } from "./components/MailLayout/MailLayout";
@@ -112,7 +111,6 @@ export {
     BlueBox,
     Indicator,
     AdminPanelContainer,
-    Cols,
     CenterOwner,
     RequestBlock,
     MailLayout,
