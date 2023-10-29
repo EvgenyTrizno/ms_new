@@ -3,7 +3,7 @@ import { ICenterInfoCard } from "./types";
 
 import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
-import { Rating } from "../Rating/Rating";
+import { Rating } from "../../../features/Rating/ui";
 
 import centerIcon from "/assets/center-icon.jpg";
 import cross from "/assets/cross-close-black.svg";

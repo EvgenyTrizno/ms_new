@@ -12,6 +12,7 @@ export const FilterBtn: FC<IFilterBtnProps> = ({ onClick }) => {
         <Btn
             color="#0064FA"
             width="133px"
+            minW="133px"
             onClick={onClick}
             padding="14px 18px"
             br="12px"

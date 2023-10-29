@@ -3,10 +3,8 @@ import { RouteData } from "./types";
 import { InterviewPage } from "../Auth/InterviewPage/InterviewPage";
 import { MOBILE, SMALL_LAPTOP } from "@/shared/utils";
 
-const RegistrationPage = lazy(
-    () => import("@/pages/Auth/RegistrationPage/RegistrationPage")
-);
-const LoginPage = lazy(() => import("@/pages/Auth/LoginPage/LoginPage"));
+const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
+const LoginPage = lazy(() => import("@/pages/LoginPage"));
 const MainPage = lazy(() => import("@/pages/Main/MainPage"));
 const RecoveryPage = lazy(
     () => import("@/pages/Auth/RecoveryPage/RecoveryPage")
@@ -15,9 +13,7 @@ const AuthMapPage = lazy(() => import("@/pages/Auth/AuthMapPage/AuthMapPage"));
 const AuthorizationPage = lazy(
     () => import("@/pages/Auth/AuthorizationPage/AuthorizationPage")
 );
-const ConfirmationPage = lazy(
-    () => import("@/pages/Auth/ConfirmationPage/ConfirmationPage")
-);
+const ConfirmationPage = lazy(() => import("@/pages/Auth/ConfirmationPage"));
 const SearchPage = lazy(() => import("@/pages/SearchPage/SearchPage"));
 const ProfilePage = lazy(() => import("@/pages/Profile/ProfilePage"));
 const NotesPage = lazy(() => import("@/pages/Notes/NotesPage"));
@@ -67,9 +63,7 @@ const AccountMedicalCenterPage = lazy(
 const AccountMedicalCardPage = lazy(
     () => import("../Settings/AccountMedicalCard/AccountMedicalCardPage")
 );
-const CreateNewPassPage = lazy(
-    () => import("@/pages/CreateNewPass/CreateNewPassPage")
-);
+const CreateNewPassPage = lazy(() => import("@/pages/CreateNewPass"));
 const NotFoundPage = lazy(() => import("@/pages/404Page/NotFoundPage"));
 const MobileNotificationPage = lazy(
     () => import("@/pages/MobileNotification/MobileNotification")

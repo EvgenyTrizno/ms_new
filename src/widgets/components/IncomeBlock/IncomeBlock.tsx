@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { BlueBox } from "../BlueBox/BlueBox";
+import { BlueBox } from "../../../shared/ui/BlueBox";
 import { Text } from "@/shared/ui/Text";
 import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
 import { WhiteContentBlock } from "../../../shared/ui/WhiteContentBlock";

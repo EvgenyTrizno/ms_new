@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Like } from "@/features/Like/ui";
 import { Dislike } from "@/features/Dislike/Dislike";
 import { Text } from "@/shared/ui/Text";
-import { Rating } from "../Rating/Rating";
+import { Rating } from "../../../features/Rating/ui";
 import { IComment } from "./types";
 
 import styles from "./Comment.module.scss";

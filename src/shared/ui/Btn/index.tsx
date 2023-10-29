@@ -19,6 +19,7 @@ export const Btn: FC<IBtn> = ({
     height,
     type,
     fz,
+    minW,
 }) => {
     const { condition } = useUserCondition();
 
@@ -59,6 +60,7 @@ export const Btn: FC<IBtn> = ({
                         ? "#D64657"
                         : `${textColor}`,
                 height,
+                minWidth: minW,
             }}
             disabled={disabled}
             onClick={() => onClick()}

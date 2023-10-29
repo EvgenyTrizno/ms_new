@@ -1,0 +1,15 @@
+.item {
+    width: 50px;
+    height: 60px;
+    border: 1px solid var(--dark-gray);
+    border-radius: 12px;
+    text-align: center;
+    font-size: 20px;
+    color: #000;
+    padding: 10px;
+}
+
+.active {
+    border-width: 2px;
+    border-color: var(--blue);
+}

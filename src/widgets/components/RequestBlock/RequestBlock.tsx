@@ -3,7 +3,7 @@ import { FC } from "react";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
-import { BlueBox } from "../BlueBox/BlueBox";
+import { BlueBox } from "../../../shared/ui/BlueBox";
 
 // import cross from "/assets/cross-red.svg";
 import check from "/assets/check-green.svg";

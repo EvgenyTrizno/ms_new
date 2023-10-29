@@ -5,9 +5,8 @@ import { Text } from "@/shared/ui/Text";
 import { Input } from "@/shared/ui/Input";
 import { Btn } from "@/shared/ui/Btn";
 
-import eyeClose from "/assets/eye-close.svg";
-import eyeOpen from "/assets/eye-open.svg";
 import styles from "./LoginForPersonal.module.scss";
+import { PasswordInputField } from "../../PasswordInputField/ui";
 
 type TErrorType = "password" | "account";
 
@@ -52,39 +51,7 @@ export const LoginForPersonal: FC = () => {
                     {error && errorType === "password" && (
                         <p>Введен неверный пароль</p>
                     )}
-                    <div className={styles.inner}>
-                        <Input
-                            type={isShow ? "text" : "password"}
-                            height="60px"
-                            placeholder="Введите пароль"
-                            borderColor="#E9EAEB"
-                            br="none"
-                            btr="unset"
-                            bbr="unset"
-                            value={pass}
-                            borderRadius="8px 0px 0px 8px"
-                            onBlur={() => setError(false)}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                                setPass(e.target.value)
-                            }
-                        />
-                        <div
-                            onClick={() => setIsShow((bool) => !bool)}
-                            style={{
-                                borderColor:
-                                    errorType === "password" && error
-                                        ? "#D64657"
-                                        : "",
-                            }}
-                            className={styles.btn}
-                        >
-                            {!isShow ? (
-                                <img src={eyeClose} alt="" />
-                            ) : (
-                                <img src={eyeOpen} alt="" />
-                            )}
-                        </div>
-                    </div>
+                    <PasswordInputField />
                 </label>
             </form>
             <Link className={styles.link} to="/">

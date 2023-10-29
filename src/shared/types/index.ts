@@ -46,6 +46,7 @@ export interface IBtn {
     height?: string;
     type?: "submit" | "reset" | "button";
     fz?: string;
+    minW?: string;
 }
 
 export interface IIconData {

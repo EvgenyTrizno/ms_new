@@ -4,7 +4,7 @@ import { Row } from "@/shared/ui/Row";
 
 import center from "/assets/center-avatar.jpg";
 import styles from "./CenterView.module.scss";
-import { Rating } from "../Rating/Rating";
+import { Rating } from "../../../features/Rating/ui";
 import { InfoText } from "../../../shared/ui/InfoText";
 import { Cols } from "../../../shared/ui/Cols";
 import { SMALL_LAPTOP } from "@/shared/utils";

@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Layout } from "../Layout";
 import { MobileHeader, MobileMenu } from "@/widgets";
 import { Filter } from "@/shared/ui/Filter";
-import { Search } from "@/shared/ui/Search";
+import { Search } from "@/features/Search/ui";
 import { MOBILE } from "@/shared/utils";
 
 // import { ABSOLUTE_PATH } from "@/shared/config";

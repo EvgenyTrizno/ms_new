@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import { ISearchBlockProps } from "./types";
 
-import { Rating } from "@/widgets";
+import { Rating } from "@/features/Rating";
 import { TABLET } from "@/shared/utils";
 import { Text } from "@/shared/ui/Text";
 import { useUserCondition } from "@/shared/model/store";

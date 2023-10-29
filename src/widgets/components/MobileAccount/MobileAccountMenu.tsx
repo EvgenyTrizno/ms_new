@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { IParamsData } from "./types";
 
 import { ParamsBlock, ReminderBlock } from "@/widgets";
-import { Search } from "@/shared/ui/Search";
+import { Search } from "@/features/Search/ui";
 import { useUserCondition, useUserData } from "@/shared/model/store";
 import { Text } from "@/shared/ui/Text";
 import { useProfile } from "@/shared/model/store";

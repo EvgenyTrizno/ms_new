@@ -5,7 +5,7 @@ import { Dislike } from "@/features/Dislike/Dislike";
 import { Text } from "@/shared/ui/Text";
 
 import styles from "./MobileComment.module.scss";
-import { Rating } from "../Rating/Rating";
+import { Rating } from "../../../features/Rating/ui";
 
 export const MobileComment: FC = () => {
     return (

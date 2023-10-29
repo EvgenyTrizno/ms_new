@@ -7,7 +7,7 @@ import { Text } from "@/shared/ui/Text";
 import { HealthyStatus } from "@/shared/ui/HealthyStatus";
 import { useUserCondition, useMenu, useUserData } from "@/shared/model/store";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
-import { Search } from "../../../../shared/ui/Search";
+import { Search } from "../../../../features/Search/ui";
 
 import logo from "/assets/logo.svg";
 import bigLogo from "/assets/logo-with-text.svg";

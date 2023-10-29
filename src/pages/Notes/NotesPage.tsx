@@ -12,7 +12,7 @@ import { AddBtn } from "@/shared/ui/AddBtn";
 import { Filter } from "@/shared/ui/Filter";
 import { Row } from "@/shared/ui/Row";
 import { Container } from "@/shared/ui/Container";
-import { Search } from "@/shared/ui/Search";
+import { Search } from "@/features/Search/ui";
 import { NoteBlock } from "@/entities/Note/ui/NoteBlock";
 
 import ghost from "/assets/ghost.svg";
