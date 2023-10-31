@@ -1,9 +1,23 @@
 import { FC } from "react";
 
-import { Registration } from "@/widgets/components/Registration";
+import { AuthContainer } from "@/shared/ui/AuthContainer";
+import { Row } from "@/shared/ui/Row";
+import { RegistrationForm } from "@/widgets/components/Registration";
+import { RegistrationWithFacebook } from "@/features/RegistrationWithFacebook";
+import { RegistrationWithApple } from "@/features/RegistrationWithApple";
+import { RegistrationWithGoogle } from "@/features/RegistrationWithGoogle";
 
 const RegistrationPage: FC = () => {
-    return <Registration />;
+    return (
+        <AuthContainer title="Регистрация">
+            <RegistrationForm />
+            <Row gap={16} style={{ justifyContent: "center" }}>
+                <RegistrationWithGoogle />
+                <RegistrationWithFacebook />
+                <RegistrationWithApple />
+            </Row>
+        </AuthContainer>
+    );
 };
 
 export default RegistrationPage;

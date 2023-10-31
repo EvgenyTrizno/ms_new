@@ -6,7 +6,6 @@ import { Input } from "@/shared/ui/Input";
 import { Btn } from "@/shared/ui/Btn";
 
 import styles from "./LoginForPersonal.module.scss";
-import { PasswordInputField } from "../../PasswordInputField/ui";
 
 type TErrorType = "password" | "account";
 
@@ -51,7 +50,7 @@ export const LoginForPersonal: FC = () => {
                     {error && errorType === "password" && (
                         <p>Введен неверный пароль</p>
                     )}
-                    <PasswordInputField />
+                    {/* <PasswordInputField /> */}
                 </label>
             </form>
             <Link className={styles.link} to="/">

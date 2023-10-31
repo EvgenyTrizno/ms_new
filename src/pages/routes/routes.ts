@@ -6,14 +6,10 @@ import { MOBILE, SMALL_LAPTOP } from "@/shared/utils";
 const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
 const MainPage = lazy(() => import("@/pages/Main/MainPage"));
-const RecoveryPage = lazy(
-    () => import("@/pages/Auth/RecoveryPage/RecoveryPage")
-);
+const RecoveryPage = lazy(() => import("@/pages/RecoveryPage"));
 const AuthMapPage = lazy(() => import("@/pages/Auth/AuthMapPage/AuthMapPage"));
-const AuthorizationPage = lazy(
-    () => import("@/pages/Auth/AuthorizationPage/AuthorizationPage")
-);
-const ConfirmationPage = lazy(() => import("@/pages/Auth/ConfirmationPage"));
+const SelectCenterPage = lazy(() => import("@/pages/SelectCenter"));
+const ConfirmationPage = lazy(() => import("@/pages/ConfirmationPage"));
 const SearchPage = lazy(() => import("@/pages/SearchPage/SearchPage"));
 const ProfilePage = lazy(() => import("@/pages/Profile/ProfilePage"));
 const NotesPage = lazy(() => import("@/pages/Notes/NotesPage"));
@@ -21,9 +17,7 @@ const MedicalCardPage = lazy(
     () => import("@/pages/MedicalCard/MedicalCardPage")
 );
 const NotesInfoPage = lazy(() => import("@/pages/NotesInfo/NotesInfoPage"));
-const CreateEventPage = lazy(
-    () => import("@/pages/CreateEvent/CreateEventPage")
-);
+const CreateEventPage = lazy(() => import("@/pages/CreateEvent"));
 const MapPage = lazy(() => import("@/pages/Map/MapPage"));
 const MessagesPage = lazy(() => import("@/pages/Messages/MessagesPage"));
 const MedicalTestPage = lazy(
@@ -97,12 +91,12 @@ const media = window.matchMedia("(max-width: 768px)").matches;
 
 export const routes: RouteData[] = [
     {
-        path: "/auth/registration",
+        path: "/registration",
         Component: RegistrationPage,
         key: "registration_page",
     },
     {
-        path: "/auth/login",
+        path: "/login",
         Component: LoginPage,
         key: "login_page",
     },
@@ -112,16 +106,20 @@ export const routes: RouteData[] = [
         key: "main_page",
     },
     { path: "*", Component: NotFoundPage, key: "error_page" },
-    { path: "/auth/recovery", Component: RecoveryPage, key: "recovery_page" },
+    { path: "/recovery", Component: RecoveryPage, key: "recovery_page" },
     { path: "/auth/map", Component: AuthMapPage, key: "auth-map_page" },
-    { path: "/auth", Component: AuthorizationPage, key: "auth_page" },
     {
-        path: "/auth/confirm",
+        path: "/select-center",
+        Component: SelectCenterPage,
+        key: "select-center_page",
+    },
+    {
+        path: "/confirmation",
         Component: ConfirmationPage,
         key: "confirm_page",
     },
     {
-        path: "/auth/interview",
+        path: "/interview",
         Component: InterviewPage,
         key: "interview_page",
     },

@@ -5,7 +5,6 @@ import { IProfileParamsItemsData } from "./types";
 import { Layout } from "../Layout";
 import {
     CustomMobileHeader,
-    MobileContainer,
     ReminderBlock,
     // User,
 } from "@/widgets";
@@ -30,6 +29,7 @@ import heartBlue from "/assets/heart-blue.svg";
 import heartRed from "/assets/heart-red.svg";
 import styles from "./ProfilePage.module.scss";
 import { MOBILE, PC } from "@/shared/utils";
+import { Container } from "@/shared/ui/Container";
 
 const ProfilePage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -329,7 +329,7 @@ const ProfilePage: FC = () => {
                     {/* <BackArrow /> */}
                 </CustomMobileHeader>
             )}
-            <MobileContainer>
+            <Container>
                 {PC && (
                     <>
                         <div className={styles.reminder}>
@@ -466,7 +466,7 @@ const ProfilePage: FC = () => {
                         </>
                     )}
                 </div>
-            </MobileContainer>
+            </Container>
         </Layout>
     );
 };

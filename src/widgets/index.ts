@@ -1,6 +1,5 @@
 import { RegistrationForPersonal } from "./components/Auth/RegistrationForPersonal/RegistrationForPersonal";
 import { Calendar } from "./components/Calendar/Calendar";
-import { Authorization } from "./components/Auth/Authorization/Authorization";
 import { VirusList } from "./components/VirusList/VirusList";
 import { User } from "./components/User/User";
 import { Comment } from "./components/Comment/Comment";
@@ -14,7 +13,6 @@ import { MobileHeader } from "./components/MobileHeader/MobileHeader";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
 import { MedicalBlock } from "./components/MedicalBlock/MedicalBlock";
 import { ExtraCallMobile } from "./components/ExtraCallMobile/ExtraCallMobile";
-import { NotificationModal } from "./components/NotificationModal/NotificationModal";
 import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorBoundaryFallback";
 import { ChatInfo } from "./components/ChatInfo/ChatInfo";
 import { MobileComment } from "./components/MobileComment/MobileComment";
@@ -57,7 +55,6 @@ import { UserReport } from "./components/UserReport/UserReport";
 export {
     Calendar,
     Map,
-    Authorization,
     VirusList,
     User,
     Comment,
@@ -70,7 +67,6 @@ export {
     CustomMobileHeader,
     MedicalBlock,
     ExtraCallMobile,
-    NotificationModal,
     ErrorBoundaryFallback,
     ChatInfo,
     MobileComment,

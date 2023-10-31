@@ -9,6 +9,7 @@
     position: fixed;
     transition: width 300ms ease-in, border-color .3s linear;
     border-right: 1px solid var(--blue-100);
+    z-index: 1;
 
     p {
         margin-bottom: 10px;

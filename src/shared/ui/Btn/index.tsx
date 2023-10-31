@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
-import { IBtn } from "@/shared/types";
+import { IBtn } from "./types";
 
 import { useUserCondition } from "@/shared/model/store";
 
@@ -20,6 +20,7 @@ export const Btn: FC<IBtn> = ({
     type,
     fz,
     minW,
+    className,
 }) => {
     const { condition } = useUserCondition();
 
@@ -27,7 +28,7 @@ export const Btn: FC<IBtn> = ({
 
     return (
         <motion.button
-            className={styles.btn}
+            className={`${className} ${styles.btn}`}
             type={type}
             whileTap={{
                 background:

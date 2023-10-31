@@ -4,5 +4,5 @@ export interface IWhiteContentBlockProps {
     children: ReactNode;
     style?: CSSProperties;
     className?: string;
-    onClick?: () => void;
+    onClick?: (e?: MouseEvent | undefined) => void;
 }

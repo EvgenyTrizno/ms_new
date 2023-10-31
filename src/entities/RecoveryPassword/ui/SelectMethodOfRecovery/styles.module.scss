@@ -1,0 +1,11 @@
+.item {
+    width: 100%;
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 15px;
+    
+    p {
+        cursor: pointer;
+        width: max-content;
+        margin: 0 auto;
+    }
+}

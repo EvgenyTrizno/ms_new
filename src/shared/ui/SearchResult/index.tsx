@@ -2,12 +2,12 @@ import { FC } from "react";
 
 import { WhiteContentBlock } from "../WhiteContentBlock";
 import { Text } from "../Text";
-
-import styles from "./styles.module.scss";
 import { Rows } from "../Rows";
 import { Row } from "../Row";
 import { Avatar } from "../Avatar";
-import { Rating } from "@/widgets";
+import { Rating } from "@/features/Rating";
+
+import styles from "./styles.module.scss";
 
 export const SearchResult: FC = () => {
     return (

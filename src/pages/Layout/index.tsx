@@ -5,7 +5,6 @@ import {
     // MobileMenu,
     ExtraCallModal,
     ExtraCallMobile,
-    NotificationModal,
 } from "@/widgets";
 import { Header } from "@/widgets/components/Header/ui";
 import { Menu } from "@/widgets/components/Menu/ui";
@@ -14,6 +13,7 @@ import {
     useNotification,
     useUserData,
 } from "@/shared/model/store";
+import { NotificationModal } from "@/widgets/components/NotificationModal";
 import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
 import { PC, SMALL_LAPTOP, TABLET, MOBILE, LAPTOP } from "@/shared/utils";
 
