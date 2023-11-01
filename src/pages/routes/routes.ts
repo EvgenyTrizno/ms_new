@@ -5,7 +5,7 @@ import { MOBILE, SMALL_LAPTOP } from "@/shared/utils";
 
 const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
-const MainPage = lazy(() => import("@/pages/Main/MainPage"));
+const MainPage = lazy(() => import("@/pages/Main"));
 const RecoveryPage = lazy(() => import("@/pages/RecoveryPage"));
 const AuthMapPage = lazy(() => import("@/pages/Auth/AuthMapPage/AuthMapPage"));
 const SelectCenterPage = lazy(() => import("@/pages/SelectCenter"));

@@ -13,12 +13,9 @@ export const CardLayout: FC<ICardProps> = ({
 }) => {
     return (
         <WhiteContentBlock className={styles.card}>
-            {/* <Avatar type="user" img={woman} size="M" /> */}
             {userAvatar}
             <Rows gap={5} rows={["auto", "auto"]}>
-                {/* {!MOBILE && <Username name={name} />} */}
                 {username}
-                {/* <UserRank rank="Хирург" position="center" /> */}
                 {userRank}
             </Rows>
         </WhiteContentBlock>

@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { IDoctorsListProps } from "./types";
 
-import { Rows } from "@/shared/ui/Rows";
+import { Slider } from "@/widgets";
 
 export const DoctorsList: FC<IDoctorsListProps> = ({ children }) => {
-    return <Rows gap={}>{children}</Rows>;
+    return <Slider>{children}</Slider>;
 };

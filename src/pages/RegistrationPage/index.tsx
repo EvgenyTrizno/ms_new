@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { AuthContainer } from "@/shared/ui/AuthContainer";
 import { Row } from "@/shared/ui/Row";
-import { RegistrationForm } from "@/widgets/components/Registration";
+import { RegistrationForm } from "@/features/Registration";
 import { RegistrationWithFacebook } from "@/features/RegistrationWithFacebook";
 import { RegistrationWithApple } from "@/features/RegistrationWithApple";
 import { RegistrationWithGoogle } from "@/features/RegistrationWithGoogle";

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export interface IRegistrationForm {
+export interface IPostsListProps {
     children: ReactNode;
 }

@@ -6,9 +6,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Routing } from "./providers/Routing";
 import { routes } from "../pages";
 import { PSuspense } from "./providers/Suspense";
-
 import { ErrorBoundaryFallback } from "@/widgets";
 import { useUserCondition } from "@/shared/model/store";
+import { ReactQuery } from "./providers/ReactQuery";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -27,24 +27,26 @@ const App = () => {
 
     return (
         <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
-            <PSuspense>
-                <AnimatePresence initial={true}>
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <Routing>
-                            <Routes>
-                                {routes.map((page) => (
-                                    <Route {...page} />
-                                ))}
-                            </Routes>
-                        </Routing>
-                    </motion.div>
-                </AnimatePresence>
-            </PSuspense>
+            <ReactQuery>
+                <PSuspense>
+                    <AnimatePresence initial={true}>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <Routing>
+                                <Routes>
+                                    {routes.map((page) => (
+                                        <Route {...page} />
+                                    ))}
+                                </Routes>
+                            </Routing>
+                        </motion.div>
+                    </AnimatePresence>
+                </PSuspense>
+            </ReactQuery>
         </ErrorBoundary>
     );
 };

@@ -2,16 +2,16 @@ import { FC } from "react";
 
 import { Layout } from "../Layout";
 import { Text } from "@/shared/ui/Text";
-import { MobileHeader, MobileMenu, Slider, SliderArrows } from "@/widgets";
-import { Card } from "@/shared/ui/Card";
-import { Post } from "@/widgets/components/Post/ui";
-import { getFullUsernameWithInitials } from "@/entities/User/lib/helpers/getFullUsernameWithInitials";
+import { MobileHeader, MobileMenu, SliderArrows } from "@/widgets";
 import { FilterBtn } from "@/shared/ui/FilterBtn";
 import { Row } from "@/shared/ui/Row";
 import { MOBILE } from "@/shared/utils";
 import { Container } from "@/shared/ui/Container";
+import { List as DoctorsFromUserCountry } from "@/widgets/components/DoctorsFromUserCountry";
+import { Line } from "@/shared/ui/Line";
+import { Posts } from "@/widgets/components/Posts";
 
-import styles from "./MainPage.module.scss";
+import styles from "./styles.module.scss";
 
 const MainPage: FC = () => {
     return (
@@ -29,34 +29,14 @@ const MainPage: FC = () => {
                             </Text>
                             <SliderArrows />
                         </Row>
-                        <Slider>
-                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-                                <Card
-                                    checkbox
-                                    name={getFullUsernameWithInitials(
-                                        "Михайлова",
-                                        "Татьяна",
-                                        "Александровна"
-                                    )}
-                                    key={item}
-                                />
-                            ))}
-                        </Slider>
+                        <DoctorsFromUserCountry />
                     </div>
-                    {MOBILE && (
-                        <div
-                            className={styles.line}
-                            // style={{ backgroundColor: sick ? "#F7E6E8" : "" }}
-                        ></div>
-                    )}
-
+                    {MOBILE && <Line />}
                     <div className={styles.posts}>
                         <div className={styles.filters}>
                             <FilterBtn onClick={() => console.log("1")} />
                         </div>
-                        {[1, 2, 3, 4].map((item) => (
-                            <Post key={item} />
-                        ))}
+                        <Posts />
                     </div>
                 </div>
             </Container>
