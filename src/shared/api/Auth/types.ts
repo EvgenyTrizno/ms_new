@@ -1,12 +1,10 @@
 export type StageType = 1 | 2 | 3;
-export type TGroups = "Пользователи" | "Администраторы" | "Врачи";
 
 export interface ICreateUser {
     number: string;
     password1: string;
     password2: string;
     stage: StageType;
-    group: TGroups;
     main_center: number | null;
     disease_id: number[];
 }

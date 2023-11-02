@@ -5,8 +5,6 @@ import {
     SetStateAction,
 } from "react";
 
-export type TUserGroups = "Пользователи" | "Администраторы" | "Врачи";
-
 export interface IInput {
     type: HTMLInputTypeAttribute;
     placeholder?: string;
@@ -41,3 +39,5 @@ export interface ISwitchProps {
 }
 
 export type HandleClick<T> = Dispatch<SetStateAction<T>>;
+
+export type { TGroups } from "./group.type";

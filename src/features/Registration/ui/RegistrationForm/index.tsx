@@ -1,5 +1,7 @@
 /* eslint-disable no-case-declarations */
-import { FC, useState, ChangeEvent } from "react";
+import { FC, useState, ChangeEvent, FormEvent } from "react";
+import { useRegistrationMutation } from "../../lib/hooks/useRegistrationMutation";
+import { ICreateUser } from "../../types";
 
 import { Input } from "@/shared/ui/Input";
 import { Policy } from "../Policy";
@@ -13,6 +15,17 @@ export const RegistrationForm: FC = () => {
     const [birthday, setBirthday] = useState("");
     const [inputDateValue, setInputDateValue] = useState<string>("ГГГГ-ММ-ДД");
     const [isShowValue, setIsShowValue] = useState<boolean>(false);
+
+    const data: ICreateUser = {
+        numberOrEmail: number,
+        password1,
+        password2,
+        birthday,
+        group: "Пользователи",
+        stage: 1,
+    };
+
+    const { create } = useRegistrationMutation(data);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const currentValue = e.target.value;
@@ -78,8 +91,12 @@ export const RegistrationForm: FC = () => {
         setIsShowValue(true);
     };
 
+    const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    };
+
     return (
-        <form>
+        <form onSubmit={handleOnSubmit}>
             <Rows gap={20} rows={["auto"]}>
                 <Rows gap={10} rows={["auto"]}>
                     <Input
