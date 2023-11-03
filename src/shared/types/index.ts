@@ -39,5 +39,3 @@ export interface ISwitchProps {
 }
 
 export type HandleClick<T> = Dispatch<SetStateAction<T>>;
-
-export type { TGroups } from "./group.type";

@@ -1,9 +1,12 @@
 import { useMutation } from "react-query";
+import { useNavigate } from "react-router";
 import { registration } from "../../api";
 import { ICreateUser } from "../../types";
 
 export const useRegistrationMutation = (state: ICreateUser) => {
-    const { mutate: create } = useMutation({
+    const navigate = useNavigate();
+
+    return useMutation({
         mutationFn: () =>
             registration(
                 state.birthday,
@@ -15,7 +18,7 @@ export const useRegistrationMutation = (state: ICreateUser) => {
                 state.main_center,
                 state.disease
             ),
+        mutationKey: ["registration"],
+        onSuccess: () => navigate("/select-center"),
     });
-
-    return { create };
 };

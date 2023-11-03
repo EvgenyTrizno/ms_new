@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { BASE_URL } from "@/shared/config";
-import { TGroups } from "@/shared/types";
+import { TGroups } from "@/shared/types/group.type";
 import { TStages, ICreateUser } from "../types";
 
 export async function registration(
@@ -14,14 +14,24 @@ export async function registration(
     main_center?: any[],
     disease?: number[]
 ): Promise<ICreateUser> {
-    return axios.post(BASE_URL, {
-        birthday,
-        numberOrEmail,
-        password1,
-        password2,
-        group,
-        stage,
-        main_center,
-        disease,
-    });
+    return axios.post(
+        `${BASE_URL}/api/users/`,
+        {
+            birthday,
+            number: numberOrEmail,
+            password1,
+            password2,
+            group,
+            stage,
+            main_center,
+            disease,
+        },
+        {
+            headers: {
+                "Access-Control-Allow-Origin": "http://localhost:8000",
+                "Access-Control-Allow-Methods":
+                    "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+            },
+        }
+    );
 }

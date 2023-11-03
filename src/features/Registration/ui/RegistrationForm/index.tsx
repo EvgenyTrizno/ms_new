@@ -1,7 +1,6 @@
 /* eslint-disable no-case-declarations */
 import { FC, useState, ChangeEvent, FormEvent } from "react";
 import { useRegistrationMutation } from "../../lib/hooks/useRegistrationMutation";
-import { ICreateUser } from "../../types";
 
 import { Input } from "@/shared/ui/Input";
 import { Policy } from "../Policy";
@@ -15,17 +14,18 @@ export const RegistrationForm: FC = () => {
     const [birthday, setBirthday] = useState("");
     const [inputDateValue, setInputDateValue] = useState<string>("ГГГГ-ММ-ДД");
     const [isShowValue, setIsShowValue] = useState<boolean>(false);
+    const [isChecked, setIsChecked] = useState<boolean>(false);
 
-    const data: ICreateUser = {
+    const { error, mutate } = useRegistrationMutation({
+        birthday,
         numberOrEmail: number,
+        group: "Пользователи",
         password1,
         password2,
-        birthday,
-        group: "Пользователи",
         stage: 1,
-    };
+    });
 
-    const { create } = useRegistrationMutation(data);
+    console.log(error);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const currentValue = e.target.value;
@@ -132,8 +132,20 @@ export const RegistrationForm: FC = () => {
                         value={password2}
                     />
                 </Rows>
-                <Policy />
-                <Btn color="#0064FA">Продолжить</Btn>
+                <Policy isChecked={isChecked} setIsChecked={setIsChecked} />
+                <Btn
+                    color="#0064FA"
+                    onClick={() => mutate()}
+                    disabled={
+                        !number &&
+                        !birthday &&
+                        password1.length >= 8 &&
+                        password2.length >= 8 &&
+                        !isChecked
+                    }
+                >
+                    Продолжить
+                </Btn>
             </Rows>
         </form>
     );

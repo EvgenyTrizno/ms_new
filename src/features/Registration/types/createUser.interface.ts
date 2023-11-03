@@ -1,4 +1,4 @@
-import { TGroups } from "@/shared/types";
+import { TGroups } from "@/shared/types/group.type";
 import { TStages } from ".";
 
 export interface ICreateUser {

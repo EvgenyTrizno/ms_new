@@ -4,6 +4,7 @@ import Geocode from "react-geocode";
 import { IGeocoderData } from "./types";
 
 import { Map } from "@/widgets";
+import { getCentersByCity } from "../../api/centers";
 
 export const SelectCenterMap: FC = () => {
     useEffect(() => {
@@ -42,6 +43,8 @@ export const SelectCenterMap: FC = () => {
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    getCentersByCity("Москва").then((res) => console.log(res));
 
     return (
         <Map
