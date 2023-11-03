@@ -1,50 +1,12 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { MarkerF } from "@react-google-maps/api";
-import Geocode from "react-geocode";
-import { IGeocoderData } from "./types";
 
 import { Map } from "@/widgets";
-import { getCentersByCity } from "../../api/centers";
+import { IMapProps } from "./types";
+import { useCentersQuerys } from "../../lib/hooks/useCentersQuerys";
 
-export const SelectCenterMap: FC = () => {
-    useEffect(() => {
-        const permission = "geolocation" in navigator;
-
-        if (permission === true) {
-            navigator.geolocation.getCurrentPosition(
-                (pos: GeolocationPosition) => {
-                    const { latitude, longitude } = pos.coords;
-                    let city = "";
-                    let country = "";
-
-                    Geocode.setApiKey(import.meta.env.VITE_GOOGLE_MAP_API_KEY);
-                    Geocode.setLanguage("ru");
-                    Geocode.fromLatLng(
-                        latitude.toString(),
-                        longitude.toString()
-                    ).then((res: IGeocoderData) => {
-                        const addressComponents =
-                            res.results[0].address_components;
-
-                        for (const data of addressComponents) {
-                            if (data.types.includes("locality")) {
-                                city = data.long_name;
-                            } else if (data.types.includes("country")) {
-                                country = data.long_name;
-                            }
-                        }
-                    });
-                },
-                (error: GeolocationPositionError) => {
-                    console.error("Ошибка при получении геолокации:", error);
-                }
-            );
-        }
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    getCentersByCity("Москва").then((res) => console.log(res));
+export const SelectCenterMap: FC<IMapProps> = ({ allowed, city }) => {
+    const { data } = useCentersQuerys(city, allowed);
 
     return (
         <Map
@@ -56,19 +18,13 @@ export const SelectCenterMap: FC = () => {
             }}
             zoom={5}
         >
-            <MarkerF
-                position={{
-                    lat: 0,
-                    lng: 0,
-                }}
-            />
-            <MarkerF
-                // key={item.id}
-                position={{
-                    lat: 0,
-                    lng: 0,
-                }}
-            />
+            {data &&
+                data.data.map((center) => (
+                    <MarkerF
+                        key={center.id}
+                        position={{ lat: +center.lat, lng: +center.lng }}
+                    />
+                ))}
         </Map>
     );
 };

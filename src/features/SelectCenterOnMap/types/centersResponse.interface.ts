@@ -14,8 +14,8 @@ export interface ICenterResponse {
     observed: number;
     observed_after: number;
     address: string;
-    lng: number;
-    lat: number;
+    lng: string;
+    lat: string;
     created_at: Date;
     updated_at: Date;
     review_date: null;

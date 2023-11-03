@@ -7,3 +7,8 @@ export interface IGeocoderData extends google.maps.GeocoderResponse {
     plus_code: IPlusCodeData;
     status: string;
 }
+
+export interface IMapProps {
+    allowed: boolean;
+    city: string;
+}
