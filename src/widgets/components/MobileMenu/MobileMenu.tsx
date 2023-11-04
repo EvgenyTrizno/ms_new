@@ -4,7 +4,6 @@ import { IMenuData } from "../Menu/model/types";
 
 import { TIsSelect } from "@/shared/model/store/types";
 import { useMenu } from "@/shared/model/store";
-import { useExtraCall } from "@/shared/model/store";
 
 import extra from "/assets/extra-call.svg";
 import cross from "/assets/cross.svg";
@@ -13,7 +12,6 @@ import styles from "./MobileMenu.module.scss";
 export const MobileMenu: FC = () => {
     const navigate = useNavigate();
     const { setIsSelect } = useMenu();
-    const { isOpen, setIsOpen } = useExtraCall();
 
     const handleNavigate = (path: string, select: TIsSelect | string) => {
         navigate(path);

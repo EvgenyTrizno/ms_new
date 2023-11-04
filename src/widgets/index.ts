@@ -1,6 +1,5 @@
 import { RegistrationForPersonal } from "./components/Auth/RegistrationForPersonal/RegistrationForPersonal";
 import { Calendar } from "./components/Calendar/Calendar";
-import { VirusList } from "./components/VirusList/VirusList";
 import { User } from "./components/User/User";
 import { Comment } from "./components/Comment/Comment";
 import { CenterInfoCard } from "./components/CenterInfoCard/CenterInfoCard";
@@ -55,7 +54,6 @@ import { UserReport } from "./components/UserReport/UserReport";
 export {
     Calendar,
     Map,
-    VirusList,
     User,
     Comment,
     CenterInfoCard,

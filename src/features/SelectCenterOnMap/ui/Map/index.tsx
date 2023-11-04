@@ -5,7 +5,11 @@ import { Map } from "@/widgets";
 import { IMapProps } from "./types";
 import { useCentersQuerys } from "../../lib/hooks/useCentersQuerys";
 
-export const SelectCenterMap: FC<IMapProps> = ({ allowed, city }) => {
+export const SelectCenterMap: FC<IMapProps> = ({
+    allowed,
+    city,
+    setCenter,
+}) => {
     const { data } = useCentersQuerys(city, allowed);
 
     return (
@@ -23,6 +27,7 @@ export const SelectCenterMap: FC<IMapProps> = ({ allowed, city }) => {
                     <MarkerF
                         key={center.id}
                         position={{ lat: +center.lat, lng: +center.lng }}
+                        onClick={() => setCenter(center.id)}
                     />
                 ))}
         </Map>

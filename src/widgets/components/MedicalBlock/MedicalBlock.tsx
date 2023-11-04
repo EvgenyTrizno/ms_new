@@ -7,11 +7,8 @@ import { Text } from "@/shared/ui/Text";
 // import calendar from "/assets/calendar.svg";
 // import time from "/assets/clock-fast-forward.svg";
 import styles from "./MedicalBlock.module.scss";
-import { useUserCondition } from "@/shared/model/store";
 
 export const MedicalBlock: FC<INoteBlockProps> = ({ onClick }) => {
-    const { condition } = useUserCondition();
-
     const sick = condition === "Болен";
 
     return (

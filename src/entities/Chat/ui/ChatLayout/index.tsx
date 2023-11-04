@@ -1,9 +1,7 @@
 import { FC, useState, MouseEvent, useRef } from "react";
 import { motion } from "framer-motion";
 
-import { useUserCondition } from "@/shared/model/store";
 // import { PopUp, BackArrow } from "@/shared";
-import { Text } from "@/shared/ui/Text";
 import { Input } from "@/shared/ui/Input";
 import { ChatInfo, CustomMobileHeader, EmojiModal } from "@/widgets";
 import { LAPTOP, MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
@@ -13,8 +11,6 @@ import styles from "./styles.module.scss";
 import { IChatLayoutProps } from "./types";
 
 export const ChatLayout: FC<IChatLayoutProps> = ({ children }) => {
-    const { condition } = useUserCondition();
-
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const [y, setY] = useState<number>(0);
@@ -26,7 +22,6 @@ export const ChatLayout: FC<IChatLayoutProps> = ({ children }) => {
     const [isInfo, setIsInfo] = useState<boolean>(false);
     const holdTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-    const sick = condition === "Болен";
     const redMesage = `${styles.text} ${styles.myTextWithSick}`;
 
     const handleClick = (e: MouseEvent) => {

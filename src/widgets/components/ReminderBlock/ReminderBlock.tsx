@@ -2,7 +2,6 @@ import { FC } from "react";
 import { ITypeProps } from "./types";
 
 import { Text } from "@/shared/ui/Text";
-import { useUserCondition } from "@/shared/model/store";
 import { PC, TABLET } from "@/shared/utils";
 
 import arrowRight from "/assets/arrow-right-blue.svg";
@@ -10,8 +9,6 @@ import arrowRightRed from "/assets/arrow-right-red.svg";
 import styles from "./ReminderBlock.module.scss";
 
 export const ReminderBlock: FC<ITypeProps> = ({ type, width }) => {
-    const { condition } = useUserCondition();
-
     const sick = condition === "Болен";
     const classes = sick
         ? `${styles.notify} ${styles.notifyRed} ${styles.notifyRedBorder}`

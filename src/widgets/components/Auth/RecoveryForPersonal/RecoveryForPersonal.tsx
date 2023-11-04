@@ -1,32 +1,12 @@
-import { FC, FormEvent, ChangeEvent } from "react";
-import { useNavigate } from "react-router";
+import { FC, ChangeEvent } from "react";
 
-import { Auth } from "@/shared/api/Auth";
 import { Btn } from "@/shared/ui/Btn";
 import { Input } from "@/shared/ui/Input";
 import { Text } from "@/shared/ui/Text";
 
 import styles from "./RecoveryForPersonal.module.scss";
-import { useUserData } from "@/shared/model/store";
 
 export const RecoveryForPersonal: FC = () => {
-    const navigate = useNavigate();
-
-    const { recoveryPasswordByNumber } = Auth();
-    const { setNumber, number } = useUserData();
-
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-
-        if (number) {
-            recoveryPasswordByNumber(number)
-                .then((res) => console.log(res))
-                .then(() =>
-                    navigate("/auth/confirm?redirect=recovery&type=number")
-                );
-        }
-    };
-
     return (
         <div className={styles.recovery}>
             <Text position="center" type="h2" fz="28px" color="#262626">
@@ -55,7 +35,7 @@ export const RecoveryForPersonal: FC = () => {
                     восстановления доступа к<br /> аккаунту.
                 </Text>
             </div>
-            <form className={styles.form} onSubmit={handleSubmit}>
+            <form className={styles.form}>
                 <Input
                     type="text"
                     placeholder="Введите тел.номер"

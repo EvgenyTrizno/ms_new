@@ -1,13 +1,9 @@
 import { FC } from "react";
 
-import { useUserCondition } from "@/shared/model/store";
-
 import styles from "./Loader.module.scss";
 
 export const Loader: FC = () => {
-    const { condition } = useUserCondition();
-
-    const sick = condition === "Болен";
+    const sick = "Болен";
 
     return sick ? (
         <svg

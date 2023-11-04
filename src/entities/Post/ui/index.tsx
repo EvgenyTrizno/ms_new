@@ -10,7 +10,6 @@ import { Row } from "@/shared/ui/Row";
 import { Rows } from "@/shared/ui/Rows";
 import { Avatar } from "@/shared/ui/Avatar";
 import { Username } from "@/entities/User/ui/Username";
-import { useUserCondition } from "@/shared/model/store"; // убрать
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { UserGroup } from "@/entities/User/ui/UserGroup";
 
@@ -22,9 +21,8 @@ import "swiper/css/pagination";
 
 export const PostLayout: FC<IPostLayoutProps> = ({ actionsGUI, postInfo }) => {
     const [paginationKey, setPaginationKey] = useState<number>(0);
-    const { condition } = useUserCondition();
 
-    const sick = condition === "Болен";
+    const sick = "";
     const pagination: PaginationOptions = {
         clickable: true,
         bulletClass: styles.pagination,
@@ -34,13 +32,13 @@ export const PostLayout: FC<IPostLayoutProps> = ({ actionsGUI, postInfo }) => {
         },
     };
 
-    useEffect(() => {
-        if (condition === "Болен") {
-            setPaginationKey(1);
-        } else {
-            setPaginationKey(0);
-        }
-    }, [condition]);
+    // useEffect(() => {
+    //     if (condition === "Болен") {
+    //         setPaginationKey(1);
+    //     } else {
+    //         setPaginationKey(0);
+    //     }
+    // }, [condition]);
 
     return (
         <WhiteContentBlock className={styles.post}>

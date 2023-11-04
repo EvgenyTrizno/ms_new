@@ -5,7 +5,7 @@ import { TIsSelect } from "@/shared/model/store/types";
 
 import { Text } from "@/shared/ui/Text";
 import { HealthyStatus } from "@/shared/ui/HealthyStatus";
-import { useUserCondition, useMenu, useUserData } from "@/shared/model/store";
+import { useMenu } from "@/shared/model/store";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
 import { Search } from "../../../../features/Search/ui";
 
@@ -20,8 +20,6 @@ export const Menu: FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { setIsSelect } = useMenu();
-    const { condition } = useUserCondition();
-    const { group } = useUserData();
 
     const handleNavigate = (path: EActive | string, select: TIsSelect) => {
         navigate(path);

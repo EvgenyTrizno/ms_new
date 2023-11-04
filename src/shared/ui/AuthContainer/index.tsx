@@ -8,11 +8,13 @@ import styles from "./styles.module.scss";
 
 export const AuthContainer: FC<IAuthContainerProps> = ({ children, title }) => {
     return (
-        <WhiteContentBlock className={styles.wrapper}>
-            <Text type="h2" position="center" fz="24px">
-                {title}
-            </Text>
-            {children}
-        </WhiteContentBlock>
+        <div className={styles.container}>
+            <WhiteContentBlock className={styles.wrapper}>
+                <Text type="h2" position="center" fz="24px">
+                    {title}
+                </Text>
+                {children}
+            </WhiteContentBlock>
+        </div>
     );
 };

@@ -1,7 +1,6 @@
 import { FC, useEffect } from "react";
 
 import { Text } from "@/shared/ui/Text";
-import { useNotification, useUserCondition } from "@/shared/model/store";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Row } from "@/shared/ui/Row";
 import { Image } from "@/shared/ui/Image";
@@ -15,9 +14,6 @@ import key from "/assets/key-white.svg";
 import styles from "./styles.module.scss";
 
 export const NotificationModal: FC = () => {
-    const { setIsNotification } = useNotification();
-    const { condition } = useUserCondition();
-
     const sick = condition === "Болен";
 
     useEffect(() => {

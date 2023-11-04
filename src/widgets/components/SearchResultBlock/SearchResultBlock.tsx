@@ -4,7 +4,6 @@ import { ISearchBlockProps } from "./types";
 import { Rating } from "@/features/Rating";
 import { TABLET } from "@/shared/utils";
 import { Text } from "@/shared/ui/Text";
-import { useUserCondition } from "@/shared/model/store";
 
 import center from "/assets/center-icon.jpg";
 
@@ -14,8 +13,6 @@ export const SearchResultBlock: FC<ISearchBlockProps> = ({
     type,
     children,
 }): ReactNode => {
-    const { condition } = useUserCondition();
-
     const sick = condition === "Болен";
 
     const renderElements = () => {

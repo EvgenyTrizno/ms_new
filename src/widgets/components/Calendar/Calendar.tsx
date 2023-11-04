@@ -4,7 +4,6 @@ import { ICalendare } from "./types";
 
 import { Input } from "@/shared/ui/Input";
 import { Text } from "@/shared/ui/Text";
-import { useUserCondition } from "@/shared/model/store";
 
 import arrowLeft from "/assets/arrow-left.svg";
 import arrowRight from "/assets/arrow-right.svg";
@@ -117,8 +116,6 @@ export const Calendar: FC<ICalendare> = ({
             setSelectWeekDay(dayOfWeek === 0 ? 6 : dayOfWeek - 1);
         }
     }, [selectDate]);
-
-    const { condition } = useUserCondition();
 
     const sick = condition === "Болен";
     const active = `${styles.item} ${styles.active}`;

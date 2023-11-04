@@ -7,7 +7,6 @@ import { Routing } from "./providers/Routing";
 import { routes } from "../pages";
 import { PSuspense } from "./providers/Suspense";
 import { ErrorBoundaryFallback } from "@/widgets";
-import { useUserCondition } from "@/shared/model/store";
 import { ReactQuery } from "./providers/ReactQuery";
 
 import "swiper/css";
@@ -15,15 +14,11 @@ import "swiper/css/pagination";
 import "./index.scss";
 
 const App = () => {
-    const { condition } = useUserCondition();
-
-    const sick = condition === "Болен";
-
-    useEffect(() => {
-        !sick
-            ? (document.body.style.backgroundColor = "#F5F8FC")
-            : (document.body.style.backgroundColor = "#FFFAFA");
-    }, [sick]);
+    // useEffect(() => {
+    //     !sick
+    //         ? (document.body.style.backgroundColor = "#F5F8FC")
+    //         : (document.body.style.backgroundColor = "#FFFAFA");
+    // }, [sick]);
 
     return (
         <ErrorBoundary fallback={<ErrorBoundaryFallback />}>

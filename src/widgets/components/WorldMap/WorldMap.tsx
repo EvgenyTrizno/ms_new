@@ -1,6 +1,5 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { useSelectCountry } from "@/shared/model/store";
 
 import { Layout } from "@/pages/Layout";
 import { Text } from "@/shared/ui/Text";
@@ -22,7 +21,6 @@ const Tooltip: FC<TooltipProp> = ({ x, y, text }) => (
 );
 
 export const WorldMap: FC = () => {
-    const { setCountry } = useSelectCountry();
     const [tooltip, setTooltip] = useState({
         active: false,
         x: 0,

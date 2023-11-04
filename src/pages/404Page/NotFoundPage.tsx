@@ -4,7 +4,6 @@ import { useBackOnPrevPage } from "@/shared/hooks";
 import { Text } from "@/shared/ui/Text";
 import { Btn } from "@/shared/ui/Btn";
 import { MOBILE } from "@/shared/utils";
-import { useUserCondition } from "@/shared/model/store";
 
 import notfound from "/assets/404-page-img.svg";
 import notfoundRed from "/assets/404-page-img-red.svg";
@@ -12,7 +11,6 @@ import styles from "./NotFoundPage.module.scss";
 
 const NotFoundPage: FC = () => {
     const { backOnPrevPage } = useBackOnPrevPage();
-    const { condition } = useUserCondition();
 
     const sick = condition === "Болен";
 

@@ -3,8 +3,6 @@ import { IExtraCallBtnData } from "./types";
 import { motion } from "framer-motion";
 import { TABLET } from "@/shared/utils";
 
-import { useExtraCall, useUserCondition } from "@/shared/model/store";
-
 import amabulance from "/assets/amabulance-blue.svg";
 import people from "/assets/people-blue.svg";
 import marker from "/assets/marker-plus.svg";
@@ -13,9 +11,6 @@ import { Modal } from "../../../shared/ui/Modal";
 
 export const ExtraCallMobile: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
-
-    const { condition } = useUserCondition();
-    const { isOpen, setIsOpen } = useExtraCall();
 
     useEffect(() => {
         setIsOpenModal(false);

@@ -3,12 +3,10 @@ import { useNavigate } from "react-router";
 import { IHeaderProps } from "./types";
 
 import { Text } from "@/shared/ui/Text";
-import { useUserCondition } from "@/shared/model/store";
 
 import styles from "./CustomMobileHeader.module.scss";
 
 export const CustomMobileHeader: FC<IHeaderProps> = ({ children, text }) => {
-    const { condition } = useUserCondition();
     const navigate = useNavigate();
 
     return (

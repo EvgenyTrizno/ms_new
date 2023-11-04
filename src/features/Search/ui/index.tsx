@@ -7,7 +7,7 @@ import { Image } from "@/shared/ui/Image";
 import search from "../assets/search-gray.svg";
 import styles from "./styles.module.scss";
 
-export const Search: FC<ISeacrh> = ({ placeholder }) => {
+export const Search: FC<ISeacrh> = ({ placeholder, onChange }) => {
     return (
         <div className={styles.search}>
             <Image src={search} alt="magnifying glass" width={16} height={16} />
@@ -18,6 +18,7 @@ export const Search: FC<ISeacrh> = ({ placeholder }) => {
                 padding="0px"
                 border="none"
                 borderRadius="0px"
+                onChange={onChange}
             />
         </div>
     );

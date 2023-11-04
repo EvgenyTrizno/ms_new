@@ -1,24 +1,20 @@
-import { FC, useState, useEffect } from "react";
+import { FC } from "react";
 import { IFilter } from "./types";
-
-import { useFilter } from "@/shared/model/store";
-import { useUserCondition } from "@/shared/model/store";
 
 import styles from "./styles.module.scss";
 
-export const Filter: FC<IFilter> = ({ style, data, width, icons }) => {
-    const [isSelect, setIsSelect] = useState<string>(data[0]);
-    const { setIsFilter } = useFilter();
-    const { condition } = useUserCondition();
-
-    useEffect(() => {
-        setIsFilter(data[0]);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
+export const Filter: FC<IFilter> = ({
+    style,
+    data,
+    width,
+    icons,
+    setIsSelect,
+    isSelect,
+}) => {
     const active = `${styles.item} ${styles.active}`;
     const activeRed = `${styles.item} ${styles.activeRed}`;
-    const sick = condition === "Болен";
+
+    const sick = "";
 
     return (
         <div
@@ -37,7 +33,6 @@ export const Filter: FC<IFilter> = ({ style, data, width, icons }) => {
                     key={item}
                     onClick={() => {
                         setIsSelect(item);
-                        setIsFilter(item);
                     }}
                 >
                     <span>{item}</span>

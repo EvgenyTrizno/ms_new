@@ -1,2 +1,1 @@
-export { DiseaseList } from "./DiseaseList";
-export { MainModal } from "./MainModal";
+export { PickDisease } from "./PickDisease";

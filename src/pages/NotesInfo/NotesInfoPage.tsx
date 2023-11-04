@@ -25,7 +25,6 @@ import { Comment, Circle, Slider, Search } from "@/widgets";
 import { Card } from "@/entities/Card/ui";
 import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
-import { useUserCondition } from "@/shared/model/store";
 
 import virus from "/assets/virus-icon.jpg";
 import photo from "/assets/photo.jpg";
@@ -35,7 +34,6 @@ import styles from "./NotesInfoPage.module.scss";
 
 const NotesInfoPage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const { condition } = useUserCondition();
 
     // useEffect(() => {
     //     circlesRef.current = document.querySelector(

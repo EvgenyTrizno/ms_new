@@ -1,6 +1,5 @@
 import { FC, MouseEvent } from "react";
 
-import { useUserCondition } from "@/shared/model/store";
 import { Text } from "../Text";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
 
@@ -11,10 +10,10 @@ interface ISwitcherProps {
 }
 
 export const HealthyStatus: FC<ISwitcherProps> = ({ isHovered }) => {
-    const { condition, setCondition } = useUserCondition();
-
     const healthyClasses = `${styles.healthy} ${styles.item}`;
     const sickClasses = `${styles.sick} ${styles.item}`;
+
+    const condition = "Здоров";
 
     const handleMouseEnter = (e: MouseEvent<HTMLDivElement>) => {
         const classList = e.currentTarget.classList;

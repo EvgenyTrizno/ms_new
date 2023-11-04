@@ -1,12 +1,8 @@
 import { FC } from "react";
 
-import { useUserCondition } from "@/shared/model/store";
-
 import styles from "./MobileSwitcher.module.scss";
 
 export const MobileSwitcher: FC = () => {
-    const { condition, setCondition } = useUserCondition();
-
     return (
         <div
             className={styles.mobileSwitcher}

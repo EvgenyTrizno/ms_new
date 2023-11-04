@@ -2,14 +2,11 @@ import { FC, useState, useId } from "react";
 import { IMediaNav } from "./types";
 
 import { Text } from "@/shared/ui/Text";
-import { useUserCondition } from "@/shared/model/store";
 
 import styles from "./ChatInfo.module.scss";
 
 export const ChatInfo: FC = () => {
     const [isSelect, setIsSelect] = useState<string>();
-
-    const { condition } = useUserCondition();
 
     const data: IMediaNav[] = [
         {

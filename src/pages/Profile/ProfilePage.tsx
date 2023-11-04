@@ -11,7 +11,6 @@ import {
 // import { BackArrow } from "@/shared";
 import { Input } from "@/shared/ui/Input";
 import { Text } from "@/shared/ui/Text";
-import { useUserCondition } from "@/shared/model/store";
 
 import user from "/assets/user-blue.svg";
 import userRed from "/assets/user-red.svg";
@@ -61,8 +60,6 @@ const ProfilePage: FC = () => {
     //     useRef<string>(""),
     //     // useRef<string>(),
     // ];
-
-    const { condition } = useUserCondition();
 
     const sick = condition === "Болен";
 

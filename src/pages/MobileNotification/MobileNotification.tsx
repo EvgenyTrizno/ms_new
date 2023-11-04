@@ -2,15 +2,12 @@ import { FC } from "react";
 
 import { Layout } from "../Layout";
 import { MobileContainer, MobileHeader, MobileMenu } from "@/widgets";
-import { useUserCondition } from "@/shared/model/store";
 import { Text } from "@/shared/ui/Text";
 
 import woman from "/assets/woman.jpg";
 import styles from "./MobileNotification.module.scss";
 
 const MobileNotification: FC = () => {
-    const { condition } = useUserCondition();
-
     const sick = condition === "Болен";
 
     return (

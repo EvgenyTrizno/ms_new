@@ -5,9 +5,7 @@ import { IParamsData } from "./types";
 
 import { ParamsBlock, ReminderBlock } from "@/widgets";
 import { Search } from "@/features/Search/ui";
-import { useUserCondition, useUserData } from "@/shared/model/store";
 import { Text } from "@/shared/ui/Text";
-import { useProfile } from "@/shared/model/store";
 import { TABLET } from "@/shared/utils";
 
 import man from "/assets/man.jpg";
@@ -36,9 +34,6 @@ export const MobileAccountMenu: FC = () => {
     const [swipedUp, setSwipedUp] = useState(false);
     const touchStartY = useRef<number | null>(null);
 
-    const { condition } = useUserCondition();
-    const { isProfile, setIsProfile } = useProfile();
-    const { group } = useUserData();
     const navigate = useNavigate();
 
     const sick = condition === "Болен";

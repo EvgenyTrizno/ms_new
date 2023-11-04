@@ -3,8 +3,6 @@ import { motion } from "framer-motion";
 import { IExtraCallBtnData } from "../ExtraCallMobile/types";
 // import { motion } from "framer-motion";
 
-import { useExtraCall } from "@/shared/model/store";
-import { useUserCondition } from "@/shared/model/store";
 import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
 
@@ -19,8 +17,6 @@ import styles from "./ExtraCallModal.module.scss";
 // import { ConnectionModal } from "../ConnectionModal/ConnectionModal";
 
 export const ExtraCallModal: FC = () => {
-    const { setIsOpen, isOpen } = useExtraCall();
-    const { condition } = useUserCondition();
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     useEffect(() => {

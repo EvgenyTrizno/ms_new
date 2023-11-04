@@ -8,11 +8,7 @@ import {
 } from "@/widgets";
 import { Header } from "@/widgets/components/Header/ui";
 import { Menu } from "@/widgets/components/Menu/ui";
-import {
-    useExtraCall,
-    useNotification,
-    useUserData,
-} from "@/shared/model/store";
+import {} from "@/shared/model/store";
 import { NotificationModal } from "@/widgets/components/NotificationModal";
 import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
 import { PC, SMALL_LAPTOP, TABLET, MOBILE, LAPTOP } from "@/shared/utils";
@@ -22,10 +18,6 @@ import cross from "/assets/cross.svg";
 import styles from "./Layout.module.scss";
 
 export const Layout: FC<TProps> = ({ children }) => {
-    const { isOpen, setIsOpen } = useExtraCall();
-    const { isNotification } = useNotification();
-    const { group } = useUserData();
-
     return (
         <div className={styles.layout}>
             {MOBILE && <MobileAccountMenu />}

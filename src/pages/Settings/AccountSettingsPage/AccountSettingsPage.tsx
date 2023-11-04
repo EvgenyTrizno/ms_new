@@ -6,7 +6,6 @@ import { MobileContainer, CustomMobileHeader, ParamsBlock } from "@/widgets";
 // import { BackArrow } from "@/shared";
 import { Text } from "@/shared/ui/Text";
 import { Input } from "@/shared/ui/Input";
-import { useUserCondition } from "@/shared/model/store";
 import { MOBILE, TABLET } from "@/shared/utils";
 
 import heartBlue from "/assets/heart-blue.svg";
@@ -21,7 +20,6 @@ import styles from "./AccountSettingsPage.module.scss";
 
 const AccountSettingsPage: FC = () => {
     const navigate = useNavigate();
-    const { condition } = useUserCondition();
 
     const sick = condition === "Болен";
     const data: IAccountData = {

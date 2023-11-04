@@ -2,8 +2,6 @@ import { FC } from "react";
 import { motion } from "framer-motion";
 import { IBtn } from "./types";
 
-import { useUserCondition } from "@/shared/model/store";
-
 import styles from "./styles.module.scss";
 
 export const Btn: FC<IBtn> = ({
@@ -22,20 +20,22 @@ export const Btn: FC<IBtn> = ({
     minW,
     className,
 }) => {
-    const { condition } = useUserCondition();
-
-    const sick = condition === "Болен";
+    const sick = "Болен";
 
     return (
         <motion.button
             className={`${className} ${styles.btn}`}
             type={type}
-            whileTap={{
-                background:
-                    color === "#D64657" || sick
-                        ? "color-mix(in srgb, #D64657, #000 20%)"
-                        : "color-mix(in srgb, #0064fa, #000 20%)",
-            }}
+            whileTap={
+                !disabled
+                    ? {
+                          background:
+                              color === "#D64657" || sick
+                                  ? "color-mix(in srgb, #D64657, #000 20%)"
+                                  : "color-mix(in srgb, #0064fa, #000 20%)",
+                      }
+                    : {}
+            }
             style={{
                 fontSize: fz,
                 backgroundColor: `${
