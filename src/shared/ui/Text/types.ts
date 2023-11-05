@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, CSSProperties } from "react";
 
 export interface IText {
     type: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -14,4 +14,6 @@ export interface IText {
     fz?: string | number;
     color?: string;
     fw?: number;
+    onClick?: () => void;
+    style?: CSSProperties;
 }

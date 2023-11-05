@@ -2,16 +2,22 @@ import { FC } from "react";
 import { ILoginFormProps } from "./types";
 
 import { Btn } from "@/shared/ui/Btn";
+import { Rows } from "@/shared/ui/Rows";
+import { useLoginMutation } from "@/shared/lib/hooks/useLoginMutation";
 
-import styles from "./styles.module.scss";
+export const LoginForm: FC<ILoginFormProps> = ({
+    children,
+    password,
+    number,
+}) => {
+    const { mutate } = useLoginMutation(number, password);
 
-export const LoginForm: FC<ILoginFormProps> = ({ children }) => {
     return (
-        <form>
+        <Rows gap={20} rows={["auto"]}>
             {children}
-            <Btn type="submit" color="#0064FA" className={styles.formBtn}>
+            <Btn color="#0064FA" onClick={() => mutate()}>
                 Войти
             </Btn>
-        </form>
+        </Rows>
     );
 };

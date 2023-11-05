@@ -10,9 +10,12 @@ import {
 import { Row } from "@/shared/ui/Row";
 
 import styles from "./styles.module.scss";
+import { useCode } from "../../model/store/code";
 
 export const CodeInputs: FC = () => {
-    const [code, setCode] = useState<string>("");
+    const [verifyCode, setVerifyCode] = useState<string>("");
+
+    const { setCode } = useCode();
 
     const codeRefs = [
         useRef<HTMLInputElement>(null),
@@ -25,8 +28,8 @@ export const CodeInputs: FC = () => {
         e: ChangeEvent<HTMLInputElement>,
         i: number
     ) => {
-        setCode((code) => {
-            const newCode = [...code];
+        setVerifyCode((verifyCode) => {
+            const newCode = [...verifyCode];
             newCode[i] = e.target.value;
             return newCode.join("");
         });
@@ -40,7 +43,7 @@ export const CodeInputs: FC = () => {
         e: KeyboardEvent<HTMLInputElement>,
         i: number
     ) => {
-        if (e.key === "Backspace" && i > 0 && !code[i]) {
+        if (e.key === "Backspace" && i > 0 && !verifyCode[i]) {
             codeRefs[i - 1].current?.focus();
         }
     };
@@ -53,13 +56,17 @@ export const CodeInputs: FC = () => {
         e.target.classList.remove(styles.active);
     };
 
+    if (verifyCode.length === 4) {
+        setCode(verifyCode);
+    }
+
     return (
         <Row gap={20} style={{ justifyContent: "center" }}>
             <input
                 type="text"
                 maxLength={1}
                 className={styles.item}
-                value={code[0] || ""}
+                value={verifyCode[0] || ""}
                 onChange={(e) => handleCodeInputChange(e, 0)}
                 onKeyDown={(e) => handleCodeInputKeyDown(e, 0)}
                 onFocus={handleFocus}
@@ -70,7 +77,7 @@ export const CodeInputs: FC = () => {
                 type="text"
                 maxLength={1}
                 className={styles.item}
-                value={code[1] || ""}
+                value={verifyCode[1] || ""}
                 onChange={(e) => handleCodeInputChange(e, 1)}
                 onKeyDown={(e) => handleCodeInputKeyDown(e, 1)}
                 onFocus={handleFocus}
@@ -81,7 +88,7 @@ export const CodeInputs: FC = () => {
                 type="text"
                 maxLength={1}
                 className={styles.item}
-                value={code[2 || ""]}
+                value={verifyCode[2 || ""]}
                 onChange={(e) => handleCodeInputChange(e, 2)}
                 onKeyDown={(e) => handleCodeInputKeyDown(e, 2)}
                 onBlur={handleBlur}
@@ -92,7 +99,7 @@ export const CodeInputs: FC = () => {
                 type="text"
                 maxLength={1}
                 className={styles.item}
-                value={code[3] || ""}
+                value={verifyCode[3] || ""}
                 onChange={(e) => handleCodeInputChange(e, 3)}
                 onKeyDown={(e) => handleCodeInputKeyDown(e, 3)}
                 onBlur={handleBlur}

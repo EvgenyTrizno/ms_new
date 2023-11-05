@@ -5,16 +5,15 @@ import { Rows } from "@/shared/ui/Rows";
 import { CodeInputs } from "../CodeInputs";
 import { Timer } from "../Timer";
 
-export const ConfirmationForm: FC<IConfirmationFormProps> = ({ btn }) => {
+export const ConfirmationForm: FC<IConfirmationFormProps> = ({ btn, text }) => {
     return (
-        <form>
-            <Rows gap={20} rows={["auto"]}>
-                <Rows gap={16} rows={["auto"]}>
-                    <CodeInputs />
-                    <Timer />
-                </Rows>
-                {btn}
+        <Rows gap={20} rows={["auto"]}>
+            {text}
+            <Rows gap={16} rows={["auto"]}>
+                <CodeInputs />
+                <Timer />
             </Rows>
-        </form>
+            {btn}
+        </Rows>
     );
 };

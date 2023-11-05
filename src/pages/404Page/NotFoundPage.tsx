@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { useBackOnPrevPage } from "@/shared/hooks";
+import { useBackOnPrevPage } from "@/shared/lib/hooks";
 import { Text } from "@/shared/ui/Text";
 import { Btn } from "@/shared/ui/Btn";
 import { MOBILE } from "@/shared/utils";

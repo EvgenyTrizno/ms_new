@@ -3,14 +3,12 @@ import { Link } from "react-router-dom";
 
 import { Text } from "@/shared/ui/Text";
 import { AuthContainer } from "@/shared/ui/AuthContainer";
-import { RegistrationConfirmation } from "@/widgets/components/RegistrationConfirmation";
+import { RegistrationConfirmation } from "@/features/RegistrationConfirmation/ui/Confirmation";
 import { Row } from "@/shared/ui/Row";
-import { ConfirmationTextWithNumber } from "@/widgets/components/RegistrationConfirmation/ui/ConfirmationTextWithNumber";
 
 const ConfirmationPage: FC = () => {
     return (
         <AuthContainer title="Завершение">
-            <ConfirmationTextWithNumber number="+7-900-100-10-10" />
             <RegistrationConfirmation />
             <Row gap={0} style={{ justifyContent: "center" }}>
                 <Text type="p" fz="14px" color="#7D7F82">

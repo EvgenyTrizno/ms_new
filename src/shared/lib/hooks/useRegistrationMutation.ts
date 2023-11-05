@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMutation } from "react-query";
 
-import { registration } from "../api/registration";
-import { ICreateUser } from "../types/createUser.interface";
+import { registration } from "../../api/registration";
+import { ICreateUser } from "../../types/createUser.interface";
 
 export const useRegistrationMutation = (
     state: ICreateUser,

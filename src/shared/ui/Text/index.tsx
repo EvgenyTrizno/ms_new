@@ -10,13 +10,17 @@ export const Text: FC<IText> = ({
     fz = 16,
     color = "",
     fw,
+    onClick,
+    style,
 }) => {
     switch (type) {
         case "h1":
             return (
                 <h1
                     className={styles.h1}
+                    onClick={onClick}
                     style={{
+                        ...style,
                         textAlign: position,
                         fontSize: fz,
                         color: color,
@@ -30,7 +34,9 @@ export const Text: FC<IText> = ({
             return (
                 <h2
                     className={styles.h2}
+                    onClick={onClick}
                     style={{
+                        ...style,
                         textAlign: position,
                         fontSize: fz,
                         color: color,
@@ -44,7 +50,9 @@ export const Text: FC<IText> = ({
             return (
                 <h3
                     className={styles.h3}
+                    onClick={onClick}
                     style={{
+                        ...style,
                         textAlign: position,
                         fontSize: fz,
                         color: color,
@@ -58,7 +66,9 @@ export const Text: FC<IText> = ({
             return (
                 <h4
                     className={styles.h4}
+                    onClick={onClick}
                     style={{
+                        ...style,
                         textAlign: position,
                         fontSize: fz,
                         color: color,
@@ -72,7 +82,9 @@ export const Text: FC<IText> = ({
             return (
                 <h5
                     className={styles.h5}
+                    onClick={onClick}
                     style={{
+                        ...style,
                         textAlign: position,
                         fontSize: fz,
                         color: color,
@@ -86,7 +98,9 @@ export const Text: FC<IText> = ({
             return (
                 <h6
                     className={styles.h6}
+                    onClick={onClick}
                     style={{
+                        ...style,
                         textAlign: position,
                         fontSize: fz,
                         color: color,
@@ -100,7 +114,9 @@ export const Text: FC<IText> = ({
             return (
                 <p
                     className={styles.p}
+                    onClick={onClick}
                     style={{
+                        ...style,
                         textAlign: position,
                         fontSize: fz,
                         color: color,

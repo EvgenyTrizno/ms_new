@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 
 import { Text } from "@/shared/ui/Text";
+import { ResendCode } from "@/features/RegistrationResendCode";
 
 export const Timer: FC = () => {
     const [seconds, setSeconds] = useState(60);
@@ -20,15 +21,7 @@ export const Timer: FC = () => {
     return (
         <Text type="p" position="center" color="#262626" fz="24px">
             {seconds === 0 ? (
-                <span
-                    style={{
-                        cursor: "pointer",
-                        fontSize: 14,
-                        fontWeight: 600,
-                    }}
-                >
-                    Отправить код снова
-                </span>
+                <ResendCode />
             ) : seconds === 60 ? (
                 "1:00"
             ) : (

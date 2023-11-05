@@ -1,1 +1,0 @@
-export { RegistrationConfirmation } from "./RegistrationConfirmation";

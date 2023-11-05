@@ -11,7 +11,7 @@ import { SetCondition } from "../SetCondition";
 import { Btn } from "@/shared/ui/Btn";
 import { PickDisease } from "@/features/PickDisease";
 import { useRegistration } from "@/shared/model/store/registration";
-import { useRegistrationMutation } from "@/shared/hooks/useRegistrationMutation";
+import { useRegistrationMutation } from "@/shared/lib/hooks/useRegistrationMutation";
 
 export const SelectCenter: FC = () => {
     const [isMap, setIsMap] = useState<boolean>(false);
@@ -29,7 +29,7 @@ export const SelectCenter: FC = () => {
             password1,
             password2,
             numberOrEmail: number,
-            stage: 2,
+            stage: disease.length ? 3 : 2,
             group: "Пользователи",
             main_center,
             disease,

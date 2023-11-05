@@ -8,16 +8,17 @@ import {
 } from "@/widgets";
 import { Header } from "@/widgets/components/Header/ui";
 import { Menu } from "@/widgets/components/Menu/ui";
-import {} from "@/shared/model/store";
 import { NotificationModal } from "@/widgets/components/NotificationModal";
 import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
 import { PC, SMALL_LAPTOP, TABLET, MOBILE, LAPTOP } from "@/shared/utils";
 
-import extra from "/assets/extra-call.svg";
-import cross from "/assets/cross.svg";
+// import extra from "/assets/extra-call.svg";
+// import cross from "/assets/cross.svg";
 import styles from "./Layout.module.scss";
 
 export const Layout: FC<TProps> = ({ children }) => {
+    const group = "Врачи";
+
     return (
         <div className={styles.layout}>
             {MOBILE && <MobileAccountMenu />}
@@ -32,12 +33,12 @@ export const Layout: FC<TProps> = ({ children }) => {
                     !TABLET && (
                         <div
                             className={styles.extra}
-                            onClick={() => setIsOpen(true)}
+                            // onClick={() => setIsOpen(true)}
                         >
-                            <img src={!isOpen ? extra : cross} alt="" />
+                            {/* <img src={!isOpen ? extra : cross} alt="" /> */}
                         </div>
                     )}
-                {isNotification && <NotificationModal />}
+                {<NotificationModal />}
             </div>
         </div>
     );

@@ -5,8 +5,11 @@ import { ShowPassword } from "@/features/ShowPassword";
 import { Input } from "@/shared/ui/Input";
 
 import styles from "./styles.module.scss";
+import { IPasswordInputFieldProps } from "./types";
 
-export const PasswordInputField: FC = () => {
+export const PasswordInputField: FC<IPasswordInputFieldProps> = ({
+    onChange,
+}) => {
     const [isShow, setIsShow] = useState(false);
 
     const handleClick = () => setIsShow((prev) => !prev);
@@ -18,6 +21,7 @@ export const PasswordInputField: FC = () => {
                 placeholder="Введите пароль"
                 border="none"
                 borderRadius="0px"
+                onChange={onChange}
             />
             <ShowPassword isShow={isShow} onClick={handleClick} />
         </Row>

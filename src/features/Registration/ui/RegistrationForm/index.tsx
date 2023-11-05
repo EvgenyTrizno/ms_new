@@ -1,6 +1,6 @@
 /* eslint-disable no-case-declarations */
 import { FC, useState, ChangeEvent, FormEvent } from "react";
-import { useRegistrationMutation } from "@/shared/hooks/useRegistrationMutation";
+import { useRegistrationMutation } from "@/shared/lib/hooks/useRegistrationMutation";
 import { useNavigate } from "react-router";
 
 import { Input } from "@/shared/ui/Input";
@@ -25,7 +25,7 @@ export const RegistrationForm: FC = () => {
         setPassword1,
         setPassword2,
     } = useRegistration();
-    const { error, mutate } = useRegistrationMutation(
+    const { mutate } = useRegistrationMutation(
         {
             birthday,
             numberOrEmail: number,
@@ -36,8 +36,6 @@ export const RegistrationForm: FC = () => {
         },
         () => navigate("/select-center")
     );
-
-    console.log(birthday);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const currentValue = e.target.value;
