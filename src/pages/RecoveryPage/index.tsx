@@ -3,7 +3,7 @@ import { FC } from "react";
 import { AuthContainer } from "@/shared/ui/AuthContainer";
 import { Rows } from "@/shared/ui/Rows";
 import { Text } from "@/shared/ui/Text";
-import { Recovery } from "@/widgets/components/Recovery";
+import { Recovery } from "@/features/ResetPassword";
 
 const RecoveryPage: FC = () => {
     return (

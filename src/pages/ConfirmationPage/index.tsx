@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 import { Text } from "@/shared/ui/Text";
 import { AuthContainer } from "@/shared/ui/AuthContainer";
-import { RegistrationConfirmation } from "@/features/RegistrationConfirmation/ui/Confirmation";
 import { Row } from "@/shared/ui/Row";
+import { Confirmation } from "@/widgets/components/Confirmation";
 
 const ConfirmationPage: FC = () => {
     return (
         <AuthContainer title="Завершение">
-            <RegistrationConfirmation />
+            <Confirmation />
             <Row gap={0} style={{ justifyContent: "center" }}>
                 <Text type="p" fz="14px" color="#7D7F82">
                     Уже имеется аккаунт?

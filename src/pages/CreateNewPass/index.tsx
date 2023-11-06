@@ -1,9 +1,14 @@
 import { FC } from "react";
 
-import { CreatePass } from "@/widgets/components/CreatePass";
+import { AuthContainer } from "@/shared/ui/AuthContainer";
+import { ChangePassword } from "@/features/CreateNewPassword";
 
 const CreateNewPass: FC = () => {
-    return <CreatePass />;
+    return (
+        <AuthContainer title="Создайте новый пароль">
+            <ChangePassword />
+        </AuthContainer>
+    );
 };
 
 export default CreateNewPass;

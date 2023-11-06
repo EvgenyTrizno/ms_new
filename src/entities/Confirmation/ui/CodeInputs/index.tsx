@@ -10,12 +10,10 @@ import {
 import { Row } from "@/shared/ui/Row";
 
 import styles from "./styles.module.scss";
-import { useCode } from "../../model/store/code";
+import { ICodeInputsProps } from "./types";
 
-export const CodeInputs: FC = () => {
+export const CodeInputs: FC<ICodeInputsProps> = ({ setCode }) => {
     const [verifyCode, setVerifyCode] = useState<string>("");
-
-    const { setCode } = useCode();
 
     const codeRefs = [
         useRef<HTMLInputElement>(null),

@@ -3,9 +3,12 @@ import { FC, useState, ChangeEvent } from "react";
 import { Input } from "@/shared/ui/Input";
 import { Btn } from "@/shared/ui/Btn";
 import { Rows } from "@/shared/ui/Rows";
+import { useResetPasswordByNumberMutation } from "../../lib/hooks/useResetPasswordByNumberMutation";
 
 export const RecoveryByNumber: FC = () => {
-    const [number, setNumber] = useState<string>();
+    const [number, setNumber] = useState<string>("");
+
+    const { mutate } = useResetPasswordByNumberMutation(number);
 
     return (
         <Rows gap={20} rows={["auto"]}>
@@ -19,7 +22,11 @@ export const RecoveryByNumber: FC = () => {
                     setNumber(e.target.value)
                 }
             />
-            <Btn color="#0064FA" type="submit" disabled={true}>
+            <Btn
+                color="#0064FA"
+                disabled={number.length ? false : true}
+                onClick={() => mutate()}
+            >
                 Продолжить
             </Btn>
         </Rows>
