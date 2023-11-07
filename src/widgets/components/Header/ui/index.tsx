@@ -1,21 +1,37 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { IHeaderProps } from "../model/types";
 
 import { Text } from "@/shared/ui/Text";
 import { useMenu } from "@/shared/model/store";
 import { Balance } from "../../Balance/Balance";
+import { useAuthMutation } from "@/shared/lib/hooks/useAuthMutation";
+import { useCookie } from "@/shared/lib/hooks/useCookie";
+import { useAuth } from "@/shared/model/store/auth";
 
 import notification from "/assets/notification.svg";
 import notificationActive from "/assets/notification-active.svg";
 import noimage from "/assets/noimage.svg";
 import styles from "./styles.module.scss";
+import { Avatar } from "@/shared/ui/Avatar";
+import { UserData } from "./UserData";
+import { Row } from "@/shared/ui/Row";
+import { NavLink } from "react-router-dom";
 
 export const Header: FC<IHeaderProps> = ({ width }) => {
     const navigate = useNavigate();
     const { isSelect, setIsSelect } = useMenu();
+    const { getCookie } = useCookie();
+    const { mutate: auth } = useAuthMutation(
+        getCookie("refresh_token") as string
+    );
+    const { isAuth } = useAuth();
 
-    const sick = condition === "Болен";
+    const sick = "Болен";
+
+    useEffect(() => {
+        auth();
+    }, [auth]);
 
     return (
         <header
@@ -34,32 +50,25 @@ export const Header: FC<IHeaderProps> = ({ width }) => {
                         </Text>
                     </div>
                 </div>
-                <div className={styles.data}>
-                    {group === "Врачи" && <Balance />}
-                    <div className={styles.notification}>
-                        {styles ? ( // заглушка
-                            <img
-                                src={notification}
-                                alt=""
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    setIsNotification(!isNotification);
-                                }}
-                            />
-                        ) : (
-                            <img src={notificationActive} alt="" />
-                        )}
-                    </div>
-                    <img
-                        src={img !== "" ? img : noimage}
-                        alt=""
-                        className={styles.avatar}
-                        onClick={() => {
-                            navigate("/profile");
-                            setIsSelect("Аккаунт");
-                        }}
-                    />
-                </div>
+                {isAuth ? (
+                    <UserData />
+                ) : (
+                    <Row gap={10}>
+                        <NavLink to="/login">
+                            <Text type="h2" fz="14px" color="#0064FA">
+                                Войти
+                            </Text>
+                        </NavLink>
+                        <Text type="p" color="#0064FA">
+                            /
+                        </Text>
+                        <NavLink to="/registration">
+                            <Text type="h2" fz="14px" color="#0064FA">
+                                Регистрация
+                            </Text>
+                        </NavLink>
+                    </Row>
+                )}
             </div>
         </header>
     );

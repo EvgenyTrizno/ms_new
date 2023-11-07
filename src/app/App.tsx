@@ -3,6 +3,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { Routing } from "./providers/Routing";
+
 import { routes } from "../pages";
 import { PSuspense } from "./providers/Suspense";
 import { ErrorBoundaryFallback } from "@/widgets";

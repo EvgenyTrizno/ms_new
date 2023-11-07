@@ -4,6 +4,7 @@ import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Row } from "@/shared/ui/Row";
 import { Image } from "@/shared/ui/Image";
+import { useAuth } from "@/shared/model/store/auth";
 
 import cross from "/assets/cross-black-small.svg";
 import alarm from "/assets/alarm-clock-blue.svg";
@@ -12,13 +13,16 @@ import close from "/assets/close-circle-red.svg";
 import woman from "/assets/woman.jpg";
 import key from "/assets/key-white.svg";
 import styles from "./styles.module.scss";
+import { NotificationList } from "../NotificationList";
+import { ABSOLUTE_PATH } from "@/shared/config";
 
 export const NotificationModal: FC = () => {
-    const sick = condition === "Болен";
+    const { user } = useAuth();
+    const sick = "Болен";
 
     useEffect(() => {
         const handleClick = () => {
-            setIsNotification(false);
+            // setIsNotification(false);
         };
 
         document.addEventListener("click", handleClick);
@@ -27,6 +31,31 @@ export const NotificationModal: FC = () => {
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        if (user) {
+            const ws = new WebSocket(
+                `ws://${ABSOLUTE_PATH}/ws/notify/${user.id}/`
+            );
+
+            ws.onopen = () => {
+                ws.send(
+                    JSON.stringify({
+                        action: "subscribe_to_notify_activity",
+                        request_id: new Date().getTime(),
+                    })
+                );
+
+                ws.onmessage = (e) => {
+                    const data = JSON.parse(e.data);
+
+                    console.log(data);
+                };
+            };
+
+            console.log(ws);
+        }
+    }, [user]);
 
     return (
         <WhiteContentBlock
@@ -42,7 +71,7 @@ export const NotificationModal: FC = () => {
                     alt=""
                     width={24}
                     height={24}
-                    onClick={() => setIsNotification(false)}
+                    // onClick={() => setIsNotification(false)}
                 />
             </Row>
             <div className={styles.list}>
@@ -50,7 +79,8 @@ export const NotificationModal: FC = () => {
                     <Text type="p" fz="12px" color="#7D7F82">
                         Сегодня
                     </Text>
-                    <div className={styles.items}>
+                    <NotificationList />
+                    {/* <div className={styles.items}>
                         <div className={styles.item}>
                             <div className={styles.circle}>
                                 <img src={woman} alt="" />
@@ -158,7 +188,7 @@ export const NotificationModal: FC = () => {
                                 </Text>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </WhiteContentBlock>

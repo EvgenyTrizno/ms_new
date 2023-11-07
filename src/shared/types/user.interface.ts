@@ -1,5 +1,5 @@
 import { TGender } from "./gender.type";
-import { TGroups } from "./group.type";
+import { IGroup } from "./group.type";
 
 export interface IUserData {
     id: number;
@@ -21,7 +21,7 @@ export interface IUserData {
     verification_code: number;
     reset_code: number;
     email_verification_code: number;
-    group: number | TGroups;
+    group: IGroup;
     main_center: number;
     clinic: null;
     interest: null;

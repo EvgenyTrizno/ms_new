@@ -19,11 +19,11 @@ import styles from "./ExtraCallModal.module.scss";
 export const ExtraCallModal: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
-    useEffect(() => {
-        document.body.style.overflow = `${isOpen ? "hidden" : ""}`;
-    }, [isOpen]);
+    // useEffect(() => {
+    //     document.body.style.overflow = `${isOpen ? "hidden" : ""}`;
+    // }, [isOpen]);
 
-    const sick = condition === "Болен";
+    const sick = "Болен";
 
     const data: IExtraCallBtnData[] = [
         {
@@ -78,7 +78,7 @@ export const ExtraCallModal: FC = () => {
     ];
 
     const handleSetIsOpen = () => {
-        setIsOpen(false);
+        // setIsOpen(false);
     };
 
     const handleClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -90,10 +90,10 @@ export const ExtraCallModal: FC = () => {
         <div
             className={styles.extra}
             onClick={handleSetIsOpen}
-            style={{
-                opacity: isOpen ? 1 : 0,
-                pointerEvents: isOpen ? "auto" : "none",
-            }}
+            // style={{
+            //     opacity: isOpen ? 1 : 0,
+            //     pointerEvents: isOpen ? "auto" : "none",
+            // }}
         >
             {/* <ConnectionModal /> */}
             <div className={styles.container}>
@@ -102,10 +102,10 @@ export const ExtraCallModal: FC = () => {
                         <motion.div
                             key={item.id}
                             initial={{ x: "30px", opacity: 0 }}
-                            animate={{
-                                x: isOpen ? "-70px" : "30px",
-                                opacity: isOpen ? 1 : 0,
-                            }}
+                            // animate={{
+                            //     x: isOpen ? "-70px" : "30px",
+                            //     opacity: isOpen ? 1 : 0,
+                            // }}
                             exit={{ x: "30px", opacity: 0 }}
                             transition={{
                                 duration: 0.4,
@@ -125,7 +125,7 @@ export const ExtraCallModal: FC = () => {
                         </motion.div>
                     ))}
             </div>
-            {isOpenModal && isOpen && (
+            {/* {isOpenModal && isOpen && (
                 <div
                     className={styles.modal}
                     onClick={(e) => e.stopPropagation()}
@@ -216,7 +216,7 @@ export const ExtraCallModal: FC = () => {
                     </div>
                     <Btn color="#0064FA">Позвонить сейчас</Btn>
                 </div>
-            )}
+            )} */}
         </div>
     );
 };

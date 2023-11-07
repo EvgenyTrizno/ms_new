@@ -8,7 +8,7 @@ import {
 } from "@/widgets";
 import { Header } from "@/widgets/components/Header/ui";
 import { Menu } from "@/widgets/components/Menu/ui";
-import { NotificationModal } from "@/widgets/components/NotificationModal";
+import { NotificationModal } from "@/entities/Notification/ui/NotificationModal";
 import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
 import { PC, SMALL_LAPTOP, TABLET, MOBILE, LAPTOP } from "@/shared/utils";
 
@@ -26,7 +26,7 @@ export const Layout: FC<TProps> = ({ children }) => {
             <div className={styles.container}>
                 {(PC || SMALL_LAPTOP || LAPTOP) && <Menu />}
                 <div className={styles.main}>{children}</div>
-                {MOBILE || TABLET ? <ExtraCallMobile /> : <ExtraCallModal />}
+                {/* {MOBILE || TABLET ? <ExtraCallMobile /> : <ExtraCallModal />} */}
                 {location.pathname !== "/messages" &&
                     group !== "Врачи" &&
                     !MOBILE &&
@@ -38,7 +38,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                             {/* <img src={!isOpen ? extra : cross} alt="" /> */}
                         </div>
                     )}
-                {<NotificationModal />}
+                <NotificationModal />
             </div>
         </div>
     );
