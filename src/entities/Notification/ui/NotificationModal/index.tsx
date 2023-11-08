@@ -52,10 +52,8 @@ export const NotificationModal: FC = () => {
                     console.log(data);
                 };
             };
-
-            console.log(ws);
         }
-    }, [user]);
+    });
 
     return (
         <WhiteContentBlock

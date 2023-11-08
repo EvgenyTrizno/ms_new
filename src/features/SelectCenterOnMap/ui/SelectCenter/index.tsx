@@ -29,7 +29,7 @@ export const SelectCenter: FC = () => {
             password1,
             password2,
             numberOrEmail: number,
-            stage: disease.length ? 3 : 2,
+            stage: 2,
             group: "Пользователи",
             main_center,
             disease,

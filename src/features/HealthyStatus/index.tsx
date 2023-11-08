@@ -1,19 +1,25 @@
-import { FC, MouseEvent } from "react";
+import { FC, MouseEvent, useState } from "react";
 
-import { Text } from "../Text";
+import { Text } from "@/shared/ui/Text";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
+import { useAuth } from "@/shared/model/store/auth";
 
 import styles from "./styles.module.scss";
 
 interface ISwitcherProps {
-    isHovered?: boolean;
+    isHovered: boolean;
 }
 
 export const HealthyStatus: FC<ISwitcherProps> = ({ isHovered }) => {
+    const { user } = useAuth();
+    const [condition, setCondition] = useState<number>(
+        user ? user.disease.length : 0
+    );
+
+    console.log(condition);
+
     const healthyClasses = `${styles.healthy} ${styles.item}`;
     const sickClasses = `${styles.sick} ${styles.item}`;
-
-    const condition = "Здоров";
 
     const handleMouseEnter = (e: MouseEvent<HTMLDivElement>) => {
         const classList = e.currentTarget.classList;
@@ -76,7 +82,7 @@ export const HealthyStatus: FC<ISwitcherProps> = ({ isHovered }) => {
                 </Text>
             </div>
             <div
-                onClick={() => setCondition("Болен")}
+                // onClick={() => setCondition("Болен")}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMousleLeave}
                 className={condition === "Болен" ? sickClasses : styles.item}

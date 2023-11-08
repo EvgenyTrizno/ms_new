@@ -1,3 +1,4 @@
+import { IDisease } from "./disease.interface";
 import { TGender } from "./gender.type";
 import { IGroup } from "./group.type";
 
@@ -28,5 +29,5 @@ export interface IUserData {
     country: number;
     city: number;
     centers: number[];
-    disease: number[];
+    disease: IDisease[] | [];
 }

@@ -16,5 +16,9 @@ export const useCookie = () => {
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     };
 
-    return { getCookie, setCookie };
+    const removeCookie = (name: string) => {
+        setCookie(name, "", -1);
+    };
+
+    return { getCookie, setCookie, removeCookie };
 };

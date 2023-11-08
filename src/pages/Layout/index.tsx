@@ -38,7 +38,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                             {/* <img src={!isOpen ? extra : cross} alt="" /> */}
                         </div>
                     )}
-                <NotificationModal />
+                {/* <NotificationModal /> */}
             </div>
         </div>
     );
