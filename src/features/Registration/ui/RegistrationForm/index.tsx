@@ -1,9 +1,8 @@
 /* eslint-disable no-case-declarations */
 import { FC, useState, ChangeEvent, FormEvent } from "react";
-import { useRegistrationMutation } from "@/features/Registration/model/hooks/useRegistrationMutation";
-import { useNavigate } from "react-router";
 
 import { Input } from "@/shared/ui/Input";
+import { useRegistrationMutation } from "../../model/hooks/useRegistrationMutation";
 import { useRegistration } from "@/shared/model/store/registration";
 import { Policy } from "../Policy";
 import { Rows } from "@/shared/ui/Rows";
@@ -11,30 +10,20 @@ import { Btn } from "@/shared/ui/Btn";
 
 export const RegistrationForm: FC = () => {
     const [inputDateValue, setInputDateValue] = useState<string>("ГГГГ-ММ-ДД");
+    const [birthday, setBirthday] = useState<string>("");
+    const [password1, setPassword1] = useState<string>("");
+    const [password2, setPassword2] = useState<string>("");
     const [isShowValue, setIsShowValue] = useState<boolean>(false);
     const [isChecked, setIsChecked] = useState<boolean>(false);
 
-    const navigate = useNavigate();
-    const {
+    const { number, setNumber } = useRegistration();
+    const { mutate } = useRegistrationMutation(
         number,
         birthday,
+        "Пользователи",
         password1,
         password2,
-        setBirthday,
-        setNumber,
-        setPassword1,
-        setPassword2,
-    } = useRegistration();
-    const { mutate } = useRegistrationMutation(
-        {
-            birthday,
-            numberOrEmail: number,
-            group: "Пользователи",
-            password1,
-            password2,
-            stage: 1,
-        },
-        () => navigate("/select-center")
+        1
     );
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {

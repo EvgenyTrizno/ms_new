@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from "react";
-import { useNavigate } from "react-router";
 import Geocode from "react-geocode";
 import { IGeocoderData } from "../Map/types";
 import { TCondition } from "@/shared/types/condition.type";
@@ -10,8 +9,7 @@ import { SelectCenterMap } from "../Map";
 import { SetCondition } from "../SetCondition";
 import { Btn } from "@/shared/ui/Btn";
 import { PickDisease } from "@/features/PickDisease";
-import { useRegistration } from "@/shared/model/store/registration";
-import { useRegistrationMutation } from "@/features/Registration/model/hooks/useRegistrationMutation";
+import { useSelectCenterMutate } from "../../lib/hooks/useSelectCenterMutate";
 
 export const SelectCenter: FC = () => {
     const [isMap, setIsMap] = useState<boolean>(false);
@@ -21,24 +19,7 @@ export const SelectCenter: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const [disease, setDisease] = useState<number[]>([]);
 
-    const navigate = useNavigate();
-    const { birthday, password1, password2, number } = useRegistration();
-    const { mutate } = useRegistrationMutation(
-        {
-            birthday,
-            password1,
-            password2,
-            numberOrEmail: number,
-            stage: 2,
-            group: "Пользователи",
-            main_center,
-            disease,
-            city: "Москва",
-        },
-        () => navigate("/confirmation")
-    );
-
-    console.log(city);
+    const { mutate } = useSelectCenterMutate(2, disease, city, main_center);
 
     useEffect(() => {
         const permission = "geolocation" in navigator;
@@ -97,7 +78,7 @@ export const SelectCenter: FC = () => {
             <Btn
                 color="#0064FA"
                 onClick={handleClick}
-                disabled={main_center === 0 && !!password1.length}
+                disabled={main_center === 0}
             >
                 Продолжить
             </Btn>

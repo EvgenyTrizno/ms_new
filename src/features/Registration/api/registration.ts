@@ -1,14 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 
 import { BASE_URL } from "@/shared/config";
-
-export type TGroups = "Пользователи" | "Администраторы" | "Врачи";
-
-export interface IGroup {
-    id: number;
-    name: TGroups;
-    number_of_people: number;
-}
+import { TGroups } from "@/shared/types/group.type";
 
 export interface ICreateUser {
     birthday: string;

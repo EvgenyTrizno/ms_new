@@ -12,7 +12,7 @@ import styles from "./NotFoundPage.module.scss";
 const NotFoundPage: FC = () => {
     const { backOnPrevPage } = useBackOnPrevPage();
 
-    const sick = condition === "Болен";
+    const sick = "Болен";
 
     return (
         <div className={styles.notfound}>
