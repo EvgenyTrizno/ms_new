@@ -2,7 +2,6 @@
 import { useMutation } from "react-query";
 
 import { registration } from "../../api/registration";
-import { ICreateUser } from "../../types/createUser.interface";
 
 export const useRegistrationMutation = (
     state: ICreateUser,
@@ -16,9 +15,7 @@ export const useRegistrationMutation = (
                 state.group,
                 state.password1,
                 state.password2,
-                state.stage,
-                state.main_center,
-                state.disease
+                state.stage
             ),
         mutationKey: ["registration"],
         onSuccess: onSuccessFunc,

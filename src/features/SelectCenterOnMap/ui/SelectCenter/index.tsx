@@ -11,7 +11,7 @@ import { SetCondition } from "../SetCondition";
 import { Btn } from "@/shared/ui/Btn";
 import { PickDisease } from "@/features/PickDisease";
 import { useRegistration } from "@/shared/model/store/registration";
-import { useRegistrationMutation } from "@/shared/lib/hooks/useRegistrationMutation";
+import { useRegistrationMutation } from "@/features/Registration/model/hooks/useRegistrationMutation";
 
 export const SelectCenter: FC = () => {
     const [isMap, setIsMap] = useState<boolean>(false);
@@ -33,9 +33,12 @@ export const SelectCenter: FC = () => {
             group: "Пользователи",
             main_center,
             disease,
+            city: "Москва",
         },
         () => navigate("/confirmation")
     );
+
+    console.log(city);
 
     useEffect(() => {
         const permission = "geolocation" in navigator;

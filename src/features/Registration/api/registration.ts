@@ -1,31 +1,41 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 import { BASE_URL } from "@/shared/config";
-import { TGroups } from "@/shared/types/group.type";
-import { TStages } from "../types/registrationStages.type";
-import { ICreateUser } from "../types/createUser.interface";
+
+export type TGroups = "Пользователи" | "Администраторы" | "Врачи";
+
+export interface IGroup {
+    id: number;
+    name: TGroups;
+    number_of_people: number;
+}
+
+export interface ICreateUser {
+    birthday: string;
+    number: string;
+    group: TGroups;
+    password1: string;
+    password2: string;
+    stage: 1;
+}
 
 export async function registration(
     birthday: string,
-    numberOrEmail: string,
+    number: string,
     group: TGroups,
     password1: string,
     password2: string,
-    stage: TStages,
-    main_center?: number,
-    disease?: number[]
-): Promise<ICreateUser> {
+    stage: 1
+): Promise<AxiosResponse<ICreateUser>> {
     return axios.post(
         `${BASE_URL}/api/users/`,
         {
             birthday,
-            number: numberOrEmail,
+            number,
             password1,
             password2,
             group,
             stage,
-            main_center,
-            disease,
         },
         {
             headers: {

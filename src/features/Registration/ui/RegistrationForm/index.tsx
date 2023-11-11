@@ -1,6 +1,6 @@
 /* eslint-disable no-case-declarations */
 import { FC, useState, ChangeEvent, FormEvent } from "react";
-import { useRegistrationMutation } from "@/shared/lib/hooks/useRegistrationMutation";
+import { useRegistrationMutation } from "@/features/Registration/model/hooks/useRegistrationMutation";
 import { useNavigate } from "react-router";
 
 import { Input } from "@/shared/ui/Input";

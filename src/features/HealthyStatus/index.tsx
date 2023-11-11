@@ -16,7 +16,7 @@ export const HealthyStatus: FC<ISwitcherProps> = ({ isHovered }) => {
         user ? user.disease.length : 0
     );
 
-    console.log(condition);
+    console.log(user && user.disease);
 
     const healthyClasses = `${styles.healthy} ${styles.item}`;
     const sickClasses = `${styles.sick} ${styles.item}`;
