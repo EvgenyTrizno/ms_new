@@ -18,7 +18,7 @@ export async function selectCenter(
             main_center,
         },
         {
-            // withCredentials: true,
+            withCredentials: true,
             headers: {
                 Cookie: `sessionid=${sessionid}`,
             },
