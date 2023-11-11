@@ -1,10 +1,10 @@
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 
-import { BASE_URL } from "@/shared/config";
 import { ICenterResponse } from "../types/centersResponse.interface";
+import { instance } from "@/shared/config/axiosInstance";
 
 export async function getCentersByCity(
     city: string
 ): Promise<AxiosResponse<ICenterResponse[]>> {
-    return await axios.get(`${BASE_URL}/api/users/centers/${city}`);
+    return await instance.get(`/users/centers/${city}/`);
 }

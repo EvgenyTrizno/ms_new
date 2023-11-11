@@ -1,6 +1,6 @@
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 
-import { BASE_URL } from "../config";
+import { instance } from "../config/axiosInstance";
 
 interface IAuthResponse {
     access: string;
@@ -10,5 +10,5 @@ interface IAuthResponse {
 export async function auth(
     refresh: string
 ): Promise<AxiosResponse<IAuthResponse>> {
-    return await axios.post(`${BASE_URL}/api/token/refresh/`, { refresh });
+    return await instance.post("/token/refresh/", { refresh });
 }

@@ -1,6 +1,6 @@
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 
-import { BASE_URL } from "../config";
+import { instance } from "../config/axiosInstance";
 
 interface ILoginResponce {
     refresh: string;
@@ -11,5 +11,5 @@ export async function login(
     number: string,
     password: string
 ): Promise<AxiosResponse<ILoginResponce>> {
-    return await axios.post(`${BASE_URL}/api/token/`, { number, password });
+    return await instance.post("/api/token/", { number, password });
 }

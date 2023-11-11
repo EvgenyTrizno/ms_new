@@ -1,6 +1,6 @@
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 
-import { BASE_URL } from "@/shared/config";
+import { instance } from "@/shared/config/axiosInstance";
 
 export async function selectCenter(
     stage: 2,
@@ -9,8 +9,8 @@ export async function selectCenter(
     main_center: number,
     sessionid: string
 ): Promise<AxiosResponse> {
-    return await axios.post(
-        `${BASE_URL}/api/users/`,
+    return await instance.post(
+        "/users/",
         {
             stage,
             city,
@@ -18,9 +18,8 @@ export async function selectCenter(
             main_center,
         },
         {
+            // withCredentials: true,
             headers: {
-                "Cache-Control": "no-cache",
-                "Content-Type": "application/json",
                 Cookie: `sessionid=${sessionid}`,
             },
         }
