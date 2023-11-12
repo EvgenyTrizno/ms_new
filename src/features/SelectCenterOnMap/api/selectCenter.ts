@@ -6,8 +6,7 @@ export async function selectCenter(
     stage: 2,
     city: string,
     disease_id: number[],
-    main_center: number,
-    sessionid: string
+    main_center: number
 ): Promise<AxiosResponse> {
     return await instance.post(
         "/users/",
@@ -19,9 +18,6 @@ export async function selectCenter(
         },
         {
             withCredentials: true,
-            headers: {
-                Cookie: `sessionid=${sessionid}`,
-            },
         }
     );
 }

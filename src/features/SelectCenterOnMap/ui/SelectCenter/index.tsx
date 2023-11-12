@@ -21,6 +21,8 @@ export const SelectCenter: FC = () => {
 
     const { mutate } = useSelectCenterMutate(2, disease, city, main_center);
 
+    console.log(city);
+
     useEffect(() => {
         const permission = "geolocation" in navigator;
 
