@@ -11,17 +11,16 @@ import { Btn } from "@/shared/ui/Btn";
 export const RegistrationForm: FC = () => {
     const [inputDateValue, setInputDateValue] = useState<string>("ГГГГ-ММ-ДД");
     const [birthday, setBirthday] = useState<string>("");
-    const [password1, setPassword1] = useState<string>("");
     const [password2, setPassword2] = useState<string>("");
     const [isShowValue, setIsShowValue] = useState<boolean>(false);
     const [isChecked, setIsChecked] = useState<boolean>(false);
 
-    const { number, setNumber } = useRegistration();
+    const { number, setNumber, password, setPassword } = useRegistration();
     const { mutate } = useRegistrationMutation(
         number,
         birthday,
         "Пользователи",
-        password1,
+        password,
         password2,
         1
     );
@@ -79,7 +78,7 @@ export const RegistrationForm: FC = () => {
                 setNumber(formattedNumber);
                 break;
             case "password":
-                setPassword1(value);
+                setPassword(value);
                 break;
             case "confirmPassword":
                 setPassword2(value);
@@ -120,7 +119,7 @@ export const RegistrationForm: FC = () => {
                         borderColor="#E9EAEB"
                         name="password"
                         onChange={handleChange}
-                        value={password1}
+                        value={password}
                     />
                     <Input
                         type="password"
@@ -138,7 +137,7 @@ export const RegistrationForm: FC = () => {
                     disabled={
                         !number &&
                         !birthday &&
-                        password1.length >= 8 &&
+                        password.length >= 8 &&
                         password2.length >= 8 &&
                         !isChecked
                     }

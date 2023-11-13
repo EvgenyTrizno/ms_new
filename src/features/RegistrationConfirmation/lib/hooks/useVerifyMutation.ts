@@ -8,8 +8,8 @@ export const useVerifyMutation = (
     verification_code: number,
     number: string
 ) => {
-    const { password1 } = useRegistration();
-    const { mutate } = useLoginMutation(number, password1);
+    const { password } = useRegistration();
+    const { mutate } = useLoginMutation(number, password);
 
     return useMutation({
         mutationFn: () => verifyCode(verification_code, number),

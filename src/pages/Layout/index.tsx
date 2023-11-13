@@ -1,14 +1,14 @@
-import { FC } from "react";
+import { FC, SetStateAction, useState } from "react";
 import { TProps } from "./types";
 
-import {
-    // MobileMenu,
-    ExtraCallModal,
-    ExtraCallMobile,
-} from "@/widgets";
+// import {
+//     // MobileMenu,
+//     ExtraCallModal,
+//     ExtraCallMobile,
+// } from "@/widgets";
 import { Header } from "@/widgets/components/Header/ui";
 import { Menu } from "@/widgets/components/Menu/ui";
-import { NotificationModal } from "@/entities/Notification/ui/NotificationModal";
+// import { NotificationModal } from "@/entities/Notification/ui/NotificationModal";
 import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
 import { PC, SMALL_LAPTOP, TABLET, MOBILE, LAPTOP } from "@/shared/utils";
 
@@ -18,7 +18,6 @@ import styles from "./Layout.module.scss";
 
 export const Layout: FC<TProps> = ({ children }) => {
     const group = "Врачи";
-
     return (
         <div className={styles.layout}>
             {MOBILE && <MobileAccountMenu />}

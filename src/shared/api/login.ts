@@ -11,5 +11,5 @@ export async function login(
     number: string,
     password: string
 ): Promise<AxiosResponse<ILoginResponce>> {
-    return await instance.post("/api/token/", { number, password });
+    return await instance.post("/token/", { number, password });
 }

@@ -12,8 +12,6 @@ export const RegistrationConfirmation: FC = () => {
     const { number } = useRegistration();
     const { mutate } = useVerifyMutation(+code, number);
 
-    console.log(code);
-
     return (
         <ConfirmationForm
             setCode={setCode}

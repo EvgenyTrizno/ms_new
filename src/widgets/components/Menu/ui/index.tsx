@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 
 import { Text } from "@/shared/ui/Text";
-import { HealthyStatus } from "@/features/HealthyStatus";
+import { HealthyStatus } from "@/widgets/components/HealthyStatus";
 import { useMenu } from "@/shared/model/store";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
 import { Search } from "@/features/Search/ui";

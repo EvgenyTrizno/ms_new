@@ -16,7 +16,7 @@ export const Timer: FC = () => {
         }
 
         return () => clearInterval(interval);
-    });
+    }, [seconds]);
 
     return (
         <Text type="p" position="center" color="#262626" fz="24px">

@@ -1,3 +1,5 @@
+import { ICity } from "./city.interface";
+import { ICountry } from "./country.interface";
 import { IDisease } from "./disease.interface";
 import { TGender } from "./gender.type";
 import { IGroup } from "./group.type";
@@ -26,8 +28,8 @@ export interface IUserData {
     main_center: number;
     clinic: null;
     interest: null;
-    country: number;
-    city: number;
+    country: ICountry;
+    city: ICity;
     centers: number[];
-    disease: IDisease[] | [];
+    disease: IDisease[] | [] | number[];
 }
