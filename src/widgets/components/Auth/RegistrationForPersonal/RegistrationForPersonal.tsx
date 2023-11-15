@@ -3,7 +3,7 @@ import { FC, useState, FormEvent, useEffect } from "react";
 import { Text } from "@/shared/ui/Text";
 import { Input } from "@/shared/ui/Input";
 import { Btn } from "@/shared/ui/Btn";
-import { Modal } from "../../../../shared/ui/Modal";
+import { Modal } from "../../../../entities/Modal";
 import { MOBILE } from "@/shared/utils";
 
 import arrowRight from "/assets/arrow-right-black.svg";

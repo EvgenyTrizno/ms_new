@@ -13,13 +13,11 @@ import notification from "/assets/notification.svg";
 import notificationActive from "/assets/notification-active.svg";
 import noimage from "/assets/noimage.svg";
 import styles from "./styles.module.scss";
-import { Avatar } from "@/shared/ui/Avatar";
 import { UserData } from "./UserData";
 import { Row } from "@/shared/ui/Row";
 import { NavLink } from "react-router-dom";
 
 export const Header: FC<IHeaderProps> = ({ width }) => {
-    const navigate = useNavigate();
     const { isSelect, setIsSelect } = useMenu();
     const { getCookie } = useCookie();
     const { mutate: auth } = useAuthMutation(
@@ -31,7 +29,7 @@ export const Header: FC<IHeaderProps> = ({ width }) => {
 
     useEffect(() => {
         auth();
-    }, [auth]);
+    }, []);
 
     return (
         <header

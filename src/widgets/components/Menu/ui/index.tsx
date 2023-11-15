@@ -1,24 +1,24 @@
 import { FC, useState } from "react";
+import { useNavigate } from "react-router";
 
 import { Text } from "@/shared/ui/Text";
 import { HealthyStatus } from "@/widgets/components/HealthyStatus";
-import { useMenu } from "@/shared/model/store";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
 import { Search } from "@/features/Search/ui";
 import { ItemsList } from "./ItemsList";
+import { useAuth } from "@/shared/model/store/auth";
+import { Rows } from "@/shared/ui/Rows";
 
 import logo from "/assets/logo.svg";
 import bigLogo from "/assets/logo-with-text.svg";
 import bigLogoRed from "/assets/logo-with-text-red.svg";
 import styles from "./styles.module.scss";
-import { useAuth } from "@/shared/model/store/auth";
-import { Rows } from "@/shared/ui/Rows";
 
 export const Menu: FC = () => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
 
-    const { setIsSelect } = useMenu();
     const { user } = useAuth();
+    const navigate = useNavigate();
 
     return (
         <div
@@ -41,12 +41,15 @@ export const Menu: FC = () => {
             >
                 {!isHovered && SMALL_LAPTOP && <img alt="" src={logo} />}
                 {(isHovered || PC || LAPTOP) &&
-                    user &&
-                    (user.group.name === "Пользователи" || !user) && (
+                    (!user || (user && user.group.name === "Пользователи")) && (
                         <img
-                            // src={sick ? bigLogoRed : bigLogo}
+                            src={
+                                user && user.disease.length
+                                    ? bigLogoRed
+                                    : bigLogo
+                            }
                             alt=""
-                            // onClick={() => navigate("/")}
+                            onClick={() => navigate("/")}
                         />
                     )}
                 {user && user.group.name === "Администраторы" && (

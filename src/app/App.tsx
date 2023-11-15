@@ -14,12 +14,6 @@ import "swiper/css/pagination";
 import "./index.scss";
 
 const App = () => {
-    // useEffect(() => {
-    //     !sick
-    //         ? (document.body.style.backgroundColor = "#F5F8FC")
-    //         : (document.body.style.backgroundColor = "#FFFAFA");
-    // }, [sick]);
-
     return (
         <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
             <ReactQuery>
@@ -33,8 +27,8 @@ const App = () => {
                         >
                             <Routing>
                                 <Routes>
-                                    {routes.map((page) => (
-                                        <Route {...page} />
+                                    {routes.map((page, i) => (
+                                        <Route key={i} {...page} />
                                     ))}
                                 </Routes>
                             </Routing>

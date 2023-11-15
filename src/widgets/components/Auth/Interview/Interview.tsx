@@ -5,7 +5,7 @@ import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
 import { Calendar, decreasingMonths } from "../../Calendar/Calendar";
 import { SmallDropbox } from "../../SmallDropbox/SmallDropbox";
-import { Modal } from "../../../../shared/ui/Modal";
+import { Modal } from "../../../../entities/Modal";
 
 import styles from "./Interview.module.scss";
 

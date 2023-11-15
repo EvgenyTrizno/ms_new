@@ -7,7 +7,7 @@ import amabulance from "/assets/amabulance-blue.svg";
 import people from "/assets/people-blue.svg";
 import marker from "/assets/marker-plus.svg";
 import styles from "./ExtraCallMobile.module.scss";
-import { Modal } from "../../../shared/ui/Modal";
+import { Modal } from "../../../entities/Modal";
 
 export const ExtraCallMobile: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(true);

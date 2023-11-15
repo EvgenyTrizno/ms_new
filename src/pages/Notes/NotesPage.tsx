@@ -5,7 +5,7 @@ import { Layout } from "../Layout";
 // import { BackArrow} from "@/shared";
 import { CustomMobileHeader } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
-import { Modal } from "@/shared/ui/Modal";
+import { Modal } from "@/entities/Modal";
 import { Btn } from "@/shared/ui/Btn";
 import { MOBILE } from "@/shared/utils";
 import { AddBtn } from "@/shared/ui/AddBtn";

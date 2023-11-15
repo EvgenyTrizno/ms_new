@@ -1,5 +1,6 @@
 import { lazy } from "react";
-import { RouteData } from "./types";
+import { RouteProps } from "react-router";
+
 import { InterviewPage } from "../Auth/InterviewPage/InterviewPage";
 import { MOBILE, SMALL_LAPTOP } from "@/shared/utils";
 
@@ -10,7 +11,7 @@ const RecoveryPage = lazy(() => import("@/pages/RecoveryPage"));
 const AuthMapPage = lazy(() => import("@/pages/Auth/AuthMapPage/AuthMapPage"));
 const SelectCenterPage = lazy(() => import("@/pages/SelectCenter"));
 const ConfirmationPage = lazy(() => import("@/pages/ConfirmationPage"));
-const SearchPage = lazy(() => import("@/pages/SearchPage/SearchPage"));
+const SearchPage = lazy(() => import("@/pages/SearchPage"));
 const ProfilePage = lazy(() => import("@/pages/Profile/ProfilePage"));
 const NotesPage = lazy(() => import("@/pages/Notes/NotesPage"));
 const MedicalCardPage = lazy(
@@ -89,181 +90,148 @@ const SocialPage = lazy(() => import("@/pages/SocialPage/SocialPage"));
 
 const media = window.matchMedia("(max-width: 768px)").matches;
 
-export const routes: RouteData[] = [
+export const routes: RouteProps[] = [
     {
         path: "/registration",
         Component: RegistrationPage,
-        key: "registration_page",
     },
     {
         path: "/login",
         Component: LoginPage,
-        key: "login_page",
     },
     {
         path: "/",
         Component: MainPage,
-        key: "main_page",
     },
-    { path: "*", Component: NotFoundPage, key: "error_page" },
-    { path: "/recovery", Component: RecoveryPage, key: "recovery_page" },
-    { path: "/auth/map", Component: AuthMapPage, key: "auth-map_page" },
+    { path: "*", Component: NotFoundPage },
+    { path: "/recovery", Component: RecoveryPage },
+    { path: "/auth/map", Component: AuthMapPage },
     {
         path: "/select-center",
         Component: SelectCenterPage,
-        key: "select-center_page",
     },
     {
         path: "/confirmation",
         Component: ConfirmationPage,
-        key: "confirm_page",
     },
     {
         path: "/interview",
         Component: InterviewPage,
-        key: "interview_page",
     },
     {
         path: "/search",
         Component: SearchPage,
-        key: "search_page",
     },
-    { path: "/profile", Component: ProfilePage, key: "profile_page" },
+    { path: "/profile", Component: ProfilePage },
     {
         path: "/medical-card",
         Component: media ? AccountMedicalCardPage : MedicalCardPage,
-        key: "medical-card_page",
     },
     {
         path: "/notes",
         Component: NotesPage,
-        key: "notes_page",
     },
     {
         path: "/notes/:name",
         Component: NotesInfoPage,
-        key: "notes-info_page",
     },
     {
         path: "/create-event",
         Component: CreateEventPage,
-        key: "create-event_page",
     },
-    { path: "/location", Component: MapPage, key: "map_page" },
+    { path: "/location", Component: MapPage },
     {
         path: "/messages",
         Component: MessagesPage,
-        key: "messages_page",
     },
     {
         path: "/medical-card-test",
         Component: MedicalTestPage,
-        key: "medical-test_page",
     },
     // {
     //     path: "/m/profile/:id",
     //     Component: MobileProfile,
-    //     key: "mobile-profile_page",
     // },
     {
         path: "/account",
         Component: AccountSettingsPage,
-        key: "mobile-account_page",
     },
     {
         path: "/settings/account/profile",
         Component: ProfileSettingsPage,
-        key: "mobile-profile-settings_page",
     },
     // {
     //     path: "/m/settings/account/protection",
     //     Component: AccountProtectionSettingsPage,
-    //     key: "mobile-protection_page",
     // },
     {
         path: "/account/access",
         Component: AccountAccessSettings,
-        key: "mobile-access_page",
     },
     {
         path: "/account/subscriptions",
         Component: AccountSubscriptionsSettingsPage,
-        key: "mobile-subscriptions_page",
     },
     {
         path: "/account/saved",
         Component: AccountSavedPage,
-        key: "mobile-saved_page",
     },
     {
         path: "/m/settings/account/medical-center",
         Component: AccountMedicalCenterPage,
-        key: "mobile-medical-center_page",
     },
     {
         path: "/create-new-password",
         Component: CreateNewPassPage,
-        key: "create-new-pass_page",
     },
     {
         path: "/notifications",
         Component: MobileNotificationPage,
-        key: "mobile-notifications_page",
     },
     {
         path: "/users/:id",
         Component: UserInfoPage,
-        key: "users_page",
     },
     {
         path: "/users",
         Component: UsersPage,
-        key: "users_page",
     },
     {
         path: "/balance",
         Component: BalancePage,
-        key: "users_page",
     },
     {
         path: "/chat/:id",
         Component: SMALL_LAPTOP || MOBILE ? ChatPage : NotFoundPage,
-        key: "chat_page",
     },
     {
         path: "/about-center",
         Component: AbountCenterPage,
-        key: "abount-center_page",
     },
     {
         path: "/clinic/:id",
         Component: ClinicProfilePage,
-        key: "clinic-profile_page",
     },
     {
         path: "/center/:id",
         Component: ClinicProfilePage,
-        key: "center-profile_page",
     },
     {
         path: "/employee/:id",
         Component: EmployeeProfilePage,
-        key: "employee-profile_page",
     },
-    { path: "/app", Component: AppStatsPage, key: "app-stats_page" },
-    { path: "/leads", Component: LeadsPage, key: "leads_page" },
-    { path: "/map", Component: AdminPanelMapPage, key: "admin-map_page" },
+    { path: "/app", Component: AppStatsPage },
+    { path: "/leads", Component: LeadsPage },
+    { path: "/map", Component: AdminPanelMapPage },
     {
         path: "/map/:country",
         Component: CountryInfoPage,
-        key: "admin-country-info_page",
     },
     {
         path: "/map/:country/:city",
         Component: CityInfoPage,
-        key: "admin-city-info_page",
     },
-    { path: "/requests", Component: RequestsPage, key: "requests_page" },
-    { path: "/mail", Component: MailPage, key: "mail_page" },
-    { path: "/social", Component: SocialPage, key: "social-info_page" },
+    { path: "/requests", Component: RequestsPage },
+    { path: "/mail", Component: MailPage },
+    { path: "/social", Component: SocialPage },
 ];

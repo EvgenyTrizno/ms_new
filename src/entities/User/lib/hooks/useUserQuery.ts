@@ -6,12 +6,11 @@ import { useAuth } from "@/shared/model/store/auth";
 
 export const useUserQuery = () => {
     const { getCookie } = useCookie();
-    const { setUser, isAuth } = useAuth();
+    const { setUser } = useAuth();
 
     return useQuery({
         queryFn: () => getUser(getCookie("access_token") as string),
         queryKey: ["userDetails", "get"],
-        enabled: isAuth,
         onSuccess: (data) => {
             setUser(data.data);
         },
