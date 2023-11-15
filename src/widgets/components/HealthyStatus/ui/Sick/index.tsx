@@ -1,23 +1,21 @@
 import { FC } from "react";
+import { ISickProps } from "./types";
 
-import { ICondition } from "../../types/condition.interface";
 import { Text } from "@/shared/ui/Text";
-import { useUserMutate } from "@/entities/User/lib/hooks/useUserMutate";
 
 import styles from "./styles.module.scss";
 
-export const Sick: FC<ICondition> = ({
+export const Sick: FC<ISickProps> = ({
     condition,
     handleMouseEnter,
     handleMousleLeave,
+    onClick,
 }) => {
     const sickClasses = `${styles.sick} ${styles.item}`;
 
-    const { mutate } = useUserMutate({ disease: [1, 2] });
-
     return (
         <div
-            onClick={() => mutate()}
+            onClick={onClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMousleLeave}
             className={condition ? sickClasses : styles.item}
