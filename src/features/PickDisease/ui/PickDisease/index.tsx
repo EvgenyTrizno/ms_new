@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { IMainModalProps } from "./types";
 
-import { Modal } from "@/shared/ui/Modal";
+import { Modal } from "@/entities/Modal";
 import { Rows } from "@/shared/ui/Rows";
 import { Text } from "@/shared/ui/Text";
 import { Search } from "@/features/Search";
@@ -13,11 +13,12 @@ export const PickDisease: FC<IMainModalProps> = ({
     text,
     btns,
     setDisease,
+    isOpen,
 }) => {
     const [search, setSearch] = useState<string>("");
 
     return (
-        <Modal setIsOpenModal={setIsOpenModal}>
+        <Modal setIsOpenModal={setIsOpenModal} isOpen={isOpen}>
             <Rows gap={20} rows={["auto"]}>
                 <Rows gap={20} rows={["auto"]}>
                     <Text type="h2" fz="26px" position="center">

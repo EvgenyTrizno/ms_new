@@ -5,4 +5,5 @@ export interface IMainModalProps {
     text: string;
     btns: ReactNode;
     setDisease: Dispatch<SetStateAction<number[]>>;
+    isOpen: boolean;
 }
