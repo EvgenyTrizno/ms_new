@@ -4,4 +4,6 @@ export interface IChatViewProps {
     message: string;
     count: number;
     active: boolean;
+    img: string;
+    onClick: () => void;
 }

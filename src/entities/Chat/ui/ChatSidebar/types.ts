@@ -1,5 +1,8 @@
-import { ReactNode } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 export interface IChatSidebarProps {
-    children: ReactNode;
+    selectChat: Dispatch<SetStateAction<string>>;
+    setUserId: Dispatch<SetStateAction<number>>;
+    setChatId: Dispatch<SetStateAction<number>>;
+    uuid: string;
 }

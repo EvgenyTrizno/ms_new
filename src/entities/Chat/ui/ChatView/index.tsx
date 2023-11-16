@@ -14,10 +14,16 @@ export const ChatView: FC<IChatViewProps> = ({
     message,
     name,
     count,
+    img,
+    onClick,
 }) => {
     return (
-        <Row gap={20} className={`${styles.chat} ${active && styles.active}`}>
-            <Avatar type="user" size="M" img="" />
+        <Row
+            gap={20}
+            className={`${styles.chat} ${active && styles.active}`}
+            onClick={onClick}
+        >
+            <Avatar type="user" size="M" img={img} />
             <Rows gap={10} rows={["auto"]}>
                 <Text type="h4" fz="14px">
                     {name}

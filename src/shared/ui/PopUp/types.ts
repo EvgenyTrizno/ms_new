@@ -4,7 +4,7 @@ export interface IPopUp {
     width?: string;
     height?: string;
     children: ReactNode;
-    top?: string;
+    top: string;
     right?: string;
     left?: string;
     bottom?: string;
