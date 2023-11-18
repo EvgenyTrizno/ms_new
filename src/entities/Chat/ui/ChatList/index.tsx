@@ -11,6 +11,7 @@ export const ChatList: FC<IChatListProps> = ({
     uuid,
     setUserId,
     setChatId,
+    search,
 }) => {
     const { data: chats } = useChatQuery();
     const { user: currUser } = useAuth();
@@ -20,6 +21,8 @@ export const ChatList: FC<IChatListProps> = ({
         setUserId(user_id);
         setChatId(chat_id);
     };
+
+    console.log(search);
 
     return (
         <Rows gap={0} rows={["auto"]}>

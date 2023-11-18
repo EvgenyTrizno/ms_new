@@ -10,7 +10,8 @@ export const NotificationList: FC = () => {
         <Rows gap={20} rows={["auto"]}>
             {data && !data.data.length
                 ? "Список уведомлений пуст"
-                : data && data.data.map((item) => <div>{item.text}</div>)}
+                : data &&
+                  data.data.map((item, i) => <div key={i}>{item.text}</div>)}
         </Rows>
     );
 };

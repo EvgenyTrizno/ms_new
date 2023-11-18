@@ -9,6 +9,8 @@
     border-radius: 24px;
     box-shadow: 0px 4px 4px 0px rgba(38, 38, 38, 0.04);
     z-index: 100;
+    opacity: 0;
+    pointer-events: none;
 
     .list {
         margin-top: 24px;
@@ -111,4 +113,8 @@
             }
         }
     }
+}
+.open {
+    opacity: 1;
+    pointer-events: auto;
 }

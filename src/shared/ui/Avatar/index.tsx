@@ -8,6 +8,7 @@ export const Avatar: FC<AvatarProps<AvatarType | "custom">> = ({
     type,
     size,
     img,
+    onClick,
 }): JSX.Element => {
     const generateSize = () => {
         const sizes = {
@@ -32,6 +33,7 @@ export const Avatar: FC<AvatarProps<AvatarType | "custom">> = ({
                         alt=""
                         style={generateSize()}
                         className={styles.centerImg}
+                        onClick={onClick}
                     />
                 );
             case "clinic":
@@ -41,6 +43,7 @@ export const Avatar: FC<AvatarProps<AvatarType | "custom">> = ({
                         alt=""
                         style={generateSize()}
                         className={styles.clinicImg}
+                        onClick={onClick}
                     />
                 );
             case "user":
@@ -50,6 +53,7 @@ export const Avatar: FC<AvatarProps<AvatarType | "custom">> = ({
                         alt=""
                         style={generateSize()}
                         className={styles.userImg}
+                        onClick={onClick}
                     />
                 );
             case "custom":
@@ -59,6 +63,7 @@ export const Avatar: FC<AvatarProps<AvatarType | "custom">> = ({
                         alt=""
                         style={generateSize()}
                         className={styles.userImg}
+                        onClick={onClick}
                     />
                 );
         }

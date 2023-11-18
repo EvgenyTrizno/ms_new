@@ -1,19 +1,26 @@
 import { FC, ChangeEvent } from "react";
-import { IUserProps } from "./types";
 
 import { Text } from "@/shared/ui/Text";
+import { useAuth } from "@/shared/model/store/auth";
+import { getFullUsernameWithInitials } from "@/entities/User/lib/helpers/getFullUsernameWithInitials";
 
 import noimage from "/assets/noimage.svg";
-import styles from "./User.module.scss";
+import styles from "./styles.module.scss";
 
-export const User: FC<IUserProps> = ({ img, first_name, last_name, role }) => {
-    const name = first_name.slice(0, 1).toUpperCase();
-    // const surname = last_name.split("");
+export const User: FC = () => {
+    const { user } = useAuth();
 
     return (
         <div className={styles.user}>
             <div className={styles.image}>
-                <img src={img === "" ? noimage : img} alt="" />
+                <img
+                    src={
+                        !user || (user && !user.image)
+                            ? noimage
+                            : user && user.image
+                    }
+                    alt=""
+                />
                 <input
                     accept=".jpg, .png, jpeg"
                     type="file"
@@ -28,10 +35,14 @@ export const User: FC<IUserProps> = ({ img, first_name, last_name, role }) => {
             </div>
             <div className={styles.data}>
                 <Text type="h2" color="#262626" fz="20px">
-                    {`${last_name} ${name}. A.`}
+                    {getFullUsernameWithInitials(
+                        (user && user.last_name) ?? "",
+                        (user && user.first_name) ?? "",
+                        ""
+                    )}
                 </Text>
                 <Text type="p" color="#B1B2B4" fz="14px">
-                    {role}
+                    {user && user.group.name}
                 </Text>
             </div>
         </div>

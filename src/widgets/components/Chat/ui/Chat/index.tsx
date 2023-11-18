@@ -24,7 +24,7 @@ export const Chat: FC<IChatProps> = ({ chat_uuid, user_id, chat_id }) => {
 
     const { data } = useMessageQuery(chat_id);
 
-    console.log(data);
+    console.log(data && data.data[0]?.chat[0]);
 
     useEffect(() => {
         const ws = new WebSocket(`ws://${ABSOLUTE_PATH}/ws/chat/${chat_uuid}/`);
@@ -105,7 +105,8 @@ export const Chat: FC<IChatProps> = ({ chat_uuid, user_id, chat_id }) => {
                 {data &&
                     data.data.map((item) => (
                         <Message
-                            key={item}
+                            // avatar={item.}
+                            key={item.id}
                             type="from"
                             onClick={(e) =>
                                 handleOpenPopUp(e as MouseEvent<HTMLDivElement>)

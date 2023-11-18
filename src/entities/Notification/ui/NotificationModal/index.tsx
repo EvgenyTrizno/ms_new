@@ -5,24 +5,29 @@ import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Row } from "@/shared/ui/Row";
 import { Image } from "@/shared/ui/Image";
 import { useAuth } from "@/shared/model/store/auth";
+import { INotificationModalProps } from "./types";
 
 import cross from "/assets/cross-black-small.svg";
-import alarm from "/assets/alarm-clock-blue.svg";
-import alarmRed from "/assets/alarm-clock-red.svg";
-import close from "/assets/close-circle-red.svg";
-import woman from "/assets/woman.jpg";
-import key from "/assets/key-white.svg";
+// import alarm from "/assets/alarm-clock-blue.svg";
+// import alarmRed from "/assets/alarm-clock-red.svg";
+// import close from "/assets/close-circle-red.svg";
+// import woman from "/assets/woman.jpg";
+// import key from "/assets/key-white.svg";
 import styles from "./styles.module.scss";
 import { NotificationList } from "../NotificationList";
 import { ABSOLUTE_PATH } from "@/shared/config";
+import { Portal } from "@/shared/ui/Portal";
 
-export const NotificationModal: FC = () => {
+export const NotificationModal: FC<INotificationModalProps> = ({
+    setIsOpen,
+    isOpen,
+}) => {
     const { user } = useAuth();
-    const sick = "Болен";
+    // const sick = "Болен";
 
     useEffect(() => {
         const handleClick = () => {
-            // setIsNotification(false);
+            // setIsOpen(false);
         };
 
         document.addEventListener("click", handleClick);
@@ -56,29 +61,34 @@ export const NotificationModal: FC = () => {
     });
 
     return (
-        <WhiteContentBlock
-            className={styles.notification}
-            onClick={(e) => e && e.stopPropagation()}
-        >
-            <Row gap={0} style={{ justifyContent: "space-between" }}>
-                <Text type="h2" fz="18px">
-                    Уведомления
-                </Text>
-                <Image
-                    src={cross}
-                    alt=""
-                    width={24}
-                    height={24}
-                    // onClick={() => setIsNotification(false)}
-                />
-            </Row>
-            <div className={styles.list}>
-                <div className={styles.box}>
-                    <Text type="p" fz="12px" color="#7D7F82">
-                        Сегодня
+        <Portal>
+            <WhiteContentBlock
+                className={
+                    isOpen
+                        ? `${styles.notification} ${styles.open}`
+                        : styles.notification
+                }
+                onClick={(e) => e && e.stopPropagation()}
+            >
+                <Row gap={0} style={{ justifyContent: "space-between" }}>
+                    <Text type="h2" fz="18px">
+                        Уведомления
                     </Text>
-                    <NotificationList />
-                    {/* <div className={styles.items}>
+                    <Image
+                        src={cross}
+                        alt=""
+                        width={24}
+                        height={24}
+                        onClick={() => setIsOpen(false)}
+                    />
+                </Row>
+                <div className={styles.list}>
+                    <div className={styles.box}>
+                        <Text type="p" fz="12px" color="#7D7F82">
+                            Сегодня
+                        </Text>
+                        <NotificationList />
+                        {/* <div className={styles.items}>
                         <div className={styles.item}>
                             <div className={styles.circle}>
                                 <img src={woman} alt="" />
@@ -187,8 +197,9 @@ export const NotificationModal: FC = () => {
                             </div>
                         </div>
                     </div> */}
+                    </div>
                 </div>
-            </div>
-        </WhiteContentBlock>
+            </WhiteContentBlock>
+        </Portal>
     );
 };

@@ -15,11 +15,15 @@ export const ChatSidebar: FC<IChatSidebarProps> = ({
     setChatId,
 }) => {
     const [filter, setFilter] = useState("Сообщения");
+    const [search, setSearch] = useState<string>("");
 
     return (
         <div className={styles.sidebar}>
             <Rows gap={10} rows={["auto"]}>
-                <Search placeholder="Поиск чатов" />
+                <Search
+                    placeholder="Поиск чатов"
+                    onChange={(e) => setSearch((e && e.target.value) as string)}
+                />
                 <Filter
                     isSelect={filter}
                     setIsSelect={setFilter}
@@ -32,6 +36,7 @@ export const ChatSidebar: FC<IChatSidebarProps> = ({
                         selectChat={selectChat}
                         setUserId={setUserId}
                         setChatId={setChatId}
+                        search={search}
                     />
                 ) : null}
             </Rows>
