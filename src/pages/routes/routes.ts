@@ -70,23 +70,19 @@ const ChatPage = lazy(() => import("@/pages/Chat/ChatPage"));
 const AbountCenterPage = lazy(
     () => import("@/pages/AboutCenter/AboutCenterPage")
 );
-const ClinicProfilePage = lazy(
-    () => import("@/pages/ClinicProfile/ClinicProfile")
-);
+const ClinicProfilePage = lazy(() => import("@/pages/ClinicProfile"));
 // const CenterProfilePage = lazy(() => import("@/pages/CenterPage/CenterPage"));
-const EmployeeProfilePage = lazy(
-    () => import("@/pages/EmployeeProfilePage/EmployeeProfilePage")
-);
-const AppStatsPage = lazy(() => import("@/pages/AppStatsPage/AppStatsPage"));
-const LeadsPage = lazy(() => import("@/pages/LeadsPage/LeadsPage"));
+const EmployeeProfilePage = lazy(() => import("@/pages/EmployeeProfilePage"));
+const AppStatsPage = lazy(() => import("@/pages/AppStatsPage"));
+const LeadsPage = lazy(() => import("@/pages/LeadsPage"));
 const AdminPanelMapPage = lazy(
     () => import("@/pages/AdminPanelMap/AdminPanelMapPage")
 );
 const CountryInfoPage = lazy(() => import("@/pages/CountryInfo/CountryInfo"));
 const CityInfoPage = lazy(() => import("@/pages/CityInfoPage/CityInfoPage"));
-const RequestsPage = lazy(() => import("@/pages/RequestsPage/RequestsPage"));
+const RequestsPage = lazy(() => import("@/pages/RequestsPage"));
 const MailPage = lazy(() => import("@/pages/MailPage/MailPage"));
-const SocialPage = lazy(() => import("@/pages/SocialPage/SocialPage"));
+const SocialPage = lazy(() => import("@/pages/SocialPage"));
 
 const media = window.matchMedia("(max-width: 768px)").matches;
 

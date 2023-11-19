@@ -15,9 +15,7 @@ import {
 import { Layout } from "../Layout";
 import {
     AdminPanelContainer,
-    BlueBox,
     // Circle,
-    Cols,
     EmployeeData,
     EmployeeInfoCard,
     DiseaseInfo,
@@ -26,12 +24,14 @@ import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { InfoText } from "@/shared/ui/InfoText";
+import { Cols } from "@/shared/ui/Cols";
+import { BlueBox } from "@/shared/ui/BlueBox";
+import { SMALL_LAPTOP } from "@/shared/utils";
 
 import man from "/assets/man.jpg";
 import notfound from "/assets/404-page-img.svg";
-import search from "/assets/search-gray.svg";
-import styles from "./EmployeeProfilePage.module.scss";
-import { SMALL_LAPTOP } from "@/shared/utils";
+// import search from "/assets/search-gray.svg";
+import styles from "./styles.module.scss";
 
 ChartJS.register(
     CategoryScale,
@@ -561,7 +561,7 @@ const EmployeeProfilePage: FC = () => {
                             </Text>
                             <div className={styles.results}>
                                 <div className={styles.result}>
-                                    <img src={search} alt="" />
+                                    {/* <img src={search} alt="" /> */}
                                     <Text
                                         type="p"
                                         fz={SMALL_LAPTOP ? "13px" : ""}
@@ -572,7 +572,7 @@ const EmployeeProfilePage: FC = () => {
                                     </Text>
                                 </div>
                                 <div className={styles.result}>
-                                    <img src={search} alt="" />
+                                    {/* <img src={search} alt="" /> */}
                                     <Text
                                         type="p"
                                         fz={SMALL_LAPTOP ? "13px" : ""}
@@ -583,7 +583,7 @@ const EmployeeProfilePage: FC = () => {
                                     </Text>
                                 </div>
                                 <div className={styles.result}>
-                                    <img src={search} alt="" />
+                                    {/* <img src={search} alt="" /> */}
                                     <Text
                                         type="p"
                                         fz={SMALL_LAPTOP ? "13px" : ""}

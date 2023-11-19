@@ -13,23 +13,23 @@ import {
 } from "chart.js";
 import { Bar, Line } from "react-chartjs-2";
 
+import { Cols } from "@/shared/ui/Cols";
+import { BlueBox } from "@/shared/ui/BlueBox";
 import { Layout } from "../Layout";
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import {
     AdminPanelContainer,
-    BlueBox,
     BlueSliderArrows,
-    Cols,
     Inner,
     MainText,
     UserReport,
 } from "@/widgets";
+import { LAPTOP } from "@/shared/utils";
 
 import playmarket from "/assets/playmarket.svg";
 import appstore from "/assets/appstore.svg";
-import styles from "./AppStatsPage.module.scss";
-import { LAPTOP } from "@/shared/utils";
+import styles from "./styles.module.scss";
 
 ChartJS.register(
     CategoryScale,

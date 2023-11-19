@@ -15,28 +15,27 @@ import { Line } from "react-chartjs-2";
 import { Layout } from "../Layout";
 import {
     AdminPanelContainer,
-    BlueBox,
     BlueSliderArrows,
     CenterOwner,
-    Cols,
     CustomMobileHeader,
     EmployeeData,
     EmployeeInfoCard,
     IncomeBlock,
-    MobileContainer,
-    Rating,
-    Search,
 } from "@/widgets";
 import { LAPTOP, MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
-import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
 import { InfoText } from "@/shared/ui/InfoText";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
+import { Search } from "@/features/Search";
+import { Rating } from "@/features/Rating";
+import { Container } from "@/shared/ui/Container";
+import { Cols } from "@/shared/ui/Cols";
+import { BlueBox } from "@/shared/ui/BlueBox";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
 
 import man from "/assets/man.jpg";
 // import arrow from "/assets/arrow-right.svg";
-import controller from "/assets/controler.svg";
-import styles from "./ClinicProfile.module.scss";
+import styles from "./styles.module.scss";
 
 ChartJS.register(
     CategoryScale,
@@ -189,7 +188,7 @@ const ClinicProfile: FC = () => {
                     text="Профиль клиники"
                 ></CustomMobileHeader>
             )}
-            <MobileContainer>
+            <Container>
                 <AdminPanelContainer>
                     <Cols
                         gap={LAPTOP ? 8 : 10}
@@ -439,41 +438,7 @@ const ClinicProfile: FC = () => {
                             placeholder="Поиск специалиста или пациента"
                             height={LAPTOP ? "37px" : ""}
                         />
-                        {PC || LAPTOP || SMALL_LAPTOP ? (
-                            <Btn
-                                color="#0064FA"
-                                fz="14px"
-                                width="133px"
-                                br={LAPTOP ? "9px" : ""}
-                                height={LAPTOP ? "37px" : "48px"}
-                                padding={LAPTOP ? "10px 18px" : "14px 18px"}
-                            >
-                                <div className={styles.filter}>
-                                    <img src={controller} alt="" />
-                                    <Text
-                                        type="p"
-                                        fz={
-                                            LAPTOP
-                                                ? "15px"
-                                                : SMALL_LAPTOP
-                                                ? "12px"
-                                                : "14px"
-                                        }
-                                    >
-                                        Фильтры
-                                    </Text>
-                                </div>
-                            </Btn>
-                        ) : (
-                            <Btn
-                                width="48px"
-                                height="48px"
-                                color="#0064FA"
-                                padding="14px"
-                            >
-                                <img src={controller} alt="" />
-                            </Btn>
-                        )}
+                        <FilterBtn onClick={() => ({})} />
                     </div>
                     <WhiteContentBlock>
                         <div style={{ marginBottom: 16 }}>
@@ -547,7 +512,7 @@ const ClinicProfile: FC = () => {
                         <BlueSliderArrows />
                     </WhiteContentBlock>
                 </AdminPanelContainer>
-            </MobileContainer>
+            </Container>
         </Layout>
     );
 };

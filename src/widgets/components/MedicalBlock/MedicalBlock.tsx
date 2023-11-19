@@ -9,7 +9,7 @@ import { Text } from "@/shared/ui/Text";
 import styles from "./MedicalBlock.module.scss";
 
 export const MedicalBlock: FC<INoteBlockProps> = ({ onClick }) => {
-    const sick = condition === "Болен";
+    const sick = "Болен";
 
     return (
         <div

@@ -3,9 +3,12 @@ import { FC } from "react";
 import { Layout } from "../Layout";
 // import { Filter } from "@/shared";
 
-import styles from "./RequestsPage.module.scss";
-import { AdminPanelContainer, Cols, RequestBlock, Search } from "@/widgets";
+import { AdminPanelContainer, RequestBlock } from "@/widgets";
 import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
+import { Search } from "@/features/Search";
+import { Cols } from "@/shared/ui/Cols";
+
+import styles from "./styles.module.scss";
 
 const RequestsPage: FC = () => {
     const topContent = {

@@ -4,9 +4,7 @@ import { Layout } from "../Layout";
 import {
     AdminPanelContainer,
     BlueSliderArrows,
-    Cols,
     Inner,
-    BlueBox,
     CenterView,
     MainText,
 } from "@/widgets";
@@ -15,11 +13,13 @@ import { Row } from "@/shared/ui/Row";
 import { Rows } from "@/shared/ui/Rows";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
+import { Cols } from "@/shared/ui/Cols";
+import { BlueBox } from "@/shared/ui/BlueBox";
 
 import hospital from "/assets/hospital.svg";
 import check from "/assets/check-in-circle.svg";
 import clock from "/assets/clock.svg";
-import styles from "./LeadsPage.module.scss";
+import styles from "./styles.module.scss";
 
 const LeadsPage: FC = () => {
     return (

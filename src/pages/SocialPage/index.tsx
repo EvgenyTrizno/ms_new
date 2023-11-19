@@ -3,26 +3,26 @@ import { FC } from "react";
 import { Layout } from "../Layout";
 import {
     AdminPanelContainer,
-    Cols,
     MailHeader,
     MailLayout,
     MailMessage,
     SocialNetworkInfoBlock,
     SocialNetworkInfoLayout,
     Indicator,
-    BlueBox,
     BlueSliderArrows,
     IncomeBlock,
 } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { InfoText } from "@/shared/ui/InfoText";
+import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
+import { Cols } from "@/shared/ui/Cols";
+import { BlueBox } from "@/shared/ui/BlueBox";
 
 import telegram from "/assets/telegram-icon.svg";
 import users from "/assets/users-black.svg";
 import read from "/assets/read-blue.svg";
-import styles from "./SocialPage.module.scss";
-import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
+import styles from "./styles.module.scss";
 
 const SocialPage: FC = () => {
     const incomeData = [

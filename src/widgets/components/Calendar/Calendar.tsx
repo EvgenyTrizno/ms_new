@@ -117,7 +117,7 @@ export const Calendar: FC<ICalendare> = ({
         }
     }, [selectDate]);
 
-    const sick = condition === "Болен";
+    const sick = "Болен";
     const active = `${styles.item} ${styles.active}`;
     const activeRed = `${styles.item} ${styles.activeRed}`;
 
