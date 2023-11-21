@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { RouteProps } from "react-router";
 
-import { InterviewPage } from "../Auth/InterviewPage/InterviewPage";
+import { InterviewPage } from "../../pages/Auth/InterviewPage/InterviewPage";
 import { MOBILE, SMALL_LAPTOP } from "@/shared/utils";
 
 const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
@@ -20,7 +20,7 @@ const MedicalCardPage = lazy(
 const NotesInfoPage = lazy(() => import("@/pages/NotesInfo/NotesInfoPage"));
 const CreateEventPage = lazy(() => import("@/pages/CreateEvent"));
 const MapPage = lazy(() => import("@/pages/Map/MapPage"));
-const MessagesPage = lazy(() => import("@/pages/Messages/MessagesPage"));
+const MessagesPage = lazy(() => import("@/pages/Messages"));
 const MedicalTestPage = lazy(
     () => import("@/pages/MedicalTest/MedicalTestPage")
 );
@@ -53,10 +53,14 @@ const AccountSavedPage = lazy(
     () => import("@/pages/Settings/AccountSavedPage/AccountSavedPage")
 );
 const AccountMedicalCenterPage = lazy(
-    () => import("../Settings/AccountMedicalCenter/AccountMedicalCenterPage")
+    () =>
+        import(
+            "../../pages/Settings/AccountMedicalCenter/AccountMedicalCenterPage"
+        )
 );
 const AccountMedicalCardPage = lazy(
-    () => import("../Settings/AccountMedicalCard/AccountMedicalCardPage")
+    () =>
+        import("../../pages/Settings/AccountMedicalCard/AccountMedicalCardPage")
 );
 const CreateNewPassPage = lazy(() => import("@/pages/CreateNewPass"));
 const NotFoundPage = lazy(() => import("@/pages/404Page/NotFoundPage"));
@@ -66,7 +70,7 @@ const MobileNotificationPage = lazy(
 const UserInfoPage = lazy(() => import("@/pages/UserInfo/UserInfoPage"));
 const UsersPage = lazy(() => import("@/pages/Users/UsersPage"));
 const BalancePage = lazy(() => import("@/pages/Balance/BalancePage"));
-const ChatPage = lazy(() => import("@/pages/Chat/ChatPage"));
+const ChatMobilePage = lazy(() => import("@/pages/ChatMobile/ChatPage"));
 const AbountCenterPage = lazy(
     () => import("@/pages/AboutCenter/AboutCenterPage")
 );
@@ -83,6 +87,7 @@ const CityInfoPage = lazy(() => import("@/pages/CityInfoPage/CityInfoPage"));
 const RequestsPage = lazy(() => import("@/pages/RequestsPage"));
 const MailPage = lazy(() => import("@/pages/MailPage/MailPage"));
 const SocialPage = lazy(() => import("@/pages/SocialPage"));
+const ChatPage = lazy(() => import("@/pages/ChatPage"));
 
 const media = window.matchMedia("(max-width: 768px)").matches;
 
@@ -198,7 +203,7 @@ export const routes: RouteProps[] = [
     },
     {
         path: "/chat/:id",
-        Component: SMALL_LAPTOP || MOBILE ? ChatPage : NotFoundPage,
+        Component: SMALL_LAPTOP || MOBILE ? ChatMobilePage : NotFoundPage,
     },
     {
         path: "/about-center",
@@ -230,4 +235,5 @@ export const routes: RouteProps[] = [
     { path: "/requests", Component: RequestsPage },
     { path: "/mail", Component: MailPage },
     { path: "/social", Component: SocialPage },
+    { path: "/messages/chat/:id/", Component: ChatPage },
 ];

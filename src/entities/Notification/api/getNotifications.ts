@@ -7,7 +7,7 @@ interface INotifyResponse {
     id: number;
     text: string;
     add: unknown;
-    created_at: Date;
+    created_at: string;
     user: IUserData;
 }
 

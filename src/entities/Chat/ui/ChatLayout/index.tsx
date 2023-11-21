@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 // import { PopUp, BackArrow } from "@/shared";
 import { Input } from "@/shared/ui/Input";
-import { ChatInfo, CustomMobileHeader, EmojiModal } from "@/widgets";
+import { ChatInfo, CustomMobileHeader } from "@/widgets";
 import { LAPTOP, MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
 import { Rows } from "@/shared/ui/Rows";
 
@@ -62,7 +62,6 @@ export const ChatLayout: FC<IChatLayoutProps> = ({ children }) => {
     return (
         <Rows gap={0} rows={["auto"]}>
             {children}
-            {isOpenModal && <EmojiModal />}
         </Rows>
     );
 };

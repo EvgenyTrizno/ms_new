@@ -2,6 +2,8 @@ import { FC } from "react";
 import { motion } from "framer-motion";
 import { IBtn } from "./types";
 
+import { useAuth } from "@/shared/model/store/auth";
+
 import styles from "./styles.module.scss";
 
 export const Btn: FC<IBtn> = ({
@@ -20,7 +22,9 @@ export const Btn: FC<IBtn> = ({
     minW,
     className,
 }) => {
-    const sick = "Болен";
+    const { user } = useAuth();
+
+    const sick = user && user.disease.length;
 
     return (
         <motion.button

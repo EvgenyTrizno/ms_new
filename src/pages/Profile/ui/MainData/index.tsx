@@ -124,57 +124,27 @@ export const MainData: FC = () => {
                             <Text type="p" color="#26262680">
                                 Номер
                             </Text>
-                            {/* {number?.length ? (
-                                <label className={styles.verify}>
-                                    <Input
-                                        type="text"
-                                        placeholder="Телефон"
-                                        value={number}
-                                        name="number"
-                                        // onBlur={handleOnBlur}
-                                        // onChange={handleChange}
-                                    />
-                                    <span>Телефон подтвержден</span>
-                                </label>
-                            ) : (
-                                <Input
-                                    type="text"
-                                    placeholder="Телефон"
-                                    value={number}
-                                    name="number"
-                                    // onBlur={handleOnBlur}
-                                    // onChange={handleChange}
-                                    borderColor="#D64657"
-                                />
-                            )} */}
+                            <Input
+                                type="text"
+                                placeholder="Телефон"
+                                value={(user && user.number) ?? ""}
+                                name="number"
+                                // onBlur={handleOnBlur}
+                                // onChange={handleChange}
+                            />
                         </label>
                         <label className={styles.label}>
                             <Text type="p" color="#26262680">
                                 Эл. почта
                             </Text>
-                            {/* {emailСode?.length ? (
-                                <label className={styles.verify}>
-                                    <Input
-                                        type="text"
-                                        placeholder="Почта"
-                                        value={isEmail}
-                                        name="email"
-                                        // onBlur={handleOnBlur}
-                                        // onChange={handleChange}
-                                    />
-                                    <span>Почта подтверждена</span>
-                                </label>
-                            ) : (
-                                <Input
-                                    type="text"
-                                    placeholder="Почта"
-                                    value={isEmail}
-                                    name="email"
-                                    // onBlur={handleOnBlur}
-                                    // onChange={handleChange}
-                                    borderColor="#D64657"
-                                />
-                            )} */}
+                            <Input
+                                type="text"
+                                placeholder="Почта"
+                                value={(user && user.email) ?? ""}
+                                name="email"
+                                // onBlur={handleOnBlur}
+                                // onChange={handleChange}
+                            />
                         </label>
                     </form>
                 </>

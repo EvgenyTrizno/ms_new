@@ -4,11 +4,12 @@ import { ICalendare } from "./types";
 
 import { Input } from "@/shared/ui/Input";
 import { Text } from "@/shared/ui/Text";
+import { MOBILE, PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
+import { useAuth } from "@/shared/model/store/auth";
 
 import arrowLeft from "/assets/arrow-left.svg";
 import arrowRight from "/assets/arrow-right.svg";
 import styles from "./Calendar.module.scss";
-import { MOBILE, PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
 
 export const months = [
     "Январь",
@@ -117,7 +118,9 @@ export const Calendar: FC<ICalendare> = ({
         }
     }, [selectDate]);
 
-    const sick = "Болен";
+    const { user } = useAuth();
+
+    const sick = user && user.disease.length;
     const active = `${styles.item} ${styles.active}`;
     const activeRed = `${styles.item} ${styles.activeRed}`;
 

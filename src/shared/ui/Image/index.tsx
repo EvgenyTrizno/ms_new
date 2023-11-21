@@ -8,6 +8,7 @@ export const Image: FC<IImageProps> = ({
     height,
     style,
     onClick,
+    className,
 }) => {
     return (
         <img
@@ -15,6 +16,7 @@ export const Image: FC<IImageProps> = ({
             alt={alt}
             onClick={onClick}
             style={{ ...style, width, height }}
+            className={className}
         />
     );
 };

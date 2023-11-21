@@ -1,11 +1,12 @@
 import { FC, useEffect } from "react";
+import { INotificationModalProps } from "./types";
 
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Row } from "@/shared/ui/Row";
 import { Image } from "@/shared/ui/Image";
 import { useAuth } from "@/shared/model/store/auth";
-import { INotificationModalProps } from "./types";
+import { useCookie } from "@/shared/lib/hooks/useCookie";
 
 import cross from "/assets/cross-black-small.svg";
 // import alarm from "/assets/alarm-clock-blue.svg";
@@ -23,7 +24,9 @@ export const NotificationModal: FC<INotificationModalProps> = ({
     isOpen,
 }) => {
     const { user } = useAuth();
+    const { getCookie } = useCookie();
     // const sick = "Болен";
+    const token = getCookie("access_token") as string;
 
     useEffect(() => {
         const handleClick = () => {
@@ -38,9 +41,9 @@ export const NotificationModal: FC<INotificationModalProps> = ({
     }, []);
 
     useEffect(() => {
-        if (user) {
+        if (user && token) {
             const ws = new WebSocket(
-                `ws://${ABSOLUTE_PATH}/ws/notify/${user.id}/`
+                `ws://${ABSOLUTE_PATH}/ws/notify/?token=${token}`
             );
 
             ws.onopen = () => {
@@ -58,7 +61,7 @@ export const NotificationModal: FC<INotificationModalProps> = ({
                 };
             };
         }
-    });
+    }, [getCookie, user, token]);
 
     return (
         <Portal>

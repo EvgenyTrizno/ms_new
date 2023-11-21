@@ -1,31 +1,27 @@
 import { FC, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IHeaderProps } from "../model/types";
 
 import { Text } from "@/shared/ui/Text";
 import { useMenu } from "@/shared/model/store";
-import { Balance } from "../../Balance/Balance";
+// import { Balance } from "../../Balance/Balance";
 import { useAuthMutation } from "@/shared/lib/hooks/useAuthMutation";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { useAuth } from "@/shared/model/store/auth";
 
-import notification from "/assets/notification.svg";
-import notificationActive from "/assets/notification-active.svg";
-import noimage from "/assets/noimage.svg";
 import styles from "./styles.module.scss";
 import { UserData } from "./UserData";
 import { Row } from "@/shared/ui/Row";
-import { NavLink } from "react-router-dom";
 
 export const Header: FC<IHeaderProps> = ({ width }) => {
-    const { isSelect, setIsSelect } = useMenu();
+    const { isSelect } = useMenu();
     const { getCookie } = useCookie();
     const { mutate: auth } = useAuthMutation(
         getCookie("refresh_token") as string
     );
-    const { isAuth } = useAuth();
+    const { isAuth, user } = useAuth();
 
-    const sick = "Болен";
+    const sick = user && user.disease.length;
 
     useEffect(() => {
         auth();

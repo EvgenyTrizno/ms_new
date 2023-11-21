@@ -14,6 +14,9 @@ import { Message } from "@/entities/Chat/ui/Message";
 import { ABSOLUTE_PATH } from "@/shared/config";
 import { MessagePopUp } from "../MessagePopUp";
 import { useMessageQuery } from "../../lib/hooks/useMessageQuery";
+import { FastMessagesList } from "../FastMessagesList";
+import { AditionalText } from "../AditionalText";
+import { EmojiModal } from "@/widgets/components/EmojiModal";
 
 export const Chat: FC<IChatProps> = ({ chat_uuid, user_id, chat_id }) => {
     const [isOpenEmoje, setIsOpenEmoji] = useState<boolean>(false);
@@ -23,8 +26,6 @@ export const Chat: FC<IChatProps> = ({ chat_uuid, user_id, chat_id }) => {
     const [ws, setWs] = useState<WebSocket | null>();
 
     const { data } = useMessageQuery(chat_id);
-
-    console.log(data && data.data[0]?.chat[0]);
 
     useEffect(() => {
         const ws = new WebSocket(`ws://${ABSOLUTE_PATH}/ws/chat/${chat_uuid}/`);
@@ -90,18 +91,8 @@ export const Chat: FC<IChatProps> = ({ chat_uuid, user_id, chat_id }) => {
                         }}
                     />
                 )}
-                {/* <Message
-                    type="from"
-                    onClick={(e) =>
-                        handleOpenPopUp(e as MouseEvent<HTMLDivElement>)
-                    }
-                />
-                <Message
-                    type="to"
-                    onClick={(e) =>
-                        handleOpenPopUp(e as MouseEvent<HTMLDivElement>)
-                    }
-                /> */}
+                {isOpenEmoje && <EmojiModal />}
+                <AditionalText text="Ваш ведущий центр создал новую запись" />
                 {data &&
                     data.data.map((item) => (
                         <Message
@@ -113,6 +104,7 @@ export const Chat: FC<IChatProps> = ({ chat_uuid, user_id, chat_id }) => {
                             }
                         />
                     ))}
+                <FastMessagesList />
             </ChatBox>
             <ChatPanel
                 attachment={<Attachment />}

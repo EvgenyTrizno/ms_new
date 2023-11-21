@@ -1,12 +1,13 @@
 import { FC } from "react";
+import { IChatViewProps } from "./types";
 
 import { Avatar } from "@/shared/ui/Avatar";
 import { Row } from "@/shared/ui/Row";
 import { Rows } from "@/shared/ui/Rows";
 import { Text } from "@/shared/ui/Text";
+import { useAuth } from "@/shared/model/store/auth";
 
 import styles from "./styles.module.scss";
-import { IChatViewProps } from "./types";
 
 export const ChatView: FC<IChatViewProps> = ({
     active,
@@ -17,13 +18,23 @@ export const ChatView: FC<IChatViewProps> = ({
     img,
     onClick,
 }) => {
+    const { user } = useAuth();
+
+    const sick = user && user.disease.length;
+
     return (
         <Row
             gap={20}
-            className={`${styles.chat} ${active && styles.active}`}
+            className={`${styles.chat} ${active && styles.active} ${
+                sick && active && styles.activeRed
+            } ${sick && styles.sick}`}
             onClick={onClick}
         >
-            <Avatar type="user" size="M" img={img} />
+            {typeof img === "string" ? (
+                <Avatar type="user" size="M" img={img} />
+            ) : (
+                img
+            )}
             <Rows gap={10} rows={["auto"]}>
                 <Text type="h4" fz="14px">
                     {name}
@@ -36,7 +47,7 @@ export const ChatView: FC<IChatViewProps> = ({
                         {time}
                     </Text>
                 </div>
-                {count && (
+                {count > 0 && (
                     <div className={styles.count}>
                         <Text type="p" fz="10px" color="#fff" position="center">
                             {count}

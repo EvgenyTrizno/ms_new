@@ -12,6 +12,7 @@ import { Avatar } from "@/shared/ui/Avatar";
 import { Username } from "@/entities/User/ui/Username";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { UserGroup } from "@/entities/User/ui/UserGroup";
+import { useAuth } from "@/shared/model/store/auth";
 
 import post from "/assets/post.jpg";
 import woman from "/assets/woman.jpg";
@@ -21,8 +22,9 @@ import "swiper/css/pagination";
 
 export const PostLayout: FC<IPostLayoutProps> = ({ actionsGUI, postInfo }) => {
     const [paginationKey, setPaginationKey] = useState<number>(0);
+    const { user } = useAuth();
 
-    const sick = "";
+    const sick = user && user.disease.length;
     const pagination: PaginationOptions = {
         clickable: true,
         bulletClass: styles.pagination,
@@ -32,16 +34,16 @@ export const PostLayout: FC<IPostLayoutProps> = ({ actionsGUI, postInfo }) => {
         },
     };
 
-    // useEffect(() => {
-    //     if (condition === "Болен") {
-    //         setPaginationKey(1);
-    //     } else {
-    //         setPaginationKey(0);
-    //     }
-    // }, [condition]);
+    useEffect(() => {
+        if (sick) {
+            setPaginationKey(1);
+        } else {
+            setPaginationKey(0);
+        }
+    }, [sick]);
 
     return (
-        <WhiteContentBlock className={styles.post}>
+        <WhiteContentBlock className={`${styles.post} ${sick && styles.sick}`}>
             <Row gap={10}>
                 <Avatar type="user" img={woman} size="M" />
                 <Rows gap={5} rows={["auto", "auto"]}>

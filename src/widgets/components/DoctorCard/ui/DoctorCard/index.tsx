@@ -14,15 +14,21 @@ export const DoctorCard: FC<IDoctorCardProps> = ({
     avatar,
     rank,
 }) => {
+    const surnameLength = surname.length >= 8;
+
     return (
         <CardLayout
             username={
                 <Username
-                    name={getFullUsernameWithInitials(
-                        surname,
-                        name,
-                        patronymic
-                    )}
+                    name={
+                        surnameLength
+                            ? `${surname}...`
+                            : getFullUsernameWithInitials(
+                                  surname,
+                                  name,
+                                  patronymic
+                              )
+                    }
                 />
             }
             userAvatar={<Avatar type="user" img={avatar} size="M" />}

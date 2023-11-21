@@ -54,6 +54,10 @@ export const HealthyStatus: FC<ISwitcherProps> = ({ isHovered }) => {
         user && setCondition(user.disease.length);
     }, [user]);
 
+    useEffect(() => {
+        document.body.style.backgroundColor = !condition ? "" : "#FFFAFB";
+    }, [condition]);
+
     return (
         <div
             className={

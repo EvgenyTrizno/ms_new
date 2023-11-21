@@ -5,6 +5,7 @@ import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Rows } from "@/shared/ui/Rows";
 import { Row } from "@/shared/ui/Row";
 import { Image } from "@/shared/ui/Image";
+import { useAuth } from "@/shared/model/store/auth";
 
 import calendar from "./assets/calendar.svg";
 import alarm from "./assets/alarm-clock.svg";
@@ -12,8 +13,12 @@ import clock from "./assets/clock-fast-forward.svg";
 import styles from "./styles.module.scss";
 
 export const NoteBlock: FC = () => {
+    const { user } = useAuth();
+
+    const sick = user && user.disease.length;
+
     return (
-        <WhiteContentBlock className={styles.note}>
+        <WhiteContentBlock className={`${styles.note} ${sick && styles.sick}`}>
             <Rows gap={20} rows={["auto"]}>
                 <Rows gap={7} rows={["auto", "auto"]}>
                     <Text type="p" color="#9B9B9B" fz="12px">

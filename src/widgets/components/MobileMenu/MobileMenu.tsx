@@ -140,9 +140,9 @@ export const MobileMenu: FC = () => {
                     {item.icon}
                 </div>
             ))}
-            <div className={styles.extraBtn} onClick={() => setIsOpen(!isOpen)}>
-                <img src={isOpen ? cross : extra} alt="" />
-            </div>
+            {/* <div className={styles.extraBtn} onClick={() => setIsOpen(!isOpen)}> */}
+            {/* <img src={isOpen ? cross : extra} alt="" /> */}
+            {/* </div> */}
         </div>
     );
 };

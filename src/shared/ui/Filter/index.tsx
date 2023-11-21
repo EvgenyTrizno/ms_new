@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { IFilter } from "./types";
 
+import { useAuth } from "@/shared/model/store/auth";
+
 import styles from "./styles.module.scss";
 
 export const Filter: FC<IFilter> = ({
@@ -11,10 +13,12 @@ export const Filter: FC<IFilter> = ({
     setIsSelect,
     isSelect,
 }) => {
+    const { user } = useAuth();
+
     const active = `${styles.item} ${styles.active}`;
     const activeRed = `${styles.item} ${styles.activeRed}`;
 
-    const sick = "";
+    const sick = user && user.disease.length;
 
     return (
         <div

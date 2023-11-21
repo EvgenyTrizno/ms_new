@@ -1,0 +1,17 @@
+.extra {
+    padding: 16px;
+    border-radius: 100%;
+    background-color: var(--green);
+    z-index: 100;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}

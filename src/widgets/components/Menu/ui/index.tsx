@@ -19,12 +19,13 @@ export const Menu: FC = () => {
 
     const { user } = useAuth();
     const navigate = useNavigate();
+    const sick = user && user.disease.length;
 
     return (
         <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            // style={{ borderColor: sick ? "#F7E6E8" : "#EBF3FF" }}
+            style={{ borderColor: sick ? "#F7E6E8" : "#EBF3FF" }}
             className={
                 PC || LAPTOP
                     ? `${styles.menu} ${styles.open}`
@@ -35,9 +36,9 @@ export const Menu: FC = () => {
         >
             <div
                 className={styles.logo}
-                // style={{
-                //     borderColor: sick ? "#F7E6E8" : "#EBF3FF",
-                // }}
+                style={{
+                    borderColor: sick ? "#F7E6E8" : "#EBF3FF",
+                }}
             >
                 {!isHovered && SMALL_LAPTOP && <img alt="" src={logo} />}
                 {(isHovered || PC || LAPTOP) &&

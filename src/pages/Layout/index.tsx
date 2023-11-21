@@ -1,23 +1,22 @@
-import { FC, SetStateAction, useState } from "react";
+import { FC, useState } from "react";
 import { TProps } from "./types";
 
 // import {
 //     // MobileMenu,
-//     ExtraCallModal,
 //     ExtraCallMobile,
 // } from "@/widgets";
 import { Header } from "@/widgets/components/Header/ui";
 import { Menu } from "@/widgets/components/Menu/ui";
-// import { NotificationModal } from "@/entities/Notification/ui/NotificationModal";
 import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
+import { ExtraCallBtn } from "./ui";
 import { PC, SMALL_LAPTOP, TABLET, MOBILE, LAPTOP } from "@/shared/utils";
 
-// import extra from "/assets/extra-call.svg";
-// import cross from "/assets/cross.svg";
-import styles from "./Layout.module.scss";
+import styles from "./styles.module.scss";
+import { ExtraCallModal } from "@/widgets/components/ExtraCallModal/ui/ExtraCallModal";
 
 export const Layout: FC<TProps> = ({ children }) => {
-    const group = "Врачи";
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
     return (
         <div className={styles.layout}>
             {MOBILE && <MobileAccountMenu />}
@@ -25,20 +24,9 @@ export const Layout: FC<TProps> = ({ children }) => {
             <div className={styles.container}>
                 {(PC || SMALL_LAPTOP || LAPTOP) && <Menu />}
                 <div className={styles.main}>{children}</div>
-                {/* {MOBILE || TABLET ? <ExtraCallMobile /> : <ExtraCallModal />} */}
-                {location.pathname !== "/messages" &&
-                    group !== "Врачи" &&
-                    !MOBILE &&
-                    !TABLET && (
-                        <div
-                            className={styles.extra}
-                            // onClick={() => setIsOpen(true)}
-                        >
-                            {/* <img src={!isOpen ? extra : cross} alt="" /> */}
-                        </div>
-                    )}
-                {/* <NotificationModal /> */}
+                <ExtraCallBtn isOpen={isOpen} setIsOpen={setIsOpen} />
             </div>
+            {isOpen && <ExtraCallModal isOpen={isOpen} setIsOpen={setIsOpen} />}
         </div>
     );
 };

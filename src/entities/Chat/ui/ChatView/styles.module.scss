@@ -15,6 +15,15 @@
 
 }
 
+.activeRed {
+    background-color: var(--red-100);
+    border-radius: 12px;
+}
+
+.sick {
+    border-bottom: 1px solid var(--red-100);
+}
+
 .count {
     padding: 6px;
     border-radius: 100%;

@@ -1,10 +1,9 @@
-import { FC, useEffect, useId, useState, MouseEvent } from "react";
+import { FC, useEffect, useId, MouseEvent } from "react";
+import { useNavigate } from "react-router";
 import { motion } from "framer-motion";
-import { IExtraCallBtnData } from "../ExtraCallMobile/types";
-// import { motion } from "framer-motion";
+import { IExtraCallModal } from "./types";
 
-import { Btn } from "@/shared/ui/Btn";
-import { Text } from "@/shared/ui/Text";
+import { useAuth } from "@/shared/model/store/auth";
 
 import amabulance from "/assets/amabulance-blue.svg";
 import amabulanceRed from "/assets/amabulance-red.svg";
@@ -13,30 +12,40 @@ import homeWithPlusRed from "/assets/home-with-plus-red.svg";
 import support from "/assets/support-blue.svg";
 import supportRed from "/assets/support-red.svg";
 import connect from "/assets/connect-icon.svg";
-import styles from "./ExtraCallModal.module.scss";
+import styles from "./styles.module.scss";
 // import { ConnectionModal } from "../ConnectionModal/ConnectionModal";
 
-export const ExtraCallModal: FC = () => {
-    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+export const ExtraCallModal: FC<IExtraCallModal> = ({ isOpen, setIsOpen }) => {
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
 
-    // useEffect(() => {
-    //     document.body.style.overflow = `${isOpen ? "hidden" : ""}`;
-    // }, [isOpen]);
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isOpen]);
 
-    const sick = "Болен";
+    const { user } = useAuth();
+    const sick = user && user.disease.length;
+    const navigate = useNavigate();
 
-    const data: IExtraCallBtnData[] = [
+    const data = [
         {
             icon: {
                 healthy: amabulance,
                 sick: amabulanceRed,
             },
             id: useId(),
-            position: {
-                x: 45,
-                y: 170,
+            func: () => ({}),
+        },
+        {
+            icon: {
+                healthy: support,
+                sick: supportRed,
             },
-            type: "",
+            id: useId(),
+            func: () => {
+                navigate("/messages/chat/hdhwhw-nycyr2ycyru2c-hcr2huc/");
+            },
         },
         {
             icon: {
@@ -44,86 +53,65 @@ export const ExtraCallModal: FC = () => {
                 sick: homeWithPlusRed,
             },
             id: useId(),
-            position: {
-                x: 40,
-                y: 105,
-            },
-            type: "",
+            func: () => ({}),
         },
-
-        {
-            icon: {
-                healthy: support,
-                sick: supportRed,
-            },
-            id: useId(),
-            position: {
-                x: 85,
-                y: 60,
-            },
-            type: "",
-        },
-        {
-            icon: {
-                healthy: connect,
-                sick: supportRed,
-            },
-            id: useId(),
-            position: {
-                x: 145,
-                y: 45,
-            },
-            type: "",
-        },
+        // {
+        //     icon: {
+        //         healthy: connect,
+        //         sick: supportRed,
+        //     },
+        //     id: useId(),
+        //     type: "",
+        // },
     ];
 
     const handleSetIsOpen = () => {
-        // setIsOpen(false);
+        setIsOpen(false);
     };
 
-    const handleClick = (e: MouseEvent<HTMLDivElement>) => {
+    const handleClick = (e: MouseEvent<HTMLDivElement>, i: number) => {
         e.stopPropagation();
-        setIsOpenModal((prev) => !prev);
+
+        data[i].func();
     };
 
     return (
         <div
             className={styles.extra}
             onClick={handleSetIsOpen}
-            // style={{
-            //     opacity: isOpen ? 1 : 0,
-            //     pointerEvents: isOpen ? "auto" : "none",
-            // }}
+            style={{
+                opacity: isOpen ? 1 : 0,
+                pointerEvents: isOpen ? "auto" : "none",
+            }}
         >
             {/* <ConnectionModal /> */}
             <div className={styles.container}>
-                {!isOpenModal &&
-                    data.map((item, i) => (
-                        <motion.div
-                            key={item.id}
-                            initial={{ x: "30px", opacity: 0 }}
-                            // animate={{
-                            //     x: isOpen ? "-70px" : "30px",
-                            //     opacity: isOpen ? 1 : 0,
-                            // }}
-                            exit={{ x: "30px", opacity: 0 }}
-                            transition={{
-                                duration: 0.4,
-                                ease: "easeOut",
-                                delay: 0.1 * -i,
-                            }}
-                            className={`${styles.extraBtn} ${styles.select}`}
-                            style={{
-                                backgroundColor: `${sick ? "#F7E6E8" : ""}`,
-                            }}
-                            onClick={handleClick}
-                        >
-                            <img
-                                src={sick ? item.icon.sick : item.icon.healthy}
-                                alt=""
-                            />
-                        </motion.div>
-                    ))}
+                {data.map((item, i) => (
+                    <motion.div
+                        key={item.id}
+                        initial={{ x: "30px", opacity: 0 }}
+                        animate={{
+                            x: isOpen ? "-70px" : "30px",
+                            opacity: isOpen ? 1 : 0,
+                        }}
+                        exit={{ x: "30px", opacity: 0 }}
+                        transition={{
+                            duration: 0.4,
+                            ease: "easeOut",
+                            delay: 0.1 * -i,
+                        }}
+                        className={`${styles.extraBtn} ${styles.select}`}
+                        style={{
+                            backgroundColor: `${sick ? "#F7E6E8" : ""}`,
+                        }}
+                        onClick={(e) => handleClick(e, i)}
+                    >
+                        <img
+                            src={sick ? item.icon.sick : item.icon.healthy}
+                            alt=""
+                        />
+                    </motion.div>
+                ))}
             </div>
             {/* {isOpenModal && isOpen && (
                 <div

@@ -5,7 +5,6 @@ import { CenterInfoCard } from "./components/CenterInfoCard/CenterInfoCard";
 import { Circle } from "./components/Circle/Circle";
 import { Map } from "./components/Map/Map";
 import { Slider } from "./components/Slider/Slider";
-import { ExtraCallModal } from "./components/ExtraCallModal/ExtraCallModal";
 import { MobileMenu } from "./components/MobileMenu/MobileMenu";
 import { MobileHeader } from "./components/MobileHeader/MobileHeader";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
@@ -24,10 +23,8 @@ import { SmallDropbox } from "./components/SmallDropbox/SmallDropbox";
 import { RecoveryForPersonal } from "./components/Auth/RecoveryForPersonal/RecoveryForPersonal";
 import { Balance } from "./components/Balance/Balance";
 import { SliderArrows } from "./components/SliderArrows/SliderArrows";
-import { NotesCard } from "./components/NotesCard/NotesCard";
 import { SelectCenterMap } from "./components/SelectCenterMap/SelectCenterMap";
 import { PersonalCard } from "./components/PersonalCard/PersonalCard";
-import { EmojiModal } from "./components/EmojiModal/EmojiModal";
 import { ConnectionModal } from "./components/ConnectionModal/ConnectionModal";
 import { EmployeeInfoCard } from "./components/EmployeeInfoCard/EmployeeInfoCard";
 import { EmployeeData } from "./components/EmployeeData/EmployeeData";
@@ -57,7 +54,6 @@ export {
     CenterInfoCard,
     Circle,
     Slider,
-    ExtraCallModal,
     MobileMenu,
     MobileHeader,
     CustomMobileHeader,
@@ -77,10 +73,8 @@ export {
     RecoveryForPersonal,
     Balance,
     SliderArrows,
-    NotesCard,
     SelectCenterMap,
     PersonalCard,
-    EmojiModal,
     ConnectionModal,
     EmployeeInfoCard,
     EmployeeData,

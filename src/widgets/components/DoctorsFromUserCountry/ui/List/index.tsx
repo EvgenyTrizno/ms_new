@@ -12,12 +12,12 @@ export const List: FC = () => {
             {data &&
                 data.data.map((item) => (
                     <DoctorCard
-                        key={item}
-                        surname="Яковенко"
-                        patronymic={"Сергеевна"}
-                        avatar={""}
-                        name={"Анастасия"}
-                        rank={"хирург"}
+                        key={item.id}
+                        surname={item.last_name}
+                        patronymic={item.middle_name}
+                        avatar={item.image}
+                        name={item.first_name}
+                        rank={item.specialization}
                     />
                 ))}
         </DoctorsList>

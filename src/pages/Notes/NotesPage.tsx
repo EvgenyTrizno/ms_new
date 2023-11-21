@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, SetStateAction, useState } from "react";
 // import { useNavigate } from "react-router";
 
 import { Layout } from "../Layout";
@@ -20,6 +20,7 @@ import styles from "./NotesPage.module.scss";
 
 const NotesPage: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
+    const [filter, setFilter] = useState<string>("Текущие");
 
     const data = [1, 2, 3, 4];
     // const navigate = useNavigate();
@@ -36,7 +37,11 @@ const NotesPage: FC = () => {
                     <Search placeholder="Введите запрос" height="48px" />
                     <AddBtn onClick={() => ({})} />
                 </Row>
-                <Filter data={["Текущие", "Доп.проверка"]} />
+                <Filter
+                    data={["Текущие", "Доп.проверка"]}
+                    isSelect={filter}
+                    setIsSelect={setFilter}
+                />
                 <div
                     className={styles.items}
                     style={
@@ -75,7 +80,7 @@ const NotesPage: FC = () => {
                 </div>
             </Container>
             {isOpenModal && (
-                <Modal setIsOpenModal={setIsOpenModal}>
+                <Modal setIsOpenModal={setIsOpenModal} isOpen={false}>
                     <div className={styles.modalContent}>
                         <Text type="h4" fz="17px" position="center">
                             Подтверждено

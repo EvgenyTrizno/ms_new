@@ -2,8 +2,10 @@ import { FC } from "react";
 
 import { Text } from "../Text";
 import { SMALL_LAPTOP } from "@/shared/utils";
+import { useAuth } from "@/shared/model/store/auth";
 
-import arrow from "/assets/arrow-right-blue.svg";
+import arrow from "./assets/arrow-right-blue.svg";
+import arrowRed from "./assets/arrow-right-red.svg";
 import styles from "./styles.module.scss";
 
 interface IInfoTextProps {
@@ -12,12 +14,20 @@ interface IInfoTextProps {
 }
 
 export const InfoText: FC<IInfoTextProps> = ({ text, onClick }) => {
+    const { user } = useAuth();
+
+    const sick = user && user.disease.length;
+
     return (
         <div className={styles.info} onClick={onClick}>
-            <Text type="p" fz={SMALL_LAPTOP ? "12px" : "14px"} color="#0064FA">
+            <Text
+                type="p"
+                fz={SMALL_LAPTOP ? "12px" : "14px"}
+                color={sick ? "#D64657" : "#0064FA"}
+            >
                 {text}
             </Text>
-            <img src={arrow} alt="" />
+            <img src={sick ? arrowRed : arrow} alt="" />
         </div>
     );
 };
