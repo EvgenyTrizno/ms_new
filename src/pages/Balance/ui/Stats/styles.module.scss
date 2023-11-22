@@ -1,0 +1,11 @@
+.people {
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.people::after {
+    content: 'человек';
+    color: var(--gray);
+    font-size: 16px;
+    margin-left: 10px;
+}

@@ -10,11 +10,20 @@ import { getFullUsernameWithInitials } from "@/entities/User/lib/helpers/getFull
 
 import styles from "./styles.module.scss";
 
-export const ChatHeader: FC<IChatHeaderProps> = ({ call, actions }) => {
+export const ChatHeader: FC<IChatHeaderProps> = ({
+    call,
+    actions,
+    openInfo,
+}) => {
     return (
         <Row gap={0} className={styles.chatHeader}>
             <Row gap={16}>
-                <Avatar type="user" img="" size="M" />
+                <Avatar
+                    type="user"
+                    img=""
+                    size="M"
+                    onClick={() => openInfo((prev) => !prev)}
+                />
                 <Rows gap={5} rows={["auto"]}>
                     <Username
                         name={getFullUsernameWithInitials(

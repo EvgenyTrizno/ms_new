@@ -11,7 +11,6 @@ import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobile
 import { MedicalBlock } from "./components/MedicalBlock/MedicalBlock";
 import { ExtraCallMobile } from "./components/ExtraCallMobile/ExtraCallMobile";
 import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorBoundaryFallback";
-import { ChatInfo } from "./components/ChatInfo/ChatInfo";
 import { MobileComment } from "./components/MobileComment/MobileComment";
 import { ParamsBlock } from "./components/ParamsBlock/ParamsBlock";
 import { SearchResultBlock } from "./components/SearchResultBlock/SearchResultBlock";
@@ -21,7 +20,6 @@ import { LoginForPersonal } from "./components/Auth/LoginForPersonal/LoginForPer
 import { Interview } from "./components/Auth/Interview/Interview";
 import { SmallDropbox } from "./components/SmallDropbox/SmallDropbox";
 import { RecoveryForPersonal } from "./components/Auth/RecoveryForPersonal/RecoveryForPersonal";
-import { Balance } from "./components/Balance/Balance";
 import { SliderArrows } from "./components/SliderArrows/SliderArrows";
 import { SelectCenterMap } from "./components/SelectCenterMap/SelectCenterMap";
 import { PersonalCard } from "./components/PersonalCard/PersonalCard";
@@ -60,7 +58,6 @@ export {
     MedicalBlock,
     ExtraCallMobile,
     ErrorBoundaryFallback,
-    ChatInfo,
     MobileComment,
     ParamsBlock,
     SearchResultBlock,
@@ -71,7 +68,6 @@ export {
     Interview,
     SmallDropbox,
     RecoveryForPersonal,
-    Balance,
     SliderArrows,
     SelectCenterMap,
     PersonalCard,

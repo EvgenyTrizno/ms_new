@@ -65,11 +65,10 @@ export const HealthyStatus: FC<ISwitcherProps> = ({ isHovered }) => {
                     ? `${styles.switcher} ${styles.close}`
                     : styles.switcher
             }
-            style={
-                condition
-                    ? { borderColor: "#F7E6E8" }
-                    : { borderColor: "#EBF3FF" }
-            }
+            style={{
+                borderColor: condition ? "#F7E6E8" : "#EBF3FF",
+                display: user && user.group.name === "Врачи" ? "none" : "",
+            }}
         >
             <Healthy
                 condition={condition}

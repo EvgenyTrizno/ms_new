@@ -8,6 +8,7 @@ export const Cols: FC<ColsProps> = ({
     gap,
     style,
     cols,
+    className,
 }) => {
     return (
         <>
@@ -19,6 +20,7 @@ export const Cols: FC<ColsProps> = ({
                         gridTemplateColumns: `repeat(${count}, 1fr)`,
                         gridGap: gap,
                     }}
+                    className={className}
                 >
                     {children}
                 </div>
@@ -31,6 +33,7 @@ export const Cols: FC<ColsProps> = ({
                         gridTemplateColumns: cols?.join(" "),
                         gridGap: gap,
                     }}
+                    className={className}
                 >
                     {children}
                 </div>

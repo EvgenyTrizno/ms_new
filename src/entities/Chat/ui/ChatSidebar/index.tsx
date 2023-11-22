@@ -4,20 +4,39 @@ import { Rows } from "@/shared/ui/Rows";
 import { Search } from "@/features/Search";
 import { Filter } from "@/shared/ui/Filter";
 import { ChatList } from "../ChatList";
+import { Row } from "@/shared/ui/Row";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
+import { useAuth } from "@/shared/model/store/auth";
 
 import styles from "./styles.module.scss";
+import { FiltersList } from "../FiltersList";
 
 export const ChatSidebar: FC = () => {
     const [filter, setFilter] = useState("Сообщения");
     const [search, setSearch] = useState<string>("");
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const { user } = useAuth();
 
     return (
         <div className={styles.sidebar}>
             <Rows gap={10} rows={["auto"]}>
-                <Search
-                    placeholder="Поиск чатов"
-                    onChange={(e) => setSearch((e && e.target.value) as string)}
-                />
+                <Row gap={6}>
+                    <Search
+                        placeholder="Поиск чатов"
+                        onChange={(e) =>
+                            setSearch((e && e.target.value) as string)
+                        }
+                    />
+                    {user && user.group.name === "Врачи" && (
+                        <FilterBtn
+                            isActive={isOpen}
+                            type="small"
+                            onClick={() => setIsOpen((prev) => !prev)}
+                        />
+                    )}
+                </Row>
+                {isOpen && <FiltersList />}
                 <Filter
                     isSelect={filter}
                     setIsSelect={setFilter}

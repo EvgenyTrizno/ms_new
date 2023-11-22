@@ -1,10 +1,9 @@
-import { FC, useId, useState, MouseEvent } from "react";
+import { FC, useState, MouseEvent } from "react";
 import { useNavigate, useLocation } from "react-router";
 
 import { useAuth } from "@/shared/model/store/auth";
 import { useMenu } from "@/shared/model/store";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
-import { EActive } from "../../model/types";
 import { IMenuData } from "../../model/types";
 import { Text } from "@/shared/ui/Text";
 
@@ -65,9 +64,8 @@ export const ItemsList: FC = () => {
     const menuData: IMenuData = {
         default: [
             {
-                id: useId(),
                 label: "Главная",
-                path: EActive.HOME,
+                path: "",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
@@ -88,9 +86,8 @@ export const ItemsList: FC = () => {
                 ),
             },
             {
-                id: useId(),
                 label: "Поиск",
-                path: EActive.SEARCH,
+                path: "",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
@@ -111,9 +108,8 @@ export const ItemsList: FC = () => {
                 ),
             },
             {
-                id: useId(),
                 label: "Сообщения",
-                path: EActive.SMS,
+                path: "",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
@@ -136,9 +132,8 @@ export const ItemsList: FC = () => {
                 ),
             },
             {
-                id: useId(),
                 label: "Записи",
-                path: EActive.NOTE,
+                path: "",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
@@ -168,9 +163,8 @@ export const ItemsList: FC = () => {
                 ),
             },
             {
-                id: useId(),
                 label: "Медицинская карта",
-                path: EActive.MEDICALCARD,
+                path: "",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
@@ -209,9 +203,8 @@ export const ItemsList: FC = () => {
                 ),
             },
             {
-                id: useId(),
                 label: "Настройки",
-                path: EActive.SETTINGS,
+                path: "",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
@@ -236,9 +229,8 @@ export const ItemsList: FC = () => {
         ],
         personal: [
             {
-                id: useId(),
                 label: "Главная",
-                path: EActive.HOME,
+                path: "",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
@@ -259,9 +251,78 @@ export const ItemsList: FC = () => {
                 ),
             },
             {
-                id: useId(),
+                label: "Пользователи",
+                path: "",
+                icon: (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M21 19.9999C21 18.2583 19.3304 16.7767 17 16.2275M15 20C15 17.7909 12.3137 16 9 16C5.68629 16 3 17.7909 3 20M15 13C17.2091 13 19 11.2091 19 9C19 6.79086 17.2091 5 15 5M9 13C6.79086 13 5 11.2091 5 9C5 6.79086 6.79086 5 9 5C11.2091 5 13 6.79086 13 9C13 11.2091 11.2091 13 9 13Z"
+                            stroke="#B1B2B4"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                    </svg>
+                ),
+            },
+            {
+                label: "Статистика",
+                path: "",
+                icon: (
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <g clip-path="url(#clip0_4576_91576)">
+                            <path
+                                d="M4.91719 14.168H15.0755C16.6589 14.168 17.4922 13.3346 17.4922 11.7513V1.66797H2.49219V11.7513C2.50052 13.3346 3.33386 14.168 4.91719 14.168Z"
+                                stroke="#B1B2B4"
+                                strokeWidth="1.25"
+                                strokeMiterlimit="10"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                            <path
+                                d="M1.66797 1.66797H18.3346"
+                                stroke="#B1B2B4"
+                                strokeWidth="1.25"
+                                strokeMiterlimit="10"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                            <path
+                                d="M6.66797 18.3346L10.0013 16.668V14.168"
+                                stroke="#B1B2B4"
+                                strokeWidth="1.25"
+                                strokeMiterlimit="10"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                            <path
+                                d="M13.3333 18.3346L10 16.668"
+                                stroke="#B1B2B4"
+                                strokeWidth="1.25"
+                                strokeMiterlimit="10"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                            <path
+                                d="M6.25 9.16797L8.87499 6.9763C9.08333 6.8013 9.35833 6.8513 9.49999 7.08464L10.5 8.7513C10.6417 8.98464 10.9167 9.02631 11.125 8.85964L13.75 6.66797"
+                                stroke="#B1B2B4"
+                                strokeWidth="1.25"
+                                strokeMiterlimit="10"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_4576_91576">
+                                <rect width="20" height="20" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                ),
+            },
+            {
                 label: "Сообщения",
-                path: EActive.SMS,
+                path: "",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
@@ -284,41 +345,8 @@ export const ItemsList: FC = () => {
                 ),
             },
             {
-                id: useId(),
-                label: "Пользователи",
-                path: EActive.USERS,
-                icon: (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path
-                            d="M21 19.9999C21 18.2583 19.3304 16.7767 17 16.2275M15 20C15 17.7909 12.3137 16 9 16C5.68629 16 3 17.7909 3 20M15 13C17.2091 13 19 11.2091 19 9C19 6.79086 17.2091 5 15 5M9 13C6.79086 13 5 11.2091 5 9C5 6.79086 6.79086 5 9 5C11.2091 5 13 6.79086 13 9C13 11.2091 11.2091 13 9 13Z"
-                            stroke="#B1B2B4"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
-                ),
-            },
-            {
-                id: useId(),
-                label: "Календарь",
-                path: EActive.CALENDAR,
-                icon: (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path
-                            d="M21 10H3M16 2V6M8 2V6M7.8 22H16.2C17.8802 22 18.7202 22 19.362 21.673C19.9265 21.3854 20.3854 20.9265 20.673 20.362C21 19.7202 21 18.8802 21 17.2V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8L3 17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22Z"
-                            stroke="#B1B2B4"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
-                ),
-            },
-            {
-                id: useId(),
                 label: "Настройки",
-                path: EActive.SETTINGS,
+                path: "",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
@@ -343,101 +371,97 @@ export const ItemsList: FC = () => {
         ],
         admin: [
             {
-                id: useId(),
                 label: "Сайт и приложение",
                 icon: (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path
                             d="M14.1666 8.33268H15.8333C17.5 8.33268 18.3333 7.49935 18.3333 5.83268V4.16602C18.3333 2.49935 17.5 1.66602 15.8333 1.66602H14.1666C12.5 1.66602 11.6666 2.49935 11.6666 4.16602V5.83268C11.6666 7.49935 12.5 8.33268 14.1666 8.33268Z"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.25"
+                            strokeMiterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         />
                         <path
                             d="M4.16663 18.3327H5.83329C7.49996 18.3327 8.33329 17.4993 8.33329 15.8327V14.166C8.33329 12.4993 7.49996 11.666 5.83329 11.666H4.16663C2.49996 11.666 1.66663 12.4993 1.66663 14.166V15.8327C1.66663 17.4993 2.49996 18.3327 4.16663 18.3327Z"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.25"
+                            strokeMiterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         />
                         <path
                             d="M4.99996 8.33268C6.84091 8.33268 8.33329 6.8403 8.33329 4.99935C8.33329 3.1584 6.84091 1.66602 4.99996 1.66602C3.15901 1.66602 1.66663 3.1584 1.66663 4.99935C1.66663 6.8403 3.15901 8.33268 4.99996 8.33268Z"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.25"
+                            strokeMiterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         />
                         <path
                             d="M15 18.3327C16.8409 18.3327 18.3333 16.8403 18.3333 14.9993C18.3333 13.1584 16.8409 11.666 15 11.666C13.159 11.666 11.6666 13.1584 11.6666 14.9993C11.6666 16.8403 13.159 18.3327 15 18.3327Z"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.25"
+                            strokeMiterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         />
                     </svg>
                 ),
                 path: "/app",
             },
             {
-                id: useId(),
                 label: "Персонал",
                 icon: (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path
                             d="M9.99988 9.99805C12.0709 9.99805 13.7499 8.31911 13.7499 6.24805C13.7499 4.17698 12.0709 2.49805 9.99988 2.49805C7.92881 2.49805 6.24988 4.17698 6.24988 6.24805C6.24988 8.31911 7.92881 9.99805 9.99988 9.99805Z"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.25"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         />
                         <path
                             d="M16.4426 17.5C16.4426 14.5975 13.5551 12.25 10.0001 12.25C6.44511 12.25 3.55762 14.5975 3.55762 17.5"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.25"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         />
                     </svg>
                 ),
                 path: "/personal",
             },
             {
-                id: useId(),
                 label: "Карта",
                 icon: (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path
                             d="M1.90833 6.48103V14.5894C1.90833 16.1727 3.03333 16.8227 4.39999 16.0394L6.35833 14.9227C6.78333 14.681 7.49166 14.656 7.93333 14.881L12.3083 17.0727C12.75 17.2894 13.4583 17.2727 13.8833 17.031L17.4917 14.9644C17.95 14.6977 18.3333 14.0477 18.3333 13.5144V5.40603C18.3333 3.8227 17.2083 3.1727 15.8417 3.95603L13.8833 5.0727C13.4583 5.31437 12.75 5.33937 12.3083 5.11437L7.93333 2.93103C7.49166 2.71437 6.78333 2.73103 6.35833 2.9727L2.74999 5.03937C2.28333 5.30603 1.90833 5.95603 1.90833 6.48103Z"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.25"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         />
                         <path
                             d="M7.1333 3.33398V14.1673"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.25"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         />
                         <path
                             d="M13.1083 5.51367V16.6637"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.25"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         />
                     </svg>
                 ),
                 path: "/map",
             },
             {
-                id: useId(),
                 label: "Соц.сети и почта",
                 icon: (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -445,56 +469,56 @@ export const ItemsList: FC = () => {
                             <path
                                 d="M5.05246 5.85214C5.02096 5.84764 4.98046 5.84764 4.94446 5.85214C4.15246 5.82514 3.52246 5.17706 3.52246 4.38047C3.52246 3.56587 4.17946 2.9043 4.99846 2.9043C5.81296 2.9043 6.47446 3.56587 6.47446 4.38047C6.46996 5.17706 5.84446 5.82514 5.05246 5.85214Z"
                                 stroke="#B1B2B4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M8.03206 8.82233C7.23106 9.55592 6.16906 10.0015 4.99906 10.0015C3.82906 10.0015 2.76706 9.55592 1.96606 8.82233C2.01106 8.39928 2.28106 7.98524 2.76256 7.6612C3.99556 6.8421 6.01156 6.8421 7.23556 7.6612C7.71706 7.98524 7.98706 8.39928 8.03206 8.82233Z"
                                 stroke="#B1B2B4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M5 10.0011C7.48528 10.0011 9.5 7.9861 9.5 5.50053C9.5 3.01495 7.48528 1 5 1C2.51472 1 0.5 3.01495 0.5 5.50053C0.5 7.9861 2.51472 10.0011 5 10.0011Z"
                                 stroke="#B1B2B4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M15.4625 10.3931C15.4345 10.3891 15.3985 10.3891 15.3665 10.3931C14.6625 10.3691 14.1025 9.79315 14.1025 9.08525C14.1025 8.36135 14.6865 7.77344 15.4145 7.77344C16.1385 7.77344 16.7265 8.36135 16.7265 9.08525C16.7225 9.79315 16.1665 10.3691 15.4625 10.3931Z"
                                 stroke="#B1B2B4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M18.1107 13.0348C17.3987 13.6867 16.4547 14.0827 15.4147 14.0827C14.3747 14.0827 13.4307 13.6867 12.7188 13.0348C12.7588 12.6589 12.9987 12.2909 13.4268 12.003C14.5228 11.2751 16.3147 11.2751 17.4027 12.003C17.8307 12.2909 18.0707 12.6589 18.1107 13.0348Z"
                                 stroke="#B1B2B4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M15.415 14.0809C17.6242 14.0809 19.415 12.2903 19.415 10.0815C19.415 7.87264 17.6242 6.08203 15.415 6.08203C13.2059 6.08203 11.415 7.87264 11.415 10.0815C11.415 12.2903 13.2059 14.0809 15.415 14.0809Z"
                                 stroke="#B1B2B4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M6.70855 15.7702C6.68405 15.7667 6.65255 15.7667 6.62455 15.7702C6.00855 15.7492 5.51855 15.2454 5.51855 14.6261C5.51855 13.9928 6.02955 13.4785 6.66655 13.4785C7.30005 13.4785 7.81455 13.9928 7.81455 14.6261C7.81105 15.2454 7.32455 15.7492 6.70855 15.7702Z"
                                 stroke="#B1B2B4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M9.02464 18.0834C8.40164 18.6537 7.57564 19.0001 6.66564 19.0001C5.75564 19.0001 4.92964 18.6537 4.30664 18.0834C4.34164 17.7545 4.55164 17.4326 4.92614 17.1807C5.88514 16.5439 7.45314 16.5439 8.40514 17.1807C8.77964 17.4326 8.98964 17.7545 9.02464 18.0834Z"
                                 stroke="#B1B2B4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M6.66602 18.9976C8.59901 18.9976 10.166 17.4311 10.166 15.4988C10.166 13.5665 8.59901 12 6.66602 12C4.73302 12 3.16602 13.5665 3.16602 15.4988C3.16602 17.4311 4.73302 18.9976 6.66602 18.9976Z"
                                 stroke="#B1B2B4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <rect
                                 x="9.37402"
@@ -531,7 +555,6 @@ export const ItemsList: FC = () => {
                 path: "/socials",
             },
             {
-                id: useId(),
                 label: "Запросы",
                 icon: (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -539,24 +562,24 @@ export const ItemsList: FC = () => {
                             <path
                                 d="M14.1666 15.3588H10.8333L7.12495 17.8254C6.57495 18.1921 5.83329 17.8004 5.83329 17.1338V15.3588C3.33329 15.3588 1.66663 13.6921 1.66663 11.1921V6.19206C1.66663 3.69206 3.33329 2.02539 5.83329 2.02539H14.1666C16.6666 2.02539 18.3333 3.69206 18.3333 6.19206V11.1921C18.3333 13.6921 16.6666 15.3588 14.1666 15.3588Z"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-miterlimit="10"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.25"
+                                strokeMiterlimit="10"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M10 9.4668V9.29183C10 8.72516 10.35 8.42515 10.7 8.18348C11.0417 7.95015 11.3833 7.65016 11.3833 7.10016C11.3833 6.33349 10.7667 5.7168 10 5.7168C9.23334 5.7168 8.6167 6.33349 8.6167 7.10016"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M9.99629 11.4577H10.0038"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                         </g>
                         <defs>
@@ -569,7 +592,6 @@ export const ItemsList: FC = () => {
                 path: "/requests",
             },
             {
-                id: useId(),
                 label: "Лиды",
                 icon: (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -577,15 +599,15 @@ export const ItemsList: FC = () => {
                             <path
                                 d="M18.3083 15.2783C18.3083 15.5783 18.2416 15.8866 18.1 16.1866C17.9583 16.4866 17.775 16.7699 17.5333 17.0366C17.125 17.4866 16.675 17.8116 16.1666 18.0199C15.6666 18.2283 15.125 18.3366 14.5416 18.3366C13.6916 18.3366 12.7833 18.1366 11.825 17.7283C10.8666 17.3199 9.90829 16.7699 8.95829 16.0783C7.99996 15.3783 7.09163 14.6033 6.22496 13.7449C5.36663 12.8783 4.59163 11.9699 3.89996 11.0199C3.21663 10.0699 2.66663 9.11992 2.26663 8.17826C1.86663 7.22826 1.66663 6.31992 1.66663 5.45326C1.66663 4.88659 1.76663 4.34492 1.96663 3.84492C2.16663 3.33659 2.48329 2.86992 2.92496 2.45326C3.45829 1.92826 4.04163 1.66992 4.65829 1.66992C4.89163 1.66992 5.12496 1.71992 5.33329 1.81992C5.54996 1.91992 5.74163 2.06992 5.89163 2.28659L7.82496 5.01159C7.97496 5.21992 8.08329 5.41159 8.15829 5.59492C8.23329 5.76992 8.27496 5.94492 8.27496 6.10326C8.27496 6.30326 8.21663 6.50325 8.09996 6.69492C7.99163 6.88659 7.83329 7.08659 7.63329 7.28659L6.99996 7.94492C6.90829 8.03659 6.86663 8.14492 6.86663 8.27826C6.86663 8.34492 6.87496 8.40325 6.89163 8.46992C6.91663 8.53659 6.94163 8.58659 6.95829 8.63659C7.10829 8.91159 7.36663 9.26992 7.73329 9.70326C8.10829 10.1366 8.50829 10.5783 8.94163 11.0199C9.39163 11.4616 9.82496 11.8699 10.2666 12.2449C10.7 12.6116 11.0583 12.8616 11.3416 13.0116C11.3833 13.0283 11.4333 13.0533 11.4916 13.0783C11.5583 13.1033 11.625 13.1116 11.7 13.1116C11.8416 13.1116 11.95 13.0616 12.0416 12.9699L12.675 12.3449C12.8833 12.1366 13.0833 11.9783 13.275 11.8783C13.4666 11.7616 13.6583 11.7033 13.8666 11.7033C14.025 11.7033 14.1916 11.7366 14.375 11.8116C14.5583 11.8866 14.75 11.9949 14.9583 12.1366L17.7166 14.0949C17.9333 14.2449 18.0833 14.4199 18.175 14.6283C18.2583 14.8366 18.3083 15.0449 18.3083 15.2783Z"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-miterlimit="10"
+                                strokeWidth="1.25"
+                                strokeMiterlimit="10"
                             />
                             <path
                                 d="M13.5 6.50391H17.5M13.5 6.50391V2.50391V6.50391Z"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                         </g>
                         <defs>
@@ -598,7 +620,6 @@ export const ItemsList: FC = () => {
                 path: "/leads",
             },
             {
-                id: useId(),
                 label: "Продажи",
                 icon: (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -606,33 +627,33 @@ export const ItemsList: FC = () => {
                             <path
                                 d="M8.42504 9.29297H6.21671C5.69171 9.29297 5.26672 9.71793 5.26672 10.2429V14.5096H8.42504V9.29297V9.29297Z"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-miterlimit="10"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.25"
+                                strokeMiterlimit="10"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M10.6344 5.5H9.36771C8.84271 5.5 8.41772 5.92501 8.41772 6.45001V14.5H11.5761V6.45001C11.5761 5.92501 11.1594 5.5 10.6344 5.5Z"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-miterlimit="10"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.25"
+                                strokeMiterlimit="10"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M13.7901 10.709H11.5818V14.5007H14.7401V11.659C14.7318 11.134 14.3068 10.709 13.7901 10.709Z"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-miterlimit="10"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.25"
+                                strokeMiterlimit="10"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M7.49996 18.3327H12.5C16.6666 18.3327 18.3333 16.666 18.3333 12.4993V7.49935C18.3333 3.33268 16.6666 1.66602 12.5 1.66602H7.49996C3.33329 1.66602 1.66663 3.33268 1.66663 7.49935V12.4993C1.66663 16.666 3.33329 18.3327 7.49996 18.3327Z"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                         </g>
                         <defs>
@@ -645,7 +666,6 @@ export const ItemsList: FC = () => {
                 path: "/sales",
             },
             {
-                id: useId(),
                 label: "Реклама",
                 icon: (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -653,40 +673,40 @@ export const ItemsList: FC = () => {
                             <path
                                 d="M5.73328 15.1254V13.4004"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-linecap="round"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
                             />
                             <path
                                 d="M10 15.1258V11.6758"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-linecap="round"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
                             />
                             <path
                                 d="M14.2666 15.1247V9.94141"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-linecap="round"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
                             />
                             <path
                                 d="M14.2667 4.875L13.8834 5.325C11.7584 7.80833 8.9084 9.56667 5.7334 10.3583"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-linecap="round"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
                             />
                             <path
                                 d="M11.825 4.875H14.2666V7.30833"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                             <path
                                 d="M7.49996 18.3327H12.5C16.6666 18.3327 18.3333 16.666 18.3333 12.4993V7.49935C18.3333 3.33268 16.6666 1.66602 12.5 1.66602H7.49996C3.33329 1.66602 1.66663 3.33268 1.66663 7.49935V12.4993C1.66663 16.666 3.33329 18.3327 7.49996 18.3327Z"
                                 stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                         </g>
                         <defs>
@@ -699,7 +719,6 @@ export const ItemsList: FC = () => {
                 path: "/advertisement",
             },
             {
-                id: useId(),
                 label: "Бот",
                 icon: (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -710,7 +729,7 @@ export const ItemsList: FC = () => {
                             height="12.4643"
                             rx="2.80357"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
+                            strokeWidth="1.25"
                         />
                         <path
                             d="M9.35718 1.625C9.35718 1.27982 9.637 1 9.98218 1C10.3274 1 10.6072 1.27982 10.6072 1.625V4.42857H9.35718V1.625Z"
@@ -745,14 +764,14 @@ export const ItemsList: FC = () => {
                             cy="10.0003"
                             r="1.51786"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
+                            strokeWidth="1.25"
                         />
                         <circle
                             cx="13.4286"
                             cy="10.0003"
                             r="1.51786"
                             stroke="#B1B2B4"
-                            stroke-width="1.25"
+                            strokeWidth="1.25"
                         />
                     </svg>
                 ),
@@ -764,11 +783,11 @@ export const ItemsList: FC = () => {
     return (
         <div
             className={styles.list}
-            // style={{ marginTop: group === "Пользователи" ? "" : 0 }}
+            style={{ marginTop: group === "default" ? "" : 0 }}
         >
-            {menuData[group].map((item) => (
+            {menuData[group].map((item, i) => (
                 <div
-                    key={item.id}
+                    key={i}
                     onClick={() => handleNavigate(item.path, item.label)}
                     onMouseEnter={(e: MouseEvent<HTMLDivElement>) =>
                         handleMouseEnter(e)

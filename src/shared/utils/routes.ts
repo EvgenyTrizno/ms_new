@@ -69,7 +69,7 @@ const MobileNotificationPage = lazy(
 );
 const UserInfoPage = lazy(() => import("@/pages/UserInfo/UserInfoPage"));
 const UsersPage = lazy(() => import("@/pages/Users/UsersPage"));
-const BalancePage = lazy(() => import("@/pages/Balance/BalancePage"));
+const BalancePage = lazy(() => import("@/pages/Balance"));
 const ChatMobilePage = lazy(() => import("@/pages/ChatMobile/ChatPage"));
 const AbountCenterPage = lazy(
     () => import("@/pages/AboutCenter/AboutCenterPage")

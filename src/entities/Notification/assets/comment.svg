@@ -1,0 +1,12 @@
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="avatar">
+<circle id="Ellipse 1" cx="28" cy="28" r="28" fill="#FEF5E3"/>
+<g id="message-text">
+<path id="Vector" d="M31.6 19H24.4C20.8 19 19 20.8 19 24.4V36.1C19 36.595 19.405 37 19.9 37H31.6C35.2 37 37 35.2 37 31.6V24.4C37 20.8 35.2 19 31.6 19Z" stroke="#FFC555" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="Group">
+<path id="Vector_2" d="M23.5 25.75H32.5" stroke="#FFC555" stroke-width="1.35" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M23.5 30.25H29.8" stroke="#FFC555" stroke-width="1.35" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</svg>

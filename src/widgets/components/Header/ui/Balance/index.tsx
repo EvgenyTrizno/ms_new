@@ -2,7 +2,7 @@ import { FC, useEffect, useRef, useState } from "react";
 
 import { Text } from "@/shared/ui/Text";
 
-import styles from "./Balance.module.scss";
+import styles from "./styles.module.scss";
 
 export const Balance: FC = () => {
     const [color, setColor] = useState<"red" | "yellow" | "green">("red");

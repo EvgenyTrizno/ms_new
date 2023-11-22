@@ -7,4 +7,5 @@ export interface ColsProps {
     cols?: string[];
     type: "auto" | "custom";
     style?: CSSProperties;
+    className?: string;
 }

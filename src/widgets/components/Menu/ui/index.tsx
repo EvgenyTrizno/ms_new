@@ -42,7 +42,8 @@ export const Menu: FC = () => {
             >
                 {!isHovered && SMALL_LAPTOP && <img alt="" src={logo} />}
                 {(isHovered || PC || LAPTOP) &&
-                    (!user || (user && user.group.name === "Пользователи")) && (
+                    (!user ||
+                        (user && user.group.name !== "Администраторы")) && (
                         <img
                             src={
                                 user && user.disease.length
@@ -59,14 +60,16 @@ export const Menu: FC = () => {
             </div>
             <div className={styles.container}>
                 <Rows gap={10} rows={["auto"]}>
-                    {(PC ||
+                    {/* {(PC ||
                         !user ||
-                        (SMALL_LAPTOP && isHovered) ||
-                        (user && user.group.name === "Пользователи")) && (
+                        (SMALL_LAPTOP &&
+                            isHovered &&
+                            user &&
+                            user.group.name === "Пользователи")) && (
                         <Text color="#B1B2B4" type="p" fz="14px">
                             Состояние:
                         </Text>
-                    )}
+                    )} */}
                     <HealthyStatus isHovered={isHovered} />
                 </Rows>
                 <ItemsList />

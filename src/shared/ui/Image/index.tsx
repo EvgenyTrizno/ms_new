@@ -15,7 +15,7 @@ export const Image: FC<IImageProps> = ({
             src={src}
             alt={alt}
             onClick={onClick}
-            style={{ ...style, width, height }}
+            style={{ ...style, minWidth: width, height }}
             className={className}
         />
     );

@@ -1,0 +1,25 @@
+.info {
+    background-color: #fff;
+    position: fixed;
+    top: 145px;
+    height: calc(100% - 145px);
+    width: calc(100% - 736px);
+    right: 0;
+    border-left: 1px solid var(--blue-100);
+    padding: 16px;
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(6, 176px);
+        grid-template-rows: auto;
+        grid-gap: 12px;
+
+    }
+
+    .block {
+        background-color: red;
+        width: 176px;
+        height: 176px;
+        border-radius: 8px;
+    }
+}

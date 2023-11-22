@@ -10,11 +10,17 @@ interface IRowsProps {
     className?: string;
 }
 
-export const Rows: FC<IRowsProps> = ({ children, rows, gap, className }) => {
+export const Rows: FC<IRowsProps> = ({
+    children,
+    rows,
+    gap,
+    className,
+    style,
+}) => {
     return (
         <div
             className={`${className ?? ""} ${styles.rows}`}
-            style={{ gridGap: gap, gridTemplateRows: rows.join(" ") }}
+            style={{ gridGap: gap, gridTemplateRows: rows.join(" "), ...style }}
         >
             {children}
         </div>

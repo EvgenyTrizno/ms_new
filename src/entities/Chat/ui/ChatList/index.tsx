@@ -8,7 +8,7 @@ import { useChatQuery } from "../../lib/hooks/useChatQuery";
 import { useAuth } from "@/shared/model/store/auth";
 
 import suprt from "./assets/support.svg";
-import suprtRed from "./assets/support-red.svg";
+// import suprtRed from "./assets/support-red.svg";
 import styles from "./styles.module.scss";
 
 export const ChatList: FC<IChatListProps> = ({ search }) => {

@@ -1,0 +1,11 @@
+.filter {
+    display: flex;
+    align-items: center;
+    grid-gap: 6px;
+    width: max-content;
+    padding: 10px 10px 10px 12px;
+    background-color: var(--background);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--dark-gray);
+}
