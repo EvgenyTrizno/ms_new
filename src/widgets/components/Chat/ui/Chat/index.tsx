@@ -17,12 +17,12 @@ import { useMessageQuery } from "../../lib/hooks/useMessageQuery";
 import { FastMessagesList } from "../FastMessagesList";
 import { AditionalText } from "../AditionalText";
 import { EmojiModal } from "@/widgets/components/EmojiModal";
-import { ChatInfo } from "@/entities/Chat/ui/ChatInfo";
+import { ChatInfo } from "@/widgets/components/ChatInfo";
 
 export const Chat: FC<IChatProps> = ({ chat_uuid, user_id, chat_id }) => {
     const [isOpenEmoje, setIsOpenEmoji] = useState<boolean>(false);
     const [isOpenPopUp, setIsOpenPopUp] = useState<boolean>(false);
-    const [isOpenInfo, setIsInfo] = useState<boolean>(true);
+    const [isOpenInfo, setIsInfo] = useState<boolean>(false);
     const [top, setTop] = useState<number>(0);
     const [left, setLeft] = useState<number>(0);
     const [ws, setWs] = useState<WebSocket | null>();

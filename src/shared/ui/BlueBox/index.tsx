@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 interface IBlueBoxProps {
     children: ReactNode;
     style?: CSSProperties;
-    className: string;
+    className?: string;
 }
 
 export const BlueBox: FC<IBlueBoxProps> = ({ children, style, className }) => {

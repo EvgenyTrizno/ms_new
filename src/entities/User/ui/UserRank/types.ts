@@ -8,4 +8,5 @@ export interface IUserRankProps {
         | "center"
         | "justify"
         | "match-parent";
+    fz?: string;
 }

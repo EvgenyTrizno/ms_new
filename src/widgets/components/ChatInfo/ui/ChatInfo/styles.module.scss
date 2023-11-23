@@ -9,11 +9,19 @@
     padding: 16px;
 
     .content {
-        display: grid;
-        grid-template-columns: repeat(6, 176px);
-        grid-template-rows: auto;
-        grid-gap: 12px;
+        padding: 16px;
+    }
 
+    .filters {
+        padding: 0 16px;
+        
+        .line {
+            height: 4px;
+            margin-top: 8px;
+            background-color: var(--blue);
+            border-radius: 8px 8px 0px 0px;
+            opacity: 0;
+        }
     }
 
     .block {

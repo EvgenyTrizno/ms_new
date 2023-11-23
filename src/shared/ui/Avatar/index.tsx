@@ -9,6 +9,7 @@ export const Avatar: FC<AvatarProps<AvatarType | "custom">> = ({
     size,
     img,
     onClick,
+    style,
 }): JSX.Element => {
     const generateSize = () => {
         const sizes = {
@@ -31,7 +32,7 @@ export const Avatar: FC<AvatarProps<AvatarType | "custom">> = ({
                     <img
                         src={img}
                         alt=""
-                        style={generateSize()}
+                        style={{ ...generateSize(), ...style }}
                         className={styles.centerImg}
                         onClick={onClick}
                     />
@@ -41,7 +42,7 @@ export const Avatar: FC<AvatarProps<AvatarType | "custom">> = ({
                     <img
                         src={img}
                         alt=""
-                        style={generateSize()}
+                        style={{ ...generateSize(), ...style }}
                         className={styles.clinicImg}
                         onClick={onClick}
                     />
@@ -51,7 +52,7 @@ export const Avatar: FC<AvatarProps<AvatarType | "custom">> = ({
                     <img
                         src={img}
                         alt=""
-                        style={generateSize()}
+                        style={{ ...generateSize(), ...style }}
                         className={styles.userImg}
                         onClick={onClick}
                     />
@@ -61,7 +62,7 @@ export const Avatar: FC<AvatarProps<AvatarType | "custom">> = ({
                     <img
                         src={img}
                         alt=""
-                        style={generateSize()}
+                        style={{ ...generateSize(), ...style }}
                         className={styles.userImg}
                         onClick={onClick}
                     />
