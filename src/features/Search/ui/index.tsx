@@ -13,8 +13,6 @@ export const Search: FC<ISeacrh> = ({ placeholder, onChange }) => {
 
     const sick = user && user.disease.length;
 
-    console.log(user?.clinic);
-
     return (
         <div className={`${styles.search} ${sick && styles.sick}`}>
             <Image src={search} alt="magnifying glass" width={16} height={16} />

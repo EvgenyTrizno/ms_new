@@ -8,6 +8,7 @@ import { Image } from "@/shared/ui/Image";
 import { Text } from "@/shared/ui/Text";
 import { BlueSliderArrows } from "@/widgets";
 import { ClinicSlide } from "../ClinicSlide";
+import { Slider as Courusel } from "@/widgets";
 
 export const Slider: FC<ISliderProps> = ({ image, text, addBtn }) => {
     return (
@@ -20,13 +21,13 @@ export const Slider: FC<ISliderProps> = ({ image, text, addBtn }) => {
                     </Row>
                     {addBtn}
                 </Row>
-                <Row gap={10}>
+                <Courusel>
                     <ClinicSlide />
                     <ClinicSlide />
                     <ClinicSlide />
                     <ClinicSlide />
                     <ClinicSlide />
-                </Row>
+                </Courusel>
                 <BlueSliderArrows />
             </Rows>
         </WhiteContentBlock>

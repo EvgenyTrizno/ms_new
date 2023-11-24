@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useCallback, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { IChatListProps } from "./types";
 
@@ -6,10 +6,12 @@ import { Rows } from "@/shared/ui/Rows";
 import { ChatView } from "../ChatView";
 import { useChatQuery } from "../../lib/hooks/useChatQuery";
 import { useAuth } from "@/shared/model/store/auth";
+import { IUserData } from "@/shared/types/user.interface";
 
 import suprt from "./assets/support.svg";
 // import suprtRed from "./assets/support-red.svg";
 import styles from "./styles.module.scss";
+import { useChat } from "@/shared/model/store/chat";
 
 export const ChatList: FC<IChatListProps> = ({ search }) => {
     const { data: chats } = useChatQuery();
@@ -17,9 +19,12 @@ export const ChatList: FC<IChatListProps> = ({ search }) => {
     const sick = currUser && currUser.disease.length;
     const navigate = useNavigate();
     const { id } = useParams();
+    const { setUser, setChatId } = useChat();
 
-    const handleClick = (user_id: number, uuid: string, chat_id: number) => {
+    const handleClick = (uuid: string, user: IUserData, id: number) => {
         navigate(`/messages/chat/${uuid}/`);
+        setUser(user);
+        setChatId(id);
     };
 
     useEffect(() => {
@@ -76,7 +81,7 @@ export const ChatList: FC<IChatListProps> = ({ search }) => {
                             active={item.uuid === id}
                             img={user[0].image}
                             onClick={() =>
-                                handleClick(user[0].id, item.uuid, item.id)
+                                handleClick(item.uuid, user[0], item.id)
                             }
                         />
                     );

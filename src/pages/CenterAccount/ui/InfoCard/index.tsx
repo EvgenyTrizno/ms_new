@@ -82,7 +82,7 @@ export const InfoCard: FC<IInfoCardProps> = ({ type, name, rank }) => {
                                     </Text>
                                 </Rows>
                             </Rows>
-                            <Rows gap={12} rows={["max-content"]}>
+                            <Rows gap={12} rows={["max-width"]}>
                                 <Rows gap={0} rows={["auto"]}>
                                     <Text type="h5" fz="15px">
                                         Дата рождения
@@ -102,7 +102,13 @@ export const InfoCard: FC<IInfoCardProps> = ({ type, name, rank }) => {
                             </Rows>
                         </Cols>
                     )}
-                    <Text type="p" color="#B1B2B4" position="right">
+                    <Text
+                        type="p"
+                        color="#B1B2B4"
+                        position="end"
+                        fz="12px"
+                        style={{ width: "100%" }}
+                    >
                         Зарегистрирован(-а) с 23 мая 2017
                     </Text>
                 </div>

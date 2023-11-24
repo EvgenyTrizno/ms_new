@@ -8,21 +8,20 @@ import { MOBILE } from "@/shared/utils";
 import { Chat } from "@/widgets/components/Chat/ui/Chat";
 import { ChatSidebar } from "@/entities/Chat/ui/ChatSidebar";
 import { ChatContainer } from "@/entities/Chat/ui/ChatContainer";
+import { useChat } from "@/shared/model/store/chat";
 
 const ChatPage: FC = () => {
-    const [userId, setUserId] = useState<number>(0);
-    const [chatId, setChatId] = useState<number>(0);
-
+    const { user, chat_id } = useChat();
     const { id } = useParams();
+
+    console.log(chat_id);
 
     return (
         <Layout>
             {MOBILE && <MobileHeader />}
             <ChatContainer>
                 <ChatSidebar />
-                {id && (
-                    <Chat chat_uuid={id} user_id={userId} chat_id={chatId} />
-                )}
+                {id && user && chat_id && <Chat chat_uuid={id} />}
             </ChatContainer>
             {MOBILE && <MobileMenu />}
         </Layout>

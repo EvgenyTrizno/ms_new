@@ -6,13 +6,14 @@ import { Payments } from "./ui/Payments";
 import { Container } from "@/shared/ui/Container";
 import { Char } from "./ui/Char";
 import { Stats } from "./ui/Stats";
+import { SMALL_LAPTOP } from "@/shared/utils";
 
 const BalancePage: FC = () => {
     return (
         <Layout>
             <Container>
                 <Stats />
-                <Cols type="auto" count={2} gap={10}>
+                <Cols type="auto" count={SMALL_LAPTOP ? 1 : 2} gap={10}>
                     <Payments />
                     <Char />
                 </Cols>

@@ -8,6 +8,7 @@ import { IMenuData } from "../../model/types";
 import { Text } from "@/shared/ui/Text";
 
 import styles from "./styles.module.scss";
+import { LAPTOP, PC } from "@/shared/utils";
 
 export const ItemsList: FC = () => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -270,7 +271,7 @@ export const ItemsList: FC = () => {
                 path: "",
                 icon: (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <g clip-path="url(#clip0_4576_91576)">
+                        <g clipPath="url(#clip0_4576_91576)">
                             <path
                                 d="M4.91719 14.168H15.0755C16.6589 14.168 17.4922 13.3346 17.4922 11.7513V1.66797H2.49219V11.7513C2.50052 13.3346 3.33386 14.168 4.91719 14.168Z"
                                 stroke="#B1B2B4"
@@ -804,7 +805,15 @@ export const ItemsList: FC = () => {
                     }
                 >
                     {item.icon}
-                    <Text type="p" fz="14px">
+                    <Text
+                        type="p"
+                        fz="14px"
+                        style={
+                            isHovered || LAPTOP || PC
+                                ? { display: "block" }
+                                : { display: "none" }
+                        }
+                    >
                         {item.label}
                     </Text>
                 </div>

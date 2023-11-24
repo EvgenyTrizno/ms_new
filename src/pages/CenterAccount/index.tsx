@@ -8,12 +8,13 @@ import { Container } from "@/shared/ui/Container";
 
 import clinic from "./assets/clinic.svg";
 import user from "./assets/user.svg";
+import { LAPTOP, PC } from "@/shared/utils";
 
 const CenterAccount: FC = () => {
     return (
         <Layout>
             <Container>
-                <Cols gap={10} type="auto" count={2}>
+                <Cols gap={10} type="auto" count={PC ? 2 : 1}>
                     <InfoCard
                         type="center"
                         name="Центр"

@@ -1,12 +1,14 @@
 import { useQuery } from "react-query";
+
 import { getMessages } from "../../api/messages";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
 
-export const useMessageQuery = (id: number) => {
+export const useMessageQuery = (chat_id: number) => {
     const { getCookie } = useCookie();
 
     return useQuery({
-        queryFn: () => getMessages(id, getCookie("access_token") as string),
-        queryKey: ["chat", "messages"],
+        queryFn: () =>
+            getMessages(chat_id, getCookie("access_token") as string),
+        queryKey: ["messages"],
     });
 };

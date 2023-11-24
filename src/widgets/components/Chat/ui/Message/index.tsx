@@ -8,7 +8,7 @@ import { Text } from "@/shared/ui/Text";
 
 import styles from "./styles.module.scss";
 
-export const Message: FC<IMessageProps> = ({ type, onClick }) => {
+export const Message: FC<IMessageProps> = ({ type, onClick, text }) => {
     const generateMessage = () => {
         switch (type) {
             case "to":
@@ -21,7 +21,7 @@ export const Message: FC<IMessageProps> = ({ type, onClick }) => {
                             </Text>
                             <Row gap={5} onClick={onClick}>
                                 <div className={`${styles.text} ${styles.to}`}>
-                                    Привет. Я готов к чему-то
+                                    {text}
                                 </div>
                             </Row>
                             <Text
@@ -48,7 +48,7 @@ export const Message: FC<IMessageProps> = ({ type, onClick }) => {
                                 <div
                                     className={`${styles.text} ${styles.from}`}
                                 >
-                                    Привет. Я готов к чему-то
+                                    {text}
                                 </div>
                             </Row>
                             <Text
