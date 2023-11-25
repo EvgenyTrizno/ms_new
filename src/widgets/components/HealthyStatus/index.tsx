@@ -6,9 +6,9 @@ import { Healthy } from "./ui/Healthy";
 import { Sick } from "./ui/Sick";
 import { PickDisease } from "@/features/PickDisease";
 import { Btn } from "@/shared/ui/Btn";
+import { useUserMutate } from "@/entities/User/lib/hooks/useUserMutate";
 
 import styles from "./styles.module.scss";
-import { useUserMutate } from "@/entities/User/lib/hooks/useUserMutate";
 
 interface ISwitcherProps {
     isHovered: boolean;

@@ -7,9 +7,9 @@ import { ChatList } from "../ChatList";
 import { Row } from "@/shared/ui/Row";
 import { FilterBtn } from "@/shared/ui/FilterBtn";
 import { useAuth } from "@/shared/model/store/auth";
+import { FiltersList } from "../FiltersList";
 
 import styles from "./styles.module.scss";
-import { FiltersList } from "../FiltersList";
 
 export const ChatSidebar: FC = () => {
     const [filter, setFilter] = useState("Сообщения");

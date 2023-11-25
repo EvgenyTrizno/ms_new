@@ -1,0 +1,28 @@
+.tableItem {
+    padding: 16px 24px 16px 16px;
+}
+
+.tableContent {
+    align-items: center;
+}
+
+.tableContent > * {
+    margin-left: 20px;  
+}
+
+.time {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.time::after {
+    content: 'часа';
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.drop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

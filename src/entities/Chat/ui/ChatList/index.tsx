@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { IChatListProps } from "./types";
 
@@ -30,10 +30,10 @@ export const ChatList: FC<IChatListProps> = ({ search }) => {
     useEffect(() => {
         const extraBtn = document.querySelector("#extraBtn") as HTMLElement;
 
-        extraBtn.style.display = "none";
+        extraBtn && (extraBtn.style.display = "none");
 
         return () => {
-            extraBtn.style.display = "block";
+            extraBtn && (extraBtn.style.display = "block");
         };
     }, []);
 

@@ -5,10 +5,13 @@ import { Cols } from "@/shared/ui/Cols";
 import { InfoCard } from "./ui/InfoCard";
 import { Slider } from "./ui/Slider";
 import { Container } from "@/shared/ui/Container";
+import { PC, SMALL_LAPTOP } from "@/shared/utils";
+import { AddBtn } from "./ui/AddBtn";
+import { Image } from "@/shared/ui/Image";
 
 import clinic from "./assets/clinic.svg";
 import user from "./assets/user.svg";
-import { LAPTOP, PC } from "@/shared/utils";
+import arrow from "./assets/arrow.svg";
 
 const CenterAccount: FC = () => {
     return (
@@ -26,8 +29,20 @@ const CenterAccount: FC = () => {
                         rank="Главный врач"
                     />
                 </Cols>
-                <Slider image={clinic} addBtn={undefined} text="Коллеги" />
-                <Slider image={user} addBtn={undefined} text="О сотрудниках" />
+                <Slider
+                    image={clinic}
+                    addBtn={
+                        SMALL_LAPTOP ? <Image src={arrow} alt="" /> : <AddBtn />
+                    }
+                    text="Коллеги"
+                />
+                <Slider
+                    image={user}
+                    addBtn={
+                        SMALL_LAPTOP ? <Image src={arrow} alt="" /> : <AddBtn />
+                    }
+                    text="О сотрудниках"
+                />
             </Container>
         </Layout>
     );

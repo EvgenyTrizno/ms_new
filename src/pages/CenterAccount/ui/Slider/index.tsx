@@ -22,11 +22,9 @@ export const Slider: FC<ISliderProps> = ({ image, text, addBtn }) => {
                     {addBtn}
                 </Row>
                 <Courusel>
-                    <ClinicSlide />
-                    <ClinicSlide />
-                    <ClinicSlide />
-                    <ClinicSlide />
-                    <ClinicSlide />
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
+                        <ClinicSlide key={item} />
+                    ))}
                 </Courusel>
                 <BlueSliderArrows />
             </Rows>

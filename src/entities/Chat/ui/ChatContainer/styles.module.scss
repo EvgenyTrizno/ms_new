@@ -1,0 +1,13 @@
+.chatContainer {
+    position: fixed;
+    top: 65px;
+    right: 0;
+    width: calc(100% - 256px);
+    height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    .chatContainer {
+        width: calc(100% - 84px);
+    }
+}

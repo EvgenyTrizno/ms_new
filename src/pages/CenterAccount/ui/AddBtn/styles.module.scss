@@ -1,0 +1,10 @@
+.addBtn {
+    display: flex;
+    grid-gap: 4px;
+    padding: 7px 15px;
+    color: var(--blue);
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 12px;
+    background-color: var(--blue-100);
+}

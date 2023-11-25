@@ -3,19 +3,16 @@ import { IChatContainerProps } from "./types";
 
 import { Cols } from "@/shared/ui/Cols";
 
+import styles from "./styles.module.scss";
+import { SMALL_LAPTOP } from "@/shared/utils";
+
 export const ChatContainer: FC<IChatContainerProps> = ({ children }) => {
     return (
         <Cols
             type="custom"
             gap={0}
-            cols={["480px", "1fr"]}
-            style={{
-                position: "fixed",
-                top: "65px",
-                right: 0,
-                width: "calc(100% - 256px)",
-                height: "100%",
-            }}
+            cols={SMALL_LAPTOP ? [] : ["480px", "1fr"]}
+            className={styles.chatContainer}
         >
             {children}
         </Cols>
