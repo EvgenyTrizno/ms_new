@@ -4,7 +4,7 @@ import { AxiosResponse } from "axios";
 
 interface IChatResponse {
     centers: any[];
-    created_at: Date;
+    created_at: string;
     doctors: IUserData[];
     id: number;
     users: IUserData[];
@@ -14,13 +14,14 @@ interface IChatResponse {
 interface IMessageResponse {
     center: null;
     chat: IChatResponse[];
-    created_at: Date;
+    created_at: string;
     doctor: null;
     id: number;
     news: null;
     note: null;
     text: string;
-    updated_at: Date;
+    updated_at: string;
+    user: IUserData;
 }
 
 export async function getMessages(

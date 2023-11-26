@@ -23,12 +23,10 @@ import { useChat } from "@/shared/model/store/chat";
 
 export const Chat: FC<IChatProps> = ({ chat_uuid }) => {
     const [isOpenEmoje, setIsOpenEmoji] = useState<boolean>(false);
-    const [isOpenPopUp, setIsOpenPopUp] = useState<boolean>(false);
     const [isOpenInfo, setIsInfo] = useState<boolean>(false);
-    const [top, setTop] = useState<number>(0);
-    const [left, setLeft] = useState<number>(0);
     const [status, setStatus] = useState<boolean>(false);
     const [ws, setWs] = useState<WebSocket>();
+    const [msg, setMsg] = useState<string>("");
 
     const { getCookie } = useCookie();
     const { user, chat_id } = useChat();
@@ -48,23 +46,36 @@ export const Chat: FC<IChatProps> = ({ chat_uuid }) => {
         setIsOpenEmoji((prev) => !prev);
     };
 
-    const handleOpenPopUp = (e: MouseEvent<HTMLDivElement>) => {
-        setIsOpenPopUp((prev) => !prev);
-        setTop(e.clientY);
-        setLeft(e.clientX);
-    };
-
-    const handleCopy = (e: MouseEvent<HTMLLIElement>) => {
-        console.log(e.currentTarget.innerText);
-    };
+    // const handleCopy = (e: MouseEvent<HTMLLIElement>) => {
+    //     console.log(e.currentTarget.innerText);
+    // };
 
     if (ws) {
         ws.onmessage = (e) => {
             const data: IWSResponse = JSON.parse(e.data);
 
             setStatus(data.online_users?.length === 2);
+
+            if (data.action === "send_message") {
+                ws.send(
+                    JSON.stringify({
+                        action: "send_message",
+                        text: msg,
+                    })
+                );
+            }
         };
     }
+
+    // const sendMsg = () => {
+    //     ws &&
+    //         ws.send(
+    //             JSON.stringify({
+    //                 action: "send_message",
+    //                 text: msg,
+    //             })
+    //         );
+    // };
 
     return (
         <ChatLayout>
@@ -77,28 +88,9 @@ export const Chat: FC<IChatProps> = ({ chat_uuid }) => {
             />
             <ChatBox>
                 {isOpenInfo && <ChatInfo />}
-                {isOpenPopUp && (
-                    <MessagePopUp
-                        top={`${top}px`}
-                        left={`${left}px`}
-                        replay={function (): void {
-                            throw new Error("Function not implemented.");
-                        }}
-                        remove={function (): void {
-                            throw new Error("Function not implemented.");
-                        }}
-                        copy={handleCopy}
-                        select={function (): void {
-                            throw new Error("Function not implemented.");
-                        }}
-                        edit={function (): void {
-                            throw new Error("Function not implemented.");
-                        }}
-                    />
-                )}
                 {isOpenEmoje && <EmojiModal />}
                 {/* <AditionalText text="Ваш ведущий центр создал новую запись" /> */}
-                <MessagesList chat_id={chat_id} ws={ws} />
+                <MessagesList chat_id={chat_id} />
                 {/* <FastMessagesList /> */}
             </ChatBox>
             <ChatPanel
@@ -112,9 +104,10 @@ export const Chat: FC<IChatProps> = ({ chat_uuid }) => {
                                 onClick={handleOpenEmoje}
                             />
                         }
+                        setMsg={setMsg}
                     />
                 }
-                sendMsg={<SendMessage onClick={() => ({})} />}
+                sendMsg={<SendMessage onClick={sendMsg} />}
             />
         </ChatLayout>
     );

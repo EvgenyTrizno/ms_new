@@ -11,13 +11,12 @@ export const MessageBox: FC<IMessageBoxProps> = ({ emoji, ws }) => {
 
     const typing = (e: ChangeEvent<HTMLInputElement>) => {
         setMsg(e.target.value);
-
-        ws &&
-            ws.send(
-                JSON.stringify({
-                    action: "typing",
-                })
-            );
+        // ws &&
+        //     ws.send(
+        //         JSON.stringify({
+        //             action: "typing",
+        //         })
+        //     );
     };
 
     return (

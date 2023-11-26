@@ -72,7 +72,10 @@ export const Menu: FC = () => {
                     )} */}
                     <HealthyStatus isHovered={isHovered} />
                 </Rows>
-                <ItemsList />
+                <ItemsList
+                    open={isHovered || PC || LAPTOP}
+                    isHovered={isHovered}
+                />
             </div>
         </div>
     );

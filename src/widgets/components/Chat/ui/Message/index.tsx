@@ -8,16 +8,24 @@ import { Text } from "@/shared/ui/Text";
 
 import styles from "./styles.module.scss";
 
-export const Message: FC<IMessageProps> = ({ type, onClick, text }) => {
+export const Message: FC<IMessageProps> = ({
+    type,
+    onClick,
+    text,
+    img,
+    name,
+    hours,
+    minutes,
+}) => {
     const generateMessage = () => {
         switch (type) {
             case "to":
                 return (
                     <Row gap={10} style={{ justifyContent: "flex-end" }}>
-                        <Avatar type="custom" size={40} img={""} />
+                        <Avatar type="custom" size={40} img={img} />
                         <Rows gap={3} rows={["auto"]}>
                             <Text type="p" color="#3C3D3E" fz="11px">
-                                Виктор
+                                {name}
                             </Text>
                             <Row gap={5} onClick={onClick}>
                                 <div className={`${styles.text} ${styles.to}`}>
@@ -30,7 +38,7 @@ export const Message: FC<IMessageProps> = ({ type, onClick, text }) => {
                                 color="#7D7F82"
                                 position="end"
                             >
-                                8:00 PM
+                                {`${hours}:${minutes}`}
                             </Text>
                         </Rows>
                     </Row>
@@ -39,10 +47,10 @@ export const Message: FC<IMessageProps> = ({ type, onClick, text }) => {
             case "from":
                 return (
                     <Row gap={10}>
-                        <Avatar type="custom" size={40} img={""} />
+                        <Avatar type="custom" size={40} img={img} />
                         <Rows gap={3} rows={["auto"]}>
                             <Text type="p" color="#3C3D3E" fz="11px">
-                                Виктор
+                                {name}
                             </Text>
                             <Row gap={5} onClick={onClick}>
                                 <div
@@ -57,7 +65,9 @@ export const Message: FC<IMessageProps> = ({ type, onClick, text }) => {
                                 color="#7D7F82"
                                 position="end"
                             >
-                                8:00 PM
+                                {`${hours}:${
+                                    minutes < 10 ? "0" + minutes : minutes
+                                }`}
                             </Text>
                         </Rows>
                     </Row>

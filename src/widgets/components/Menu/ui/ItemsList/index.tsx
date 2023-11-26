@@ -1,5 +1,6 @@
-import { FC, useState, MouseEvent } from "react";
+import { FC, MouseEvent } from "react";
 import { useNavigate, useLocation } from "react-router";
+import { IItemsListsProps } from "./types";
 
 import { useAuth } from "@/shared/model/store/auth";
 import { useMenu } from "@/shared/model/store";
@@ -10,9 +11,7 @@ import { Text } from "@/shared/ui/Text";
 import styles from "./styles.module.scss";
 import { LAPTOP, PC } from "@/shared/utils";
 
-export const ItemsList: FC = () => {
-    const [isHovered, setIsHovered] = useState<boolean>(false);
-
+export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const { setIsSelect } = useMenu();
@@ -783,7 +782,7 @@ export const ItemsList: FC = () => {
 
     return (
         <div
-            className={styles.list}
+            className={`${styles.list} ${open && styles.open}`}
             style={{ marginTop: group === "default" ? "" : 0 }}
         >
             {menuData[group].map((item, i) => (
