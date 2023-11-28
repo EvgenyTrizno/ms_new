@@ -22,7 +22,7 @@ import arrowRigth from "/assets/arrow-right.svg";
 
 import styles from "./styles.module.scss";
 
-export const MainData: FC = () => {
+export const Data: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isShowValue, setIsShowValue] = useState<boolean>(false);
     const [inputDateValue, setInputDateValue] = useState<string>("ГГГГ-ММ-ДД");

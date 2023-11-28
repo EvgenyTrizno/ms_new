@@ -16,7 +16,7 @@ import { Container } from "@/shared/ui/Container";
 import { User } from "./ui/UserInfo";
 
 import styles from "./styles.module.scss";
-import { MainData } from "./ui/MainData";
+import { Data } from "./ui/MainData";
 
 const ProfilePage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -118,69 +118,7 @@ const ProfilePage: FC = () => {
                         <User />
                     </>
                 )}
-                <div className={styles.settings}>
-                    <div className={styles.box}>
-                        <Text type="p" color="#7D7F82" fz="14px">
-                            Основные
-                        </Text>
-                        <MainData />
-                    </div>
-                    {MOBILE && (
-                        <>
-                            <div className={styles.box}>
-                                <Text type="p" color="#7D7F82" fz="14px">
-                                    Интерес
-                                </Text>
-                                <div className={styles.items}>
-                                    {mobileData.interest.map((item, i) => (
-                                        <div
-                                            key={i}
-                                            className={styles.mobileItem}
-                                        >
-                                            <Text type="p" fz="15px">
-                                                {item}
-                                            </Text>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className={styles.box}>
-                                <Text type="p" color="#7D7F82" fz="14px">
-                                    Номер
-                                </Text>
-                                <div className={styles.items}>
-                                    {mobileData.number.map((item, i) => (
-                                        <div
-                                            key={i}
-                                            className={styles.mobileItem}
-                                        >
-                                            <Text type="p" fz="15px">
-                                                {item}
-                                            </Text>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className={styles.box}>
-                                <Text type="p" color="#7D7F82" fz="14px">
-                                    Эл. почта
-                                </Text>
-                                <div className={styles.items}>
-                                    {mobileData.mail.map((item, i) => (
-                                        <div
-                                            key={i}
-                                            className={styles.mobileItem}
-                                        >
-                                            <Text type="p" fz="15px">
-                                                {item}
-                                            </Text>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </>
-                    )}
-                </div>
+                <Data />
             </Container>
         </Layout>
     );

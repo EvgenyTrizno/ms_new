@@ -89,6 +89,11 @@ const MailPage = lazy(() => import("@/pages/MailPage/MailPage"));
 const SocialPage = lazy(() => import("@/pages/SocialPage"));
 const ChatPage = lazy(() => import("@/pages/ChatPage"));
 const CenterAccount = lazy(() => import("@/pages/CenterAccount"));
+const AppointmentsPage = lazy(() => import("@/pages/AppointmentsPage"));
+const MedicalCenter = lazy(() => import("@/pages/MedicalCenter"));
+const SubsPage = lazy(() => import("@/pages/SubsPage"));
+const SavedPage = lazy(() => import("@/pages/SavedPage"));
+const AccessPage = lazy(() => import("@/pages/AccessPage"));
 
 const media = window.matchMedia("(max-width: 768px)").matches;
 
@@ -234,4 +239,9 @@ export const routes: RouteProps[] = [
     { path: "/social", Component: SocialPage },
     { path: "/messages/chat/:id/", Component: ChatPage },
     { path: "/account", Component: CenterAccount },
+    { path: "/appointments", Component: AppointmentsPage },
+    { path: "/medical-center", Component: MedicalCenter },
+    { path: "/subscriptions", Component: SubsPage },
+    { path: "/saved", Component: SavedPage },
+    { path: "/access", Component: AccessPage },
 ];

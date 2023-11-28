@@ -55,27 +55,18 @@ export const Chat: FC<IChatProps> = ({ chat_uuid }) => {
             const data: IWSResponse = JSON.parse(e.data);
 
             setStatus(data.online_users?.length === 2);
-
-            if (data.action === "send_message") {
-                ws.send(
-                    JSON.stringify({
-                        action: "send_message",
-                        text: msg,
-                    })
-                );
-            }
         };
     }
 
-    // const sendMsg = () => {
-    //     ws &&
-    //         ws.send(
-    //             JSON.stringify({
-    //                 action: "send_message",
-    //                 text: msg,
-    //             })
-    //         );
-    // };
+    const sendMsg = () => {
+        ws &&
+            ws.send(
+                JSON.stringify({
+                    action: "send_message",
+                    text: msg,
+                })
+            );
+    };
 
     return (
         <ChatLayout>

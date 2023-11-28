@@ -9,7 +9,7 @@ export const UserRank: FC<IUserRankProps> = ({
     fz = "14px",
 }) => {
     return (
-        <Text type="p" fz={fz} color="#3C3D3E" position={position}>
+        <Text type="p" fz={fz} color="#B1B2B4" position={position}>
             {rank}
         </Text>
     );

@@ -6,7 +6,7 @@ import { InfoCard } from "./ui/InfoCard";
 import { Slider } from "./ui/Slider";
 import { Container } from "@/shared/ui/Container";
 import { PC, SMALL_LAPTOP } from "@/shared/utils";
-import { AddBtn } from "./ui/AddBtn";
+import { AddBtn } from "@/shared/ui/AddBtn";
 import { Image } from "@/shared/ui/Image";
 
 import clinic from "./assets/clinic.svg";

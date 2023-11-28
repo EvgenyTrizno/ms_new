@@ -1,21 +1,14 @@
 import { FC } from "react";
-import { IAddBtnProps } from "./types";
 
-import { Btn } from "../Btn";
-import { Image } from "../Image";
+import { Image } from "@/shared/ui/Image";
 
-import addCircle from "./assets/add-circle.svg";
+import add from "./assets/add-icon.svg";
+import styles from "./styles.module.scss";
 
-export const AddBtn: FC<IAddBtnProps> = ({ onClick }) => {
+export const AddBtn: FC = () => {
     return (
-        <Btn
-            color="#0064FA"
-            width="48px"
-            height="48px"
-            padding="14px"
-            onClick={onClick}
-        >
-            <Image src={addCircle} alt="add btn" width={20} height={20} />
-        </Btn>
+        <div className={styles.addBtn}>
+            Добавить <Image src={add} alt="add btn" />
+        </div>
     );
 };
