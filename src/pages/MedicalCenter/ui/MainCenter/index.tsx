@@ -7,16 +7,19 @@ import { Image } from "@/shared/ui/Image";
 import { Row } from "@/shared/ui/Row";
 import { BlueBox } from "@/shared/ui/BlueBox";
 import { Cols } from "@/shared/ui/Cols";
+import { Slider, SliderArrows } from "@/widgets";
+import { DoctorCard } from "../DoctorCard";
+import { SMALL_LAPTOP } from "@/shared/utils";
 
 import more from "../../assets/more.svg";
 import photo from "../../assets/photo.jpg";
-import { Slider, SliderArrows } from "@/widgets";
-import { DoctorCard } from "../DoctorCard";
+
+import styles from "./styles.module.scss";
 
 export const MainCenter: FC = () => {
     return (
         <WhiteContentBlock>
-            <Rows gap={20} rows={["auto"]}>
+            <Rows gap={20} rows={["auto"]} style={{ height: "max-content" }}>
                 <Row gap={0} style={{ justifyContent: "space-between" }}>
                     <Text type="h4" fz="17px">
                         Ведущий центр
@@ -24,8 +27,16 @@ export const MainCenter: FC = () => {
                     <Image src={more} alt="" />
                 </Row>
                 <BlueBox>
-                    <Cols type="custom" cols={["auto", "auto"]} gap={32}>
-                        <Rows gap={16} rows={["auto"]}>
+                    <Cols
+                        type="custom"
+                        cols={SMALL_LAPTOP ? ["1fr"] : ["auto", "auto"]}
+                        gap={32}
+                    >
+                        <Rows
+                            gap={16}
+                            rows={["auto"]}
+                            className={styles.mainData}
+                        >
                             <Row gap={16} style={{ alignItems: "flex-start" }}>
                                 <Image src={photo} alt="" />
                                 <Rows gap={6} rows={["auto"]}>
@@ -40,7 +51,11 @@ export const MainCenter: FC = () => {
                                     </Text>
                                 </Rows>
                             </Row>
-                            <Rows gap={6} rows={["auto"]}>
+                            <Rows
+                                gap={6}
+                                rows={["auto"]}
+                                style={{ height: "max-content" }}
+                            >
                                 <Row gap={0}>
                                     <Text type="p" fz="12px" color="#7D7F82">
                                         Страна:

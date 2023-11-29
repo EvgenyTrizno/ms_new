@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { useNavigate, useParams } from "react-router";
 import { IChatListProps } from "./types";
 
@@ -26,16 +26,6 @@ export const ChatList: FC<IChatListProps> = ({ search }) => {
         setUser(user);
         setChatId(id);
     };
-
-    useEffect(() => {
-        const extraBtn = document.querySelector("#extraBtn") as HTMLElement;
-
-        extraBtn && (extraBtn.style.display = "none");
-
-        return () => {
-            extraBtn && (extraBtn.style.display = "block");
-        };
-    }, []);
 
     return (
         <Rows gap={0} rows={["auto"]}>

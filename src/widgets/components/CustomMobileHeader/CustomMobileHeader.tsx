@@ -10,12 +10,7 @@ export const CustomMobileHeader: FC<IHeaderProps> = ({ children, text }) => {
     const navigate = useNavigate();
 
     return (
-        <div
-            className={styles.header}
-            style={
-                condition === "Болен" ? { borderBottomColor: "#F7E6E8" } : {}
-            }
-        >
+        <div className={styles.header}>
             <svg
                 onClick={() => navigate(-1)}
                 width="32"

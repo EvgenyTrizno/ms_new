@@ -9,14 +9,12 @@ import {
     // User,
 } from "@/widgets";
 // import { BackArrow } from "@/shared";
-import { Input } from "@/shared/ui/Input";
-import { Text } from "@/shared/ui/Text";
-import { LAPTOP, MOBILE, PC, SMALL_LAPTOP } from "@/shared/utils";
+import { LAPTOP, MOBILE, PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
 import { Container } from "@/shared/ui/Container";
 import { User } from "./ui/UserInfo";
+import { MainData } from "./ui/MainData";
 
 import styles from "./styles.module.scss";
-import { Data } from "./ui/MainData";
 
 const ProfilePage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -104,21 +102,17 @@ const ProfilePage: FC = () => {
 
     return (
         <Layout>
-            {MOBILE && (
-                <CustomMobileHeader back text="Профиль">
-                    {/* <BackArrow /> */}
-                </CustomMobileHeader>
-            )}
+            {(MOBILE || TABLET) && <CustomMobileHeader back text="Профиль" />}
             <Container>
                 {(PC || SMALL_LAPTOP || LAPTOP) && (
                     <>
-                        {/* <div className={styles.reminder}> */}
-                        {/* <ReminderBlock type="timer" width="max-content" /> */}
-                        {/* </div> */}
+                        <div className={styles.reminder}>
+                            <ReminderBlock type="timer" width="max-content" />
+                        </div>
                         <User />
                     </>
                 )}
-                <Data />
+                <MainData />
             </Container>
         </Layout>
     );

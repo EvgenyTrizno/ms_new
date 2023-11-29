@@ -8,10 +8,10 @@ import { useMenu } from "@/shared/model/store";
 import { useAuthMutation } from "@/shared/lib/hooks/useAuthMutation";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { useAuth } from "@/shared/model/store/auth";
-
-import styles from "./styles.module.scss";
 import { UserData } from "./UserData";
 import { Row } from "@/shared/ui/Row";
+
+import styles from "./styles.module.scss";
 
 export const Header: FC<IHeaderProps> = ({ width }) => {
     const { isSelect } = useMenu();
@@ -25,7 +25,7 @@ export const Header: FC<IHeaderProps> = ({ width }) => {
 
     useEffect(() => {
         auth();
-    }, []);
+    }, [auth]);
 
     return (
         <header

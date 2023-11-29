@@ -1,0 +1,25 @@
+.protection {
+    position: relative;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid transparent;
+
+    input {
+        padding: 0;
+        margin-top: 4px;
+        border: none;
+    }
+
+    img {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 16px;
+        top: 35%;
+    }
+}
+
+.protection.verify {
+    border: 1px solid var(--green);
+}

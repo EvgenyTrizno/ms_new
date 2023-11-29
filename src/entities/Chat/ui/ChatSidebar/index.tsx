@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 
 import { Rows } from "@/shared/ui/Rows";
 import { Search } from "@/features/Search";
@@ -17,6 +17,16 @@ export const ChatSidebar: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const { user } = useAuth();
+
+    useEffect(() => {
+        const extraBtn = document.querySelector("#extraBtn") as HTMLElement;
+
+        extraBtn && (extraBtn.style.display = "none");
+
+        return () => {
+            extraBtn && (extraBtn.style.display = "block");
+        };
+    }, []);
 
     return (
         <div className={styles.sidebar}>
