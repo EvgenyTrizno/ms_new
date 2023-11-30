@@ -32,14 +32,22 @@ const CenterAccount: FC = () => {
                 <Slider
                     image={clinic}
                     addBtn={
-                        SMALL_LAPTOP ? <Image src={arrow} alt="" /> : <AddBtn />
+                        SMALL_LAPTOP ? (
+                            <Image src={arrow} alt="" />
+                        ) : (
+                            <AddBtn onClick={() => ({})} />
+                        )
                     }
                     text="Коллеги"
                 />
                 <Slider
                     image={user}
                     addBtn={
-                        SMALL_LAPTOP ? <Image src={arrow} alt="" /> : <AddBtn />
+                        SMALL_LAPTOP ? (
+                            <Image src={arrow} alt="" />
+                        ) : (
+                            <AddBtn onClick={() => ({})} />
+                        )
                     }
                     text="О сотрудниках"
                 />

@@ -5,8 +5,11 @@ import { Input } from "@/shared/ui/Input";
 import { Text } from "@/shared/ui/Text";
 
 import styles from "./RecoveryForPersonal.module.scss";
+import { useRegistration } from "@/shared/model/store/registration";
 
 export const RecoveryForPersonal: FC = () => {
+    const { setNumber, number } = useRegistration();
+
     return (
         <div className={styles.recovery}>
             <Text position="center" type="h2" fz="28px" color="#262626">

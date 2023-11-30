@@ -21,6 +21,8 @@ export const ChatList: FC<IChatListProps> = ({ search }) => {
     const { id } = useParams();
     const { setUser, setChatId } = useChat();
 
+    console.log(search);
+
     const handleClick = (uuid: string, user: IUserData, id: number) => {
         navigate(`/messages/chat/${uuid}/`);
         setUser(user);

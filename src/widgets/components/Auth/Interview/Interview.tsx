@@ -93,28 +93,25 @@ export const Interview: FC = () => {
                     info={false}
                 />
             </div>
-            {isOpenModal && (
-                <Modal setIsOpenModal={setIsOpenModal} width="500px">
-                    <Text type="h2" fz="26px" position="center">
-                        Ваш запрос был
-                        <br /> успешно отправлен
+            <Modal
+                setIsOpenModal={setIsOpenModal}
+                width="500px"
+                isOpen={isOpenModal}
+            >
+                <Text type="h2" fz="26px" position="center">
+                    Ваш запрос был
+                    <br /> успешно отправлен
+                </Text>
+                <div className={styles.modalContent}>
+                    <Text type="p" color="#B1B2B4" position="center" fz="18px">
+                        Ваша заявка будет расмотрена
+                        <br /> в течении 72х часов
                     </Text>
-                    <div className={styles.modalContent}>
-                        <Text
-                            type="p"
-                            color="#B1B2B4"
-                            position="center"
-                            fz="18px"
-                        >
-                            Ваша заявка будет расмотрена
-                            <br /> в течении 72х часов
-                        </Text>
-                    </div>
-                    <Btn color="#0064FA" height="54px">
-                        Завершить
-                    </Btn>
-                </Modal>
-            )}
+                </div>
+                <Btn color="#0064FA" height="54px">
+                    Завершить
+                </Btn>
+            </Modal>
         </>
     );
 };

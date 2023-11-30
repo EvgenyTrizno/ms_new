@@ -222,7 +222,7 @@ export const NoteParams: FC = () => {
                 <NoteParam
                     key={item.id}
                     title={item.title}
-                    subtitle={item.subtitle}
+                    subtitle={item.subtitle ?? ""}
                     content={item.content}
                 />
             ))}

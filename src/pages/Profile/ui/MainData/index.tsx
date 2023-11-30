@@ -1,7 +1,7 @@
-import { FC, useId, useState } from "react";
+import { FC, useState } from "react";
 import { IProfileParamsItemsData } from "../../types";
 
-import { Input } from "@/shared/ui/Input";
+// import { Input } from "@/shared/ui/Input";
 import { Text } from "@/shared/ui/Text";
 import { useAuth } from "@/shared/model/store/auth";
 import { Account } from "../Account";
@@ -10,11 +10,11 @@ import keyBlue from "/assets/key-big-blue.svg";
 import keyRed from "/assets/key-big-red.svg";
 import homeWithPlus from "/assets/home-with-plus-blue.svg";
 import homeWithPlusRed from "/assets/home-with-plus-red.svg";
-import markerBlue from "/assets/marker-blue.svg";
-import markerRed from "/assets/marker-red.svg";
+// import markerBlue from "/assets/marker-blue.svg";
+// import markerRed from "/assets/marker-red.svg";
 import markBlue from "/assets/mark-blue.svg";
-import cartBlue from "/assets/shopping-cart-blue.svg";
-import cartRed from "/assets/shopping-cart-red.svg";
+// import cartBlue from "/assets/shopping-cart-blue.svg";
+// import cartRed from "/assets/shopping-cart-red.svg";
 import heartBlue from "/assets/heart-blue.svg";
 import heartRed from "/assets/heart-red.svg";
 import userBlue from "/assets/user-blue.svg";

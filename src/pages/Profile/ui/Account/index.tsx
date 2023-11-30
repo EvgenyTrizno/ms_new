@@ -1,11 +1,11 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import { Input } from "@/shared/ui/Input";
 import { useAuth } from "@/shared/model/store/auth";
 import { Text } from "@/shared/ui/Text";
 import { Rows } from "@/shared/ui/Rows";
 import { Cols } from "@/shared/ui/Cols";
-import { BlueBox } from "@/shared/ui/BlueBox";
+// import { BlueBox } from "@/shared/ui/BlueBox";
 import { Image } from "@/shared/ui/Image";
 
 import cirleDefault from "./assets/tick-circle.svg";
@@ -15,8 +15,8 @@ import { Row } from "@/shared/ui/Row";
 import { ChangeBtn } from "../ChangeBtn";
 
 export const Account: FC = () => {
-    const [isShowValue, setIsShowValue] = useState<boolean>(false);
-    const [inputDateValue, setInputDateValue] = useState<string>("ГГГГ-ММ-ДД");
+    // const [isShowValue, setIsShowValue] = useState<boolean>(false);
+    // const [inputDateValue, setInputDateValue] = useState<string>("ГГГГ-ММ-ДД");
 
     const { user } = useAuth();
 

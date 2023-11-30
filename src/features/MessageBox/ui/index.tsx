@@ -6,7 +6,7 @@ import { IMessageBoxProps } from "../types";
 
 import styles from "./styles.module.scss";
 
-export const MessageBox: FC<IMessageBoxProps> = ({ emoji, ws }) => {
+export const MessageBox: FC<IMessageBoxProps> = ({ emoji }) => {
     const [msg, setMsg] = useState<string>("");
 
     const typing = (e: ChangeEvent<HTMLInputElement>) => {

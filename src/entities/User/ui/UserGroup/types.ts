@@ -1,6 +1,6 @@
-import { TUserGroups } from "@/shared/types";
+import { TGroups } from "@/shared/types/group.type";
 
 export interface IUserGroupProps {
-    group: TUserGroups;
+    group: TGroups;
     fz?: string;
 }

@@ -13,7 +13,7 @@ export const SearchResultBlock: FC<ISearchBlockProps> = ({
     type,
     children,
 }): ReactNode => {
-    const sick = condition === "Болен";
+    const sick = "Болен";
 
     const renderElements = () => {
         switch (type) {

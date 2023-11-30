@@ -2,7 +2,6 @@ import { FC } from "react";
 import { ITypeProps } from "./types";
 
 import { Text } from "@/shared/ui/Text";
-import { PC, TABLET } from "@/shared/utils";
 
 // import arrowRight from "/assets/arrow-right-blue.svg";
 // import arrowRightRed from "/assets/arrow-right-red.svg";

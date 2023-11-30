@@ -54,7 +54,7 @@ export const SelectCenterMap: FC<ISelectCenterMapProps> = ({ setMap }) => {
                                 placeholder="Поиск чатов"
                             />
                         </div>
-                        <FilterBtn onClick={() => ({})} />
+                        <FilterBtn type="big" onClick={() => ({})} />
                     </div>
                 </StandaloneSearchBox>
                 {isOpen && (

@@ -1,6 +1,6 @@
-import { FC, useState, useId, ChangeEvent } from "react";
+import { FC } from "react";
 // import { useNavigate } from "react-router";
-import { IProfileParamsItemsData } from "./types";
+// import { IProfileParamsItemsData } from "./types";
 
 import { Layout } from "../Layout";
 import {
@@ -17,10 +17,10 @@ import { MainData } from "./ui/MainData";
 import styles from "./styles.module.scss";
 
 const ProfilePage: FC = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    // const [isOpen, setIsOpen] = useState<boolean>(false);
     // const [first_name, setFirst_Name] = useState<string>("");
     // const [last_name, setLast_Name] = useState<string>("");
-    const [birthday, setBirthday] = useState<string>("");
+    // const [birthday, setBirthday] = useState<string>("");
     // const [country, setCountry] = useState<string>("");
     // const [address, setAddress] = useState<string>("");
     // const [city, setCity] = useState<string>("");
@@ -44,38 +44,38 @@ const ProfilePage: FC = () => {
     //     // useRef<string>(),
     // ];
 
-    const sick = "Болен";
+    // const sick = "Болен";
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const currentValue = e.target.value;
-        const digitsOnly = currentValue.replace(/\D/g, "");
+    // const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    //     const currentValue = e.target.value;
+    //     const digitsOnly = currentValue.replace(/\D/g, "");
 
-        let formattedDate = "ГГГГ-ММ-ДД";
+    //     let formattedDate = "ГГГГ-ММ-ДД";
 
-        for (let i = 0; i < digitsOnly.length; i++) {
-            if (i === 0) {
-                formattedDate = formattedDate.replace("Г", digitsOnly[i]);
-            } else if (i === 1) {
-                formattedDate = formattedDate.replace("Г", digitsOnly[i]);
-            } else if (i === 2) {
-                formattedDate = formattedDate.replace("Г", digitsOnly[i]);
-            } else if (i === 3) {
-                formattedDate = formattedDate.replace("Г", digitsOnly[i]);
-            } else if (i === 4) {
-                formattedDate = formattedDate.replace("М", digitsOnly[i]);
-            } else if (i === 5) {
-                formattedDate = formattedDate.replace("М", digitsOnly[i]);
-            } else if (i === 6) {
-                formattedDate = formattedDate.replace("Д", digitsOnly[i]);
-            } else if (i === 7) {
-                formattedDate = formattedDate.replace("Д", digitsOnly[i]);
-            }
-        }
+    //     for (let i = 0; i < digitsOnly.length; i++) {
+    //         if (i === 0) {
+    //             formattedDate = formattedDate.replace("Г", digitsOnly[i]);
+    //         } else if (i === 1) {
+    //             formattedDate = formattedDate.replace("Г", digitsOnly[i]);
+    //         } else if (i === 2) {
+    //             formattedDate = formattedDate.replace("Г", digitsOnly[i]);
+    //         } else if (i === 3) {
+    //             formattedDate = formattedDate.replace("Г", digitsOnly[i]);
+    //         } else if (i === 4) {
+    //             formattedDate = formattedDate.replace("М", digitsOnly[i]);
+    //         } else if (i === 5) {
+    //             formattedDate = formattedDate.replace("М", digitsOnly[i]);
+    //         } else if (i === 6) {
+    //             formattedDate = formattedDate.replace("Д", digitsOnly[i]);
+    //         } else if (i === 7) {
+    //             formattedDate = formattedDate.replace("Д", digitsOnly[i]);
+    //         }
+    //     }
 
-        // setInputDateValue(formattedDate);
-        setBirthday(formattedDate);
-        // setDataChanged(true);
-    };
+    //     // setInputDateValue(formattedDate);
+    //     // setBirthday(formattedDate);
+    //     // setDataChanged(true);
+    // };
 
     // const onBlurHandlerOnDate = () => {
     //     setIsShowValue(false);
@@ -85,20 +85,20 @@ const ProfilePage: FC = () => {
     //     setIsShowValue(true);
     // };
 
-    const mobileData = {
-        main: [
-            "Имя",
-            "Фамилия",
-            "Дата рождения",
-            "Страна",
-            "Город",
-            "Номер телефона",
-            "Логин",
-        ],
-        interest: ["Интерес"],
-        number: ["Номер телефона"],
-        mail: ["Эл. Почта"],
-    };
+    // const mobileData = {
+    //     main: [
+    //         "Имя",
+    //         "Фамилия",
+    //         "Дата рождения",
+    //         "Страна",
+    //         "Город",
+    //         "Номер телефона",
+    //         "Логин",
+    //     ],
+    //     interest: ["Интерес"],
+    //     number: ["Номер телефона"],
+    //     mail: ["Эл. Почта"],
+    // };
 
     return (
         <Layout>

@@ -166,37 +166,34 @@ export const RegistrationForPersonal: FC = () => {
                     </div>
                 </form>
             </div>
-            {isOpenModal && (
-                <Modal setIsOpenModal={setIsOpenModal} width="500px">
+            <Modal
+                isOpen={isOpenModal}
+                setIsOpenModal={setIsOpenModal}
+                width="500px"
+            >
+                <Text type="h2" position="center" fz={MOBILE ? "17px" : "26px"}>
+                    На ваш телефон была отправлена ссылка
+                </Text>
+                <div className={styles.modalText}>
                     <Text
-                        type="h2"
+                        type="p"
+                        fz={MOBILE ? "14px" : "18px"}
+                        color="#B1B2B4"
                         position="center"
-                        fz={MOBILE ? "17px" : "26px"}
                     >
-                        На ваш телефон была отправлена ссылка
+                        Для завершения регистрации вам необходимо её заполнить
                     </Text>
-                    <div className={styles.modalText}>
-                        <Text
-                            type="p"
-                            fz={MOBILE ? "14px" : "18px"}
-                            color="#B1B2B4"
-                            position="center"
-                        >
-                            Для завершения регистрации вам необходимо её
-                            заполнить
-                        </Text>
-                    </div>
-                    <Btn
-                        br={MOBILE ? "12px" : ""}
-                        color="#0064FA"
-                        height={MOBILE ? "44px" : "54px"}
-                        padding="16px"
-                        fz={MOBILE ? "13px" : ""}
-                    >
-                        Продолжить
-                    </Btn>
-                </Modal>
-            )}
+                </div>
+                <Btn
+                    br={MOBILE ? "12px" : ""}
+                    color="#0064FA"
+                    height={MOBILE ? "44px" : "54px"}
+                    padding="16px"
+                    fz={MOBILE ? "13px" : ""}
+                >
+                    Продолжить
+                </Btn>
+            </Modal>
         </>
     );
 };

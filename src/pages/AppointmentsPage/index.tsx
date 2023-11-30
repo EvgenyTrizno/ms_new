@@ -5,7 +5,7 @@ import { Container } from "@/shared/ui/Container";
 import { Filter } from "@/shared/ui/Filter";
 import { AppointmentsList } from "./ui";
 import { MOBILE, TABLET } from "@/shared/utils";
-import { CustomMobileHeader, MobileHeader } from "@/widgets";
+import { CustomMobileHeader } from "@/widgets";
 
 const AppointmentsPage: FC = () => {
     const filters = ["Предложения", "Популярные", "Подписка", "Корзина"];

@@ -1,4 +1,4 @@
-import { FC, useState, MouseEvent, useMemo, useCallback } from "react";
+import { FC, useState, useMemo, useCallback } from "react";
 import { IChatProps } from "./types";
 
 import { ChatLayout } from "@/entities/Chat/ui/ChatLayout";
@@ -11,9 +11,9 @@ import { Attachment } from "@/features/Attachment";
 import { ChatBox } from "@/entities/Chat/ui/ChatBox";
 import { Emoji } from "@/features/Emoji/ui";
 import { ABSOLUTE_PATH } from "@/shared/config";
-import { MessagePopUp } from "../MessagePopUp";
-import { FastMessagesList } from "../FastMessagesList";
-import { AditionalText } from "../AditionalText";
+// import { MessagePopUp } from "../MessagePopUp";
+// import { FastMessagesList } from "../FastMessagesList";
+// import { AditionalText } from "../AditionalText";
 import { EmojiModal } from "@/widgets/components/EmojiModal";
 import { ChatInfo } from "@/widgets/components/ChatInfo";
 import { useCookie } from "@/shared/lib/hooks/useCookie";

@@ -2,7 +2,6 @@ import { lazy } from "react";
 import { RouteProps } from "react-router";
 
 import { InterviewPage } from "../../pages/Auth/InterviewPage/InterviewPage";
-import { MOBILE, SMALL_LAPTOP } from "@/shared/utils";
 
 const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
@@ -17,51 +16,21 @@ const NotesPage = lazy(() => import("@/pages/Notes/NotesPage"));
 const MedicalCardPage = lazy(
     () => import("@/pages/MedicalCard/MedicalCardPage")
 );
-const NotesInfoPage = lazy(() => import("@/pages/NotesInfo/NotesInfoPage"));
+const NotesInfoPage = lazy(() => import("@/pages/NotesInfo"));
 const CreateEventPage = lazy(() => import("@/pages/CreateEvent"));
 const MapPage = lazy(() => import("@/pages/Map/MapPage"));
 const MessagesPage = lazy(() => import("@/pages/Messages"));
-const MedicalTestPage = lazy(
-    () => import("@/pages/MedicalTest/MedicalTestPage")
-);
+const MedicalTestPage = lazy(() => import("@/pages/MedicalTest"));
 // const MobileProfile = lazy(() => import("@/pages/MobileProfile/MobileProfile"));
 // const AccountSettingsPage = lazy(
 //     () => import("@/pages/Settings/AccountSettingsPage/AccountSettingsPage")
 // );
-const ProfileSettingsPage = lazy(
-    () => import("@/pages/Settings/ProfileSettingsPage/ProfileSettingsPage")
-);
 // const AccountProtectionSettingsPage = lazy(
 //     () =>
 //         import(
 //             "@/pages/Settings/AccountProtectionSettingsPage/AccountProtectionSettingsPage"
 //         )
 // );
-const AccountAccessSettings = lazy(
-    () =>
-        import(
-            "@/pages/Settings/AccountAccessSettingsPage/AccountAccessSettings"
-        )
-);
-const AccountSubscriptionsSettingsPage = lazy(
-    () =>
-        import(
-            "@/pages/Settings/AccountSubscriptionsSettings/AccountSubscriptionsSettings"
-        )
-);
-const AccountSavedPage = lazy(
-    () => import("@/pages/Settings/AccountSavedPage/AccountSavedPage")
-);
-const AccountMedicalCenterPage = lazy(
-    () =>
-        import(
-            "../../pages/Settings/AccountMedicalCenter/AccountMedicalCenterPage"
-        )
-);
-const AccountMedicalCardPage = lazy(
-    () =>
-        import("../../pages/Settings/AccountMedicalCard/AccountMedicalCardPage")
-);
 const CreateNewPassPage = lazy(() => import("@/pages/CreateNewPass"));
 const NotFoundPage = lazy(() => import("@/pages/404Page/NotFoundPage"));
 const MobileNotificationPage = lazy(
@@ -70,7 +39,6 @@ const MobileNotificationPage = lazy(
 const UserInfoPage = lazy(() => import("@/pages/UserInfo/UserInfoPage"));
 const UsersPage = lazy(() => import("@/pages/Users/UsersPage"));
 const BalancePage = lazy(() => import("@/pages/Balance"));
-const ChatMobilePage = lazy(() => import("@/pages/ChatMobile/ChatPage"));
 const AbountCenterPage = lazy(
     () => import("@/pages/AboutCenter/AboutCenterPage")
 );
@@ -94,8 +62,6 @@ const MedicalCenter = lazy(() => import("@/pages/MedicalCenter"));
 const SubsPage = lazy(() => import("@/pages/SubsPage"));
 const SavedPage = lazy(() => import("@/pages/SavedPage"));
 const AccessPage = lazy(() => import("@/pages/AccessPage"));
-
-const media = window.matchMedia("(max-width: 768px)").matches;
 
 export const routes: RouteProps[] = [
     {
@@ -132,7 +98,7 @@ export const routes: RouteProps[] = [
     { path: "/profile", Component: ProfilePage },
     {
         path: "/medical-card",
-        Component: media ? AccountMedicalCardPage : MedicalCardPage,
+        Component: MedicalCardPage,
     },
     {
         path: "/notes",
@@ -159,30 +125,10 @@ export const routes: RouteProps[] = [
     //     path: "/m/profile/:id",
     //     Component: MobileProfile,
     // },
-    {
-        path: "/settings/account/profile",
-        Component: ProfileSettingsPage,
-    },
     // {
     //     path: "/m/settings/account/protection",
     //     Component: AccountProtectionSettingsPage,
     // },
-    {
-        path: "/account/access",
-        Component: AccountAccessSettings,
-    },
-    {
-        path: "/account/subscriptions",
-        Component: AccountSubscriptionsSettingsPage,
-    },
-    {
-        path: "/account/saved",
-        Component: AccountSavedPage,
-    },
-    {
-        path: "/m/settings/account/medical-center",
-        Component: AccountMedicalCenterPage,
-    },
     {
         path: "/create-new-password",
         Component: CreateNewPassPage,
@@ -203,10 +149,7 @@ export const routes: RouteProps[] = [
         path: "/balance",
         Component: BalancePage,
     },
-    {
-        path: "/chat/:id",
-        Component: SMALL_LAPTOP || MOBILE ? ChatMobilePage : NotFoundPage,
-    },
+
     {
         path: "/about-center",
         Component: AbountCenterPage,

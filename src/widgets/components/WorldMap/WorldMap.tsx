@@ -64,16 +64,15 @@ export const WorldMap: FC = () => {
         el.forEach((item) => {
             const ruName = item.getAttribute("data-name-ru") ?? "";
 
-            item.addEventListener("click", (e) => {
-                const ev = e as MouseEvent;
+            item.addEventListener("click", () => {
+                // const ev = e as MouseEvent;
 
-                const svg = ev.target as unknown as SVGPathElement;
+                // const svg = ev.target as unknown as SVGPathElement;
 
                 navigate(`/map/${ruName}`);
-                setCountry(svg);
             });
         });
-    }, [navigate, setCountry]);
+    }, [navigate]);
 
     return (
         <Layout>

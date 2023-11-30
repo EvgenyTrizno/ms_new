@@ -1,25 +1,24 @@
-import { FC, useRef, useEffect } from "react";
-import { useSelectCountry } from "@/shared/model/store";
+import { FC, useRef } from "react";
 
 import { Layout } from "../Layout";
-import { BlueBox, BlueSliderArrows, Indicator } from "@/widgets";
+import { BlueSliderArrows, Indicator } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Cols } from "@/shared/ui/Cols";
+import { BlueBox } from "@/shared/ui/BlueBox";
 
 import styles from "./CountryInfo.module.scss";
 
 const CountryInfo: FC = () => {
-    const { country } = useSelectCountry();
     const svgRef = useRef<SVGSVGElement | null>(null);
 
-    useEffect(() => {
-        if (svgRef.current && country instanceof SVGPathElement) {
-            if (svgRef.current) {
-                svgRef.current.appendChild(country.cloneNode(true));
-            }
-        }
-    }, [country]);
+    // useEffect(() => {
+    //     if (svgRef.current && country instanceof SVGPathElement) {
+    //         if (svgRef.current) {
+    //             svgRef.current.appendChild(country.cloneNode(true));
+    //         }
+    //     }
+    // }, [country]);
 
     const data = [
         {

@@ -5,7 +5,7 @@ import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
 
 import woman from "/assets/woman.jpg";
-import arrowRightBlue from "/assets/arrow-right-blue.svg";
+// import arrowRightBlue from "/assets/arrow-right-blue.svg";
 import arrowRight from "/assets/arrow-right-black.svg";
 import arrowLeft from "/assets/arrow-left-black.svg";
 import styles from "./UserInfoPage.module.scss";
@@ -51,7 +51,7 @@ const UserInfoPage: FC = () => {
                             <Text type="h4" color="#0064FA" fz="18px">
                                 Изучить подробнее
                             </Text>
-                            <img src={arrowRightBlue} alt="" />
+                            <img src={arrowRight} alt="" />
                         </div>
                     </div>
                     <div className={styles.data}>

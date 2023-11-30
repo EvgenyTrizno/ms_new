@@ -14,12 +14,10 @@ import { PopUp } from "@/shared/ui/PopUp";
 export const User: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [top, setTop] = useState<number>(0);
-    const [x, setX] = useState<number>(0);
 
     const handleClick = (e: MouseEvent<HTMLImageElement>) => {
         setTop(e.clientY + 10);
         setIsOpen((prev) => !prev);
-        setX(e.clientX);
     };
 
     return (

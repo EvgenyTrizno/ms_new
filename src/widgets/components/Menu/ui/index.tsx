@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 import { useNavigate } from "react-router";
 
-import { Text } from "@/shared/ui/Text";
 import { HealthyStatus } from "@/widgets/components/HealthyStatus";
 import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
 import { Search } from "@/features/Search/ui";

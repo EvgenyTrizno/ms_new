@@ -14,6 +14,7 @@ import { useSelectCenterMutate } from "../../lib/hooks/useSelectCenterMutate";
 export const SelectCenter: FC = () => {
     const [isMap, setIsMap] = useState<boolean>(false);
     const [city, setCity] = useState<string>("");
+    const [country, setCountry] = useState<string>("");
     const [main_center, setMain_center] = useState<number>(0);
     const [condition, setCondition] = useState<TCondition>("Здоров");
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
@@ -21,7 +22,7 @@ export const SelectCenter: FC = () => {
 
     const { mutate } = useSelectCenterMutate(2, disease, city, main_center);
 
-    console.log(city);
+    console.log(city, country);
 
     useEffect(() => {
         const permission = "geolocation" in navigator;
@@ -30,7 +31,6 @@ export const SelectCenter: FC = () => {
             navigator.geolocation.getCurrentPosition(
                 (pos: GeolocationPosition) => {
                     const { latitude, longitude } = pos.coords;
-                    let country = "";
 
                     Geocode.setApiKey(import.meta.env.VITE_GOOGLE_MAP_API_KEY);
                     Geocode.setLanguage("ru");
@@ -45,7 +45,7 @@ export const SelectCenter: FC = () => {
                             if (data.types.includes("locality")) {
                                 setCity(data.long_name);
                             } else if (data.types.includes("country")) {
-                                country = data.long_name;
+                                setCountry(data.long_name);
                             }
                         }
                     });
@@ -84,28 +84,27 @@ export const SelectCenter: FC = () => {
             >
                 Продолжить
             </Btn>
-            {isOpenModal && (
-                <PickDisease
-                    setDisease={setDisease}
-                    setIsOpenModal={setIsOpenModal}
-                    text="Интерес к какому заболеванию у вас имеется?"
-                    btns={
-                        <>
-                            <Btn
-                                color="transparent"
-                                textColor="#0064FA"
-                                border="1px solid #0064FA"
-                                onClick={() => setIsOpenModal(false)}
-                            >
-                                Отсутствует
-                            </Btn>
-                            <Btn color="#0064FA" onClick={() => mutate()}>
-                                Продолжить
-                            </Btn>
-                        </>
-                    }
-                />
-            )}
+            <PickDisease
+                setDisease={setDisease}
+                setIsOpenModal={setIsOpenModal}
+                text="Интерес к какому заболеванию у вас имеется?"
+                btns={
+                    <>
+                        <Btn
+                            color="transparent"
+                            textColor="#0064FA"
+                            border="1px solid #0064FA"
+                            onClick={() => setIsOpenModal(false)}
+                        >
+                            Отсутствует
+                        </Btn>
+                        <Btn color="#0064FA" onClick={() => mutate()}>
+                            Продолжить
+                        </Btn>
+                    </>
+                }
+                isOpen={isOpenModal}
+            />
         </Rows>
     );
 };

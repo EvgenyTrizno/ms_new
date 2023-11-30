@@ -11,7 +11,7 @@ import homeWithPlus from "/assets/home-with-plus-blue.svg";
 import homeWithPlusRed from "/assets/home-with-plus-red.svg";
 import support from "/assets/support-blue.svg";
 import supportRed from "/assets/support-red.svg";
-import connect from "/assets/connect-icon.svg";
+// import connect from "/assets/connect-icon.svg";
 import styles from "./styles.module.scss";
 // import { ConnectionModal } from "../ConnectionModal/ConnectionModal";
 

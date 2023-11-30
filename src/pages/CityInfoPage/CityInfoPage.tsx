@@ -2,12 +2,8 @@ import { FC } from "react";
 
 import { Layout } from "../Layout";
 import { Cols } from "@/shared/ui/Cols";
-import {
-    AdminPanelContainer,
-    BlueBox,
-    BlueSliderArrows,
-    Indicator,
-} from "@/widgets";
+import { AdminPanelContainer, BlueSliderArrows, Indicator } from "@/widgets";
+import { BlueBox } from "@/shared/ui/BlueBox";
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 

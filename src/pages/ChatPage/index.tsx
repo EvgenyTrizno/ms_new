@@ -1,14 +1,15 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useParams } from "react-router";
 
 import { Layout } from "../Layout";
-import { MobileHeader, MobileMenu } from "@/widgets";
+import { MobileHeader } from "@/widgets";
 import { MOBILE } from "@/shared/utils";
 
 import { Chat } from "@/widgets/components/Chat/ui/Chat";
 import { ChatSidebar } from "@/entities/Chat/ui/ChatSidebar";
 import { ChatContainer } from "@/entities/Chat/ui/ChatContainer";
 import { useChat } from "@/shared/model/store/chat";
+import { MobileMenu } from "@/widgets/components/MobileMenu";
 
 const ChatPage: FC = () => {
     const { user, chat_id } = useChat();

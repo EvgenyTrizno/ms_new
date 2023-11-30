@@ -14,7 +14,9 @@ export const Accepted: FC = () => {
                 <Text type="p" fz="14px" color="#7D7F82">
                     Принятые:
                 </Text>
-                {PC || SMALL_LAPTOP || (LAPTOP && <AddBtn />)}
+                {PC ||
+                    SMALL_LAPTOP ||
+                    (LAPTOP && <AddBtn onClick={() => ({})} />)}
             </Row>
             <User />
         </Rows>

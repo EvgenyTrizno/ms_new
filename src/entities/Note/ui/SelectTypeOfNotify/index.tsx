@@ -1,10 +1,14 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import { Filter } from "@/shared/ui/Filter";
 
 export const SelectTypeOfNotify: FC = () => {
+    const [isSelect, setIsSelect] = useState<string>("");
+
     return (
         <Filter
+            isSelect={isSelect}
+            setIsSelect={setIsSelect}
             icons={[
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path

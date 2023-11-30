@@ -1,7 +1,8 @@
 import { FC, useState } from "react";
 
 import { Layout } from "../Layout";
-import { MobileHeader, MobileMenu } from "@/widgets";
+import { MobileHeader } from "@/widgets";
+import { MobileMenu } from "@/widgets/components/MobileMenu";
 import { MOBILE } from "@/shared/utils";
 import { FilterBtn } from "@/shared/ui/FilterBtn";
 import { Container } from "@/shared/ui/Container";
@@ -23,7 +24,7 @@ const SearchPage: FC = () => {
                         height="48px"
                         onChange={(e) => setSearch((e && e.target.value) ?? "")}
                     />
-                    <FilterBtn onClick={() => console.log("1")} />
+                    <FilterBtn type="big" onClick={() => console.log("1")} />
                 </Row>
                 <WithFilter
                     search={search}

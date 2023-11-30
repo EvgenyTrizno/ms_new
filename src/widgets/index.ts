@@ -8,7 +8,6 @@ import { Slider } from "./components/Slider/Slider";
 import { MobileHeader } from "./components/MobileHeader/MobileHeader";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
 import { MedicalBlock } from "./components/MedicalBlock/MedicalBlock";
-import { ExtraCallMobile } from "./components/ExtraCallMobile/ExtraCallMobile";
 import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorBoundaryFallback";
 import { MobileComment } from "./components/MobileComment/MobileComment";
 import { ParamsBlock } from "./components/ParamsBlock/ParamsBlock";
@@ -54,7 +53,6 @@ export {
     MobileHeader,
     CustomMobileHeader,
     MedicalBlock,
-    ExtraCallMobile,
     ErrorBoundaryFallback,
     MobileComment,
     ParamsBlock,

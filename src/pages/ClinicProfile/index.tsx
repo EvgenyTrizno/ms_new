@@ -438,7 +438,7 @@ const ClinicProfile: FC = () => {
                             placeholder="Поиск специалиста или пациента"
                             height={LAPTOP ? "37px" : ""}
                         />
-                        <FilterBtn onClick={() => ({})} />
+                        <FilterBtn onClick={() => ({})} type={"big"} />
                     </div>
                     <WhiteContentBlock>
                         <div style={{ marginBottom: 16 }}>

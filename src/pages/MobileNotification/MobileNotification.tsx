@@ -1,19 +1,21 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout";
-import { MobileContainer, MobileHeader, MobileMenu } from "@/widgets";
+import { MobileHeader } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
+import { Container } from "@/shared/ui/Container";
+import { MobileMenu } from "@/widgets/components/MobileMenu";
 
 import woman from "/assets/woman.jpg";
 import styles from "./MobileNotification.module.scss";
 
 const MobileNotification: FC = () => {
-    const sick = condition === "Болен";
+    const sick = "Болен";
 
     return (
         <Layout>
             <MobileHeader />
-            <MobileContainer>
+            <Container>
                 <div className={styles.box}>
                     <Text type="p" fz="14px" color="#7D7F82">
                         Сегодня
@@ -42,7 +44,7 @@ const MobileNotification: FC = () => {
                         </div>
                     </div>
                 </div>
-            </MobileContainer>
+            </Container>
             <MobileMenu />
         </Layout>
     );

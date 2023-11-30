@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -21,20 +21,19 @@ ChartJS.register(
 
 import { Layout } from "../Layout";
 // import { GalleryModal, Filter } from "@/shared";
-import { Comment, Circle, Slider, Search } from "@/widgets";
-import { Card } from "@/entities/Card/ui";
+import { Comment, Circle, Slider } from "@/widgets";
+import { Search } from "@/features/Search";
 import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
+import { DoctorCard } from "@/widgets/components/DoctorCard";
 
 import virus from "/assets/virus-icon.jpg";
 import photo from "/assets/photo.jpg";
 import plus from "/assets/big-plus.svg";
-import controller from "/assets/controler.svg";
-import styles from "./NotesInfoPage.module.scss";
+import styles from "./styles.module.scss";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
 
 const NotesInfoPage: FC = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-
     // useEffect(() => {
     //     circlesRef.current = document.querySelector(
     //         "#statsCircle"
@@ -49,7 +48,7 @@ const NotesInfoPage: FC = () => {
     //     }
     // }, []);
 
-    const sick = condition === "Болен";
+    const sick = "Болен";
     // const circlesRef = useRef<HTMLDivElement>();
 
     const options = {
@@ -111,9 +110,7 @@ const NotesInfoPage: FC = () => {
             <div className={styles.container}>
                 <div className={styles.top}>
                     <Search placeholder="Введите запрос" />
-                    <Btn width="72px" color="#0064FA">
-                        <img src={controller} alt="" />
-                    </Btn>
+                    <FilterBtn onClick={() => ({})} type="small" />
                 </div>
                 <div className={styles.box}>
                     <div className={styles.info}>
@@ -175,7 +172,14 @@ const NotesInfoPage: FC = () => {
                     <Slider>
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
                             (item) => (
-                                <Card name="" checkbox={false} key={item} />
+                                <DoctorCard
+                                    name=""
+                                    key={item}
+                                    surname={""}
+                                    patronymic={""}
+                                    avatar={""}
+                                    rank={""}
+                                />
                             )
                         )}
                     </Slider>
@@ -347,11 +351,7 @@ const NotesInfoPage: FC = () => {
                     </Text>
                     <div className={styles.gallery}>
                         {[1, 2, 3].map((item) => (
-                            <div
-                                key={item}
-                                className={styles.photo}
-                                onClick={() => setIsOpen(true)}
-                            >
+                            <div key={item} className={styles.photo}>
                                 <img src={photo} alt="" />
                             </div>
                         ))}

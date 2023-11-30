@@ -3,12 +3,19 @@ import { FC, useEffect, useState } from "react";
 import { Calendar } from "@/widgets";
 
 export const NoteCalendar: FC = () => {
-    const [selectDate, setSelectDate] = useState<Date>();
+    const [selectDate, setSelectDate] = useState<Date | undefined>();
     const [selectDateEnd, setSelectDateEnd] = useState<Date>();
     const [notifyDays, setNotifyDays] = useState<string>("");
     const [notifyMinutes, setNotifyMinutes] = useState<string>("");
     const [notify, setNotify] = useState<Date>();
     const [duration, setDuration] = useState<number>(0);
+
+    useEffect(() => {
+        if (notify && duration) {
+            setNotifyDays("");
+            setNotifyMinutes("");
+        }
+    }, []); // костыль
 
     useEffect(() => {
         if (selectDate) {
@@ -51,5 +58,13 @@ export const NoteCalendar: FC = () => {
         }
     }, [selectDate, selectDateEnd]);
 
-    return <Calendar width="100%" info />;
+    return (
+        <Calendar
+            setSelectDate={setSelectDate}
+            selectDate={selectDate}
+            setSelectDateEnd={setSelectDateEnd}
+            width="100%"
+            info
+        />
+    );
 };

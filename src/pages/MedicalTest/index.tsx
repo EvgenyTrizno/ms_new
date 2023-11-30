@@ -5,12 +5,12 @@ import { Layout } from "../Layout";
 // import { Filter } from "@/shared";
 import { Text } from "@/shared/ui/Text";
 import { Btn } from "@/shared/ui/Btn";
-import { Search } from "@/widgets";
+import { Search } from "@/features/Search";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
 
-import controler from "/assets/controler.svg";
 import arrow from "/assets/arrow-right-black.svg";
 import virus from "/assets/virus-icon.jpg";
-import styles from "./MedicalTestPage.module.scss";
+import styles from "./styles.module.scss";
 
 const MedicalTestPage: FC = () => {
     const navigate = useNavigate();
@@ -20,9 +20,7 @@ const MedicalTestPage: FC = () => {
             <div className={styles.container}>
                 <div className={styles.header}>
                     <Search />
-                    <Btn color="#0064FA" width="70px">
-                        <img src={controler} alt="" />
-                    </Btn>
+                    <FilterBtn onClick={() => ({})} type="small" />
                 </div>
                 <div className={styles.info}>
                     <div className={styles.data}>

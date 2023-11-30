@@ -20,9 +20,6 @@ import {
     BlueSliderArrows,
     EmployeeData,
     EmployeeInfoCard,
-    Rating,
-    Search,
-    Cols,
     CenterOwner,
 } from "@/widgets";
 import { PC } from "@/shared/utils";
@@ -31,6 +28,9 @@ import man from "/assets/man.jpg";
 import controller from "/assets/controler.svg";
 import money from "/assets/money.svg";
 import styles from "./CenterPage.module.scss";
+import { Cols } from "@/shared/ui/Cols";
+import { Search } from "@/features/Search";
+import { Rating } from "@/features/Rating";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Legend);
 

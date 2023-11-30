@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "react-query";
+import { useQuery } from "react-query";
 
 import { getMessages } from "../../api/messages";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
