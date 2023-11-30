@@ -8,7 +8,7 @@ import { Text } from "@/shared/ui/Text";
 
 export const DoctorCard: FC = () => {
     return (
-        <BlueBox>
+        <BlueBox style={{ backgroundColor: "#fff" }}>
             <Row gap={12} style={{ alignItems: "flex-start" }}>
                 <Avatar type="custom" size={92} img="" />
                 <Rows gap={12} rows={["auto"]}>

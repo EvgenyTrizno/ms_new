@@ -1,15 +1,16 @@
-import { FC, useId } from "react";
+import { FC, SetStateAction, useState } from "react";
 import { useNavigate } from "react-router";
 import { IMenuData } from "../Menu/model/types";
 
 import { TIsSelect } from "@/shared/model/store/types";
 import { useMenu } from "@/shared/model/store";
+import { ExtraCallBtn } from "../ExtraCallBtn";
 
-import extra from "/assets/extra-call.svg";
-import cross from "/assets/cross.svg";
-import styles from "./MobileMenu.module.scss";
+import styles from "./styles.module.scss";
 
 export const MobileMenu: FC = () => {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
     const navigate = useNavigate();
     const { setIsSelect } = useMenu();
 
@@ -21,7 +22,6 @@ export const MobileMenu: FC = () => {
     const data: IMenuData = {
         default: [
             {
-                id: useId(),
                 label: "Главная",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -44,7 +44,6 @@ export const MobileMenu: FC = () => {
                 path: "/",
             },
             {
-                id: useId(),
                 label: "Поиск",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -67,7 +66,6 @@ export const MobileMenu: FC = () => {
                 path: "/search",
             },
             {
-                id: useId(),
                 label: "Сообщения",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -92,7 +90,6 @@ export const MobileMenu: FC = () => {
                 path: "/messages",
             },
             {
-                id: useId(),
                 label: "Уведомления",
                 icon: (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -127,22 +124,23 @@ export const MobileMenu: FC = () => {
     };
 
     return (
-        <div className={styles.mobileMenu}>
-            {data.default.map((item) => (
-                <div
-                    className={
-                        location.pathname === item.path
-                            ? `${styles.active}`
-                            : undefined
-                    }
-                    onClick={() => handleNavigate(item.path, item.label)}
-                >
-                    {item.icon}
+        <div className={styles.wrap}>
+            <div className={styles.menu}>
+                <div className={styles.rectLeft}>
+                    <div className={styles.inner}></div>
                 </div>
-            ))}
-            {/* <div className={styles.extraBtn} onClick={() => setIsOpen(!isOpen)}> */}
-            {/* <img src={isOpen ? cross : extra} alt="" /> */}
-            {/* </div> */}
+                <div className={styles.rect}>
+                    &nbsp;<span className={styles.circle}></span>
+                </div>
+                <ExtraCallBtn
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    className={styles.position}
+                />
+                <div className={styles.rectRight}>
+                    <div className={styles.inner}></div>
+                </div>
+            </div>
         </div>
     );
 };

@@ -4,6 +4,8 @@ import { Layout } from "../Layout";
 import { Container } from "@/shared/ui/Container";
 import { Filter } from "@/shared/ui/Filter";
 import { AppointmentsList } from "./ui";
+import { MOBILE, TABLET } from "@/shared/utils";
+import { CustomMobileHeader, MobileHeader } from "@/widgets";
 
 const AppointmentsPage: FC = () => {
     const filters = ["Предложения", "Популярные", "Подписка", "Корзина"];
@@ -12,6 +14,7 @@ const AppointmentsPage: FC = () => {
 
     return (
         <Layout>
+            {(MOBILE || TABLET) && <CustomMobileHeader back text="Аккаунт" />}
             <Container>
                 <Filter
                     width="max-content"

@@ -5,7 +5,6 @@ import { CenterInfoCard } from "./components/CenterInfoCard/CenterInfoCard";
 import { Circle } from "./components/Circle/Circle";
 import { Map } from "./components/Map/Map";
 import { Slider } from "./components/Slider/Slider";
-import { MobileMenu } from "./components/MobileMenu/MobileMenu";
 import { MobileHeader } from "./components/MobileHeader/MobileHeader";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
 import { MedicalBlock } from "./components/MedicalBlock/MedicalBlock";
@@ -52,7 +51,6 @@ export {
     CenterInfoCard,
     Circle,
     Slider,
-    MobileMenu,
     MobileHeader,
     CustomMobileHeader,
     MedicalBlock,

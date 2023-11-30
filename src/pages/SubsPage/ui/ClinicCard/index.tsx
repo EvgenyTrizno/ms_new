@@ -12,7 +12,7 @@ import styles from "./styles.module.scss";
 
 export const ClinicCard: FC = () => {
     return (
-        <BlueBox>
+        <BlueBox style={{ backgroundColor: "#fff" }}>
             <Row gap={12} className={styles.card}>
                 <Image
                     style={{ width: 92 }}

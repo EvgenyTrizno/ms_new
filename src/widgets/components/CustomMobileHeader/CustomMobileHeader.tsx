@@ -29,7 +29,7 @@ export const CustomMobileHeader: FC<IHeaderProps> = ({ children, text }) => {
             </svg>
             {children}
             {text && text.length && (
-                <Text type="h2" fz="19px">
+                <Text type="h2" fz="18px">
                     {text}
                 </Text>
             )}

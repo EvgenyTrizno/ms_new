@@ -6,10 +6,14 @@ import cross from "./assets/cross.svg";
 
 import styles from "./styles.module.scss";
 
-export const ExtraCallBtn: FC<IExtraCallBtn> = ({ isOpen, setIsOpen }) => {
+export const ExtraCallBtn: FC<IExtraCallBtn> = ({
+    isOpen,
+    setIsOpen,
+    className,
+}) => {
     return (
         <div
-            className={styles.extra}
+            className={`${className} ${styles.extra}`}
             id="extraBtn"
             onClick={() => setIsOpen((prev) => !prev)}
         >

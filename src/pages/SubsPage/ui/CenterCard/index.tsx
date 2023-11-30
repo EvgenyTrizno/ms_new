@@ -10,7 +10,7 @@ import { AddresData } from "../AddresData";
 
 export const CenterCard: FC = () => {
     return (
-        <BlueBox>
+        <BlueBox style={{ backgroundColor: "#fff" }}>
             <Image src={photo} alt="" style={{ marginBottom: 12 }} />
             <Rows gap={8} rows={["auto"]}>
                 <Text type="h4" fz="16px">

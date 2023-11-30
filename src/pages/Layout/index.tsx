@@ -8,8 +8,8 @@ import { TProps } from "./types";
 import { Header } from "@/widgets/components/Header/ui";
 import { Menu } from "@/widgets/components/Menu/ui";
 import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
-import { ExtraCallBtn } from "./ui";
 import { PC, SMALL_LAPTOP, TABLET, MOBILE, LAPTOP } from "@/shared/utils";
+import { ExtraCallBtn } from "@/widgets/components/ExtraCallBtn";
 
 import styles from "./styles.module.scss";
 import { ExtraCallModal } from "@/widgets/components/ExtraCallModal/ui/ExtraCallModal";
@@ -20,10 +20,10 @@ export const Layout: FC<TProps> = ({ children }) => {
     const { user } = useAuth();
 
     return (
-        <div className={styles.layout}>
+        <div>
             {MOBILE && <MobileAccountMenu />}
             {!MOBILE && !TABLET && <Header />}
-            <div className={styles.container}>
+            <div>
                 {(PC || SMALL_LAPTOP || LAPTOP) && <Menu />}
                 <div className={styles.main}>{children}</div>
                 {user && user.group.name === "Пользователи" && (

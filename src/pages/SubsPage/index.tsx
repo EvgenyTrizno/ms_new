@@ -6,12 +6,15 @@ import { User } from "../Profile/ui/UserInfo";
 import { CentersList } from "./ui/CentersList";
 import { ClinicsList } from "./ui/ClinicsList";
 import { DoctorsList } from "./ui/DoctorsList";
+import { LAPTOP, MOBILE, PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
+import { CustomMobileHeader } from "@/widgets";
 
 const SubsPage: FC = () => {
     return (
         <Layout>
+            {(MOBILE || TABLET) && <CustomMobileHeader back text="Подписки" />}
             <Container>
-                <User />
+                {(PC || SMALL_LAPTOP || LAPTOP) && <User />}
                 <CentersList />
                 <ClinicsList />
                 <DoctorsList />
