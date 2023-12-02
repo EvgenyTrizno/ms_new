@@ -69,7 +69,9 @@ export const Menu: FC = () => {
                             Состояние:
                         </Text>
                     )} */}
-                    <HealthyStatus isHovered={isHovered} />
+                    {user && user.group.name === "Пользователи" && (
+                        <HealthyStatus isHovered={isHovered} />
+                    )}
                 </Rows>
                 <ItemsList
                     open={isHovered || PC || LAPTOP}

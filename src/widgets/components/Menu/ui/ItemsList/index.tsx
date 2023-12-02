@@ -1,4 +1,4 @@
-import { FC, MouseEvent } from "react";
+import { FC, MouseEvent, useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { IItemsListsProps } from "./types";
 
@@ -7,9 +7,10 @@ import { useMenu } from "@/shared/model/store";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { IMenuData } from "../../model/types";
 import { Text } from "@/shared/ui/Text";
+import { LAPTOP, PC } from "@/shared/utils";
 
 import styles from "./styles.module.scss";
-import { LAPTOP, PC } from "@/shared/utils";
+// import { DropDownMwnu } from "@/widgets/components/DropDownMenu";
 
 export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
     const navigate = useNavigate();
@@ -17,6 +18,9 @@ export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
     const { setIsSelect } = useMenu();
     const { user, setIsAuth, setUser } = useAuth();
     const { removeCookie } = useCookie();
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    console.log(isOpen);
 
     const handleLogout = () => {
         setUser(null);
@@ -51,6 +55,10 @@ export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
         } else {
             classList.add(styles.itemHover);
         }
+
+        if (classList.contains(styles.personal)) {
+            setIsOpen(true);
+        }
     };
 
     const handleMouseLeave = (e: MouseEvent<HTMLDivElement>) => {
@@ -58,6 +66,10 @@ export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
 
         if (classList.contains(styles.itemHover)) {
             classList.remove(styles.itemHover);
+        }
+
+        if (classList.contains(styles.personal)) {
+            setIsOpen(false);
         }
     };
 
@@ -795,13 +807,13 @@ export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
                     onMouseLeave={(e: MouseEvent<HTMLDivElement>) =>
                         handleMouseLeave(e)
                     }
-                    className={
+                    className={`${
                         location.pathname === item.path && sick
                             ? activeRed
                             : location.pathname === item.path
                             ? active
                             : styles.item
-                    }
+                    } ${item.label === "Персонал" ? styles.personal : ""}`}
                 >
                     {item.icon}
                     <Text
@@ -815,6 +827,23 @@ export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
                     >
                         {item.label}
                     </Text>
+                    {item.label === "Персонал" && item.path === "/personal" && (
+                        <svg
+                            className={styles.arrow}
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                        >
+                            <path
+                                d="M6.25 16.6615L12.9167 9.99479L6.25 3.32812"
+                                stroke="#B1B2B4"
+                                stroke-width="1.25"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    )}
                 </div>
             ))}
             <div
@@ -845,6 +874,7 @@ export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
                     Выход
                 </Text>
             </div>
+            {/* <DropDownMwnu isOpen={isOpen} /> */}
         </div>
     );
 };

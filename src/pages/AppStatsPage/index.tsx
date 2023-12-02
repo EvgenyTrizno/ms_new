@@ -11,7 +11,7 @@ import {
     PointElement,
     LineElement,
 } from "chart.js";
-import { Bar, Line } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 import { Cols } from "@/shared/ui/Cols";
 import { BlueBox } from "@/shared/ui/BlueBox";
@@ -26,6 +26,8 @@ import {
     UserReport,
 } from "@/widgets";
 import { LAPTOP } from "@/shared/utils";
+import { PatientDiseases } from "./ui/PatientDiseases";
+import { AgeStats } from "./ui/AgeStats";
 
 import playmarket from "/assets/playmarket.svg";
 import appstore from "/assets/appstore.svg";
@@ -42,60 +44,6 @@ ChartJS.register(
 );
 
 const AppStatsPage: FC = () => {
-    const options: ChartOptions<"bar"> = {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            x: {
-                border: {
-                    display: false,
-                },
-                grid: {
-                    display: false,
-                },
-                ticks: {
-                    color: "#3C3D3E",
-                    font: {
-                        size: 16,
-                        weight: "medium",
-                    },
-                },
-            },
-            y: {
-                ticks: {
-                    display: false,
-                },
-                border: {
-                    display: false,
-                },
-                grid: {
-                    display: false,
-                },
-            },
-        },
-        plugins: {
-            legend: {
-                display: false,
-            },
-        },
-    };
-
-    const labels = ["ОРВИ", "ОРВИ", "ОРВИ", "ОРВИ", "ОРВИ"];
-
-    const data: ChartData<"bar"> = {
-        labels,
-        datasets: [
-            {
-                label: "Dataset 1",
-                data: [217, 163, 112, 93, 72, 66],
-                backgroundColor: ["#0064FA"],
-                borderRadius: 12,
-                barThickness: 44,
-                borderSkipped: false,
-            },
-        ],
-    };
-
     const labelsLine = [0, 15, 30];
 
     const optionsLine: ChartOptions<"line"> = {
@@ -222,25 +170,11 @@ const AppStatsPage: FC = () => {
         <Layout>
             <AdminPanelContainer>
                 <Cols type="auto" gap={10}>
-                    <WhiteContentBlock>
-                        <MainText text="Болезни пациентов" />
-                        <div className={styles.chart}>
-                            <Bar options={options} data={data} />
-                        </div>
-                        <BlueSliderArrows />
-                    </WhiteContentBlock>
-                    <WhiteContentBlock>
-                        <MainText text="Количество скачиваний" />
-                        <div className={styles.chart}></div>
-                    </WhiteContentBlock>
+                    <PatientDiseases />
+                    {/* <AgeStats /> */}
                 </Cols>
                 <Cols type="custom" gap={10} cols={["1fr", "333px"]}>
-                    <WhiteContentBlock>
-                        <MainText text="Возрастные группы пользователей" />
-                        <div className={styles.bar}>
-                            {/* <Bar options={options} data={data} /> */}
-                        </div>
-                    </WhiteContentBlock>
+                    <AgeStats />
                     <div className={styles.stats}>
                         <WhiteContentBlock>
                             <div className={styles.text}>
