@@ -4,8 +4,8 @@ import { Bar } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
-import { MainText } from "@/widgets";
 import { useStatsQuery } from "../../lib/hooks/useStatsQuery";
+import { MainText } from "@/shared/ui/MainText/MainText";
 
 import styles from "./styles.module.scss";
 
@@ -71,30 +71,19 @@ export const AgeStats: FC = () => {
         },
     };
 
-    // const groupedBarChart = (data: AxiosResponse) => {
-    //     // Преобразование данных в формат, подходящий для библиотеки Chart.js
-    //     const transformedData = Object.keys(data).map((key) => {
-    //         const ageRange = key.substring(1).split("_");
-    //         const label = `Группа ${ageRange.join("-")}`;
-    //         const values = data[key][0];
-
-    //         return {
-    //             label,
-    //             backgroundColor: "rgba(75,192,192,0.2)",
-    //             borderColor: "rgba(75,192,192,1)",
-    //             borderWidth: 1,
-    //             hoverBackgroundColor: "rgba(75,192,192,0.4)",
-    //             hoverBorderColor: "rgba(75,192,192,1)",
-    //             data: [values.man, values.woman], // Количество мужчин и женщин для каждой группы
-    //         };
-    //     });
-    // };
-
     const data: ChartData<"bar"> = {
         labels: ["10-20", "20-30", "30-40", "40-50", "50-60", "60-70"],
         datasets: [
             {
-                data: [2, 4, 6],
+                label: "Женщицы",
+                data: [
+                    stats?.data._10_20[0].woman ?? 0,
+                    stats?.data._20_30[0].woman ?? 0,
+                    stats?.data._30_40[0].woman ?? 0,
+                    stats?.data._40_50[0].woman ?? 0,
+                    stats?.data._50_60[0].woman ?? 0,
+                    stats?.data._60_70[0].woman ?? 0,
+                ],
                 backgroundColor: ["#D64657"],
                 borderRadius: {
                     bottomLeft: 12,
@@ -102,9 +91,18 @@ export const AgeStats: FC = () => {
                 },
                 barThickness: 44,
                 borderSkipped: false,
+                minBarLength: 0,
             },
             {
-                data: [1, 3, 5],
+                label: "Мужчины",
+                data: [
+                    stats?.data._10_20[0].man ?? 0,
+                    stats?.data._20_30[0].man ?? 0,
+                    stats?.data._30_40[0].man ?? 0,
+                    stats?.data._40_50[0].man ?? 0,
+                    stats?.data._50_60[0].man ?? 0,
+                    stats?.data._60_70[0].man ?? 0,
+                ],
                 backgroundColor: ["#0064FA"],
                 borderRadius: {
                     topLeft: 12,
@@ -112,6 +110,7 @@ export const AgeStats: FC = () => {
                 },
                 barThickness: 44,
                 borderSkipped: false,
+                minBarLength: 0,
             },
         ],
     };

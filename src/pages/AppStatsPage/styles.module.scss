@@ -72,17 +72,6 @@
     }
 }
 
-.downloads {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-
-    .count {
-        margin-top: 24px;
-    }
-}
-
 .questions {
     display: flex;
     flex-direction: column;

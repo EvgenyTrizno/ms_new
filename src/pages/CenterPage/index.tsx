@@ -17,7 +17,7 @@ import { FilterBtn } from "@/shared/ui/FilterBtn";
 import { EmployeesList } from "./ui/EmployeesList";
 import { Row } from "@/shared/ui/Row";
 import { Chart } from "./ui/Chart";
-import { useClinicQuery } from "./lib/hooks/useClinicQuery";
+import { useCenterQuery } from "./lib/hooks/useCenterQuery";
 import { MedicalCenterinfoLayout } from "@/entities/MedicalCenterInfoCard";
 import { Btn } from "@/shared/ui/Btn";
 import { MedicalCenterView } from "@/entities/MedicalCenterView";
@@ -25,9 +25,9 @@ import { StatusInfo } from "@/entities/StatsInfoBlock";
 import { Rows } from "@/shared/ui/Rows";
 import { AdminInfo } from "@/entities/AdminInfo";
 
-const ClinicProfile: FC = () => {
+const CenterPage: FC = () => {
     const { id } = useParams();
-    const { data } = useClinicQuery(id ? +id : 0);
+    const { data } = useCenterQuery(id ? +id : 0);
 
     const incomeData = [
         {
@@ -197,4 +197,4 @@ const ClinicProfile: FC = () => {
     );
 };
 
-export default ClinicProfile;
+export default CenterPage;

@@ -22,14 +22,11 @@ import { SliderArrows } from "./components/SliderArrows/SliderArrows";
 import { SelectCenterMap } from "./components/SelectCenterMap/SelectCenterMap";
 import { PersonalCard } from "./components/PersonalCard/PersonalCard";
 import { ConnectionModal } from "./components/ConnectionModal/ConnectionModal";
-import { EmployeeInfoCard } from "./components/EmployeeInfoCard/EmployeeInfoCard";
-import { EmployeeData } from "./components/EmployeeData/EmployeeData";
 import { DiseaseInfo } from "./components/DiseaseInfo/DiseaseInfo";
 import { BlueSliderArrows } from "./components/BlueSliderArrows/BlueSliderArrows";
 import { WorldMap } from "./components/WorldMap/WorldMap";
 import { Indicator } from "./components/Indicator/Indicator";
 import { AdminPanelContainer } from "./components/AdminPanelContainer/AdminPanelContainer";
-import { CenterOwner } from "./components/CenterOwner/CenterOwner";
 import { RequestBlock } from "./components/RequestBlock/RequestBlock";
 import { MailLayout } from "./components/MailLayout/MailLayout";
 import { MailHeader } from "./components/MailHeader/MailHeader";
@@ -38,10 +35,7 @@ import { MailManage } from "./components/MailManage/MailManage";
 import { SocialNetworkInfoBlock } from "./components/SocialNetworkInfoBlock/SocialNetworkInfoBlock";
 import { SocialNetworkInfoLayout } from "./components/SocialNetworkInfoLayout/SocialNetworkInfoLayout";
 import { IncomeBlock } from "./components/IncomeBlock/IncomeBlock";
-import { Inner } from "./components/Inner/Inner";
 import { CenterView } from "./components/CenterView/CenterView";
-import { MainText } from "./components/MainText/MainText";
-import { UserReport } from "./components/UserReport/UserReport";
 
 export {
     Calendar,
@@ -68,14 +62,11 @@ export {
     SelectCenterMap,
     PersonalCard,
     ConnectionModal,
-    EmployeeInfoCard,
-    EmployeeData,
     DiseaseInfo,
     BlueSliderArrows,
     WorldMap,
     Indicator,
     AdminPanelContainer,
-    CenterOwner,
     RequestBlock,
     MailLayout,
     MailHeader,
@@ -84,8 +75,5 @@ export {
     SocialNetworkInfoBlock,
     SocialNetworkInfoLayout,
     IncomeBlock,
-    Inner,
     CenterView,
-    MainText,
-    UserReport,
 };

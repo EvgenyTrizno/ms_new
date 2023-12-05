@@ -1,1 +1,1 @@
-export { MenuLayout as DropDownMwnu } from "./Layout";
+export { MenuLayout as DropDownMenu } from "./Layout";

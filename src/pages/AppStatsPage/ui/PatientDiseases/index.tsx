@@ -4,10 +4,11 @@ import { ChartData, ChartOptions } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
-import { BlueSliderArrows, MainText } from "@/widgets";
+import { BlueSliderArrows } from "@/widgets";
 
 import styles from "./styles.module.scss";
 import { useStatsQuery } from "@/pages/AppStatsPage/lib/hooks/useStatsQuery";
+import { MainText } from "@/shared/ui/MainText/MainText";
 
 export const PatientDiseases: FC = () => {
     const [startIndex, setStartIndex] = useState(0);
@@ -76,11 +77,11 @@ export const PatientDiseases: FC = () => {
 
         stats &&
             stats.data.diseases
-                .slice(startIndex, startIndex + 5)
+                .slice(startIndex, startIndex + 4)
                 .forEach((item) => {
                     labels.push(
-                        item.name.length > 20
-                            ? `${item.name.slice(0, 20)}...`
+                        item.name.length > 15
+                            ? `${item.name.slice(0, 15)}...`
                             : item.name
                     );
                 });
@@ -90,7 +91,7 @@ export const PatientDiseases: FC = () => {
 
     const generateData = useCallback(() => {
         const selectedData =
-            stats && stats.data.diseases.slice(startIndex, startIndex + 5);
+            stats && stats.data.diseases.slice(startIndex, startIndex + 4);
 
         return selectedData ? selectedData.map((item) => item.count) : [];
     }, [stats, startIndex]);
@@ -118,7 +119,7 @@ export const PatientDiseases: FC = () => {
                     plugins={[ChartDataLabels]}
                 />
             </div>
-            <button onClick={() => setStartIndex((prev) => prev + 1)}>+</button>
+            <BlueSliderArrows />
         </WhiteContentBlock>
     );
 };

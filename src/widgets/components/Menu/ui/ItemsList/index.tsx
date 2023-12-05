@@ -8,9 +8,9 @@ import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { IMenuData } from "../../model/types";
 import { Text } from "@/shared/ui/Text";
 import { LAPTOP, PC } from "@/shared/utils";
+import { DropDownMenu } from "@/widgets/components/DropDownMenu";
 
 import styles from "./styles.module.scss";
-// import { DropDownMwnu } from "@/widgets/components/DropDownMenu";
 
 export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
     const navigate = useNavigate();
@@ -19,7 +19,6 @@ export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
     const { user, setIsAuth, setUser } = useAuth();
     const { removeCookie } = useCookie();
     const [isOpen, setIsOpen] = useState<boolean>(false);
-
     console.log(isOpen);
 
     const handleLogout = () => {
@@ -798,53 +797,44 @@ export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
             style={{ marginTop: group === "default" ? "" : 0 }}
         >
             {menuData[group].map((item, i) => (
-                <div
-                    key={i}
-                    onClick={() => handleNavigate(item.path, item.label)}
-                    onMouseEnter={(e: MouseEvent<HTMLDivElement>) =>
-                        handleMouseEnter(e)
-                    }
-                    onMouseLeave={(e: MouseEvent<HTMLDivElement>) =>
-                        handleMouseLeave(e)
-                    }
-                    className={`${
-                        location.pathname === item.path && sick
-                            ? activeRed
-                            : location.pathname === item.path
-                            ? active
-                            : styles.item
-                    } ${item.label === "Персонал" ? styles.personal : ""}`}
-                >
-                    {item.icon}
-                    <Text
-                        type="p"
-                        fz="14px"
-                        style={
-                            isHovered || LAPTOP || PC
-                                ? { display: "block" }
-                                : { display: "none" }
-                        }
-                    >
-                        {item.label}
-                    </Text>
-                    {item.label === "Персонал" && item.path === "/personal" && (
-                        <svg
-                            className={styles.arrow}
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
+                <>
+                    {i === 1 && user && user.group.name === "Администраторы" ? (
+                        <DropDownMenu />
+                    ) : (
+                        <div
+                            key={i}
+                            onClick={() =>
+                                handleNavigate(item.path, item.label)
+                            }
+                            onMouseEnter={(e: MouseEvent<HTMLDivElement>) =>
+                                handleMouseEnter(e)
+                            }
+                            onMouseLeave={(e: MouseEvent<HTMLDivElement>) =>
+                                handleMouseLeave(e)
+                            }
+                            className={`${
+                                location.pathname === item.path && sick
+                                    ? activeRed
+                                    : location.pathname === item.path
+                                    ? active
+                                    : styles.item
+                            }`}
                         >
-                            <path
-                                d="M6.25 16.6615L12.9167 9.99479L6.25 3.32812"
-                                stroke="#B1B2B4"
-                                stroke-width="1.25"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
+                            {item.icon}
+                            <Text
+                                type="p"
+                                fz="14px"
+                                style={
+                                    isHovered || LAPTOP || PC
+                                        ? { display: "block" }
+                                        : { display: "none" }
+                                }
+                            >
+                                {item.label}
+                            </Text>
+                        </div>
                     )}
-                </div>
+                </>
             ))}
             <div
                 onMouseEnter={(e: MouseEvent<HTMLDivElement>) =>
@@ -874,7 +864,6 @@ export const ItemsList: FC<IItemsListsProps> = ({ open, isHovered }) => {
                     Выход
                 </Text>
             </div>
-            {/* <DropDownMwnu isOpen={isOpen} /> */}
         </div>
     );
 };

@@ -18,20 +18,16 @@ import { BlueBox } from "@/shared/ui/BlueBox";
 import { Layout } from "../Layout";
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
-import {
-    AdminPanelContainer,
-    BlueSliderArrows,
-    Inner,
-    MainText,
-    UserReport,
-} from "@/widgets";
-import { LAPTOP } from "@/shared/utils";
+import { AdminPanelContainer, BlueSliderArrows } from "@/widgets";
 import { PatientDiseases } from "./ui/PatientDiseases";
 import { AgeStats } from "./ui/AgeStats";
+import { SiteVisit } from "./ui/SiteVisit";
+import { MainText } from "@/shared/ui/MainText/MainText";
 
-import playmarket from "/assets/playmarket.svg";
-import appstore from "/assets/appstore.svg";
 import styles from "./styles.module.scss";
+import { UserReports } from "./ui/UserReports";
+import { AppDownload } from "./ui/AppDownload";
+import { ServerStats } from "./ui/ServerStats";
 
 ChartJS.register(
     CategoryScale,
@@ -169,51 +165,15 @@ const AppStatsPage: FC = () => {
     return (
         <Layout>
             <AdminPanelContainer>
-                <Cols type="auto" gap={10}>
+                <Cols type="custom" gap={10} cols={["470px", "1fr"]}>
                     <PatientDiseases />
                     {/* <AgeStats /> */}
                 </Cols>
                 <Cols type="custom" gap={10} cols={["1fr", "333px"]}>
                     <AgeStats />
-                    <div className={styles.stats}>
-                        <WhiteContentBlock>
-                            <div className={styles.text}>
-                                <Text type="h4">Посещений за сутки</Text>
-                                <Text type="h2" fz="24px">
-                                    13,856
-                                </Text>
-                            </div>
-                        </WhiteContentBlock>
-                        <WhiteContentBlock>
-                            <div className={styles.text}>
-                                <Text type="h4">
-                                    Зарегестрированные за сутки
-                                </Text>
-                                <Text type="h2" fz="24px">
-                                    13,856
-                                </Text>
-                            </div>
-                        </WhiteContentBlock>
-                        <WhiteContentBlock>
-                            <div className={styles.text}>
-                                <Text type="h4">
-                                    Удаленные аккаунты за сутки
-                                </Text>
-                                <Text type="h2" fz="24px">
-                                    13,856
-                                </Text>
-                            </div>
-                        </WhiteContentBlock>
-                    </div>
+                    <SiteVisit />
                 </Cols>
-                <div
-                    className={styles.cols}
-                    style={{
-                        gridTemplateColumns: LAPTOP
-                            ? "450px 1fr 270px"
-                            : "604px 1fr 270px",
-                    }}
-                >
+                <Cols type="custom" gap={10} cols={["500px", "1fr"]}>
                     <WhiteContentBlock>
                         <div className={styles.block}>
                             <MainText text="Экстренные вызовы за сутки" />
@@ -287,38 +247,7 @@ const AppStatsPage: FC = () => {
                             options={optionsLine}
                         />
                     </WhiteContentBlock>
-                    <WhiteContentBlock>
-                        <div className={styles.downloads}>
-                            <MainText text="За последние сутки" />
-                            <BlueBox>
-                                <div className={styles.rowText}>
-                                    <img src={appstore} alt="" />
-                                    <Text type="h2" fz="20px">
-                                        App Store
-                                    </Text>
-                                </div>
-                                <div className={styles.count}>
-                                    <Text type="h2" fz="36px" position="center">
-                                        2163
-                                    </Text>
-                                </div>
-                            </BlueBox>
-                            <BlueBox>
-                                <div className={styles.rowText}>
-                                    <img src={playmarket} alt="" />
-                                    <Text type="h2" fz="20px">
-                                        Google Play
-                                    </Text>
-                                </div>
-                                <div className={styles.count}>
-                                    <Text type="h2" fz="36px" position="center">
-                                        2163
-                                    </Text>
-                                </div>
-                            </BlueBox>
-                        </div>
-                    </WhiteContentBlock>
-                </div>
+                </Cols>
                 <div className={styles.cols}>
                     <WhiteContentBlock>
                         <div className={styles.text}>
@@ -371,17 +300,10 @@ const AppStatsPage: FC = () => {
                         </div>
                     </WhiteContentBlock>
                 </div>
-                <WhiteContentBlock>
-                    <Inner>
-                        <MainText text="Жалобы пользователей" />
-                        <Cols type="auto" gap={40} count={4}>
-                            {[1, 2, 3, 4].map((item) => (
-                                <UserReport key={item} />
-                            ))}
-                        </Cols>
-                        <BlueSliderArrows />
-                    </Inner>
-                </WhiteContentBlock>
+                <Cols gap={10} type="custom" cols={["250px", "1fr"]}>
+                    <AppDownload />
+                    <UserReports />
+                </Cols>
                 <WhiteContentBlock>
                     <div className={styles.nav}>
                         <MainText text="Отправка SMS" />
@@ -421,6 +343,7 @@ const AppStatsPage: FC = () => {
                         </BlueBox>
                     </Cols>
                 </WhiteContentBlock>
+                <ServerStats />
             </AdminPanelContainer>
         </Layout>
     );
