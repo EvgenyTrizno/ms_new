@@ -13,8 +13,8 @@ export interface IUserData {
     sex: TGender;
     number: string;
     email: string;
-    first_name: string;
-    last_name: string;
+    first_name: string | null;
+    last_name: string | null;
     surname: string | null;
     birthday: string;
     image: string;

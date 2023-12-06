@@ -40,14 +40,16 @@ const CenterPage: FC = () => {
         },
     ];
 
-    const clinic = data && data.data.clinic[0];
+    const center = data && data.data.center[0];
+
+    console.log(center);
 
     return (
         <Layout>
             {MOBILE && (
                 <CustomMobileHeader
                     back
-                    text="Профиль клиники"
+                    text="Профиль центра"
                 ></CustomMobileHeader>
             )}
             <Container>
@@ -66,7 +68,7 @@ const CenterPage: FC = () => {
                         }
                     >
                         <MedicalCenterView
-                            img={clinic?.image ?? ""}
+                            img={center?.image ?? ""}
                             report={function (): void {
                                 throw new Error("Function not implemented.");
                             }}
@@ -78,24 +80,23 @@ const CenterPage: FC = () => {
                         />
                         <MedicalCenterinfoLayout
                             btn={<Btn color="#0064FA">Полный перечень</Btn>}
-                            text="Клиника"
-                            name={clinic?.name ?? ""}
-                            type={clinic?.description ?? ""}
-                            country={`${clinic?.country.name}, ${clinic?.city.name}`}
-                            street={clinic?.address ?? ""}
-                            peoples={`${clinic?.employees.length} человек`}
-                            number={clinic?.number ?? ""}
+                            text="Центр"
+                            name={center?.name ?? ""}
+                            type={center?.description ?? ""}
+                            country={`${center?.country.name}, ${center?.city.name}`}
+                            street={center?.address ?? ""}
+                            peoples={`${center?.employees.length} человек`}
+                            number={center?.number ?? ""}
                         />
                         <Rows gap={10} rows={["auto"]}>
                             <AdminInfo
                                 name={`${
-                                    clinic?.admin && clinic?.admin[0].last_name
+                                    center?.admin && center?.admin?.last_name
                                 } ${
-                                    clinic?.admin && clinic?.admin[0].first_name
-                                } ${clinic?.admin && clinic?.admin[0].surname}`}
+                                    center?.admin && center?.admin?.first_name
+                                } ${center?.admin && center?.admin?.surname}`}
                                 number={
-                                    (clinic?.admin && clinic.admin[0].number) ??
-                                    ""
+                                    (center?.admin && center.admin.number) ?? ""
                                 }
                             />
                             <StatusInfo
@@ -105,7 +106,7 @@ const CenterPage: FC = () => {
                                         <BlueBox>
                                             <Row gap={10}>
                                                 <Text type="h2" fz="28px">
-                                                    {clinic?.visit_online}
+                                                    {center?.visit_online}
                                                 </Text>
                                                 <Text type="h5" fz="16x">
                                                     Онлайн
@@ -115,7 +116,7 @@ const CenterPage: FC = () => {
                                         <BlueBox>
                                             <Row gap={10}>
                                                 <Text type="h2" fz="28px">
-                                                    {clinic?.visit_offline}
+                                                    {center?.visit_offline}
                                                 </Text>
                                                 <Text type="h5" fz="16x">
                                                     Оффлайн
@@ -132,7 +133,7 @@ const CenterPage: FC = () => {
                                         <BlueBox>
                                             <Row gap={10}>
                                                 <Text type="h2" fz="28px">
-                                                    {clinic?.online_notes}
+                                                    {center?.online_notes}
                                                 </Text>
                                                 <Rows gap={0} rows={["auto"]}>
                                                     <Text type="h5" fz="16x">
@@ -151,7 +152,7 @@ const CenterPage: FC = () => {
                                         <BlueBox>
                                             <Row gap={10}>
                                                 <Text type="h2" fz="28px">
-                                                    {clinic?.offline_notes}
+                                                    {center?.offline_notes}
                                                 </Text>
                                                 <Rows gap={0} rows={["auto"]}>
                                                     <Text type="h5" fz="16x">

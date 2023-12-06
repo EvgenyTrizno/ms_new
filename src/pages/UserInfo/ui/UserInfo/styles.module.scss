@@ -1,0 +1,14 @@
+.imgContainer {
+    width: 312px;
+    height: 312px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        min-width: 280px;
+        width: 280px;
+        height: 280px;
+        border-radius: 12px;
+    }
+}

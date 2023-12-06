@@ -6,7 +6,7 @@ import { TProps } from "./types";
 //     ExtraCallMobile,
 // } from "@/widgets";
 import { Header } from "@/widgets/components/Header/ui";
-import { Menu } from "@/widgets/components/Menu/ui";
+import { Menu } from "@/widgets/components/Menu/ui/Menu";
 import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
 import { PC, SMALL_LAPTOP, TABLET, MOBILE, LAPTOP } from "@/shared/utils";
 import { ExtraCallBtn } from "@/widgets/components/ExtraCallBtn";

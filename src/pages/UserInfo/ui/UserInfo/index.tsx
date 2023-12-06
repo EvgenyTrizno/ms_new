@@ -1,0 +1,89 @@
+import { FC } from "react";
+
+import { Cols } from "@/shared/ui/Cols";
+import { Rows } from "@/shared/ui/Rows";
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
+import { Image } from "@/shared/ui/Image";
+import { Text } from "@/shared/ui/Text";
+import { Row } from "@/shared/ui/Row";
+
+import styles from "./styles.module.scss";
+
+export const UserInfo: FC = ({ img, name }) => {
+    return (
+        <Cols gap={10} type="custom" cols={["312px", "550px"]}>
+            <Rows gap={10} rows={["auto"]}>
+                <WhiteContentBlock className={styles.imgContainer}>
+                    <Image src={img} alt="" />
+                </WhiteContentBlock>
+                <WhiteContentBlock>
+                    <Rows gap={8} rows={["auto"]}>
+                        <Text type="h5" fz="14px">
+                            Зарегистрирован с 23 июня 2022
+                        </Text>
+                        <Row gap={5}>Аккаунт верифицирован</Row>
+                    </Rows>
+                </WhiteContentBlock>
+            </Rows>
+            <WhiteContentBlock>
+                <Rows gap={12} rows={["auto"]}>
+                    <Text type="h4" fz="18px">
+                        {name}
+                    </Text>
+                    <Rows gap={4} rows={["auto"]}>
+                        <Text type="h6" fz="14px">
+                            Адрес
+                        </Text>
+                        <Text type="p" fz="14px" color="#3C3D3E">
+                            {country}
+                        </Text>
+                        <Text type="p" fz="12px" color="#7D7F82">
+                            {street}
+                        </Text>
+                    </Rows>
+                    <Rows gap={4} rows={["auto"]}>
+                        <Text type="h6" fz="14px">
+                            Электронная почта
+                        </Text>
+                        <Text type="p" fz="14px" color="#3C3D3E">
+                            {email}
+                        </Text>
+                    </Rows>
+                    <Rows gap={4} rows={["auto"]}>
+                        <Text type="h6" fz="14px">
+                            Пол
+                        </Text>
+                        <Text type="p" fz="14px" color="#3C3D3E">
+                            {sex}
+                        </Text>
+                    </Rows>
+                    <Rows gap={4} rows={["auto"]}>
+                        <Text type="h6" fz="14px">
+                            Ведущий Центр
+                        </Text>
+                        <Text type="p" fz="14px" color="#3C3D3E">
+                            {mainCenter}
+                        </Text>
+                        <Text type="p" fz="12px" color="#7D7F82">
+                            {distanse} км от дома
+                        </Text>
+                    </Rows>
+                    <Rows gap={4} rows={["auto"]}>
+                        <Text type="h6" fz="14px">
+                            Дополнительные центры
+                        </Text>
+                        <Text type="p" fz="14px" color="#3C3D3E">
+                            Импульс Здоровья
+                        </Text>
+                        <Text type="p" fz="14px" color="#3C3D3E">
+                            АртМедЦентр
+                        </Text>
+                        <Text type="p" fz="14px" color="#3C3D3E">
+                            Здоровая Линия
+                        </Text>
+                    </Rows>
+                </Rows>
+            </WhiteContentBlock>
+        </Cols>
+    );
+};

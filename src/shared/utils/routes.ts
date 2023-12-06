@@ -36,15 +36,13 @@ const NotFoundPage = lazy(() => import("@/pages/404Page/NotFoundPage"));
 const MobileNotificationPage = lazy(
     () => import("@/pages/MobileNotification/MobileNotification")
 );
-const UserInfoPage = lazy(() => import("@/pages/UserInfo/UserInfoPage"));
+const UserInfoPage = lazy(() => import("@/pages/UserInfo"));
 const UsersPage = lazy(() => import("@/pages/Users/UsersPage"));
 const BalancePage = lazy(() => import("@/pages/Balance"));
 const AbountCenterPage = lazy(
     () => import("@/pages/AboutCenter/AboutCenterPage")
 );
 const ClinicProfilePage = lazy(() => import("@/pages/ClinicProfile"));
-// const CenterProfilePage = lazy(() => import("@/pages/CenterPage/CenterPage"));
-const EmployeeProfilePage = lazy(() => import("@/pages/EmployeeProfilePage"));
 const AppStatsPage = lazy(() => import("@/pages/AppStatsPage"));
 const LeadsPage = lazy(() => import("@/pages/LeadsPage"));
 const AdminPanelMapPage = lazy(
@@ -62,6 +60,7 @@ const MedicalCenter = lazy(() => import("@/pages/MedicalCenter"));
 const SubsPage = lazy(() => import("@/pages/SubsPage"));
 const SavedPage = lazy(() => import("@/pages/SavedPage"));
 const AccessPage = lazy(() => import("@/pages/AccessPage"));
+const CenterPage = lazy(() => import("@/pages/CenterPage"));
 
 export const routes: RouteProps[] = [
     {
@@ -138,7 +137,7 @@ export const routes: RouteProps[] = [
         Component: MobileNotificationPage,
     },
     {
-        path: "/users/:id",
+        path: "/user/:id",
         Component: UserInfoPage,
     },
     {
@@ -160,11 +159,7 @@ export const routes: RouteProps[] = [
     },
     {
         path: "/center/:id",
-        Component: ClinicProfilePage,
-    },
-    {
-        path: "/employee/:id",
-        Component: EmployeeProfilePage,
+        Component: CenterPage,
     },
     { path: "/app", Component: AppStatsPage },
     { path: "/leads", Component: LeadsPage },

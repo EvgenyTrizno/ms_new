@@ -24,7 +24,7 @@ export interface IClinic {
     updated_at: Date;
     review_date: null;
     review_passed: null;
-    admin: IUserData[];
+    admin: IUserData;
     country: ICountry;
     city: ICity;
     employees: IEmpoyee[];

@@ -12,7 +12,7 @@ interface IClinicModify extends IClinic {
 }
 
 interface IClinicResponse {
-    clinic: IClinicModify[];
+    center: IClinicModify[];
     pacients: IUserData[];
 }
 
