@@ -8,19 +8,44 @@ import { MedicalHistory } from "./ui/MedicalHistory";
 import { UserInfo } from "./ui/UserInfo";
 import { NotesList } from "./ui/NotesList";
 import { useUserQuery } from "./lib/hooks/useUserQuery";
+import { DiseasesHistory } from "./ui/DiseasesHistory";
+import { Access } from "./ui/Accesss";
 
 const UserInfoPage: FC = () => {
     const { id } = useParams();
     const { data } = useUserQuery(id ? +id : 0);
 
+    const user = data && data.data.user[0];
+
     return (
         <Layout>
             <AdminPanelContainer>
                 <Cols gap={10} type="custom" cols={["872px", "1fr"]}>
-                    <UserInfo />
+                    <UserInfo
+                        img={user?.image ?? ""}
+                        name={user?.first_name ?? ""}
+                        country={`${user?.country.name}, ${user?.city.name}`}
+                        street={user?.address ?? ""}
+                        email={user?.email ?? ""}
+                        sex={user?.sex ?? ""}
+                        mainCenter={user?.main_center.name ?? ""}
+                        distanse={""}
+                        createdAt={user?.created_at ?? ""}
+                        centers={user?.centers ?? []}
+                    />
                     <MedicalHistory />
                 </Cols>
-                <NotesList />
+                <NotesList
+                    missing={data?.data.miss_notes ?? []}
+                    current={data?.data.curr_notes ?? []}
+                    umounted={data?.data.process_notes ?? []}
+                />
+                <Cols gap={10} type="custom" cols={["460px", "1fr"]}>
+                    <DiseasesHistory />
+                </Cols>
+                <Cols type="custom" gap={10} cols={["734px", "400px", "1fr"]}>
+                    <Access data={data?.data.access ?? []} />
+                </Cols>
             </AdminPanelContainer>
         </Layout>
     );

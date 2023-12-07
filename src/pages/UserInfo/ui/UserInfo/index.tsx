@@ -8,8 +8,48 @@ import { Text } from "@/shared/ui/Text";
 import { Row } from "@/shared/ui/Row";
 
 import styles from "./styles.module.scss";
+import { IUserInfoProps } from "./types";
 
-export const UserInfo: FC = ({ img, name }) => {
+export const UserInfo: FC<IUserInfoProps> = ({
+    img,
+    name,
+    country,
+    street,
+    email,
+    sex,
+    mainCenter,
+    distanse,
+    createdAt,
+    centers,
+}) => {
+    function convertStringToDate(inputStr: string | Date) {
+        const dateObject = new Date(inputStr);
+
+        const getMonthName = (month: number) => {
+            const monthNames = [
+                "января",
+                "февраля",
+                "марта",
+                "апреля",
+                "мая",
+                "июня",
+                "июля",
+                "августа",
+                "сентября",
+                "октября",
+                "ноября",
+                "декабря",
+            ];
+            return monthNames[month];
+        };
+
+        const formattedDate = `${dateObject.getDate()} ${getMonthName(
+            dateObject.getMonth()
+        )} ${dateObject.getFullYear()}`;
+
+        return formattedDate;
+    }
+
     return (
         <Cols gap={10} type="custom" cols={["312px", "550px"]}>
             <Rows gap={10} rows={["auto"]}>
@@ -19,7 +59,7 @@ export const UserInfo: FC = ({ img, name }) => {
                 <WhiteContentBlock>
                     <Rows gap={8} rows={["auto"]}>
                         <Text type="h5" fz="14px">
-                            Зарегистрирован с 23 июня 2022
+                            Зарегистрирован с {convertStringToDate(createdAt)}
                         </Text>
                         <Row gap={5}>Аккаунт верифицирован</Row>
                     </Rows>
@@ -72,15 +112,11 @@ export const UserInfo: FC = ({ img, name }) => {
                         <Text type="h6" fz="14px">
                             Дополнительные центры
                         </Text>
-                        <Text type="p" fz="14px" color="#3C3D3E">
-                            Импульс Здоровья
-                        </Text>
-                        <Text type="p" fz="14px" color="#3C3D3E">
-                            АртМедЦентр
-                        </Text>
-                        <Text type="p" fz="14px" color="#3C3D3E">
-                            Здоровая Линия
-                        </Text>
+                        {centers.map((item) => (
+                            <Text type="p" fz="14px" color="#3C3D3E">
+                                {item.name}
+                            </Text>
+                        ))}
                     </Rows>
                 </Rows>
             </WhiteContentBlock>

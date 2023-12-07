@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { INoteProps } from "./types";
 
 import { Rows } from "@/shared/ui/Rows";
 import { Avatar } from "@/shared/ui/Avatar";
@@ -6,17 +7,17 @@ import { InfoText } from "@/shared/ui/InfoText";
 import { Row } from "@/shared/ui/Row";
 import { Text } from "@/shared/ui/Text";
 
-export const Note: FC = () => {
+export const Note: FC<INoteProps> = ({ doctor, name }) => {
     return (
         <Rows gap={10} rows={["auto"]}>
             <Row gap={10}>
                 <Avatar img="" size="S" type="user" />
                 <Rows gap={5} rows={["auto"]}>
                     <Text type="h5" fz="15px">
-                        Гастроэнтеролог
+                        {doctor}
                     </Text>
                     <Text type="p" fz="14px">
-                        Ковалева Елена Владимировна
+                        {name}
                     </Text>
                 </Rows>
             </Row>

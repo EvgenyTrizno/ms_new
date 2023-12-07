@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { INotesList } from "./types";
 
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Text } from "@/shared/ui/Text";
@@ -9,7 +10,7 @@ import { Unmounted } from "../Unmounted";
 import { Row } from "@/shared/ui/Row";
 import { InfoText } from "@/shared/ui/InfoText";
 
-export const NotesList: FC = () => {
+export const NotesList: FC<INotesList> = ({ missing, current, umounted }) => {
     return (
         <WhiteContentBlock>
             <Row
@@ -22,9 +23,9 @@ export const NotesList: FC = () => {
                 <InfoText text="Все записи" />
             </Row>
             <Cols gap={10} count={3} type="auto">
-                <Missing />
-                <Current />
-                <Unmounted />
+                <Missing missing={missing} />
+                <Current current={current} />
+                <Unmounted umounted={umounted} />
             </Cols>
         </WhiteContentBlock>
     );
