@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
-import { MainText } from "@/widgets";
+import { MainText } from "@/shared/ui/MainText/MainText";
 import { Rows } from "@/shared/ui/Rows";
 import { Payment } from "../Payment";
 

@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 
 import { Layout } from "../Layout";
-import { MobileHeader } from "@/widgets";
+import { MobileHeader } from "@/widgets/components/MobileHeader";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
 import { MOBILE } from "@/shared/utils";
 import { FilterBtn } from "@/shared/ui/FilterBtn";

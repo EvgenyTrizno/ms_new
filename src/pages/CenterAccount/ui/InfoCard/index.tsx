@@ -4,7 +4,7 @@ import { FC } from "react";
 
 import { Row } from "@/shared/ui/Row";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
-import { MainText } from "@/widgets";
+import { MainText } from "@/shared/ui/MainText/MainText";
 import { Text } from "@/shared/ui/Text";
 import { Rows } from "@/shared/ui/Rows";
 import { IInfoCardProps } from "./types";

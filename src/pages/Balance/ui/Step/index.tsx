@@ -3,7 +3,7 @@ import { FC } from "react";
 import { BlueBox } from "@/shared/ui/BlueBox";
 import { Row } from "@/shared/ui/Row";
 import { Rows } from "@/shared/ui/Rows";
-import { MainText } from "@/widgets";
+import { MainText } from "@/shared/ui/MainText/MainText";
 import { Text } from "@/shared/ui/Text";
 import { Image } from "@/shared/ui/Image";
 
