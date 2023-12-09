@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useParams } from "react-router";
 
 import { Layout } from "../Layout";
@@ -27,7 +27,7 @@ import { AdminInfo } from "@/entities/AdminInfo";
 
 const CenterPage: FC = () => {
     const { id } = useParams();
-    const { data } = useCenterQuery(id ? +id : 0);
+    const { data, refetch } = useCenterQuery(id ? +id : 0);
 
     const incomeData = [
         {
@@ -42,7 +42,9 @@ const CenterPage: FC = () => {
 
     const center = data && data.data.center[0];
 
-    console.log(center);
+    useEffect(() => {
+        refetch();
+    }, [id]);
 
     return (
         <Layout>
@@ -191,7 +193,9 @@ const CenterPage: FC = () => {
                         />
                         <FilterBtn onClick={() => ({})} type="big" />
                     </Row>
-                    <EmployeesList />
+                    <EmployeesList
+                        data={data?.data.center[0].employees ?? []}
+                    />
                 </AdminPanelContainer>
             </Container>
         </Layout>

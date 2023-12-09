@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { IEmployeesList } from "./types";
 
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Rows } from "@/shared/ui/Rows";
@@ -7,7 +8,7 @@ import { Slider } from "@/widgets";
 import { Cols } from "@/shared/ui/Cols";
 import { EmployeeInfo } from "../EmpoyeeInfo";
 
-export const EmployeesList: FC = () => {
+export const EmployeesList: FC<IEmployeesList> = ({ data }) => {
     return (
         <WhiteContentBlock>
             <Rows gap={16} rows={["auto"]}>
@@ -17,12 +18,20 @@ export const EmployeesList: FC = () => {
                         type="auto"
                         count={4}
                         gap={24}
-                        style={{ justifyContent: "space-between" }}
+                        style={{
+                            justifyContent: "space-between",
+                            width: "100%",
+                        }}
                     >
-                        <EmployeeInfo />
-                        <EmployeeInfo />
-                        <EmployeeInfo />
-                        <EmployeeInfo />
+                        {data &&
+                            data.map((item) => (
+                                <EmployeeInfo
+                                    avatar={item.image}
+                                    name={`${item.last_name} ${item.first_name} ${item?.surname}`}
+                                    rating={item.rating}
+                                    key={item.id}
+                                />
+                            ))}
                     </Cols>
                 </Slider>
             </Rows>

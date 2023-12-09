@@ -16,10 +16,10 @@ import icon from "./assets/x.svg";
 
 export const Access: FC<IAccessData> = ({ data }) => {
     const [id, setId] = useState<number>(0);
-    const { mutate } = useAccessMutate(id, "unaccept");
+    const { mutate } = useAccessMutate(id, "accept");
 
     useEffect(() => {
-        mutate();
+        id && mutate();
     }, [id]);
 
     return (

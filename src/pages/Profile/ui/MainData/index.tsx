@@ -4,6 +4,7 @@ import { IProfileParamsItemsData } from "../../types";
 // import { Input } from "@/shared/ui/Input";
 import { Text } from "@/shared/ui/Text";
 import { useAuth } from "@/shared/model/store/auth";
+import { Image } from "@/shared/ui/Image";
 import { Account } from "../Account";
 
 import keyBlue from "/assets/key-big-blue.svg";
@@ -26,6 +27,7 @@ import statsBlue from "../../assets/statsBlue.svg";
 import statsRed from "../../assets/statsRed.svg";
 
 import styles from "./styles.module.scss";
+import { Rows } from "@/shared/ui/Rows";
 
 export const MainData: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -81,14 +83,11 @@ export const MainData: FC = () => {
     ];
 
     return (
-        <div className={styles.items}>
+        <Rows gap={10} rows={["auto"]}>
             {data.map((item, i) => (
                 <div
                     className={styles.item}
                     key={i}
-                    // style={{
-                    //     borderColor: sick ? "#F7E6E8" : "",
-                    // }}
                     onClick={() => {
                         setIsOpen((prev) => !prev);
                         setSelect(item.label);
@@ -107,7 +106,10 @@ export const MainData: FC = () => {
                             />
                             <Text type="p">{item.label}</Text>
                         </div>
-                        <img
+                        <Image
+                            className={
+                                item.label === "Аккаунт" ? styles.arrow : ""
+                            }
                             style={
                                 isOpen && select === item.label
                                     ? {
@@ -136,6 +138,6 @@ export const MainData: FC = () => {
                     </div>
                 </div>
             ))}
-        </div>
+        </Rows>
     );
 };

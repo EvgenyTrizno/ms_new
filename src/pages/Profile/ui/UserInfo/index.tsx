@@ -10,6 +10,8 @@ import styles from "./styles.module.scss";
 export const User: FC = () => {
     const { user } = useAuth();
 
+    console.log(user);
+
     return (
         <div className={styles.user}>
             <div className={styles.image}>

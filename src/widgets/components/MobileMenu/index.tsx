@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, SetStateAction, useState } from "react";
 // import { useNavigate } from "react-router";
 // import { IMenuData } from "../Menu/model/types";
 
@@ -124,23 +124,9 @@ export const MobileMenu: FC = () => {
     // };
 
     return (
-        <div className={styles.wrap}>
-            <div className={styles.menu}>
-                <div className={styles.rectLeft}>
-                    <div className={styles.inner}></div>
-                </div>
-                <div className={styles.rect}>
-                    &nbsp;<span className={styles.circle}></span>
-                </div>
-                <ExtraCallBtn
-                    isOpen={isOpen}
-                    setIsOpen={setIsOpen}
-                    className={styles.position}
-                />
-                <div className={styles.rectRight}>
-                    <div className={styles.inner}></div>
-                </div>
-            </div>
+        <div className={styles.menu}>
+            <ExtraCallBtn isOpen={false} setIsOpen={() => ({})} />
+            <div className={styles.gap}></div>
         </div>
     );
 };

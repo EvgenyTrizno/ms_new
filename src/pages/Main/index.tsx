@@ -8,7 +8,7 @@ import { MOBILE, TABLET } from "@/shared/utils";
 import { Container } from "@/shared/ui/Container";
 import { DoctorsFromUserCountry } from "@/widgets/components/DoctorsFromUserCountry";
 import { Line } from "@/shared/ui/Line";
-import { Posts } from "@/widgets/components/Posts";
+import { Posts } from "./ui/Posts";
 
 import styles from "./styles.module.scss";
 

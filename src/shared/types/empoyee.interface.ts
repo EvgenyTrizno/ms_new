@@ -1,4 +1,4 @@
-export interface IEmpoyee {
+export interface IEmployee {
     id: number;
     password: string;
     last_login: null | Date;
@@ -6,6 +6,8 @@ export interface IEmpoyee {
     last_name: string;
     number: string;
     email: null | string;
+    image: string;
+    surname: string | null;
     middle_name: string;
     address: string;
     specialization: string;
@@ -22,4 +24,5 @@ export interface IEmpoyee {
     country: number;
     center: number;
     clinic: null | number;
+    rating: number;
 }

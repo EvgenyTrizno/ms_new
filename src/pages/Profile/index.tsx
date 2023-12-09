@@ -106,9 +106,7 @@ const ProfilePage: FC = () => {
             <Container>
                 {(PC || SMALL_LAPTOP || LAPTOP) && (
                     <>
-                        <div className={styles.reminder}>
-                            <ReminderBlock type="timer" width="max-content" />
-                        </div>
+                        <ReminderBlock type="timer" width="max-content" />
                         <User />
                     </>
                 )}

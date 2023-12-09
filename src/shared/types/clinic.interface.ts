@@ -1,7 +1,7 @@
 import { ICity } from "./city.interface";
 import { ICountry } from "./country.interface";
 import { IDisease } from "./disease.interface";
-import { IEmpoyee } from "./empoyee.interface";
+import { IEmployee } from "./empoyee.interface";
 import { IUserData } from "./user.interface";
 
 export interface IClinic {
@@ -27,6 +27,6 @@ export interface IClinic {
     admin: IUserData;
     country: ICountry;
     city: ICity;
-    employees: IEmpoyee[];
+    employees: IEmployee[];
     supported_diseases: IDisease[];
 }
