@@ -19,3 +19,9 @@
     background-color: #7EB2FF !important;
 }
 
+@media screen and (min-width: 1440px) and (max-width: 1920px) {
+    .btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+}

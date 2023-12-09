@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout";
-import { MobileHeader } from "@/widgets";
+import { MobileHeader } from "@/widgets/components/MobileHeader";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
 import { FilterBtn } from "@/shared/ui/FilterBtn";
 import { MOBILE, TABLET } from "@/shared/utils";
@@ -16,13 +16,13 @@ const MainPage: FC = () => {
     return (
         <Layout>
             {(MOBILE || TABLET) && <MobileHeader />}
-            <Container height={MOBILE || TABLET ? "calc(100% - 180px)" : ""}>
+            <Container>
                 <DoctorsFromUserCountry />
                 {MOBILE && <Line />}
                 <div className={styles.posts}>
                     <div className={styles.filters}>
                         <FilterBtn
-                            type="big"
+                            type={MOBILE ? "small" : "big"}
                             onClick={() => console.log("1")}
                         />
                     </div>

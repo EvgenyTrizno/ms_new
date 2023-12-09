@@ -6,6 +6,7 @@ import { Username } from "@/entities/User";
 import { getFullUsernameWithInitials } from "@/entities/User/lib/helpers/getFullUsernameWithInitials";
 import { Avatar } from "@/shared/ui/Avatar";
 import { UserRank } from "@/entities/User";
+import { MOBILE } from "@/shared/utils";
 
 export const DoctorCard: FC<IDoctorCardProps> = ({
     name,
@@ -19,20 +20,28 @@ export const DoctorCard: FC<IDoctorCardProps> = ({
     return (
         <CardLayout
             username={
-                <Username
-                    name={
-                        surnameLength
-                            ? `${surname}...`
-                            : getFullUsernameWithInitials(
-                                  surname,
-                                  name,
-                                  patronymic
-                              )
-                    }
-                />
+                !MOBILE && (
+                    <Username
+                        name={
+                            surnameLength
+                                ? `${surname}...`
+                                : getFullUsernameWithInitials(
+                                      surname,
+                                      name,
+                                      patronymic
+                                  )
+                        }
+                    />
+                )
             }
             userAvatar={<Avatar type="user" img={avatar} size="M" />}
-            userRank={<UserRank rank={rank} position="center" />}
+            userRank={
+                <UserRank
+                    rank={rank}
+                    position="center"
+                    fz={MOBILE ? "12px" : ""}
+                />
+            }
         />
     );
 };

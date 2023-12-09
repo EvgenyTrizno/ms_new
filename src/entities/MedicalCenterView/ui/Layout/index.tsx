@@ -9,6 +9,7 @@ import { Btn } from "@/shared/ui/Btn";
 import { IMedicalCenterViewProps } from "./types";
 
 import styles from "./styles.module.scss";
+import { LAPTOP } from "@/shared/utils";
 
 export const Layout: FC<IMedicalCenterViewProps> = ({
     img,
@@ -22,7 +23,7 @@ export const Layout: FC<IMedicalCenterViewProps> = ({
             <Rows gap={16} rows={["auto"]}>
                 <Image className={styles.avatar} src={img} alt="" />
                 <Rows gap={5} rows={["auto"]}>
-                    <Text type="h4" fz="18px">
+                    <Text type="h4" fz={LAPTOP ? "15px" : "18px"}>
                         Начал работу с {date}
                     </Text>
                     {verify && (
@@ -33,7 +34,7 @@ export const Layout: FC<IMedicalCenterViewProps> = ({
                         </Row>
                     )}
                 </Rows>
-                <Row gap={8}>
+                <Row gap={LAPTOP ? 4 : 8}>
                     <Btn color="#0064FA" onClick={contact}>
                         Связаться
                     </Btn>

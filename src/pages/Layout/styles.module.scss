@@ -1,12 +1,12 @@
-    .main {
-        position: fixed;
-        width: calc(100% - 256px);
-        right: 0;
-        top: 65px;
-        padding: 16px;
-        height: calc(100% - 64px);
-        overflow-y: auto;
-    }
+.main {
+    position: fixed;
+    width: calc(100% - 256px);
+    right: 0;
+    top: 65px;
+    padding: 16px;
+    height: calc(100% - 64px);
+    overflow-y: auto;
+}
 
 
 
@@ -16,5 +16,13 @@
         width: 100%;
         height: calc(100% - 180px);
         top: 100px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .main {
+        top: 82px;
+        height: calc(100% - 156px);
+        width: 100%;
     }
 }

@@ -14,9 +14,9 @@ export const DoctorsFromUserCountry: FC = () => {
         <Rows gap={10} rows={["auto"]}>
             <Row gap={0} style={{ justifyContent: "space-between" }}>
                 <Text type="p" color="#7D7F82" fz="14px">
-                    {user && user.country
+                    {user && user.country.name
                         ? `Специалисты из ${user.country.name}`
-                        : "Неудалось определить страну"}
+                        : ""}
                 </Text>
                 <SliderArrows />
             </Row>

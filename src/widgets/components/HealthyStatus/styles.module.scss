@@ -7,3 +7,11 @@
     font-weight: 500;
     height: 56px;
 }
+
+
+@media screen and (max-width: 576px) {
+    .switcher {
+        height: 40px;
+        width: 132px;
+    }
+}

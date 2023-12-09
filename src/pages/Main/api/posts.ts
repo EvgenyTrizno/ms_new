@@ -9,7 +9,7 @@ interface IPostsResponse {
     created_at: Date;
     disease: IDisease;
     id: number;
-    image: string;
+    image: string[];
     text: string;
     title: string;
     update_at: Date;

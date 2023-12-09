@@ -12,9 +12,11 @@ import { Username } from "@/entities/User/ui/Username";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { UserGroup } from "@/entities/User/ui/UserGroup";
 import { useAuth } from "@/shared/model/store/auth";
+import { MOBILE } from "@/shared/utils";
 
 import styles from "./styles.module.scss";
 import "swiper/css/pagination";
+import { Image } from "@/shared/ui/Image";
 
 export const PostLayout: FC<IPostLayoutProps> = ({
     actionsGUI,
@@ -50,10 +52,15 @@ export const PostLayout: FC<IPostLayoutProps> = ({
     return (
         <WhiteContentBlock className={`${styles.post} ${sick && styles.sick}`}>
             <Row gap={10}>
-                <Avatar type="user" img={avatar} size="M" onClick={onClick} />
+                <Avatar
+                    type={MOBILE ? "custom" : "user"}
+                    img={avatar}
+                    size={MOBILE ? 42 : "M"}
+                    onClick={onClick}
+                />
                 <Rows gap={5} rows={["auto", "auto"]}>
-                    <Username name={name} fz="18px" />
-                    <UserGroup group={creator} fz="14px" />
+                    <Username name={name} fz={MOBILE ? "15px" : "18px"} />
+                    <UserGroup group={creator} fz={MOBILE ? "12px" : "14px"} />
                 </Rows>
             </Row>
             <div className={styles.descr}>
@@ -68,13 +75,16 @@ export const PostLayout: FC<IPostLayoutProps> = ({
                     className={styles.slider}
                     key={paginationKey}
                 >
-                    <SwiperSlide>
-                        <img src={img} alt="" className={styles.img} />
-                    </SwiperSlide>
+                    {img &&
+                        img.map((item) => (
+                            <SwiperSlide>
+                                <Image key={item} src={item} alt="" />
+                            </SwiperSlide>
+                        ))}
                 </Swiper>
             </div>
             <Row gap={0} style={{ justifyContent: "space-between" }}>
-                <Row gap={15}>{actionsGUI}</Row>
+                <Row gap={MOBILE ? 6 : 15}>{actionsGUI}</Row>
                 {postInfo}
             </Row>
         </WhiteContentBlock>
