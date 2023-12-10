@@ -8,7 +8,9 @@
     .container {
         padding: 16px;
         width: 100vw;
-        position: absolute;
-        height: 100%;
+        position: fixed;
+        height: calc(100% - 82px);
+        top: 82px;
+        overflow-y: auto;
     }
 }

@@ -21,8 +21,9 @@
 
 @media screen and (max-width: 576px) {
     .main {
-        top: 82px;
-        height: calc(100% - 156px);
+        height: 100vh;
         width: 100%;
+        top: 0;
+        padding: 0;
     }
 }

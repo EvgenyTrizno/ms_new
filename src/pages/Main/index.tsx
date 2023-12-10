@@ -9,23 +9,34 @@ import { Container } from "@/shared/ui/Container";
 import { DoctorsFromUserCountry } from "@/widgets/components/DoctorsFromUserCountry";
 import { Line } from "@/shared/ui/Line";
 import { Posts } from "./ui/Posts";
+import { Text } from "@/shared/ui/Text";
 
 import styles from "./styles.module.scss";
+import { Row } from "@/shared/ui/Row";
 
 const MainPage: FC = () => {
     return (
         <Layout>
             {(MOBILE || TABLET) && <MobileHeader />}
-            <Container>
+            <Container height={MOBILE ? "calc(100% - 156px)" : ""}>
                 <DoctorsFromUserCountry />
                 {MOBILE && <Line />}
                 <div className={styles.posts}>
-                    <div className={styles.filters}>
+                    <Row
+                        gap={0}
+                        style={{ justifyContent: "space-between" }}
+                        className={styles.filters}
+                    >
+                        {(MOBILE || TABLET) && (
+                            <Text type="h6" fz="15px">
+                                Популярные посты
+                            </Text>
+                        )}
                         <FilterBtn
                             type={MOBILE ? "small" : "big"}
                             onClick={() => console.log("1")}
                         />
-                    </div>
+                    </Row>
                     <Posts />
                 </div>
             </Container>

@@ -6,7 +6,7 @@ import { Text } from "@/shared/ui/Text";
 
 import styles from "./CustomMobileHeader.module.scss";
 
-export const CustomMobileHeader: FC<IHeaderProps> = ({ children, text }) => {
+export const CustomMobileHeader: FC<IHeaderProps> = ({ btn, text }) => {
     const navigate = useNavigate();
 
     return (
@@ -27,12 +27,12 @@ export const CustomMobileHeader: FC<IHeaderProps> = ({ children, text }) => {
                     strokeLinejoin="round"
                 />
             </svg>
-            {children}
             {text && text.length && (
                 <Text type="h2" fz="18px">
                     {text}
                 </Text>
             )}
+            <div style={{ position: "absolute", right: "16px" }}>{btn}</div>
         </div>
     );
 };

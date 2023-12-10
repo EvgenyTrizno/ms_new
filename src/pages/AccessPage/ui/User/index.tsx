@@ -10,6 +10,7 @@ import { Image } from "@/shared/ui/Image";
 
 import more from "./assets/more.svg";
 import { PopUp } from "@/shared/ui/PopUp";
+import { MOBILE } from "@/shared/utils";
 
 export const User: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -24,7 +25,11 @@ export const User: FC = () => {
         <WhiteContentBlock>
             <Row gap={0} style={{ justifyContent: "space-between" }}>
                 <Row gap={16}>
-                    <Avatar type="user" size="L" img="" />
+                    <Avatar
+                        type={MOBILE ? "custom" : "user"}
+                        size={MOBILE ? 52 : "L"}
+                        img=""
+                    />
                     <Rows gap={5} rows={["auto"]}>
                         <Text type="h4" fz="16px">
                             Михайлова Т. А.

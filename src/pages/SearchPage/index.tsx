@@ -9,6 +9,7 @@ import { Container } from "@/shared/ui/Container";
 import { Search } from "@/features/Search";
 import { Row } from "@/shared/ui/Row";
 import { WithFilter } from "./ui/WithFilter";
+import { SearchWithFilter } from "@/features/SearchWithFilter";
 
 const SearchPage: FC = () => {
     const [search, setSearch] = useState<string>("");
@@ -17,14 +18,25 @@ const SearchPage: FC = () => {
     return (
         <Layout>
             {MOBILE && <MobileHeader />}
-            <Container>
+            <Container height="calc(100% - 156px)">
                 <Row gap={10}>
-                    <Search
-                        placeholder="Поиск чатов"
-                        height="48px"
-                        onChange={(e) => setSearch((e && e.target.value) ?? "")}
-                    />
-                    <FilterBtn type="big" onClick={() => console.log("1")} />
+                    {MOBILE ? (
+                        <SearchWithFilter />
+                    ) : (
+                        <>
+                            <Search
+                                placeholder="Поиск чатов"
+                                height="48px"
+                                onChange={(e) =>
+                                    setSearch((e && e.target.value) ?? "")
+                                }
+                            />
+                            <FilterBtn
+                                type="big"
+                                onClick={() => console.log("1")}
+                            />
+                        </>
+                    )}
                 </Row>
                 <WithFilter
                     search={search}

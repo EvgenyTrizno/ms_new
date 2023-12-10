@@ -1,42 +1,30 @@
 import { FC, useState } from "react";
-// import { useNavigate } from "react-router";
 
 import { Layout } from "../Layout";
-// import { BackArrow} from "@/shared";
 import { CustomMobileHeader } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
 import { Modal } from "@/entities/Modal";
 import { Btn } from "@/shared/ui/Btn";
 import { MOBILE } from "@/shared/utils";
-import { AddBtn } from "@/shared/ui/AddBtn";
 import { Filter } from "@/shared/ui/Filter";
-import { Row } from "@/shared/ui/Row";
 import { Container } from "@/shared/ui/Container";
-import { Search } from "@/features/Search/ui";
 import { NoteBlock } from "@/entities/Note/ui/NoteBlock";
 
 import ghost from "/assets/ghost.svg";
-import styles from "./NotesPage.module.scss";
+import styles from "./styles.module.scss";
+import { SearchWithFilter } from "./ui/Search";
 
 const NotesPage: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
     const [filter, setFilter] = useState<string>("Текущие");
 
     const data = [1, 2, 3, 4];
-    // const navigate = useNavigate();
 
     return (
         <Layout>
-            {MOBILE && (
-                <CustomMobileHeader back>
-                    {/* <BackArrow /> */}
-                </CustomMobileHeader>
-            )}
+            {MOBILE && <CustomMobileHeader back text="Записи" />}
             <Container>
-                <Row gap={10}>
-                    <Search placeholder="Введите запрос" height="48px" />
-                    <AddBtn onClick={() => ({})} />
-                </Row>
+                <SearchWithFilter />
                 <Filter
                     data={["Текущие", "Доп.проверка"]}
                     isSelect={filter}

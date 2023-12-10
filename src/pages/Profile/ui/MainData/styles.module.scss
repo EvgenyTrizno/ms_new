@@ -1,6 +1,6 @@
 .item {
     background-color: var(--white);
-    border-radius: var(--default-border);
+    border-radius: 12px;
     border: 1px solid var(--blue-100);
     padding: 25px;
     display: flex;
@@ -21,7 +21,7 @@
     .params {
         display: flex;
         align-items: center;
-        grid-gap: 12px;
+        grid-gap: 16px;
 
         .icon {
             width: 25px;
@@ -48,4 +48,21 @@
 .content.open {
     grid-template-rows: 1fr;
     opacity: 1;
+}
+
+@media screen and (max-width: 576px) {
+    .item {
+        padding: 16px;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .item:first-child {
+        .arrow {
+            transform: rotate(0deg);
+        }
+    }
 }

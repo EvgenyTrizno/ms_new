@@ -9,10 +9,11 @@ import { Line } from "@/shared/ui/Line";
 
 import more from "../../assets/more.svg";
 import styles from "./styles.module.scss";
+import { LAPTOP, PC } from "@/shared/utils";
 
 export const CenterCard: FC = () => {
     return (
-        <BlueBox>
+        <BlueBox className={styles.card}>
             <Row
                 gap={12}
                 style={{ alignItems: "flex-start", marginBottom: 16 }}
@@ -32,7 +33,7 @@ export const CenterCard: FC = () => {
                         </Text>
                     </Row>
                 </Rows>
-                <Image src={more} alt="" />
+                {(PC || LAPTOP) && <Image src={more} alt="" />}
             </Row>
             <Rows gap={12} rows={["auto"]}>
                 <Row gap={0}>

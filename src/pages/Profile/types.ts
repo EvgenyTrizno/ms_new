@@ -4,5 +4,5 @@ import { IIconData } from "@/shared/types";
 export interface IProfileParamsItemsData {
     icon: IIconData;
     label: string;
-    content?: JSX.Element;
+    content?: JSX.Element | null;
 }

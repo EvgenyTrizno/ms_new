@@ -1,21 +1,17 @@
 import { FC, useState } from "react";
 import { IProfileParamsItemsData } from "../../types";
 
-// import { Input } from "@/shared/ui/Input";
 import { Text } from "@/shared/ui/Text";
 import { useAuth } from "@/shared/model/store/auth";
 import { Image } from "@/shared/ui/Image";
 import { Account } from "../Account";
+import { Rows } from "@/shared/ui/Rows";
 
 import keyBlue from "/assets/key-big-blue.svg";
 import keyRed from "/assets/key-big-red.svg";
 import homeWithPlus from "/assets/home-with-plus-blue.svg";
 import homeWithPlusRed from "/assets/home-with-plus-red.svg";
-// import markerBlue from "/assets/marker-blue.svg";
-// import markerRed from "/assets/marker-red.svg";
 import markBlue from "/assets/mark-blue.svg";
-// import cartBlue from "/assets/shopping-cart-blue.svg";
-// import cartRed from "/assets/shopping-cart-red.svg";
 import heartBlue from "/assets/heart-blue.svg";
 import heartRed from "/assets/heart-red.svg";
 import userBlue from "/assets/user-blue.svg";
@@ -27,7 +23,7 @@ import statsBlue from "../../assets/statsBlue.svg";
 import statsRed from "../../assets/statsRed.svg";
 
 import styles from "./styles.module.scss";
-import { Rows } from "@/shared/ui/Rows";
+import { MOBILE } from "@/shared/utils";
 
 export const MainData: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -42,7 +38,7 @@ export const MainData: FC = () => {
                 healthy: userBlue,
                 sick: userRed,
             },
-            content: <Account />,
+            content: !MOBILE ? <Account /> : null,
         },
         {
             label: "Назначения",
@@ -111,7 +107,7 @@ export const MainData: FC = () => {
                                 item.label === "Аккаунт" ? styles.arrow : ""
                             }
                             style={
-                                isOpen && select === item.label
+                                isOpen && item.content && select === item.label
                                     ? {
                                           transform:
                                               item.label === "Аккаунт"
@@ -128,7 +124,8 @@ export const MainData: FC = () => {
                         className={
                             isOpen &&
                             select === item.label &&
-                            "content" in data[i]
+                            "content" in data[i] &&
+                            item.content
                                 ? `${styles.content} ${styles.open}`
                                 : styles.content
                         }

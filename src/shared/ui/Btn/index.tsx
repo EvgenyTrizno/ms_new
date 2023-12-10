@@ -42,7 +42,7 @@ export const Btn: FC<IBtn> = ({
             }
             style={{
                 fontSize: fz,
-                backgroundColor: `${
+                background: `${
                     sick
                         ? "#D64657"
                         : sick && color === "transparent"

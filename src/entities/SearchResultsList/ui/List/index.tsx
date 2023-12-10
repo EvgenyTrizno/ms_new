@@ -3,6 +3,7 @@ import { FC } from "react";
 import { useResultsQuery } from "../../lib/hooks/useResultsQuery";
 import { ISearchResultsListProps } from "./types";
 import { SearchResult } from "../SearchResult";
+import { MOBILE } from "@/shared/utils";
 
 export const SearchResultsList: FC<ISearchResultsListProps> = ({
     filter,
@@ -11,7 +12,7 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
     const { data } = useResultsQuery();
 
     return (
-        <Cols gap={10} type="auto" count={3}>
+        <Cols gap={10} type="auto" count={MOBILE ? 1 : 3}>
             {data &&
                 filter &&
                 data.data[filter]

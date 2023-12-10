@@ -9,7 +9,7 @@ import { BlueBox } from "@/shared/ui/BlueBox";
 import { Cols } from "@/shared/ui/Cols";
 import { Slider, SliderArrows } from "@/widgets";
 import { DoctorCard } from "../DoctorCard";
-import { SMALL_LAPTOP } from "@/shared/utils";
+import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
 
 import more from "../../assets/more.svg";
 import photo from "../../assets/photo.jpg";
@@ -18,7 +18,7 @@ import styles from "./styles.module.scss";
 
 export const MainCenter: FC = () => {
     return (
-        <WhiteContentBlock>
+        <WhiteContentBlock className={styles.wrapper}>
             <Rows gap={20} rows={["auto"]} style={{ height: "max-content" }}>
                 <Row gap={0} style={{ justifyContent: "space-between" }}>
                     <Text type="h4" fz="17px">
@@ -94,22 +94,24 @@ export const MainCenter: FC = () => {
                                 </Row>
                             </Rows>
                         </Rows>
-                        <Rows gap={26} rows={["auto"]}>
-                            <Row
-                                gap={0}
-                                style={{ justifyContent: "space-between" }}
-                            >
-                                <Text type="h4" fz="16px">
-                                    Все сотрудники центра (5)
-                                </Text>
-                                <SliderArrows />
-                            </Row>
-                            <Slider gap={12}>
-                                {[1, 2, 3, 4, 5].map((item) => (
-                                    <DoctorCard key={item} />
-                                ))}
-                            </Slider>
-                        </Rows>
+                        {(PC || LAPTOP) && (
+                            <Rows gap={26} rows={["auto"]}>
+                                <Row
+                                    gap={0}
+                                    style={{ justifyContent: "space-between" }}
+                                >
+                                    <Text type="h4" fz="16px">
+                                        Все сотрудники центра (5)
+                                    </Text>
+                                    <SliderArrows />
+                                </Row>
+                                <Slider gap={12}>
+                                    {[1, 2, 3, 4, 5].map((item) => (
+                                        <DoctorCard key={item} />
+                                    ))}
+                                </Slider>
+                            </Rows>
+                        )}
                     </Cols>
                 </BlueBox>
             </Rows>

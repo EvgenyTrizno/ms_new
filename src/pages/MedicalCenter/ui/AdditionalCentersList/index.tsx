@@ -7,9 +7,11 @@ import { Slider, SliderArrows } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
 import { CenterCard } from "../CenterCard";
 
+import styles from "./styles.module.scss";
+
 export const AdditionalCentersList: FC = () => {
     return (
-        <WhiteContentBlock>
+        <WhiteContentBlock className={styles.wrapper}>
             <Rows gap={16} rows={["auto"]}>
                 <Row gap={0} style={{ justifyContent: "space-between" }}>
                     <Text type="h4" fz="17px">

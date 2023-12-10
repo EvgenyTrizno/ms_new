@@ -6,7 +6,6 @@ import { Circle } from "./components/Circle/Circle";
 import { Map } from "./components/Map/Map";
 import { Slider } from "./components/Slider/Slider";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
-import { MedicalBlock } from "./components/MedicalBlock/MedicalBlock";
 import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorBoundaryFallback";
 import { MobileComment } from "./components/MobileComment/MobileComment";
 import { ParamsBlock } from "./components/ParamsBlock/ParamsBlock";
@@ -44,7 +43,6 @@ export {
     Circle,
     Slider,
     CustomMobileHeader,
-    MedicalBlock,
     ErrorBoundaryFallback,
     MobileComment,
     ParamsBlock,
