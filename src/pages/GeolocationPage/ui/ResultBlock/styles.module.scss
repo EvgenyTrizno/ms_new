@@ -18,6 +18,13 @@
     }
 }
 
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .image {
+        width: 320px;
+        height: 180px;
+    }
+}
+
 @media screen and (max-width: 576px){
     .image {
         width: 124px;

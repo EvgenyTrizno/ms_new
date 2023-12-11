@@ -7,6 +7,7 @@ import { OverlayView } from "@react-google-maps/api";
 import { ExtraCallBtn } from "@/widgets/components/ExtraCallBtn";
 
 import styles from "./styles.module.scss";
+import { MOBILE, TABLET } from "@/shared/utils";
 
 const GeolocationPage: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -190,7 +191,9 @@ const GeolocationPage: FC = () => {
                     <div className={styles.marker}></div>
                 </OverlayView>
             </Map>
-            <ExtraCallBtn isOpen={isOpen} setIsOpen={setIsOpen} />
+            {!MOBILE && !TABLET && (
+                <ExtraCallBtn isOpen={isOpen} setIsOpen={setIsOpen} />
+            )}
         </div>
     );
 };

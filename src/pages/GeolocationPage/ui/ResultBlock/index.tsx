@@ -12,7 +12,7 @@ import styles from "./styles.module.scss";
 export const ResultBlock: FC = () => {
     return (
         <div className={styles.card}>
-            <Image src={image} alt="" />
+            <Image src={image} alt="" className={styles.image} />
             <Rows gap={8} rows={["auto"]}>
                 <Rows gap={2} rows={["auto"]}>
                     <Text fz="16px" type="h5" color="#0064FA">
