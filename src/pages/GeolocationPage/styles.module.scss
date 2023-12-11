@@ -1,0 +1,18 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.marker {
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 2px solid var(--blue);
+    border-radius: 100%;
+    z-index: 100;
+    position: relative;
+}
+
+.marker:hover {
+    background-color: var(--blue);
+}

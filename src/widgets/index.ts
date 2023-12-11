@@ -3,7 +3,6 @@ import { Calendar } from "./components/Calendar/Calendar";
 import { Comment } from "./components/Comment/Comment";
 import { CenterInfoCard } from "./components/CenterInfoCard/CenterInfoCard";
 import { Circle } from "./components/Circle/Circle";
-import { Map } from "./components/Map/Map";
 import { Slider } from "./components/Slider/Slider";
 import { CustomMobileHeader } from "./components/CustomMobileHeader/CustomMobileHeader";
 import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorBoundaryFallback";
@@ -37,7 +36,6 @@ import { CenterView } from "./components/CenterView/CenterView";
 
 export {
     Calendar,
-    Map,
     Comment,
     CenterInfoCard,
     Circle,

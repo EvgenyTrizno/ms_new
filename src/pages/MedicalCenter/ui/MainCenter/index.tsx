@@ -9,7 +9,7 @@ import { BlueBox } from "@/shared/ui/BlueBox";
 import { Cols } from "@/shared/ui/Cols";
 import { Slider, SliderArrows } from "@/widgets";
 import { DoctorCard } from "../DoctorCard";
-import { LAPTOP, PC, SMALL_LAPTOP } from "@/shared/utils";
+import { LAPTOP, MOBILE, PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
 
 import more from "../../assets/more.svg";
 import photo from "../../assets/photo.jpg";
@@ -24,9 +24,9 @@ export const MainCenter: FC = () => {
                     <Text type="h4" fz="17px">
                         Ведущий центр
                     </Text>
-                    <Image src={more} alt="" />
+                    {!MOBILE && !TABLET && <Image src={more} alt="" />}
                 </Row>
-                <BlueBox>
+                <BlueBox className={styles.inner}>
                     <Cols
                         type="custom"
                         cols={SMALL_LAPTOP ? ["1fr"] : ["auto", "auto"]}
@@ -38,7 +38,11 @@ export const MainCenter: FC = () => {
                             className={styles.mainData}
                         >
                             <Row gap={16} style={{ alignItems: "flex-start" }}>
-                                <Image src={photo} alt="" />
+                                <Image
+                                    src={photo}
+                                    alt=""
+                                    className={styles.avatar}
+                                />
                                 <Rows gap={6} rows={["auto"]}>
                                     <Text type="h4" fz="16px">
                                         Название центра

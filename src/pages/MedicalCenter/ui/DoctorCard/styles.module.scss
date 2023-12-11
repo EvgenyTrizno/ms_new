@@ -1,3 +1,10 @@
 .card {
     width: 320px;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 576px) {
+    .card {
+        width: 311px;
+    }
 }

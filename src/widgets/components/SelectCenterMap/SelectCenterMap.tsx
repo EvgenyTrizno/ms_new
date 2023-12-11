@@ -2,7 +2,8 @@ import { FC, useState, useRef } from "react";
 import { MarkerF, StandaloneSearchBox } from "@react-google-maps/api";
 import { ISelectCenterMapProps } from "./types";
 
-import { CenterInfoCard, Map } from "@/widgets";
+import { CenterInfoCard } from "@/widgets";
+import { Map } from "../Map";
 import { MOBILE } from "@/shared/utils";
 import { FilterBtn } from "@/shared/ui/FilterBtn";
 

@@ -5,7 +5,7 @@ import { Rows } from "@/shared/ui/Rows";
 import { Row } from "@/shared/ui/Row";
 import { Slider, SliderArrows } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
-import { CenterCard } from "../CenterCard";
+import { DoctorCard } from "../DoctorCard";
 
 import styles from "./styles.module.scss";
 
@@ -21,7 +21,10 @@ export const EmployeesList: FC = () => {
                 </Row>
                 <Slider gap={10}>
                     {[1, 2, 3, 4, 5].map((item) => (
-                        <CenterCard key={item} />
+                        <Rows gap={10} rows={["auto"]}>
+                            <DoctorCard key={item} />
+                            <DoctorCard key={item} />
+                        </Rows>
                     ))}
                 </Slider>
             </Rows>

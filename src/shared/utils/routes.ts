@@ -59,6 +59,7 @@ const SubsPage = lazy(() => import("@/pages/SubsPage"));
 const SavedPage = lazy(() => import("@/pages/SavedPage"));
 const AccessPage = lazy(() => import("@/pages/AccessPage"));
 const CenterPage = lazy(() => import("@/pages/CenterPage"));
+const GeolocationPage = lazy(() => import("@/pages/GeolocationPage"));
 
 export const routes: RouteProps[] = [
     {
@@ -180,4 +181,5 @@ export const routes: RouteProps[] = [
     { path: "/subscriptions", Component: SubsPage },
     { path: "/saved", Component: SavedPage },
     { path: "/access", Component: AccessPage },
+    { path: "/geolocation", Component: GeolocationPage },
 ];

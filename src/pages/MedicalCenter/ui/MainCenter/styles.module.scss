@@ -11,4 +11,15 @@
         padding: 0;
         border: none;
     }
+
+    .inner {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .avatar {
+        width: 140px;
+        height: 94px;
+    }
 }

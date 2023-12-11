@@ -10,4 +10,5 @@ export interface IMap {
     children?: ReactNode;
     position?: IPosition;
     zoom?: number;
+    mapStyles?: google.maps.MapTypeStyle[];
 }

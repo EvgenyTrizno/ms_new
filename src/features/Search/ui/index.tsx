@@ -2,27 +2,32 @@ import { FC } from "react";
 import { ISeacrh } from "../types";
 import { useAuth } from "@/shared/model/store/auth";
 
-import { Input } from "@/shared/ui/Input";
 import { Image } from "@/shared/ui/Image";
 
 import search from "../assets/search-gray.svg";
 import styles from "./styles.module.scss";
 
-export const Search: FC<ISeacrh> = ({ placeholder, onChange }) => {
+export const Search: FC<ISeacrh> = ({
+    placeholder,
+    onChange,
+    width,
+    className,
+}) => {
     const { user } = useAuth();
 
     const sick = user && user.disease.length;
 
     return (
-        <div className={`${styles.search} ${sick && styles.sick}`}>
+        <div
+            className={`${className} ${styles.search} ${sick && styles.sick}`}
+            style={{ width }}
+        >
             <Image src={search} alt="magnifying glass" width={16} height={16} />
-            <Input
+            <input
+                style={{ width: "100%" }}
                 type="text"
                 placeholder={placeholder}
                 height="100%"
-                padding="0px"
-                border="none"
-                borderRadius="0px"
                 onChange={onChange}
             />
         </div>

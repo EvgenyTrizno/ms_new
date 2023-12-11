@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { MarkerF } from "@react-google-maps/api";
 
-import { Map } from "@/widgets";
+import { Map } from "@/widgets/components/Map";
 import { IMapProps } from "./types";
 import { useCentersQuerys } from "../../lib/hooks/useCentersQuerys";
 

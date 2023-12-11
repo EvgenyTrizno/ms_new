@@ -1,9 +1,10 @@
 import { FC, memo } from "react";
+
 import { IMap } from "./types";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 import { GOOGLE_LIBRARIES } from "@/shared/utils";
 
-import styles from "./Map.module.scss";
+import styles from "./styles.module.scss";
 
 const MapComponent: FC<IMap> = ({
     children,
@@ -11,6 +12,7 @@ const MapComponent: FC<IMap> = ({
     height,
     position,
     zoom = 14,
+    mapStyles,
 }) => {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAP_API_KEY as string,
@@ -29,7 +31,10 @@ const MapComponent: FC<IMap> = ({
                     zoom={zoom}
                     center={position}
                     mapContainerStyle={containerStyle}
-                    options={{ disableDefaultUI: true }}
+                    options={{
+                        disableDefaultUI: true,
+                        styles: mapStyles,
+                    }}
                 >
                     {children}
                 </GoogleMap>
