@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useParams } from "react-router";
 
 import { Layout } from "../Layout";
-import { MOBILE } from "@/shared/utils";
+import { MOBILE, TABLET } from "@/shared/utils";
 
 import { Chat } from "@/widgets/components/Chat/ui/Chat";
 import { ChatSidebar } from "@/entities/Chat/ui/ChatSidebar";
@@ -16,7 +16,7 @@ const ChatPage: FC = () => {
     return (
         <Layout>
             <ChatContainer>
-                {!MOBILE && <ChatSidebar />}
+                {!MOBILE && !TABLET && <ChatSidebar />}
                 {id && user && chat_id && <Chat chat_uuid={id} />}
             </ChatContainer>
         </Layout>

@@ -12,3 +12,9 @@
     align-items: center;
     transition: border-color linear .3s;
 }
+
+@media screen and (max-width: 768px) {
+    .chatHeader {
+        width: 100%;
+    }
+}

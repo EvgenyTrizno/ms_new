@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Layout } from "../Layout";
 import { MobileHeader } from "@/widgets/components/MobileHeader";
-import { MOBILE } from "@/shared/utils";
+import { MOBILE, TABLET } from "@/shared/utils";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
 
 import { ChatSidebar } from "@/entities/Chat/ui/ChatSidebar";
@@ -14,7 +14,7 @@ const MessagesPage: FC = () => {
             {MOBILE && <MobileHeader />}
             <ChatContainer>
                 <ChatSidebar />
-                выберите чат
+                {!MOBILE && !TABLET && "выберите чат"}
             </ChatContainer>
             {MOBILE && <MobileMenu />}
         </Layout>

@@ -5,3 +5,9 @@
     width: calc(100% - 736px);
     padding: 12px 20px;
 }
+
+@media screen and (max-width: 768px) {
+    .panel {
+        width: 100%;
+    }
+}
