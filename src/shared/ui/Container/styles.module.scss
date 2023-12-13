@@ -1,7 +1,13 @@
 .container {
     display: flex;
     flex-direction: column;
-    grid-gap: 16px;
+    grid-gap: 10px;
+}
+
+@media screen and (max-width: 1440px) {
+    .container {
+        grid-gap: 8px;
+    }
 }
 
 @media screen and (max-width: 576px) {

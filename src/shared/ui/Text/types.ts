@@ -16,4 +16,5 @@ export interface IText {
     fw?: number;
     onClick?: () => void;
     style?: CSSProperties;
+    className?: string;
 }

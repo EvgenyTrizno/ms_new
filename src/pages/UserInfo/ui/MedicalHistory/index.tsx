@@ -7,6 +7,7 @@ import { Disease } from "../Disease";
 
 import styles from "./styles.module.scss";
 import { Btn } from "@/shared/ui/Btn";
+import { MOBILE, TABLET } from "@/shared/utils";
 
 export const MedicalHistory: FC = () => {
     return (
@@ -17,7 +18,10 @@ export const MedicalHistory: FC = () => {
                 style={{ justifyContent: "space-between", height: "100%" }}
             >
                 <Text type="h5" fz="16px">
-                    История болезней / 15 раз за 13/10/2023 по 13/12/2023
+                    История болезней
+                    {!MOBILE &&
+                        !TABLET &&
+                        "/ 15 раз за 13/10/2023 по 13/12/2023"}
                 </Text>
                 <div className={styles.diseases}>
                     <Disease />

@@ -13,6 +13,7 @@ import { useAccessMutate } from "../../lib/hooks/useAccessMutate";
 import { Avatar } from "@/shared/ui/Avatar";
 
 import icon from "./assets/x.svg";
+import { MOBILE, TABLET } from "@/shared/utils";
 
 export const Access: FC<IAccessData> = ({ data }) => {
     const [id, setId] = useState<number>(0);
@@ -23,7 +24,11 @@ export const Access: FC<IAccessData> = ({ data }) => {
     }, [id]);
 
     return (
-        <Cols type="custom" gap={10} cols={["362px", "362px"]}>
+        <Cols
+            type="custom"
+            gap={10}
+            cols={MOBILE || TABLET ? [] : ["362px", "362px"]}
+        >
             <WhiteContentBlock>
                 <Rows gap={16} rows={["auto"]}>
                     <Text type="h5" fz="16px">

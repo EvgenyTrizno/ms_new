@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Cols } from "@/shared/ui/Cols";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Rows } from "@/shared/ui/Rows";
-import { MainText } from "@/shared/ui/MainText/MainText";
+import { MainText } from "@/shared/ui/MainText";
 import { Text } from "@/shared/ui/Text";
 import { formatNumberToCurrensy } from "@/shared/lib/helpers/formatNumberToCurrensy";
 

@@ -3,7 +3,7 @@ import { IEmployeesList } from "./types";
 
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Rows } from "@/shared/ui/Rows";
-import { MainText } from "@/shared/ui/MainText/MainText";
+import { MainText } from "@/shared/ui/MainText";
 import { Slider } from "@/widgets";
 import { Cols } from "@/shared/ui/Cols";
 import { EmployeeInfo } from "../EmpoyeeInfo";

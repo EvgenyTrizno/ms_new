@@ -4,3 +4,9 @@
     grid-gap: 12px 30px;
     height: 100%;
 }
+
+@media screen and (max-width: 768px) {
+    .diseases {
+        grid-template-columns: auto;
+    }
+}

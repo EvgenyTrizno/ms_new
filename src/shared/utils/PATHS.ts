@@ -5,18 +5,99 @@ export const ROUTES = {
     },
     registration: {
         path: "/registration",
-        label: "Регистрация",
     },
     login: {
         path: "/login",
-        label: "Авторизация",
     },
     recovery: {
         path: "/recovery",
-        label: "Восстановление",
     },
     selectCenter: {
         path: "/select-center",
-        label: "Вы",
+    },
+    confirmation: {
+        path: "/confirmation",
+    },
+    interview: {
+        path: "/interview",
+    },
+    search: {
+        path: "/search",
+        label: "Поиск",
+    },
+    profile: {
+        path: "/profile",
+        label: "Аккаунт",
+    },
+    medicalCard: {
+        path: "/medical-card",
+        label: "Медецинская карта",
+    },
+    notes: {
+        path: "/notes",
+        label: "Записи",
+    },
+    noteInfo: {
+        path: "/notes/:name",
+    },
+    createEvent: {
+        path: "/create-event",
+        label: "Создание записи",
+    },
+    messages: {
+        path: "/messages",
+        label: "Сообщения",
+    },
+    createNewPass: {
+        path: "/create-new-password",
+    },
+    notifications: {
+        path: "/notifications",
+    },
+    userInfo: {
+        path: "/user/:id",
+    },
+    users: {
+        path: "/users",
+        label: "Пользователи",
+    },
+    balance: {
+        path: "/balance",
+        label: "Баланс",
+    },
+    aboutCenter: {
+        path: "/about-center",
+    },
+    clinicInfo: {
+        path: "/clinic/:id",
+    },
+    centerInfo: {
+        path: "/center/:id",
+    },
+    app: {
+        path: "/app",
+        label: "Сайт и приложение",
+    },
+    leads: {
+        path: "/leads",
+        label: "Лиды",
+    },
+    map: {
+        path: "/map",
+        label: "Карта",
+    },
+    country: {
+        path: "/map/:country/:city",
+    },
+    requests: {
+        path: "/requests",
+        label: "Запросы",
+    },
+    mail: {
+        path: "/mail",
+        label: "Почта",
+    },
+    social: {
+        path: "/social",
     },
 } as const;

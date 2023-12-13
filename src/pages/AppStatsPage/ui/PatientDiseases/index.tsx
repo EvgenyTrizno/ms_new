@@ -1,18 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FC, useCallback, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { ChartData, ChartOptions } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
-import { BlueSliderArrows } from "@/widgets";
+import { BlueArrows } from "@/shared/ui/BlueArrows";
+import { useStatsQuery } from "@/pages/AppStatsPage/lib/hooks/useStatsQuery";
+import { MainText } from "@/shared/ui/MainText";
+import { MOBILE, TABLET } from "@/shared/utils";
 
 import styles from "./styles.module.scss";
-import { useStatsQuery } from "@/pages/AppStatsPage/lib/hooks/useStatsQuery";
-import { MainText } from "@/shared/ui/MainText/MainText";
 
 export const PatientDiseases: FC = () => {
     const [startIndex, setStartIndex] = useState(0);
     const { data: stats } = useStatsQuery();
+
+    const count = MOBILE || TABLET ? 3 : 4;
 
     const options: ChartOptions<"bar"> = {
         responsive: true,
@@ -77,7 +81,7 @@ export const PatientDiseases: FC = () => {
 
         stats &&
             stats.data.diseases
-                .slice(startIndex, startIndex + 4)
+                .slice(startIndex, startIndex + count)
                 .forEach((item) => {
                     labels.push(
                         item.name.length > 15
@@ -91,7 +95,9 @@ export const PatientDiseases: FC = () => {
 
     const generateData = useCallback(() => {
         const selectedData =
-            stats && stats.data.diseases.slice(startIndex, startIndex + 4);
+            stats && stats.data.diseases.slice(startIndex, startIndex + count);
+
+        console.log(selectedData);
 
         return selectedData ? selectedData.map((item) => item.count) : [];
     }, [stats, startIndex]);
@@ -119,7 +125,10 @@ export const PatientDiseases: FC = () => {
                     plugins={[ChartDataLabels]}
                 />
             </div>
-            <BlueSliderArrows />
+            <BlueArrows
+                prev={() => setStartIndex((prev) => prev - 1)}
+                next={() => setStartIndex((next) => next + 1)}
+            />
         </WhiteContentBlock>
     );
 };

@@ -1,0 +1,55 @@
+.message {
+    display: grid;
+    grid-template-columns: 125px 1fr calc(1fr / 2) 125px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--blue-100);
+
+    .text {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.message:first-child {
+    padding-top: 0;
+}
+
+.message:last-child {
+    padding-bottom: 0;
+    border: none;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .message {
+        grid-template-columns: 125px 1fr 125px;
+    }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1920px) {
+    .message {
+        grid-template-columns: 125px 1fr 125px 125px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .message {
+        display: flex;
+        justify-content: space-between;
+
+        .text {
+            h4 {
+                display: none;
+            }
+
+            :nth-child(2) {
+                display: none;
+            }
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

@@ -1,0 +1,1 @@
+export { MailMessage } from "./Layout";

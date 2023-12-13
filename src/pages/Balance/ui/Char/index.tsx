@@ -3,7 +3,7 @@ import { FC } from "react";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Rows } from "@/shared/ui/Rows";
 import { Row } from "@/shared/ui/Row";
-import { MainText } from "@/shared/ui/MainText/MainText";
+import { MainText } from "@/shared/ui/MainText";
 import { InfoText } from "@/shared/ui/InfoText";
 
 export const Char: FC = () => {

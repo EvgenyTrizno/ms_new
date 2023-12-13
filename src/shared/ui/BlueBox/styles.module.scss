@@ -3,3 +3,15 @@
     border-radius: var(--mobile-default-border);
     padding: 16px;
 }
+
+@media screen and (max-width: 1440px) {
+    .block {
+        padding: 14px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .block {
+        padding: 12px;
+    }
+}

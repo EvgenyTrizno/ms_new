@@ -2,9 +2,10 @@ import { FC } from "react";
 
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Rows } from "@/shared/ui/Rows";
-import { MainText } from "@/shared/ui/MainText/MainText";
-import { BlueSliderArrows, Slider } from "@/widgets";
+import { MainText } from "@/shared/ui/MainText";
+import { Slider } from "@/widgets";
 import { UserReport } from "../UserReport";
+import { BlueArrows } from "@/shared/ui/BlueArrows";
 
 export const UserReports: FC = () => {
     return (
@@ -16,7 +17,7 @@ export const UserReports: FC = () => {
                         <UserReport key={item} />
                     ))}
                 </Slider>
-                <BlueSliderArrows />
+                <BlueArrows prev={() => ({})} next={() => ({})} />
             </Rows>
         </WhiteContentBlock>
     );

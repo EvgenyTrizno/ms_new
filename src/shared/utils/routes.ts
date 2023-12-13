@@ -16,7 +16,6 @@ const NotesPage = lazy(() => import("@/pages/Notes"));
 const MedicalCardPage = lazy(() => import("@/pages/MedicalCard"));
 const NotesInfoPage = lazy(() => import("@/pages/NotesInfo"));
 const CreateEventPage = lazy(() => import("@/pages/CreateEvent"));
-const MapPage = lazy(() => import("@/pages/Map/MapPage"));
 const MessagesPage = lazy(() => import("@/pages/Messages"));
 const MedicalTestPage = lazy(() => import("@/pages/MedicalTest"));
 // const MobileProfile = lazy(() => import("@/pages/MobileProfile/MobileProfile"));
@@ -110,7 +109,6 @@ export const routes: RouteProps[] = [
         path: "/create-event",
         Component: CreateEventPage,
     },
-    { path: "/location", Component: MapPage },
     {
         path: "/messages",
         Component: MessagesPage,
@@ -119,14 +117,6 @@ export const routes: RouteProps[] = [
         path: "/medical-card-test",
         Component: MedicalTestPage,
     },
-    // {
-    //     path: "/m/profile/:id",
-    //     Component: MobileProfile,
-    // },
-    // {
-    //     path: "/m/settings/account/protection",
-    //     Component: AccountProtectionSettingsPage,
-    // },
     {
         path: "/create-new-password",
         Component: CreateNewPassPage,

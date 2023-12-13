@@ -14,7 +14,7 @@ import {
 
 import { Row } from "@/shared/ui/Row";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
-import { MainText } from "@/shared/ui/MainText/MainText";
+import { MainText } from "@/shared/ui/MainText";
 import { Rows } from "@/shared/ui/Rows";
 
 ChartJS.register(

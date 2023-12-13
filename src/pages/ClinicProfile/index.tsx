@@ -7,7 +7,7 @@ import {
     CustomMobileHeader,
     IncomeBlock,
 } from "@/widgets";
-import { LAPTOP, MOBILE, PC } from "@/shared/utils";
+import { LAPTOP, MOBILE, PC, TABLET } from "@/shared/utils";
 import { Text } from "@/shared/ui/Text";
 import { Search } from "@/features/Search";
 import { Container } from "@/shared/ui/Container";
@@ -89,13 +89,12 @@ const ClinicProfile: FC = () => {
                         <Rows gap={10} rows={["auto"]}>
                             <AdminInfo
                                 name={`${
-                                    clinic?.admin && clinic?.admin[0].last_name
+                                    clinic?.admin && clinic?.admin.last_name
                                 } ${
-                                    clinic?.admin && clinic?.admin[0].first_name
-                                } ${clinic?.admin && clinic?.admin[0].surname}`}
+                                    clinic?.admin && clinic?.admin.first_name
+                                } ${clinic?.admin && clinic?.admin.surname}`}
                                 number={
-                                    (clinic?.admin && clinic.admin[0].number) ??
-                                    ""
+                                    (clinic?.admin && clinic.admin.number) ?? ""
                                 }
                             />
                             <StatusInfo
@@ -188,7 +187,10 @@ const ClinicProfile: FC = () => {
                             placeholder="Поиск специалиста или пациента"
                             height={LAPTOP ? "37px" : ""}
                         />
-                        <FilterBtn onClick={() => ({})} type="big" />
+                        <FilterBtn
+                            onClick={() => ({})}
+                            type={MOBILE || TABLET ? "small" : "big"}
+                        />
                     </Row>
                     <EmployeesList />
                 </AdminPanelContainer>

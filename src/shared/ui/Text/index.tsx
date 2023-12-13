@@ -7,17 +7,18 @@ export const Text: FC<IText> = ({
     type = "p",
     children,
     position = "start",
-    fz = 16,
+    fz,
     color = "",
     fw,
     onClick,
     style,
+    className,
 }) => {
     switch (type) {
         case "h1":
             return (
                 <h1
-                    className={styles.h1}
+                    className={`${className} ${styles.h1}`}
                     onClick={onClick}
                     style={{
                         ...style,
@@ -33,7 +34,7 @@ export const Text: FC<IText> = ({
         case "h2":
             return (
                 <h2
-                    className={styles.h2}
+                    className={`${className} ${styles.h2}`}
                     onClick={onClick}
                     style={{
                         ...style,
@@ -49,7 +50,7 @@ export const Text: FC<IText> = ({
         case "h3":
             return (
                 <h3
-                    className={styles.h3}
+                    className={`${className} ${styles.h3}`}
                     onClick={onClick}
                     style={{
                         ...style,
@@ -65,7 +66,7 @@ export const Text: FC<IText> = ({
         case "h4":
             return (
                 <h4
-                    className={styles.h4}
+                    className={`${className} ${styles.h4}`}
                     onClick={onClick}
                     style={{
                         ...style,
@@ -81,7 +82,7 @@ export const Text: FC<IText> = ({
         case "h5":
             return (
                 <h5
-                    className={styles.h5}
+                    className={`${className} ${styles.h5}`}
                     onClick={onClick}
                     style={{
                         ...style,
@@ -97,7 +98,7 @@ export const Text: FC<IText> = ({
         case "h6":
             return (
                 <h6
-                    className={styles.h6}
+                    className={`${className} ${styles.h6}`}
                     onClick={onClick}
                     style={{
                         ...style,
@@ -113,7 +114,7 @@ export const Text: FC<IText> = ({
         default:
             return (
                 <p
-                    className={styles.p}
+                    className={`${className} ${styles.p}`}
                     onClick={onClick}
                     style={{
                         ...style,

@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    grid-gap: 12px;
+    margin-top: 16px;
+}
+
+.count {
+    font-size: 36px;
+}
+
+.costs {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1440px){
+    .count {
+        font-size: 28px;
+    }
+
+    .costs {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .costs {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .count {
+        font-size: 26px;
+    }
+}

@@ -20,17 +20,11 @@ import { SelectCenterMap } from "./components/SelectCenterMap/SelectCenterMap";
 import { PersonalCard } from "./components/PersonalCard/PersonalCard";
 import { ConnectionModal } from "./components/ConnectionModal/ConnectionModal";
 import { DiseaseInfo } from "./components/DiseaseInfo/DiseaseInfo";
-import { BlueSliderArrows } from "./components/BlueSliderArrows/BlueSliderArrows";
 import { WorldMap } from "./components/WorldMap/WorldMap";
-import { Indicator } from "./components/Indicator/Indicator";
 import { AdminPanelContainer } from "./components/AdminPanelContainer/AdminPanelContainer";
 import { RequestBlock } from "./components/RequestBlock/RequestBlock";
 import { MailLayout } from "./components/MailLayout/MailLayout";
 import { MailHeader } from "./components/MailHeader/MailHeader";
-import { MailMessage } from "./components/MailMessage/MailMessage";
-import { MailManage } from "./components/MailManage/MailManage";
-import { SocialNetworkInfoBlock } from "./components/SocialNetworkInfoBlock/SocialNetworkInfoBlock";
-import { SocialNetworkInfoLayout } from "./components/SocialNetworkInfoLayout/SocialNetworkInfoLayout";
 import { IncomeBlock } from "./components/IncomeBlock/IncomeBlock";
 import { CenterView } from "./components/CenterView/CenterView";
 
@@ -57,17 +51,11 @@ export {
     PersonalCard,
     ConnectionModal,
     DiseaseInfo,
-    BlueSliderArrows,
     WorldMap,
-    Indicator,
     AdminPanelContainer,
     RequestBlock,
     MailLayout,
     MailHeader,
-    MailMessage,
-    MailManage,
-    SocialNetworkInfoBlock,
-    SocialNetworkInfoLayout,
     IncomeBlock,
     CenterView,
 };

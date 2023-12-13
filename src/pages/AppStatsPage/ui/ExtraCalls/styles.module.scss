@@ -1,0 +1,41 @@
+.count {
+    font-size: 24px;
+}
+
+.info {
+    grid-gap: 10px;
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+        font-size: 16px !important;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .count {
+        font-size: 28px !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .count {
+        font-size: 22px !important;
+    }
+
+    .info {
+        grid-gap: 8px;
+
+        h4 {
+            font-size: 14px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info {
+        h4 {
+            font-size: 12px !important;
+        }
+    }
+}

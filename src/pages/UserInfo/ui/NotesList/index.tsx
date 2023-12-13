@@ -9,6 +9,7 @@ import { Current } from "../Current";
 import { Unmounted } from "../Unmounted";
 import { Row } from "@/shared/ui/Row";
 import { InfoText } from "@/shared/ui/InfoText";
+import { MOBILE, TABLET } from "@/shared/utils";
 
 export const NotesList: FC<INotesList> = ({ missing, current, umounted }) => {
     return (
@@ -22,7 +23,7 @@ export const NotesList: FC<INotesList> = ({ missing, current, umounted }) => {
                 </Text>
                 <InfoText text="Все записи" />
             </Row>
-            <Cols gap={10} count={3} type="auto">
+            <Cols gap={10} count={MOBILE || TABLET ? 1 : 3} type="auto">
                 <Missing missing={missing} />
                 <Current current={current} />
                 <Unmounted umounted={umounted} />

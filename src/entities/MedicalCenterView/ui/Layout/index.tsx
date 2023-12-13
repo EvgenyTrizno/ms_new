@@ -9,7 +9,8 @@ import { Btn } from "@/shared/ui/Btn";
 import { IMedicalCenterViewProps } from "./types";
 
 import styles from "./styles.module.scss";
-import { LAPTOP } from "@/shared/utils";
+import { LAPTOP, MOBILE, PC, TABLET } from "@/shared/utils";
+import { Avatar } from "@/shared/ui/Avatar";
 
 export const Layout: FC<IMedicalCenterViewProps> = ({
     img,
@@ -21,7 +22,37 @@ export const Layout: FC<IMedicalCenterViewProps> = ({
     return (
         <WhiteContentBlock>
             <Rows gap={16} rows={["auto"]}>
-                <Image className={styles.avatar} src={img} alt="" />
+                {(PC || LAPTOP) && (
+                    <>
+                        <Image className={styles.avatar} src={img} alt="" />
+                        <Row gap={LAPTOP ? 4 : 8}>
+                            <Btn color="#0064FA" onClick={contact}>
+                                Связаться
+                            </Btn>
+                            <Btn color="#D64657" onClick={report}>
+                                Пожаловаться
+                            </Btn>
+                        </Row>
+                    </>
+                )}
+                {(MOBILE || TABLET) && (
+                    <Row gap={10}>
+                        <Avatar
+                            type="user"
+                            img=""
+                            size="XL"
+                            style={{ minWidth: "100px" }}
+                        />
+                        <Rows gap={8} rows={["auto"]} style={{ width: "100%" }}>
+                            <Btn color="#0064FA" onClick={contact}>
+                                Связаться
+                            </Btn>
+                            <Btn color="#D64657" onClick={report}>
+                                Пожаловаться
+                            </Btn>
+                        </Rows>
+                    </Row>
+                )}
                 <Rows gap={5} rows={["auto"]}>
                     <Text type="h4" fz={LAPTOP ? "15px" : "18px"}>
                         Начал работу с {date}
@@ -34,14 +65,6 @@ export const Layout: FC<IMedicalCenterViewProps> = ({
                         </Row>
                     )}
                 </Rows>
-                <Row gap={LAPTOP ? 4 : 8}>
-                    <Btn color="#0064FA" onClick={contact}>
-                        Связаться
-                    </Btn>
-                    <Btn color="#D64657" onClick={report}>
-                        Пожаловаться
-                    </Btn>
-                </Row>
             </Rows>
         </WhiteContentBlock>
     );
