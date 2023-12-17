@@ -4,8 +4,16 @@
     border-radius: 16px;
     border: 1px solid var(--blue-100);
     display: flex;
+    position: relative;
+    padding: 16px 9px 16px 16px;
 
     .search {
         width: 100%;
+    }
+
+    .fbtn {
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 }

@@ -13,8 +13,11 @@ export const SearchWithFilter: FC = () => {
                 className={styles.search}
                 border="none"
                 padding="0px"
+                borderRadius="none"
             />
-            <FilterBtn type="small" onClick={() => ({})} />
+            <div className={styles.fbtn}>
+                <FilterBtn type="small" onClick={() => ({})} />
+            </div>
         </div>
     );
 };
