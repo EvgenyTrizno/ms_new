@@ -2,3 +2,12 @@
     background-color: var(--white);
     padding: 16px;
 }
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        height: calc(100% - 82px);
+        position: fixed;
+        top: 82px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,23 @@
+.content {
+    width: calc(320px * 4 + 16px * 3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    .list {
+        display: flex;
+        grid-gap: 16px;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .content {
+        width: calc(320px * 2 + 16px);
+    }
+}

@@ -11,7 +11,7 @@ import { DateBlock } from "./ui/DateBlock";
 import styles from "./styles.module.scss";
 
 export const MedicalBlock: FC<INoteBlockProps> = ({ onClick }) => {
-    const sick = "Болен";
+    const sick = false;
 
     return (
         <WhiteContentBlock

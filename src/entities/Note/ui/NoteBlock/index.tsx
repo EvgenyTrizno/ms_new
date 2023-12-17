@@ -39,7 +39,7 @@ export const NoteBlock: FC = () => {
                     </Row>
                     <Row gap={10}>
                         <Text type="p" color="#B1B2B4" fz="12px">
-                            Предназначена:
+                            Заболевание:
                         </Text>
                         <Text type="p" fz="12px">
                             Работа мышц спины

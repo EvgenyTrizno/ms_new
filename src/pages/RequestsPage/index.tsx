@@ -1,53 +1,51 @@
-import { FC } from "react";
+import { FC, SetStateAction } from "react";
 
 import { Layout } from "../Layout";
-// import { Filter } from "@/shared";
 
-import { AdminPanelContainer, RequestBlock } from "@/widgets";
-import { LAPTOP, SMALL_LAPTOP } from "@/shared/utils";
+import { CustomMobileHeader } from "@/widgets";
+import { MOBILE, TABLET } from "@/shared/utils";
 import { Search } from "@/features/Search";
-import { Cols } from "@/shared/ui/Cols";
+import { Container } from "@/shared/ui/Container";
+import { Filter } from "@/shared/ui/Filter";
+import { List } from "./ui/List";
+import { SliderFilter } from "./ui/SliderFilter";
 
 import styles from "./styles.module.scss";
 
 const RequestsPage: FC = () => {
-    const topContent = {
-        content: [
-            // <Filter
-            //     width="100%"
-            //     data={[
-            //         "Все (156)",
-            //         "Центры",
-            //         "Клиники",
-            //         "Инвесторы",
-            //         "Аптеки",
-            //         "Реаб.центры",
-            //         "Больницы",
-            //     ]}
-            // />,
-            <Search
-                height="52px"
-                placeholder="Поиск специалиста или пациента"
-            />,
-        ],
-    };
+    const data = [
+        "Все (156)",
+        "Центры",
+        "Клиники",
+        "Инвесторы",
+        "Аптеки",
+        "Реаб.центры",
+        "Больницы",
+    ];
 
     return (
         <Layout>
-            <AdminPanelContainer>
-                <div className={styles.top}>
-                    {LAPTOP || SMALL_LAPTOP
-                        ? topContent.content
-                              .reverse()
-                              .map((item) => <>{item}</>)
-                        : topContent.content.map((item) => <>{item}</>)}
-                </div>
-                <Cols type="auto" count={SMALL_LAPTOP ? 3 : 4} gap={10}>
-                    {[1, 2, 3, 4].map((item) => (
-                        <RequestBlock key={item} />
-                    ))}
-                </Cols>
-            </AdminPanelContainer>
+            {(MOBILE || TABLET) && <CustomMobileHeader back text="Запросы" />}
+            <Container>
+                {!MOBILE && !TABLET ? (
+                    <div className={styles.top}>
+                        <Filter
+                            width="100%"
+                            data={data}
+                            isSelect={""}
+                            setIsSelect={function (
+                                value: SetStateAction<string>
+                            ): void {
+                                throw new Error("Function not implemented.");
+                            }}
+                        />
+                        <Search placeholder="Поиск специалиста или пациента" />
+                    </div>
+                ) : (
+                    <SliderFilter data={data} />
+                )}
+                <List />
+            </Container>
         </Layout>
     );
 };

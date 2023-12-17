@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import { IExtraCallModal } from "./types";
 
+import { Contact } from "../Contact";
 import { useAuth } from "@/shared/model/store/auth";
 
 import amabulance from "/assets/amabulance-blue.svg";
@@ -11,9 +12,8 @@ import homeWithPlus from "/assets/home-with-plus-blue.svg";
 import homeWithPlusRed from "/assets/home-with-plus-red.svg";
 import support from "/assets/support-blue.svg";
 import supportRed from "/assets/support-red.svg";
-// import connect from "/assets/connect-icon.svg";
+
 import styles from "./styles.module.scss";
-// import { ConnectionModal } from "../ConnectionModal/ConnectionModal";
 
 export const ExtraCallModal: FC<IExtraCallModal> = ({ isOpen, setIsOpen }) => {
     useEffect(() => {
@@ -84,7 +84,7 @@ export const ExtraCallModal: FC<IExtraCallModal> = ({ isOpen, setIsOpen }) => {
                 pointerEvents: isOpen ? "auto" : "none",
             }}
         >
-            {/* <ConnectionModal /> */}
+            <Contact />
             <div className={styles.container}>
                 {data.map((item, i) => (
                     <motion.div

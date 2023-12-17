@@ -1,0 +1,22 @@
+.card {
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 24px;
+    position: relative;
+    width: 320px;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 12px;
+    
+    h5 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}

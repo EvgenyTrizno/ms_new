@@ -6,7 +6,7 @@
     position: absolute;
     top: 48px;
     left: 50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
 }
 
 .width {
@@ -22,10 +22,14 @@
 @media screen and (max-width: 768px) {
     .width {
         width: 100%;
+
+        input {
+            width: 100%;
+        }
     }
 
     .wrapper {
-        width: 100vw;
+        width: 100%;
         transform: none;
         left: 0;
         right: 0;

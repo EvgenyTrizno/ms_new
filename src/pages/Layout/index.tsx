@@ -1,19 +1,14 @@
 import { FC, useState } from "react";
 import { TProps } from "./types";
-
-// import {
-//     // MobileMenu,
-//     ExtraCallMobile,
-// } from "@/widgets";
 import { Header } from "@/widgets/components/Header/ui";
 import { Menu } from "@/widgets/components/Menu/ui/Menu";
 import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
 import { PC, SMALL_LAPTOP, TABLET, MOBILE, LAPTOP } from "@/shared/utils";
 import { ExtraCallBtn } from "@/widgets/components/ExtraCallBtn";
-
-import styles from "./styles.module.scss";
 import { ExtraCallModal } from "@/widgets/components/ExtraCallModal/ui/ExtraCallModal";
 import { useAuth } from "@/shared/model/store/auth";
+
+import styles from "./styles.module.scss";
 
 export const Layout: FC<TProps> = ({ children }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);

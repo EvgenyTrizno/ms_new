@@ -39,3 +39,21 @@
     flex-direction: column;
     grid-gap: 16px;
 }
+
+@media screen and (max-width: 768px) {
+    .post {
+        .info {
+            p {
+                font-size: 14px;
+            }
+        }
+
+        .view {
+            margin-top: 16px;
+
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+}

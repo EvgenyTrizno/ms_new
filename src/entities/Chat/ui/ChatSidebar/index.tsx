@@ -10,6 +10,7 @@ import { useAuth } from "@/shared/model/store/auth";
 import { FiltersList } from "../FiltersList";
 
 import styles from "./styles.module.scss";
+import { MOBILE, TABLET } from "@/shared/utils";
 
 export const ChatSidebar: FC = () => {
     const [filter, setFilter] = useState("Сообщения");
@@ -21,7 +22,7 @@ export const ChatSidebar: FC = () => {
     useEffect(() => {
         const extraBtn = document.querySelector("#extraBtn") as HTMLElement;
 
-        extraBtn && (extraBtn.style.display = "none");
+        extraBtn && !MOBILE && !TABLET && (extraBtn.style.display = "none");
 
         return () => {
             extraBtn && (extraBtn.style.display = "block");

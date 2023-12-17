@@ -9,7 +9,7 @@ import { useAuth } from "@/shared/model/store/auth";
 
 import arrowLeft from "/assets/arrow-left.svg";
 import arrowRight from "/assets/arrow-right.svg";
-import styles from "./Calendar.module.scss";
+import styles from "./styles.module.scss";
 
 export const months = [
     "Январь",

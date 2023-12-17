@@ -1,0 +1,43 @@
+.item {
+    background-color: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--blue-100);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    img {
+        transition: all ease 0.5s;
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .params {
+        display: flex;
+        align-items: center;
+        grid-gap: 16px;
+
+        .icon {
+            width: 25px;
+            height: 25px;
+            object-fit: cover;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .item {
+        padding: 16px;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

@@ -5,13 +5,9 @@ import { useAuth } from "@/shared/model/store/auth";
 import { Text } from "@/shared/ui/Text";
 import { Rows } from "@/shared/ui/Rows";
 import { Cols } from "@/shared/ui/Cols";
-import { Image } from "@/shared/ui/Image";
 import { Row } from "@/shared/ui/Row";
 import { ChangeBtn } from "../ChangeBtn";
-
-import cirleDefault from "./assets/tick-circle.svg";
-import cirleVerify from "./assets/tick-circle-verify.svg";
-import styles from "./styles.module.scss";
+import { Protection } from "@/widgets/components/Protection";
 
 export const Account: FC = () => {
     // const [isShowValue, setIsShowValue] = useState<boolean>(false);
@@ -91,55 +87,7 @@ export const Account: FC = () => {
                     </Text>
                     <ChangeBtn />
                 </Row>
-                <Cols type="auto" count={2} gap={16}>
-                    <div
-                        className={`${styles.protection} ${
-                            user && user.number && styles.verify
-                        }`}
-                    >
-                        <Text type="p" fz="14px" color="#7D7F82">
-                            Номер
-                        </Text>
-                        <Input type="text" value={user?.number} />
-                        <Image
-                            src={
-                                !user || !user.number
-                                    ? cirleDefault
-                                    : cirleVerify
-                            }
-                            alt=""
-                        />
-                    </div>
-                    <div
-                        className={`${styles.protection} ${
-                            user && user.email && styles.verify
-                        }`}
-                    >
-                        {user?.email && (
-                            <Text type="p" fz="14px" color="#7D7F82">
-                                Эл. почта
-                            </Text>
-                        )}
-                        <Input
-                            height={!user?.email ? "100%" : ""}
-                            type="text"
-                            value={user?.email}
-                            placeholder={
-                                !user?.email ? "Введите электронную почту" : ""
-                            }
-                        />
-                        {user?.email ? (
-                            <Image
-                                src={
-                                    !user || !user.email
-                                        ? cirleDefault
-                                        : cirleVerify
-                                }
-                                alt=""
-                            />
-                        ) : null}
-                    </div>
-                </Cols>
+                <Protection />
             </Rows>
         </Rows>
     );

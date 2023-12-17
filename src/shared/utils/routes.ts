@@ -18,16 +18,6 @@ const NotesInfoPage = lazy(() => import("@/pages/NotesInfo"));
 const CreateEventPage = lazy(() => import("@/pages/CreateEvent"));
 const MessagesPage = lazy(() => import("@/pages/Messages"));
 const MedicalTestPage = lazy(() => import("@/pages/MedicalTest"));
-// const MobileProfile = lazy(() => import("@/pages/MobileProfile/MobileProfile"));
-// const AccountSettingsPage = lazy(
-//     () => import("@/pages/Settings/AccountSettingsPage/AccountSettingsPage")
-// );
-// const AccountProtectionSettingsPage = lazy(
-//     () =>
-//         import(
-//             "@/pages/Settings/AccountProtectionSettingsPage/AccountProtectionSettingsPage"
-//         )
-// );
 const CreateNewPassPage = lazy(() => import("@/pages/CreateNewPass"));
 const NotFoundPage = lazy(() => import("@/pages/404Page/NotFoundPage"));
 const MobileNotificationPage = lazy(
@@ -48,7 +38,7 @@ const AdminPanelMapPage = lazy(
 const CountryInfoPage = lazy(() => import("@/pages/CountryInfo/CountryInfo"));
 const CityInfoPage = lazy(() => import("@/pages/CityInfoPage/CityInfoPage"));
 const RequestsPage = lazy(() => import("@/pages/RequestsPage"));
-const MailPage = lazy(() => import("@/pages/MailPage/MailPage"));
+const MailPage = lazy(() => import("@/pages/MailPage"));
 const SocialPage = lazy(() => import("@/pages/SocialPage"));
 const ChatPage = lazy(() => import("@/pages/ChatPage"));
 const CenterAccount = lazy(() => import("@/pages/CenterAccount"));
@@ -59,6 +49,9 @@ const SavedPage = lazy(() => import("@/pages/SavedPage"));
 const AccessPage = lazy(() => import("@/pages/AccessPage"));
 const CenterPage = lazy(() => import("@/pages/CenterPage"));
 const GeolocationPage = lazy(() => import("@/pages/GeolocationPage"));
+const AccountPage = lazy(() => import("@/pages/AccountPage"));
+const SettingsPage = lazy(() => import("@/pages/SettingsPage"));
+const StatisticsPage = lazy(() => import("@/pages/StatisticsPage"));
 
 export const routes: RouteProps[] = [
     {
@@ -165,11 +158,14 @@ export const routes: RouteProps[] = [
     { path: "/mail", Component: MailPage },
     { path: "/social", Component: SocialPage },
     { path: "/messages/chat/:id/", Component: ChatPage },
-    { path: "/account", Component: CenterAccount },
+    { path: "/center-account", Component: CenterAccount },
     { path: "/appointments", Component: AppointmentsPage },
     { path: "/medical-center", Component: MedicalCenter },
     { path: "/subscriptions", Component: SubsPage },
     { path: "/saved", Component: SavedPage },
     { path: "/access", Component: AccessPage },
     { path: "/geolocation", Component: GeolocationPage },
+    { path: "/account", Component: AccountPage },
+    { path: "/settings", Component: SettingsPage },
+    { path: "/statistics", Component: StatisticsPage },
 ];

@@ -1,13 +1,7 @@
 import { FC } from "react";
-// import { useNavigate } from "react-router";
-// import { IProfileParamsItemsData } from "./types";
 
 import { Layout } from "../Layout";
-import {
-    ReminderBlock,
-    // User,
-} from "@/widgets";
-// import { BackArrow } from "@/shared";
+import { ReminderBlock } from "@/widgets";
 import { MOBILE, TABLET } from "@/shared/utils";
 import { Container } from "@/shared/ui/Container";
 import { User } from "./ui/UserInfo";

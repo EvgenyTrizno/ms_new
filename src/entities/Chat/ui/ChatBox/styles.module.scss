@@ -20,5 +20,7 @@
 @media screen and (max-width: 768px) {
     .chat {
         width: 100%;
+        top: 80px;
+        height: calc(100vh - 157px);
     }
 }

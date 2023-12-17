@@ -3,7 +3,7 @@ import { FC, useState, useEffect, MouseEvent } from "react";
 // import { Switch } from "@/shared";
 import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
-import { Calendar, decreasingMonths } from "../../Calendar/Calendar";
+import { Calendar, decreasingMonths } from "../../Calendar";
 import { SmallDropbox } from "../../SmallDropbox/SmallDropbox";
 import { Modal } from "../../../../entities/Modal";
 

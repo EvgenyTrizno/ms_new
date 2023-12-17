@@ -41,7 +41,7 @@ const SocialPage: FC = () => {
                     <MailView />
                     <ShareSocialNetworks />
                 </Cols>
-                {/* <SocialInfo /> */}
+                <SocialInfo />
                 <Cols
                     type="custom"
                     gap={10}

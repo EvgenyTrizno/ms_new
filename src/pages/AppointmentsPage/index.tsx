@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, SetStateAction, useState } from "react";
 
 import { Layout } from "../Layout";
 import { Container } from "@/shared/ui/Container";
@@ -6,6 +6,7 @@ import { Filter } from "@/shared/ui/Filter";
 import { AppointmentsList } from "./ui";
 import { MOBILE, TABLET } from "@/shared/utils";
 import { CustomMobileHeader } from "@/widgets";
+import { SliderFilter } from "./ui/FilterSlider";
 
 const AppointmentsPage: FC = () => {
     const filters = ["Предложения", "Популярные", "Подписка", "Корзина"];
@@ -16,12 +17,24 @@ const AppointmentsPage: FC = () => {
         <Layout>
             {(MOBILE || TABLET) && <CustomMobileHeader back text="Аккаунт" />}
             <Container>
-                <Filter
-                    width="max-content"
-                    data={filters}
-                    isSelect={filter}
-                    setIsSelect={setFilter}
-                />
+                {!MOBILE && !TABLET ? (
+                    <Filter
+                        width="max-content"
+                        data={filters}
+                        isSelect={filter}
+                        setIsSelect={setFilter}
+                    />
+                ) : (
+                    <SliderFilter
+                        data={filters}
+                        isSelect={""}
+                        setIsSelect={function (
+                            value: SetStateAction<string>
+                        ): void {
+                            throw new Error("Function not implemented.");
+                        }}
+                    />
+                )}
                 <AppointmentsList />
             </Container>
         </Layout>

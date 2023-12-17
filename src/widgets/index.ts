@@ -1,5 +1,5 @@
 import { RegistrationForPersonal } from "./components/Auth/RegistrationForPersonal/RegistrationForPersonal";
-import { Calendar } from "./components/Calendar/Calendar";
+import { Calendar } from "./components/Calendar";
 import { Comment } from "./components/Comment/Comment";
 import { CenterInfoCard } from "./components/CenterInfoCard/CenterInfoCard";
 import { Circle } from "./components/Circle/Circle";

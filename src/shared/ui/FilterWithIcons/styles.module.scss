@@ -1,0 +1,82 @@
+.container {
+    width: 500px;
+    height: 52px;
+    background-color: var(--white);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 5px;
+    border-radius: 10px;
+    border: 1px solid var(--blue-100);
+    font-weight: 500;
+
+    .item {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: var(--dark-gray);
+        padding: 10px 40px;
+        cursor: pointer;
+        transition: all ease .5s;
+        font-size: 14px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-gap: 5px;
+
+        span {
+            width: max-content;
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .active {
+        background-color: var(--blue-100);
+        color: var(--blue);
+
+        svg {
+            path {
+                stroke: var(--blue);
+            }
+        }
+    }
+
+    .activeRed {
+        background-color: var(--red-100);
+        color: var(--red-400);
+
+        svg {
+            path {
+                stroke: var(--red-400);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        width: 100%;
+
+        .item {
+            padding: 12px 0;
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .container {
+        grid-gap: 5px;
+
+        .item {
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+    }
+}

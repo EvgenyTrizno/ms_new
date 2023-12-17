@@ -18,7 +18,10 @@ const AccessPage: FC = () => {
             <Container>
                 {(PC || LAPTOP || SMALL_LAPTOP) && (
                     <>
-                        <ReminderBlock type="timer" />
+                        <ReminderBlock
+                            type="timer"
+                            width={PC || LAPTOP ? "340px" : ""}
+                        />
                         <User />
                     </>
                 )}

@@ -9,10 +9,10 @@ import { MOBILE } from "@/shared/utils";
 import { Filter } from "@/shared/ui/Filter";
 import { Container } from "@/shared/ui/Container";
 import { NoteBlock } from "@/entities/Note/ui/NoteBlock";
+import { SearchWithFilter } from "./ui/Search";
 
 import ghost from "/assets/ghost.svg";
 import styles from "./styles.module.scss";
-import { SearchWithFilter } from "./ui/Search";
 
 const NotesPage: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(true);

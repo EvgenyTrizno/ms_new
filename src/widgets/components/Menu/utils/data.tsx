@@ -1,3 +1,4 @@
+import { ROUTES } from "@/shared/utils/PATHS";
 import { ReactElement } from "react";
 
 export interface IData {
@@ -15,7 +16,7 @@ export const menuData: IMenuData = {
     default: [
         {
             label: "Главная",
-            path: "",
+            path: ROUTES.main.path,
             icon: (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
@@ -37,7 +38,7 @@ export const menuData: IMenuData = {
         },
         {
             label: "Поиск",
-            path: "",
+            path: ROUTES.search.path,
             icon: (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
@@ -59,7 +60,7 @@ export const menuData: IMenuData = {
         },
         {
             label: "Сообщения",
-            path: "",
+            path: ROUTES.messages.path,
             icon: (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
@@ -83,7 +84,7 @@ export const menuData: IMenuData = {
         },
         {
             label: "Записи",
-            path: "",
+            path: ROUTES.notes.path,
             icon: (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
@@ -114,7 +115,7 @@ export const menuData: IMenuData = {
         },
         {
             label: "Медицинская карта",
-            path: "",
+            path: ROUTES.medicalCard.path,
             icon: (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
@@ -153,8 +154,26 @@ export const menuData: IMenuData = {
             ),
         },
         {
+            label: "Местоположение",
+            path: ROUTES.geolocation.path,
+            icon: (
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                        d="M9.99844 11.1922C11.4344 11.1922 12.5984 10.0281 12.5984 8.59219C12.5984 7.15625 11.4344 5.99219 9.99844 5.99219C8.5625 5.99219 7.39844 7.15625 7.39844 8.59219C7.39844 10.0281 8.5625 11.1922 9.99844 11.1922Z"
+                        stroke="#B1B2B4"
+                        strokeWidth="1.25"
+                    />
+                    <path
+                        d="M3.0148 7.0763C4.65646 -0.140363 15.3481 -0.132029 16.9815 7.08464C17.9398 11.318 15.3065 14.9013 12.9981 17.118C11.3231 18.7346 8.67313 18.7346 6.9898 17.118C4.6898 14.9013 2.05646 11.3096 3.0148 7.0763Z"
+                        stroke="#B1B2B4"
+                        strokeWidth="1.25"
+                    />
+                </svg>
+            ),
+        },
+        {
             label: "Настройки",
-            path: "",
+            path: ROUTES.settings.path,
             icon: (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
@@ -180,7 +199,7 @@ export const menuData: IMenuData = {
     personal: [
         {
             label: "Главная",
-            path: "",
+            path: ROUTES.main.path,
             icon: (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
@@ -202,7 +221,7 @@ export const menuData: IMenuData = {
         },
         {
             label: "Пользователи",
-            path: "",
+            path: ROUTES.users.path,
             icon: (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
@@ -272,7 +291,7 @@ export const menuData: IMenuData = {
         },
         {
             label: "Сообщения",
-            path: "",
+            path: ROUTES.messages.path,
             icon: (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
@@ -358,7 +377,7 @@ export const menuData: IMenuData = {
                     />
                 </svg>
             ),
-            path: "/app",
+            path: ROUTES.app.path,
         },
         {
             label: "Персонал",
@@ -409,7 +428,7 @@ export const menuData: IMenuData = {
                     />
                 </svg>
             ),
-            path: "/map",
+            path: ROUTES.map.path,
         },
         {
             label: "Соц.сети и почта",
@@ -502,7 +521,7 @@ export const menuData: IMenuData = {
                     </defs>
                 </svg>
             ),
-            path: "/socials",
+            path: ROUTES.social.path,
         },
         {
             label: "Запросы",
@@ -539,7 +558,7 @@ export const menuData: IMenuData = {
                     </defs>
                 </svg>
             ),
-            path: "/requests",
+            path: ROUTES.requests.path,
         },
         {
             label: "Лиды",

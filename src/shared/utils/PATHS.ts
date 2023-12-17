@@ -100,4 +100,10 @@ export const ROUTES = {
     social: {
         path: "/social",
     },
+    geolocation: {
+        path: "/geolocation",
+    },
+    settings: {
+        path: "/settings",
+    },
 } as const;

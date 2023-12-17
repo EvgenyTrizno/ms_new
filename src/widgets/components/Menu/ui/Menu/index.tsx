@@ -13,6 +13,7 @@ import { Clinics } from "../Clinics";
 import { Centers } from "../Centers";
 import { Image } from "@/shared/ui/Image";
 import { menuData } from "../../utils/data";
+import { ROUTES } from "@/shared/utils/PATHS";
 
 import logo from "/assets/logo.svg";
 import bigLogo from "/assets/logo-with-text.svg";
@@ -42,11 +43,12 @@ export const Menu: FC = () => {
                         src={PC || LAPTOP || isHovered ? bigLogo : logo}
                         alt="logo"
                         className={styles.logo}
+                        onClick={() => navigate(ROUTES.main.path)}
                     />
                 )}
             </div>
             {user?.group.name === "Пользователи" && (
-                <Rows gap={10} rows={["auto"]}>
+                <Rows gap={10} rows={["auto"]} className={styles.healthy}>
                     <Text type="p" color="#B1B2B4" fz="14px">
                         Состояние:
                     </Text>

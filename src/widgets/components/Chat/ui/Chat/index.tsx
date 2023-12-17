@@ -66,8 +66,6 @@ export const Chat: FC<IChatProps> = ({ chat_uuid }) => {
                     text: msg,
                 })
             );
-
-        console.log("sub");
     };
 
     return (
