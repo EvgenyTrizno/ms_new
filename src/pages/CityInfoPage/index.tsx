@@ -7,8 +7,9 @@ import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { BlueArrows } from "@/shared/ui/BlueArrows";
 
-import styles from "./CityInfoPage.module.scss";
 import { Container } from "@/shared/ui/Container";
+
+import styles from "./styles.module.scss";
 
 const CityInfoPage: FC = () => {
     const data = [
