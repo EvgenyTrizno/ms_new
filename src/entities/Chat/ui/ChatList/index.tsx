@@ -66,7 +66,7 @@ export const ChatList: FC<IChatListProps> = ({ search }) => {
                     return (
                         <ChatView
                             key={item.id}
-                            name={user[0].first_name}
+                            name={user[0].first_name ?? ""}
                             time={""}
                             message={""}
                             count={0}

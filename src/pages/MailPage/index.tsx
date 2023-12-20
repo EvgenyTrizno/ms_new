@@ -1,4 +1,4 @@
-import { FC, SetStateAction } from "react";
+import { FC } from "react";
 
 import { Layout } from "../Layout";
 import { Text } from "@/shared/ui/Text";
@@ -28,11 +28,7 @@ const MailPage: FC = () => {
                                 "Удаленные",
                             ]}
                             isSelect={""}
-                            setIsSelect={function (
-                                value: SetStateAction<string>
-                            ): void {
-                                throw new Error("Function not implemented.");
-                            }}
+                            setIsSelect={() => ({})}
                         />
                     ) : (
                         <FilterWithIcons
@@ -174,11 +170,7 @@ const MailPage: FC = () => {
                                 </svg>,
                             ]}
                             isSelect={""}
-                            setIsSelect={function (
-                                value: SetStateAction<string>
-                            ): void {
-                                throw new Error("Function not implemented.");
-                            }}
+                            setIsSelect={() => ({})}
                         />
                     )}
                 </div>

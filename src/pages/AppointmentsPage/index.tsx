@@ -1,4 +1,4 @@
-import { FC, SetStateAction, useState } from "react";
+import { FC, useState } from "react";
 
 import { Layout } from "../Layout";
 import { Container } from "@/shared/ui/Container";
@@ -28,11 +28,7 @@ const AppointmentsPage: FC = () => {
                     <SliderFilter
                         data={filters}
                         isSelect={""}
-                        setIsSelect={function (
-                            value: SetStateAction<string>
-                        ): void {
-                            throw new Error("Function not implemented.");
-                        }}
+                        setIsSelect={() => ({})}
                     />
                 )}
                 <AppointmentsList />

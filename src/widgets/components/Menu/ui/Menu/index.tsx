@@ -17,15 +17,17 @@ import { ROUTES } from "@/shared/utils/PATHS";
 
 import logo from "/assets/logo.svg";
 import bigLogo from "/assets/logo-with-text.svg";
-import bigLogoRed from "/assets/logo-with-text-red.svg";
+// import bigLogoRed from "/assets/logo-with-text-red.svg";
 import styles from "./styles.module.scss";
 
 export const Menu: FC = () => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
 
+    setIsHovered(false);
+
     const { user } = useAuth();
     const navigate = useNavigate();
-    const sick = user && user.disease.length;
+    // const sick = user && user.disease.length;
     const group =
         user === null || user.group.name === "Пользователи"
             ? "default"

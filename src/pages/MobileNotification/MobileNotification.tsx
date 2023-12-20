@@ -1,10 +1,10 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout";
-import { MobileHeader } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
 import { Container } from "@/shared/ui/Container";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
+import { MobileHeader } from "@/widgets/components/MobileHeader";
 
 import woman from "/assets/woman.jpg";
 import styles from "./MobileNotification.module.scss";

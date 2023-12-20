@@ -6,7 +6,9 @@ import { Text } from "@/shared/ui/Text";
 
 import styles from "./styles.module.scss";
 
-export const ServerStatsBlock: FC<IServerStatsBlock> = ({ maxSize, name }) => {
+export const ServerStatsBlock: FC<IServerStatsBlock> = ({
+    /* maxSize, */ name,
+}) => {
     return (
         <BlueBox>
             <Text type="h4" fz="18px" style={{ marginBottom: 12 }}>

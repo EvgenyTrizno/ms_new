@@ -9,7 +9,7 @@ export const FilterWithIcons: FC<IFilterWithIconsProps> = ({
     width,
     data,
     isSelect,
-    setIsSelect,
+    // setIsSelect,
 }) => {
     const { user } = useAuth();
 

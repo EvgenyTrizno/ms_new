@@ -33,7 +33,7 @@ export const MessagesList: FC<IMessagesListProps> = ({ chat_id }) => {
                         onClick={handleOpenPopUp}
                         text={item.text}
                         img={item.user.image}
-                        name={item.user.first_name}
+                        name={item.user.first_name ?? ""}
                         hours={new Date(item.created_at).getHours()}
                         minutes={new Date(item.created_at).getMinutes()}
                     />

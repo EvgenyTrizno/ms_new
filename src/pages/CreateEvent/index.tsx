@@ -32,14 +32,7 @@ const CreateEventPage: FC = () => {
             ) : (
                 <Layout>
                     {MOBILE && (
-                        <CustomMobileHeader back>
-                            {/* <BackArrow /> */}
-                            <div style={{ marginLeft: 12 }}>
-                                <Text type="h2" fz="19px">
-                                    Создать запись
-                                </Text>
-                            </div>
-                        </CustomMobileHeader>
+                        <CustomMobileHeader back text="Создать запись" />
                     )}
                     <Container>
                         <Text type="h2" fz={MOBILE ? "22px" : "24px"}>

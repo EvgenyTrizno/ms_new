@@ -7,7 +7,6 @@ const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
 const MainPage = lazy(() => import("@/pages/Main"));
 const RecoveryPage = lazy(() => import("@/pages/RecoveryPage"));
-const AuthMapPage = lazy(() => import("@/pages/Auth/AuthMapPage/AuthMapPage"));
 const SelectCenterPage = lazy(() => import("@/pages/SelectCenter"));
 const ConfirmationPage = lazy(() => import("@/pages/ConfirmationPage"));
 const SearchPage = lazy(() => import("@/pages/SearchPage"));
@@ -66,7 +65,6 @@ export const routes: RouteProps[] = [
     },
     { path: "*", Component: NotFoundPage },
     { path: "/recovery", Component: RecoveryPage },
-    { path: "/auth/map", Component: AuthMapPage },
     {
         path: "/select-center",
         Component: SelectCenterPage,

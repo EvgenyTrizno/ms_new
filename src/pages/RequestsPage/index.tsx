@@ -1,4 +1,4 @@
-import { FC, SetStateAction } from "react";
+import { FC } from "react";
 
 import { Layout } from "../Layout";
 
@@ -33,11 +33,7 @@ const RequestsPage: FC = () => {
                             width="100%"
                             data={data}
                             isSelect={""}
-                            setIsSelect={function (
-                                value: SetStateAction<string>
-                            ): void {
-                                throw new Error("Function not implemented.");
-                            }}
+                            setIsSelect={() => ({})}
                         />
                         <Search placeholder="Поиск специалиста или пациента" />
                     </div>

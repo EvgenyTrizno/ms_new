@@ -6,9 +6,9 @@ import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Row } from "@/shared/ui/Row";
 import { Image } from "@/shared/ui/Image";
 import { Text } from "@/shared/ui/Text";
-import { BlueSliderArrows } from "@/widgets";
 import { ClinicSlide } from "../ClinicSlide";
 import { Slider as Courusel } from "@/widgets";
+import { BlueArrows } from "@/shared/ui/BlueArrows";
 
 export const Slider: FC<ISliderProps> = ({ image, text, addBtn }) => {
     return (
@@ -26,7 +26,14 @@ export const Slider: FC<ISliderProps> = ({ image, text, addBtn }) => {
                         <ClinicSlide key={item} />
                     ))}
                 </Courusel>
-                <BlueSliderArrows />
+                <BlueArrows
+                    prev={function (): void {
+                        throw new Error("Function not implemented.");
+                    }}
+                    next={function (): void {
+                        throw new Error("Function not implemented.");
+                    }}
+                />
             </Rows>
         </WhiteContentBlock>
     );

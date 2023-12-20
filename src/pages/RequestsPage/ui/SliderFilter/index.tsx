@@ -1,5 +1,5 @@
-import { FC, useRef } from "react";
-import { Swiper, SwiperSlide, SwiperRef } from "swiper/react";
+import { FC } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { ISliderFilterProps } from "./types";
 
 import { Image } from "@/shared/ui/Image";
@@ -9,22 +9,22 @@ import next from "./assets/next.svg";
 import styles from "./styles.module.scss";
 
 export const SliderFilter: FC<ISliderFilterProps> = ({ data }) => {
-    const swiperRef = useRef<SwiperRef>(null);
+    // const swiperRef = useRef<SwiperRef>(null);
 
     return (
         <div className={styles.wrapper}>
             <div
                 className={styles.arrow}
-                onClick={() =>
-                    swiperRef.current && swiperRef.current.slidePrev()
-                }
+                // onClick={() =>
+                //     swiperRef.current && swiperRef.current.slidePrev()
+                // }
             >
                 <Image src={prev} alt="" />
             </div>
             <Swiper
-                onSwiper={(swiper) => {
-                    swiperRef.current = swiper;
-                }}
+                // onSwiper={(swiper) => {
+                //     swiperRef.current = swiper;
+                // }}
                 navigation
                 slidesPerView={2}
             >
@@ -34,9 +34,9 @@ export const SliderFilter: FC<ISliderFilterProps> = ({ data }) => {
             </Swiper>
             <div
                 className={styles.arrow}
-                onClick={() =>
-                    swiperRef.current && swiperRef.current.slideNext()
-                }
+                // onClick={() =>
+                //     swiperRef.current && swiperRef.current.slideNext()
+                // }
             >
                 <Image src={next} alt="" />
             </div>

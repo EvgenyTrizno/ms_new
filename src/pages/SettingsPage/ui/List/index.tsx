@@ -19,6 +19,8 @@ import styles from "./styles.module.scss";
 export const List: FC = () => {
     const [select, setSelect] = useState<string>("");
 
+    console.log(select);
+
     const navigate = useNavigate();
     const { user } = useAuth();
 
