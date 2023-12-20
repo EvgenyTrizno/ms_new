@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 import { HealthyStatus } from "@/widgets/components/HealthyStatus";
@@ -23,7 +23,9 @@ import styles from "./styles.module.scss";
 export const Menu: FC = () => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
 
-    setIsHovered(false);
+    useEffect(() => {
+        setIsHovered(false);
+    }, []);
 
     const { user } = useAuth();
     const navigate = useNavigate();
