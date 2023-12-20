@@ -1,24 +1,17 @@
-import { FC, useRef } from "react";
+import { FC } from "react";
 
 import { Layout } from "../Layout";
-import { BlueSliderArrows, Indicator } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Cols } from "@/shared/ui/Cols";
 import { BlueBox } from "@/shared/ui/BlueBox";
+import { BlueArrows } from "@/shared/ui/BlueArrows";
+import { useCountryStore } from "@/shared/model/store/country";
 
-import styles from "./CountryInfo.module.scss";
+import styles from "./styles.module.scss";
 
 const CountryInfo: FC = () => {
-    const svgRef = useRef<SVGSVGElement | null>(null);
-
-    // useEffect(() => {
-    //     if (svgRef.current && country instanceof SVGPathElement) {
-    //         if (svgRef.current) {
-    //             svgRef.current.appendChild(country.cloneNode(true));
-    //         }
-    //     }
-    // }, [country]);
+    const { countryName, countrySvg } = useCountryStore();
 
     const data = [
         {
@@ -376,6 +369,13 @@ const CountryInfo: FC = () => {
         },
     ];
 
+    // const transformCountry = () => {
+
+    //     return coun
+    // };
+
+    console.log(countrySvg);
+
     return (
         <Layout>
             <div className={styles.info}>
@@ -384,21 +384,21 @@ const CountryInfo: FC = () => {
                         Все города по количеству пользователей, клиник и врачей
                     </Text>
                     <div className={styles.chart}></div>
-                    <BlueSliderArrows />
+                    <BlueArrows
+                        prev={function (): void {
+                            throw new Error("Function not implemented.");
+                        }}
+                        next={function (): void {
+                            throw new Error("Function not implemented.");
+                        }}
+                    />
                 </WhiteContentBlock>
                 <Cols type="auto" count={2} gap={10}>
                     <WhiteContentBlock>
                         <Text type="h2" fz="18px">
-                            Российская Федерация
+                            {countryName}
                         </Text>
-                        <svg
-                            className={styles.map}
-                            width="680"
-                            height="265"
-                            viewBox="0 0 680 265"
-                            preserveAspectRatio="xMidYMid meet"
-                            ref={svgRef}
-                        ></svg>
+                        <div className={styles.country}>{countrySvg}</div>
                     </WhiteContentBlock>
                     <WhiteContentBlock>
                         <div className={styles.blocks}>
@@ -412,7 +412,7 @@ const CountryInfo: FC = () => {
                                         <Text type="h2" fz="24px">
                                             23,752
                                         </Text>
-                                        <Indicator type="up" value="666" />
+                                        {/* <Indicator type="up" value="666" /> */}
                                     </div>
                                 </BlueBox>
                             ))}

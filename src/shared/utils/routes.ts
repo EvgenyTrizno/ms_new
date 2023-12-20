@@ -32,11 +32,9 @@ const AbountCenterPage = lazy(
 const ClinicProfilePage = lazy(() => import("@/pages/ClinicProfile"));
 const AppStatsPage = lazy(() => import("@/pages/AppStatsPage"));
 const LeadsPage = lazy(() => import("@/pages/LeadsPage"));
-const AdminPanelMapPage = lazy(
-    () => import("@/pages/AdminPanelMap/AdminPanelMapPage")
-);
-const CountryInfoPage = lazy(() => import("@/pages/CountryInfo/CountryInfo"));
-const CityInfoPage = lazy(() => import("@/pages/CityInfoPage/CityInfoPage"));
+const AdminPanelMapPage = lazy(() => import("@/pages/AdminPanelMap"));
+const CountryInfoPage = lazy(() => import("@/pages/CountryInfo"));
+const CityInfoPage = lazy(() => import("@/pages/CityInfoPage"));
 const RequestsPage = lazy(() => import("@/pages/RequestsPage"));
 const MailPage = lazy(() => import("@/pages/MailPage"));
 const SocialPage = lazy(() => import("@/pages/SocialPage"));

@@ -2,12 +2,13 @@ import { FC } from "react";
 
 import { Layout } from "../Layout";
 import { Cols } from "@/shared/ui/Cols";
-import { AdminPanelContainer, BlueSliderArrows, Indicator } from "@/widgets";
 import { BlueBox } from "@/shared/ui/BlueBox";
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
+import { BlueArrows } from "@/shared/ui/BlueArrows";
 
 import styles from "./CityInfoPage.module.scss";
+import { Container } from "@/shared/ui/Container";
 
 const CityInfoPage: FC = () => {
     const data = [
@@ -165,7 +166,7 @@ const CityInfoPage: FC = () => {
 
     return (
         <Layout>
-            <AdminPanelContainer>
+            <Container>
                 <Cols type="auto" count={2} gap={10}>
                     <WhiteContentBlock>
                         <Text type="h2" fz="18px">
@@ -197,7 +198,7 @@ const CityInfoPage: FC = () => {
                                         <Text type="h3" fz="24px">
                                             46,671
                                         </Text>
-                                        <Indicator type="up" value="666" />
+                                        {/* <Indicator type="up" value="666" /> */}
                                     </div>
                                 </BlueBox>
                             ))}
@@ -286,7 +287,7 @@ const CityInfoPage: FC = () => {
                                     <Text type="h3" fz="24px">
                                         46,671
                                     </Text>
-                                    <Indicator type="up" value="666" />
+                                    {/* <Indicator type="up" value="666" /> */}
                                 </div>
                             </div>
                             <div>
@@ -326,7 +327,18 @@ const CityInfoPage: FC = () => {
                                     </div>
                                 </div>
                                 <div style={{ marginTop: 16 }}>
-                                    <BlueSliderArrows />
+                                    <BlueArrows
+                                        prev={function (): void {
+                                            throw new Error(
+                                                "Function not implemented."
+                                            );
+                                        }}
+                                        next={function (): void {
+                                            throw new Error(
+                                                "Function not implemented."
+                                            );
+                                        }}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -401,7 +413,7 @@ const CityInfoPage: FC = () => {
                                     <Text type="h3" fz="24px">
                                         46,671
                                     </Text>
-                                    <Indicator type="up" value="666" />
+                                    {/* <Indicator type="up" value="666" /> */}
                                 </div>
                             </div>
                             <div>
@@ -441,13 +453,24 @@ const CityInfoPage: FC = () => {
                                     </div>
                                 </div>
                                 <div style={{ marginTop: 16 }}>
-                                    <BlueSliderArrows />
+                                    <BlueArrows
+                                        prev={function (): void {
+                                            throw new Error(
+                                                "Function not implemented."
+                                            );
+                                        }}
+                                        next={function (): void {
+                                            throw new Error(
+                                                "Function not implemented."
+                                            );
+                                        }}
+                                    />
                                 </div>
                             </div>
                         </div>
                     </WhiteContentBlock>
                 </Cols>
-            </AdminPanelContainer>
+            </Container>
         </Layout>
     );
 };

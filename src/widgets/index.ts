@@ -20,7 +20,6 @@ import { SelectCenterMap } from "./components/SelectCenterMap/SelectCenterMap";
 import { PersonalCard } from "./components/PersonalCard/PersonalCard";
 import { ConnectionModal } from "./components/ConnectionModal/ConnectionModal";
 import { DiseaseInfo } from "./components/DiseaseInfo/DiseaseInfo";
-import { WorldMap } from "./components/WorldMap/WorldMap";
 import { AdminPanelContainer } from "./components/AdminPanelContainer/AdminPanelContainer";
 import { RequestBlock } from "./components/RequestBlock/RequestBlock";
 import { MailLayout } from "./components/MailLayout/MailLayout";
@@ -51,7 +50,6 @@ export {
     PersonalCard,
     ConnectionModal,
     DiseaseInfo,
-    WorldMap,
     AdminPanelContainer,
     RequestBlock,
     MailLayout,

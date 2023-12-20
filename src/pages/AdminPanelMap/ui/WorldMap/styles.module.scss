@@ -25,3 +25,16 @@
     pointer-events: none;
     box-shadow: 0px 0px 8.54509px 0px rgba(38, 38, 38, 0.25);
 }
+
+.country {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90%;
+
+    svg {
+        width: 100%;
+        height: 157px;
+    }
+}
