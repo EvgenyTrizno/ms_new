@@ -5,6 +5,11 @@
     color: var(--blue);
 }
 
+.sick {
+    color: var(--red-400);
+    border-color: var(--red-400);
+}
+
 @media screen and (min-width: 1200px) {
     .notify {
         padding: 12px 16px;

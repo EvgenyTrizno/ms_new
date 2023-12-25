@@ -1,7 +1,5 @@
 .extra {
-    padding: 16px;
     border-radius: 100%;
-    background-color: var(--green);
     z-index: 100;
     position: fixed;
     right: 30px;
@@ -9,9 +7,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px;
+    border: 1px solid var(--blue);
 
-    img {
-        width: 24px;
-        height: 24px;
+    
+    .content {
+        padding: 20px;
+        background-color: var(--blue);
+        border-radius: 100%;
+
+        img {
+            min-width: 36px;
+            min-height: 36px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .extra {
+        padding: 0;
+        border: 0;
+
+        .content {
+            padding: 14px;
+        }
     }
 }

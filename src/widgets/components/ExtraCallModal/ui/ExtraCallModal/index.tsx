@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import { IExtraCallModal } from "./types";
 
-import { Contact } from "../Contact";
+// import { Contact } from "../Contact";
 import { useAuth } from "@/shared/model/store/auth";
 
 import amabulance from "/assets/amabulance-blue.svg";
@@ -84,7 +84,7 @@ export const ExtraCallModal: FC<IExtraCallModal> = ({ isOpen, setIsOpen }) => {
                 pointerEvents: isOpen ? "auto" : "none",
             }}
         >
-            <Contact />
+            {/* <Contact /> */}
             <div className={styles.container}>
                 {data.map((item, i) => (
                     <motion.div

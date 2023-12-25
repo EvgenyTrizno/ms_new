@@ -5,19 +5,20 @@ import extra from "./assets/extra-call.svg";
 import cross from "./assets/cross.svg";
 
 import styles from "./styles.module.scss";
+import { useExtracall } from "@/shared/model/store/extracall";
 
-export const ExtraCallBtn: FC<IExtraCallBtn> = ({
-    isOpen,
-    setIsOpen,
-    className,
-}) => {
+export const ExtraCallBtn: FC<IExtraCallBtn> = ({ isOpen, className }) => {
+    const { setIsOpen } = useExtracall();
+
     return (
         <div
             className={`${className} ${styles.extra}`}
             id="extraBtn"
-            onClick={() => setIsOpen((prev) => !prev)}
+            onClick={() => setIsOpen(isOpen ? false : true)}
         >
-            <img src={isOpen ? cross : extra} alt="" />
+            <div className={styles.content}>
+                <img src={isOpen ? cross : extra} alt="" />
+            </div>
         </div>
     );
 };

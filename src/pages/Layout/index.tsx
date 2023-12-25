@@ -7,11 +7,12 @@ import { PC, SMALL_LAPTOP, TABLET, MOBILE, LAPTOP } from "@/shared/utils";
 import { ExtraCallBtn } from "@/widgets/components/ExtraCallBtn";
 import { ExtraCallModal } from "@/widgets/components/ExtraCallModal/ui/ExtraCallModal";
 import { useAuth } from "@/shared/model/store/auth";
+import { useExtracall } from "@/shared/model/store/extracall";
 
 import styles from "./styles.module.scss";
 
 export const Layout: FC<TProps> = ({ children }) => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const { isOpen, setIsOpen } = useExtracall();
     const { user } = useAuth();
 
     return (
@@ -21,8 +22,8 @@ export const Layout: FC<TProps> = ({ children }) => {
             <div>
                 {(PC || SMALL_LAPTOP || LAPTOP) && <Menu />}
                 <div className={styles.main}>{children}</div>
-                {user && user.group.name === "Пользователи" && (
-                    <ExtraCallBtn isOpen={isOpen} setIsOpen={setIsOpen} />
+                {user && user.group.name === "Пользователи" && !MOBILE && (
+                    <ExtraCallBtn isOpen={isOpen} />
                 )}
             </div>
             {isOpen && <ExtraCallModal isOpen={isOpen} setIsOpen={setIsOpen} />}

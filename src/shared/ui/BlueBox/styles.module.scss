@@ -4,6 +4,10 @@
     padding: 16px;
 }
 
+.sick {
+    border-color: var(--red-100);
+}
+
 @media screen and (max-width: 1440px) {
     .block {
         padding: 14px;

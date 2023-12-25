@@ -91,3 +91,12 @@
         }
     }
 }
+
+@media screen and (max-width: 768px){
+    .extra {
+        height: calc(100vh - 156px);
+        top: 82px;
+        z-index: 0;
+        position: absolute;
+    }
+}

@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 import { HealthyStatus } from "@/widgets/components/HealthyStatus";
 import { LAPTOP, PC } from "@/shared/utils";
@@ -15,13 +15,15 @@ import { Image } from "@/shared/ui/Image";
 import { menuData } from "../../utils/data";
 import { ROUTES } from "@/shared/utils/PATHS";
 
-import logo from "/assets/logo.svg";
-import bigLogo from "/assets/logo-with-text.svg";
-// import bigLogoRed from "/assets/logo-with-text-red.svg";
+import logo from "./assets/logo.svg";
+import logoRed from "./assets/logo-red.svg";
+import bigLogo from "./assets/logo-with-text.svg";
+import bigLogoRed from "./assets/logo-with-text-red.svg";
 import styles from "./styles.module.scss";
 
 export const Menu: FC = () => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
+    const location = useLocation();
 
     useEffect(() => {
         setIsHovered(false);
@@ -29,7 +31,7 @@ export const Menu: FC = () => {
 
     const { user } = useAuth();
     const navigate = useNavigate();
-    // const sick = user && user.disease.length;
+    const sick = user && user.disease.length;
     const group =
         user === null || user.group.name === "Пользователи"
             ? "default"
@@ -38,13 +40,21 @@ export const Menu: FC = () => {
             : "admin";
 
     return (
-        <ul className={`${styles.menu} ${styles.open}`}>
+        <ul className={`${styles.menu} ${styles.open} ${styles.sick}`}>
             <div className={styles.header}>
                 {user?.group.name === "Администраторы" ? (
                     <Search />
                 ) : (
                     <Image
-                        src={PC || LAPTOP || isHovered ? bigLogo : logo}
+                        src={
+                            PC || LAPTOP || isHovered
+                                ? sick
+                                    ? bigLogoRed
+                                    : bigLogo
+                                : sick
+                                ? logoRed
+                                : logo
+                        }
                         alt="logo"
                         className={styles.logo}
                         onClick={() => navigate(ROUTES.main.path)}
@@ -65,12 +75,20 @@ export const Menu: FC = () => {
                     onClick={() => navigate(item.path)}
                     style={{ display: "flex", justifyContent: "space-between" }}
                 >
-                    <Row gap={16}>
-                        {item.icon}
-                        <Text type="p" color="#B1B2B4">
-                            {item.label}
-                        </Text>
-                    </Row>
+                    <div
+                        className={
+                            item.path === location.pathname
+                                ? styles.active
+                                : styles.item
+                        }
+                    >
+                        <Row gap={16}>
+                            {item.icon}
+                            <Text type="p" color="#B1B2B4">
+                                {item.label}
+                            </Text>
+                        </Row>
+                    </div>
                     {item.label === "Персонал" && (
                         <>
                             <svg width="20" viewBox="0 0 20 20" fill="none">

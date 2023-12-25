@@ -13,6 +13,7 @@ import keyRed from "/assets/key-big-red.svg";
 import homeWithPlus from "/assets/home-with-plus-blue.svg";
 import homeWithPlusRed from "/assets/home-with-plus-red.svg";
 import markBlue from "/assets/mark-blue.svg";
+import markRed from "../../assets/access-red.svg";
 import heartBlue from "/assets/heart-blue.svg";
 import heartRed from "/assets/heart-red.svg";
 import userBlue from "/assets/user-blue.svg";
@@ -22,6 +23,8 @@ import assigmentBlue from "../../assets/assigmentBlue.svg";
 import assigmentRed from "../../assets/assigmentRed.svg";
 import statsBlue from "../../assets/statsBlue.svg";
 import statsRed from "../../assets/statsRed.svg";
+import access from "../../assets/access.svg";
+import accessRed from "../../assets/access-red.svg";
 
 import styles from "./styles.module.scss";
 
@@ -62,8 +65,8 @@ export const MainData: FC = () => {
         {
             label: "Доступ",
             icon: {
-                healthy: keyBlue,
-                sick: keyRed,
+                healthy: access,
+                sick: accessRed,
             },
             path: "/access",
         },
@@ -79,7 +82,7 @@ export const MainData: FC = () => {
             label: "Сохраненное",
             icon: {
                 healthy: markBlue,
-                sick: markBlue,
+                sick: markRed,
             },
             path: "/saved",
         },
@@ -166,10 +169,9 @@ export const MainData: FC = () => {
         <Rows gap={10} rows={["auto"]}>
             {!MOBILE && !TABLET ? (
                 <>
-                    {" "}
                     {data.map((item, i) => (
                         <div
-                            className={styles.item}
+                            className={`${styles.item} ${styles.sick}`}
                             key={i}
                             onClick={() => {
                                 setIsOpen((prev) => !prev);

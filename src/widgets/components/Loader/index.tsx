@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import styles from "./Loader.module.scss";
+import styles from "./styles.module.scss";
 
 export const Loader: FC = () => {
     const sick = "Болен";

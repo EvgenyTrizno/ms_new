@@ -1,5 +1,6 @@
-import { Loader } from "@/widgets";
 import { FC, ReactNode, Suspense } from "react";
+
+import { Loader } from "@/widgets/components/Loader";
 
 interface Props {
     children: ReactNode;

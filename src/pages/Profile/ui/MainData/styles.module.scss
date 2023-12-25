@@ -31,6 +31,10 @@
     }
 }
 
+.sick {
+    border-color: var(--red-100);
+}
+
 .item:first-child {
     .arrow {
         transform: rotate(-90deg);
