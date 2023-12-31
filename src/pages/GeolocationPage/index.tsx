@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import { Map } from "@/widgets/components/Map";
 import { SearchWithFilter } from "./ui/Search";
@@ -10,8 +10,6 @@ import styles from "./styles.module.scss";
 import { MOBILE, TABLET } from "@/shared/utils";
 
 const GeolocationPage: FC = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-
     const config = [
         {
             elementType: "geometry",
@@ -191,9 +189,7 @@ const GeolocationPage: FC = () => {
                     <div className={styles.marker}></div>
                 </OverlayView>
             </Map>
-            {!MOBILE && !TABLET && (
-                <ExtraCallBtn isOpen={isOpen} setIsOpen={setIsOpen} />
-            )}
+            {!MOBILE && !TABLET && <ExtraCallBtn isOpen={false} />}
         </div>
     );
 };
