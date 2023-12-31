@@ -63,7 +63,7 @@ export const Menu: FC = () => {
             </div>
             {user?.group.name === "Пользователи" && (
                 <Rows gap={10} rows={["auto"]} className={styles.healthy}>
-                    <Text type="p" color="#B1B2B4" fz="14px">
+                    <Text type="p" color="#B1B2B4" className={styles.condition}>
                         Состояние:
                     </Text>
                     <HealthyStatus isHovered={isHovered} />
@@ -73,15 +73,12 @@ export const Menu: FC = () => {
                 <li
                     key={i}
                     onClick={() => navigate(item.path)}
+                    className={
+                        item.path === location.pathname ? styles.active : ""
+                    }
                     style={{ display: "flex", justifyContent: "space-between" }}
                 >
-                    <div
-                        className={
-                            item.path === location.pathname
-                                ? styles.active
-                                : styles.item
-                        }
-                    >
+                    <div className={styles.item}>
                         <Row gap={16}>
                             {item.icon}
                             <Text type="p" color="#B1B2B4">

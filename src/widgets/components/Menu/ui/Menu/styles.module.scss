@@ -22,10 +22,18 @@
     justify-content: center;
     border-bottom: 1px solid var(--blue-100);
     padding: 0 16px;
+
+    .logo {
+        cursor: pointer;
+    }
 }
 
 .healthy {
-    padding: 16px 0 0 16px;
+    padding: 16px 0 16px 16px;
+}
+
+.condition {
+    font-size: 14px;
 }
 
 .menu li {
@@ -96,5 +104,45 @@
     background-color: var(--blue);
     width: calc(100% - 32px);
     border-radius: 12px;
-    width: 100%;
+    transform: translate(16px, 0);
+   
+    p {
+        color: #fff !important;
+    }
+
+    svg {
+        path {
+            stroke: #fff;
+        }
+    }
+
+    .item {
+        transform: translate(-16px, 0);
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .menu.open {
+        width: 244px;
+
+        li {
+            p {
+                font-size: 12px;
+            }
+        }
+
+        svg {
+            width: 17px;
+            height: 17px;
+        }
+    }
+
+    .header {
+        height: 58px;
+    }
+
+    .condition {
+        font-size: 12px;
+    }
+    
 }

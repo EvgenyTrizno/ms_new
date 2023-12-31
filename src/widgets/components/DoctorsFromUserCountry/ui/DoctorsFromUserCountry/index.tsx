@@ -7,13 +7,15 @@ import { SliderArrows } from "@/widgets";
 import { List } from "../List";
 import { useAuth } from "@/shared/model/store/auth";
 
+import styles from "./styles.module.scss";
+
 export const DoctorsFromUserCountry: FC = () => {
     const { user } = useAuth();
 
     return (
         <Rows gap={10} rows={["auto"]}>
             <Row gap={0} style={{ justifyContent: "space-between" }}>
-                <Text type="p" color="#7D7F82" fz="14px">
+                <Text type="p" color="#7D7F82" className={styles.country}>
                     {user && user.country.name
                         ? `Специалисты из ${user.country.name}`
                         : ""}

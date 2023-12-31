@@ -61,6 +61,12 @@
     }
 }
 
+@media screen and (max-width: 1920px) {
+    .item::before {
+        height: 52px;
+    }
+}
+
 @media screen and (max-width: 576px) {
     .item {
         height: 40px;

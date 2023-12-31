@@ -12,7 +12,7 @@ import { Username } from "@/entities/User/ui/Username";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { UserGroup } from "@/entities/User/ui/UserGroup";
 import { useAuth } from "@/shared/model/store/auth";
-import { MOBILE } from "@/shared/utils";
+import { MOBILE, SMALL_LAPTOP } from "@/shared/utils";
 
 import styles from "./styles.module.scss";
 import "swiper/css/pagination";
@@ -59,12 +59,15 @@ export const PostLayout: FC<IPostLayoutProps> = ({
                     onClick={onClick}
                 />
                 <Rows gap={5} rows={["auto", "auto"]}>
-                    <Username name={name} fz={MOBILE ? "15px" : "18px"} />
-                    <UserGroup group={creator} fz={MOBILE ? "12px" : "14px"} />
+                    <Username name={name} fz={SMALL_LAPTOP ? "16px" : "18px"} />
+                    <UserGroup
+                        group={creator}
+                        fz={SMALL_LAPTOP ? "12px" : "14px"}
+                    />
                 </Rows>
             </Row>
             <div className={styles.descr}>
-                <Text type="p" fz="14px" color="#3C3D3E">
+                <Text type="p" color="#3C3D3E">
                     {text}
                 </Text>
             </div>

@@ -57,17 +57,20 @@
     }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1550px) {
+@media screen and (max-width: 1920px) {
     .header {
-        width: calc(100vw - 84px);
-
+        width: calc(100% - 244px);
+        height: 58px;
+        
         .nav {
-            .inner {
-                p {
-                    font-size: 14px !important;
-                }
-            }
+            padding: 8px 30px;
         }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .header {
+        width: calc(100% - 256px);
     }
 }
 

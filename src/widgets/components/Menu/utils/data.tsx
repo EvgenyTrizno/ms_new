@@ -5,6 +5,7 @@ export interface IData {
     label: string;
     path: string;
     icon: ReactElement;
+    disabled?: boolean;
 }
 export interface IMenuData {
     default: IData[];
@@ -114,7 +115,7 @@ export const menuData: IMenuData = {
             ),
         },
         {
-            label: "Медицинская карта",
+            label: "Мед карта",
             path: ROUTES.medicalCard.path,
             icon: (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -378,6 +379,7 @@ export const menuData: IMenuData = {
                 </svg>
             ),
             path: ROUTES.app.path,
+            disabled: false,
         },
         {
             label: "Персонал",
@@ -400,6 +402,7 @@ export const menuData: IMenuData = {
                 </svg>
             ),
             path: "/personal",
+            disabled: false,
         },
         {
             label: "Карта",
@@ -429,6 +432,7 @@ export const menuData: IMenuData = {
                 </svg>
             ),
             path: ROUTES.map.path,
+            disabled: false,
         },
         {
             label: "Соц.сети и почта",
@@ -522,6 +526,7 @@ export const menuData: IMenuData = {
                 </svg>
             ),
             path: ROUTES.social.path,
+            disabled: false,
         },
         {
             label: "Запросы",
@@ -559,6 +564,7 @@ export const menuData: IMenuData = {
                 </svg>
             ),
             path: ROUTES.requests.path,
+            disabled: false,
         },
         {
             label: "Лиды",
@@ -587,6 +593,7 @@ export const menuData: IMenuData = {
                 </svg>
             ),
             path: "/leads",
+            disabled: false,
         },
         {
             label: "Продажи",
@@ -633,6 +640,7 @@ export const menuData: IMenuData = {
                 </svg>
             ),
             path: "/sales",
+            disabled: false,
         },
         {
             label: "Реклама",
@@ -686,6 +694,7 @@ export const menuData: IMenuData = {
                 </svg>
             ),
             path: "/advertisement",
+            disabled: false,
         },
         {
             label: "Бот",
@@ -745,6 +754,7 @@ export const menuData: IMenuData = {
                 </svg>
             ),
             path: "/bot",
+            disabled: false,
         },
     ],
 };

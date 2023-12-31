@@ -6,7 +6,7 @@ import { Username } from "@/entities/User";
 import { getFullUsernameWithInitials } from "@/entities/User/lib/helpers/getFullUsernameWithInitials";
 import { Avatar } from "@/shared/ui/Avatar";
 import { UserRank } from "@/entities/User";
-import { MOBILE } from "@/shared/utils";
+import { LAPTOP, MOBILE } from "@/shared/utils";
 
 export const DoctorCard: FC<IDoctorCardProps> = ({
     name,
@@ -31,6 +31,7 @@ export const DoctorCard: FC<IDoctorCardProps> = ({
                                       patronymic
                                   )
                         }
+                        fz="12px"
                     />
                 )
             }
@@ -39,7 +40,7 @@ export const DoctorCard: FC<IDoctorCardProps> = ({
                 <UserRank
                     rank={rank}
                     position="center"
-                    fz={MOBILE ? "12px" : ""}
+                    fz={LAPTOP ? "10px" : MOBILE ? "12px" : "14px"}
                 />
             }
         />

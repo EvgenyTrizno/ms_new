@@ -7,13 +7,21 @@
         max-width: 16px;
         height: 16px;
     }
+
+    p {
+        font-size: 14px;
+    }
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1439px) {
+@media screen and (max-width: 1920px) {
     .info {
+        p {
+            font-size: 12px;
+        }
+
         img {
-            max-width: 14px;
-            max-height: 14px;
+            width: 13px;
+            height: 13px;
         }
     }
 }

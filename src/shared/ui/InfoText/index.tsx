@@ -1,7 +1,6 @@
 import { FC } from "react";
 
 import { Text } from "../Text";
-import { SMALL_LAPTOP } from "@/shared/utils";
 import { useAuth } from "@/shared/model/store/auth";
 
 import arrow from "./assets/arrow-right-blue.svg";
@@ -20,11 +19,7 @@ export const InfoText: FC<IInfoTextProps> = ({ text, onClick }) => {
 
     return (
         <div className={styles.info} onClick={onClick}>
-            <Text
-                type="p"
-                fz={SMALL_LAPTOP ? "12px" : "14px"}
-                color={sick ? "#D64657" : "#0064FA"}
-            >
+            <Text type="p" color={sick ? "#D64657" : "#0064FA"}>
                 {text}
             </Text>
             <img src={sick ? arrowRed : arrow} alt="" />

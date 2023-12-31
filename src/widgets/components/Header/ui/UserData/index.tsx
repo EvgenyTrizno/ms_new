@@ -6,23 +6,20 @@ import { Avatar } from "@/shared/ui/Avatar";
 import { useAuth } from "@/shared/model/store/auth";
 import { NotificationBtn, NotificationModal } from "@/entities/Notification/ui";
 import { Balance } from "../Balance";
-import { Image } from "@/shared/ui/Image";
-
-import download from "../../assets/download.svg";
 
 export const UserData: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { user } = useAuth();
 
     const navigate = useNavigate();
+    const group = user && user.group.name;
 
     return (
         <Row gap={20}>
-            {user && user.group.name === "Врачи" && (
-                <Image src={download} width={20} height={20} alt="download" />
+            {group === "Врачи" && <Balance />}
+            {group !== "Администраторы" && (
+                <NotificationBtn onClick={() => setIsOpen((prev) => !prev)} />
             )}
-            {user && user.group.name === "Врачи" && <Balance />}
-            <NotificationBtn onClick={() => setIsOpen((prev) => !prev)} />
             <Avatar
                 img={(user && user.image) ?? ""}
                 type="custom"

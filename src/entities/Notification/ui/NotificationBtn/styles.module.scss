@@ -1,0 +1,11 @@
+.notify {
+    width: 24px;
+    height: 24px;
+}
+
+@media screen and (max-width: 1920px) {
+    .notify {
+        width: 20px;
+        height: 20px;
+    }
+}
