@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { TProps } from "./types";
 import { Header } from "@/widgets/components/Header/ui";
 import { Menu } from "@/widgets/components/Menu/ui/Menu";
