@@ -42,6 +42,25 @@
     display: flex;
     align-items: center;
     padding: 16px 32px;
+
+    p {
+        color: var(--gray);
+    }
+}
+
+.menu li:not(.active):hover {
+    
+    p {
+        transition: ease .3s;
+        color: var(--dark);
+    }
+
+    svg {
+        path {
+            transition: ease .3s;
+            stroke: var(--dark);
+        }
+    }
 }
 
 .submenu {

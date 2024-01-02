@@ -81,9 +81,7 @@ export const Menu: FC = () => {
                     <div className={styles.item}>
                         <Row gap={16}>
                             {item.icon}
-                            <Text type="p" color="#B1B2B4">
-                                {item.label}
-                            </Text>
+                            <Text type="p">{item.label}</Text>
                         </Row>
                     </div>
                     {item.label === "Персонал" && (
@@ -217,9 +215,7 @@ export const Menu: FC = () => {
                             </clipPath>
                         </defs>
                     </svg>
-                    <Text type="p" color="#B1B2B4">
-                        Выход
-                    </Text>
+                    <Text type="p">Выход</Text>
                 </Row>
             </li>
         </ul>
