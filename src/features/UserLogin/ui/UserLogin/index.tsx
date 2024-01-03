@@ -31,7 +31,7 @@ export const UserLogin: FC = () => {
                     <div className={styles.box}>
                         {isError &&
                             er &&
-                            er.response?.data.detail ===
+                            ((er.response?.data as any).detail as unknown) ===
                                 errors.incorrectEmailOrPhone && (
                                 <span>Неверный введен логин</span>
                             )}
@@ -39,7 +39,8 @@ export const UserLogin: FC = () => {
                             border={
                                 isError &&
                                 er &&
-                                er.response?.data.detail ===
+                                ((er.response?.data as any)
+                                    .detail as unknown) ===
                                     errors.incorrectEmailOrPhone
                                     ? "1px solid #D64657"
                                     : ""
@@ -52,7 +53,7 @@ export const UserLogin: FC = () => {
                     <div className={styles.box}>
                         {isError &&
                             er &&
-                            er.response?.data.detail ===
+                            ((er.response?.data as any).detail as unknown) ===
                                 errors.incorrectPassword && (
                                 <span>Неверный введен пароль</span>
                             )}
@@ -60,7 +61,8 @@ export const UserLogin: FC = () => {
                             error={
                                 (isError &&
                                     er &&
-                                    er.response?.data.detail ===
+                                    ((er.response?.data as any)
+                                        .detail as unknown) ===
                                         errors.incorrectPassword) ??
                                 false
                             }
