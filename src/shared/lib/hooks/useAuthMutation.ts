@@ -11,6 +11,14 @@ export const useAuthMutation = (refresh: string) => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    const excludedPaths = [
+        ROUTES.login.path,
+        ROUTES.registration.path,
+        ROUTES.recovery.path,
+        ROUTES.confirmation.path,
+        ROUTES.selectCenter.path,
+    ];
+
     return useMutation({
         mutationFn: () => auth(refresh),
         mutationKey: ["auth"],
@@ -21,11 +29,9 @@ export const useAuthMutation = (refresh: string) => {
         },
         onError: () => {
             if (
-                location.pathname !== ROUTES.login.path ||
-                location.pathname !== (ROUTES.registration.path as any) ||
-                location.pathname !== (ROUTES.recovery.path as any) ||
-                location.pathname !== (ROUTES.confirmation.path as any) ||
-                location.pathname !== (ROUTES.selectCenter.path as any)
+                !excludedPaths.includes(
+                    location.pathname as typeof ROUTES.registration.path
+                )
             ) {
                 navigate(ROUTES.login.path);
             }
