@@ -12,11 +12,13 @@ import { Search } from "@/features/Search";
 import styles from "./styles.module.scss";
 
 const MedicalCardPage: FC = () => {
-    return (
-        <Layout>
-            {MOBILE && <CustomMobileHeader back text="Медицинская карта" />}
-            <Container>
-                <Search placeholder="Введите запрос" />
+  return (
+    <Layout>
+      {MOBILE && <CustomMobileHeader back text="Медицинская карта" />}
+      <Container>
+        {/* <div className={styles.search}>
+                    <Search placeholder="Введите запрос" />
+                </div>
                 <Cols
                     type="custom"
                     gap={16}
@@ -29,7 +31,7 @@ const MedicalCardPage: FC = () => {
                             info={false}
                         />
                     </div>
-                    <div>
+                    <div className={styles.list}>
                         <Text
                             type="p"
                             color="#7D7F82"
@@ -40,10 +42,32 @@ const MedicalCardPage: FC = () => {
                         </Text>
                         <List />
                     </div>
-                </Cols>
-            </Container>
-        </Layout>
-    );
+                </Cols> */}
+
+        <div className={styles.search}>
+          <Search placeholder="Введите запрос" />
+        </div>
+        <div className={styles.calendar}>
+          <Calendar height="max-content" width="100%" info={false} />
+        </div>
+        <div className={styles.list}>
+          <div className={styles.dateWrapper}>
+            <Text
+              type="p"
+              color="#7D7F82"
+              fz="14px"
+              style={{ marginBottom: "16px" }}
+            >
+              10 Октябрь
+            </Text>
+          </div>
+          <div style={{ paddingTop: "40px" }}>
+            <List />
+          </div>
+        </div>
+      </Container>
+    </Layout>
+  );
 };
 
 export default MedicalCardPage;

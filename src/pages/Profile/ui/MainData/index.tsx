@@ -10,8 +10,10 @@ import { MOBILE, TABLET } from "@/shared/utils";
 
 import keyBlue from "/assets/key-big-blue.svg";
 import keyRed from "/assets/key-big-red.svg";
-import homeWithPlus from "/assets/home-with-plus-blue.svg";
-import homeWithPlusRed from "/assets/home-with-plus-red.svg";
+// import homeWithPlus from "/assets/home-with-plus-blue.svg";
+// import homeWithPlusRed from "/assets/home-with-plus-red.svg";
+import nursesBlue from '../../assets/nursesBlue.svg';
+import nursesRed from '../../assets/nursesRed.svg';
 import markBlue from "/assets/mark-blue.svg";
 import markRed from "../../assets/access-red.svg";
 import heartBlue from "/assets/heart-blue.svg";
@@ -35,6 +37,8 @@ export const MainData: FC = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
 
+    const sick = user && user.disease.length;
+
     const data = [
         {
             label: "Аккаунт",
@@ -50,15 +54,15 @@ export const MainData: FC = () => {
             path: "/appointments",
         },
         {
-            label: "Статистика лечения",
+            label: "Статистика",
             icon: { healthy: statsBlue, sick: statsRed },
             path: "/statistics",
         },
         {
-            label: "Медицинский центр",
+            label: "Все врачи",
             icon: {
-                healthy: homeWithPlus,
-                sick: homeWithPlusRed,
+                healthy: nursesBlue,
+                sick: nursesRed,
             },
             path: "/medical-center",
         },
@@ -111,15 +115,15 @@ export const MainData: FC = () => {
             path: "/appointments",
         },
         {
-            label: "Статистика лечения",
+            label: "Статистика",
             icon: { healthy: statsBlue, sick: statsRed },
             path: "/statistics",
         },
         {
-            label: "Медицинский центр",
+            label: "Все врачи",
             icon: {
-                healthy: homeWithPlus,
-                sick: homeWithPlusRed,
+                healthy: nursesBlue,
+                sick: nursesRed,
             },
             path: "/medical-center",
         },
@@ -172,6 +176,7 @@ export const MainData: FC = () => {
                     {data.map((item, i) => (
                         <div
                             className={`${styles.item} ${styles.sick}`}
+                            style={{borderColor: sick ? "#F7E6E8" : "#EBF3FF"}}
                             key={i}
                             onClick={() => {
                                 setIsOpen((prev) => !prev);

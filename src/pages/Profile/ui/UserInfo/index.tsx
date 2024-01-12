@@ -4,23 +4,32 @@ import { Text } from "@/shared/ui/Text";
 import { useAuth } from "@/shared/model/store/auth";
 import { getFullUsernameWithInitials } from "@/entities/User/lib/helpers/getFullUsernameWithInitials";
 
-import noimage from "/assets/noimage.svg";
+import noImageBlue from "/assets/noimage.svg";
+import noImageRed from '../../assets/noImageRed.svg';
 import styles from "./styles.module.scss";
 
 export const User: FC = () => {
     const { user } = useAuth();
-
+    const sick = user && user.disease.length;
     console.log(user);
 
     return (
-        <div className={styles.user}>
+        <div
+            className={styles.user}
+            style={{borderColor: sick ? "#F7E6E8" : "#EBF3FF"}}
+        >
             <div className={styles.image}>
                 <img
                     src={
                         !user || (user && !user.image)
-                            ? noimage
+                            ? sick ? noImageRed : noImageBlue
                             : user && user.image
                     }
+                    // src={
+                    //     (user && user.image)
+                    //         ? sick ? noImageRed : noImageBlue
+                    //         : user && user.image || ""
+                    // }
                     alt=""
                 />
                 <input

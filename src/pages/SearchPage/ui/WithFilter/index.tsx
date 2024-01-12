@@ -9,7 +9,8 @@ export const WithFilter: FC<IWithFilterProps> = ({
     filter,
     search,
 }) => {
-    const filters = ["Центры", "Клиника", "Врачи"];
+    // const filters = ["Центры", "Клиника", "Врачи"];
+    const filters = ["Клиника", "Врачи"];
     const filterObj: IFilterObj = {
         [filters[0]]: "centers",
         [filters[1]]: "clinics",

@@ -14,7 +14,7 @@ const MessagesPage: FC = () => {
             {MOBILE && <MobileHeader />}
             <ChatContainer>
                 <ChatSidebar />
-                {!MOBILE && !TABLET && "выберите чат"}
+                {/* {!MOBILE && !TABLET && "выберите чат"} */}
             </ChatContainer>
             {MOBILE && <MobileMenu />}
         </Layout>

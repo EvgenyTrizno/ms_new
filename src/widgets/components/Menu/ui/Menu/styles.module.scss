@@ -41,7 +41,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 16px 32px;
+    padding: 19px 32px;
 
     p {
         color: var(--gray);
@@ -140,13 +140,34 @@
     }
 }
 
+.SickActive {
+    background-color: var(--red-400);
+    width: calc(100% - 32px);
+    border-radius: 12px;
+    transform: translate(16px, 0);
+   
+    p {
+        color: #fff !important;
+    }
+
+    svg {
+        path {
+            stroke: #fff;
+        }
+    }
+
+    .item {
+        transform: translate(-16px, 0);
+    }
+}
+
 @media screen and (max-width: 1920px) {
     .menu.open {
         width: 244px;
 
         li {
             p {
-                font-size: 12px;
+                font-size: 14px;
             }
         }
 
@@ -161,7 +182,7 @@
     }
 
     .condition {
-        font-size: 12px;
+        font-size: 14px;
     }
     
 }
