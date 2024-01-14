@@ -12,7 +12,7 @@ export const Slider: FC<ISlider> = ({ children, gap = 10 }) => {
             spaceBetween={gap}
             navigation={{ nextEl: "#nextArrow", prevEl: "#prevArrow" }}
             modules={[Navigation]}
-            style={{ overflow: "hidden" }}
+            style={{ overflow: "hidden", height: 'fit-content' }}
         >
             {Children.map(children, (item) => (
                 <SwiperSlide>{item}</SwiperSlide>

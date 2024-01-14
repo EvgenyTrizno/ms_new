@@ -9,14 +9,18 @@ import { Row } from "@/shared/ui/Row";
 import { DateBlock } from "./ui/DateBlock";
 
 import styles from "./styles.module.scss";
+import { useAuth } from "@/shared/model/store/auth";
 
 export const MedicalBlock: FC<INoteBlockProps> = ({ onClick }) => {
-    const sick = false;
+    const { user } = useAuth();
+
+    const sick = user && user.disease.length;
 
     return (
         <WhiteContentBlock
             className={
-                sick ? `${styles.medical} ${styles.medicalRed}` : styles.medical
+                // sick ? `${styles.medical} ${styles.medicalRed}` : styles.medical
+                sick ? styles.medicalRed : styles.medical
             }
             onClick={onClick}
         >

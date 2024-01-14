@@ -1,5 +1,5 @@
 .calendar {
-    width: 490px;
+    max-width: 490px;
     background-color: var(--white);
     border-radius: var(--default-border);
     border: 1px solid var(--blue-100);
@@ -47,7 +47,8 @@
         .list {
             display: grid;
             grid-template-columns: repeat(7, 66px);
-            justify-content: space-between;
+            // justify-content: space-between;
+            justify-content: center;
 
             .item {
                 width: 66px;

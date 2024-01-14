@@ -13,7 +13,8 @@ import { SearchWithFilter } from "@/features/SearchWithFilter";
 
 const SearchPage: FC = () => {
     const [search, setSearch] = useState<string>("");
-    const [filter, setFilter] = useState<string>("Центры");
+    // const [filter, setFilter] = useState<string>("Центры");
+    const [filter, setFilter] = useState<string>("Клиника");
 
     return (
         <Layout>

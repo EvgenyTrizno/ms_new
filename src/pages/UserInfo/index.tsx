@@ -18,7 +18,7 @@ const UserInfoPage: FC = () => {
     const { data } = useUserQuery(id ? +id : 0);
 
     const user = data && data.data.user[0];
-
+    
     return (
         <Layout>
             {MOBILE && <CustomMobileHeader text="Профиль пользователя" back />}

@@ -14,6 +14,7 @@ import { Centers } from "../Centers";
 import { Image } from "@/shared/ui/Image";
 import { menuData } from "../../utils/data";
 import { ROUTES } from "@/shared/utils/PATHS";
+import { useLogout } from "@/shared/lib/hooks/useLogout";
 
 import logo from "./assets/logo.svg";
 import logoRed from "./assets/logo-red.svg";
@@ -21,8 +22,10 @@ import bigLogo from "./assets/logo-with-text.svg";
 import bigLogoRed from "./assets/logo-with-text-red.svg";
 import styles from "./styles.module.scss";
 
+
 export const Menu: FC = () => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
+    const { logout } = useLogout();
     const location = useLocation();
 
     useEffect(() => {
@@ -40,8 +43,14 @@ export const Menu: FC = () => {
             : "admin";
 
     return (
-        <ul className={`${styles.menu} ${styles.open} ${styles.sick}`}>
-            <div className={styles.header}>
+        <ul 
+            className={`${styles.menu} ${styles.open} ${styles.sick}`}
+            style={{ borderColor: sick ? "#F7E6E8" : "#EBF3FF" }}
+        >
+            <div 
+                className={styles.header}
+                style={{ borderColor: sick ? "#F7E6E8" : "#EBF3FF" }}
+            >
                 {user?.group.name === "Администраторы" ? (
                     <Search />
                 ) : (
@@ -74,9 +83,9 @@ export const Menu: FC = () => {
                     key={i}
                     onClick={() => navigate(item.path)}
                     className={
-                        item.path === location.pathname ? styles.active : ""
+                        item.path === location.pathname ? `${styles.active} ${sick && styles.SickActive}` : ""
                     }
-                    style={{ display: "flex", justifyContent: "space-between" }}
+                    style={{display: "flex", justifyContent: "space-between"}}
                 >
                     <div className={styles.item}>
                         <Row gap={16}>
@@ -193,7 +202,7 @@ export const Menu: FC = () => {
                 </li>
             ))}
             <li>
-                <Row gap={16}>
+                <Row gap={16} onClick={() => logout()}>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <g clipPath="url(#clip0_5460_28865)">
                             <path
@@ -215,7 +224,7 @@ export const Menu: FC = () => {
                             </clipPath>
                         </defs>
                     </svg>
-                    <Text type="p">Выход</Text>
+                    <Text type="p" fz={14}>Выход</Text>
                 </Row>
             </li>
         </ul>

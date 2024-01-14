@@ -1,0 +1,40 @@
+.calendar {
+  position: fixed;
+  top: 150px;
+}
+
+.search {
+  position: fixed;
+  z-index: 1;
+  // width: 100%;
+  width: calc(100% - 303px);
+  // max-width: 1380px;
+}
+
+.list {
+  // width: calc(98% - 256px);
+  // height: calc(100% - 64px);
+  // top: 147px;
+  // position: fixed;
+  // margin-left: 512px;
+  // overflow-y: auto;
+
+  width: calc(100% - 774px);
+  height: calc(100% - 64px);
+  top: 147px;
+  position: fixed;
+  padding-left: 12px;
+  margin-left: 500px;
+  overflow-y: auto;
+  padding-right: 15px;
+  padding-bottom: 100px;
+}
+
+.dateWrapper {
+  background-color: #F4F8FF;
+  // background-color: black;
+  // width: 100%;
+  // width: calc(78% - 256px);
+  width: calc(100% - 800px);
+  position: fixed;
+}
