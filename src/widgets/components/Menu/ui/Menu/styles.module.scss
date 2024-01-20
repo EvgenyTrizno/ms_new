@@ -29,7 +29,8 @@
 }
 
 .healthy {
-    padding: 16px 0 16px 16px;
+    // padding: 16px 0 16px 16px;
+    padding: 16px;
 }
 
 .condition {
@@ -41,7 +42,12 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 19px 32px;
+    padding: 16px 32px;
+    margin-bottom: 3px;
+
+    &:nth-last-child(1) {
+        margin-bottom: 0px;
+    }
 
     p {
         color: var(--gray);
@@ -124,6 +130,7 @@
     width: calc(100% - 32px);
     border-radius: 12px;
     transform: translate(16px, 0);
+    padding: 16px 25px 16px 16px !important;
    
     p {
         color: #fff !important;
@@ -135,9 +142,9 @@
         }
     }
 
-    .item {
-        transform: translate(-16px, 0);
-    }
+    // .item {
+    //     transform: translate(-16px, 0);
+    // }
 }
 
 .SickActive {
@@ -156,9 +163,9 @@
         }
     }
 
-    .item {
-        transform: translate(-16px, 0);
-    }
+    // .item {
+    //     transform: translate(-16px, 0);
+    // }
 }
 
 @media screen and (max-width: 1920px) {

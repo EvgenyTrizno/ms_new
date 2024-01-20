@@ -1,6 +1,7 @@
 .mobileHeader {
     background-color: var(--white);
-    padding: 16px 36px;
+    // padding: 16px 36px;
+    padding: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,7 +14,7 @@
     height: 82px;
     z-index: 1;
 
-    .settings {
+    .notification {
         svg {
             width: 28px;
             height: 28px;
@@ -35,7 +36,7 @@
         }
     }
 
-    .settings {
+    .notification {
         svg {
             width: 36px;
             height: 36px;

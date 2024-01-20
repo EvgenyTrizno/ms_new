@@ -10,8 +10,12 @@ import { Cols } from "@/shared/ui/Cols";
 import { Search } from "@/features/Search";
 
 import styles from "./styles.module.scss";
+import { useAuth } from "@/shared/model/store/auth";
 
 const MedicalCardPage: FC = () => {
+  const { user } = useAuth();
+
+  const sick = user && user.disease.length;
   return (
     <Layout>
       {MOBILE && <CustomMobileHeader back text="Медицинская карта" />}
@@ -51,7 +55,10 @@ const MedicalCardPage: FC = () => {
           <Calendar height="max-content" width="100%" info={false} />
         </div>
         <div className={styles.list}>
-          <div className={styles.dateWrapper}>
+          <div 
+            className={styles.dateWrapper} 
+            style={{backgroundColor: sick ? '#FFFAFB' : '#F4F8FF'}}
+          >
             <Text
               type="p"
               color="#7D7F82"

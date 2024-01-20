@@ -8,22 +8,39 @@ import { User } from "./ui/UserInfo";
 import { MainData } from "./ui/MainData";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
 import { MobileHeader } from "@/widgets/components/MobileHeader";
+import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
+import { MobileProfile } from "../MobileProfile";
 
 const ProfilePage: FC = () => {
-    return (
-        <Layout>
-            {(MOBILE || TABLET) && <MobileHeader />}
-            <Container height={MOBILE ? "calc(100% - 156px)" : ""}>
-                <ReminderBlock
-                    type="timer"
-                    width={MOBILE ? "100%" : "max-content"}
-                />
-                {!MOBILE && !TABLET && <User />}
-                <MainData />
-            </Container>
-            {MOBILE && <MobileMenu />}
-        </Layout>
-    );
+  const { isOpen, setIsOpen } = useBurgerMenu();
+  return (
+    <Layout>
+      {(MOBILE || TABLET) && (
+        <MobileHeader isOpen={isOpen} setIsOpen={setIsOpen} />
+      )}
+      {MOBILE && TABLET ? (
+        <div style={{
+            height: MOBILE ? "calc(100% - 156px)" : "",
+            padding: '16px 0 0 0',
+            width: '100vw',
+            position: 'fixed',
+            top: '82px',
+            overflowY: 'auto'
+        }}>
+            <MobileProfile />
+        </div>
+        // ""
+      ) : (
+        <Container height={MOBILE ? "calc(100% - 156px)" : ""}>
+          <ReminderBlock type="timer" width={MOBILE ? "100%" : "max-content"} />
+          {!MOBILE && !TABLET && <User />}
+          <MainData />
+        </Container>
+      )}
+
+      {MOBILE && <MobileMenu />}
+    </Layout>
+  );
 };
 
 export default ProfilePage;

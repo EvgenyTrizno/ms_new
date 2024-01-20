@@ -13,11 +13,16 @@ import { Text } from "@/shared/ui/Text";
 
 import styles from "./styles.module.scss";
 import { Row } from "@/shared/ui/Row";
+import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
+// import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
+// import { BurgerMenu } from "@/widgets/components/BurgerMenu";
+// import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
 
 const MainPage: FC = () => {
+    const { isOpen, setIsOpen } = useBurgerMenu();    
     return (
         <Layout>
-            {(MOBILE || TABLET) && <MobileHeader />}
+            {(MOBILE || TABLET) && <MobileHeader setIsOpen={setIsOpen} isOpen={isOpen} />}
             <Container height={MOBILE ? "calc(100% - 156px)" : ""}>
                 <DoctorsFromUserCountry />
                 {MOBILE && <Line />}
@@ -40,6 +45,7 @@ const MainPage: FC = () => {
                     <Posts />
                 </div>
             </Container>
+            {/* {(MOBILE || TABLET) && isOpen && <MobileAccountMenu /> } */}
             {(MOBILE || TABLET) && <MobileMenu />}
         </Layout>
     );

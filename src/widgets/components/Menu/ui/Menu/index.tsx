@@ -21,6 +21,7 @@ import logoRed from "./assets/logo-red.svg";
 import bigLogo from "./assets/logo-with-text.svg";
 import bigLogoRed from "./assets/logo-with-text-red.svg";
 import styles from "./styles.module.scss";
+import HealthyIndicator from "@/widgets/components/HealthyIndicator";
 
 
 export const Menu: FC = () => {
@@ -45,14 +46,20 @@ export const Menu: FC = () => {
     return (
         <ul 
             className={`${styles.menu} ${styles.open} ${styles.sick}`}
-            style={{ borderColor: sick ? "#F7E6E8" : "#EBF3FF" }}
+            style={{ 
+                borderColor: sick ? "#F7E6E8" : "#EBF3FF",
+                width: group === "admin" ? '257px' : '244px'
+            }}
         >
             <div 
                 className={styles.header}
-                style={{ borderColor: sick ? "#F7E6E8" : "#EBF3FF" }}
+                style={{ 
+                    borderColor: sick ? "#F7E6E8" : "#EBF3FF",
+                    marginBottom: group === "admin" ? '16px' : '0px'
+                }}
             >
                 {user?.group.name === "Администраторы" ? (
-                    <Search />
+                    <Search placeholder={"Поиск"} />
                 ) : (
                     <Image
                         src={
@@ -75,7 +82,8 @@ export const Menu: FC = () => {
                     <Text type="p" color="#B1B2B4" className={styles.condition}>
                         Состояние:
                     </Text>
-                    <HealthyStatus isHovered={isHovered} />
+                    {/* <HealthyStatus isHovered={isHovered} /> */}
+                    <HealthyIndicator height="55px" status={70} p={6} fs={19} />
                 </Rows>
             )}
             {menuData[group].map((item, i) => (

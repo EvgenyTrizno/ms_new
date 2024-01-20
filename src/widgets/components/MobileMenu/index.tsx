@@ -8,127 +8,180 @@ import styles from "./styles.module.scss";
 import { useExtracall } from "@/shared/model/store/extracall";
 
 export const MobileMenu: FC = () => {
-    const { isOpen } = useExtracall();
-    const navigate = useNavigate();
-    const location = useLocation();
+  const { isOpen } = useExtracall();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    const data = [
-        {
-            path: ROUTES.main.path,
-            svg: (
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <path
-                        d="M10.522 3.3132L4.2337 8.2132C3.1837 9.02986 2.33203 10.7682 2.33203 12.0865V20.7315C2.33203 23.4382 4.53703 25.6549 7.2437 25.6549H20.7537C23.4604 25.6549 25.6654 23.4382 25.6654 20.7432V12.2499C25.6654 10.8382 24.7204 9.02986 23.5654 8.22486L16.3554 3.1732C14.722 2.02986 12.097 2.0882 10.522 3.3132Z"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M14 20.9883V17.4883"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-            ),
-        },
-        {
-            path: ROUTES.search.path,
-            svg: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path
-                        d="M10.8333 20.1667C15.988 20.1667 20.1667 15.988 20.1667 10.8333C20.1667 5.67868 15.988 1.5 10.8333 1.5C5.67868 1.5 1.5 5.67868 1.5 10.8333C1.5 15.988 5.67868 20.1667 10.8333 20.1667Z"
-                        stroke="#B1B2B4"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M22.5008 22.5008L17.4258 17.4258"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-            ),
-        },
-        {
-            path: ROUTES.messages.path,
-            svg: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <g clip-path="url(#clip0_6043_72657)">
-                        <path
-                            d="M17 20.5H7C4 20.5 2 19 2 15.5L2 8.5C2 5 4 3.5 7 3.5L17 3.5C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z"
-                            stroke-width="1.5"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                        <path
-                            d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9"
-                            stroke="#B1B2B4"
-                            stroke-width="1.5"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_6043_72657">
-                            <rect width="24" height="24" fill="white" />
-                        </clipPath>
-                    </defs>
-                </svg>
-            ),
-        },
-        {
-            path: ROUTES.notifications.path,
-            svg: (
-                <svg width="24" height="25" viewBox="0 0 24 25" fill="none">
-                    <path
-                        d="M12.0186 3.41016C8.70862 3.41016 6.01862 6.10016 6.01862 9.41016V12.3002C6.01862 12.9102 5.75862 13.8402 5.44862 14.3602L4.29862 16.2702C3.58862 17.4502 4.07862 18.7602 5.37862 19.2002C9.68862 20.6402 14.3386 20.6402 18.6486 19.2002C19.8586 18.8002 20.3886 17.3702 19.7286 16.2702L18.5786 14.3602C18.2786 13.8402 18.0186 12.9102 18.0186 12.3002V9.41016C18.0186 6.11016 15.3186 3.41016 12.0186 3.41016Z"
-                        stroke-width="1.5"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
-                    />
-                    <path
-                        d="M13.8719 3.69945C13.5619 3.60945 13.2419 3.53945 12.9119 3.49945C11.9519 3.37945 11.0319 3.44945 10.1719 3.69945C10.4619 2.95945 11.1819 2.43945 12.0219 2.43945C12.8619 2.43945 13.5819 2.95945 13.8719 3.69945Z"
-                        stroke="#B1B2B4"
-                        stroke-width="1.5"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M15.0195 19.5605C15.0195 21.2105 13.6695 22.5605 12.0195 22.5605C11.1995 22.5605 10.4395 22.2205 9.89953 21.6805C9.35953 21.1405 9.01953 20.3805 9.01953 19.5605"
-                        stroke-width="1.5"
-                        stroke-miterlimit="10"
-                    />
-                </svg>
-            ),
-        },
-    ];
+  const data = [
+    {
+      path: ROUTES.main.path,
+      svg: (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.02 2.82258L3.63 7.02258C2.73 7.72258 2 9.21258 2 10.3426L2 17.7526C2 20.0726 3.89 21.9726 6.21 21.9726H17.79C20.11 21.9726 22 20.0726 22 17.7626V10.4826C22 9.27258 21.19 7.72258 20.2 7.03258L14.02 2.70258C12.62 1.72258 10.37 1.77258 9.02 2.82258Z"
+            stroke="#B1B2B4"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M8.99866 13H11.9987M14.9987 13H11.9987M11.9987 13V10M11.9987 13V16"
+            stroke="#B1B2B4"
+            stroke-width="1.5"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      path: ROUTES.search.path,
+      svg: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M10.8333 20.1667C15.988 20.1667 20.1667 15.988 20.1667 10.8333C20.1667 5.67868 15.988 1.5 10.8333 1.5C5.67868 1.5 1.5 5.67868 1.5 10.8333C1.5 15.988 5.67868 20.1667 10.8333 20.1667Z"
+            stroke="#B1B2B4"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M22.5008 22.5008L17.4258 17.4258"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      path: ROUTES.messages.path,
+      svg: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <g clip-path="url(#clip0_6043_72657)">
+            <path
+              d="M17 20.5H7C4 20.5 2 19 2 15.5L2 8.5C2 5 4 3.5 7 3.5L17 3.5C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9"
+              stroke="#B1B2B4"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_6043_72657">
+              <rect width="24" height="24" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      ),
+    },
+    {
+      // path: ROUTES.notifications.path,
+      path: ROUTES.profile.path,
+      svg: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" fill="none" stroke="none" />
+          <path
+            d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
+            stroke="#B1B2B4"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <g clip-path="url(#clip0_7545_53922)">
+            <path
+              d="M19.5 23C21.433 23 23 21.433 23 19.5C23 17.567 21.433 16 19.5 16C17.567 16 16 17.567 16 19.5C16 21.433 17.567 23 19.5 23Z"
+              stroke="#B1B2B4"
+              stroke-width="1.35"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M19.5 18.2031V19.7256L20.3313 20.5569"
+              stroke="#B1B2B4"
+              stroke-width="1.35"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+          <path
+            d="M3.40625 22C3.40625 18.13 7.25625 15 11.9962 15C12.6861 15 13.7248 15.0805 14.6762 15.4528"
+            stroke="#B1B2B4"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <defs>
+            <clipPath id="clip0_7545_53922">
+              <rect
+                width="9"
+                height="9"
+                fill="white"
+                transform="translate(15 15)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+      ),
+    },
+  ];
 
-    const newData = [...data];
-    newData.splice(2, 0, {
-        path: "" as "/",
-        svg: (
-            <ExtraCallBtn className={styles.mobileExtraCall} isOpen={isOpen} />
-        ),
-    });
+  const newData = [...data];
+  newData.splice(2, 0, {
+    // path: "" as "/",
+    // svg: (
+    //     <ExtraCallBtn className={styles.mobileExtraCall} isOpen={isOpen} />
+    // ),
+    path: "" as "/",
+    svg: (
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <path
+          d="M16 23H14C13.4477 23 13 22.5523 13 22V18C13 17.4477 12.5523 17 12 17H8C7.44772 17 7 16.5523 7 16V14C7 13.4477 7.44772 13 8 13H12C12.5523 13 13 12.5523 13 12V8C13 7.44772 13.4477 7 14 7H16C16.5523 7 17 7.44772 17 8V12C17 12.5523 17.4477 13 18 13H22C22.5523 13 23 13.4477 23 14V16C23 16.5523 22.5523 17 22 17H18C17.4477 17 17 17.4477 17 18V22C17 22.5523 16.5523 23 16 23Z"
+          stroke="#B1B2B4"
+          stroke-width="1.5"
+          stroke-miterlimit="10"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <circle
+          cx="15"
+          cy="15"
+          r="13"
+          stroke="#B1B2B4"
+          stroke-width="1.5"
+          stroke-miterlimit="10"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    ),
+  });
 
-    return (
-        <div className={styles.menu}>
-            {newData.map((item) => (
-                <div
-                    className={
-                        item.path === location.pathname ? styles.active : ""
-                    }
-                    onClick={() => navigate(item.path)}
-                >
-                    {item.svg}
-                </div>
-            ))}
+  return (
+    <div className={styles.menu}>
+      {newData.map((item) => (
+        <div
+          className={item.path === location.pathname ? styles.active : ""}
+          onClick={() => navigate(item.path)}
+        >
+          {item.svg}
         </div>
-    );
+      ))}
+    </div>
+  );
 };

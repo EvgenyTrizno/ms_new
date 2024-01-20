@@ -10,15 +10,17 @@ import { Search } from "@/features/Search";
 import { Row } from "@/shared/ui/Row";
 import { WithFilter } from "./ui/WithFilter";
 import { SearchWithFilter } from "@/features/SearchWithFilter";
+import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
 
 const SearchPage: FC = () => {
     const [search, setSearch] = useState<string>("");
     // const [filter, setFilter] = useState<string>("Центры");
+    const { isOpen, setIsOpen } = useBurgerMenu();
     const [filter, setFilter] = useState<string>("Клиника");
 
     return (
         <Layout>
-            {MOBILE && <MobileHeader />}
+            {MOBILE && <MobileHeader isOpen={isOpen} setIsOpen={setIsOpen} />}
             <Container height="calc(100% - 156px)">
                 <Row gap={10}>
                     {MOBILE ? (
