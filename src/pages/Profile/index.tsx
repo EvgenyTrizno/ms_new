@@ -1,7 +1,6 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout";
-import { ReminderBlock } from "@/widgets";
 import { MOBILE, TABLET } from "@/shared/utils";
 import { Container } from "@/shared/ui/Container";
 import { User } from "./ui/UserInfo";
@@ -19,20 +18,21 @@ const ProfilePage: FC = () => {
         <MobileHeader isOpen={isOpen} setIsOpen={setIsOpen} />
       )}
       {MOBILE && TABLET ? (
-        <div style={{
+        <div
+          style={{
             height: MOBILE ? "calc(100% - 156px)" : "",
-            padding: '16px 0 0 0',
-            width: '100vw',
-            position: 'fixed',
-            top: '82px',
-            overflowY: 'auto'
-        }}>
-            <MobileProfile />
+            padding: "16px 0 0 0",
+            width: "100vw",
+            position: "fixed",
+            top: "82px",
+            overflowY: "auto",
+          }}
+        >
+          <MobileProfile />
         </div>
-        // ""
       ) : (
+        // ""
         <Container height={MOBILE ? "calc(100% - 156px)" : ""}>
-          <ReminderBlock type="timer" width={MOBILE ? "100%" : "max-content"} />
           {!MOBILE && !TABLET && <User />}
           <MainData />
         </Container>
