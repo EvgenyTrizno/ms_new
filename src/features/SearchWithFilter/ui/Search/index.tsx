@@ -1,23 +1,60 @@
-import { FC } from "react";
-
-import { Input } from "@/shared/ui/Input";
+import { ChangeEventHandler, FC, useEffect, useState } from "react";
 
 import styles from "./styles.module.scss";
-import { FilterBtn } from "@/shared/ui/FilterBtn";
+import { Image } from "@/shared/ui/Image";
+import searchImg from "../../assets/search-gray.svg";
+import { PropsWithClassName } from "@/shared/types";
 
-export const SearchWithFilter: FC = () => {
-    return (
-        <div className={styles.wrapper}>
-            <Input
-                type="text"
-                className={styles.search}
-                border="none"
-                padding="0px"
-                borderRadius="none"
+type Props = {
+  placeholder?: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  value: string;
+};
+
+export const SearchWithFilter: FC<PropsWithClassName<Props>> = ({
+  className,
+  placeholder,
+  onChange,
+  value,
+}) => {
+  const [showSearch, setShowSearch] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (showSearch) return;
+
+      setShowSearch(true);
+    };
+
+    window.addEventListener("scroll", handleScroll, true);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showSearch]);
+
+  return (
+    <>
+      {showSearch && (
+        <div className={`${styles.wrapper} ${className || ""}`}>
+          <div className={styles.searchWrapper}>
+            <Image
+              src={searchImg}
+              alt="magnifying glass"
+              width={16}
+              height={16}
             />
-            <div className={styles.fbtn}>
-                <FilterBtn type="small" onClick={() => ({})} />
-            </div>
+            <input
+              type="text"
+              placeholder={placeholder}
+              height="100%"
+              onChange={onChange}
+              value={value}
+            />
+          </div>
+          <div className={styles.btn}>
+            <img src="/assets/icons/filters.svg" alt="filters" />
+          </div>
         </div>
-    );
+      )}
+    </>
+  );
 };

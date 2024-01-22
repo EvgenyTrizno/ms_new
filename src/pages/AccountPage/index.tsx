@@ -1,20 +1,25 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout";
-import { Container } from "@/shared/ui/Container";
 import { MOBILE, TABLET } from "@/shared/utils";
 import { CustomMobileHeader } from "@/widgets";
 import styles from "./styles.module.scss";
 
-import { Search } from "@/features/Search";
 import { NoteBlock } from "@/entities/Note/ui/NoteBlock";
+import { SearchWithFilter } from "@/features/SearchWithFilter";
 
 const AccountPage: FC = () => {
   return (
     <Layout>
       {(MOBILE || TABLET) && <CustomMobileHeader back text="Профиль" />}
       <div>
-        <Search />
+        <div className={styles.searchWrapper}>
+          <SearchWithFilter
+            placeholder="Поиск"
+            onChange={() => console.log("asd")}
+            value=""
+          />
+        </div>
 
         <div className={styles.timeWrapper}>
           <p>Ваша очередь наступит через</p>
