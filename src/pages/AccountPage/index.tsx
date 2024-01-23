@@ -21,53 +21,57 @@ const AccountPage: FC = () => {
     <>
       {MOBILE && <MobileHeader isOpen={isOpen} setIsOpen={setIsOpen} />}
       <Layout>
-        <div className={styles.wrapper}>
-          <SearchWithFilter
-            className={styles.search}
-            placeholder="Поиск"
-            onChange={() => console.log("asd")}
-            value=""
-          />
-
-          <div className={styles.timeWrapper}>
-            <p>Ваша очередь наступит через</p>
-            <span>23:59</span>
-          </div>
-
-          <div className={styles.contentWrapper}>
-            <img
-              className={styles.avatar}
-              src="/assets/avatar-2.png"
-              alt="avatar"
+        {MOBILE ? (
+          <div className={styles.wrapper}>
+            <SearchWithFilter
+              className={styles.search}
+              placeholder="Поиск"
+              onChange={() => console.log("asd")}
+              value=""
             />
 
-            <div className={styles.contentHeader}>
-              <h4>Ivan Ivanov</h4>
+            <div className={styles.timeWrapper}>
+              <p>Ваша очередь наступит через</p>
+              <span>23:59</span>
+            </div>
 
-              <div className={styles.contentHeaderList}>
-                <div className={styles.contentHeaderItem}>
-                  <img src="/assets/icons/location.svg" alt="location" />
-                  <span>U.S, New-York</span>
-                </div>
+            <div className={styles.contentWrapper}>
+              <img
+                className={styles.avatar}
+                src="/assets/avatar-2.png"
+                alt="avatar"
+              />
 
-                <div
-                  className={styles.contentHeaderItem}
-                  onClick={() => setOpenMoreDetailed(true)}
-                  style={{ cursor: "pointer" }}
-                >
-                  <img src="/assets/icons/warning.svg" alt="location" />
-                  <span>Подробнее</span>
+              <div className={styles.contentHeader}>
+                <h4>Ivan Ivanov</h4>
+
+                <div className={styles.contentHeaderList}>
+                  <div className={styles.contentHeaderItem}>
+                    <img src="/assets/icons/location.svg" alt="location" />
+                    <span>U.S, New-York</span>
+                  </div>
+
+                  <div
+                    className={styles.contentHeaderItem}
+                    onClick={() => setOpenMoreDetailed(true)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src="/assets/icons/warning.svg" alt="location" />
+                    <span>Подробнее</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className={styles.notesList}>
-              <NoteBlock />
-              <NoteBlock />
-              <NoteBlock />
+              <div className={styles.notesList}>
+                <NoteBlock />
+                <NoteBlock />
+                <NoteBlock />
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div></div>
+        )}
       </Layout>
 
       {MOBILE && <MobileMenu />}
