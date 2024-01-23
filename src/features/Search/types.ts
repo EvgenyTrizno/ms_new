@@ -5,4 +5,5 @@ export interface ISeacrh {
     width?: string;
     className?: string;
     onChange?: (e?: ChangeEvent<HTMLInputElement>) => void;
+    showSearchFromParent?: boolean;
 }

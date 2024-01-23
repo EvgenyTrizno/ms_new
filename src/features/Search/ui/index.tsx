@@ -12,6 +12,7 @@ export const Search: FC<ISeacrh> = ({
   onChange,
   width,
   className,
+  showSearchFromParent,
 }) => {
   const { user } = useAuth();
 
@@ -19,6 +20,8 @@ export const Search: FC<ISeacrh> = ({
   const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
+    if (showSearchFromParent) return;
+
     const handleScroll = () => {
       if (showSearch) return;
 
@@ -28,11 +31,11 @@ export const Search: FC<ISeacrh> = ({
     window.addEventListener("scroll", handleScroll, true);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [showSearch]);
+  }, [showSearch, showSearchFromParent]);
 
   return (
     <>
-      {showSearch && (
+      {(showSearchFromParent || showSearch) && (
         <div
           className={`${className} ${styles.search} ${sick && styles.sick}`}
           style={{ width }}
