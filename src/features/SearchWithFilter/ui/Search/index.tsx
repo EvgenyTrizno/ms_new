@@ -34,24 +34,26 @@ export const SearchWithFilter: FC<PropsWithClassName<Props>> = ({
   return (
     <>
       {showSearch && (
-        <div className={`${styles.wrapper} ${className || ""}`}>
-          <div className={styles.searchWrapper}>
-            <Image
-              src={searchImg}
-              alt="magnifying glass"
-              width={16}
-              height={16}
-            />
-            <input
-              type="text"
-              placeholder={placeholder}
-              height="100%"
-              onChange={onChange}
-              value={value}
-            />
-          </div>
-          <div className={styles.btn}>
-            <img src="/assets/icons/filters.svg" alt="filters" />
+        <div className={className}>
+          <div className={styles.wrapper}>
+            <div className={styles.searchWrapper}>
+              <Image
+                src={searchImg}
+                alt="magnifying glass"
+                width={16}
+                height={16}
+              />
+              <input
+                type="text"
+                placeholder={placeholder}
+                height="100%"
+                onChange={onChange}
+                value={value}
+              />
+            </div>
+            <div className={styles.btn}>
+              <img src="/assets/icons/filters.svg" alt="filters" />
+            </div>
           </div>
         </div>
       )}

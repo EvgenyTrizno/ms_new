@@ -5,3 +5,9 @@
   line-height: 120%;
   margin-bottom: 12px;
 }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

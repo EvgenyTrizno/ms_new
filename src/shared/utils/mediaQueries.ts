@@ -1,4 +1,4 @@
-export const MOBILE = window.matchMedia("(max-width: 576px)").matches;
+export const MOBILE = window.matchMedia("(max-width: 768px)").matches;
 export const TABLET = window.matchMedia(
     "(min-width: 577px) and (max-width: 1023px)"
 ).matches;

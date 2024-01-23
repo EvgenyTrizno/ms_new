@@ -43,7 +43,9 @@
 }
 
 .inner {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure the parent takes full height */
 }
 
 .title {
@@ -61,6 +63,7 @@
 .content {
   overflow-y: auto;
   margin-top: 16px;
+  flex-grow: 1;
 }
 
 .lineBtn {

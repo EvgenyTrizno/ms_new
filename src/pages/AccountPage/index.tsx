@@ -19,16 +19,15 @@ const AccountPage: FC = () => {
 
   return (
     <>
+      {MOBILE && <MobileHeader isOpen={isOpen} setIsOpen={setIsOpen} />}
       <Layout>
-        {MOBILE && <MobileHeader isOpen={isOpen} setIsOpen={setIsOpen} />}
         <div className={styles.wrapper}>
-          <div className={styles.searchWrapper}>
-            <SearchWithFilter
-              placeholder="Поиск"
-              onChange={() => console.log("asd")}
-              value=""
-            />
-          </div>
+          <SearchWithFilter
+            className={styles.search}
+            placeholder="Поиск"
+            onChange={() => console.log("asd")}
+            value=""
+          />
 
           <div className={styles.timeWrapper}>
             <p>Ваша очередь наступит через</p>
@@ -69,9 +68,9 @@ const AccountPage: FC = () => {
             </div>
           </div>
         </div>
-
-        {MOBILE && <MobileMenu />}
       </Layout>
+
+      {MOBILE && <MobileMenu />}
 
       <MobilePopup
         isOpen={isOpenMoreDetailed}
