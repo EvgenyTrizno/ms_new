@@ -1,23 +1,27 @@
 import { FC } from "react";
 
 import { Layout } from "../Layout";
-import { MOBILE, TABLET } from "@/shared/utils";
-import { CustomMobileHeader, MobilePopup } from "@/widgets";
+import { MOBILE } from "@/shared/utils";
+import { MobilePopup } from "@/widgets";
 import styles from "./styles.module.scss";
 
 import { NoteBlock } from "@/entities/Note/ui/NoteBlock";
 import { SearchWithFilter } from "@/features/SearchWithFilter";
 import { AccountMoreDetailed } from "@/widgets/components/MobilePopup/AccountMoreDetailed/AccountMoreDetailed";
 import { useOpensModals } from "@/shared/model/store/opensModals";
+import { MobileMenu } from "@/widgets/components/MobileMenu";
+import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
+import { MobileHeader } from "@/widgets/components/MobileHeader";
 
 const AccountPage: FC = () => {
   const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
+  const { isOpen, setIsOpen } = useBurgerMenu();
 
   return (
     <>
       <Layout>
-        {(MOBILE || TABLET) && <CustomMobileHeader back text="Профиль" />}
-        <div>
+        {MOBILE && <MobileHeader isOpen={isOpen} setIsOpen={setIsOpen} />}
+        <div className={styles.wrapper}>
           <div className={styles.searchWrapper}>
             <SearchWithFilter
               placeholder="Поиск"
@@ -65,6 +69,8 @@ const AccountPage: FC = () => {
             </div>
           </div>
         </div>
+
+        {MOBILE && <MobileMenu />}
       </Layout>
 
       <MobilePopup

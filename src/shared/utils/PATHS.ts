@@ -29,6 +29,10 @@ export const ROUTES = {
     path: "/profile",
     label: "Аккаунт",
   },
+  account: {
+    path: "/account",
+    label: "Аккаунт",
+  },
   medicalCard: {
     path: "/medical-card",
     label: "Медецинская карта",
