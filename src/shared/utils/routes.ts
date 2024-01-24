@@ -49,6 +49,7 @@ const GeolocationPage = lazy(() => import("@/pages/GeolocationPage"));
 const AccountPage = lazy(() => import("@/pages/AccountPage"));
 const SettingsPage = lazy(() => import("@/pages/SettingsPage"));
 const StatisticsPage = lazy(() => import("@/pages/StatisticsPage"));
+const ChatMoreDetailed = lazy(() => import("@/pages/ChatMoreDetailed"));
 
 export const routes: RouteProps[] = [
   {
@@ -164,4 +165,5 @@ export const routes: RouteProps[] = [
   { path: "/account", Component: AccountPage },
   { path: "/settings", Component: SettingsPage },
   { path: "/statistics", Component: StatisticsPage },
+  { path: "/chat-more-detailed", Component: ChatMoreDetailed },
 ];

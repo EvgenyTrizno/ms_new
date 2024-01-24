@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import styles from "./Header.module.scss";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -24,11 +25,11 @@ export const Header = () => {
           />
         </svg>
 
-        <div className={styles.content}>
+        <Link className={styles.content} to="/chat-more-detailed">
           <p>Ведущая группа</p>
 
           <span>Онлайн 24/7</span>
-        </div>
+        </Link>
 
         <img className={styles.img} src="/assets/icons/med.svg" alt="med" />
       </div>
