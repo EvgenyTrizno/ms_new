@@ -9,7 +9,6 @@ export const useLogout = () => {
   const { setUser, setIsAuth } = useAuth();
   const navigate = useNavigate();
 
-
   const logout = useCallback(() => {
     removeCookie("refresh_token");
     removeCookie("access_token");
@@ -18,5 +17,5 @@ export const useLogout = () => {
     setUser(null);
   }, []);
 
-  return { logout }
+  return { logout };
 };

@@ -14,23 +14,23 @@ import { BurgerMenu } from "@/widgets/components/BurgerMenu";
 import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
 
 export const Layout: FC<TProps> = ({ children }) => {
-    // const { isOpen, setIsOpen } = useExtracall();
-    const { isOpen, setIsOpen } = useBurgerMenu();
-    const { user } = useAuth();
+  // const { isOpen, setIsOpen } = useExtracall();
+  const { isOpen, setIsOpen } = useBurgerMenu();
+  const { user } = useAuth();
 
-    return (
-        <div>
-            {/* {MOBILE && <MobileAccountMenu />} */}
-            {!MOBILE && !TABLET && <Header />}
-            <div>
-                {(PC || SMALL_LAPTOP || LAPTOP) && <Menu />}   
-                <div className={styles.main}>{children}</div>
-                {/* {user && user.group.name === "Пользователи" && !MOBILE && (
+  return (
+    <div>
+      {/* {MOBILE && <MobileAccountMenu />} */}
+      {!MOBILE && !TABLET && <Header />}
+
+      {(PC || SMALL_LAPTOP || LAPTOP) && <Menu />}
+      <div className={styles.main}>{children}</div>
+      {/* {user && user.group.name === "Пользователи" && !MOBILE && (
                     <ExtraCallBtn isOpen={isOpen} />
                 )} */}
-            </div>
-            {/* {isOpen && <ExtraCallModal isOpen={isOpen} setIsOpen={setIsOpen} />} */}
-            {isOpen && <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />}
-        </div>
-    );
+
+      {/* {isOpen && <ExtraCallModal isOpen={isOpen} setIsOpen={setIsOpen} />} */}
+      {isOpen && <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />}
+    </div>
+  );
 };

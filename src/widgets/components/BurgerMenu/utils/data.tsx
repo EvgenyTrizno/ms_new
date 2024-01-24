@@ -15,8 +15,8 @@ export const menuData: IMenuData = {
   default: [
     {
       label: "Статистика",
-    //   path: ROUTES.main.path,
-      path: '',
+      //   path: ROUTES.main.path,
+      path: "",
       icon: (
         <svg
           width="20"
@@ -61,8 +61,8 @@ export const menuData: IMenuData = {
     },
     {
       label: "Все врачи",
-    //   path: ROUTES.main.path,
-      path: '',
+      //   path: ROUTES.main.path,
+      path: "",
       icon: (
         <svg
           width="20"
@@ -103,8 +103,8 @@ export const menuData: IMenuData = {
     },
     {
       label: "Карта",
-    //   path: ROUTES.main.path,
-      path: '',
+      //   path: ROUTES.main.path,
+      path: "",
       icon: (
         <svg
           width="20"
@@ -128,8 +128,8 @@ export const menuData: IMenuData = {
     },
     {
       label: "Платежи",
-    //   path: ROUTES.main.path,
-      path: '',
+      //   path: ROUTES.main.path,
+      path: "",
       icon: (
         <svg
           width="20"
@@ -166,8 +166,8 @@ export const menuData: IMenuData = {
     },
     {
       label: "Доступ",
-    //   path: ROUTES.main.path,
-      path: '',
+      //   path: ROUTES.main.path,
+      path: "",
       icon: (
         <svg
           width="20"
@@ -230,8 +230,8 @@ export const menuData: IMenuData = {
     },
     {
       label: "Подписки",
-    //   path: ROUTES.main.path,
-      path: '',
+      //   path: ROUTES.main.path,
+      path: "",
       icon: (
         <svg
           width="20"
@@ -249,8 +249,8 @@ export const menuData: IMenuData = {
     },
     {
       label: "Сохраненное",
-    //   path: ROUTES.main.path,
-      path: '',
+      //   path: ROUTES.main.path,
+      path: "",
       icon: (
         <svg
           width="20"
@@ -268,8 +268,8 @@ export const menuData: IMenuData = {
     },
     {
       label: "Настройки",
-    //   path: ROUTES.main.path,
-      path: '',
+      //   path: ROUTES.main.path,
+      path: "",
       icon: (
         <svg
           width="20"

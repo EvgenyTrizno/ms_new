@@ -1,0 +1,13 @@
+.groupTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark-gray);
+  line-height: 120%;
+  margin-bottom: 12px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

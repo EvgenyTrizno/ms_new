@@ -1,22 +1,23 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    grid-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
 }
 
 @media screen and (max-width: 1440px) {
-    .container {
-        grid-gap: 8px;
-    }
+  .container {
+    grid-gap: 8px;
+  }
 }
 
 @media screen and (max-width: 576px) {
-    .container {
-        padding: 16px;
-        width: 100vw;
-        position: fixed;
-        height: calc(100% - 82px);
-        top: 82px;
-        overflow-y: auto;
-    }
+  .container {
+    padding: 16px;
+    width: 100vw;
+    position: fixed;
+    height: calc(100% - 70px);
+    top: 70px;
+    left: 0;
+    overflow-y: auto;
+  }
 }

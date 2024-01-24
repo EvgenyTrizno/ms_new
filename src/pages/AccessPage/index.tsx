@@ -10,26 +10,23 @@ import { LAPTOP, MOBILE, PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
 import { AddBtn } from "./ui/AddBtn";
 
 const AccessPage: FC = () => {
-    return (
-        <Layout>
-            {(MOBILE || TABLET) && (
-                <CustomMobileHeader back text="Доступ" btn={<AddBtn />} />
-            )}
-            <Container>
-                {(PC || LAPTOP || SMALL_LAPTOP) && (
-                    <>
-                        <ReminderBlock
-                            type="timer"
-                            width={PC || LAPTOP ? "340px" : ""}
-                        />
-                        <User />
-                    </>
-                )}
-                <Accepted />
-                <NoAccepted />
-            </Container>
-        </Layout>
-    );
+  return (
+    <Layout>
+      {(MOBILE || TABLET) && (
+        <CustomMobileHeader back text="Доступ" btn={<AddBtn />} />
+      )}
+      <Container>
+        {(PC || LAPTOP || SMALL_LAPTOP) && (
+          <>
+            <ReminderBlock type="timer" width={PC || LAPTOP ? "340px" : ""} />
+            <User />
+          </>
+        )}
+        <Accepted />
+        <NoAccepted />
+      </Container>
+    </Layout>
+  );
 };
 
 export default AccessPage;

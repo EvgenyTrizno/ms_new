@@ -15,25 +15,25 @@ import more from "./assets/more.svg";
 // import { AddBtn } from "./ui/AddBtn";
 
 const MedicalCenter: FC = () => {
-    return (
-        <Layout>
-            {(MOBILE || TABLET) && (
-                <CustomMobileHeader
-                    back
-                    text="Медицинский центр"
-                    btn={<Image src={more} alt="" />}
-                />
-            )}
-            <Container>
-                {(PC || SMALL_LAPTOP || LAPTOP) && <User />}
-                <MainCenter />
-                {(MOBILE || TABLET) && <EmployeesList />}
-                {/* <AdditionalCentersList /> */}
-                <AddCenter />
-                {/* <AddBtn /> */}
-            </Container>
-        </Layout>
-    );
+  return (
+    <Layout>
+      {(MOBILE || TABLET) && (
+        <CustomMobileHeader
+          back
+          text="Все врачи"
+          btn={<Image src={more} alt="" />}
+        />
+      )}
+      <Container>
+        {(PC || SMALL_LAPTOP || LAPTOP) && <User />}
+        <MainCenter />
+        {(MOBILE || TABLET) && <EmployeesList />}
+        {/* <AdditionalCentersList /> */}
+        <AddCenter />
+        {/* <AddBtn /> */}
+      </Container>
+    </Layout>
+  );
 };
 
 export default MedicalCenter;

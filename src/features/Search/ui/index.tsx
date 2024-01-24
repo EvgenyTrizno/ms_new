@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { ISeacrh } from "../types";
 import { useAuth } from "@/shared/model/store/auth";
 
@@ -8,28 +8,48 @@ import search from "../assets/search-gray.svg";
 import styles from "./styles.module.scss";
 
 export const Search: FC<ISeacrh> = ({
-    placeholder,
-    onChange,
-    width,
-    className,
+  placeholder,
+  onChange,
+  width,
+  className,
+  showSearchFromParent,
 }) => {
-    const { user } = useAuth();
+  const { user } = useAuth();
 
-    const sick = user && user.disease.length;
+  const sick = user && user.disease.length;
+  const [showSearch, setShowSearch] = useState(false);
 
-    return (
+  useEffect(() => {
+    if (showSearchFromParent) return;
+
+    const handleScroll = () => {
+      if (showSearch) return;
+
+      setShowSearch(true);
+    };
+
+    window.addEventListener("scroll", handleScroll, true);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showSearch, showSearchFromParent]);
+
+  return (
+    <>
+      {(showSearchFromParent || showSearch) && (
         <div
-            className={`${className} ${styles.search} ${sick && styles.sick}`}
-            style={{ width }}
+          className={`${className} ${styles.search} ${sick && styles.sick}`}
+          style={{ width }}
         >
-            <Image src={search} alt="magnifying glass" width={16} height={16} />
-            <input
-                style={{ width: "100%" }}
-                type="text"
-                placeholder={placeholder}
-                height="100%"
-                onChange={onChange}
-            />
+          <Image src={search} alt="magnifying glass" width={16} height={16} />
+          <input
+            style={{ width: "100%" }}
+            type="text"
+            placeholder={placeholder}
+            height="100%"
+            onChange={onChange}
+          />
         </div>
-    );
+      )}
+    </>
+  );
 };

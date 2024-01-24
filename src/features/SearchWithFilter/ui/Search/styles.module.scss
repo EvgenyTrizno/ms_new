@@ -1,19 +1,42 @@
 .wrapper {
-    background-color: var(--white);
+  background-color: var(--white);
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--blue-100);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 9px;
+  padding-left: 16px;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding-right: 16px;
+
+  img {
+    width: 20px;
+    height: 20px;
+    min-height: 20px;
+  }
+
+  input {
     width: 100%;
-    border-radius: 16px;
-    border: 1px solid var(--blue-100);
-    display: flex;
-    position: relative;
-    padding: 16px 9px 16px 16px;
+  }
+}
 
-    .search {
-        width: 100%;
-    }
-
-    .fbtn {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
+.btn {
+  min-width: 34px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue);
+  border-radius: 8px;
+  cursor: pointer;
 }

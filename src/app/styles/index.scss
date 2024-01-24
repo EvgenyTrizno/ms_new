@@ -1,17 +1,22 @@
 @import "./normalize.scss";
 @import "./vars.scss";
-@import './fonts.scss';
-@import './swiper.scss';
+@import "./fonts.scss";
+@import "./swiper.scss";
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-    color: var(--dark);
-    font-family: "Montserrat";
-    background-color: #f4f8ff;
-    width: 100%;
-    height: 100%;
+  color: var(--dark);
+  font-family: "Montserrat";
+  background-color: #f4f8ff;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 html {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }

@@ -1,32 +1,37 @@
-import { FC } from "react";
-import { useParams, useLocation } from "react-router";
+import { MOBILE } from "@/shared/utils";
+import { Header } from "./ui/Header/Header";
+import styles from "./styles.module.scss";
+import { Footer } from "./ui/Footer/Footer";
 
-import { Layout } from "../Layout";
-import { MOBILE, TABLET } from "@/shared/utils";
-import { Chat } from "@/widgets/components/Chat/ui/Chat";
-import { ChatSidebar } from "@/entities/Chat/ui/ChatSidebar";
-import { ChatContainer } from "@/entities/Chat/ui/ChatContainer";
-import { useChat } from "@/shared/model/store/chat";
+const ChatPage = () => {
+  return (
+    <>
+      {MOBILE ? (
+        <div>
+          <Header />
 
-const ChatPage: FC = () => {
-    const { user, chat_id } = useChat();
-    const { id } = useParams();
-    const location = useLocation();
+          <div className={styles.chatWrapper}>
+            <div className={styles.requirement}>
+              Требуется доп. врач для выполнения задания
+            </div>
 
-    return (
-        <Layout>
-            <ChatContainer
-                top={
-                    location.pathname === "/messages" && (MOBILE || TABLET)
-                        ? "82px"
-                        : ""
-                }
-            >
-                {!MOBILE && !TABLET && <ChatSidebar />}
-                {id && user && chat_id && <Chat chat_uuid={id} />}
-            </ChatContainer>
-        </Layout>
-    );
+            <div className={styles.messagesList}>
+              <p>1</p>
+            </div>
+
+            <button className={styles.medHelp}>
+              <img src="/assets/icons/med-help.svg" alt="med-help" />
+              <span>Мед. помощь</span>
+            </button>
+          </div>
+
+          <Footer />
+        </div>
+      ) : (
+        <div></div>
+      )}
+    </>
+  );
 };
 
 export default ChatPage;

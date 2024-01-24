@@ -1,0 +1,23 @@
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid var(--blue-100);
+  width: 100%;
+  color: inherit;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  span {
+    font-size: 13px;
+    font-weight: 500;
+  }
+}
