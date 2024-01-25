@@ -29,12 +29,18 @@ export const Notification: FC<Props> = ({
   systemType,
 }) => {
   return (
-    <div className={styles.notify}>
+    <div className={`${styles.notify}`}>
       {type === "user" ? (
         <div className={styles.imgWrapper}>
           {userType && (
-            <div className={styles.userTypeIconWrapper}>
-              <img src={getUserTypeIcon(userType)} alt={userType} />
+            <div
+              className={`${styles.userTypeIconWrapper} ${
+                userType === "new" && styles.new
+              }`}
+            >
+              {userType !== "new" && (
+                <img src={getUserTypeIcon(userType)} alt={userType} />
+              )}
             </div>
           )}
 

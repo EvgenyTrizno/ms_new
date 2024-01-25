@@ -1,8 +1,25 @@
 .box {
   display: flex;
   flex-direction: column;
+
+  &.systemBox {
+    margin-top: -24px;
+  }
 }
 
 .list {
   margin-top: 24px;
+
+  &.systemList {
+    background-color: #fff;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 16px;
+  }
+}
+
+.boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
