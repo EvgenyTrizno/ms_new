@@ -9,6 +9,7 @@ type Props = {
   placeholder?: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   value: string;
+  showByScroll?: boolean;
 };
 
 export const SearchWithFilter: FC<PropsWithClassName<Props>> = ({
@@ -16,10 +17,13 @@ export const SearchWithFilter: FC<PropsWithClassName<Props>> = ({
   placeholder,
   onChange,
   value,
+  showByScroll = true,
 }) => {
   const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
+    if (!showByScroll) return;
+
     const handleScroll = () => {
       if (showSearch) return;
 
@@ -29,11 +33,11 @@ export const SearchWithFilter: FC<PropsWithClassName<Props>> = ({
     window.addEventListener("scroll", handleScroll, true);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [showSearch]);
+  }, [showByScroll, showSearch]);
 
   return (
     <>
-      {showSearch && (
+      {(!showByScroll || showSearch) && (
         <div className={className}>
           <div className={styles.wrapper}>
             <div className={styles.searchWrapper}>

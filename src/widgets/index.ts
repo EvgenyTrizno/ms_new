@@ -26,6 +26,8 @@ import { MailLayout } from "./components/MailLayout/MailLayout";
 import { MailHeader } from "./components/MailHeader/MailHeader";
 import { IncomeBlock } from "./components/IncomeBlock/IncomeBlock";
 import { CenterView } from "./components/CenterView/CenterView";
+import { Notification } from "./components/Notification/Notification";
+import { Clinic } from "./components/Clinic/Clinic";
 
 export {
   Calendar,
@@ -56,4 +58,6 @@ export {
   IncomeBlock,
   CenterView,
   MobilePopup,
+  Notification,
+  Clinic,
 };

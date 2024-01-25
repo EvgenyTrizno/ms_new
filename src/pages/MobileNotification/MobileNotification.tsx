@@ -1,54 +1,98 @@
 import { FC } from "react";
-
 import { Layout } from "../Layout";
 import { Text } from "@/shared/ui/Text";
 import { Container } from "@/shared/ui/Container";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
-import { MobileHeader } from "@/widgets/components/MobileHeader";
-
-import woman from "/assets/woman.jpg";
 import styles from "./MobileNotification.module.scss";
-import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
+import { CustomMobileHeader, Notification } from "@/widgets";
 
 const MobileNotification: FC = () => {
-  const sick = "Болен";
-  const { isOpen, setIsOpen } = useBurgerMenu();
-
   return (
-    <Layout>
-      <MobileHeader isOpen={isOpen} setIsOpen={setIsOpen} />
-      <Container>
-        <div className={styles.box}>
-          <Text type="p" fz="14px" color="#7D7F82">
-            Сегодня
-          </Text>
-          <div className={styles.list}>
-            <div
-              className={styles.notify}
-              style={{ borderColor: sick ? "#F7E6E8" : "" }}
-            >
-              <div className={styles.icon}>
-                <img src={woman} alt="" />
+    <>
+      <CustomMobileHeader back text="Уведомления" />
+      <Layout>
+        <Container>
+          <div className={styles.boxes}>
+            <div className={styles.box}>
+              <Text type="p" fz="14px" color="#7D7F82">
+                Непрочитанные
+              </Text>
+              <div className={styles.list}>
+                <Notification
+                  userSrcAvatar="/assets/avatar.png"
+                  title="Вышел новый пост у мед.центра Абвг"
+                  time="3 часа назад"
+                  userType="new"
+                />
               </div>
-              <div className={styles.content}>
-                <Text type="p" fz="13px" color="#7D7F82">
-                  Вышел новый пост у мед.центра &nbsp;
-                  <div className={styles.center}>
-                    <Text type="h2" fz="13px">
-                      Абвг
-                    </Text>
-                  </div>
-                </Text>
-                <Text type="p" fz="11px" color="#B1B2B4">
-                  3 часа назад
-                </Text>
+            </div>
+
+            <div className={styles.box}>
+              <Text type="p" fz="14px" color="#7D7F82">
+                Сегодня
+              </Text>
+              <div className={styles.list}>
+                <Notification
+                  userSrcAvatar="/assets/avatar.png"
+                  title="Вышел новый пост у мед.центра Абвг"
+                  time="3 часа назад"
+                  userType="new"
+                />
+
+                <Notification
+                  userSrcAvatar="/assets/avatar.png"
+                  title="Вышел новый пост у мед.центра Абвг"
+                  time="3 часа назад"
+                  userType="comment"
+                />
+
+                <Notification
+                  userSrcAvatar="/assets/avatar.png"
+                  title="Вышел новый пост у мед.центра Абвг"
+                  time="3 часа назад"
+                  userType="eye"
+                />
+
+                <Notification
+                  userSrcAvatar="/assets/avatar.png"
+                  title="Вышел новый пост у мед.центра Абвг"
+                  time="3 часа назад"
+                  userType="send"
+                />
+              </div>
+            </div>
+
+            <div className={`${styles.box} ${styles.systemBox}`}>
+              <div className={`${styles.list} ${styles.systemList}`}>
+                <Notification
+                  type="system"
+                  systemType="time"
+                  title="Напоминание о записи завтра в 12:00"
+                  time="2 дня назад"
+                />
+
+                <Notification
+                  type="system"
+                  systemType="success"
+                  title="Напоминание о записи завтра в 12:00"
+                  time="2 дня назад"
+                />
+
+                <Notification
+                  type="system"
+                  systemType="error"
+                  title="Верификация лица была отклонена."
+                  link={{ title: "Узнать причину", href: "#" }}
+                  time="2 дня назад"
+                />
               </div>
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </Layout>
+
       <MobileMenu />
-    </Layout>
+    </>
   );
 };
 
