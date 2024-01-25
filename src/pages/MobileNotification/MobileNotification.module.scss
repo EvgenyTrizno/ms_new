@@ -1,29 +1,8 @@
 .box {
-    display: flex;
-    flex-direction: column;
-    grid-gap: 25px;
+  display: flex;
+  flex-direction: column;
+}
 
-    .notify {
-        padding: 20px 0;
-        border-bottom: 2px solid var(--blue-100);
-        display: flex;
-        align-items: center;
-        grid-gap: 10px;
-
-        .icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 100%;
-        }
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            grid-gap: 10px;
-
-            .center {
-                display: inline-block;
-            }
-        }
-    }
+.list {
+  margin-top: 24px;
 }
