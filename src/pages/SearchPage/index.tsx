@@ -10,6 +10,8 @@ import { Search } from "@/features/Search";
 import { WithFilter } from "./ui/WithFilter";
 import { SearchWithFilter } from "@/features/SearchWithFilter";
 import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
+import styles from "./styles.module.scss";
+import { Clinic } from "@/widgets";
 
 const SearchPage: FC = () => {
   const [search, setSearch] = useState<string>("");
@@ -25,6 +27,7 @@ const SearchPage: FC = () => {
         <Container>
           {MOBILE ? (
             <SearchWithFilter
+              placeholder="Поиск чатов"
               showByScroll={false}
               onChange={(e) => console.log(e.target.value)}
               value=""
@@ -41,6 +44,13 @@ const SearchPage: FC = () => {
           )}
 
           <WithFilter search={search} filter={filter} setFilter={setFilter} />
+
+          <div className={styles.list}>
+            <Clinic />
+            <Clinic />
+            <Clinic />
+            <Clinic />
+          </div>
         </Container>
       </Layout>
 
