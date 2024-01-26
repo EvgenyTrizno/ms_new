@@ -34,6 +34,7 @@ export const LoginForPersonal: FC = () => {
                 <label>
                     <PasswordInputField
                         onChange={(e) => setPass(e.target.value)}
+                        error={false}
                     />
                 </label>
             </form>

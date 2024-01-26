@@ -1,5 +1,5 @@
 import { useMutation } from "react-query";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 
 import { auth } from "@/shared/api/auth";
 import { getUser } from "@/shared/api/getUser";
@@ -9,7 +9,6 @@ import { ROUTES } from "@/shared/utils/PATHS";
 export const useAuthMutation = (refresh: string) => {
   const { setUser, setIsAuth, user } = useAuth();
   const location = useLocation();
-  const navigate = useNavigate();
 
   const excludedPaths = [
     ROUTES.login.path,

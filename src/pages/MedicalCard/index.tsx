@@ -6,7 +6,6 @@ import { Text } from "@/shared/ui/Text";
 import { MOBILE } from "@/shared/utils";
 import { Container } from "@/shared/ui/Container";
 import { List } from "./ui/List";
-import { Cols } from "@/shared/ui/Cols";
 import { Search } from "@/features/Search";
 
 import styles from "./styles.module.scss";
