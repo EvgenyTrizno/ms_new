@@ -4,10 +4,8 @@ import { useLocation, useNavigate } from "react-router";
 import { ROUTES } from "@/shared/utils/PATHS";
 
 import styles from "./styles.module.scss";
-import { useExtracall } from "@/shared/model/store/extracall";
 
 export const MobileMenu: FC = () => {
-  const { isOpen } = useExtracall();
   const navigate = useNavigate();
   const location = useLocation();
 

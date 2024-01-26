@@ -35,6 +35,8 @@ export const BurgerMenu: FC<TProps> = ({ isOpen, setIsOpen }) => {
   const group = "default";
 
   useEffect(() => {
+    setIsOpen(false); // test
+
     document.body.style.overflow = "hidden";
 
     return () => {

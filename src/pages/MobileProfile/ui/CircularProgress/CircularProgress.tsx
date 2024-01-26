@@ -60,7 +60,7 @@ interface ProgressBarStyle extends React.CSSProperties {
   '--value': number;
 }
 
-const CircularProgress: FC<TProps> = ({ value, max }) => {
+const CircularProgress: FC<TProps> = ({ value }) => {
   const style: ProgressBarStyle = {
     '--value': value,
   };

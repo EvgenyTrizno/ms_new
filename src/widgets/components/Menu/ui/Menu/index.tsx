@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 
-import { HealthyStatus } from "@/widgets/components/HealthyStatus";
 import { LAPTOP, PC } from "@/shared/utils";
 import { Search } from "@/features/Search/ui";
 import { useAuth } from "@/shared/model/store/auth";

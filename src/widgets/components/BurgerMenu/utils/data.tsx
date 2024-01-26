@@ -1,4 +1,3 @@
-import { ROUTES } from "@/shared/utils/PATHS";
 import { ReactElement } from "react";
 
 export interface IData {
