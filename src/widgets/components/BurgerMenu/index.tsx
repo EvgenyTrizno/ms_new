@@ -16,6 +16,7 @@ import { useAuth } from "@/shared/model/store/auth";
 
 import { menuData } from "./utils/data";
 import arrowRight from "./assets/arrow-right.svg";
+import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
 
 type TProps = {
   isOpen: boolean;
@@ -26,6 +27,7 @@ export const BurgerMenu: FC<TProps> = ({ isOpen }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const animateControll = useAnimation();
+  const { setIsOpen } = useBurgerMenu();
 
   const { user } = useAuth();
   const { logout } = useLogout();
@@ -34,7 +36,6 @@ export const BurgerMenu: FC<TProps> = ({ isOpen }) => {
   const group = "default";
 
   useEffect(() => {
-
     document.body.style.overflow = "hidden";
 
     return () => {
@@ -54,6 +55,7 @@ export const BurgerMenu: FC<TProps> = ({ isOpen }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
         transition={{ duration: 0.2, delay: 0.1 }}
+        onClick={() => setIsOpen(false)}
       />
       <motion.ul
         className={styles.list}
@@ -68,7 +70,10 @@ export const BurgerMenu: FC<TProps> = ({ isOpen }) => {
         {menuData[group].map((item, i) => (
           <li
             key={i}
-            onClick={() => navigate(item.path)}
+            onClick={() => {
+              navigate(item.path);
+              setIsOpen(false);
+            }}
             className={
               item.path === location.pathname
                 ? `${styles.active} ${sick && styles.SickActive}`
