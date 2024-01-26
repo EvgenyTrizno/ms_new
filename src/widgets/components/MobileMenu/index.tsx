@@ -23,6 +23,7 @@ export const MobileMenu: FC = () => {
       path: ROUTES.search.path,
       svg: <SearchIcon />,
     },
+    { path: "/messages/chat/1" as "/", svg: <PlusMenuIcon /> },
     {
       path: ROUTES.messages.path,
       svg: <MessagesIcon />,
@@ -37,15 +38,9 @@ export const MobileMenu: FC = () => {
     },
   ];
 
-  const newData = [...data];
-  newData.splice(2, 0, {
-    path: "/messages/chat/1" as "/",
-    svg: <PlusMenuIcon />,
-  });
-
   return (
     <div className={styles.menu}>
-      {newData.map((item, idx) => (
+      {data.map((item, idx) => (
         <div
           key={idx}
           className={item.path === location.pathname ? styles.active : ""}
