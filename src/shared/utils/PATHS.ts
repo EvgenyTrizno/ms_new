@@ -35,7 +35,7 @@ export const ROUTES = {
   },
   medicalCard: {
     path: "/medical-card",
-    label: "Медецинская карта",
+    label: "Медицинская карта",
   },
   notes: {
     path: "/notes",
@@ -109,5 +109,34 @@ export const ROUTES = {
   },
   settings: {
     path: "/settings",
+    label: "Настройки",
+  },
+  appointments: {
+    path: "/appointments",
+    label: "Назначения",
+  },
+  statistics: {
+    path: "/statistics",
+    label: "Статистика",
+  },
+  payments: {
+    path: "/payments",
+    label: "Платежи",
+  },
+  allDoctors: {
+    path: "/medical-center",
+    label: "Все врачи",
+  },
+  access: {
+    path: "/access",
+    label: "Доступ",
+  },
+  subscriptions: {
+    path: "/subscriptions",
+    label: "Подписки",
+  },
+  saved: {
+    path: "/saved",
+    label: "Сохраненное",
   },
 } as const;

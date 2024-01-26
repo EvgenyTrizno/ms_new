@@ -19,10 +19,9 @@ import arrowRight from "./assets/arrow-right.svg";
 
 type TProps = {
   isOpen: boolean;
-  setIsOpen: (bol: boolean) => void;
 };
 
-export const BurgerMenu: FC<TProps> = ({ isOpen, setIsOpen }) => {
+export const BurgerMenu: FC<TProps> = ({ isOpen }) => {
   const navigate = useNavigate();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -35,7 +34,6 @@ export const BurgerMenu: FC<TProps> = ({ isOpen, setIsOpen }) => {
   const group = "default";
 
   useEffect(() => {
-    setIsOpen(false); // test
 
     document.body.style.overflow = "hidden";
 

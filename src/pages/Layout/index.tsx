@@ -14,7 +14,7 @@ import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
 
 export const Layout: FC<TProps> = ({ children }) => {
   // const { isOpen, setIsOpen } = useExtracall();
-  const { isOpen, setIsOpen } = useBurgerMenu();
+  const { isOpen } = useBurgerMenu();
 
   return (
     <div>
@@ -28,7 +28,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                 )} */}
 
       {/* {isOpen && <ExtraCallModal isOpen={isOpen} setIsOpen={setIsOpen} />} */}
-      {isOpen && <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />}
+      {isOpen && <BurgerMenu isOpen={isOpen} />}
     </div>
   );
 };
