@@ -13,7 +13,6 @@ import { BurgerMenu } from "@/widgets/components/BurgerMenu";
 import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
 
 export const Layout: FC<TProps> = ({ children }) => {
-  // const { isOpen, setIsOpen } = useExtracall();
   const { isOpen } = useBurgerMenu();
 
   return (
@@ -28,7 +27,7 @@ export const Layout: FC<TProps> = ({ children }) => {
                 )} */}
 
       {/* {isOpen && <ExtraCallModal isOpen={isOpen} setIsOpen={setIsOpen} />} */}
-      {isOpen && <BurgerMenu isOpen={isOpen} />}
+      {isOpen && <BurgerMenu />}
     </div>
   );
 };

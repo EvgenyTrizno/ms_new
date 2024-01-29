@@ -1,0 +1,24 @@
+.btn {
+  width: 100%;
+
+  &.normal {
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 12px;
+  }
+
+  &.outline {
+    &.primary {
+      border: 1px solid var(--blue);
+      color: var(--blue);
+    }
+  }
+
+  &.fill {
+    &.primary {
+      background-color: var(--blue);
+      color: var(--white);
+    }
+  }
+}

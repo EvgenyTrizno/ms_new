@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
 import {
   motion,
@@ -18,16 +18,12 @@ import { menuData } from "./utils/data";
 import arrowRight from "./assets/arrow-right.svg";
 import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
 
-type TProps = {
-  isOpen: boolean;
-};
-
-export const BurgerMenu: FC<TProps> = ({ isOpen }) => {
+export const BurgerMenu = () => {
   const navigate = useNavigate();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const animateControll = useAnimation();
-  const { setIsOpen } = useBurgerMenu();
+  const { isOpen, setIsOpen } = useBurgerMenu();
 
   const { user } = useAuth();
   const { logout } = useLogout();
