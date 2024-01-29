@@ -14,3 +14,6 @@ export * from "./PeopleIcon";
 export * from "./LikeIcon";
 export * from "./SavedIcon";
 export * from "./SettingsIcon";
+export * from "./LinkArrIcon";
+export * from "./WifiIcon";
+export * from "./NoWifiIcon";

@@ -1,0 +1,52 @@
+.banner {
+  max-width: none;
+  width: calc(100% + 32px);
+  object-fit: cover;
+  margin: 0 -16px;
+  margin-top: -16px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 16px;
+  padding-bottom: 12px;
+  line-height: normal;
+}
+
+.parameters {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  p {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 130%;
+
+    color: var(--dark-gray);
+
+    span {
+      color: var(--dark);
+    }
+  }
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0;
+
+  button {
+    flex: 1 1 0;
+  }
+}
+
+.characteristics {
+  margin-top: 16px;
+}
+
+.gallery {
+  margin-top: 16px;
+}

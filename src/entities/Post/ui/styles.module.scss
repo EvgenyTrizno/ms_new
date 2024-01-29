@@ -1,87 +1,106 @@
 .post {
-    width: 660px;
-    background-color: var(--white);
-    padding: 16px;
-    border-radius: var(--default-border);
-    display: flex;
-    flex-direction: column;
-    grid-gap: 10px;
+  width: 100%;
+  background-color: var(--white);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  line-height: normal;
 
-    .slider {
-        width: 100%;
-        position: relative;
+  .avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
 
-        .img {
-            height: 400px;
-            object-fit: cover;
-        }
+  .name {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .role {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--dark-gray);
+  }
+
+  .slider {
+    width: 100%;
+    position: relative;
+
+    .img {
+      height: 400px;
+      object-fit: cover;
     }
+  }
 
-    .descr {
-        p {
-            font-size: 14px;
-        }
+  .descr {
+    p {
+      font-size: 14px;
     }
+  }
 }
 
 .pagination {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: var(--white);
-    border-radius: 100%;
-    margin-right: 5px;
-    cursor: pointer;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--white);
+  border-radius: 100%;
+  margin-right: 5px;
+  cursor: pointer;
 }
 
 .pagination:last-child {
-    margin: 0;
+  margin: 0;
 }
 
 .paginationBlue {
-    background-color: var(--blue);
+  background-color: var(--blue);
 }
 
 .paginationRed {
-    background-color: var(--red-400);
+  background-color: var(--red-400);
 }
 
 @media screen and (max-width: 576px) {
-    .post {
-        border-radius: 20px;
-        border: 1px solid var(--blue-100);
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        grid-gap: 10px;
-        width: 100%;
+  .post {
+    border-radius: 20px;
+    border: 1px solid var(--blue-100);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+    width: 100%;
 
-        .slider {
-            .img {
-                height: 150px;
-                object-fit: cover;
-            }
-        }
-
-        .images {
-            height: 150px;
-
-            img {
-                border-radius: 12px;
-                width: 100%;
-                object-fit: cover;
-                height: 150px;
-            }
-        }
+    .slider {
+      .img {
+        height: 150px;
+        object-fit: cover;
+      }
     }
+
+    .images {
+      height: 150px;
+
+      img {
+        border-radius: 12px;
+        width: 100%;
+        object-fit: cover;
+        height: 150px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 1920px) {
-    .post {
-        .descr {
-            p {
-                font-size: 12px;
-            }
-        }
+  .post {
+    .descr {
+      p {
+        font-size: 12px;
+      }
     }
+  }
 }

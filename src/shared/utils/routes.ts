@@ -50,6 +50,7 @@ const AccountPage = lazy(() => import("@/pages/AccountPage"));
 const SettingsPage = lazy(() => import("@/pages/SettingsPage"));
 const StatisticsPage = lazy(() => import("@/pages/StatisticsPage"));
 const ChatMoreDetailed = lazy(() => import("@/pages/ChatMoreDetailed"));
+const ClinicPage = lazy(() => import("@/pages/ClinicPage"));
 
 export const routes: RouteProps[] = [
   {
@@ -133,10 +134,6 @@ export const routes: RouteProps[] = [
     Component: AbountCenterPage,
   },
   {
-    path: "/clinic/:id",
-    Component: ClinicProfilePage,
-  },
-  {
     path: "/center/:id",
     Component: CenterPage,
   },
@@ -166,4 +163,5 @@ export const routes: RouteProps[] = [
   { path: "/settings", Component: SettingsPage },
   { path: "/statistics", Component: StatisticsPage },
   { path: "/chat-more-detailed", Component: ChatMoreDetailed },
+  { path: "/clinic/:id", Component: ClinicPage },
 ];

@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  row-gap: 24px;
+  margin-right: -8px;
+  margin-top: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--blue-100);
+  border-bottom: 1px solid var(--blue-100);
+
+  @media (max-width: 340px) {
+    margin-right: 0;
+  }
+
+  .item {
+    flex-basis: calc(50% - 8px);
+    @media (max-width: 340px) {
+      flex-basis: 100%;
+    }
+  }
+}

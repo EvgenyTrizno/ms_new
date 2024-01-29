@@ -13,6 +13,7 @@
     "axios": "^1.6.0",
     "chart.js": "^4.3.0",
     "chartjs-plugin-datalabels": "^2.2.0",
+    "clsx": "^2.1.0",
     "framer-motion": "^10.13.0",
     "google-map-react": "^2.2.1",
     "immer": "^10.0.2",
