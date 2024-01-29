@@ -4,6 +4,13 @@
   object-fit: cover;
   margin: 0 -16px;
   margin-top: -16px;
+  transition: all 0.2s ease;
+  max-height: 70px;
+  height: 100%;
+
+  &.active {
+    max-height: 230px;
+  }
 }
 
 .title {

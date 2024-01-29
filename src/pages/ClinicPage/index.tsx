@@ -8,16 +8,40 @@ import { Links } from "./ui/Links/Links";
 import { Characteristics } from "./ui/Characteristics/Characteristics";
 import { News } from "./ui/News/News";
 import { Gallery } from "./ui/Gallery/Gallery";
+import { useEffect, useRef, useState } from "react";
+import cn from "clsx";
 
 const ClinicPage = () => {
+  const [scrollY, setScrollY] = useState(0);
+  const bannerRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const updateScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", updateScroll);
+
+    return () => {
+      window.removeEventListener("scroll", updateScroll);
+    };
+  }, []);
+
   return (
     <Layout>
       {MOBILE && <CustomMobileHeader back text="Клиника (~31%)" />}
       <Container>
         <img
-          className={styles.banner}
+          className={cn(styles.banner, {
+            [styles.active]: scrollY > 0,
+          })}
           src="/assets/clinic-post.jpg"
           alt="clinic"
+          onClick={() => {
+            if (!bannerRef.current) return;
+            bannerRef.current.classList.add(styles.active);
+          }}
+          ref={bannerRef}
         />
 
         <h1 className={styles.title}>Клиника неврологии</h1>
