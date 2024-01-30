@@ -17,3 +17,4 @@ export * from "./SettingsIcon";
 export * from "./LinkArrIcon";
 export * from "./WifiIcon";
 export * from "./NoWifiIcon";
+export * from "./ArrTopIcon";

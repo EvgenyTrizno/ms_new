@@ -1,0 +1,43 @@
+.wrapper {
+  padding: 8px 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid var(--blue-100);
+
+  &:first-child {
+    border-top: none;
+  }
+
+  .img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 16px;
+
+    .title {
+      font-weight: 500;
+    }
+
+    .price {
+      font-weight: 600;
+    }
+
+    .text {
+      font-size: 14px;
+      font-weight: 500;
+
+      span {
+        color: rgba(60, 60, 67, 0.6);
+      }
+    }
+  }
+}
