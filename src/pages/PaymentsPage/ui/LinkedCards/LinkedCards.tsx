@@ -2,6 +2,7 @@ import { FC } from "react";
 import styles from "./LinkedCards.module.scss";
 import { PropsWithClassName } from "@/shared/types";
 import cn from "clsx";
+import { Link } from "react-router-dom";
 
 export const LinkedCards: FC<PropsWithClassName> = ({ className }) => {
   return (
@@ -16,7 +17,7 @@ export const LinkedCards: FC<PropsWithClassName> = ({ className }) => {
         </div>
       </div>
 
-      <div className={styles.add}>
+      <Link className={styles.add} to="/add-card">
         <svg viewBox="0 0 72 73" fill="none">
           <rect
             x="0.75"
@@ -36,7 +37,7 @@ export const LinkedCards: FC<PropsWithClassName> = ({ className }) => {
             strokeLinejoin="round"
           />
         </svg>
-      </div>
+      </Link>
     </div>
   );
 };

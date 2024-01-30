@@ -7,7 +7,6 @@ import { LinkedCards } from "./ui/LinkedCards/LinkedCards";
 import { Filter } from "@/shared/ui/Filter";
 import { useState } from "react";
 import BoxWrapper from "@/entities/BoxWrapper";
-import { ArrTopIcon } from "@/icons";
 import Conversion from "@/entities/Conversion";
 import cn from "clsx";
 import Purchase from "@/entities/Purchase";

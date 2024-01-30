@@ -52,6 +52,7 @@ const StatisticsPage = lazy(() => import("@/pages/StatisticsPage"));
 const ChatMoreDetailed = lazy(() => import("@/pages/ChatMoreDetailed"));
 const ClinicPage = lazy(() => import("@/pages/ClinicPage"));
 const PaymentsPage = lazy(() => import("@/pages/PaymentsPage"));
+const AddCardPage = lazy(() => import("@/pages/AddCard"));
 
 export const routes: RouteProps[] = [
   {
@@ -166,4 +167,5 @@ export const routes: RouteProps[] = [
   { path: "/chat-more-detailed", Component: ChatMoreDetailed },
   { path: "/clinic/:id", Component: ClinicPage },
   { path: "/payments", Component: PaymentsPage },
+  { path: "/add-card", Component: AddCardPage },
 ];
