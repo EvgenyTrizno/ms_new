@@ -1,15 +1,35 @@
-.banner {
+.bannerWrapper {
   max-width: none;
   width: calc(100% + 32px);
-  object-fit: cover;
   margin: 0 -16px;
   margin-top: -16px;
-  transition: all 0.2s ease;
-  max-height: 70px;
-  height: 100%;
+  position: relative;
 
-  &.active {
-    max-height: 230px;
+  .banner {
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.2s ease;
+    max-height: 100px;
+    height: 100%;
+
+    &.active {
+      max-height: 230px;
+    }
+  }
+
+  .helpTextWrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white);
+    padding: 6px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--blue);
   }
 }
 
