@@ -17,7 +17,7 @@ const PaymentsPage = () => {
   return (
     <Layout>
       {MOBILE && <CustomMobileHeader back text="Платежи" />}
-      <Container>
+      <Container withFooter={false}>
         <div className={styles.linkedCards}>
           <h6>Привязанные карты</h6>
 
