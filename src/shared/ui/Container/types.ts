@@ -1,3 +1,5 @@
 export interface IContainerProps {
-    height?: string;
+  height?: string;
+  withHeader?: boolean;
+  withFooter?: boolean;
 }

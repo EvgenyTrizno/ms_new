@@ -1,13 +1,13 @@
 import { FC } from "react";
 import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Tooltip,
-    Legend,
-    PointElement,
-    LineElement,
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Tooltip,
+  Legend,
+  PointElement,
+  LineElement,
 } from "chart.js";
 
 import { Cols } from "@/shared/ui/Cols";
@@ -28,60 +28,60 @@ import { MOBILE, TABLET } from "@/shared/utils";
 import { CustomMobileHeader } from "@/widgets";
 
 ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Tooltip,
-    Legend,
-    PointElement,
-    LineElement
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Tooltip,
+  Legend,
+  PointElement,
+  LineElement
 );
 
 const AppStatsPage: FC = () => {
-    return (
-        <Layout>
-            {(MOBILE || TABLET) && (
-                <CustomMobileHeader text="Сайт и приложение" back />
-            )}
-            <Container>
-                <Cols
-                    type="custom"
-                    gap={10}
-                    cols={MOBILE || TABLET ? [] : ["470px", "1fr"]}
-                >
-                    <PatientDiseases />
-                    <TimeOnSite />
-                </Cols>
-                <Cols
-                    type="custom"
-                    gap={10}
-                    cols={MOBILE || TABLET ? [] : ["1fr", "333px"]}
-                >
-                    <AgeStats />
-                    <SiteVisit />
-                </Cols>
-                <Cols
-                    type="custom"
-                    gap={10}
-                    cols={MOBILE || TABLET ? [] : ["500px", "1fr"]}
-                >
-                    <ExtraCalls />
-                    <DownloadsChart />
-                </Cols>
-                <Cols
-                    gap={10}
-                    type="custom"
-                    cols={MOBILE || TABLET ? [] : ["250px", "1fr"]}
-                >
-                    <AppDownload />
-                    <UserReports />
-                </Cols>
-                <Questions />
-                <Sms />
-                <ServerStats />
-            </Container>
-        </Layout>
-    );
+  return (
+    <Layout>
+      {(MOBILE || TABLET) && (
+        <CustomMobileHeader text="Сайт и приложение" back />
+      )}
+      <Container>
+        <Cols
+          type="custom"
+          gap={10}
+          cols={MOBILE || TABLET ? [] : ["470px", "1fr"]}
+        >
+          <PatientDiseases />
+          <TimeOnSite />
+        </Cols>
+        <Cols
+          type="custom"
+          gap={10}
+          cols={MOBILE || TABLET ? [] : ["1fr", "333px"]}
+        >
+          <AgeStats />
+          <SiteVisit />
+        </Cols>
+        <Cols
+          type="custom"
+          gap={10}
+          cols={MOBILE || TABLET ? [] : ["500px", "1fr"]}
+        >
+          <ExtraCalls />
+          <DownloadsChart />
+        </Cols>
+        <Cols
+          gap={10}
+          type="custom"
+          cols={MOBILE || TABLET ? [] : ["250px", "1fr"]}
+        >
+          <AppDownload />
+          <UserReports />
+        </Cols>
+        <Questions />
+        <Sms />
+        <ServerStats />
+      </Container>
+    </Layout>
+  );
 };
 
 export default AppStatsPage;

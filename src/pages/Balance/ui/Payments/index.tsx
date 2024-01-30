@@ -6,14 +6,14 @@ import { Rows } from "@/shared/ui/Rows";
 import { Payment } from "../Payment";
 
 export const Payments: FC = () => {
-    return (
-        <WhiteContentBlock>
-            <MainText text="Выплаты" />
-            <Rows gap={16} rows={["auto"]} style={{ marginTop: 14 }}>
-                <Payment />
-                <Payment />
-                <Payment />
-            </Rows>
-        </WhiteContentBlock>
-    );
+  return (
+    <WhiteContentBlock>
+      <MainText text="Выплаты" />
+      <Rows gap={16} rows={["auto"]} style={{ marginTop: 14 }}>
+        <Payment />
+        <Payment />
+        <Payment />
+      </Rows>
+    </WhiteContentBlock>
+  );
 };

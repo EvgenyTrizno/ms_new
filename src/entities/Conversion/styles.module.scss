@@ -1,0 +1,76 @@
+.conversion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+
+  .conversionArrWrapper {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fbecee;
+    border-radius: 50%;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &.up {
+    .conversionArrWrapper {
+      svg path {
+        stroke: #00cc5e;
+      }
+
+      background-color: #c0edd5;
+    }
+  }
+
+  &.down {
+    .conversionArrWrapper {
+      svg path {
+        stroke: #d64657;
+      }
+
+      background-color: #fbecee;
+      transform: rotate(180deg);
+    }
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #3c3d3e;
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #b1b2b4;
+
+    p {
+      font-size: 14px;
+      font-weight: 500;
+
+      span {
+        color: #3c3d3e;
+      }
+    }
+
+    span {
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+}
