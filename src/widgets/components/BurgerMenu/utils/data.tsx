@@ -1,7 +1,5 @@
 import {
-  AccountIcon,
   AllDoctorsIcon,
-  EditIcon,
   LikeIcon,
   PaymentsIcon,
   PeopleIcon,
@@ -25,16 +23,6 @@ export interface IMenuData {
 
 export const menuData: IMenuData = {
   default: [
-    {
-      label: ROUTES.notes.label,
-      path: ROUTES.notes.path,
-      icon: <AccountIcon className={styles.icon} />,
-    },
-    {
-      label: ROUTES.appointments.label,
-      path: ROUTES.appointments.path,
-      icon: <EditIcon className={styles.icon} />,
-    },
     {
       label: ROUTES.statistics.label,
       path: ROUTES.statistics.path,
@@ -65,11 +53,6 @@ export const menuData: IMenuData = {
       label: ROUTES.saved.label,
       path: ROUTES.saved.path,
       icon: <SavedIcon />,
-    },
-    {
-      label: ROUTES.medicalCard.label,
-      path: ROUTES.medicalCard.path,
-      icon: <AllDoctorsIcon className={styles.icon} />,
     },
     {
       label: ROUTES.settings.label,
