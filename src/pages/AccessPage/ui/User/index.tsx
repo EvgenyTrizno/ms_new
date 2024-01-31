@@ -5,7 +5,7 @@ import { Row } from "@/shared/ui/Row";
 import { Rows } from "@/shared/ui/Rows";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Text } from "@/shared/ui/Text";
-import { UserRank } from "@/entities/User";
+import { UserRank } from "@/entities/User/ui";
 import { Image } from "@/shared/ui/Image";
 
 import more from "./assets/more.svg";

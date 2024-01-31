@@ -5,7 +5,7 @@ import { Row } from "@/shared/ui/Row";
 import { Avatar } from "@/shared/ui/Avatar";
 import { Rows } from "@/shared/ui/Rows";
 import { Text } from "@/shared/ui/Text";
-import { UserRank } from "@/entities/User";
+import { UserRank } from "@/entities/User/ui";
 import { MOBILE } from "@/shared/utils";
 
 import avatarImg from "/assets/avatar.png";
