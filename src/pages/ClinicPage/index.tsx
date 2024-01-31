@@ -11,6 +11,7 @@ import { Gallery } from "./ui/Gallery/Gallery";
 import { useEffect, useRef, useState } from "react";
 import cn from "clsx";
 import { Link } from "react-router-dom";
+import { AdditionalMenuBtn } from "@/shared/ui/AdditionalMenuBtn";
 
 const ClinicPage = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -30,7 +31,19 @@ const ClinicPage = () => {
 
   return (
     <Layout>
-      {MOBILE && <CustomMobileHeader back text="Клиника (~31%)" />}
+      {MOBILE && (
+        <CustomMobileHeader
+          back
+          text="Клиника (~31%)"
+          btn={
+            <AdditionalMenuBtn
+              list={[
+                { title: "Заблокировать", onClick: () => console.log("asd") },
+              ]}
+            />
+          }
+        />
+      )}
       <Container>
         <div className={styles.bannerWrapper}>
           <img
