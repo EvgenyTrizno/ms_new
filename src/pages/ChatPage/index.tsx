@@ -17,7 +17,13 @@ const ChatPage = () => {
             </div>
 
             <div className={styles.messagesList}>
+              <Message
+                type="my"
+                text="Первый вариант - перейти на страничку товара, второй вариант - добавить товар в корзину. Вопрос - нужно ли во втором варианте карточку тоже делать оранжевой?"
+                time={new Date()}
+              />
               <Message type="my" text="lorem 123123" time={new Date()} />
+              <Message type="friend" text="lorem 123123" time={new Date()} />
             </div>
 
             <button className={styles.medHelp}>

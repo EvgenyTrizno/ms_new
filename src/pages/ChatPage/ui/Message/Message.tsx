@@ -22,7 +22,7 @@ export const Message: FC<PropsWithClassName<Props>> = ({
         [styles[type]]: type,
       })}
     >
-      <p>{text}</p>
+      <p className={styles.messageText}>{text}</p>
 
       <Row className={styles.additionalInfo} gap={6}>
         <span>8:00 PM</span>
