@@ -139,4 +139,12 @@ export const ROUTES = {
     path: "/saved",
     label: "Сохраненное",
   },
+  cooperation: {
+    path: "/cooperation",
+    label: "Сотрудничает",
+  },
+  hardware: {
+    path: "/hardware",
+    label: "Оборудование",
+  },
 } as const;

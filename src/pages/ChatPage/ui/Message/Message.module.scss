@@ -1,0 +1,16 @@
+.message {
+  max-width: 60%;
+  min-width: max-content;
+  font-size: 14px;
+  font-weight: 500;
+
+  &.my {
+    border-radius: 12px 12px 0px 12px;
+    background-color: var(--white);
+  }
+
+  &.friend {
+    border-radius: 12px 12px 12px 0px;
+    background-color: var(--blue-300);
+  }
+}

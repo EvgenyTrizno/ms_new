@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { RouteProps } from "react-router";
 
 import { InterviewPage } from "../../pages/Auth/InterviewPage/InterviewPage";
+import { ROUTES } from "./PATHS";
 
 const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
@@ -53,6 +54,8 @@ const ChatMoreDetailed = lazy(() => import("@/pages/ChatMoreDetailed"));
 const ClinicPage = lazy(() => import("@/pages/ClinicPage"));
 const PaymentsPage = lazy(() => import("@/pages/PaymentsPage"));
 const AddCardPage = lazy(() => import("@/pages/AddCard"));
+const CooperationPage = lazy(() => import("@/pages/CooperationPage"));
+const HardwarePage = lazy(() => import("@/pages/HardwarePage"));
 
 export const routes: RouteProps[] = [
   {
@@ -168,4 +171,12 @@ export const routes: RouteProps[] = [
   { path: "/clinic/:id", Component: ClinicPage },
   { path: "/payments", Component: PaymentsPage },
   { path: "/add-card", Component: AddCardPage },
+  {
+    path: ROUTES.cooperation.path,
+    Component: CooperationPage,
+  },
+  {
+    path: ROUTES.hardware.path,
+    Component: HardwarePage,
+  },
 ];

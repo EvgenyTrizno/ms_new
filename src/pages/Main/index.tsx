@@ -19,36 +19,38 @@ import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
 // import { MobileAccountMenu } from "@/widgets/components/MobileAccount/MobileAccountMenu";
 
 const MainPage: FC = () => {
-    const { isOpen, setIsOpen } = useBurgerMenu();    
-    return (
-        <Layout>
-            {(MOBILE || TABLET) && <MobileHeader setIsOpen={setIsOpen} isOpen={isOpen} />}
-            <Container height={MOBILE ? "calc(100% - 156px)" : ""}>
-                <DoctorsFromUserCountry />
-                {MOBILE && <Line />}
-                <div className={styles.posts}>
-                    <Row
-                        gap={0}
-                        style={{ justifyContent: "space-between" }}
-                        className={styles.filters}
-                    >
-                        {(MOBILE || TABLET) && (
-                            <Text type="h6" fz="15px">
-                                Популярные посты
-                            </Text>
-                        )}
-                        <FilterBtn
-                            type={MOBILE ? "small" : "big"}
-                            onClick={() => console.log("1")}
-                        />
-                    </Row>
-                    <Posts />
-                </div>
-            </Container>
-            {/* {(MOBILE || TABLET) && isOpen && <MobileAccountMenu /> } */}
-            {(MOBILE || TABLET) && <MobileMenu />}
-        </Layout>
-    );
+  const { isOpen, setIsOpen } = useBurgerMenu();
+  return (
+    <Layout>
+      {(MOBILE || TABLET) && (
+        <MobileHeader setIsOpen={setIsOpen} isOpen={isOpen} />
+      )}
+      <Container height={MOBILE ? "calc(100% - 156px)" : ""}>
+        <DoctorsFromUserCountry />
+        {MOBILE && <Line />}
+        <div className={styles.posts}>
+          <Row
+            gap={0}
+            style={{ justifyContent: "space-between" }}
+            className={styles.filters}
+          >
+            {(MOBILE || TABLET) && (
+              <Text type="h6" fz="15px">
+                Популярные посты
+              </Text>
+            )}
+            <FilterBtn
+              type={MOBILE ? "small" : "big"}
+              onClick={() => console.log("1")}
+            />
+          </Row>
+          <Posts />
+        </div>
+      </Container>
+      {/* {(MOBILE || TABLET) && isOpen && <MobileAccountMenu /> } */}
+      {(MOBILE || TABLET) && <MobileMenu />}
+    </Layout>
+  );
 };
 
 export default MainPage;

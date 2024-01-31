@@ -4,7 +4,7 @@ import { IMember } from "./types";
 import { Row } from "@/shared/ui/Row";
 import { Avatar } from "@/shared/ui/Avatar";
 import { Rows } from "@/shared/ui/Rows";
-import { UserRank, Username } from "@/entities/User";
+import { UserRank, Username } from "@/entities/User/ui";
 import { Text } from "@/shared/ui/Text";
 import { getFullUsernameWithInitials } from "@/entities/User/lib/helpers/getFullUsernameWithInitials";
 import { BlueBox } from "@/shared/ui/BlueBox";

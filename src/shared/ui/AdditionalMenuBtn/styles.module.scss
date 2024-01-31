@@ -1,0 +1,33 @@
+.wrapper {
+  position: relative;
+
+  .menuBtn {
+    cursor: pointer;
+    display: flex;
+  }
+
+  .list {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    min-width: 160px;
+    max-width: 240px;
+    background-color: var(--white);
+    box-shadow: 0px 4px 4px 0px rgba(38, 38, 38, 0.04);
+    padding: 8px;
+    border: 1px solid var(--blue-100);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    overflow-y: auto;
+
+    .item {
+      cursor: pointer;
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background-color: transparent;
+    }
+  }
+}

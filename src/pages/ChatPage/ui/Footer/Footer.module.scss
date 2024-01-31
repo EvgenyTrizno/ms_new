@@ -17,6 +17,13 @@
     height: 24px;
     cursor: pointer;
   }
+
+  .sendIcon {
+    cursor: pointer;
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .inputWrapper {
@@ -25,6 +32,8 @@
   gap: 12px;
   padding: 16px;
   width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--blue-200);
 
   input {
     width: 100%;
