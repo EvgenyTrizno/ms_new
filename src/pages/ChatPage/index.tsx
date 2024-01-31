@@ -2,6 +2,7 @@ import { MOBILE } from "@/shared/utils";
 import { Header } from "./ui/Header/Header";
 import styles from "./styles.module.scss";
 import { Footer } from "./ui/Footer/Footer";
+import { Message } from "./ui/Message/Message";
 
 const ChatPage = () => {
   return (
@@ -16,7 +17,7 @@ const ChatPage = () => {
             </div>
 
             <div className={styles.messagesList}>
-              <p>1</p>
+              <Message type="my" text="lorem 123123" time={new Date()} />
             </div>
 
             <button className={styles.medHelp}>
