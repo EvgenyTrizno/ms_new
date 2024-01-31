@@ -3,7 +3,8 @@ import styles from "./styles.module.scss";
 import { PropsWithClassName } from "@/shared/types";
 import cn from "clsx";
 import { LinksItem } from "./LinksItem/LinksItem";
-import { NoWifiIcon, WifiIcon } from "@/icons";
+import { CooperationIcon, HarwareIcon, NoWifiIcon, WifiIcon } from "@/icons";
+import { ROUTES } from "@/shared/utils/PATHS";
 
 export const Links: FC<PropsWithClassName> = ({ className }) => {
   return (
@@ -25,17 +26,17 @@ export const Links: FC<PropsWithClassName> = ({ className }) => {
       />
       <LinksItem
         className={styles.item}
-        href="/"
-        title="Онлайн записи"
+        href={ROUTES.cooperation.path}
+        title={ROUTES.cooperation.label}
         count={24}
-        icon={<WifiIcon />}
+        icon={<CooperationIcon />}
       />
       <LinksItem
         className={styles.item}
-        href="/"
-        title="Онлайн записи"
+        href={ROUTES.hardware.path}
+        title={ROUTES.hardware.label}
         count={24}
-        icon={<WifiIcon />}
+        icon={<HarwareIcon />}
       />
     </div>
   );
