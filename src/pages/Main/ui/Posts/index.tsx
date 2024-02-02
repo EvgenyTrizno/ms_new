@@ -15,13 +15,13 @@ export const Posts: FC = () => {
       {data &&
         data.data.map((item) => (
           <UserPost
+            key={item.id}
             onClick={
               item.center
                 ? () => navigate(`/center/${item.center?.id}/`)
                 : () => navigate(`/clinic/${item.clinic?.id}/`)
             }
             creator={item.center ? "Центр" : "Клиника"}
-            key={item.id}
             text={item.text}
             img={item.image}
             avatar={

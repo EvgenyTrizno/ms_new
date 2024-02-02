@@ -10,16 +10,18 @@ import { SearchWithFilter } from "@/features/SearchWithFilter";
 import { AccountMoreDetailed } from "@/widgets/components/MobilePopup/AccountMoreDetailed/AccountMoreDetailed";
 import { useOpensModals } from "@/shared/model/store/opensModals";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
-import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
 import { MobileHeader } from "@/widgets/components/MobileHeader";
+import { useAuth } from "@/shared/model/store/auth";
 
 const AccountPage: FC = () => {
   const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
-  const { isOpen, setIsOpen } = useBurgerMenu();
+  const { user } = useAuth();
+
+  console.log(user);
 
   return (
     <>
-      {MOBILE && <MobileHeader isOpen={isOpen} setIsOpen={setIsOpen} />}
+      {MOBILE && <MobileHeader />}
       <Layout>
         {MOBILE ? (
           <div className={styles.wrapper}>

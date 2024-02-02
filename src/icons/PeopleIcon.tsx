@@ -14,7 +14,7 @@ export const PeopleIcon: FC<PropsWithClassName<PropsWithSize>> = ({
       viewBox="0 0 20 20"
       fill="none"
     >
-      <g clip-path="url(#clip0_7259_105773)">
+      <g clipPath="url(#clip0_7259_105773)">
         <path
           d="M18.75 14.75C18.75 12.6768 16.7892 11 14.375 11C12.9444 11 11.673 11.5888 10.8745 12.5"
           stroke="#0064FA"

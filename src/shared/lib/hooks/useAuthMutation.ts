@@ -1,5 +1,5 @@
 import { useMutation } from "react-query";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { auth } from "@/shared/api/auth";
 import { getUser } from "@/shared/api/getUser";
@@ -9,6 +9,7 @@ import { ROUTES } from "@/shared/utils/PATHS";
 export const useAuthMutation = (refresh: string) => {
   const { setUser, setIsAuth, user } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const excludedPaths = [
     ROUTES.login.path,
@@ -32,7 +33,7 @@ export const useAuthMutation = (refresh: string) => {
           location.pathname as typeof ROUTES.registration.path
         )
       ) {
-        // navigate(ROUTES.login.path);
+        navigate(ROUTES.login.path);
       }
     },
   });

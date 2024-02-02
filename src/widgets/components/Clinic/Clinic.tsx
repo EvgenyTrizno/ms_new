@@ -1,6 +1,13 @@
+import { FC } from "react";
 import styles from "./Clinic.module.scss";
+import { IClinic } from "@/shared/types/clinic.interface";
 
-export const Clinic = () => {
+type Props = {
+  data: IClinic;
+};
+
+export const Clinic: FC<Props> = ({ data }) => {
+  console.log('asd');
   return (
     <div className={styles.wrapper}>
       <img className={styles.img} src="/assets/clinic.jpg" alt="clinic" />
