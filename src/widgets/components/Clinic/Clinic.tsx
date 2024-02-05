@@ -7,29 +7,34 @@ type Props = {
 };
 
 export const Clinic: FC<Props> = ({ data }) => {
-  console.log('asd');
   return (
     <div className={styles.wrapper}>
-      <img className={styles.img} src="/assets/clinic.jpg" alt="clinic" />
+      <img className={styles.img} src={data.image} alt="clinic" />
 
       <div className={styles.content}>
-        <h5 className={styles.title}>Клиника хирургии</h5>
+        <h5 className={styles.title}>{data.name}</h5>
 
         <div className={styles.list}>
-          <div className={styles.item}>
-            <p>Страна:</p>
-            <span>US</span>
-          </div>
+          {data.country && (
+            <div className={styles.item}>
+              <p>Страна: </p>
+              <span>{data.country.name}</span>
+            </div>
+          )}
 
-          <div className={styles.item}>
-            <p>Город:</p>
-            <span>New York</span>
-          </div>
+          {data.city && (
+            <div className={styles.item}>
+              <p>Город: </p>
+              <span>{data.city.name}</span>
+            </div>
+          )}
 
-          <div className={styles.item}>
-            <p>Адрес:</p>
-            <span>New York Avenu 1300</span>
-          </div>
+          {data.address && (
+            <div className={styles.item}>
+              <p>Адрес: </p>
+              <span>{data.address}</span>
+            </div>
+          )}
         </div>
       </div>
     </div>

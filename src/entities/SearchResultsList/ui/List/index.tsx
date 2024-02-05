@@ -9,20 +9,28 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
   filter,
   search,
 }) => {
-  const { data, isLoading } = useResultsQuery();
+  const { data, isLoading, isRefetching } = useResultsQuery();
 
   return (
     <>
       {filter === "clinics" && (
         <DataListWrapper
           listIsUndefined={data === undefined ? true : false}
-          isLoading={isLoading}
+          isLoading={isLoading || isRefetching}
           listLength={data?.data.clinics.length || 0}
         >
           <Cols gap={10} type="auto" count={1}>
-            {data?.data.clinics.map((el) => {
-              return <Clinic data={el} />;
-            })}
+            {data?.data.clinics
+              .filter((el) =>
+                Object.values(el).some((value) => {
+                  if (typeof value === "string") {
+                    return value.toLowerCase().includes(search.toLowerCase());
+                  }
+                })
+              )
+              .map((el) => {
+                return <Clinic data={el} />;
+              })}
           </Cols>
         </DataListWrapper>
       )}
@@ -30,7 +38,7 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
       {filter === "centers" && (
         <DataListWrapper
           listIsUndefined={data === undefined ? true : false}
-          isLoading={isLoading}
+          isLoading={isLoading || isRefetching}
           listLength={data?.data.centers.length || 0}
         >
           <Cols gap={10} type="auto" count={1}>
@@ -44,7 +52,7 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
       {filter === "doctors" && (
         <DataListWrapper
           listIsUndefined={data === undefined ? true : false}
-          isLoading={isLoading}
+          isLoading={isLoading || isRefetching}
           listLength={data?.data.doctors.length || 0}
         >
           <Cols gap={10} type="auto" count={1}>

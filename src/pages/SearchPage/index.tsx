@@ -8,7 +8,6 @@ import { FilterBtn } from "@/shared/ui/FilterBtn";
 import { Container } from "@/shared/ui/Container";
 import { Search } from "@/features/Search";
 import { WithFilter } from "./ui/WithFilter";
-import styles from "./styles.module.scss";
 
 const SearchPage: FC = () => {
   const [search, setSearch] = useState("");

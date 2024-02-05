@@ -1,4 +1,5 @@
 import { instance } from "@/shared/config/axiosInstance";
+import { ICenter } from "@/shared/types/centers.interface";
 import { IClinic } from "@/shared/types/clinic.interface";
 import { IUserData } from "@/shared/types/user.interface";
 // import { IUserData } from "@/shared/types/user.interface";
@@ -6,7 +7,7 @@ import { AxiosResponse } from "axios";
 
 interface ISearchResults {
   doctors: IUserData[];
-  centers: IClinic[];
+  centers: ICenter[];
   clinics: IClinic[];
 }
 
