@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import {
   motion,
   AnimatePresence,
@@ -29,7 +29,6 @@ export const BurgerMenu = () => {
   const { logout } = useLogout();
 
   const sick = user && user.disease.length;
-  const group = "default";
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -63,9 +62,9 @@ export const BurgerMenu = () => {
         animate={animateControll}
         transition={{ duration: 0.2, delay: 0.3 }}
       >
-        {menuData[group].map((item, i) => (
+        {menuData.default.map((item, idx) => (
           <li
-            key={i}
+            key={idx}
             onClick={() => {
               navigate(item.path);
               setIsOpen(false);

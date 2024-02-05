@@ -3,8 +3,8 @@ import { AxiosResponse } from "axios";
 import { instance } from "../config/axiosInstance";
 
 interface ILoginResponce {
-    refresh: string;
-    access: string;
+    refresh_token: string;
+    access_token: string;
 }
 
 export async function login(

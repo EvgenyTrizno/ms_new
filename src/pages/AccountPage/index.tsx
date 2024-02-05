@@ -2,24 +2,24 @@ import { FC } from "react";
 
 import { Layout } from "../Layout";
 import { MOBILE } from "@/shared/utils";
-import { MobilePopup } from "@/widgets";
 import styles from "./styles.module.scss";
 
 import { NoteBlock } from "@/entities/Note/ui/NoteBlock";
 import { SearchWithFilter } from "@/features/SearchWithFilter";
-import { AccountMoreDetailed } from "@/widgets/components/MobilePopup/AccountMoreDetailed/AccountMoreDetailed";
+import { AccountMoreDetailedForm } from "@/widgets/components/MobilePopup/AccountMoreDetailedForm/AccountMoreDetailedForm";
 import { useOpensModals } from "@/shared/model/store/opensModals";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
-import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
 import { MobileHeader } from "@/widgets/components/MobileHeader";
+import { useAuth } from "@/shared/model/store/auth";
+import { MobilePopup } from "@/widgets";
 
 const AccountPage: FC = () => {
   const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
-  const { isOpen, setIsOpen } = useBurgerMenu();
+  const { user } = useAuth();
 
   return (
     <>
-      {MOBILE && <MobileHeader isOpen={isOpen} setIsOpen={setIsOpen} />}
+      {MOBILE && <MobileHeader />}
       <Layout>
         {MOBILE ? (
           <div className={styles.wrapper}>
@@ -78,9 +78,10 @@ const AccountPage: FC = () => {
 
       <MobilePopup
         isOpen={isOpenMoreDetailed}
+        title="Подробнее"
         closeHandler={() => setOpenMoreDetailed(false)}
       >
-        <AccountMoreDetailed />
+        <AccountMoreDetailedForm />
       </MobilePopup>
     </>
   );

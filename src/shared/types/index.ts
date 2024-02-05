@@ -4,8 +4,14 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
+import {
+  FieldValues,
+  Path,
+  RegisterOptions,
+  UseFormRegister,
+} from "react-hook-form";
 
-export interface IInput {
+export type IInput<T extends FieldValues> = {
   type: HTMLInputTypeAttribute;
   placeholder?: string;
   width?: string;
@@ -28,7 +34,12 @@ export interface IInput {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   fz?: string;
   border?: string;
-}
+  hookFormData?: {
+    register: UseFormRegister<T>;
+    registerName: string;
+    options?: RegisterOptions;
+  };
+};
 
 export interface IIconData {
   healthy: string;
@@ -47,4 +58,4 @@ export type PropsWithClassName<P = unknown> = P & {
 export type PropsWithSize<P = unknown> = P & {
   width?: number;
   height?: number;
-}
+};

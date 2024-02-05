@@ -1,20 +1,22 @@
 import { instance } from "@/shared/config/axiosInstance";
+import { ICenter } from "@/shared/types/centers.interface";
 import { IClinic } from "@/shared/types/clinic.interface";
+import { IUserData } from "@/shared/types/user.interface";
 // import { IUserData } from "@/shared/types/user.interface";
 import { AxiosResponse } from "axios";
 
 interface ISearchResults {
-    // doctors: IUserData[];
-    centers: IClinic[];
-    clinics: IClinic[];
+  doctors: IUserData[];
+  centers: ICenter[];
+  clinics: IClinic[];
 }
 
 export async function getSearchResults(
-    token: string
+  token: string
 ): Promise<AxiosResponse<ISearchResults>> {
-    return await instance.get("/search/", {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    });
+  return await instance.get("/search/", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 }

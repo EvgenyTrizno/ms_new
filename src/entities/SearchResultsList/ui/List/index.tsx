@@ -2,28 +2,66 @@ import { Cols } from "@/shared/ui/Cols";
 import { FC } from "react";
 import { useResultsQuery } from "../../lib/hooks/useResultsQuery";
 import { ISearchResultsListProps } from "./types";
-import { SearchResult } from "../SearchResult";
-import { MOBILE } from "@/shared/utils";
+import { Clinic } from "@/widgets";
+import { DataListWrapper } from "@/widgets/components/DataListWrapper";
 
 export const SearchResultsList: FC<ISearchResultsListProps> = ({
-    filter,
-    search,
+  filter,
+  search,
 }) => {
-    const { data } = useResultsQuery();
+  const { data, isLoading, isRefetching } = useResultsQuery();
 
-    return (
-        <Cols gap={10} type="auto" count={MOBILE ? 1 : 3}>
-            {data &&
-                filter &&
-                data.data[filter]
-                    .filter((item) =>
-                        Object.entries(item)
-                            .flat(Infinity)
-                            .toString()
-                            .toLowerCase()
-                            .includes(search.toLowerCase())
-                    )
-                    .map((item) => <SearchResult key={item.id} />)}
-        </Cols>
-    );
+  return (
+    <>
+      {filter === "clinics" && (
+        <DataListWrapper
+          listIsUndefined={data === undefined ? true : false}
+          isLoading={isLoading || isRefetching}
+          listLength={data?.data.clinics.length || 0}
+        >
+          <Cols gap={10} type="auto" count={1}>
+            {data?.data.clinics
+              .filter((el) =>
+                Object.values(el).some((value) => {
+                  if (typeof value === "string") {
+                    return value.toLowerCase().includes(search.toLowerCase());
+                  }
+                })
+              )
+              .map((el) => {
+                return <Clinic data={el} />;
+              })}
+          </Cols>
+        </DataListWrapper>
+      )}
+
+      {filter === "centers" && (
+        <DataListWrapper
+          listIsUndefined={data === undefined ? true : false}
+          isLoading={isLoading || isRefetching}
+          listLength={data?.data.centers.length || 0}
+        >
+          <Cols gap={10} type="auto" count={1}>
+            {data?.data.centers.map((el) => {
+              return <div></div>;
+            })}
+          </Cols>
+        </DataListWrapper>
+      )}
+
+      {filter === "doctors" && (
+        <DataListWrapper
+          listIsUndefined={data === undefined ? true : false}
+          isLoading={isLoading || isRefetching}
+          listLength={data?.data.doctors.length || 0}
+        >
+          <Cols gap={10} type="auto" count={1}>
+            {data?.data.doctors.map((el) => {
+              return <div></div>;
+            })}
+          </Cols>
+        </DataListWrapper>
+      )}
+    </>
+  );
 };

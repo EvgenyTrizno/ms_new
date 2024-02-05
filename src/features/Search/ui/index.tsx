@@ -1,26 +1,24 @@
 import { FC, useEffect, useState } from "react";
 import { ISeacrh } from "../types";
-import { useAuth } from "@/shared/model/store/auth";
 
 import { Image } from "@/shared/ui/Image";
 
-import search from "../assets/search-gray.svg";
 import styles from "./styles.module.scss";
 
 export const Search: FC<ISeacrh> = ({
   placeholder,
+  value,
   onChange,
-  width,
   className,
-  showSearchFromParent,
+  showSearchByScroll = true,
+  additionalBlock,
 }) => {
-  const { user } = useAuth();
-
-  const sick = user && user.disease.length;
-  const [showSearch, setShowSearch] = useState(false);
+  const [showSearch, setShowSearch] = useState(
+    showSearchByScroll ? false : true
+  );
 
   useEffect(() => {
-    if (showSearchFromParent) return;
+    if (!showSearchByScroll) return;
 
     const handleScroll = () => {
       if (showSearch) return;
@@ -31,23 +29,31 @@ export const Search: FC<ISeacrh> = ({
     window.addEventListener("scroll", handleScroll, true);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [showSearch, showSearchFromParent]);
+  }, [showSearch, showSearchByScroll]);
 
   return (
     <>
-      {(showSearchFromParent || showSearch) && (
-        <div
-          className={`${className} ${styles.search} ${sick && styles.sick}`}
-          style={{ width }}
-        >
-          <Image src={search} alt="magnifying glass" width={16} height={16} />
-          <input
-            style={{ width: "100%" }}
-            type="text"
-            placeholder={placeholder}
-            height="100%"
-            onChange={onChange}
-          />
+      {showSearch && (
+        <div className={className}>
+          <div className={styles.wrapper}>
+            <div className={styles.searchWrapper}>
+              <Image
+                src="/assets/icons/search.svg"
+                alt="search"
+                width={16}
+                height={16}
+              />
+              <input
+                type="text"
+                placeholder={placeholder}
+                height="100%"
+                onChange={onChange}
+                value={value}
+              />
+            </div>
+
+            {additionalBlock || null}
+          </div>
         </div>
       )}
     </>

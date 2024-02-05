@@ -13,12 +13,12 @@ import { SearchWithFilter } from "./ui/Search";
 
 import ghost from "/assets/ghost.svg";
 import styles from "./styles.module.scss";
+import { useNotesQuery } from "./lib/hooks/useNotesQuery";
 
 const NotesPage: FC = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
   const [filter, setFilter] = useState<string>("Текущие");
-
-  const data = [1, 2, 3, 4];
+  const { data } = useNotesQuery();
 
   return (
     <>
@@ -34,10 +34,12 @@ const NotesPage: FC = () => {
           <div
             className={styles.items}
             style={
-              data.length === 0 ? { display: "block" } : { display: "grid" }
+              data?.data.length === 0
+                ? { display: "block" }
+                : { display: "grid" }
             }
           >
-            {data.length === 0 ? (
+            {data?.data.length === 0 ? (
               <div className={styles.empty}>
                 <div className={styles.inner}>
                   <img src={ghost} alt="" />
@@ -58,8 +60,8 @@ const NotesPage: FC = () => {
               </div>
             ) : (
               <>
-                {data.map((item) => (
-                  <NoteBlock key={item} />
+                {data?.data.map((item) => (
+                  <NoteBlock key={item.id} />
                 ))}
               </>
             )}
