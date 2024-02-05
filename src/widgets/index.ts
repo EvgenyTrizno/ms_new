@@ -1,4 +1,4 @@
-import { MobilePopup } from "./components/MobilePopup/MobilePopup";
+import { MobilePopup } from "./components/MobilePopup";
 import { RegistrationForPersonal } from "./components/Auth/RegistrationForPersonal/RegistrationForPersonal";
 import { Calendar } from "./components/Calendar";
 import { Comment } from "./components/Comment/Comment";

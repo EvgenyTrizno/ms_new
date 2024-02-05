@@ -1,13 +1,19 @@
 import { FC, ReactNode, TouchEvent, useEffect, useState } from "react";
-import styles from "./MobilePopup.module.scss";
+import styles from "./styles.module.scss";
 
 type Props = {
   children: ReactNode;
   isOpen: boolean;
   closeHandler: () => void;
+  title: string;
 };
 
-export const MobilePopup: FC<Props> = ({ children, isOpen, closeHandler }) => {
+export const MobilePopup: FC<Props> = ({
+  children,
+  isOpen,
+  closeHandler,
+  title,
+}) => {
   const [touchStart, setTouchStart] = useState(0);
   const [bottomPosition, setBottomPosition] = useState(0);
   console.log(bottomPosition);
@@ -75,7 +81,7 @@ export const MobilePopup: FC<Props> = ({ children, isOpen, closeHandler }) => {
             <div></div>
           </div>
 
-          <h5 className={styles.title}>Подробнее</h5>
+          <h5 className={styles.title}>{title}</h5>
 
           <div className={styles.content}>{children}</div>
         </div>
