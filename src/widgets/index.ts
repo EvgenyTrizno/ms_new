@@ -28,6 +28,9 @@ import { IncomeBlock } from "./components/IncomeBlock/IncomeBlock";
 import { CenterView } from "./components/CenterView/CenterView";
 import { Notification } from "./components/Notification/Notification";
 import { Clinic } from "./components/Clinic/Clinic";
+import { DoctorCard } from "./components/DoctorCard";
+import { Skeleton as DoctorCardSkeleton } from "./components/DoctorCard/ui/Skeleton";
+import { SkeletonWrapper } from "./components/SkeletonWrapper";
 
 export {
   Calendar,
@@ -60,4 +63,7 @@ export {
   MobilePopup,
   Notification,
   Clinic,
+  DoctorCard,
+  DoctorCardSkeleton,
+  SkeletonWrapper,
 };

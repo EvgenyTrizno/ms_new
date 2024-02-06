@@ -1,3 +1,5 @@
+export * from "./user.interface";
+
 import {
   HTMLInputTypeAttribute,
   ChangeEvent,

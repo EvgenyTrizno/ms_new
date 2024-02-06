@@ -15,26 +15,20 @@ export const Clinic: FC<Props> = ({ data }) => {
         <h5 className={styles.title}>{data.name}</h5>
 
         <div className={styles.list}>
-          {data.country && (
-            <div className={styles.item}>
-              <p>Страна: </p>
-              <span>{data.country.name}</span>
-            </div>
-          )}
+          <div className={styles.item}>
+            <p>Страна: </p>
+            <span>{data.country?.name || "-"}</span>
+          </div>
 
-          {data.city && (
-            <div className={styles.item}>
-              <p>Город: </p>
-              <span>{data.city.name}</span>
-            </div>
-          )}
+          <div className={styles.item}>
+            <p>Город: </p>
+            <span>{data.city?.name || "-"}</span>
+          </div>
 
-          {data.address && (
-            <div className={styles.item}>
-              <p>Адрес: </p>
-              <span>{data.address}</span>
-            </div>
-          )}
+          <div className={styles.item}>
+            <p>Адрес: </p>
+            <span>{data?.address || "-"}</span>
+          </div>
         </div>
       </div>
     </div>

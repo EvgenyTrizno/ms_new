@@ -29,22 +29,8 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
                 })
               )
               .map((el) => {
-                return <Clinic data={el} />;
+                return <Clinic key={el.id} data={el} />;
               })}
-          </Cols>
-        </DataListWrapper>
-      )}
-
-      {filter === "centers" && (
-        <DataListWrapper
-          listIsUndefined={data === undefined ? true : false}
-          isLoading={isLoading || isRefetching}
-          listLength={data?.data.centers.length || 0}
-        >
-          <Cols gap={10} type="auto" count={1}>
-            {data?.data.centers.map((el) => {
-              return <div></div>;
-            })}
           </Cols>
         </DataListWrapper>
       )}
@@ -57,7 +43,7 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
         >
           <Cols gap={10} type="auto" count={1}>
             {data?.data.doctors.map((el) => {
-              return <div></div>;
+              return <div key={el.id}></div>;
             })}
           </Cols>
         </DataListWrapper>

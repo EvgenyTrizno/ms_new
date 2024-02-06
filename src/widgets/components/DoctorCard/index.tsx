@@ -18,25 +18,9 @@ export const DoctorCard: FC<IDoctorCardProps> = ({
 
   return (
     <CardLayout
-      username={
-        !MOBILE && (
-          <Username
-            name={
-              surnameLength
-                ? `${surname}...`
-                : getFullUsernameWithInitials(surname, name, patronymic)
-            }
-            fz="12px"
-          />
-        )
-      }
       userAvatar={<Avatar type="user" img={avatar} size="M" />}
       userRank={
-        <UserRank
-          rank={rank}
-          position="center"
-          fz={LAPTOP ? "10px" : MOBILE ? "12px" : "14px"}
-        />
+        <UserRank rank={rank} position="center" fz={MOBILE ? "10px" : "14px"} />
       }
     />
   );

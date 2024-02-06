@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { CustomMobileHeader } from "@/widgets";
 import { Container } from "@/shared/ui/Container";
 import { Input } from "@/shared/ui/Input";
-import { Button } from "@/shared/ui/Button/Button";
+import { Button } from "@/shared/ui/Button";
 
 const AddCard = () => {
   return (

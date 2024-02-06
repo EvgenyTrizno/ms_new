@@ -1,9 +1,13 @@
+.wrapper {
+  margin: 0 -16px;
+}
+
 .country {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 1920px) {
-    .country {
-        font-size: 12px;
-    }
+  .country {
+    font-size: 12px;
+  }
 }

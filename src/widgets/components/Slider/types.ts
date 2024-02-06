@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
 export interface ISlider {
-    children: ReactNode;
-    gap?: number;
+  children: ReactNode;
+  gap?: number;
 }
