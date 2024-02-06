@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { NoteContainer } from "../NoteContainer";
 import { Note } from "../Note";
-import { INote } from "@/shared/types/note.interface";
+import { INote } from "@/shared/types/notes";
 
 interface ICurrentProps {
     current: INote[];

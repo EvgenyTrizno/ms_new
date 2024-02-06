@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import { IAccess } from "../types/access.interface";
 
 import { instance } from "@/shared/config/axiosInstance";
-import { INote } from "@/shared/types/note.interface";
+import { INote } from "@/shared/types/notes";
 import { IUserData } from "@/shared/types/user.interface";
 
 interface IUserResponse {

@@ -12,13 +12,27 @@ import "./index.scss";
 import { useEffect } from "react";
 import { getUser } from "@/shared/api/getUser";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
+import { useQuery } from "react-query";
+import { useAuth } from "@/shared/model/store/auth";
 
 const App = () => {
+  const { setUser } = useAuth();
   const { getCookie } = useCookie();
+  const { data: userData } = useQuery(
+    ["user"],
+    () => getUser(getCookie("access_token") as string),
+    {
+      keepPreviousData: true,
+      staleTime: 5 * 60 * 1000,
+      cacheTime: 30 * 60 * 1000,
+    }
+  );
 
   useEffect(() => {
-    getUser(getCookie("access_token") as string);
-  }, []);
+    if (!userData) return;
+
+    setUser(userData.data);
+  }, [setUser, userData]);
 
   return (
     <ErrorBoundary fallback={<ErrorBoundaryFallback />}>

@@ -3,8 +3,6 @@ import { FC } from "react";
 import { Layout } from "../Layout";
 import { MOBILE } from "@/shared/utils";
 import styles from "./styles.module.scss";
-
-import { NoteBlock } from "@/entities/Note/ui/NoteBlock";
 import { SearchWithFilter } from "@/features/SearchWithFilter";
 import { AccountMoreDetailedForm } from "@/widgets/components/MobilePopup/AccountMoreDetailedForm/AccountMoreDetailedForm";
 import { useOpensModals } from "@/shared/model/store/opensModals";
@@ -12,6 +10,7 @@ import { MobileMenu } from "@/widgets/components/MobileMenu";
 import { MobileHeader } from "@/widgets/components/MobileHeader";
 import { useAuth } from "@/shared/model/store/auth";
 import { MobilePopup } from "@/widgets";
+import { NotesList } from "./ui/NotesList";
 
 const AccountPage: FC = () => {
   const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
@@ -38,18 +37,26 @@ const AccountPage: FC = () => {
             <div className={styles.contentWrapper}>
               <img
                 className={styles.avatar}
-                src="/assets/avatar-2.png"
+                src={user?.image || "/assets/avatar.png"}
                 alt="avatar"
               />
 
               <div className={styles.contentHeader}>
-                <h4>Ivan Ivanov</h4>
+                {(user?.first_name || user?.last_name) && (
+                  <h4>
+                    {user?.first_name} {user?.last_name}
+                  </h4>
+                )}
 
                 <div className={styles.contentHeaderList}>
-                  <div className={styles.contentHeaderItem}>
-                    <img src="/assets/icons/location.svg" alt="location" />
-                    <span>U.S, New-York</span>
-                  </div>
+                  {(user?.country || user?.city) && (
+                    <div className={styles.contentHeaderItem}>
+                      <img src="/assets/icons/location.svg" alt="location" />
+                      <span>
+                        {user?.country?.name}, {user?.city?.name}
+                      </span>
+                    </div>
+                  )}
 
                   <div
                     className={styles.contentHeaderItem}
@@ -62,11 +69,7 @@ const AccountPage: FC = () => {
                 </div>
               </div>
 
-              <div className={styles.notesList}>
-                <NoteBlock />
-                <NoteBlock />
-                <NoteBlock />
-              </div>
+              <NotesList />
             </div>
           </div>
         ) : (

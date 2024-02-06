@@ -1,4 +1,4 @@
-import { INote } from "@/shared/types/note.interface";
+import { INote } from "@/shared/types/notes";
 
 export interface INotesList {
     missing: INote[];

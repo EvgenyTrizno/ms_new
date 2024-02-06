@@ -11,8 +11,13 @@ import calendar from "./assets/calendar.svg";
 import alarm from "./assets/alarm-clock.svg";
 import clock from "./assets/clock-fast-forward.svg";
 import styles from "./styles.module.scss";
+import { Note } from "@/shared/types";
 
-export const NoteBlock: FC = () => {
+type Props = {
+  data: Note;
+};
+
+export const NoteBlock: FC<Props> = ({ data }) => {
   const { user } = useAuth();
 
   const sick = user && user.disease.length;
@@ -22,10 +27,10 @@ export const NoteBlock: FC = () => {
       <Rows gap={20} rows={["auto"]}>
         <Rows gap={7} rows={["auto", "auto"]}>
           <Text type="p" color="#9B9B9B" fz="12px">
-            Название записи
+            {data.title}
           </Text>
           <Text type="h2" color="#000" fz="17px">
-            Восстановление
+            {data.problem}
           </Text>
         </Rows>
         <Rows gap={10} rows={["auto"]}>
@@ -34,20 +39,12 @@ export const NoteBlock: FC = () => {
               Формат:
             </Text>
             <Text type="p" color="#00CC5E" fz="12px">
-              Online
+              {data.online ? "Online" : "Offline"}
             </Text>
           </Row>
           <Row gap={10}>
             <Text type="p" color="#B1B2B4" fz="12px">
-              Заболевание:
-            </Text>
-            <Text type="p" fz="12px">
-              Работа мышц спины
-            </Text>
-          </Row>
-          <Row gap={10}>
-            <Text type="p" color="#B1B2B4" fz="12px">
-              Создана:
+              Центр:
             </Text>
             <Text
               type="p"
@@ -56,7 +53,7 @@ export const NoteBlock: FC = () => {
           </Row>
           <Row gap={10}>
             <Text type="p" color="#B1B2B4" fz="12px">
-              Версия:
+              Врач:
             </Text>
             <Text type="p" fz="12px">
               USA
