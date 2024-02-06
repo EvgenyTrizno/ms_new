@@ -9,3 +9,8 @@
   flex-direction: column;
   gap: 8px;
 }
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}

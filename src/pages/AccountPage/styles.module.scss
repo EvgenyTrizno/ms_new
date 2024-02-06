@@ -1,6 +1,9 @@
 .wrapper {
   padding-top: 86px;
   padding-bottom: 86px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .interest {
@@ -37,6 +40,9 @@
   padding-top: 75px;
   padding-bottom: 16px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .avatar {

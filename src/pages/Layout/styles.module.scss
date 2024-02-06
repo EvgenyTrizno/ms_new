@@ -1,4 +1,5 @@
 .main {
+  min-height: 100vh;
   position: fixed;
   width: calc(100% - 256px);
   right: 0;
@@ -6,6 +7,9 @@
   padding: 16px;
   height: calc(100% - 64px);
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
