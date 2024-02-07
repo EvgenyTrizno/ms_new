@@ -8,6 +8,7 @@ import { FilterBtn } from "@/shared/ui/FilterBtn";
 import { Container } from "@/shared/ui/Container";
 import { Search } from "@/features/Search";
 import { WithFilter } from "./ui/WithFilter";
+import styles from "./styles.module.scss";
 
 const SearchPage: FC = () => {
   const [search, setSearch] = useState("");
@@ -23,22 +24,29 @@ const SearchPage: FC = () => {
 
       <Layout>
         <Container>
-          <Search
-            placeholder="Поиск чатов"
-            height="48px"
-            onChange={onChangeSearch}
-            value={search}
-            showSearchByScroll={false}
-            additionalBlock={
-              MOBILE ? (
-                <FilterBtn type="small" onClick={() => console.log("click")} />
-              ) : undefined
-            }
-          />
+          <div className={styles.content}>
+            <Search
+              placeholder="Поиск чатов"
+              height="48px"
+              onChange={onChangeSearch}
+              value={search}
+              showSearchByScroll={false}
+              additionalBlock={
+                MOBILE ? (
+                  <FilterBtn
+                    type="small"
+                    onClick={() => console.log("click")}
+                  />
+                ) : undefined
+              }
+            />
 
-          {DESKTOP && <FilterBtn type="big" onClick={() => console.log("1")} />}
+            {DESKTOP && (
+              <FilterBtn type="big" onClick={() => console.log("1")} />
+            )}
 
-          <WithFilter search={search} filter={filter} setFilter={setFilter} />
+            <WithFilter search={search} filter={filter} setFilter={setFilter} />
+          </div>
         </Container>
       </Layout>
 

@@ -1,3 +1,6 @@
+export * from "./user.interface";
+export * from "./notes";
+
 import {
   HTMLInputTypeAttribute,
   ChangeEvent,

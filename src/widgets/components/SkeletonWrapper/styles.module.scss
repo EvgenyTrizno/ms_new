@@ -1,0 +1,6 @@
+@import "../../../app/styles/animations.scss";
+
+.wrapper {
+  animation: skeleton-loading 2s infinite;
+  width: 100%;
+}

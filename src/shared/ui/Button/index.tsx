@@ -11,7 +11,7 @@ type Props = {
   styleType?: StyleType;
   size?: Sizes;
   color?: Colors;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
 export const Button: FC<PropsWithClassName<Props>> = ({

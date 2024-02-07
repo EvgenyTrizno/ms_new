@@ -3,7 +3,7 @@ import { Layout } from "../Layout";
 import { CustomMobileHeader } from "@/widgets";
 import { Container } from "@/shared/ui/Container";
 import styles from "./styles.module.scss";
-import { Button } from "@/shared/ui/Button/Button";
+import { Button } from "@/shared/ui/Button";
 import { Links } from "./ui/Links/Links";
 import { Characteristics } from "./ui/Characteristics/Characteristics";
 import { News } from "./ui/News/News";

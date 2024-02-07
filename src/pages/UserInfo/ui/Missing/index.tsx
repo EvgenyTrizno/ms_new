@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Note } from "../Note";
 import { NoteContainer } from "../NoteContainer";
-import { INote } from "@/shared/types/note.interface";
+import { INote } from "@/shared/types/notes";
 
 interface IMissingProps {
     missing: INote[];
