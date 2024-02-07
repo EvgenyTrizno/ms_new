@@ -1,11 +1,8 @@
 import { FC, ReactNode, Suspense } from "react";
-
-import { Loader } from "@/widgets/components/Loader";
-
 interface Props {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 export const PSuspense: FC<Props> = ({ children }): JSX.Element => {
-    return <Suspense fallback={<Loader />}>{children}</Suspense>;
+  return <Suspense>{children}</Suspense>;
 };
