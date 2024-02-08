@@ -1,14 +1,15 @@
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 import styles from "./Clinic.module.scss";
-import { IClinic } from "@/shared/types/clinic.interface";
+import { IClinic } from "@/shared/types/clinic.types";
 
 type Props = {
   data: IClinic;
+  onClick?: MouseEventHandler<HTMLDivElement>;
 };
 
-export const Clinic: FC<Props> = ({ data }) => {
+export const Clinic: FC<Props> = ({ data, onClick }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} onClick={onClick}>
       <img className={styles.img} src={data.image} alt="clinic" />
 
       <div className={styles.content}>
@@ -17,12 +18,12 @@ export const Clinic: FC<Props> = ({ data }) => {
         <div className={styles.list}>
           <div className={styles.item}>
             <p>Страна: </p>
-            <span>{data.country?.name || "-"}</span>
+            <span>{data?.country || "-"}</span>
           </div>
 
           <div className={styles.item}>
             <p>Город: </p>
-            <span>{data.city?.name || "-"}</span>
+            <span>{data?.city || "-"}</span>
           </div>
 
           <div className={styles.item}>

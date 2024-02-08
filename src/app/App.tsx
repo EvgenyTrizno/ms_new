@@ -23,6 +23,7 @@ const App = () => {
     ["user"],
     () => getUser(getCookie("access_token") as string),
     {
+      enabled: !!getCookie("access_token"),
       keepPreviousData: true,
       staleTime: 5 * 60 * 1000,
       cacheTime: 30 * 60 * 1000,

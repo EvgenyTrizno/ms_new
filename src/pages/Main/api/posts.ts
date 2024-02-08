@@ -1,5 +1,5 @@
 import { instance } from "@/shared/config/axiosInstance";
-import { IClinic } from "@/shared/types/clinic.interface";
+import { IClinic } from "@/shared/types/clinic.types";
 import { IDisease } from "@/shared/types/disease.interface";
 import { AxiosResponse } from "axios";
 

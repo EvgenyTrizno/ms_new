@@ -11,29 +11,36 @@ export const useLoader = () => {
       setIsLoading(activeRequests > 0);
     };
 
-    // Добавляем интерцепторы к экземпляру axios, а не к глобальному axios
     const requestInterceptor = instance.interceptors.request.use(
       (config) => {
-        activeRequests++;
-        updateLoadingState();
+        if (config.method?.toUpperCase() === "GET") {
+          activeRequests++;
+          updateLoadingState();
+        }
         return config;
       },
       (error) => {
-        activeRequests--;
-        updateLoadingState();
+        if (error.config.method?.toUpperCase() === "GET") {
+          activeRequests--;
+          updateLoadingState();
+        }
         return Promise.reject(error);
       }
     );
 
     const responseInterceptor = instance.interceptors.response.use(
       (response) => {
-        activeRequests--;
-        updateLoadingState();
+        if (response.config.method?.toUpperCase() === "GET") {
+          activeRequests--;
+          updateLoadingState();
+        }
         return response;
       },
       (error) => {
-        activeRequests--;
-        updateLoadingState();
+        if (error.config.method.toUpperCase() === "GET") {
+          activeRequests--;
+          updateLoadingState();
+        }
         return Promise.reject(error);
       }
     );

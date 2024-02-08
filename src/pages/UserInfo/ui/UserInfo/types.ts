@@ -1,4 +1,4 @@
-import { IClinic } from "@/shared/types/clinic.interface";
+import { IClinic } from "@/shared/types/clinic.types";
 
 export interface IUserInfoProps {
     img: string;

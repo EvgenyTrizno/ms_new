@@ -1,2 +1,2 @@
-import { IUserData } from "@/shared/types/user.interface";
+import { IUserData } from "@/shared/types/user.types";
 export type TUserDataForPutRequest = Partial<IUserData>;

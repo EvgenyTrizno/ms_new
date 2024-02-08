@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
-import { IUserData } from "@/shared/types/user.interface";
+import { IUserData } from "@/shared/types/user.types";
 
 interface IChat {
     chat_id: number;

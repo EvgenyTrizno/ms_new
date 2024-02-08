@@ -4,12 +4,14 @@ import { useResultsQuery } from "../../lib/hooks/useResultsQuery";
 import { ISearchResultsListProps } from "./types";
 import { Clinic } from "@/widgets";
 import { DataListWrapper } from "@/widgets/components/DataListWrapper";
+import { useNavigate } from "react-router";
 
 export const SearchResultsList: FC<ISearchResultsListProps> = ({
   filter,
   search,
 }) => {
   const { data, isLoading, isRefetching } = useResultsQuery();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -29,7 +31,13 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
                 })
               )
               .map((el) => {
-                return <Clinic key={el.id} data={el} />;
+                return (
+                  <Clinic
+                    key={el.id}
+                    data={el}
+                    onClick={() => navigate(`/clinic/${el.id}`)}
+                  />
+                );
               })}
           </Cols>
         </DataListWrapper>

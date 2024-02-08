@@ -42,9 +42,9 @@ const AccountPage: FC = () => {
               />
 
               <div className={styles.contentHeader}>
-                {(user?.first_name || user?.last_name) && (
+                {(user?.first_name || user?.surname) && (
                   <h4>
-                    {user?.first_name} {user?.last_name}
+                    {user?.first_name} {user?.surname}
                   </h4>
                 )}
 

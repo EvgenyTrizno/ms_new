@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 
-import { IUserData } from "@/shared/types/user.interface";
+import { IUserData } from "@/shared/types/user.types";
 import { instance } from "../config/axiosInstance";
 
 export async function getUser(

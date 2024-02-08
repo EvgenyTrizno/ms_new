@@ -1,4 +1,4 @@
-import { IUserData } from "@/shared/types/user.interface";
+import { IUserData } from "@/shared/types/user.types";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 

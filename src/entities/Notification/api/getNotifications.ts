@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 
 import { BASE_URL } from "@/shared/config";
-import { IUserData } from "@/shared/types/user.interface";
+import { IUserData } from "@/shared/types/user.types";
 
 interface INotifyResponse {
     id: number;

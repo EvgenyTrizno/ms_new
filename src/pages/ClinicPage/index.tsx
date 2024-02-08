@@ -10,12 +10,35 @@ import { News } from "./ui/News/News";
 import { Gallery } from "./ui/Gallery/Gallery";
 import { useEffect, useRef, useState } from "react";
 import cn from "clsx";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AdditionalMenuBtn } from "@/shared/ui/AdditionalMenuBtn";
+import { useQuery } from "react-query";
+import { getClinicById } from "@/shared/api";
+import { useCookie } from "@/shared/lib/hooks/useCookie";
+import { IClinic } from "@/shared/types";
 
 const ClinicPage = () => {
   const [scrollY, setScrollY] = useState(0);
   const bannerRef = useRef<HTMLImageElement>(null);
+  const { id } = useParams();
+  const { getCookie } = useCookie();
+  const { data: clinicDataApi } = useQuery(
+    ["clinics"],
+    () => getClinicById(getCookie("access_token") as string, Number(id)),
+    {
+      keepPreviousData: true,
+      staleTime: 5 * 60 * 1000,
+      cacheTime: 30 * 60 * 1000,
+    }
+  );
+
+  const [clinicData, setClinicData] = useState<IClinic>();
+
+  useEffect(() => {
+    if (!clinicDataApi) return;
+
+    setClinicData(clinicDataApi.data.clinic[0]);
+  }, [clinicDataApi]);
 
   useEffect(() => {
     const updateScroll = () => {
@@ -34,7 +57,7 @@ const ClinicPage = () => {
       {MOBILE && (
         <CustomMobileHeader
           back
-          text="Клиника (~31%)"
+          text={clinicData?.name}
           btn={
             <AdditionalMenuBtn
               list={[
@@ -74,19 +97,19 @@ const ClinicPage = () => {
           </Link>
         </div>
 
-        <h1 className={styles.title}>Клиника неврологии</h1>
+        <h1 className={styles.title}>{clinicData?.name}</h1>
 
         <div className={styles.parameters}>
           <p>
-            Страна: <span>США</span>
+            Страна: <span>{clinicData?.country || "-"}</span>
           </p>
 
           <p>
-            Город: <span>Нью-Йорк</span>
+            Город: <span>{clinicData?.city || "-"}</span>
           </p>
 
           <p>
-            Адрес: <span>Сша, Нью-Йорк...</span>
+            Адрес: <span>{clinicData?.address || "-"}</span>
           </p>
         </div>
 
