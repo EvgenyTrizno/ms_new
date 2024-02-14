@@ -6,12 +6,35 @@ import { MOBILE } from "@/shared/utils";
 import { Container } from "@/shared/ui/Container";
 import BoxWrapper from "@/entities/BoxWrapper";
 import User from "@/entities/User";
+import { Link } from "react-router-dom";
 
 const OverviewMedTaskPage = () => {
   return (
     <Layout>
       {MOBILE && (
-        <CustomMobileHeader back text={ROUTES.overviewMedTask.label} />
+        <CustomMobileHeader
+          back
+          text={ROUTES.overviewMedTask.label}
+          btn={
+            <Link to="#">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 20V11M11 2V11M11 11H2M11 11H20"
+                  stroke="#262626"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </Link>
+          }
+        />
       )}
 
       <Container>
@@ -61,14 +84,16 @@ const OverviewMedTaskPage = () => {
             </div>
 
             <div className={styles.progressBar}>
-                <div className={styles.active}></div>
-                <div className={styles.active}></div>
-                <div className={styles.active}></div>
-                <div className={styles.active}></div>
-                <div className={styles.active}></div>
-                <div className={styles.active}></div>
-                <div></div>
+              <div className={styles.active}></div>
+              <div className={styles.active}></div>
+              <div className={styles.active}></div>
+              <div className={styles.active}></div>
+              <div className={styles.active}></div>
+              <div className={styles.active}></div>
+              <div></div>
             </div>
+
+            <span className={styles.success}>Завершен!</span>
           </div>
         </div>
 

@@ -59,6 +59,8 @@ const HardwarePage = lazy(() => import("@/pages/HardwarePage"));
 const AllDoctorsPage = lazy(() => import("@/pages/AllDoctorsPage"));
 const MedTasksPage = lazy(() => import("@/pages/MedTasksPage"));
 const OverviewMedTaskPage = lazy(() => import("@/pages/OverviewMedTaskPage"));
+const HistoryPatientPage = lazy(() => import("@/pages/HistoryPatientPage"));
+const DiagnosisPage = lazy(() => import("@/pages/DiagnosisPage"));
 
 export const routes: RouteProps[] = [
   {
@@ -194,5 +196,14 @@ export const routes: RouteProps[] = [
   {
     path: ROUTES.overviewMedTask.path,
     Component: OverviewMedTaskPage,
+  },
+
+  {
+    path: ROUTES.history.path,
+    Component: HistoryPatientPage,
+  },
+  {
+    path: ROUTES.pacientDiagnosis.path,
+    Component: DiagnosisPage,
   },
 ];

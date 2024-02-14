@@ -163,4 +163,12 @@ export const ROUTES = {
     path: "/overview-med-task",
     label: "Обзор мед.задания",
   },
+  createMedTask: {
+    path: "/create-med-task",
+    label: "Создать",
+  },
+  pacientDiagnosis: {
+    path: "/pacient-diagnosis",
+    label: "Диагноз",
+  },
 } as const;
