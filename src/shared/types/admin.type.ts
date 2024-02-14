@@ -1,3 +1,3 @@
-import { IUserData } from "./user.interface";
+import { IUserData } from "./user.types";
 
 export type TAdminData = IUserData;

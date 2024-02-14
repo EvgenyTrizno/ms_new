@@ -21,3 +21,6 @@ export * from "./ArrTopIcon";
 export * from "./CooperationIcon";
 export * from "./HardwareIcon";
 export * from "./MenuIcon";
+export * from "./HistoryIcon";
+export * from "./DiagnosisIcon";
+export * from "./LocationIcon";

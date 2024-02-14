@@ -6,7 +6,7 @@ import { Rows } from "@/shared/ui/Rows";
 import { ChatView } from "../ChatView";
 import { useChatQuery } from "../../lib/hooks/useChatQuery";
 import { useAuth } from "@/shared/model/store/auth";
-import { IUserData } from "@/shared/types/user.interface";
+import { IUserData } from "@/shared/types/user.types";
 
 import suprt from "./assets/support.svg";
 import noImageBlue from "./assets/noImageBlue.svg";

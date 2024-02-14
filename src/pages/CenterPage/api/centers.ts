@@ -1,8 +1,8 @@
 import { AxiosResponse } from "axios";
 
 import { instance } from "@/shared/config/axiosInstance";
-import { IClinic } from "@/shared/types/clinic.interface";
-import { IUserData } from "@/shared/types/user.interface";
+import { IClinic } from "@/shared/types/clinic.types";
+import { IUserData } from "@/shared/types/user.types";
 
 interface IClinicModify extends IClinic {
     online_notes: string;

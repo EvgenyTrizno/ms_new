@@ -7,7 +7,7 @@ export const updateUserData = async (
   data: Partial<IUserData>
 ): Promise<AxiosResponse<IUserData>> => {
   const res: AxiosResponse<IUserData> = await instance.patch(
-    "/users-detail",
+    "/users-detail/",
     data,
     {
       headers: {

@@ -9,16 +9,101 @@ import { useMutation } from "react-query";
 import { updateUserData } from "@/shared/api";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { IUserData } from "@/shared/types";
+import { useEffect, useState } from "react";
+import { useAuth } from "@/shared/model/store/auth";
 
 export const AccountMoreDetailedForm = () => {
-  const { register, handleSubmit } = useForm<AccountMoreDetailedFormData>();
+  const { register, handleSubmit, setValue } =
+    useForm<AccountMoreDetailedFormData>();
   const { getCookie } = useCookie();
-  const updateUserDataMutation = useMutation((updateData: IUserData) =>
+  const {
+    mutate: updateUserDataMutate,
+    data: newUserData,
+    isError: updateUserDataIsError,
+    isSuccess: updateUserDataIsSuccess,
+  } = useMutation((updateData: Partial<IUserData>) =>
     updateUserData(getCookie("access_token") as string, updateData)
   );
+  const { user, setUser } = useAuth();
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const [typeBtn, setTypeBtn] = useState<"primary" | "success" | "error">(
+    "primary"
+  );
+
+  useEffect(() => {
+    if (!newUserData) return;
+
+    setUser(newUserData.data);
+  }, [newUserData, setUser]);
+
+  useEffect(() => {
+    if (success) return setTypeBtn("success");
+    if (error) return setTypeBtn("error");
+
+    return setTypeBtn("primary");
+  }, [error, success]);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const data = {
+      name: user.first_name,
+      surname: user.surname,
+      birthdate: user.birthday,
+      address: user.address,
+      email: user.email,
+      sex: user.sex,
+      interest: user.interest,
+    };
+
+    Object.entries(data).forEach((el) => {
+      const key = el[0] as keyof AccountMoreDetailedFormData;
+      const value = el[1];
+
+      if (typeof value === "string") {
+        setValue(key, value);
+      }
+    });
+  }, [setValue, user]);
+
+  useEffect(() => {
+    if (!updateUserDataIsError) return;
+
+    setError(true);
+
+    const timeout = setTimeout(() => {
+      setError(false);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, [updateUserDataIsError]);
+
+  useEffect(() => {
+    if (!updateUserDataIsSuccess) return;
+
+    setSuccess(true);
+
+    const timeout = setTimeout(() => {
+      setSuccess(false);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, [updateUserDataIsSuccess]);
 
   const formHandler = (data: AccountMoreDetailedFormData) => {
-    updateUserDataMutation.mutate(data as any);
+    const { name, surname, birthdate, login, address, email } = data;
+
+    const resData = {
+      first_name: name,
+      surname,
+      birthdate,
+      login,
+      address,
+      email,
+    };
+
+    updateUserDataMutate(resData);
   };
 
   return (
@@ -38,7 +123,7 @@ export const AccountMoreDetailedForm = () => {
         <Protection />
       </div>
 
-      <Button type="submit" color="primary" title="Сохранить" />
+      <Button type="submit" color={typeBtn} title="Сохранить" />
     </form>
   );
 };

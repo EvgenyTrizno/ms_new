@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  background-color: var(--white);
+  margin-top: -16px;
+  margin-left: -16px;
+  margin-right: 16px;
+  width: calc(100% + 32px);
+  padding: 16px;
+
+  .statusText {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--dark-gray);
+  }
+
+  .tasksLink {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: inherit;
+  }
+}
+
+.doctor {
+  border-bottom: 1px solid var(--blue-100);
+}
+
+.titleBlock {
+   font-size: 15px;
+   font-weight: 600;
+   margin-bottom: 10px;
+}
+
+.helper {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}

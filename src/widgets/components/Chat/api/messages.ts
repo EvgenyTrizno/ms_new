@@ -1,5 +1,5 @@
 import { instance } from "@/shared/config/axiosInstance";
-import { IUserData } from "@/shared/types/user.interface";
+import { IUserData } from "@/shared/types/user.types";
 import { AxiosResponse } from "axios";
 
 interface IChatResponse {

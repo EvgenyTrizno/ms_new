@@ -31,6 +31,7 @@ import { Clinic } from "./components/Clinic/Clinic";
 import { DoctorCard } from "./components/DoctorCard";
 import { Skeleton as DoctorCardSkeleton } from "./components/DoctorCard/ui/Skeleton";
 import { SkeletonWrapper } from "./components/SkeletonWrapper";
+import { PageLoader } from "./components/PageLoader";
 
 export {
   Calendar,
@@ -66,4 +67,5 @@ export {
   DoctorCard,
   DoctorCardSkeleton,
   SkeletonWrapper,
+  PageLoader
 };

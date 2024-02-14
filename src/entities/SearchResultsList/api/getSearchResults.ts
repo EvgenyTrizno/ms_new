@@ -1,7 +1,7 @@
 import { instance } from "@/shared/config/axiosInstance";
 import { ICenter } from "@/shared/types/centers.interface";
-import { IClinic } from "@/shared/types/clinic.interface";
-import { IUserData } from "@/shared/types/user.interface";
+import { IClinic } from "@/shared/types/clinic.types";
+import { IUserData } from "@/shared/types/user.types";
 // import { IUserData } from "@/shared/types/user.interface";
 import { AxiosResponse } from "axios";
 

@@ -5,8 +5,23 @@ import { Container } from "@/shared/ui/Container";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
 import styles from "./MobileNotification.module.scss";
 import { CustomMobileHeader, Notification } from "@/widgets";
+import { useQuery } from "react-query";
+import { getNotifications } from "@/shared/api";
+import { useCookie } from "@/shared/lib/hooks/useCookie";
 
 const MobileNotification: FC = () => {
+  const { getCookie } = useCookie();
+  const { data: notificationsData } = useQuery(
+    ["notifications"],
+    () => getNotifications(getCookie("access_token") as string),
+    {
+      keepPreviousData: true,
+      staleTime: 5 * 60 * 1000,
+      cacheTime: 30 * 60 * 1000,
+      retry: false,
+    }
+  );
+
   return (
     <>
       <CustomMobileHeader back text="Уведомления" />

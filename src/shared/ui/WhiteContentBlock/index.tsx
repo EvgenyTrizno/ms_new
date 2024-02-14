@@ -14,7 +14,7 @@ export const WhiteContentBlock: FC<IWhiteContentBlockProps> = ({
     return (
         <div
             className={`${className} ${styles.box} ${
-                user?.group.name === "Пользователи" &&
+                user?.group?.name === "Пользователи" &&
                 user.disease.length &&
                 styles.sick
             }`}

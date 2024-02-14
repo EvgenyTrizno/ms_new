@@ -1,6 +1,6 @@
 import { instance } from "@/shared/config/axiosInstance";
 import { ICity } from "@/shared/types/city.interface";
-import { IClinic } from "@/shared/types/clinic.interface";
+import { IClinic } from "@/shared/types/clinic.types";
 import { ICountry } from "@/shared/types/country.interface";
 import { AxiosResponse } from "axios";
 

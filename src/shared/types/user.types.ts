@@ -1,5 +1,5 @@
 import { ICity } from "./city.interface";
-import { IClinic } from "./clinic.interface";
+import { IClinic } from "./clinic.types";
 import { ICountry } from "./country.interface";
 import { IDisease } from "./disease.interface";
 import { TGender } from "./gender.type";

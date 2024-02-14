@@ -1,6 +1,9 @@
 import {
   AllDoctorsIcon,
+  DiagnosisIcon,
+  HistoryIcon,
   LikeIcon,
+  LocationIcon,
   PaymentsIcon,
   PeopleIcon,
   SavedIcon,
@@ -29,15 +32,32 @@ export const menuData: IMenuData = {
       icon: <StatsIcon className={styles.icon} />,
     },
     {
-      label: ROUTES.payments.label,
-      path: ROUTES.payments.path,
-      icon: <PaymentsIcon className={styles.icon} />,
-    },
-
-    {
       label: ROUTES.allDoctors.label,
       path: ROUTES.allDoctors.path,
       icon: <AllDoctorsIcon className={styles.icon} />,
+    },
+    {
+      label: ROUTES.history.label,
+      path: ROUTES.history.path,
+      icon: <HistoryIcon className={styles.icon} />,
+    },
+
+    {
+      label: ROUTES.diagnosis.label,
+      path: ROUTES.diagnosis.path,
+      icon: <DiagnosisIcon className={styles.icon} />,
+    },
+
+    {
+      label: ROUTES.map.label,
+      path: ROUTES.map.path,
+      icon: <LocationIcon className={styles.icon} />,
+    },
+
+    {
+      label: ROUTES.payments.label,
+      path: ROUTES.payments.path,
+      icon: <PaymentsIcon className={styles.icon} />,
     },
     {
       label: ROUTES.access.label,

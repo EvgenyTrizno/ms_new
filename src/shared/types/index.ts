@@ -1,5 +1,6 @@
-export * from "./user.interface";
-export * from "./notes";
+export * from "./user.types";
+export * from "./notes.types";
+export * from "./clinic.types";
 
 import {
   HTMLInputTypeAttribute,

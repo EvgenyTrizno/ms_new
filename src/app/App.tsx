@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { routes } from "../pages";
 import { PSuspense } from "./providers/Suspense";
-import { ErrorBoundaryFallback } from "@/widgets";
+import { ErrorBoundaryFallback, PageLoader } from "@/widgets";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -14,6 +14,7 @@ import { getUser } from "@/shared/api/getUser";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { useQuery } from "react-query";
 import { useAuth } from "@/shared/model/store/auth";
+import { useLoader } from "@/shared/lib/hooks";
 
 const App = () => {
   const { setUser } = useAuth();
@@ -22,11 +23,13 @@ const App = () => {
     ["user"],
     () => getUser(getCookie("access_token") as string),
     {
+      enabled: !!getCookie("access_token"),
       keepPreviousData: true,
       staleTime: 5 * 60 * 1000,
       cacheTime: 30 * 60 * 1000,
     }
   );
+  const isLoading = useLoader();
 
   useEffect(() => {
     if (!userData) return;
@@ -49,6 +52,7 @@ const App = () => {
                 <Route key={i} {...page} />
               ))}
             </Routes>
+            {isLoading && <PageLoader />}
           </motion.div>
         </AnimatePresence>
       </PSuspense>
