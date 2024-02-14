@@ -124,7 +124,7 @@ export const ROUTES = {
     label: "Платежи",
   },
   allDoctors: {
-    path: "/medical-center",
+    path: "/all-doctors",
     label: "Все врачи",
   },
   access: {
@@ -146,5 +146,21 @@ export const ROUTES = {
   hardware: {
     path: "/hardware",
     label: "Оборудование",
+  },
+  history: {
+    path: "/history",
+    label: "История пациентов",
+  },
+  diagnosis: {
+    path: "/diagnosis",
+    label: "Диагностика",
+  },
+  medTasks: {
+    path: "/med-tasks",
+    label: "Мед.задания",
+  },
+  overviewMedTask: {
+    path: "/overview-med-task",
+    label: "Обзор мед.задания",
   },
 } as const;

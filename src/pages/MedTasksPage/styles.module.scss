@@ -1,0 +1,19 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: var(--white);
+  }
+}

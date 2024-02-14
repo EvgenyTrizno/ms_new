@@ -2,25 +2,25 @@ import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
 interface IRegistrationStoreProps {
-    number: string;
-    password: string;
-    setNumber: (number: string) => void;
-    setPassword: (pass: string) => void;
+  email: string;
+  password: string;
+  setEmail: (email: string) => void;
+  setPassword: (pass: string) => void;
 }
 
 export const useRegistration = create<IRegistrationStoreProps>()(
-    immer((set) => ({
-        number: "",
-        password: "",
-        setNumber: (number: string) => {
-            set((state) => {
-                state.number = number;
-            });
-        },
-        setPassword: (pass: string) => {
-            set((state) => {
-                state.password = pass;
-            });
-        },
-    }))
+  immer((set) => ({
+    email: "",
+    password: "",
+    setEmail: (email: string) => {
+      set((state) => {
+        state.email = email;
+      });
+    },
+    setPassword: (pass: string) => {
+      set((state) => {
+        state.password = pass;
+      });
+    },
+  }))
 );

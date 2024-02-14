@@ -16,7 +16,7 @@ export const List: FC = () => {
     >
       {data &&
         data.data.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide key={item.id}>
             <DoctorCard
               key={item.id}
               surname={item.last_name}

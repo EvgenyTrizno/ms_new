@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { CSSProperties, FC, ReactNode } from "react";
 import styles from "./styles.module.scss";
 import { PropsWithClassName } from "@/shared/types";
 import cn from "clsx";

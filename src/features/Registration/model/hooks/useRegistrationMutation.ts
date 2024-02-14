@@ -6,8 +6,7 @@ import { registration } from "../../api/registration";
 import { TGroups } from "@/shared/types/group.type";
 
 export const useRegistrationMutation = (
-    number: string,
-    birthday: string,
+    email: string,
     group: TGroups,
     password1: string,
     password2: string,
@@ -17,7 +16,7 @@ export const useRegistrationMutation = (
 
     return useMutation({
         mutationFn: () =>
-            registration(birthday, number, group, password1, password2, stage),
+            registration(email, group, password1, password2, stage),
         mutationKey: ["registration"],
         onSuccess: () => navigate("/select-center"),
     });

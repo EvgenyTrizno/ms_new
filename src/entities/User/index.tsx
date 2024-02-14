@@ -6,11 +6,20 @@ import { FC } from "react";
 import { PropsWithClassName } from "@/shared/types";
 import cn from "clsx";
 
-const User: FC<PropsWithClassName> = ({ className }) => {
+type Props = {
+  withEdit?: boolean;
+  count?: number;
+};
+
+const User: FC<PropsWithClassName<Props>> = ({
+  className,
+  withEdit = true,
+  count,
+}) => {
   return (
     <Row className={cn(styles.wrapper, className)} gap={12}>
       <Row gap={12}>
-        <div className={styles.count}>1</div>
+        {count && <div className={styles.count}>1</div>}
         <img className={styles.avatar} src="/assets/avatar.png" alt="avatar" />
         <Rows className={styles.content} gap={4} rows={["auto"]}>
           <h5>Alena Passaquindici Arcand</h5>
@@ -18,9 +27,11 @@ const User: FC<PropsWithClassName> = ({ className }) => {
         </Rows>
       </Row>
 
-      <div className={styles.menuBtn}>
-        <MenuIcon />
-      </div>
+      {withEdit && (
+        <div className={styles.menuBtn}>
+          <MenuIcon />
+        </div>
+      )}
     </Row>
   );
 };
