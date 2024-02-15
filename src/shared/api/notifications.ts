@@ -1,15 +1,18 @@
 import { AxiosResponse } from "axios";
 import { instance } from "../config/axiosInstance";
+import { Notification } from "../types";
 
 export const getNotifications = async (
-    token: string
-  ): Promise<AxiosResponse<any>> => {
-    const res: AxiosResponse<any> = await instance.get(`/notifications`, {
+  token: string
+): Promise<AxiosResponse<Notification[]>> => {
+  const res: AxiosResponse<Notification[]> = await instance.get(
+    `/notifications`,
+    {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    });
-  
-    return res;
-  };
-  
+    }
+  );
+
+  return res;
+};

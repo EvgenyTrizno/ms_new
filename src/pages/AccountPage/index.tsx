@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import { Layout } from "../Layout";
 import { MOBILE } from "@/shared/utils";
@@ -11,10 +11,12 @@ import { MobileHeader } from "@/widgets/components/MobileHeader";
 import { useAuth } from "@/shared/model/store/auth";
 import { MobilePopup } from "@/widgets";
 import { NotesList } from "./ui/NotesList";
+import { Filter } from "@/shared/ui/Filter";
 
 const AccountPage: FC = () => {
   const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
   const { user } = useAuth();
+  const [filter, setFilter] = useState("Записи");
 
   return (
     <>
@@ -69,7 +71,13 @@ const AccountPage: FC = () => {
                 </div>
               </div>
 
-              <NotesList />
+              <Filter
+                data={["Диагноз", "Записи", "Назначения"]}
+                isSelect={filter}
+                setIsSelect={setFilter}
+              />
+
+              {filter === "Записи" && <NotesList />}
             </div>
           </div>
         ) : (

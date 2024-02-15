@@ -1,8 +1,8 @@
 import { NoteBlock } from "@/entities";
-import styles from "./styles.module.scss";
 import { useQuery } from "react-query";
 import { getNotes } from "@/shared/api";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
+import { DataListWrapper } from "@/widgets/components/DataListWrapper";
 
 export const NotesList = () => {
   const { getCookie } = useCookie();
@@ -17,10 +17,16 @@ export const NotesList = () => {
   );
 
   return (
-    <div className={styles.notesList}>
-      {notesData?.data.map((note) => (
-        <NoteBlock key={note.id} data={note} />
-      ))}
-    </div>
+    <DataListWrapper
+      listIsUndefined={!notesData?.data ? true : false}
+      listLength={notesData?.data.length || 0}
+      emptyText="Нет записей"
+    >
+      <>
+        {notesData?.data.map((note) => (
+          <NoteBlock key={note.id} data={note} />
+        ))}
+      </>
+    </DataListWrapper>
   );
 };

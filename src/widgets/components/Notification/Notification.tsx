@@ -32,7 +32,7 @@ export const Notification: FC<Props> = ({
     <div className={`${styles.notify}`}>
       {type === "user" ? (
         <div className={styles.imgWrapper}>
-          {userType && (
+          {userType !== "standart" && (
             <div
               className={`${styles.userTypeIconWrapper} ${
                 userType === "new" && styles.new

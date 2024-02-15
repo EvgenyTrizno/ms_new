@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { Text } from "@/shared/ui/Text";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
@@ -11,8 +11,10 @@ import calendar from "./assets/calendar.svg";
 import alarm from "./assets/alarm-clock.svg";
 // import clock from "./assets/clock-fast-forward.svg";
 import styles from "./styles.module.scss";
-import { Note } from "@/shared/types";
+import { Doctor, Note } from "@/shared/types";
 import { formatDate, formatTime } from "@/shared/utils";
+import { useCenters } from "@/shared/model/store/centers";
+import { useDoctors } from "@/shared/model/store/useDoctors";
 
 type Props = {
   data: Note;
@@ -25,12 +27,34 @@ export const NoteBlock: FC<Props> = ({ data }) => {
   const [endDate] = useState(
     data.time_end ? new Date(data.time_end) : undefined
   );
+  const { centers } = useCenters();
+  const { doctors: allDoctors } = useDoctors();
 
   const { user } = useAuth();
   const [startTime] = useState(startDate ? formatTime(startDate) : undefined);
   const [endTime] = useState(endDate ? formatTime(endDate) : undefined);
 
   const sick = user && user.disease.length;
+  const [center] = useState(centers?.find((el) => el.id === data.center));
+  const [doctors, setDoctors] = useState<Doctor[]>();
+
+  useEffect(() => {
+    if (!data.doctors || !allDoctors) return;
+
+    const doctors = [];
+
+    for (let i = 0; i < data.doctors.length; i++) {
+      const doctorId = data.doctors[i];
+
+      const currentDoctor = allDoctors.find((el) => el.id === doctorId);
+
+      if (!currentDoctor) return;
+
+      doctors.push(currentDoctor);
+    }
+
+    setDoctors(doctors);
+  }, [allDoctors, data.doctors]);
 
   return (
     <WhiteContentBlock className={`${styles.note} ${sick && styles.sick}`}>
@@ -60,17 +84,18 @@ export const NoteBlock: FC<Props> = ({ data }) => {
             <Text type="p" color="#B1B2B4" fz="12px">
               Центр:
             </Text>
-            <Text
-              type="p"
-              fz="12px"
-            >Доделать</Text>
+            <Text type="p" fz="12px">
+              {center?.name}
+            </Text>
           </Row>
           <Row gap={10}>
             <Text type="p" color="#B1B2B4" fz="12px">
-              Врач:
+              Врачи:
             </Text>
             <Text type="p" fz="12px">
-              Доделать
+              {doctors?.map((doctor) => {
+                return `${doctor.middle_name} ${doctor.first_name} ${doctor.last_name}`;
+              })}
             </Text>
           </Row>
         </Rows>
