@@ -1,18 +1,13 @@
 import { AxiosResponse } from "axios";
 
 import { instance } from "../config/axiosInstance";
-import { IClinic, IUserData } from "../types";
-
-type ResTypes = {
-  clinic: IClinic[];
-  pacients: IUserData[];
-};
+import { ClinicResTypes} from "../types";
 
 export async function getClinicById(
   token: string,
   clinicId: number
-): Promise<AxiosResponse<ResTypes>> {
-  const res: AxiosResponse<ResTypes> = await instance.get(
+): Promise<AxiosResponse<ClinicResTypes>> {
+  const res: AxiosResponse<ClinicResTypes> = await instance.get(
     `/admin/clinic/${clinicId}`,
     {
       headers: {

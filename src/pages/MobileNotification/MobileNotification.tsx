@@ -39,6 +39,7 @@ const MobileNotification: FC = () => {
                 {notificationsData?.data.reverse().map((el) => {
                   return (
                     <Notification
+                      key={el.id}
                       userSrcAvatar={el.user?.image}
                       title={el.text}
                       time={formatRelativeDate(new Date(el.created_at))}
@@ -65,6 +66,7 @@ const MobileNotification: FC = () => {
                     .map((el) => {
                       return (
                         <Notification
+                          key={el.id}
                           userSrcAvatar={el.user?.image}
                           title={el.text}
                           time={formatRelativeDate(new Date(el.created_at))}

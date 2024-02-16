@@ -23,4 +23,5 @@ export type Doctor = {
   updated_at: Date;
   verification_code: number;
   work_experience: string;
+  surname?: string | null;
 };

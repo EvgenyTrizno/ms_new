@@ -5,33 +5,28 @@ import { ROUTES } from "@/shared/utils/PATHS";
 import { Container } from "@/shared/ui/Container";
 import User from "@/entities/User";
 import { Rows } from "@/shared/ui/Rows";
+import { useClinic } from "@/shared/model/store/clinic";
+import { DataListWrapper } from "@/widgets/components/DataListWrapper";
+import { Doctor } from "@/entities/Doctor";
 
 const CooperationPage = () => {
+  const { currentClinic } = useClinic();
+
   return (
     <Layout>
       {MOBILE && <CustomMobileHeader back text={ROUTES.cooperation.label} />}
 
       <Container>
-        <Rows gap={0} rows={["auto"]}>
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-        </Rows>
+        <DataListWrapper
+          listIsUndefined={!currentClinic?.clinic[0].employees ? true : false}
+          listLength={currentClinic?.clinic[0].employees.length || 0}
+        >
+          <Rows gap={0} rows={["auto"]}>
+            {currentClinic?.clinic[0].employees.map((doctor, idx) => {
+              return <Doctor data={doctor} count={idx + 1} />;
+            })}
+          </Rows>
+        </DataListWrapper>
       </Container>
     </Layout>
   );
