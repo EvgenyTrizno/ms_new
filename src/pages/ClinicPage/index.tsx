@@ -16,12 +16,14 @@ import { useQuery } from "react-query";
 import { getClinicById } from "@/shared/api";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { IClinic } from "@/shared/types";
+import { useClinic } from "@/shared/model/store/clinic";
 
 const ClinicPage = () => {
   const [scrollY, setScrollY] = useState(0);
   const bannerRef = useRef<HTMLImageElement>(null);
   const { id } = useParams();
   const { getCookie } = useCookie();
+  const { setCurrentClinic } = useClinic();
   const { data: clinicDataApi } = useQuery(
     ["clinics"],
     () => getClinicById(getCookie("access_token") as string, Number(id)),
@@ -29,6 +31,10 @@ const ClinicPage = () => {
       keepPreviousData: true,
       staleTime: 5 * 60 * 1000,
       cacheTime: 30 * 60 * 1000,
+
+      onSuccess: (data) => {
+        setCurrentClinic(data.data);
+      },
     }
   );
 

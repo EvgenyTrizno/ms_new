@@ -8,6 +8,9 @@ import { CustomMobileHeader, Notification } from "@/widgets";
 import { useQuery } from "react-query";
 import { getNotifications } from "@/shared/api";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
+import { formatRelativeDate } from "@/shared/utils";
+
+const currentDate = new Date();
 
 const MobileNotification: FC = () => {
   const { getCookie } = useCookie();
@@ -33,49 +36,47 @@ const MobileNotification: FC = () => {
                 Непрочитанные
               </Text>
               <div className={styles.list}>
-                <Notification
-                  userSrcAvatar="/assets/avatar.png"
-                  title="Вышел новый пост у мед.центра Абвг"
-                  time="3 часа назад"
-                  userType="new"
-                />
+                {notificationsData?.data.reverse().map((el) => {
+                  return (
+                    <Notification
+                      key={el.id}
+                      userSrcAvatar={el.user?.image}
+                      title={el.text}
+                      time={formatRelativeDate(new Date(el.created_at))}
+                      userType="standart"
+                    />
+                  );
+                })}
               </div>
             </div>
 
-            <div className={styles.box}>
-              <Text type="p" fz="14px" color="#7D7F82">
-                Сегодня
-              </Text>
-              <div className={styles.list}>
-                <Notification
-                  userSrcAvatar="/assets/avatar.png"
-                  title="Вышел новый пост у мед.центра Абвг"
-                  time="3 часа назад"
-                  userType="new"
-                />
-
-                <Notification
-                  userSrcAvatar="/assets/avatar.png"
-                  title="Вышел новый пост у мед.центра Абвг"
-                  time="3 часа назад"
-                  userType="comment"
-                />
-
-                <Notification
-                  userSrcAvatar="/assets/avatar.png"
-                  title="Вышел новый пост у мед.центра Абвг"
-                  time="3 часа назад"
-                  userType="eye"
-                />
-
-                <Notification
-                  userSrcAvatar="/assets/avatar.png"
-                  title="Вышел новый пост у мед.центра Абвг"
-                  time="3 часа назад"
-                  userType="send"
-                />
+            {notificationsData?.data.find((el) => {
+              return currentDate === new Date(el.created_at);
+            }) && (
+              <div className={styles.box}>
+                <Text type="p" fz="14px" color="#7D7F82">
+                  Сегодня
+                </Text>
+                <div className={styles.list}>
+                  {notificationsData?.data
+                    .filter((el) => {
+                      return currentDate === new Date(el.created_at);
+                    })
+                    .reverse()
+                    .map((el) => {
+                      return (
+                        <Notification
+                          key={el.id}
+                          userSrcAvatar={el.user?.image}
+                          title={el.text}
+                          time={formatRelativeDate(new Date(el.created_at))}
+                          userType="standart"
+                        />
+                      );
+                    })}
+                </div>
               </div>
-            </div>
+            )}
 
             <div className={`${styles.box} ${styles.systemBox}`}>
               <div className={`${styles.list} ${styles.systemList}`}>

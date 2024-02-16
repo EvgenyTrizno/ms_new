@@ -140,7 +140,7 @@ export const ROUTES = {
     label: "Сохраненное",
   },
   cooperation: {
-    path: "/cooperation",
+    path: "/clinic/cooperation/:id",
     label: "Сотрудничает",
   },
   hardware: {

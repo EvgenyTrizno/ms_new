@@ -1,6 +1,7 @@
 export * from "./mediaQueries";
 export * from "./formatTime";
 export * from "./formatDate";
+export * from "./formatRelativeDate";
 type Libraries = (
     | "drawing"
     | "geometry"

@@ -1,3 +1,4 @@
+import { Doctor } from ".";
 import { IDisease } from "./disease.interface";
 import { IEmployee } from "./empoyee.interface";
 import { IUserData } from "./user.types";
@@ -25,6 +26,11 @@ export interface IClinic {
   admin: IUserData;
   country: string;
   city: string;
-  employees: IEmployee[];
+  employees: Doctor[];
   supported_diseases: IDisease[];
 }
+
+export type ClinicResTypes = {
+  clinic: IClinic[];
+  pacients: IUserData[];
+};

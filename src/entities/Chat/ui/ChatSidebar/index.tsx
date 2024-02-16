@@ -38,8 +38,9 @@ export const ChatSidebar: FC = () => {
                         onChange={(e) =>
                             setSearch((e && e.target.value) as string)
                         }
+                        value=""
                     />
-                    {user && user.group.name === "Врачи" && (
+                    {user && user.group?.name === "Врачи" && (
                         <FilterBtn
                             isActive={isOpen}
                             type="small"

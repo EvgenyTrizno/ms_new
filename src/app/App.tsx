@@ -15,10 +15,16 @@ import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { useQuery } from "react-query";
 import { useAuth } from "@/shared/model/store/auth";
 import { useLoader } from "@/shared/lib/hooks";
+import { getCenters } from "@/shared/api";
+import { useCenters } from "@/shared/model/store/centers";
+import { useDoctors } from "@/shared/model/store/useDoctors";
+import { getDoctors } from "@/widgets/components/DoctorsFromUserCountry/api/getDoctors";
 
 const App = () => {
   const { setUser } = useAuth();
   const { getCookie } = useCookie();
+  const { setCenters } = useCenters();
+  const { setDoctors } = useDoctors();
   const { data: userData } = useQuery(
     ["user"],
     () => getUser(getCookie("access_token") as string),
@@ -29,6 +35,26 @@ const App = () => {
       cacheTime: 30 * 60 * 1000,
     }
   );
+  useQuery(["centers"], () => getCenters(getCookie("access_token") as string), {
+    enabled: !!getCookie("access_token"),
+    keepPreviousData: true,
+    staleTime: 5 * 60 * 1000,
+    cacheTime: 30 * 60 * 1000,
+    onSuccess: (data) => {
+      setCenters(data.data.center);
+    },
+  });
+
+  useQuery(["doctors"], () => getDoctors(getCookie("access_token") as string), {
+    enabled: !!getCookie("access_token"),
+    keepPreviousData: true,
+    staleTime: 5 * 60 * 1000,
+    cacheTime: 30 * 60 * 1000,
+    onSuccess: (data) => {
+      setDoctors(data.data);
+    },
+  });
+
   const isLoading = useLoader();
 
   useEffect(() => {

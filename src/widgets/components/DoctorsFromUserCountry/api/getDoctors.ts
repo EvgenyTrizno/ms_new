@@ -1,4 +1,5 @@
 import { instance } from "@/shared/config/axiosInstance";
+import { Doctor } from "@/shared/types";
 import { ICity } from "@/shared/types/city.interface";
 import { IClinic } from "@/shared/types/clinic.types";
 import { ICountry } from "@/shared/types/country.interface";
@@ -33,7 +34,7 @@ export interface IDoctorResponse {
 
 export async function getDoctors(
   token: string
-): Promise<AxiosResponse<IDoctorResponse[]>> {
+): Promise<AxiosResponse<Doctor[]>> {
   return await instance.get(`/notes/doctors`, {
     headers: {
       Authorization: `Bearer ${token}`,
