@@ -57,14 +57,45 @@ const AllDoctorsPage = () => {
           <h5 className={styles.titleBlock}>Личный помошник</h5>
 
           <BoxWrapper className={styles.helper} color="white">
-            <User withEdit={false} count={1} />
+            <User
+              withEdit={false}
+              count={1}
+              data={{
+                image: "/assets/avatar.png",
+                surname: "Corey",
+                first_name: "Siphron",
+              }}
+            />
           </BoxWrapper>
         </div>
 
         <BoxWrapper color="white" title="Участвующие врачи">
-          <User className={styles.doctor} withEdit={false} />
-          <User className={styles.doctor} withEdit={false} />
-          <User withEdit={false} />
+          <User
+            className={styles.doctor}
+            withEdit={false}
+            data={{
+              image: "/assets/avatar.png",
+              surname: "Corey",
+              first_name: "Siphron",
+            }}
+          />
+          <User
+            className={styles.doctor}
+            withEdit={false}
+            data={{
+              image: "/assets/avatar.png",
+              surname: "Corey",
+              first_name: "Siphron",
+            }}
+          />
+          <User
+            withEdit={false}
+            data={{
+              image: "/assets/avatar.png",
+              surname: "Corey",
+              first_name: "Siphron",
+            }}
+          />
         </BoxWrapper>
       </Container>
     </Layout>

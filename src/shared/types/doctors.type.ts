@@ -1,9 +1,9 @@
 export type Doctor = {
   address: string;
   center: number;
-  city: number;
+  city: string;
   clinic: null;
-  country: number;
+  country: string;
   created_at: Date;
   email: string | null;
   email_verification_code: number;
@@ -23,5 +23,4 @@ export type Doctor = {
   updated_at: Date;
   verification_code: number;
   work_experience: string;
-  surname?: string | null;
 };

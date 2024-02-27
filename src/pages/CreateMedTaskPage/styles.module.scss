@@ -17,16 +17,3 @@
     background-color: var(--white);
   }
 }
-
-.content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  gap: 16px;
-}
-
-.list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}

@@ -3,13 +3,18 @@ import styles from "./styles.module.scss";
 import { Rows } from "@/shared/ui/Rows";
 import { MenuIcon } from "@/icons";
 import { FC } from "react";
-import { IUserData, PropsWithClassName } from "@/shared/types";
+import { PropsWithClassName } from "@/shared/types";
 import cn from "clsx";
 
 type Props = {
   withEdit?: boolean;
   count?: number;
-  data: IUserData;
+  data: {
+    image: string;
+    surname?: string;
+    first_name?: string;
+    last_name?: string;
+  };
 };
 
 const User: FC<PropsWithClassName<Props>> = ({
@@ -24,7 +29,9 @@ const User: FC<PropsWithClassName<Props>> = ({
         {count && <div className={styles.count}>{count}</div>}
         <img className={styles.avatar} src={data.image} alt="avatar" />
         <Rows className={styles.content} gap={4} rows={["auto"]}>
-          <h5>{`${data.surname || data.first_name} ${data.last_name}`}</h5>
+          <h5>{`${data.surname || ""} ${data.first_name || ""} ${
+            data.last_name || ""
+          }`}</h5>
           <span>Хирург</span>
         </Rows>
       </Row>

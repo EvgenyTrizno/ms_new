@@ -5,6 +5,7 @@ import { ISearchResultsListProps } from "./types";
 import { Clinic } from "@/widgets";
 import { DataListWrapper } from "@/widgets/components/DataListWrapper";
 import { useNavigate } from "react-router";
+import { DoctorMore } from "@/entities";
 
 export const SearchResultsList: FC<ISearchResultsListProps> = ({
   filter,
@@ -50,9 +51,17 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
           listLength={data?.data.doctors.length || 0}
         >
           <Cols gap={10} type="auto" count={1}>
-            {data?.data.doctors.map((el) => {
-              return <div key={el.id}></div>;
-            })}
+            {data?.data.doctors
+              .filter((el) =>
+                Object.values(el).some((value) => {
+                  if (typeof value === "string") {
+                    return value.toLowerCase().includes(search.toLowerCase());
+                  }
+                })
+              )
+              .map((el) => {
+                return <DoctorMore key={el.id} data={el} />;
+              })}
           </Cols>
         </DataListWrapper>
       )}

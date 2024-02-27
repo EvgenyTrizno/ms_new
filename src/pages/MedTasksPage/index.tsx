@@ -4,85 +4,78 @@ import { CustomMobileHeader } from "@/widgets";
 import { ROUTES } from "@/shared/utils/PATHS";
 import { Container } from "@/shared/ui/Container";
 import styles from "./styles.module.scss";
+import { Search } from "@/features/Search";
+import { ChangeEvent, useState } from "react";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
+import { Filter } from "@/shared/ui/Filter";
+import { MedTask } from "@/entities";
 import { Link } from "react-router-dom";
 
 const MedTasksPage = () => {
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState<string>("Выполняются");
+
+  const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
   return (
     <Layout>
-      {MOBILE && <CustomMobileHeader back text={ROUTES.medTasks.label} />}
+      {MOBILE && (
+        <CustomMobileHeader
+          back
+          text={ROUTES.medTasks.label}
+          btn={
+            <Link to={ROUTES.createMedTask.path}>
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 20V11M11 2V11M11 11H2M11 11H20"
+                  stroke="#262626"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </Link>
+          }
+        />
+      )}
 
       <Container>
-        <div className={styles.list}>
-          <Link className={styles.item} to="/overview-med-task">
-            <span>Изучение врачей</span>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M8.7475 20.3375C8.5575 20.3375 8.3675 20.2675 8.2175 20.1175C7.9275 19.8275 7.9275 19.3475 8.2175 19.0575L14.7375 12.5375C15.2175 12.0575 15.2175 11.2775 14.7375 10.7975L8.2175 4.2775C7.9275 3.9875 7.9275 3.5075 8.2175 3.2175C8.5075 2.9275 8.9875 2.9275 9.2775 3.2175L15.7975 9.7375C16.3075 10.2475 16.5975 10.9375 16.5975 11.6675C16.5975 12.3975 16.3175 13.0875 15.7975 13.5975L9.2775 20.1175C9.1275 20.2575 8.9375 20.3375 8.7475 20.3375Z"
-                fill="#262626"
-              />
-            </svg>
-          </Link>
-          <Link className={styles.item} to="#">
-            <span>Изучение врачей</span>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M8.7475 20.3375C8.5575 20.3375 8.3675 20.2675 8.2175 20.1175C7.9275 19.8275 7.9275 19.3475 8.2175 19.0575L14.7375 12.5375C15.2175 12.0575 15.2175 11.2775 14.7375 10.7975L8.2175 4.2775C7.9275 3.9875 7.9275 3.5075 8.2175 3.2175C8.5075 2.9275 8.9875 2.9275 9.2775 3.2175L15.7975 9.7375C16.3075 10.2475 16.5975 10.9375 16.5975 11.6675C16.5975 12.3975 16.3175 13.0875 15.7975 13.5975L9.2775 20.1175C9.1275 20.2575 8.9375 20.3375 8.7475 20.3375Z"
-                fill="#262626"
-              />
-            </svg>
-          </Link>
-          <Link className={styles.item} to="#">
-            <span>Изучение врачей</span>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M8.7475 20.3375C8.5575 20.3375 8.3675 20.2675 8.2175 20.1175C7.9275 19.8275 7.9275 19.3475 8.2175 19.0575L14.7375 12.5375C15.2175 12.0575 15.2175 11.2775 14.7375 10.7975L8.2175 4.2775C7.9275 3.9875 7.9275 3.5075 8.2175 3.2175C8.5075 2.9275 8.9875 2.9275 9.2775 3.2175L15.7975 9.7375C16.3075 10.2475 16.5975 10.9375 16.5975 11.6675C16.5975 12.3975 16.3175 13.0875 15.7975 13.5975L9.2775 20.1175C9.1275 20.2575 8.9375 20.3375 8.7475 20.3375Z"
-                fill="#262626"
-              />
-            </svg>
-          </Link>
-          <Link className={styles.item} to="#">
-            <span>Изучение врачей</span>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M8.7475 20.3375C8.5575 20.3375 8.3675 20.2675 8.2175 20.1175C7.9275 19.8275 7.9275 19.3475 8.2175 19.0575L14.7375 12.5375C15.2175 12.0575 15.2175 11.2775 14.7375 10.7975L8.2175 4.2775C7.9275 3.9875 7.9275 3.5075 8.2175 3.2175C8.5075 2.9275 8.9875 2.9275 9.2775 3.2175L15.7975 9.7375C16.3075 10.2475 16.5975 10.9375 16.5975 11.6675C16.5975 12.3975 16.3175 13.0875 15.7975 13.5975L9.2775 20.1175C9.1275 20.2575 8.9375 20.3375 8.7475 20.3375Z"
-                fill="#262626"
-              />
-            </svg>
-          </Link>
-          <Link className={styles.item} to="#">
-            <span>Изучение врачей</span>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M8.7475 20.3375C8.5575 20.3375 8.3675 20.2675 8.2175 20.1175C7.9275 19.8275 7.9275 19.3475 8.2175 19.0575L14.7375 12.5375C15.2175 12.0575 15.2175 11.2775 14.7375 10.7975L8.2175 4.2775C7.9275 3.9875 7.9275 3.5075 8.2175 3.2175C8.5075 2.9275 8.9875 2.9275 9.2775 3.2175L15.7975 9.7375C16.3075 10.2475 16.5975 10.9375 16.5975 11.6675C16.5975 12.3975 16.3175 13.0875 15.7975 13.5975L9.2775 20.1175C9.1275 20.2575 8.9375 20.3375 8.7475 20.3375Z"
-                fill="#262626"
-              />
-            </svg>
-          </Link>
+        <div className={styles.content}>
+          <Search
+            placeholder="Поиск чатов"
+            height="48px"
+            onChange={onChangeSearch}
+            value={search}
+            additionalBlock={
+              MOBILE ? (
+                <FilterBtn type="small" onClick={() => console.log("click")} />
+              ) : undefined
+            }
+          />
+
+          <Filter
+            isSelect={filter}
+            setIsSelect={setFilter}
+            width="100%"
+            data={["Выполняются", "Требуется"]}
+          />
+
+          <div className={styles.list}>
+            <MedTask />
+            <MedTask />
+            <MedTask />
+            <MedTask />
+            <MedTask />
+            <MedTask />
+          </div>
         </div>
       </Container>
     </Layout>
