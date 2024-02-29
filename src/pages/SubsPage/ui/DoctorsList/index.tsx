@@ -3,20 +3,20 @@ import { FC, useRef } from "react";
 import { SliderHeader } from "@/widgets";
 import { DoctorCard } from "../DoctorCard";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
-import styles from "./styles.module.scss";
+import { SliderWrapper } from "@/widgets/components/SliderWrapper";
 
 export const DoctorsList: FC = () => {
   const swiperRef = useRef<SwiperRef>(null);
 
   return (
-    <div className={styles.wrapper}>
+    <SliderWrapper>
       <SliderHeader title="Врачи" swiperRef={swiperRef} />
 
       <Swiper
         ref={swiperRef}
         spaceBetween={10}
         slidesPerView={1.25}
-        slidesPerGroup={1.25}
+        slidesPerGroup={1}
         slidesOffsetBefore={16}
         slidesOffsetAfter={16}
         navigation
@@ -31,6 +31,6 @@ export const DoctorsList: FC = () => {
           <DoctorCard />
         </SwiperSlide>
       </Swiper>
-    </div>
+    </SliderWrapper>
   );
 };

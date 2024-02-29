@@ -36,3 +36,36 @@
     color: #b1b2b4;
   }
 }
+
+.stats {
+  display: flex;
+  gap: 8px;
+  align-items: end;
+  overflow-x: auto;
+}
+
+.statsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 1 0;
+  align-items: center;
+
+  .graph {
+    height: 28px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #b1ccff;
+  }
+
+  &.active {
+    .graph {
+      background-color: var(--blue);
+    }
+  }
+
+  span {
+    font-size: 12px;
+    font-weight: 500;
+  }
+}

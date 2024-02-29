@@ -38,7 +38,43 @@ const PaymentsPage = () => {
                 color="white"
                 title="Статистика"
               >
-                <div></div>
+                <div className={styles.stats}>
+                  <div className={styles.statsItem}>
+                    <div className={styles.graph}></div>
+
+                    <span>Янв</span>
+                  </div>
+                  <div className={cn(styles.statsItem, styles.active)}>
+                    <div className={styles.graph}></div>
+
+                    <span>Фев</span>
+                  </div>
+                  <div className={styles.statsItem}>
+                    <div className={styles.graph}></div>
+
+                    <span>Мар</span>
+                  </div>
+                  <div className={styles.statsItem}>
+                    <div className={styles.graph}></div>
+
+                    <span>Апр</span>
+                  </div>
+                  <div className={styles.statsItem}>
+                    <div className={styles.graph}></div>
+
+                    <span>Май</span>
+                  </div>
+                  <div className={styles.statsItem}>
+                    <div className={styles.graph}></div>
+
+                    <span>Июн</span>
+                  </div>
+                  <div className={styles.statsItem}>
+                    <div className={styles.graph}></div>
+
+                    <span>Мар</span>
+                  </div>
+                </div>
               </BoxWrapper>
               <div className={styles.conversionsWrapper}>
                 <h6>24 фев</h6>
