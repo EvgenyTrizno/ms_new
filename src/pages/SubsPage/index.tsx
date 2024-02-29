@@ -15,9 +15,9 @@ const SubsPage: FC = () => {
             {(MOBILE || TABLET) && <CustomMobileHeader back text="Подписки" />}
             <Container>
                 {(PC || SMALL_LAPTOP || LAPTOP) && <User />}
-                <CentersList />
-                <ClinicsList />
                 <DoctorsList />
+                <ClinicsList />
+                <CentersList />
             </Container>
         </Layout>
     );

@@ -32,6 +32,7 @@ import { DoctorCard } from "./components/DoctorCard";
 import { Skeleton as DoctorCardSkeleton } from "./components/DoctorCard/ui/Skeleton";
 import { SkeletonWrapper } from "./components/SkeletonWrapper";
 import { PageLoader } from "./components/PageLoader";
+import { SliderHeader } from "./components/SliderHeader";
 
 export {
   Calendar,
@@ -67,5 +68,6 @@ export {
   DoctorCard,
   DoctorCardSkeleton,
   SkeletonWrapper,
-  PageLoader
+  PageLoader,
+  SliderHeader,
 };

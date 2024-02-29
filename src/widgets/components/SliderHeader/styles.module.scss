@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 0 16px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.arrows {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .right {
+        transform: rotate(180deg);
+    }
+}

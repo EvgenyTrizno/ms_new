@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Username } from "@/entities/User";
+import { Username } from "@/entities/User/ui/Username";
 import { Avatar } from "@/shared/ui/Avatar";
 import { InfoText } from "@/shared/ui/InfoText";
 import { Row } from "@/shared/ui/Row";
