@@ -1,35 +1,24 @@
 import { FC } from "react";
-import { useNavigate } from "react-router";
+import { Post } from "@/entities";
+import styles from "./styles.module.scss";
+import { PropsWithClassName } from "@/shared/types";
+import cn from "clsx";
 
-import { Rows } from "@/shared/ui/Rows";
-import { usePostsQuery } from "../../lib/hooks/usePostsQuery";
-import { UserPost } from "@/widgets/components/UserPost";
-import { MOBILE } from "@/shared/utils";
-
-export const Posts: FC = () => {
-  const { data } = usePostsQuery();
-  const navigate = useNavigate();
+export const Posts: FC<PropsWithClassName> = ({ className }) => {
+  // const { data } = usePostsQuery();
+  // const navigate = useNavigate();
 
   return (
-    <Rows gap={10} rows={["auto"]} style={{ width: MOBILE ? "100%" : "" }}>
-      {data &&
-        data.data.map((item) => (
-          <UserPost
-            key={item.id}
-            onClick={
-              item.center
-                ? () => navigate(`/center/${item.center?.id}/`)
-                : () => navigate(`/clinic/${item.clinic?.id}/`)
-            }
-            creator={item.center ? "Центр" : "Клиника"}
-            text={item.text}
-            img={item.image}
-            avatar={
-              (!item.clinic ? item.center?.image : item.clinic.image) ?? ""
-            }
-            name={(!item.clinic ? item.center?.name : item.clinic.name) ?? ""}
-          />
-        ))}
-    </Rows>
+    <div className={cn(styles.wrapper, className)}>
+      <Post
+        key={1}
+        id={1}
+        avatar="/assets/avatar.png"
+        fio="Петров Петр Петрович"
+        rank="Пользователь"
+        text="Lorem Ipsum является текст-заполнитель обычно используется в графических, печать и издательской индустрии для предварительного просмотра макета"
+        imgs={["/assets/clinic-post.jpg", "/assets/clinic-post.jpg"]}
+      />
+    </div>
   );
 };

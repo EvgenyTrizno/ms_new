@@ -3,39 +3,35 @@ import { FC } from "react";
 import { Layout } from "../Layout";
 import { MobileHeader } from "@/widgets/components/MobileHeader";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
-import { FilterBtn } from "@/shared/ui/FilterBtn";
-import { MOBILE, TABLET } from "@/shared/utils";
+import { MOBILE } from "@/shared/utils";
 import { Container } from "@/shared/ui/Container";
 import { DoctorsFromUserCountry } from "@/widgets/components/DoctorsFromUserCountry";
 import { Posts } from "./ui/Posts";
-import { Text } from "@/shared/ui/Text";
-
 import styles from "./styles.module.scss";
-import { Row } from "@/shared/ui/Row";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
 
 const MainPage: FC = () => {
   return (
     <Layout>
       {MOBILE && <MobileHeader />}
-      <Container height={MOBILE ? "calc(100% - 156px)" : ""}>
+      <Container>
         <DoctorsFromUserCountry />
-        <div className={styles.posts}>
-          <Row
-            gap={0}
-            style={{ justifyContent: "space-between" }}
-            className={styles.filters}
-          >
-            {(MOBILE || TABLET) && (
-              <Text type="h6" fz="15px">
-                Популярные посты
-              </Text>
-            )}
+
+        <div className={styles.line}></div>
+
+        <div className={styles.content}>
+          <div className={styles.contentHeader}>
+            <h4>Популярные посты</h4>
+
             <FilterBtn
-              type={MOBILE ? "small" : "big"}
-              onClick={() => console.log("1")}
+              type={window.innerWidth >= 768 ? "big" : "small"}
+              onClick={() => console.log("asdsad")}
             />
-          </Row>
-          <Posts />
+          </div>
+
+          <div className={styles.postsWrapper}>
+            <Posts />
+          </div>
         </div>
       </Container>
 

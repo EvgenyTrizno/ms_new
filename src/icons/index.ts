@@ -24,3 +24,5 @@ export * from "./MenuIcon";
 export * from "./HistoryIcon";
 export * from "./DiagnosisIcon";
 export * from "./LocationIcon";
+export * from "./SaveIcon";
+export * from "./TelegramIcon";

@@ -15,7 +15,7 @@ export const UserData: FC = () => {
     const { user } = useAuth();
 
     const navigate = useNavigate();
-    const group = user && user.group.name;
+    const group = user && user.group?.name;
     const sick = user && user.disease.length;
 
     return (

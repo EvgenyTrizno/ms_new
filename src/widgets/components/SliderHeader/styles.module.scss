@@ -1,23 +1,37 @@
 .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    padding: 0 16px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  margin-bottom: 12px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 10px;
+  }
 }
 
 .title {
-    font-size: 17px;
-    font-weight: 600;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dark-gray);
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    font-weight: 500;
+  }
 }
 
 .arrows {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-    .right {
-        transform: rotate(180deg);
-    }
+  .right {
+    transform: rotate(180deg);
+  }
+
+  svg {
+    cursor: pointer;
+  }
 }

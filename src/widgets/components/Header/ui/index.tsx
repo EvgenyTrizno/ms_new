@@ -42,7 +42,7 @@ export const Header: FC<IHeaderProps> = ({ width }) => {
             </Text>
           </div>
         </div>
-        {isAuth && user && user.group.name !== "Администраторы" ? (
+        {isAuth && user && user.group?.name !== "Администраторы" ? (
           <UserData />
         ) : (
           <Row gap={10}>
