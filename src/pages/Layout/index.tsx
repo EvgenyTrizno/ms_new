@@ -19,11 +19,13 @@ export const Layout: FC<TProps> = ({ children }) => {
   return (
     <div>
       {/* {MOBILE && <MobileAccountMenu />} */}
-      {!MOBILE && !TABLET && <Header />}
+      {/* {!MOBILE && !TABLET && <Header />} */}
 
       {/* <Menu /> */}
 
-      <Sidebar />
+      <Header />
+
+      <Sidebar className={styles.sidebarWrapper} />
 
       <div className={styles.main}>{children}</div>
       {/* {user && user.group.name === "Пользователи" && !MOBILE && (

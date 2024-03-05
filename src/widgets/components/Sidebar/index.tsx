@@ -4,9 +4,10 @@ import { MenuItem } from "./ui/MenuItem";
 import { ROUTES } from "@/shared/utils/PATHS";
 import cn from "clsx";
 import { useMainStore } from "@/shared/model/store/main";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
+import { PropsWithClassName } from "@/shared/types";
 
-export const Sidebar = () => {
+export const Sidebar: FC<PropsWithClassName> = ({ className }) => {
   const { isOpenSidebar, setOpenSidebar } = useMainStore();
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export const Sidebar = () => {
 
   return (
     <div
-      className={cn(styles.wrapper, {
+      className={cn(styles.wrapper, className, {
         [styles.notOpenSidebar]: !isOpenSidebar,
       })}
     >
