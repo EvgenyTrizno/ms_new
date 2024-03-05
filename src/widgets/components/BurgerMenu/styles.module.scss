@@ -70,3 +70,10 @@
 .icon path {
   stroke: var(--blue);
 }
+
+@media (min-width: 768px) {
+  .overLayer,
+  .list {
+    display: none;
+  }
+}

@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background-color: var(--white);
+  color: var(--gray);
+  width: 100%;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--gray-100);
+  }
+
+  svg,
+  img {
+    width: 22px;
+    height: 22px;
+  }
+
+  svg path {
+    stroke: var(--gray);
+  }
+
+  &.active {
+    background-color: var(--blue);
+    color: var(--white);
+
+    svg path {
+      stroke: var(--white);
+    }
+  }
+
+  &.notOpenSidebar {
+    width: 52px;
+    height: 52px;
+    gap: 0;
+
+    span {
+      width: 0;
+      overflow: hidden;
+    }
+  }
+}

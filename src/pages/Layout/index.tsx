@@ -11,6 +11,7 @@ import { PC, SMALL_LAPTOP, TABLET, MOBILE, LAPTOP } from "@/shared/utils";
 import styles from "./styles.module.scss";
 import { BurgerMenu } from "@/widgets/components/BurgerMenu";
 import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
+import { Sidebar } from "@/widgets/components";
 
 export const Layout: FC<TProps> = ({ children }) => {
   const { isOpen } = useBurgerMenu();
@@ -20,7 +21,10 @@ export const Layout: FC<TProps> = ({ children }) => {
       {/* {MOBILE && <MobileAccountMenu />} */}
       {!MOBILE && !TABLET && <Header />}
 
-      {(PC || SMALL_LAPTOP || LAPTOP) && <Menu />}
+      {/* <Menu /> */}
+
+      <Sidebar />
+
       <div className={styles.main}>{children}</div>
       {/* {user && user.group.name === "Пользователи" && !MOBILE && (
                     <ExtraCallBtn isOpen={isOpen} />
