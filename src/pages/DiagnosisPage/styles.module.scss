@@ -1,11 +1,19 @@
 .content {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+
+  @media(min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  .list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+
+  @media(min-width: 1280px) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
+}

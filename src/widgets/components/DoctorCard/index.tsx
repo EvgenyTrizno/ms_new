@@ -1,18 +1,20 @@
 import { FC } from "react";
-import { IDoctorCardProps } from "./types";
+import styles from "./styles.module.scss";
 
-import { CardLayout } from "@/entities/Card";
-import { UserRank } from "@/entities/User/ui";
-import { Avatar } from "@/shared/ui/Avatar";
-import { MOBILE } from "@/shared/utils";
+type Props = {
+  avatar: string;
+  rank: string;
+  fio: string;
+};
 
-export const DoctorCard: FC<IDoctorCardProps> = ({ avatar, rank }) => {
+export const DoctorCard: FC<Props> = ({ avatar, rank, fio }) => {
   return (
-    <CardLayout
-      userAvatar={<Avatar type="user" img={avatar} size="M" />}
-      userRank={
-        <UserRank rank={rank} position="center" fz={MOBILE ? "10px" : "14px"} />
-      }
-    />
+    <div className={styles.wrapper}>
+      <img className={styles.avatar} src={avatar} alt="avatar" />
+
+      <p className={styles.fio}>{fio}</p>
+
+      <span className={styles.rank}>{rank}</span>
+    </div>
   );
 };

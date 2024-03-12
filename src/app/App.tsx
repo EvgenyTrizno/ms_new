@@ -55,7 +55,7 @@ const App = () => {
     },
   });
 
-  const isLoading = useLoader();
+  // const isLoading = useLoader();
 
   useEffect(() => {
     if (!userData) return;
@@ -64,7 +64,7 @@ const App = () => {
   }, [setUser, userData]);
 
   return (
-    <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
+    // <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
       <PSuspense>
         <AnimatePresence initial={true}>
           <motion.div
@@ -78,11 +78,11 @@ const App = () => {
                 <Route key={i} {...page} />
               ))}
             </Routes>
-            {isLoading && <PageLoader />}
+            {/* {isLoading && <PageLoader />} */}
           </motion.div>
         </AnimatePresence>
       </PSuspense>
-    </ErrorBoundary>
+    // </ErrorBoundary>
   );
 };
 

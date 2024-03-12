@@ -5,7 +5,6 @@ import { MobileHeader } from "@/widgets/components/MobileHeader";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
 import { DESKTOP, MOBILE } from "@/shared/utils";
 import { FilterBtn } from "@/shared/ui/FilterBtn";
-import { Container } from "@/shared/ui/Container";
 import { Search } from "@/features/Search";
 import { WithFilter } from "./ui/WithFilter";
 import styles from "./styles.module.scss";
@@ -20,34 +19,27 @@ const SearchPage: FC = () => {
 
   return (
     <>
-      {MOBILE && <MobileHeader />}
+      <MobileHeader />
 
       <Layout>
-        <Container>
-          <div className={styles.content}>
-            <Search
-              placeholder="Поиск чатов"
-              height="48px"
-              onChange={onChangeSearch}
-              value={search}
-              showSearchByScroll={false}
-              additionalBlock={
-                MOBILE ? (
-                  <FilterBtn
-                    type="small"
-                    onClick={() => console.log("click")}
-                  />
-                ) : undefined
-              }
-            />
+        <div className={styles.content}>
+          <Search
+            placeholder="Поиск чатов"
+            height="48px"
+            onChange={onChangeSearch}
+            value={search}
+            showSearchByScroll={false}
+            additionalBlock={
+              MOBILE ? (
+                <FilterBtn type="small" onClick={() => console.log("click")} />
+              ) : undefined
+            }
+          />
 
-            {DESKTOP && (
-              <FilterBtn type="big" onClick={() => console.log("1")} />
-            )}
+          {DESKTOP && <FilterBtn type="big" onClick={() => console.log("1")} />}
 
-            <WithFilter search={search} filter={filter} setFilter={setFilter} />
-          </div>
-        </Container>
+          <WithFilter search={search} filter={filter} setFilter={setFilter} />
+        </div>
       </Layout>
 
       {MOBILE && <MobileMenu />}

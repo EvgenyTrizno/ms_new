@@ -11,7 +11,7 @@
   right: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 65px;
   z-index: 1;
 
   .notification {
@@ -23,6 +23,12 @@
     path {
       stroke: var(--dark);
     }
+  }
+}
+
+@media(min-width: 1024px) {
+  .mobileHeader {
+    display: none;
   }
 }
 

@@ -1,5 +1,5 @@
 .header {
-  height: 70px;
+  height: 65px;
   padding: 0 15px;
   background-color: var(--white);
   border-bottom: 1px solid var(--blue-100);
@@ -12,4 +12,10 @@
   top: 0;
   left: 0;
   right: 0;
+}
+
+@media(min-width: 1024px) {
+  .header {
+    display: none;
+  }
 }

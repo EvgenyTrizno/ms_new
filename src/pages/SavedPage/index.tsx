@@ -9,18 +9,16 @@ import { LAPTOP, MOBILE, PC, SMALL_LAPTOP, TABLET } from "@/shared/utils";
 import { CustomMobileHeader } from "@/widgets";
 
 const SavedPage: FC = () => {
-    return (
-        <Layout>
-            {(MOBILE || TABLET) && (
-                <CustomMobileHeader back text="Сохраненное" />
-            )}
-            <Container>
-                {PC || SMALL_LAPTOP || (LAPTOP && <User />)}
-                <FilesList />
-                <FoldersList />
-            </Container>
-        </Layout>
-    );
+  return (
+    <Layout>
+      {(MOBILE || TABLET) && <CustomMobileHeader back text="Сохраненное" />}
+      <Container>
+        {PC || SMALL_LAPTOP || (LAPTOP && <User />)}
+        <FilesList />
+        <FoldersList />
+      </Container>
+    </Layout>
+  );
 };
 
 export default SavedPage;

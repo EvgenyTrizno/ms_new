@@ -1,19 +1,13 @@
 .wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin-right: -8px;
-  margin-top: -8px;
 
-  @media (max-width: 340px) {
-    margin-right: 0;
-    margin-top: 0;
+  @media (min-width: 768px) {
+    gap: 12px;
   }
 
-  .item {
-    flex-basis: calc(50% - 8px);
-    @media (max-width: 340px) {
-      flex-basis: 100%;
-    }
+  @media (min-width: 1280px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

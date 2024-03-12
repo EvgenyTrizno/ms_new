@@ -1,9 +1,7 @@
 import { CustomMobileHeader } from "@/widgets";
 import { Layout } from "../Layout";
 import styles from "./styles.module.scss";
-import { MOBILE } from "@/shared/utils";
 import { ROUTES } from "@/shared/utils/PATHS";
-import { Container } from "@/shared/ui/Container";
 import { ChangeEvent, useState } from "react";
 import { Search } from "@/features/Search";
 import { FilterBtn } from "@/shared/ui/FilterBtn";
@@ -20,37 +18,33 @@ const DiagnosisPage = () => {
 
   return (
     <Layout>
-      {MOBILE && (
-        <CustomMobileHeader back text={ROUTES.pacientDiagnosis.label} />
-      )}
+      <CustomMobileHeader back text={ROUTES.pacientDiagnosis.label} />
 
-      <Container>
-        <div className={styles.content}>
-          <Search
-            placeholder="Поиск чатов"
-            height="48px"
-            onChange={onChangeSearch}
-            value={search}
-            showSearchByScroll={false}
-            additionalBlock={
-              MOBILE ? (
-                <FilterBtn type="small" onClick={() => console.log("click")} />
-              ) : undefined
-            }
-          />
+      <div className={styles.content}>
+        <Search
+          placeholder="Поиск чатов"
+          height="48px"
+          onChange={onChangeSearch}
+          value={search}
+          showSearchByScroll={false}
+          additionalBlock={
+            <FilterBtn type="small" onClick={() => console.log("click")} />
+          }
+        />
 
-          <Filter
-            isSelect={filter}
-            setIsSelect={setFilter}
-            data={["Предположения", "Установленные"]}
-            width="100%"
-          />
-          
-          <div className={styles.list}>
-            <MedTask />
-          </div>
+        <Filter
+          isSelect={filter}
+          setIsSelect={setFilter}
+          data={["Предположения", "Установленные"]}
+          width="100%"
+        />
+
+        <div className={styles.list}>
+          <MedTask />
+          <MedTask />
+          <MedTask />
         </div>
-      </Container>
+      </div>
     </Layout>
   );
 };

@@ -20,7 +20,7 @@ const AccountPage: FC = () => {
 
   return (
     <>
-      {MOBILE && <MobileHeader />}
+      <MobileHeader />
       <Layout>
         {MOBILE ? (
           <div className={styles.wrapper}>

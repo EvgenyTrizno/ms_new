@@ -15,6 +15,14 @@
     &.active {
       max-height: 230px;
     }
+
+    @media (min-width: 768px) {
+      max-height: 126px;
+    }
+
+    @media (min-width: 1280px) {
+      max-height: 330px;
+    }
   }
 
   .helpTextWrapper {
@@ -65,13 +73,24 @@
   gap: 8px;
   padding: 16px 0;
 
+  @media (min-width: 768px) {
+    padding: 12px 0;
+  }
+
   button {
     flex: 1 1 0;
+
+    @media (min-width: 768px) {
+      flex: none;
+      width: max-content;
+      min-width: 190px;
+    }
   }
 }
 
 .characteristics {
   margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .gallery {

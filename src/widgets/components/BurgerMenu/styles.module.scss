@@ -3,7 +3,7 @@
   height: 100%;
   background-color: #262626;
   opacity: 0.5;
-  top: 70px;
+  top: 65px;
   position: fixed;
   z-index: 10;
   left: 0;
@@ -12,12 +12,12 @@
 .list {
   background-color: #fff;
   width: 80%;
-  height: calc(100% - 70px);
+  height: calc(100% - 65px);
   position: fixed;
   z-index: 10;
   padding: 16px;
   overflow-y: auto;
-  top: 70px;
+  top: 65px;
   left: 0;
 
   // @media screen and (max-width: 400px) {
@@ -69,4 +69,11 @@
 
 .icon path {
   stroke: var(--blue);
+}
+
+@media (min-width: 1024px) {
+  .overLayer,
+  .list {
+    display: none;
+  }
 }
