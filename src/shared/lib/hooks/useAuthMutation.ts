@@ -33,7 +33,7 @@ export const useAuthMutation = (refresh: string) => {
           location.pathname as typeof ROUTES.registration.path
         )
       ) {
-        return;
+        // navigate(ROUTES.login.path);
       }
     },
   });

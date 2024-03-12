@@ -6,6 +6,8 @@ export const NotificationsLink = () => {
   return (
     <Link className={styles.notification} to={ROUTES.notifications.path}>
       <img src="/assets/icons/notification.svg" alt="notifications" />
+
+      {/* <div className={styles.circle}></div> */}
     </Link>
   );
 };

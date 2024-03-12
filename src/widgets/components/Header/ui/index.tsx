@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useAuthMutation } from "@/shared/lib/hooks/useAuthMutation";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
-import { useAuth } from "@/shared/model/store/auth";
 
 import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
@@ -14,14 +13,12 @@ export const Header = () => {
   const { mutate: auth } = useAuthMutation(
     getCookie("refresh_token") as string
   );
-  const { user } = useAuth();
+  // const { user } = useAuth();
   const { isOpenSidebar } = useMainStore();
 
   useEffect(() => {
     auth();
   }, [auth]);
-
-  console.log(user);
 
   return (
     <header
@@ -37,7 +34,7 @@ export const Header = () => {
       <div className={styles.right}>
         <NotificationsLink />
 
-        <Link className={styles.profile} to="/profile">
+        <Link className={styles.profile} to="/account">
           <img src="/assets/avatar.png" alt="avatar" />
         </Link>
       </div>

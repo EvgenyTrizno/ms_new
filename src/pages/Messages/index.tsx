@@ -11,7 +11,7 @@ import { ChatContainer } from "@/entities/Chat/ui/ChatContainer";
 const MessagesPage: FC = () => {
     return (
         <Layout>
-            {MOBILE && <MobileHeader />}
+            <MobileHeader />
             <ChatContainer>
                 <ChatSidebar />
                 {/* {!MOBILE && !TABLET && "выберите чат"} */}

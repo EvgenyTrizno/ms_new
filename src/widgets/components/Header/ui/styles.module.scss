@@ -12,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  z-index: 10;
 
   &.isOpenSidebar {
     padding-left: calc(258px + 16px);
@@ -38,5 +39,9 @@
       border-radius: 50%;
       overflow: hidden;
     }
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
   }
 }

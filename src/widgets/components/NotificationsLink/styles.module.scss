@@ -6,8 +6,7 @@
     height: 20px;
   }
 
-  &::after {
-    content: "";
+  .circle {
     position: absolute;
     background-color: var(--red-400);
     top: 2px;

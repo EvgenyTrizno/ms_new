@@ -17,6 +17,7 @@
 
   svg,
   img {
+    min-width: 22px;
     width: 22px;
     height: 22px;
   }
@@ -37,7 +38,6 @@
   &.notOpenSidebar {
     width: 52px;
     height: 52px;
-    gap: 0;
 
     span {
       width: 0;

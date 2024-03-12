@@ -18,23 +18,19 @@ export const LinkedCards: FC<PropsWithClassName> = ({ className }) => {
       </div>
 
       <Link className={styles.add} to="/add-card">
-        <svg viewBox="0 0 72 73" fill="none">
-          <rect
-            x="0.75"
-            y="0.75"
-            width="70.5"
-            height="71.5"
-            rx="11.25"
-            stroke="#D6E7FF"
-            strokeWidth="1.5"
-            strokeDasharray="8 8"
-          />
+        <svg
+          width="26"
+          height="26"
+          viewBox="0 0 26 26"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
-            d="M36 45V37M36 29V37M36 37H28M36 37H44"
-            stroke="#D6E7FF"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            d="M13 25V13M13 1V13M13 13H1M13 13H25"
+            stroke="#0064FA"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
         </svg>
       </Link>

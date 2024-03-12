@@ -16,7 +16,7 @@ export const List: FC = () => {
       <Swiper
         ref={swiperRef}
         spaceBetween={8}
-        slidesPerView={4.3}
+        slidesPerView={4.5}
         slidesPerGroup={4}
         slidesOffsetBefore={16}
         slidesOffsetAfter={16}

@@ -6,9 +6,25 @@ import styles from "./Gallery.module.scss";
 
 export const Gallery: FC<PropsWithClassName> = ({ className }) => {
   return (
-    <BoxWrapper className={className} title="Галерея">
+    <BoxWrapper className={className} title="Галерея" color="blue">
       <div className={styles.sliderWrapper}>
-        <Swiper spaceBetween={12} slidesPerView={2.6}>
+        <Swiper
+          spaceBetween={12}
+          slidesPerView={2.6}
+          breakpoints={{
+            768: {
+              slidesPerView: 3.4,
+            },
+
+            1024: {
+              slidesPerView: 4.4,
+            },
+
+            1280: {
+              slidesPerView: 8.4
+            }
+          }}
+        >
           <SwiperSlide>
             <img
               className={styles.img}

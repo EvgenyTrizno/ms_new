@@ -3,8 +3,6 @@ import { FC } from "react";
 import { Layout } from "../Layout";
 import { MobileHeader } from "@/widgets/components/MobileHeader";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
-import { MOBILE } from "@/shared/utils";
-import { Container } from "@/shared/ui/Container";
 import { DoctorsFromUserCountry } from "@/widgets/components/DoctorsFromUserCountry";
 import { Posts } from "./ui/Posts";
 import styles from "./styles.module.scss";
@@ -13,29 +11,28 @@ import { FilterBtn } from "@/shared/ui/FilterBtn";
 const MainPage: FC = () => {
   return (
     <Layout>
-      {MOBILE && <MobileHeader />}
-      <Container>
-        <DoctorsFromUserCountry />
+      <MobileHeader />
 
-        <div className={styles.line}></div>
+      <DoctorsFromUserCountry />
 
-        <div className={styles.content}>
-          <div className={styles.contentHeader}>
-            <h4>Популярные посты</h4>
+      <div className={styles.line}></div>
 
-            <FilterBtn
-              type={window.innerWidth >= 768 ? "big" : "small"}
-              onClick={() => console.log("asdsad")}
-            />
-          </div>
+      <div className={styles.content}>
+        <div className={styles.contentHeader}>
+          <h4>Популярные посты</h4>
 
-          <div className={styles.postsWrapper}>
-            <Posts />
-          </div>
+          <FilterBtn
+            type={window.innerWidth >= 768 ? "big" : "small"}
+            onClick={() => console.log("asdsad")}
+          />
         </div>
-      </Container>
 
-      {MOBILE && <MobileMenu />}
+        <div className={styles.postsWrapper}>
+          <Posts />
+        </div>
+      </div>
+
+      <MobileMenu />
     </Layout>
   );
 };

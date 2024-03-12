@@ -7,16 +7,13 @@ import { User } from "./ui/UserInfo";
 import { MainData } from "./ui/MainData";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
 import { MobileHeader } from "@/widgets/components/MobileHeader";
-import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
 import { MobileProfile } from "../MobileProfile";
 
 const ProfilePage: FC = () => {
-  const { isOpen, setIsOpen } = useBurgerMenu();
   return (
     <Layout>
-      {(MOBILE || TABLET) && (
-        <MobileHeader isOpen={isOpen} setIsOpen={setIsOpen} />
-      )}
+      <MobileHeader />
+
       {MOBILE && TABLET ? (
         <div
           style={{
