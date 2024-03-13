@@ -3,26 +3,26 @@ import { FC } from "react";
 
 export const SearchIcon: FC<PropsWithClassName<PropsWithSize>> = ({
   className,
-  width = 20,
-  height = 20,
+  width = 24,
+  height = 24,
 }) => {
   return (
     <svg
       className={className}
       width={width}
       height={height}
-      viewBox="0 0 20 20"
+      viewBox="0 0 24 24"
       fill="none"
     >
       <path
-        d="M8.99994 16.999C13.4182 16.999 16.9999 13.4173 16.9999 8.99902C16.9999 4.58075 13.4182 0.999023 8.99994 0.999023C4.58166 0.999023 0.999939 4.58075 0.999939 8.99902C0.999939 13.4173 4.58166 16.999 8.99994 16.999Z"
+        d="M10.8333 20.1667C15.988 20.1667 20.1667 15.988 20.1667 10.8333C20.1667 5.67868 15.988 1.5 10.8333 1.5C5.67868 1.5 1.5 5.67868 1.5 10.8333C1.5 15.988 5.67868 20.1667 10.8333 20.1667Z"
         stroke="#B1B2B4"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M19.0003 18.9994L14.6503 14.6494"
+        d="M22.5008 22.5008L17.4258 17.4258"
         stroke="#B1B2B4"
         strokeWidth="1.5"
         strokeLinecap="round"
