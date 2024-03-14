@@ -1,13 +1,21 @@
 .sidebar {
-    background-color: var(--white);
-    padding: 16px;
+  background-color: var(--white);
+  padding: 16px;
+  width: 40%;
+  height: calc(100vh - 65px);
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .sidebar {
-        height: calc(100% - 82px);
-        position: fixed;
-        top: 82px;
-        width: 100%;
-    }
+  .sidebar {
+    height: calc(100% - 82px);
+    position: fixed;
+    top: 82px;
+    width: 100%;
+  }
 }

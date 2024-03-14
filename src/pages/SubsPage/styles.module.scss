@@ -1,0 +1,13 @@
+.boxWrapper {
+  @media (max-width: 768px) {
+    background-color: transparent !important;
+    border: none;
+    padding: 0;
+  }
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

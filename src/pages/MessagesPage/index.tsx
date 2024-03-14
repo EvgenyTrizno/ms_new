@@ -6,19 +6,17 @@ import { MOBILE } from "@/shared/utils";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
 
 import { ChatSidebar } from "@/entities/Chat/ui/ChatSidebar";
-import { ChatContainer } from "@/entities/Chat/ui/ChatContainer";
+import styles from "./styles.module.scss";
 
 const MessagesPage: FC = () => {
-    return (
-        <Layout>
-            <MobileHeader />
-            <ChatContainer>
-                <ChatSidebar />
-                {/* {!MOBILE && !TABLET && "выберите чат"} */}
-            </ChatContainer>
-            {MOBILE && <MobileMenu />}
-        </Layout>
-    );
+  return (
+    <Layout>
+      <div className={styles.inner}>
+        <MobileHeader />
+        <ChatSidebar />
+      </div>
+    </Layout>
+  );
 };
 
 export default MessagesPage;

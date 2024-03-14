@@ -16,6 +16,10 @@
     padding-left: calc(256px + 16px);
   }
 
+  @media(max-width: 1024px) {
+    padding-bottom: calc(70px + 16px);
+  }
+
   &.white {
     background-color: #fff;
   }
