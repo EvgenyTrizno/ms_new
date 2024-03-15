@@ -12,5 +12,41 @@
 .content {
   display: flex;
   flex-direction: column;
+  gap: 16px;
   flex-grow: 1;
+}
+
+.searchWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  div {
+    width: 100%;
+  }
+}
+
+.filter {
+  @media (min-width: 1024px) {
+    justify-content: center;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.search {
+  div:first-child {
+    @media (min-width: 1024px) {
+      height: 60px;
+    }
+  }
+}
+
+.bigFilter {
+  @media (min-width: 1024px) {
+    height: 60px;
+    min-width: 160px !important;
+  }
 }

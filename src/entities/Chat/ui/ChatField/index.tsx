@@ -6,6 +6,23 @@ export const ChatField = () => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.headerLeft}>
+          <svg
+          className={styles.back}
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.4853 3.51472L6 12L14.4853 20.4853"
+              stroke="#262626"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+
           <div className={styles.avatar}>
             <img
               className={styles.avatarImg}
@@ -35,6 +52,7 @@ export const ChatField = () => {
             />
           </svg>
           <svg
+          className={styles.moreInfoBtn}
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -62,6 +80,14 @@ export const ChatField = () => {
 
       <div className={styles.content}>
         <ChatHelpMessage type="no-messages" />
+
+        <div className={styles.tBot}>
+          <div className={styles.tBotItem}>Баги</div>
+          <div className={styles.tBotItem}>Сотрудничество</div>
+          <div className={styles.tBotItem}>Пожаловаться </div>
+          <div className={styles.tBotItem}>Предложение</div>
+          <div className={styles.tBotItem}>Партнерство</div>
+        </div>
       </div>
 
       <div className={styles.footer}>

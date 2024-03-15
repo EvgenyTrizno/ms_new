@@ -8,6 +8,7 @@ import { FilterBtn } from "@/shared/ui/FilterBtn";
 import { Search } from "@/features/Search";
 import { WithFilter } from "./ui/WithFilter";
 import styles from "./styles.module.scss";
+import { BackBtn } from "@/widgets/components";
 
 const SearchPage: FC = () => {
   const [search, setSearch] = useState("");
@@ -18,12 +19,14 @@ const SearchPage: FC = () => {
   };
 
   return (
-    <>
+    <Layout>
       <MobileHeader />
+      <div className={styles.content}>
+        <div className={styles.searchWrapper}>
+          <BackBtn />
 
-      <Layout>
-        <div className={styles.content}>
           <Search
+            className={styles.search}
             placeholder="Поиск чатов"
             height="48px"
             onChange={onChangeSearch}
@@ -36,14 +39,25 @@ const SearchPage: FC = () => {
             }
           />
 
-          {DESKTOP && <FilterBtn type="big" onClick={() => console.log("1")} />}
-
-          <WithFilter search={search} filter={filter} setFilter={setFilter} />
+          {DESKTOP && (
+            <FilterBtn
+              className={styles.bigFilter}
+              type="big"
+              onClick={() => console.log("1")}
+            />
+          )}
         </div>
-      </Layout>
+
+        <WithFilter
+          className={styles.filter}
+          search={search}
+          filter={filter}
+          setFilter={setFilter}
+        />
+      </div>
 
       {MOBILE && <MobileMenu />}
-    </>
+    </Layout>
   );
 };
 

@@ -1,4 +1,3 @@
-import { Cols } from "@/shared/ui/Cols";
 import { FC } from "react";
 import { useResultsQuery } from "../../lib/hooks/useResultsQuery";
 import { ISearchResultsListProps } from "./types";
@@ -6,6 +5,7 @@ import { Clinic } from "@/widgets";
 import { DataListWrapper } from "@/widgets/components/DataListWrapper";
 import { useNavigate } from "react-router";
 import { DoctorMore } from "@/entities";
+import styles from "./styles.module.scss";
 
 export const SearchResultsList: FC<ISearchResultsListProps> = ({
   filter,
@@ -22,7 +22,7 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
           isLoading={isLoading || isRefetching}
           listLength={data?.data.clinics.length || 0}
         >
-          <Cols gap={10} type="auto" count={1}>
+          <div className={styles.list}>
             {data?.data.clinics
               .filter((el) =>
                 Object.values(el).some((value) => {
@@ -40,7 +40,7 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
                   />
                 );
               })}
-          </Cols>
+          </div>
         </DataListWrapper>
       )}
 
@@ -50,7 +50,7 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
           isLoading={isLoading || isRefetching}
           listLength={data?.data.doctors.length || 0}
         >
-          <Cols gap={10} type="auto" count={1}>
+          <div className={styles.list}>
             {data?.data.doctors
               .filter((el) =>
                 Object.values(el).some((value) => {
@@ -62,7 +62,7 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
               .map((el) => {
                 return <DoctorMore key={el.id} data={el} />;
               })}
-          </Cols>
+          </div>
         </DataListWrapper>
       )}
     </>
