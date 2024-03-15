@@ -4,4 +4,9 @@
   margin-bottom: -16px;
   flex-grow: 1;
   width: calc(100% + 32px);
+
+  .content {
+    width: 100%;
+    display: flex;
+  }
 }

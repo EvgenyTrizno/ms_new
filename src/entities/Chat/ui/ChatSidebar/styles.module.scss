@@ -3,6 +3,7 @@
   padding: 16px;
   width: 40%;
   height: calc(100vh - 65px);
+  border-right: 1px solid var(--blue-100);
 
   .inner {
     display: flex;

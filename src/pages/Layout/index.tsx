@@ -8,9 +8,11 @@ import { BurgerMenu } from "@/widgets/components/BurgerMenu";
 import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
 import { Call, Sidebar } from "@/widgets/components";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
+import { useLocation } from "react-router";
 
 export const Layout: FC<TProps> = ({ children, bgColor = "blue" }) => {
   const { isOpen } = useBurgerMenu();
+  const location = useLocation();
 
   return (
     <div>
@@ -37,7 +39,7 @@ export const Layout: FC<TProps> = ({ children, bgColor = "blue" }) => {
       {/* {isOpen && <ExtraCallModal isOpen={isOpen} setIsOpen={setIsOpen} />} */}
       {isOpen && <BurgerMenu />}
 
-      <Call />
+      {location.pathname !== "/messages" && <Call />}
       <MobileMenu />
     </div>
   );

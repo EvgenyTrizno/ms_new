@@ -7,13 +7,18 @@ import { MobileMenu } from "@/widgets/components/MobileMenu";
 
 import { ChatSidebar } from "@/entities/Chat/ui/ChatSidebar";
 import styles from "./styles.module.scss";
+import { ChatField } from "@/entities/Chat/ui";
 
 const MessagesPage: FC = () => {
   return (
     <Layout>
       <div className={styles.inner}>
         <MobileHeader />
-        <ChatSidebar />
+        <div className={styles.content}>
+          <ChatSidebar />
+
+          <ChatField />
+        </div>
       </div>
     </Layout>
   );
