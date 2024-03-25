@@ -1,0 +1,45 @@
+.profileItem {
+  display: flex;
+  flex-direction: column;
+
+  .profileItemHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    cursor: pointer;
+
+    .profileItemLeft {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 160%;
+
+      img,
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .arrowActive {
+      transform: rotate(-90deg);
+    }
+  }
+
+  .content {
+    padding-top: 24px;
+  }
+
+  &:first-child {
+    .profileItemHeader {
+      .profileItemLeft {
+        svg path {
+          stroke: var(--blue);
+        }
+      }
+    }
+  }
+}

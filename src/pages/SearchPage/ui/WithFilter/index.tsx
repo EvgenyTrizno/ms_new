@@ -22,6 +22,7 @@ export const WithFilter: FC<PropsWithClassName<IWithFilterProps>> = ({
   return (
     <div className={cn(styles.wrapper, className)}>
       <Filter
+        className={styles.filter}
         data={filters}
         style={{ margin: "0 auto" }}
         isSelect={filter}

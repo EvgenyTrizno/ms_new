@@ -1,43 +1,52 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  background-color: var(--white);
-  margin-top: -16px;
-  margin-left: -16px;
-  margin-right: 16px;
-  width: calc(100% + 32px);
-  padding: 16px;
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
 
-  .statusText {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--dark-gray);
-  }
+  gap: 24px;
 
-  .tasksLink {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 500;
-    color: inherit;
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 24px;
   }
 }
 
-.doctor {
-  border-bottom: 1px solid var(--blue-100);
+.wrapperDoctors {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (min-width: 1024px) {
+    grid-column: span 2;
+  }
+}
+
+.calendarMobWrapper {
+  margin-left: -16px;
+  overflow-x: hidden;
+  width: calc(100% + 32px);
+  margin-top: -16px;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
 }
 
 .titleBlock {
-   font-size: 15px;
-   font-weight: 600;
-   margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .helper {
   padding-top: 4px !important;
   padding-bottom: 4px !important;
+}
+
+.calendarDesktop {
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
 }
