@@ -2,8 +2,6 @@ import { Layout } from "../Layout";
 import styles from "./styles.module.scss";
 import { Calendar, CustomMobileHeader } from "@/widgets";
 import { ROUTES } from "@/shared/utils/PATHS";
-import { Row } from "@/shared/ui/Row";
-import { Link } from "react-router-dom";
 import BoxWrapper from "@/entities/BoxWrapper";
 import User from "@/entities/User";
 import { CalendarMob } from "@/widgets/components";

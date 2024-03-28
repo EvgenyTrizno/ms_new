@@ -3,36 +3,60 @@ import styles from "./styles.module.scss";
 import { LikeIcon, SaveIcon, TelegramIcon } from "@/icons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
+import { Autoplay } from "swiper/modules";
 
 type Props = {
   id: number;
-  avatar: string;
-  fio: string;
-  rank: string;
-  text: string;
+  avatar?: string;
+  title?: string;
+  rank?: string;
+  text?: string;
   imgs: string[];
+  videos: string[];
 };
 
-export const Post: FC<Props> = ({ id, avatar, fio, rank, text, imgs }) => {
+export const Post: FC<Props> = ({
+  id,
+  avatar,
+  title,
+  rank,
+  text,
+  imgs,
+  videos,
+}) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.user}>
-        <img className={styles.userAvatar} src={avatar} alt="avatar" />
+        {avatar && (
+          <img className={styles.userAvatar} src={avatar} alt="avatar" />
+        )}
         <div className={styles.userContent}>
-          <p>{fio}</p>
-          <span>{rank}</span>
+          {title && <p>{title}</p>}
+          {rank && <p>{title}</p>}
         </div>
       </div>
 
       <p className={styles.text}>{text}</p>
 
-      <Swiper spaceBetween={10}>
-        {imgs.map((el, idx) => (
-          <SwiperSlide>
-            <img className={styles.img} src={el} alt="post-img" key={idx} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {imgs.length && (
+        <Swiper
+          spaceBetween={10}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          modules={[Autoplay]}
+        >
+          {imgs.map((el, idx) => (
+            <SwiperSlide>
+              <img className={styles.img} src={el} alt="post-img" key={idx} />
+            </SwiperSlide>
+          ))}
+
+          {videos.map((el, idx) => (
+            <SwiperSlide>
+              <video className={styles.img} src={el} key={idx} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
 
       <div className={styles.footer}>
         <div className={styles.btns}>

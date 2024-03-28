@@ -21,6 +21,7 @@ import {
 } from "@/icons";
 import BoxWrapper from "@/entities/BoxWrapper";
 import { ProfileItem } from "./ui/ProfileItem";
+import { AccountForm } from "./ui/AccountForm";
 
 const AccountPage: FC = () => {
   const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
@@ -118,7 +119,7 @@ const AccountPage: FC = () => {
 
             <div className={styles.list}>
               <ProfileItem icon={<AccountIcon />} title="Аккаунт">
-                <div>1</div>
+                <AccountForm />
               </ProfileItem>
               <ProfileItem
                 icon={

@@ -22,6 +22,13 @@ html {
   height: 100%;
 }
 
+.error-text {
+  color: var(--red-400) !important;
+}
+
+.success-text {
+  color: var(--green) !important;
+}
 
 @keyframes skeleton-loading {
   0% {

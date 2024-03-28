@@ -29,82 +29,80 @@ const MobileNotification: FC = () => {
     <>
       <CustomMobileHeader back text="Уведомления" />
       <Layout>
-        <Container>
-          <div className={styles.boxes}>
-            <div className={styles.box}>
-              <Text type="p" fz="14px" color="#7D7F82">
-                Непрочитанные
-              </Text>
-              <div className={styles.list}>
-                {notificationsData?.data.reverse().map((el) => {
-                  return (
-                    <Notification
-                      key={el.id}
-                      userSrcAvatar={el.user?.image}
-                      title={el.text}
-                      time={formatRelativeDate(new Date(el.created_at))}
-                      userType="standart"
-                    />
-                  );
-                })}
-              </div>
-            </div>
-
-            {notificationsData?.data.find((el) => {
-              return currentDate === new Date(el.created_at);
-            }) && (
-              <div className={styles.box}>
-                <Text type="p" fz="14px" color="#7D7F82">
-                  Сегодня
-                </Text>
-                <div className={styles.list}>
-                  {notificationsData?.data
-                    .filter((el) => {
-                      return currentDate === new Date(el.created_at);
-                    })
-                    .reverse()
-                    .map((el) => {
-                      return (
-                        <Notification
-                          key={el.id}
-                          userSrcAvatar={el.user?.image}
-                          title={el.text}
-                          time={formatRelativeDate(new Date(el.created_at))}
-                          userType="standart"
-                        />
-                      );
-                    })}
-                </div>
-              </div>
-            )}
-
-            <div className={`${styles.box} ${styles.systemBox}`}>
-              <div className={`${styles.list} ${styles.systemList}`}>
-                <Notification
-                  type="system"
-                  systemType="time"
-                  title="Напоминание о записи завтра в 12:00"
-                  time="2 дня назад"
-                />
-
-                <Notification
-                  type="system"
-                  systemType="success"
-                  title="Напоминание о записи завтра в 12:00"
-                  time="2 дня назад"
-                />
-
-                <Notification
-                  type="system"
-                  systemType="error"
-                  title="Верификация лица была отклонена."
-                  link={{ title: "Узнать причину", href: "#" }}
-                  time="2 дня назад"
-                />
-              </div>
+        <div className={styles.boxes}>
+          <div className={styles.box}>
+            <Text type="p" fz="14px" color="#7D7F82">
+              Непрочитанные
+            </Text>
+            <div className={styles.list}>
+              {notificationsData?.data.reverse().map((el) => {
+                return (
+                  <Notification
+                    key={el.id}
+                    userSrcAvatar={el.user?.image}
+                    title={el.text}
+                    time={formatRelativeDate(new Date(el.created_at))}
+                    userType="standart"
+                  />
+                );
+              })}
             </div>
           </div>
-        </Container>
+
+          {notificationsData?.data.find((el) => {
+            return currentDate === new Date(el.created_at);
+          }) && (
+            <div className={styles.box}>
+              <Text type="p" fz="14px" color="#7D7F82">
+                Сегодня
+              </Text>
+              <div className={styles.list}>
+                {notificationsData?.data
+                  .filter((el) => {
+                    return currentDate === new Date(el.created_at);
+                  })
+                  .reverse()
+                  .map((el) => {
+                    return (
+                      <Notification
+                        key={el.id}
+                        userSrcAvatar={el.user?.image}
+                        title={el.text}
+                        time={formatRelativeDate(new Date(el.created_at))}
+                        userType="standart"
+                      />
+                    );
+                  })}
+              </div>
+            </div>
+          )}
+
+          <div className={`${styles.box} ${styles.systemBox}`}>
+            <div className={`${styles.list} ${styles.systemList}`}>
+              <Notification
+                type="system"
+                systemType="time"
+                title="Напоминание о записи завтра в 12:00"
+                time="2 дня назад"
+              />
+
+              <Notification
+                type="system"
+                systemType="success"
+                title="Напоминание о записи завтра в 12:00"
+                time="2 дня назад"
+              />
+
+              <Notification
+                type="system"
+                systemType="error"
+                title="Верификация лица была отклонена."
+                link={{ title: "Узнать причину", href: "#" }}
+                time="2 дня назад"
+              />
+            </div>
+          </div>
+        </div>
       </Layout>
 
       <MobileMenu />

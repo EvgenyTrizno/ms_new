@@ -4,6 +4,8 @@ import styles from "./styles.module.scss";
 import { Number } from "../Number";
 import { Email } from "../Email";
 
+type Props 
+
 export const Protection: FC = () => {
     return (
         <div className={styles.wrapper}>
