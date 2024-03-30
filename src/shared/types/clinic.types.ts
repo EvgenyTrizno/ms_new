@@ -1,6 +1,5 @@
 import { Doctor } from ".";
 import { IDisease } from "./disease.interface";
-import { IEmployee } from "./empoyee.interface";
 import { IUserData } from "./user.types";
 
 export interface IClinic {
@@ -28,6 +27,8 @@ export interface IClinic {
   city: string;
   employees: Doctor[];
   supported_diseases: IDisease[];
+  online_notes: number;
+  offline_notes: number;
 }
 
 export type ClinicResTypes = {

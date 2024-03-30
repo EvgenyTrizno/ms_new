@@ -6,14 +6,27 @@ import { LinksItem } from "./LinksItem/LinksItem";
 import { CooperationIcon, HarwareIcon, NoWifiIcon, WifiIcon } from "@/icons";
 import { ROUTES } from "@/shared/utils/PATHS";
 
-export const Links: FC<PropsWithClassName> = ({ className }) => {
+type Props = {
+  onlineCount: number;
+  offlineCount: number;
+  cooperationCount: number;
+  hardwareCount: number;
+};
+
+export const Links: FC<PropsWithClassName<Props>> = ({
+  className,
+  onlineCount,
+  offlineCount,
+  cooperationCount,
+  hardwareCount,
+}) => {
   return (
     <div className={cn(className, styles.wrapper)}>
       <LinksItem
         className={styles.item}
         href="/"
         title="Онлайн записи"
-        count={24}
+        count={onlineCount}
         icon={<WifiIcon />}
       />
       <LinksItem
@@ -21,21 +34,21 @@ export const Links: FC<PropsWithClassName> = ({ className }) => {
         href="/"
         title="Оффлайн
         записи"
-        count={24}
+        count={offlineCount}
         icon={<NoWifiIcon />}
       />
       <LinksItem
         className={styles.item}
         href={ROUTES.cooperation.path}
         title={ROUTES.cooperation.label}
-        count={24}
+        count={cooperationCount}
         icon={<CooperationIcon />}
       />
       <LinksItem
         className={styles.item}
         href={ROUTES.hardware.path}
         title={ROUTES.hardware.label}
-        count={24}
+        count={hardwareCount}
         icon={<HarwareIcon />}
       />
     </div>
