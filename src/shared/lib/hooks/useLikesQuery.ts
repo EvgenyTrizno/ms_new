@@ -1,14 +1,14 @@
 import { useQuery } from "react-query";
 
 import { useCookie } from "@/shared/lib/hooks/useCookie";
-import { getSaved } from "@/shared/api/saved.api";
+import { getLikes } from "@/shared/api";
 
-export const useSavedQuery = () => {
+export const useLikesQuery = () => {
   const { getCookie } = useCookie();
 
   return useQuery(
-    ["saved"],
-    () => getSaved(getCookie("access_token") as string),
+    ["likes"],
+    () => getLikes(getCookie("access_token") as string),
     {
       keepPreviousData: true,
       staleTime: 5 * 60 * 1000,

@@ -12,3 +12,8 @@ export type SavedRes = {
   previous?: string;
   results: Save[];
 };
+
+export type SendSaveData = {
+  user: number;
+  news: number;
+}

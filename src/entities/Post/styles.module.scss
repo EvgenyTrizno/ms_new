@@ -103,3 +103,11 @@
     }
   }
 }
+
+.saveActive path {
+  fill: var(--blue) !important;
+}
+
+.likeActive path {
+  fill: var(--red-400) !important;
+}

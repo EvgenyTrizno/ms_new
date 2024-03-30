@@ -3,7 +3,8 @@ export * from "./notes.types";
 export * from "./clinic.types";
 export * from "./notifications.types";
 export * from "./doctors.type";
-export * from "./saved.types.ts";
+export * from "./saved.types";
+export * from "./likes.types";
 
 import {
   HTMLInputTypeAttribute,
