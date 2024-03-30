@@ -38,7 +38,7 @@ export const Post: FC<Props> = ({
 
       <p className={styles.text}>{text}</p>
 
-      {imgs.length && (
+      {(imgs.length > 0 || videos.length > 0) && (
         <Swiper
           spaceBetween={10}
           autoplay={{ delay: 3000, disableOnInteraction: false }}

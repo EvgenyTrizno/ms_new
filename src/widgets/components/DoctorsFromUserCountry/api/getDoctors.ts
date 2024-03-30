@@ -35,7 +35,7 @@ export interface IDoctorResponse {
 export async function getDoctors(
   token: string
 ): Promise<AxiosResponse<Doctor[]>> {
-  return await instance.get(`/notes/doctors/`, {
+  return await instance.get(`/notes_doctors`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

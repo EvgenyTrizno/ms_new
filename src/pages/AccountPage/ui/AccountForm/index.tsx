@@ -58,7 +58,7 @@ export const AccountForm = () => {
         setValue(key, value);
       }
     });
-  });
+  }, [setValue, user]);
 
   const formHandler = (data: AccountMoreDetailedFormData) => {
     const {

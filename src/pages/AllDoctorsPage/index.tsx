@@ -5,8 +5,22 @@ import { ROUTES } from "@/shared/utils/PATHS";
 import BoxWrapper from "@/entities/BoxWrapper";
 import User from "@/entities/User";
 import { CalendarMob } from "@/widgets/components";
+import { useDoctors } from "@/shared/model/store/useDoctors";
+import { useEffect, useState } from "react";
+import { Doctor } from "@/shared/types";
 
 const AllDoctorsPage = () => {
+  const { doctors } = useDoctors();
+  const [mainDoctors, setMainDoctors] = useState<Doctor[]>([]);
+  const [additionalDoctors, setAdditionalDoctors] = useState<Doctor[]>([]);
+
+  useEffect(() => {
+    if (!doctors) return;
+
+    setMainDoctors(doctors.filter((doctor) => doctor.main_status));
+    setAdditionalDoctors(doctors.filter((doctor) => !doctor.main_status));
+  }, [doctors]);
+
   return (
     <Layout>
       <CustomMobileHeader back text={ROUTES.allDoctors.label} />
@@ -21,51 +35,17 @@ const AllDoctorsPage = () => {
             <h5 className={styles.titleBlock}>Основные врачи:</h5>
 
             <BoxWrapper className={styles.helper} color="white">
-              <User
-                withEdit={false}
-                count={1}
-                data={{
-                  image: "/assets/avatar.png",
-                  surname: "Corey",
-                  first_name: "Siphron",
-                }}
-              />
-              <User
-                withEdit={false}
-                count={2}
-                data={{
-                  image: "/assets/avatar.png",
-                  surname: "Corey",
-                  first_name: "Siphron",
-                }}
-              />
-              <User
-                withEdit={false}
-                count={3}
-                data={{
-                  image: "/assets/avatar.png",
-                  surname: "Corey",
-                  first_name: "Siphron",
-                }}
-              />
-              <User
-                withEdit={false}
-                count={4}
-                data={{
-                  image: "/assets/avatar.png",
-                  surname: "Corey",
-                  first_name: "Siphron",
-                }}
-              />
-              <User
-                withEdit={false}
-                count={5}
-                data={{
-                  image: "/assets/avatar.png",
-                  surname: "Corey",
-                  first_name: "Siphron",
-                }}
-              />
+              {mainDoctors?.map((doctor, idx) => (
+                <User
+                  withEdit={false}
+                  count={idx + 1}
+                  data={{
+                    image: doctor.image,
+                    surname: doctor.last_name || undefined,
+                    first_name: doctor.first_name || undefined,
+                  }}
+                />
+              ))}
             </BoxWrapper>
           </div>
 
@@ -73,51 +53,17 @@ const AllDoctorsPage = () => {
             <h5 className={styles.titleBlock}>Дополнительные врачи:</h5>
 
             <BoxWrapper className={styles.helper} color="white">
-              <User
-                withEdit={false}
-                count={1}
-                data={{
-                  image: "/assets/avatar.png",
-                  surname: "Corey",
-                  first_name: "Siphron",
-                }}
-              />
-              <User
-                withEdit={false}
-                count={2}
-                data={{
-                  image: "/assets/avatar.png",
-                  surname: "Corey",
-                  first_name: "Siphron",
-                }}
-              />
-              <User
-                withEdit={false}
-                count={3}
-                data={{
-                  image: "/assets/avatar.png",
-                  surname: "Corey",
-                  first_name: "Siphron",
-                }}
-              />
-              <User
-                withEdit={false}
-                count={4}
-                data={{
-                  image: "/assets/avatar.png",
-                  surname: "Corey",
-                  first_name: "Siphron",
-                }}
-              />
-              <User
-                withEdit={false}
-                count={5}
-                data={{
-                  image: "/assets/avatar.png",
-                  surname: "Corey",
-                  first_name: "Siphron",
-                }}
-              />
+              {additionalDoctors?.map((doctor, idx) => (
+                <User
+                  withEdit={false}
+                  count={idx + 1}
+                  data={{
+                    image: doctor.image,
+                    surname: doctor.last_name || undefined,
+                    first_name: doctor.first_name || undefined,
+                  }}
+                />
+              ))}
             </BoxWrapper>
           </div>
         </div>
