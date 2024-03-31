@@ -4,8 +4,11 @@ import { IFilterObj, IWithFilterProps } from "./types";
 import { Filter } from "@/shared/ui/Filter";
 import { SearchResultsList } from "@/entities/SearchResultsList";
 import styles from "./styles.module.scss";
+import { PropsWithClassName } from "@/shared/types";
+import cn from "clsx";
 
-export const WithFilter: FC<IWithFilterProps> = ({
+export const WithFilter: FC<PropsWithClassName<IWithFilterProps>> = ({
+  className,
   setFilter,
   filter,
   search,
@@ -17,8 +20,9 @@ export const WithFilter: FC<IWithFilterProps> = ({
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={cn(styles.wrapper, className)}>
       <Filter
+        className={styles.filter}
         data={filters}
         style={{ margin: "0 auto" }}
         isSelect={filter}

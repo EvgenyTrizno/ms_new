@@ -1,29 +1,60 @@
-import { FC, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 
 import { Layout } from "../Layout";
-import { Container } from "@/shared/ui/Container";
 import { Filter } from "@/shared/ui/Filter";
-import { AppointmentsList } from "./ui";
-import { MOBILE, TABLET } from "@/shared/utils";
+import { MOBILE } from "@/shared/utils";
 import { CustomMobileHeader } from "@/widgets";
+import styles from "./styles.module.scss";
+import { Appointment } from "./ui/Appointment";
+import { Search } from "@/features/Search";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
 
 const AppointmentsPage: FC = () => {
-  const filters = ["Предложения", "Популярные", "Подписка", "Корзина"];
-  const [filter, setFilter] = useState<(typeof filters)[number]>("Предложения");
+  const [filter, setFilter] = useState<string>("Предложения");
+  const [search, setSearch] = useState("");
+
+  const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
 
   return (
     <Layout>
-      {(MOBILE || TABLET) && <CustomMobileHeader back text="Назначения" />}
-      <Container>
-        <Filter
-          width="max-content"
-          data={filters}
-          isSelect={filter}
-          setIsSelect={setFilter}
+      <CustomMobileHeader back text="Назначения" />
+
+      <div className={styles.content}>
+        <Search
+          placeholder="Введите запрос"
+          height="48px"
+          onChange={onChangeSearch}
+          value={search}
+          additionalBlock={
+            MOBILE ? (
+              <FilterBtn type="small" onClick={() => console.log("click")} />
+            ) : undefined
+          }
         />
 
-        <AppointmentsList />
-      </Container>
+        <Filter
+          className={styles.filter}
+          isSelect={filter}
+          setIsSelect={setFilter}
+          data={[
+            "Предложения ",
+            "Популярные",
+            "Подписка ",
+            "Платежи",
+            "Задачи ",
+            "Корзина",
+          ]}
+        />
+
+        <div className={styles.list}>
+          <Appointment />
+          <Appointment />
+          <Appointment />
+          <Appointment />
+        </div>
+      </div>
     </Layout>
   );
 };

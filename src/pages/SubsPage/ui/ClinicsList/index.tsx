@@ -3,6 +3,7 @@ import { ClinicCard } from "../ClinicCard";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { SliderHeader } from "@/widgets";
 import { SliderWrapper } from "@/widgets/components/SliderWrapper";
+import styles from "./styles.module.scss";
 
 export const ClinicsList: FC = () => {
   const swiperRef = useRef<SwiperRef>(null);
@@ -19,15 +20,60 @@ export const ClinicsList: FC = () => {
         slidesOffsetBefore={16}
         slidesOffsetAfter={16}
         navigation
+        breakpoints={{
+          768: {
+            slidesPerView: 2.3,
+          },
+
+          1024: {
+            slidesPerView: 2.4,
+          },
+
+          1280: {
+            slidesPerView: 4.5
+          },
+
+          1400: {
+            slidesPerView: 4.5,
+          },
+        }}
       >
         <SwiperSlide>
-          <ClinicCard />
+          <div className={styles.clinicCardWrapper}>
+            <ClinicCard />
+            <ClinicCard />
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <ClinicCard />
+          <div className={styles.clinicCardWrapper}>
+            <ClinicCard />
+            <ClinicCard />
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <ClinicCard />
+          <div className={styles.clinicCardWrapper}>
+            <ClinicCard />
+            <ClinicCard />
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className={styles.clinicCardWrapper}>
+            <ClinicCard />
+            <ClinicCard />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles.clinicCardWrapper}>
+            <ClinicCard />
+            <ClinicCard />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles.clinicCardWrapper}>
+            <ClinicCard />
+            <ClinicCard />
+          </div>
         </SwiperSlide>
       </Swiper>
     </SliderWrapper>

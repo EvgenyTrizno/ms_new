@@ -1,7 +1,6 @@
 import { MainData } from "@/pages/AccountPage/ui/MainData";
 import styles from "./AccountMoreDetailedForm.module.scss";
 import { Interest } from "@/pages/AccountPage/ui/Interest";
-import { Protection } from "../../Protection";
 import { useForm } from "react-hook-form";
 import { AccountMoreDetailedFormData } from "@/shared/types/formsTypes";
 import { Button } from "@/shared/ui";
@@ -11,9 +10,11 @@ import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { IUserData } from "@/shared/types";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/shared/model/store/auth";
+import { Email } from "../../Protection/ui/Email";
+import { Number } from "../../Protection/ui/Number";
 
 export const AccountMoreDetailedForm = () => {
-  const { register, handleSubmit, setValue } =
+  const { register, handleSubmit, setValue, watch } =
     useForm<AccountMoreDetailedFormData>();
   const { getCookie } = useCookie();
   const {
@@ -55,6 +56,7 @@ export const AccountMoreDetailedForm = () => {
       email: user.email,
       sex: user.sex,
       interest: user.interest,
+      number: user.number,
     };
 
     Object.entries(data).forEach((el) => {
@@ -120,7 +122,22 @@ export const AccountMoreDetailedForm = () => {
 
       <div>
         <p className={styles.groupTitle}>Защита профиля</p>
-        <Protection />
+        <div className={styles.protection}>
+          <Number
+            hookFormData={{
+              register,
+              registerName: "number",
+            }}
+            verify={!!watch("number")}
+          />
+          <Email
+            hookFormData={{
+              register,
+              registerName: "email",
+            }}
+            verify={!!watch("email")}
+          />
+        </div>
       </div>
 
       <Button type="submit" color={typeBtn} title="Сохранить" />

@@ -1,0 +1,25 @@
+.layout {
+  @media (max-width: 768px) {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+.header {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+.inner {
+  margin-left: -16px;
+  margin-top: -16px;
+  margin-bottom: -16px;
+  flex-grow: 1;
+  width: calc(100% + 32px);
+
+  .content {
+    width: 100%;
+    display: flex;
+  }
+}

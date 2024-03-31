@@ -3,6 +3,8 @@ export * from "./notes.types";
 export * from "./clinic.types";
 export * from "./notifications.types";
 export * from "./doctors.type";
+export * from "./saved.types";
+export * from "./likes.types";
 
 import {
   HTMLInputTypeAttribute,
@@ -12,7 +14,6 @@ import {
 } from "react";
 import {
   FieldValues,
-  Path,
   RegisterOptions,
   UseFormRegister,
 } from "react-hook-form";

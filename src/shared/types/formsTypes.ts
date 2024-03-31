@@ -8,6 +8,6 @@ export type AccountMoreDetailedFormData = {
   city: string;
   address: string;
   interest: string;
-  phone: string;
+  number: string;
   email: string;
 };

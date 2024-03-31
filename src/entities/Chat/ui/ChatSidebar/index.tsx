@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, ChangeEvent } from "react";
 
 import { Rows } from "@/shared/ui/Rows";
 import { Search } from "@/features/Search";
@@ -13,50 +13,48 @@ import styles from "./styles.module.scss";
 import { MOBILE, TABLET } from "@/shared/utils";
 
 export const ChatSidebar: FC = () => {
-    const [filter, setFilter] = useState("Сообщения");
-    const [search, setSearch] = useState<string>("");
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [filter, setFilter] = useState("Сообщения");
+  const [search, setSearch] = useState<string>("");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const { user } = useAuth();
+  const { user } = useAuth();
 
-    useEffect(() => {
-        const extraBtn = document.querySelector("#extraBtn") as HTMLElement;
+  useEffect(() => {
+    const extraBtn = document.querySelector("#extraBtn") as HTMLElement;
 
-        extraBtn && !MOBILE && !TABLET && (extraBtn.style.display = "none");
+    extraBtn && !MOBILE && !TABLET && (extraBtn.style.display = "none");
 
-        return () => {
-            extraBtn && (extraBtn.style.display = "block");
-        };
-    }, []);
+    return () => {
+      extraBtn && (extraBtn.style.display = "block");
+    };
+  }, []);
 
-    return (
-        <div className={styles.sidebar}>
-            <Rows gap={10} rows={["auto"]}>
-                <Row gap={6}>
-                    <Search
-                        placeholder="Поиск чатов"
-                        onChange={(e) =>
-                            setSearch((e && e.target.value) as string)
-                        }
-                        value=""
-                    />
-                    {user && user.group?.name === "Врачи" && (
-                        <FilterBtn
-                            isActive={isOpen}
-                            type="small"
-                            onClick={() => setIsOpen((prev) => !prev)}
-                        />
-                    )}
-                </Row>
-                {isOpen && <FiltersList />}
-                <Filter
-                    isSelect={filter}
-                    setIsSelect={setFilter}
-                    data={["Сообщения", "Звонки"]}
-                    width="100%"
-                />
-                {filter === "Сообщения" ? <ChatList search={search} /> : null}
-            </Rows>
-        </div>
-    );
+  const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
+  return (
+    <div className={styles.sidebar}>
+      <div className={styles.inner}>
+        <Search
+          placeholder="Поиск чатов"
+          height="48px"
+          onChange={onChangeSearch}
+          value={search}
+          showSearchByScroll={false}
+          additionalBlock={
+            <FilterBtn type="small" onClick={() => console.log("click")} />
+          }
+        />
+
+        <Filter
+          isSelect={filter}
+          setIsSelect={setFilter}
+          data={["Сообщения", "Звонки"]}
+        />
+
+        <ChatList search={search} />
+      </div>
+    </div>
+  );
 };

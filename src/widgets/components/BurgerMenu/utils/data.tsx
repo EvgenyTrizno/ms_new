@@ -65,8 +65,8 @@ export const menuData: IMenuData = {
     },
 
     {
-      label: ROUTES.diagnosis.label,
-      path: ROUTES.diagnosis.path,
+      label: ROUTES.pacientDiagnosis.label,
+      path: ROUTES.pacientDiagnosis.path,
       icon: <DiagnosisIcon className={styles.icon} />,
     },
 

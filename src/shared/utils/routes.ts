@@ -16,7 +16,7 @@ const NotesPage = lazy(() => import("@/pages/Notes"));
 const MedicalCardPage = lazy(() => import("@/pages/MedicalCard"));
 const NotesInfoPage = lazy(() => import("@/pages/NotesInfo"));
 const CreateEventPage = lazy(() => import("@/pages/CreateEvent"));
-const MessagesPage = lazy(() => import("@/pages/Messages"));
+const MessagesPage = lazy(() => import("@/pages/MessagesPage"));
 const MedicalTestPage = lazy(() => import("@/pages/MedicalTest"));
 const CreateNewPassPage = lazy(() => import("@/pages/CreateNewPass"));
 const NotFoundPage = lazy(() => import("@/pages/404Page/NotFoundPage"));

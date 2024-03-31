@@ -1,18 +1,20 @@
 import { instance } from "@/shared/config/axiosInstance";
-import { IClinic } from "@/shared/types/clinic.types";
-import { IDisease } from "@/shared/types/disease.interface";
 import { AxiosResponse } from "axios";
 
 interface IPostsResponse {
-  center: IClinic | null;
-  clinic: IClinic | null;
-  created_at: Date;
-  disease: IDisease;
   id: number;
-  image: string[];
-  text: string;
-  title: string;
-  update_at: Date;
+  title: string | null;
+  text: string | null;
+  clinic: number | null;
+  disease: number | null;
+  news_images: {
+    image: string;
+  }[];
+  news_videos: { video: string }[];
+  quant_likes: number;
+
+  upload_images?: string[];
+  upload_videos?: string[];
 }
 
 export async function getPost(): Promise<AxiosResponse<IPostsResponse[]>> {

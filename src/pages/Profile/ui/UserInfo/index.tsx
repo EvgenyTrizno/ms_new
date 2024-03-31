@@ -53,7 +53,7 @@ export const User: FC = () => {
                     )}
                 </Text>
                 <Text type="p" color="#B1B2B4" fz="14px">
-                    {user && user.group.name}
+                    {user && user.group?.name}
                 </Text>
             </div>
         </div>

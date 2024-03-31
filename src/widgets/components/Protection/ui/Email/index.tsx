@@ -1,17 +1,22 @@
-import { FC } from "react";
-
 import { Layout } from "../Layout";
 import { Input } from "@/shared/ui/Input";
-import { useAuth } from "@/shared/model/store/auth";
+import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
 
-export const Email: FC = () => {
-    const { user } = useAuth();
+type Props<T extends FieldValues> = {
+  hookFormData?: {
+    register: UseFormRegister<T>;
+    registerName: string;
+    options?: RegisterOptions;
+  };
+  verify: boolean;
+};
 
-    return (
-        <Layout
-            input={<Input type="text" />}
-            verify={!!user?.email}
-            text="Эл. почта"
-        />
-    );
+export const Email = <T extends FieldValues>({ hookFormData, verify }: Props<T>) => {
+  return (
+    <Layout
+      input={<Input type="text" hookFormData={hookFormData} />}
+      verify={verify}
+      text="Эл. почта"
+    />
+  );
 };

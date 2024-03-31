@@ -7,8 +7,10 @@ import { Image } from "../Image";
 
 import controller from "./assets/controller.svg";
 import close from "./assets/close.svg";
+import { PropsWithClassName } from "@/shared/types";
 
-export const FilterBtn: FC<IFilterBtnProps> = ({
+export const FilterBtn: FC<PropsWithClassName<IFilterBtnProps>> = ({
+  className,
   onClick,
   type = "big",
   isActive,
@@ -17,6 +19,7 @@ export const FilterBtn: FC<IFilterBtnProps> = ({
     <>
       {type === "big" ? (
         <Btn
+          className={className}
           color="#0064FA"
           width="133px"
           minW="133px"
@@ -31,6 +34,7 @@ export const FilterBtn: FC<IFilterBtnProps> = ({
         </Btn>
       ) : (
         <Btn
+          className={className}
           color="#0064FA"
           width="34px"
           minW="34px"
@@ -39,7 +43,7 @@ export const FilterBtn: FC<IFilterBtnProps> = ({
           padding="8px"
           br="8px"
         >
-          <Row gap={10}>
+          <Row style={{ justifyContent: "center" }} gap={10}>
             <Image
               src={isActive ? close : controller}
               alt="controller"

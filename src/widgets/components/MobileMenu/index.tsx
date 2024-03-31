@@ -45,6 +45,7 @@ export const MobileMenu: FC = () => {
           key={idx}
           className={item.path === location.pathname ? styles.active : ""}
           onClick={() => navigate(item.path)}
+          style={{ cursor: "pointer" }}
         >
           {item.svg}
         </div>

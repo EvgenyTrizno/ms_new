@@ -4,8 +4,11 @@ import { IFilter } from "./types";
 import { useAuth } from "@/shared/model/store/auth";
 
 import styles from "./styles.module.scss";
+import { PropsWithClassName } from "@/shared/types";
+import cn from "clsx";
 
-export const Filter: FC<IFilter> = ({
+export const Filter: FC<PropsWithClassName<IFilter>> = ({
+  className,
   data,
   icons,
   setIsSelect,
@@ -19,9 +22,7 @@ export const Filter: FC<IFilter> = ({
   const sick = user && user.disease.length;
 
   return (
-    <div
-      className={styles.container}
-    >
+    <div className={cn(styles.container, className)}>
       {data.map((item, i) => (
         <div
           className={`${

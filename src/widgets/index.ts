@@ -10,7 +10,7 @@ import { ErrorBoundaryFallback } from "./components/ErrorBoundaryFallback/ErrorB
 import { MobileComment } from "./components/MobileComment/MobileComment";
 import { ParamsBlock } from "./components/ParamsBlock/ParamsBlock";
 import { SearchResultBlock } from "./components/SearchResultBlock/SearchResultBlock";
-import { ReminderBlock } from "./components/ReminderBlock/ReminderBlock";
+import { ReminderBlock } from "./components/ReminderBlock";
 import { LoginForPersonal } from "./components/Auth/LoginForPersonal/LoginForPersonal";
 import { Interview } from "./components/Auth/Interview/Interview";
 import { SmallDropbox } from "./components/SmallDropbox/SmallDropbox";

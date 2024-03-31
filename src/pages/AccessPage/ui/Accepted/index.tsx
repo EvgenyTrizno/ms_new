@@ -17,6 +17,9 @@ export const Accepted: FC = () => {
         {PC || SMALL_LAPTOP || (LAPTOP && <AddBtn onClick={() => ({})} />)}
       </Row>
       <User />
+      <User />
+      <User />
+      <User />
     </Rows>
   );
 };

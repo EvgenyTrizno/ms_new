@@ -13,7 +13,6 @@ import { getClinicById } from "@/shared/api";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { IClinic } from "@/shared/types";
 import { useClinic } from "@/shared/model/store/clinic";
-import { MobileHeader } from "@/widgets/components/MobileHeader";
 import { CustomMobileHeader } from "@/widgets";
 
 const ClinicPage = () => {
@@ -114,7 +113,12 @@ const ClinicPage = () => {
         <Button title="Подписаться" onClick={() => console.log("click")} />
       </div>
 
-      <Links />
+      <Links
+        onlineCount={clinicDataApi?.data.clinic[0].online_notes || 0}
+        offlineCount={clinicDataApi?.data.clinic[0].offline_notes || 0}
+        cooperationCount={clinicDataApi?.data.clinic[0].employees.length || 0}
+        hardwareCount={0}
+      />
       <Characteristics className={styles.characteristics} />
 
       <News />

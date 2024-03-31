@@ -50,12 +50,13 @@ const App = () => {
     keepPreviousData: true,
     staleTime: 5 * 60 * 1000,
     cacheTime: 30 * 60 * 1000,
+    retry: false,
     onSuccess: (data) => {
       setDoctors(data.data);
     },
   });
 
-  // const isLoading = useLoader();
+  const isLoading = useLoader();
 
   useEffect(() => {
     if (!userData) return;
@@ -65,23 +66,23 @@ const App = () => {
 
   return (
     // <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
-      <PSuspense>
-        <AnimatePresence initial={true}>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Routes>
-              {routes.map((page, i) => (
-                <Route key={i} {...page} />
-              ))}
-            </Routes>
-            {/* {isLoading && <PageLoader />} */}
-          </motion.div>
-        </AnimatePresence>
-      </PSuspense>
+    <PSuspense>
+      <AnimatePresence initial={true}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Routes>
+            {routes.map((page, i) => (
+              <Route key={i} {...page} />
+            ))}
+          </Routes>
+          {isLoading && <PageLoader />}
+        </motion.div>
+      </AnimatePresence>
+    </PSuspense>
     // </ErrorBoundary>
   );
 };

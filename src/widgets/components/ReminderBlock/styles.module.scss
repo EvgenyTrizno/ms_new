@@ -1,0 +1,18 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  text-align: center;
+
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 12px;
+  font-weight: 500;
+
+  @media (min-width: 1024px) {
+    max-width: 360px;
+  }
+}

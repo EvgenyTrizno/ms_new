@@ -46,7 +46,7 @@ const MedTasksPage = () => {
 
       <div className={styles.content}>
         <Search
-          placeholder="Поиск чатов"
+          placeholder="Поиск"
           height="48px"
           onChange={onChangeSearch}
           value={search}

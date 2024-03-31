@@ -7,13 +7,17 @@ import bureger from "./assets/BurgerMenu.svg";
 import buregerClose from "./assets/Close.svg";
 import styles from "./styles.module.scss";
 import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
+import { FC } from "react";
+import { PropsWithClassName } from "@/shared/types";
 
-export const MobileHeader = () => {
+import cn from "clsx";
+
+export const MobileHeader: FC<PropsWithClassName> = ({ className }) => {
   const { isOpen, setIsOpen } = useBurgerMenu();
   const navigate = useNavigate();
-  
+
   return (
-    <div className={styles.mobileHeader}>
+    <div className={cn(styles.mobileHeader, className)}>
       {/* <Avatar
                 img={man}
                 size={52}
