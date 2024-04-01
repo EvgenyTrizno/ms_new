@@ -6,6 +6,3 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
-    volumes:
-      - ./src:/app/src
-      - ./index.html:/app/index.html
