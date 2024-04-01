@@ -5,10 +5,10 @@ import { IClinic } from "@/shared/types/clinic.types";
 import { IUserData } from "@/shared/types/user.types";
 
 interface IClinicModify extends IClinic {
-    online_notes: string;
-    offline_notes: string;
-    visit_online: string;
-    visit_offline: string;
+    online_notes: number;
+    offline_notes: number;
+    visit_online: number;
+    visit_offline: number;
 }
 
 interface IClinicResponse {

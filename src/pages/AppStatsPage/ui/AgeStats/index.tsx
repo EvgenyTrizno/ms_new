@@ -67,7 +67,7 @@ export const AgeStats: FC = () => {
                     color: "#3C3D3E",
                     font: {
                         size: 16,
-                        weight: "medium",
+                        weight: "normal",
                     },
                 },
                 border: {

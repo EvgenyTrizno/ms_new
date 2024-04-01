@@ -8,13 +8,10 @@ import { File } from "@/entities";
 import styles from "./styles.module.scss";
 import BoxWrapper from "@/entities/BoxWrapper";
 import { Link } from "react-router-dom";
-import { useSavedQuery } from "@/shared/lib/hooks";
 
 const SavedPage: FC = () => {
   const fileSwiperRef = useRef<SwiperRef>(null);
   const gallerySwiperRef = useRef<SwiperRef>(null);
-
-  const { data } = useSavedQuery();
 
   return (
     <Layout>

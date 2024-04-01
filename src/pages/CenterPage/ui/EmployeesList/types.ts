@@ -1,5 +1,5 @@
-import { IEmployee } from "@/shared/types/empoyee.interface";
+import { Doctor } from "@/shared/types";
 
 export interface IEmployeesList {
-    data: IEmployee[];
+    data: Doctor[];
 }

@@ -11,7 +11,6 @@ const RecoveryPage = lazy(() => import("@/pages/RecoveryPage"));
 const SelectCenterPage = lazy(() => import("@/pages/SelectCenter"));
 const ConfirmationPage = lazy(() => import("@/pages/ConfirmationPage"));
 const SearchPage = lazy(() => import("@/pages/SearchPage"));
-const ProfilePage = lazy(() => import("@/pages/Profile"));
 const NotesPage = lazy(() => import("@/pages/Notes"));
 const MedicalCardPage = lazy(() => import("@/pages/MedicalCard"));
 const NotesInfoPage = lazy(() => import("@/pages/NotesInfo"));
@@ -29,7 +28,6 @@ const BalancePage = lazy(() => import("@/pages/Balance"));
 const AbountCenterPage = lazy(
   () => import("@/pages/AboutCenter/AboutCenterPage")
 );
-const ClinicProfilePage = lazy(() => import("@/pages/ClinicProfile"));
 const AppStatsPage = lazy(() => import("@/pages/AppStatsPage"));
 const LeadsPage = lazy(() => import("@/pages/LeadsPage"));
 const AdminPanelMapPage = lazy(() => import("@/pages/AdminPanelMap"));
@@ -94,7 +92,6 @@ export const routes: RouteProps[] = [
     path: "/search",
     Component: SearchPage,
   },
-  { path: "/profile", Component: ProfilePage },
   {
     path: "/medical-card",
     Component: MedicalCardPage,

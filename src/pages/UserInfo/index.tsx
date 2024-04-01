@@ -32,11 +32,11 @@ const UserInfoPage: FC = () => {
                         <UserInfo
                             img={user?.image ?? ""}
                             name={user?.first_name ?? ""}
-                            country={`${user?.country.name}, ${user?.city.name}`}
+                            country={`${user?.country?.name}, ${user?.city?.name}`}
                             street={user?.address ?? ""}
                             email={user?.email ?? ""}
                             sex={user?.sex ?? ""}
-                            mainCenter={user?.main_center.name ?? ""}
+                            mainCenter={user?.centers[0].name ?? ""}
                             distanse={""}
                             createdAt={user?.created_at ?? ""}
                             centers={user?.centers ?? []}

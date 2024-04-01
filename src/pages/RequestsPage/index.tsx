@@ -35,7 +35,7 @@ const RequestsPage: FC = () => {
                             isSelect={""}
                             setIsSelect={() => ({})}
                         />
-                        <Search placeholder="Поиск специалиста или пациента" />
+                        <Search placeholder="Поиск специалиста или пациента" value="" />
                     </div>
                 ) : (
                     <SliderFilter data={data} />

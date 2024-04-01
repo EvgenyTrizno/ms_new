@@ -44,7 +44,7 @@ export const Chart: FC = () => {
                     color: "#B1B2B4",
                     font: {
                         size: 12,
-                        weight: "medium",
+                        weight: "normal",
                     },
                 },
             },
@@ -54,7 +54,7 @@ export const Chart: FC = () => {
                     callback: (val) => val + "$",
                     font: {
                         size: 12,
-                        weight: "medium",
+                        weight: "normal",
                     },
                 },
                 border: {
@@ -81,7 +81,7 @@ export const Chart: FC = () => {
                     padding: 5,
                     font: {
                         size: 14,
-                        weight: "medium",
+                        weight: "normal",
                     },
                 },
             },

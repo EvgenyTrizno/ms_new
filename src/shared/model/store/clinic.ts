@@ -1,4 +1,4 @@
-import { ClinicResTypes, IClinic, IUserData } from "@/shared/types";
+import { ClinicResTypes } from "@/shared/types";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 

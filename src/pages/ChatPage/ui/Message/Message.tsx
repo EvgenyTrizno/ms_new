@@ -14,7 +14,7 @@ export const Message: FC<PropsWithClassName<Props>> = ({
   className,
   type,
   text,
-  time,
+  time
 }) => {
   return (
     <div
@@ -25,7 +25,7 @@ export const Message: FC<PropsWithClassName<Props>> = ({
       <p className={styles.messageText}>{text}</p>
 
       <Row className={styles.additionalInfo} gap={6}>
-        <span>8:00 PM</span>
+        <span>{time.toLocaleTimeString()}</span>
         <img src="/assets/icons/checked.svg" alt="checked" />
       </Row>
     </div>

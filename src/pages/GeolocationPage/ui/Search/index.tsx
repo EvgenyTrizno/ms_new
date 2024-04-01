@@ -13,12 +13,12 @@ export const SearchWithFilter: FC = () => {
         <Row gap={10} className={styles.wrapper}>
             {!MOBILE && !TABLET ? (
                 <StandaloneSearchBox>
-                    <Search className={styles.width} placeholder="Поиск" />
+                    <Search className={styles.width} placeholder="Поиск" value="" />
                 </StandaloneSearchBox>
             ) : (
                 <div style={{ width: "100%" }}>
                     <StandaloneSearchBox>
-                        <Search className={styles.width} placeholder="Поиск" />
+                        <Search className={styles.width} placeholder="Поиск" value="" />
                     </StandaloneSearchBox>
                 </div>
             )}

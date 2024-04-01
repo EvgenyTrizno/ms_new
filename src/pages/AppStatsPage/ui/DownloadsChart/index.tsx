@@ -22,7 +22,7 @@ export const DownloadsChart: FC = () => {
                     color: "#B1B2B4",
                     font: {
                         size: 12,
-                        weight: "medium",
+                        weight: "normal",
                     },
                 },
             },
@@ -32,7 +32,7 @@ export const DownloadsChart: FC = () => {
                     callback: (val) => val + "$",
                     font: {
                         size: 12,
-                        weight: "medium",
+                        weight: "normal",
                     },
                 },
                 border: {
@@ -59,7 +59,7 @@ export const DownloadsChart: FC = () => {
                     padding: 5,
                     font: {
                         size: 14,
-                        weight: "medium",
+                        weight: "normal",
                     },
                 },
             },

@@ -5,9 +5,7 @@ import { CustomMobileHeader } from "@/widgets";
 import { Text } from "@/shared/ui/Text";
 import { Modal } from "@/entities/Modal";
 import { Btn } from "@/shared/ui/Btn";
-import { MOBILE } from "@/shared/utils";
 import { Filter } from "@/shared/ui/Filter";
-import { Container } from "@/shared/ui/Container";
 import { NoteBlock } from "@/entities/Note/ui/NoteBlock";
 import { SearchWithFilter } from "./ui/Search";
 
@@ -22,51 +20,43 @@ const NotesPage: FC = () => {
 
   return (
     <>
-      {MOBILE && <CustomMobileHeader back text="Записи" />}
+      <CustomMobileHeader back text="Записи" />
       <Layout>
-        <Container>
-          <SearchWithFilter />
-          <Filter
-            data={["Текущие", "Доп.проверка"]}
-            isSelect={filter}
-            setIsSelect={setFilter}
-          />
-          <div
-            className={styles.items}
-            style={
-              data?.data.length === 0
-                ? { display: "block" }
-                : { display: "grid" }
-            }
-          >
-            {data?.data.length === 0 ? (
-              <div className={styles.empty}>
-                <div className={styles.inner}>
-                  <img src={ghost} alt="" />
-                  <Text type="h2" color="#262626" fz="32px">
-                    Ничего нет
+        <SearchWithFilter />
+        <Filter
+          data={["Текущие", "Доп.проверка"]}
+          isSelect={filter}
+          setIsSelect={setFilter}
+        />
+        <div
+          className={styles.items}
+          style={
+            data?.data.length === 0 ? { display: "block" } : { display: "grid" }
+          }
+        >
+          {data?.data.length === 0 ? (
+            <div className={styles.empty}>
+              <div className={styles.inner}>
+                <img src={ghost} alt="" />
+                <Text type="h2" color="#262626" fz="32px">
+                  Ничего нет
+                </Text>
+                <div className={styles.text}>
+                  <Text type="p" fz="24px" position="center" color="#26262680">
+                    Список пуст, создайте запись нажав на кнопку “Плюс”
                   </Text>
-                  <div className={styles.text}>
-                    <Text
-                      type="p"
-                      fz="24px"
-                      position="center"
-                      color="#26262680"
-                    >
-                      Список пуст, создайте запись нажав на кнопку “Плюс”
-                    </Text>
-                  </div>
                 </div>
               </div>
-            ) : (
-              <>
-                {data?.data.map((item) => (
-                  <NoteBlock key={item.id} />
-                ))}
-              </>
-            )}
-          </div>
-        </Container>
+            </div>
+          ) : (
+            <>
+              {data?.data.map((item) => (
+                <NoteBlock key={item.id} data={item} />
+              ))}
+            </>
+          )}
+        </div>
+
         {isOpenModal && (
           <Modal setIsOpenModal={setIsOpenModal} isOpen={false}>
             <div className={styles.modalContent}>

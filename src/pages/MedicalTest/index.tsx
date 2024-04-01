@@ -19,7 +19,7 @@ const MedicalTestPage: FC = () => {
         <Layout>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <Search />
+                    <Search value="" />
                     <FilterBtn onClick={() => ({})} type="small" />
                 </div>
                 <div className={styles.info}>

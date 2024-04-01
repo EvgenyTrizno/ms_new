@@ -1,3 +1,6 @@
+import { IClinic } from "./clinic.types";
+import { IUserData } from "./user.types";
+
 export interface Note {
   id?: number;
   title: string;
@@ -10,14 +13,33 @@ export interface Note {
   file?: string | null;
   special_check: boolean;
   updated_at?: string | null;
-  status: Statuses;
+  status: string;
   user?: number | null;
   center?: number | null;
   clinic?: number | null;
   doctors: number[];
 }
 
-enum Statuses {
+export interface INote {
+  center: IClinic;
+  clinic: IClinic;
+  created_at: Date;
+  doctor: IUserData;
+  duration_note: number;
+  file: File | null;
+  id: number;
+  notify: null;
+  online: boolean;
+  problem: string;
+  special_check: boolean;
+  status: string;
+  time_end: Date;
+  time_start: Date;
+  title: string;
+  updated_at: Date;
+}
+
+export enum Statuses {
   PASSED = "Passed",
   IN_PROCESSING = "In processing",
   REJECTED = "Rejected",

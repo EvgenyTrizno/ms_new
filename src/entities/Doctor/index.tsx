@@ -24,7 +24,7 @@ export const Doctor: FC<PropsWithClassName<Props>> = ({
         {count && <div className={styles.count}>1</div>}
         <img className={styles.avatar} src={data.image} alt="avatar" />
         <Rows className={styles.content} gap={4} rows={["auto"]}>
-          <h5>{`${data.surname || data.middle_name} ${data.first_name} ${
+          <h5>{`${data.last_name || data.middle_name} ${data.first_name} ${
             data.last_name
           }`}</h5>
           <span>{data.specialization}</span>

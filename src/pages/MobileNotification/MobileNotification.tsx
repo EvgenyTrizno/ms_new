@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Layout } from "../Layout";
 import { Text } from "@/shared/ui/Text";
-import { Container } from "@/shared/ui/Container";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
 import styles from "./MobileNotification.module.scss";
 import { CustomMobileHeader, Notification } from "@/widgets";
@@ -76,32 +75,6 @@ const MobileNotification: FC = () => {
               </div>
             </div>
           )}
-
-          <div className={`${styles.box} ${styles.systemBox}`}>
-            <div className={`${styles.list} ${styles.systemList}`}>
-              <Notification
-                type="system"
-                systemType="time"
-                title="Напоминание о записи завтра в 12:00"
-                time="2 дня назад"
-              />
-
-              <Notification
-                type="system"
-                systemType="success"
-                title="Напоминание о записи завтра в 12:00"
-                time="2 дня назад"
-              />
-
-              <Notification
-                type="system"
-                systemType="error"
-                title="Верификация лица была отклонена."
-                link={{ title: "Узнать причину", href: "#" }}
-                time="2 дня назад"
-              />
-            </div>
-          </div>
         </div>
       </Layout>
 

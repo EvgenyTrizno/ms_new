@@ -3,7 +3,6 @@ import { Layout } from "../Layout";
 import { CustomMobileHeader } from "@/widgets";
 import { ROUTES } from "@/shared/utils/PATHS";
 import { Container } from "@/shared/ui/Container";
-import User from "@/entities/User";
 import { Rows } from "@/shared/ui/Rows";
 import { useClinic } from "@/shared/model/store/clinic";
 import { DataListWrapper } from "@/widgets/components/DataListWrapper";

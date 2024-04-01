@@ -15,12 +15,14 @@ export const DoctorMore: FC<Props> = ({ data }) => {
         <img className={styles.avatar} src={data.image} alt="avatar" />
 
         <div className={styles.content}>
-          <h4>{`${data.middle_name} ${data.first_name} ${data.last_name.charAt(0) + "."}`}</h4>
+          <h4>{`${data.middle_name} ${data.first_name} ${
+            data.last_name?.charAt(0) + "."
+          }`}</h4>
 
           <Characteristics
             data={[
-              { key: "Страна", value: data.country || "-" },
-              { key: "Город", value: data.city || "-" },
+              { key: "Страна", value: "-" },
+              { key: "Город", value: "-" },
               { key: "Специальность", value: data.specialization || "-" },
               {
                 key: "Опыт работы",
