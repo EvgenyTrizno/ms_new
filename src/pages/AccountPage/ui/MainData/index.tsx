@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Input } from "@/shared/ui/Input";
 import { Rows } from "@/shared/ui/Rows";
-import { RegisterOptions, UseFormRegister } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
 import { AccountMoreDetailedFormData } from "@/shared/types/formsTypes";
 
 type Props = {
@@ -13,7 +13,6 @@ export const MainData: FC<Props> = ({ register }) => {
   const data: {
     name: string;
     registerName: keyof AccountMoreDetailedFormData;
-    options?: RegisterOptions;
   }[] = [
     { name: "Имя", registerName: "name" },
     { name: "Фамилия", registerName: "surname" },
@@ -23,7 +22,7 @@ export const MainData: FC<Props> = ({ register }) => {
     { name: "Страна", registerName: "country" },
     { name: "Город", registerName: "city" },
     { name: "Адрес", registerName: "address" },
-  ] as const;
+  ];
 
   return (
     <Rows gap={10} rows={["auto"]}>
@@ -38,7 +37,6 @@ export const MainData: FC<Props> = ({ register }) => {
             hookFormData={{
               register,
               registerName: item.registerName,
-              options: item.options,
             }}
           />
         );

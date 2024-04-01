@@ -2,10 +2,13 @@ import { FC } from "react";
 import styles from "./styles.module.scss";
 import cn from "clsx";
 import { PropsWithClassName } from "@/shared/types";
+import { useNavigate } from "react-router-dom";
 
 export const BackBtn: FC<PropsWithClassName> = ({ className }) => {
+  const navigate = useNavigate();
+
   return (
-    <button className={cn(styles.btn, className)}>
+    <button className={cn(styles.btn, className)} onClick={() => navigate("/")}>
       <svg
         width="24"
         height="24"

@@ -65,25 +65,25 @@ const App = () => {
   }, [setUser, userData]);
 
   return (
-    // <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
-    <PSuspense>
-      <AnimatePresence initial={true}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Routes>
-            {routes.map((page, i) => (
-              <Route key={i} {...page} />
-            ))}
-          </Routes>
-          {isLoading && <PageLoader />}
-        </motion.div>
-      </AnimatePresence>
-    </PSuspense>
-    // </ErrorBoundary>
+    <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
+      <PSuspense>
+        <AnimatePresence initial={true}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Routes>
+              {routes.map((page, i) => (
+                <Route key={i} {...page} />
+              ))}
+            </Routes>
+            {isLoading && <PageLoader />}
+          </motion.div>
+        </AnimatePresence>
+      </PSuspense>
+    </ErrorBoundary>
   );
 };
 

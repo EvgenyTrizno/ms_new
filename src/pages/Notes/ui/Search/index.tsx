@@ -29,7 +29,8 @@ export const SearchWithFilter: FC = () => {
         <Row gap={10}>
           <Search
             placeholder="Введите запрос"
-            showSearchFromParent={showSearch}
+            showSearchByScroll={showSearch}
+            value=""
           />
           <Btn color="#0064FA" className={styles.add}>
             <Image src={icon} alt={""} />

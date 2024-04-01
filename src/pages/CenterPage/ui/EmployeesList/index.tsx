@@ -27,8 +27,8 @@ export const EmployeesList: FC<IEmployeesList> = ({ data }) => {
                             data.map((item) => (
                                 <EmployeeInfo
                                     avatar={item.image}
-                                    name={`${item.last_name} ${item.first_name} ${item?.surname}`}
-                                    rating={item.rating}
+                                    name={`${item.last_name} ${item.first_name} ${item?.middle_name}`}
+                                    rating={0}
                                     key={item.id}
                                 />
                             ))}

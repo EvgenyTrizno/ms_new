@@ -5,19 +5,19 @@ import { Note } from "../Note";
 import { INote } from "@/shared/types/notes.types";
 
 interface IUmounted {
-    umounted: INote[];
+  umounted: INote[];
 }
 
 export const Unmounted: FC<IUmounted> = ({ umounted }) => {
-    return (
-        <NoteContainer text="Не установленные">
-            {umounted.map((item) => (
-                <Note
-                    doctor={item?.doctor?.group?.name}
-                    name={`${item?.doctor.first_name} ${item?.doctor.last_name} ${item?.doctor.surname}`}
-                    key={item?.id}
-                />
-            ))}
-        </NoteContainer>
-    );
+  return (
+    <NoteContainer text="Не установленные">
+      {umounted.map((item) => (
+        <Note
+          doctor={item?.doctor?.group?.name || "-"}
+          name={`${item?.doctor.first_name} ${item?.doctor.last_name} ${item?.doctor.surname}`}
+          key={item?.id}
+        />
+      ))}
+    </NoteContainer>
+  );
 };

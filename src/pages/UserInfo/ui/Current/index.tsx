@@ -13,7 +13,7 @@ export const Current: FC<ICurrentProps> = ({ current }) => {
         <NoteContainer text="Текущие">
             {current.map((item) => (
                 <Note
-                    doctor={item?.doctor.group.name}
+                    doctor={item?.doctor.group?.name || "-"}
                     name={`${item?.doctor.first_name} ${item?.doctor.last_name} ${item?.doctor.surname}`}
                     key={item?.id}
                 />

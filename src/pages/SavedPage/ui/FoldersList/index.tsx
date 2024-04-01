@@ -1,6 +1,5 @@
 import { FC, useRef } from "react";
 
-import { Folder } from "../Folder";
 import { SliderHeader } from "@/widgets";
 import { SliderWrapper } from "@/widgets/components/SliderWrapper";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";

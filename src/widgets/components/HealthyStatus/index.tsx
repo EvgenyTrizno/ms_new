@@ -15,7 +15,7 @@ interface ISwitcherProps {
 }
 
 export const HealthyStatus: FC<ISwitcherProps> = ({ isHovered }) => {
-    const [disease, setDisease] = useState<number[]>([]);
+    const [disease, setDisease] = useState<any[]>([]);
     const { user } = useAuth();
     const { mutate } = useUserMutate({ disease });
     const [condition, setCondition] = useState<number>(
@@ -67,7 +67,7 @@ export const HealthyStatus: FC<ISwitcherProps> = ({ isHovered }) => {
             }
             style={{
                 borderColor: condition ? "#F7E6E8" : "#EBF3FF",
-                display: user && user.group.name === "Врачи" ? "none" : "",
+                display: user && user.group?.name === "Врачи" ? "none" : "",
             }}
         >
             <Healthy

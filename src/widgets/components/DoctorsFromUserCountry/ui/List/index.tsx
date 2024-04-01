@@ -46,89 +46,16 @@ export const List: FC = () => {
       >
         {data &&
           data.data.map((item) => (
-            <>
-              <SwiperSlide key={item.id}>
-                <DoctorCard
-                  key={item.id}
-                  avatar={item.image}
-                  rank={item.specialization}
-                  fio={`${item.middle_name} ${
-                    item.first_name.charAt(1).toUpperCase() + "."
-                  } ${item.last_name.charAt(1).toUpperCase()}`}
-                />
-              </SwiperSlide>
-              <SwiperSlide key={item.id}>
-                <DoctorCard
-                  key={item.id}
-                  avatar={item.image}
-                  rank={item.specialization}
-                  fio={`${item.middle_name} ${
-                    item.first_name.charAt(1).toUpperCase() + "."
-                  } ${item.last_name.charAt(1).toUpperCase()}`}
-                />
-              </SwiperSlide>
-              <SwiperSlide key={item.id}>
-                <DoctorCard
-                  key={item.id}
-                  avatar={item.image}
-                  rank={item.specialization}
-                  fio={`${item.middle_name} ${
-                    item.first_name.charAt(1).toUpperCase() + "."
-                  } ${item.last_name.charAt(1).toUpperCase()}`}
-                />
-              </SwiperSlide>
-              <SwiperSlide key={item.id}>
-                <DoctorCard
-                  key={item.id}
-                  avatar={item.image}
-                  rank={item.specialization}
-                  fio={`${item.middle_name} ${
-                    item.first_name.charAt(1).toUpperCase() + "."
-                  } ${item.last_name.charAt(1).toUpperCase()}`}
-                />
-              </SwiperSlide>
-              <SwiperSlide key={item.id}>
-                <DoctorCard
-                  key={item.id}
-                  avatar={item.image}
-                  rank={item.specialization}
-                  fio={`${item.middle_name} ${
-                    item.first_name.charAt(1).toUpperCase() + "."
-                  } ${item.last_name.charAt(1).toUpperCase()}`}
-                />
-              </SwiperSlide>
-              <SwiperSlide key={item.id}>
-                <DoctorCard
-                  key={item.id}
-                  avatar={item.image}
-                  rank={item.specialization}
-                  fio={`${item.middle_name} ${
-                    item.first_name.charAt(1).toUpperCase() + "."
-                  } ${item.last_name.charAt(1).toUpperCase()}`}
-                />
-              </SwiperSlide>
-              <SwiperSlide key={item.id}>
-                <DoctorCard
-                  key={item.id}
-                  avatar={item.image}
-                  rank={item.specialization}
-                  fio={`${item.middle_name} ${
-                    item.first_name.charAt(1).toUpperCase() + "."
-                  } ${item.last_name.charAt(1).toUpperCase()}`}
-                />
-              </SwiperSlide>
-
-              <SwiperSlide key={item.id}>
-                <DoctorCard
-                  key={item.id}
-                  avatar={item.image}
-                  rank={item.specialization}
-                  fio={`${item.middle_name} ${
-                    item.first_name.charAt(1).toUpperCase() + "."
-                  } ${item.last_name.charAt(1).toUpperCase()}`}
-                />
-              </SwiperSlide>
-            </>
+            <SwiperSlide key={item.id}>
+              <DoctorCard
+                key={item.id}
+                avatar={item.image}
+                rank={item.specialization}
+                fio={`${item.middle_name} ${
+                  item.first_name?.charAt(1).toUpperCase() + "."
+                } ${item.last_name?.charAt(1).toUpperCase()}`}
+              />
+            </SwiperSlide>
           ))}
       </Swiper>
     </>

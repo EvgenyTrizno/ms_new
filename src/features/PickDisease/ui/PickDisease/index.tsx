@@ -27,6 +27,7 @@ export const PickDisease: FC<IMainModalProps> = ({
                     <Search
                         placeholder="Поиск"
                         onChange={(e) => setSearch((e && e.target.value) ?? "")}
+                        value="search"
                     />
                 </Rows>
                 <div

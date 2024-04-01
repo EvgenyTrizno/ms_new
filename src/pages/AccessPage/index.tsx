@@ -2,7 +2,6 @@ import { FC } from "react";
 
 import { Layout } from "../Layout";
 import { CustomMobileHeader, ReminderBlock } from "@/widgets";
-import { User } from "../Profile/ui/UserInfo";
 import { Accepted } from "./ui/Accepted";
 import { NoAccepted } from "./ui/NoAccepted";
 import { AddBtn } from "./ui/AddBtn";

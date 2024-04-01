@@ -5,7 +5,7 @@ import { PropsWithClassName } from "@/shared/types";
 
 export const Call: FC<PropsWithClassName> = ({ className }) => {
   return (
-    <div>
+    <div className={className}>
       <div className={cn(styles.btn)}>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
           <path
