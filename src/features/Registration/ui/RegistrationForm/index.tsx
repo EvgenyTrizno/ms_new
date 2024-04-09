@@ -1,5 +1,5 @@
 /* eslint-disable no-case-declarations */
-import { FC, useState, ChangeEvent, FormEvent } from "react";
+import { FC, useState, ChangeEvent, FormEvent, useEffect } from "react";
 
 import { Input } from "@/shared/ui/Input";
 import { useRegistrationMutation } from "../../model/hooks/useRegistrationMutation";
@@ -7,74 +7,37 @@ import { useRegistration } from "@/shared/model/store/registration";
 import { Policy } from "../Policy";
 import { Rows } from "@/shared/ui/Rows";
 import { Btn } from "@/shared/ui/Btn";
+import { Text } from "@/shared/ui/Text";
+import { AxiosError } from "axios";
+
+type ErrorType = {
+  value: boolean;
+  message: string | null;
+};
 
 export const RegistrationForm: FC = () => {
-  //   const [inputDateValue, setInputDateValue] = useState<string>("ГГГГ-ММ-ДД");
-
-  const [password2, setPassword2] = useState<string>("");
-  //   const [isShowValue, setIsShowValue] = useState<boolean>(false);
   const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [error, setError] = useState<ErrorType>({
+    value: false,
+    message: null,
+  });
 
-  const { email, setEmail, password, setPassword } = useRegistration();
-  const { mutate } = useRegistrationMutation(
-    email,
-    "Пользователи",
-    password,
-    password2,
-    1
-  );
+  const { email, setEmail, password, setPassword, password2, setPassword2 } =
+    useRegistration();
 
-  //   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-  //     const currentValue = e.target.value;
-  //     const digitsOnly = currentValue.replace(/\D/g, "");
-
-  //     let formattedDate = "ГГГГ-ММ-ДД";
-
-  //     for (let i = 0; i < digitsOnly.length; i++) {
-  //       if (i === 0) {
-  //         formattedDate = formattedDate.replace("Г", digitsOnly[i]);
-  //       } else if (i === 1) {
-  //         formattedDate = formattedDate.replace("Г", digitsOnly[i]);
-  //       } else if (i === 2) {
-  //         formattedDate = formattedDate.replace("Г", digitsOnly[i]);
-  //       } else if (i === 3) {
-  //         formattedDate = formattedDate.replace("Г", digitsOnly[i]);
-  //       } else if (i === 4) {
-  //         formattedDate = formattedDate.replace("М", digitsOnly[i]);
-  //       } else if (i === 5) {
-  //         formattedDate = formattedDate.replace("М", digitsOnly[i]);
-  //       } else if (i === 6) {
-  //         formattedDate = formattedDate.replace("Д", digitsOnly[i]);
-  //       } else if (i === 7) {
-  //         formattedDate = formattedDate.replace("Д", digitsOnly[i]);
-  //       }
-  //     }
-
-  //     setInputDateValue(formattedDate);
-  //   };
+  const {
+    mutate,
+    error: regError,
+    isLoading,
+  } = useRegistrationMutation(email, password);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
 
+    setError({ value: false, message: null });
+
     switch (name) {
-      // case "birthday":
-      //     if (birthday[0] === "Г") {
-      //         birthday.replace(birthday[0], value[0]);
-      //     }
-
-      //     break;
-      // case "number":
-      //     const digitsOnly = value.replace(/\D/g, "");
-
-      //     let formattedNumber = "+";
-
-      //     for (let i = 0; i < digitsOnly.length; i++) {
-      //         formattedNumber += digitsOnly[i];
-      //     }
-
-      //     setNumber(formattedNumber);
-      //     break;
       case "email":
         setEmail(value);
         break;
@@ -86,17 +49,55 @@ export const RegistrationForm: FC = () => {
     }
   };
 
-  //   const onFocusHandler = () => {
-  //     setIsShowValue(true);
-  //   };
-
-  const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const formHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!isChecked || !email || !password || !password2) {
+      return setError({
+        value: true,
+        message: "Заполните все поля",
+      });
+    }
+
+    if (password !== password2) {
+      return setError({
+        value: true,
+        message: "Пароли не совпадают",
+      });
+    }
+
+    mutate();
   };
 
+  useEffect(() => {
+    if (!regError) return;
+
+    const errorData = (regError as AxiosError).response?.data;
+
+    if (errorData && typeof errorData === "object" && "password" in errorData) {
+      return setError({
+        value: true,
+        message:
+          "Пароль должен состоять из цифр и букв в обоих регистрах и быть длиной не менее 8 символов",
+      });
+    }
+
+    setError({
+      value: true,
+      message:
+        "Ошибка. Возможно аккаунт с таким адресом эл.почты уже существует",
+    });
+  }, [regError]);
+
   return (
-    <form onSubmit={handleOnSubmit}>
+    <form onSubmit={formHandler}>
       <Rows gap={20} rows={["auto"]}>
+        {error.value && (
+          <Text type="p" color="#d64657" position="center">
+            {error.message || "Ошибка"}
+          </Text>
+        )}
+
         <Rows gap={10} rows={["auto"]}>
           <Input
             type="email"
@@ -126,15 +127,11 @@ export const RegistrationForm: FC = () => {
         <Policy isChecked={isChecked} setIsChecked={setIsChecked} />
         <Btn
           color="#0064FA"
-          onClick={() => mutate()}
           disabled={
-            !email &&
-            password.length >= 8 &&
-            password2.length >= 8 &&
-            !isChecked
+            isLoading || !isChecked || !email || !password || !password2
           }
         >
-          Продолжить
+          {isLoading ? "Загрузка..." : "Продолжить"}
         </Btn>
       </Rows>
     </form>

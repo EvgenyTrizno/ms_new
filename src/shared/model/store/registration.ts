@@ -4,17 +4,17 @@ import { immer } from "zustand/middleware/immer";
 interface IRegistrationStoreProps {
   email: string;
   password: string;
-  number: string;
+  password2: string;
   setEmail: (email: string) => void;
   setPassword: (pass: string) => void;
-  setNumber: (number: string) => void;
+  setPassword2: (pass: string) => void;
 }
 
 export const useRegistration = create<IRegistrationStoreProps>()(
   immer((set) => ({
     email: "",
     password: "",
-    number: "",
+    password2: "",
     setEmail: (email: string) => {
       set((state) => {
         state.email = email;
@@ -25,10 +25,11 @@ export const useRegistration = create<IRegistrationStoreProps>()(
         state.password = pass;
       });
     },
-    setNumber: (number: string) => {
+
+    setPassword2: (pass: string) => {
       set((state) => {
-        state.number = number;
-      })
-    }
+        state.password2 = pass;
+      });
+    },
   }))
 );
