@@ -45,7 +45,7 @@ export const ChatList: FC<IChatListProps> = ({ search }) => {
                             sick && styles.sick
                         }`}
                     >
-                        <img src={suprt} alt="" />
+                        <img src={suprt} alt="support" />
                     </div>
                 }
                 onClick={() => ({})}

@@ -3,6 +3,7 @@ import { RouteProps } from "react-router";
 
 import { InterviewPage } from "../../pages/Auth/InterviewPage/InterviewPage";
 import { ROUTES } from "./PATHS";
+import MapPage from "@/pages/Map/MapPage";
 
 const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
@@ -147,7 +148,7 @@ export const routes: RouteProps[] = [
   },
   { path: "/app", Component: AppStatsPage },
   { path: "/leads", Component: LeadsPage },
-  { path: "/map", Component: AdminPanelMapPage },
+  { path: "/map", Component: MapPage },
   {
     path: "/map/:country",
     Component: CountryInfoPage,

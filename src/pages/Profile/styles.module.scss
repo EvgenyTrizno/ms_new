@@ -1,0 +1,39 @@
+.settings {
+    display: flex;
+    grid-gap: 30px;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 576px) {
+    .settings {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
+
+        .box {
+            .items {
+                margin-top: 12px;
+
+                .mobileItem {
+                    background-color: var(--white);
+                    padding: 16px;
+                    border-radius: 16px;
+                    border: 1px solid var(--blue-100);
+                }
+            }
+        }
+    }
+    
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .settings {
+        .box {
+            .items {
+                .item {
+                    padding: 25px 30px;
+                }
+            }
+        }
+    }
+}
