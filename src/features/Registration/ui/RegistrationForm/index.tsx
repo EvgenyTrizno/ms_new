@@ -9,6 +9,7 @@ import { Rows } from "@/shared/ui/Rows";
 import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
 import { AxiosError } from "axios";
+import { useNavigate } from "react-router";
 
 type ErrorType = {
   value: boolean;
@@ -28,8 +29,11 @@ export const RegistrationForm: FC = () => {
   const {
     mutate,
     error: regError,
+    data: regData,
     isLoading,
   } = useRegistrationMutation(email, password);
+
+  const navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -88,6 +92,12 @@ export const RegistrationForm: FC = () => {
         "Ошибка. Возможно аккаунт с таким адресом эл.почты уже существует",
     });
   }, [regError]);
+
+  useEffect(() => {
+    if (!regData) return;
+
+    navigate(`/confirmation-code?email=${regData.data.email}`);
+  }, [regData]);
 
   return (
     <form onSubmit={formHandler}>

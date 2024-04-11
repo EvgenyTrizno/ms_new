@@ -6,6 +6,9 @@ export const ROUTES = {
   registration: {
     path: "/registration",
   },
+  confirmationCode: {
+    path: "/confirmation-code"
+  },
   login: {
     path: "/login",
   },

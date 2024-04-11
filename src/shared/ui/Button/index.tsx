@@ -12,6 +12,7 @@ type Props = {
   size?: Sizes;
   color?: Colors;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 };
 
 export const Button: FC<PropsWithClassName<Props>> = ({
@@ -23,6 +24,7 @@ export const Button: FC<PropsWithClassName<Props>> = ({
   size = "normal",
   color = "primary",
   onClick,
+  disabled = false
 }) => {
   return (
     <button
@@ -33,6 +35,7 @@ export const Button: FC<PropsWithClassName<Props>> = ({
       })}
       type={type}
       onClick={onClick}
+      disabled={disabled}
     >
       {icon} <span>{title}</span>
     </button>

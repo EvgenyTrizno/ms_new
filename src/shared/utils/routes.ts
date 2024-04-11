@@ -31,7 +31,7 @@ const AbountCenterPage = lazy(
 );
 const AppStatsPage = lazy(() => import("@/pages/AppStatsPage"));
 const LeadsPage = lazy(() => import("@/pages/LeadsPage"));
-const AdminPanelMapPage = lazy(() => import("@/pages/AdminPanelMap"));
+// const AdminPanelMapPage = lazy(() => import("@/pages/AdminPanelMap"));
 const CountryInfoPage = lazy(() => import("@/pages/CountryInfo"));
 const CityInfoPage = lazy(() => import("@/pages/CityInfoPage"));
 const RequestsPage = lazy(() => import("@/pages/RequestsPage"));
@@ -61,6 +61,7 @@ const OverviewMedTaskPage = lazy(() => import("@/pages/OverviewMedTaskPage"));
 const HistoryPatientPage = lazy(() => import("@/pages/HistoryPatientPage"));
 const DiagnosisPage = lazy(() => import("@/pages/DiagnosisPage"));
 const CreateMedTaskPage = lazy(() => import("@/pages/CreateMedTaskPage"));
+const ConfirmationCodePage = lazy(() => import("@/pages/ConfirmationCodePage"));
 
 export const routes: RouteProps[] = [
   {
@@ -206,4 +207,6 @@ export const routes: RouteProps[] = [
     Component: DiagnosisPage,
   },
   { path: ROUTES.createMedTask.path, Component: CreateMedTaskPage },
+
+  { path: ROUTES.confirmationCode.path, Component: ConfirmationCodePage },
 ];
