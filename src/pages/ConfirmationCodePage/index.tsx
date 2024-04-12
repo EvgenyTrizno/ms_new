@@ -111,7 +111,7 @@ const ConfirmationCodePage = () => {
 
     const interval = setInterval(() => {
       setTimer((prev) => prev - 1);
-    }, 20);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [timer]);
