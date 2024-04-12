@@ -16,9 +16,9 @@ export const NotificationsLink = () => {
 
       {/* <div className={styles.circle}></div> */}
 
-      {isOpenNotifications && (
-        <NotificationsModal setOpen={setOpenNotifications} />
-      )}
+      
+        <NotificationsModal isOpen={isOpenNotifications} setOpen={setOpenNotifications} />
+  
     </div>
   );
 };

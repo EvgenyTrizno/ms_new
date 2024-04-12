@@ -9,10 +9,11 @@ import cn from "clsx";
 import { useOutside } from "@/shared/lib/hooks";
 
 type Props = {
+  isOpen: boolean;
   setOpen: Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const NotificationsModal: FC<Props> = ({ setOpen }) => {
+export const NotificationsModal: FC<Props> = ({ isOpen, setOpen }) => {
   const { getCookie } = useCookie();
   const { data: notificationsData } = useQuery(
     ["notifications"],
@@ -33,7 +34,12 @@ export const NotificationsModal: FC<Props> = ({ setOpen }) => {
   };
 
   return (
-    <div className={styles.wrapper} ref={ref}>
+    <div
+      className={cn(styles.wrapper, {
+        [styles.notOpen]: !isOpen,
+      })}
+      ref={ref}
+    >
       <div className={styles.header}>
         <h5>Уведомления</h5>
 
