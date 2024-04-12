@@ -15,6 +15,7 @@ export const Header = () => {
   );
   // const { user } = useAuth();
   const { isOpenSidebar } = useMainStore();
+  
 
   useEffect(() => {
     auth();

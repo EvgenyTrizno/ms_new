@@ -7,10 +7,11 @@ import bureger from "./assets/BurgerMenu.svg";
 import buregerClose from "./assets/Close.svg";
 import styles from "./styles.module.scss";
 import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { PropsWithClassName } from "@/shared/types";
 
 import cn from "clsx";
+import { NotificationsModal } from "../NotificationsModal";
 
 export const MobileHeader: FC<PropsWithClassName> = ({ className }) => {
   const { isOpen, setIsOpen } = useBurgerMenu();
@@ -29,12 +30,13 @@ export const MobileHeader: FC<PropsWithClassName> = ({ className }) => {
       </div>
       {/* <HealthyStatus isHovered={false} /> */}
       {/* <HealthyIndicator height="34px" status={70} p={4} fs={12} /> */}
-      <div className={styles.notification}>
-        <img
-          src={notifi}
-          alt="notifications"
-          onClick={() => navigate(ROUTES.notifications.path)}
-        />
+      <div
+        className={styles.notification}
+        onClick={() => {
+          navigate(ROUTES.notifications.path);
+        }}
+      >
+        <img src={notifi} alt="notifications" />
       </div>
     </div>
   );
