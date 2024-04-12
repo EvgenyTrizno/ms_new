@@ -19,3 +19,9 @@ export async function verifyCode(
 ): Promise<AxiosResponse<{ email: string; verification_code: number }>> {
   return await instance.post("/verify-code/", { email, verification_code });
 }
+
+export async function resendSms(
+  email: string
+): Promise<AxiosResponse<{ email: string }>> {
+  return await instance.post("/resend-sms/", { email });
+}
