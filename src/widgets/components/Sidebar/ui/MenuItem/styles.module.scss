@@ -3,7 +3,7 @@
   align-items: center;
   gap: 16px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   padding: 14px 16px;
   border-radius: 12px;
   background-color: var(--white);
@@ -22,7 +22,7 @@
     height: 22px;
   }
 
-  svg path {
+  &:first-child svg path {
     stroke: var(--gray);
   }
 

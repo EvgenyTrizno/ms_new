@@ -38,14 +38,14 @@
 .search {
   div:first-child {
     @media (min-width: 1024px) {
-      height: 60px;
+      height: 50px;
     }
   }
 }
 
 .bigFilter {
   @media (min-width: 1024px) {
-    height: 60px;
+    height: 50px;
     min-width: 160px !important;
   }
 }

@@ -4,6 +4,8 @@ import { FC } from "react";
 import { NotificationType, SystemType, UserType } from "./types";
 import { getSystemIcon } from "./utils/getSystemIcon";
 import { getUserTypeIcon } from "./utils/getUserTypeIcon";
+import { PropsWithClassName } from "@/shared/types";
+import cn from "clsx";
 
 type Props = {
   type?: NotificationType;
@@ -19,7 +21,8 @@ type Props = {
   systemType?: SystemType;
 };
 
-export const Notification: FC<Props> = ({
+export const Notification: FC<PropsWithClassName<Props>> = ({
+  className, 
   type = "user",
   userSrcAvatar = "/assets/avatar.png",
   title,
@@ -29,7 +32,7 @@ export const Notification: FC<Props> = ({
   systemType,
 }) => {
   return (
-    <div className={`${styles.notify}`}>
+    <div className={cn(styles.notify, className)}>
       {type === "user" ? (
         <div className={styles.imgWrapper}>
           {userType !== "standart" && (

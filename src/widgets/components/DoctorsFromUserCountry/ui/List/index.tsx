@@ -10,7 +10,7 @@ export const List: FC = () => {
     <>
       <SliderHeader
         swiperRef={swiperRef}
-        title="Специалисты из узбекистана"
+        title="Все врачи"
         withArrows={window.innerWidth >= 768}
       />
       <Swiper

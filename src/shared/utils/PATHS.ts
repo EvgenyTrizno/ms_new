@@ -6,6 +6,9 @@ export const ROUTES = {
   registration: {
     path: "/registration",
   },
+  confirmationCode: {
+    path: "/confirmation-code",
+  },
   login: {
     path: "/login",
   },
@@ -172,3 +175,14 @@ export const ROUTES = {
     label: "Диагноз",
   },
 } as const;
+
+export const pagesTitles: { [key: string]: string } = {
+  "/": ROUTES.main.label,
+  "/search": ROUTES.search.label,
+  "/messages": ROUTES.messages.label,
+  "/med-tasks": ROUTES.medTasks.label,
+  "/pacient-diagnosis": ROUTES.diagnosis.label,
+  "/all-doctors": ROUTES.allDoctors.label,
+  "/map": ROUTES.map.label,
+  "/settings": ROUTES.settings.label,
+};

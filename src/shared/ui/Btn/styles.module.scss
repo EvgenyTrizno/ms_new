@@ -17,6 +17,7 @@
 
 .btn:disabled {
     background-color: #7EB2FF !important;
+    cursor: not-allowed;
 }
 
 @media screen and (min-width: 1440px) and (max-width: 1920px) {

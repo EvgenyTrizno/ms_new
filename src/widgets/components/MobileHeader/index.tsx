@@ -29,12 +29,13 @@ export const MobileHeader: FC<PropsWithClassName> = ({ className }) => {
       </div>
       {/* <HealthyStatus isHovered={false} /> */}
       {/* <HealthyIndicator height="34px" status={70} p={4} fs={12} /> */}
-      <div className={styles.notification}>
-        <img
-          src={notifi}
-          alt="notifications"
-          onClick={() => navigate(ROUTES.notifications.path)}
-        />
+      <div
+        className={styles.notification}
+        onClick={() => {
+          navigate(ROUTES.notifications.path);
+        }}
+      >
+        <img src={notifi} alt="notifications" />
       </div>
     </div>
   );

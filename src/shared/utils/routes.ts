@@ -3,6 +3,7 @@ import { RouteProps } from "react-router";
 
 import { InterviewPage } from "../../pages/Auth/InterviewPage/InterviewPage";
 import { ROUTES } from "./PATHS";
+import MapPage from "@/pages/Map/MapPage";
 
 const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
@@ -30,7 +31,7 @@ const AbountCenterPage = lazy(
 );
 const AppStatsPage = lazy(() => import("@/pages/AppStatsPage"));
 const LeadsPage = lazy(() => import("@/pages/LeadsPage"));
-const AdminPanelMapPage = lazy(() => import("@/pages/AdminPanelMap"));
+// const AdminPanelMapPage = lazy(() => import("@/pages/AdminPanelMap"));
 const CountryInfoPage = lazy(() => import("@/pages/CountryInfo"));
 const CityInfoPage = lazy(() => import("@/pages/CityInfoPage"));
 const RequestsPage = lazy(() => import("@/pages/RequestsPage"));
@@ -60,6 +61,7 @@ const OverviewMedTaskPage = lazy(() => import("@/pages/OverviewMedTaskPage"));
 const HistoryPatientPage = lazy(() => import("@/pages/HistoryPatientPage"));
 const DiagnosisPage = lazy(() => import("@/pages/DiagnosisPage"));
 const CreateMedTaskPage = lazy(() => import("@/pages/CreateMedTaskPage"));
+const ConfirmationCodePage = lazy(() => import("@/pages/ConfirmationCodePage"));
 
 export const routes: RouteProps[] = [
   {
@@ -147,7 +149,7 @@ export const routes: RouteProps[] = [
   },
   { path: "/app", Component: AppStatsPage },
   { path: "/leads", Component: LeadsPage },
-  { path: "/map", Component: AdminPanelMapPage },
+  { path: "/map", Component: MapPage },
   {
     path: "/map/:country",
     Component: CountryInfoPage,
@@ -205,4 +207,6 @@ export const routes: RouteProps[] = [
     Component: DiagnosisPage,
   },
   { path: ROUTES.createMedTask.path, Component: CreateMedTaskPage },
+
+  { path: ROUTES.confirmationCode.path, Component: ConfirmationCodePage },
 ];

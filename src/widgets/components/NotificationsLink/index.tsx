@@ -1,13 +1,24 @@
 import styles from "./styles.module.scss";
-import { Link } from "react-router-dom";
-import { ROUTES } from "@/shared/utils/PATHS";
+import { NotificationsModal } from "../NotificationsModal";
+import { useState } from "react";
 
 export const NotificationsLink = () => {
+  const [isOpenNotifications, setOpenNotifications] = useState(false);
+
   return (
-    <Link className={styles.notification} to={ROUTES.notifications.path}>
-      <img src="/assets/icons/notification.svg" alt="notifications" />
+    <div className={styles.notification}>
+      <img
+        src="/assets/icons/notification.svg"
+        alt="notifications"
+        style={{cursor: "pointer"}}
+        onClick={() => setOpenNotifications((prev) => !prev)}
+      />
 
       {/* <div className={styles.circle}></div> */}
-    </Link>
+
+      
+        <NotificationsModal isOpen={isOpenNotifications} setOpen={setOpenNotifications} />
+  
+    </div>
   );
 };

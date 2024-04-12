@@ -3,10 +3,11 @@ import { useAuthMutation } from "@/shared/lib/hooks/useAuthMutation";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
 
 import styles from "./styles.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { NotificationsLink } from "@/widgets/components";
 import cn from "clsx";
 import { useMainStore } from "@/shared/model/store/main";
+import { pagesTitles } from "@/shared/utils/PATHS";
 
 export const Header = () => {
   const { getCookie } = useCookie();
@@ -15,6 +16,7 @@ export const Header = () => {
   );
   // const { user } = useAuth();
   const { isOpenSidebar } = useMainStore();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     auth();
@@ -28,7 +30,7 @@ export const Header = () => {
       })}
     >
       <Link className={styles.headerMainLink} to="/">
-        Главная
+        {pagesTitles[pathname]}
       </Link>
 
       <div className={styles.right}>
