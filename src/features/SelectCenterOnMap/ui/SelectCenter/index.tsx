@@ -24,6 +24,7 @@ export const SelectCenter: FC = () => {
 
   useEffect(() => {
     const permission = "geolocation" in navigator;
+    console.log(country);
 
     if (permission) {
       navigator.geolocation.getCurrentPosition((pos: GeolocationPosition) => {

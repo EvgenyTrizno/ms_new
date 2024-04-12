@@ -5,9 +5,11 @@ interface IRegistrationStoreProps {
   email: string;
   password: string;
   password2: string;
+  number: string;
   setEmail: (email: string) => void;
   setPassword: (pass: string) => void;
   setPassword2: (pass: string) => void;
+  setNumber: (number: string) => void;
 }
 
 export const useRegistration = create<IRegistrationStoreProps>()(
@@ -15,6 +17,7 @@ export const useRegistration = create<IRegistrationStoreProps>()(
     email: "",
     password: "",
     password2: "",
+    number: "",
     setEmail: (email: string) => {
       set((state) => {
         state.email = email;
@@ -31,5 +34,11 @@ export const useRegistration = create<IRegistrationStoreProps>()(
         state.password2 = pass;
       });
     },
+
+    setNumber: (number: string) => {
+      set((state) => {
+        state.number = number;
+      })
+    }
   }))
 );

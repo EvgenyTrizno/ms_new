@@ -7,11 +7,10 @@ import bureger from "./assets/BurgerMenu.svg";
 import buregerClose from "./assets/Close.svg";
 import styles from "./styles.module.scss";
 import { useBurgerMenu } from "@/shared/model/store/burgerMenu";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { PropsWithClassName } from "@/shared/types";
 
 import cn from "clsx";
-import { NotificationsModal } from "../NotificationsModal";
 
 export const MobileHeader: FC<PropsWithClassName> = ({ className }) => {
   const { isOpen, setIsOpen } = useBurgerMenu();

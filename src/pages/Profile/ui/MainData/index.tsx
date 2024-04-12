@@ -164,7 +164,7 @@ export const MainData: FC = () => {
     <Rows gap={10} rows={["auto"]}>
       {!MOBILE && !TABLET ? (
         <>
-          {data.map((item, i) => (
+          {data.map((item: any, i) => (
             <div
               className={`${styles.item} ${styles.sick}`}
               style={{ borderColor: sick ? "#F7E6E8" : "#EBF3FF" }}

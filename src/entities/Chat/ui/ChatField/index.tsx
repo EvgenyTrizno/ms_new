@@ -1,6 +1,5 @@
 import { ChatHelpMessage } from "..";
 import styles from "./styles.module.scss";
-import support from "../ChatList/assets/support.svg";
 
 export const ChatField = () => {
   return (
