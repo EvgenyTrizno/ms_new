@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { AxiosError } from "axios";
 
 import { Rows } from "@/shared/ui/Rows";
@@ -13,80 +13,71 @@ import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 
 export const UserLogin: FC = () => {
-    const [number, setNumber] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const { mutate, isError, error } = useLoginMutation(number, password);
+  const [numberOrEmail, setNumberOrEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const { mutate, error } = useLoginMutation(numberOrEmail, password);
+  const [errorText, setErrorText] = useState<string>();
 
-    console.log(error);
+  useEffect(() => {
+    if (!error) return;
 
-    const errors = {
-        incorrectPassword: "Incorrect password",
-        incorrectEmailOrPhone: "Account does not exist",
-    };
+    if (error instanceof AxiosError) {
+      const { detail } = error.response?.data;
 
-    const er = error as AxiosError;
+      if (detail === "No active users") {
+        return setErrorText("Пользователя не существует");
+      }
 
-    return (
-        <Rows gap={20} rows={["auto"]}>
-            <Rows gap={5} rows={["auto"]}>
-                <Rows gap={10} rows={["auto"]}>
-                    <div className={styles.box}>
-                        {isError &&
-                            er &&
-                            ((er.response?.data as any).detail as unknown) ===
-                                errors.incorrectEmailOrPhone && (
-                                <span>Неверный введен логин</span>
-                            )}
-                        <Input
-                            border={
-                                isError &&
-                                er &&
-                                ((er.response?.data as any)
-                                    .detail as unknown) ===
-                                    errors.incorrectEmailOrPhone
-                                    ? "1px solid #D64657"
-                                    : ""
-                            }
-                            type="text"
-                            placeholder="Введите номер или почту"
-                            onChange={(e) => setNumber(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.box}>
-                        {isError &&
-                            er &&
-                            ((er.response?.data as any).detail as unknown) ===
-                                errors.incorrectPassword && (
-                                <span>Неверный введен пароль</span>
-                            )}
-                        <PasswordInputField
-                            error={
-                                (isError &&
-                                    er &&
-                                    ((er.response?.data as any)
-                                        .detail as unknown) ===
-                                        errors.incorrectPassword) ??
-                                false
-                            }
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                </Rows>
-                <ForgotPassword />
-            </Rows>
-            <Rows gap={20} rows={["auto"]} >
-                <Btn color="#0064FA" onClick={() => mutate()}>
-                    Войти
-                </Btn>
-                <div className={styles.register}>
-                    <Text color="#7D7F82" fz="16px" type="p" >Нет учетной записи?</Text>
-                    <Link to="/registration">
-                        <Text color="#0064FA" fz="16px" type="p">
-                            Зарегистрироваться
-                        </Text>
-                    </Link>
-                </div>
-            </Rows>
+      return setErrorText("Ошибка. Попробуйте позже");
+    }
+  }, [error]);
+
+  return (
+    <Rows gap={20} rows={["auto"]}>
+      {errorText && (
+        <Text type="p" color="#d64657" position="center">
+          {errorText}
+        </Text>
+      )}
+
+      <Rows gap={5} rows={["auto"]}>
+        <Rows gap={10} rows={["auto"]}>
+          <div className={styles.box}>
+            <Input
+              type="text"
+              placeholder="Введите номер или почту"
+              onChange={(e) => {
+                setErrorText(undefined);
+                setNumberOrEmail(e.target.value);
+              }}
+            />
+          </div>
+          <div className={styles.box}>
+            <PasswordInputField
+              onChange={(e) => {
+                setErrorText(undefined);
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
         </Rows>
-    );
+        <ForgotPassword />
+      </Rows>
+      <Rows gap={20} rows={["auto"]}>
+        <Btn color="#0064FA" onClick={() => mutate()}>
+          Войти
+        </Btn>
+        <div className={styles.register}>
+          <Text color="#7D7F82" fz="16px" type="p">
+            Нет учетной записи?
+          </Text>
+          <Link to="/registration">
+            <Text color="#0064FA" fz="16px" type="p">
+              Зарегистрироваться
+            </Text>
+          </Link>
+        </div>
+      </Rows>
+    </Rows>
+  );
 };
