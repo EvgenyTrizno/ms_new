@@ -1,25 +1,26 @@
 import BoxWrapper from "@/entities/BoxWrapper";
 import styles from "./styles.module.scss";
-import { FC, ReactNode, useState } from "react";
+import { FC } from "react";
 import cn from "clsx";
+import { useNavigate } from "react-router";
 
 type Props = {
   icon: JSX.Element;
   title: string;
 
-  children: ReactNode;
+  href: string;
 };
 
-export const ProfileItem: FC<Props> = ({ icon, title, children }) => {
-  const [isOpen, setOpen] = useState(false);
+export const ProfileLink: FC<Props> = ({ icon, title, href }) => {
+  const navigate = useNavigate();
 
-  const toggleOpen = () => {
-    setOpen((prev) => !prev);
+  const goToPage = () => {
+    navigate(href);
   };
 
   return (
-    <BoxWrapper className={styles.profileItem} color="white">
-      <div className={styles.profileItemHeader} onClick={toggleOpen}>
+    <BoxWrapper className={styles.profileItem} color="white" onClick={goToPage}>
+      <div className={styles.profileItemHeader}>
         <div className={styles.profileItemLeft}>
           {icon}
 
@@ -27,9 +28,7 @@ export const ProfileItem: FC<Props> = ({ icon, title, children }) => {
         </div>
 
         <svg
-          className={cn(styles.arrow, {
-            [styles.arrowActive]: isOpen,
-          })}
+          className={cn(styles.arrow)}
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -41,10 +40,6 @@ export const ProfileItem: FC<Props> = ({ icon, title, children }) => {
           />
         </svg>
       </div>
-
-      <div className={cn(styles.content, {
-        [styles.active]: isOpen
-      })}>{children}</div>
     </BoxWrapper>
   );
 };

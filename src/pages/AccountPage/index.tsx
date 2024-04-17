@@ -23,6 +23,7 @@ import {
 import BoxWrapper from "@/entities/BoxWrapper";
 import { ProfileItem } from "./ui/ProfileItem";
 import { AccountForm } from "./ui/AccountForm";
+import { ProfileLink } from "./ui/ProfileLink";
 
 const AccountPage: FC = () => {
   const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
@@ -122,7 +123,7 @@ const AccountPage: FC = () => {
               <ProfileItem icon={<AccountIcon />} title="Аккаунт">
                 <AccountForm />
               </ProfileItem>
-              <ProfileItem
+              <ProfileLink
                 icon={
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path
@@ -136,27 +137,39 @@ const AccountPage: FC = () => {
                   </svg>
                 }
                 title="Рекомендации"
-              >
-                <div>1</div>
-              </ProfileItem>
-              <ProfileItem icon={<PaymentsIcon />} title="Платежи">
-                <div>1</div>
-              </ProfileItem>
-              <ProfileItem icon={<EditIcon />} title="Назначения">
-                <div>1</div>
-              </ProfileItem>
-              <ProfileItem icon={<StatsIcon />} title="Статистика">
-                <div>1</div>
-              </ProfileItem>
-              <ProfileItem icon={<PeopleIcon />} title="Доступ">
-                <div>1</div>
-              </ProfileItem>
+                href="/"
+              />
 
-              <ProfileItem icon={<LikeIcon />} title="Подписки">
-                <div>1</div>
-              </ProfileItem>
+              <ProfileLink
+                icon={<PaymentsIcon />}
+                title="Платежи"
+                href="/payments"
+              />
 
-              <ProfileItem
+              <ProfileLink
+                icon={<EditIcon />}
+                title="Назначения"
+                href="/appointments"
+              />
+              <ProfileLink
+                icon={<StatsIcon />}
+                title="Статистика"
+                href="/statistics"
+              />
+
+              <ProfileLink
+                icon={<PeopleIcon />}
+                title="Доступ"
+                href="/access"
+              />
+
+              <ProfileLink
+                icon={<LikeIcon />}
+                title="Подписки"
+                href="/subscriptions"
+              />
+
+              <ProfileLink
                 icon={
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path
@@ -170,9 +183,8 @@ const AccountPage: FC = () => {
                   </svg>
                 }
                 title="Сохранённое"
-              >
-                <div>1</div>
-              </ProfileItem>
+                href="/saved"
+              />
             </div>
           </div>
         )}

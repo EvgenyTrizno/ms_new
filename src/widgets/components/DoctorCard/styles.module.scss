@@ -36,6 +36,10 @@
     font-size: 14px;
     font-weight: 600;
     margin-top: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
 
     @media (min-width: 475px) {
       display: block;

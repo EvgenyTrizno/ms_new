@@ -15,7 +15,10 @@ import { Link } from "react-router-dom";
 export const UserLogin: FC = () => {
   const [numberOrEmail, setNumberOrEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const { mutate, error } = useLoginMutation(numberOrEmail, password);
+  const { mutate, error, isLoading } = useLoginMutation(
+    numberOrEmail,
+    password
+  );
   const [errorText, setErrorText] = useState<string>();
 
   useEffect(() => {
@@ -64,8 +67,8 @@ export const UserLogin: FC = () => {
         <ForgotPassword />
       </Rows>
       <Rows gap={20} rows={["auto"]}>
-        <Btn color="#0064FA" onClick={() => mutate()}>
-          Войти
+        <Btn color="#0064FA" onClick={() => mutate()} disabled={isLoading}>
+          {isLoading ? "Загрузка..." : "Войти"}
         </Btn>
         <div className={styles.register}>
           <Text color="#7D7F82" fz="16px" type="p">
