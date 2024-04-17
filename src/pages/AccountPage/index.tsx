@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { Layout } from "../Layout";
 import { MOBILE } from "@/shared/utils";
@@ -24,11 +24,19 @@ import BoxWrapper from "@/entities/BoxWrapper";
 import { ProfileItem } from "./ui/ProfileItem";
 import { AccountForm } from "./ui/AccountForm";
 import { ProfileLink } from "./ui/ProfileLink";
+import { useMainStore } from "@/shared/model/store/main";
 
 const AccountPage: FC = () => {
   const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
+  const { isOpenSidebar, setOpenSidebar } = useMainStore();
   const { user } = useAuth();
   const [filter, setFilter] = useState("Записи");
+
+  useEffect(() => {
+    if(window.innerWidth < 1280 && isOpenSidebar) {
+      setOpenSidebar(false);
+    }
+  }, [isOpenSidebar]);
 
   return (
     <>
