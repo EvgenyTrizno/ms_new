@@ -24,13 +24,30 @@
       }
     }
 
-    .arrowActive {
-      transform: rotate(-90deg);
+    .arrow {
+      transform: rotate(90deg);
+      transition: all 0.2s ease;
+
+      &.arrowActive {
+        transform: rotate(-90deg);
+      }
     }
   }
 
   .content {
-    padding-top: 24px;
+    overflow: hidden;
+    max-height: 0;
+    transition: all 0.15s linear;
+    opacity: 0.3;
+
+    &.active {
+      max-height: 1000px;
+      opacity: 1;
+    }
+
+    & div:first-child {
+      padding-top: 24px;
+    }
   }
 
   &:first-child {

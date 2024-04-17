@@ -4,12 +4,12 @@ import { useNavigate } from "react-router";
 import { login } from "../../api/login";
 import { useCookie } from "./useCookie";
 
-export const useLoginMutation = (number: string, password: string) => {
+export const useLoginMutation = (numberOrEmail: string, password: string) => {
   const { setCookie } = useCookie();
   const navigate = useNavigate();
 
   return useMutation({
-    mutationFn: () => login(number, password),
+    mutationFn: () => login(numberOrEmail, password),
     mutationKey: ["login"],
     onSuccess: (data) => {
       console.log(data);

@@ -12,7 +12,7 @@ export const DoctorCard: FC<Props> = ({ avatar, rank, fio }) => {
     <div className={styles.wrapper}>
       <img className={styles.avatar} src={avatar} alt="avatar" />
 
-      <p className={styles.fio}>{fio}</p>
+      <p className={styles.fio} title={fio}>{fio}</p>
 
       <span className={styles.rank}>{rank}</span>
     </div>

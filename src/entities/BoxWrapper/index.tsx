@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, MouseEventHandler, ReactNode } from "react";
 import styles from "./styles.module.scss";
 import { PropsWithClassName } from "@/shared/types";
 import cn from "clsx";
@@ -7,6 +7,7 @@ type Props = {
   title?: string;
   children: ReactNode;
   color?: "white" | "blue";
+  onClick?: MouseEventHandler;
 };
 
 const BoxWrapper: FC<PropsWithClassName<Props>> = ({
@@ -14,12 +15,15 @@ const BoxWrapper: FC<PropsWithClassName<Props>> = ({
   title,
   children,
   color = "blue",
+  onClick,
 }) => {
   return (
     <div
       className={cn(styles.wrapper, className, {
         [styles[color]]: color,
+        [styles.pointer]: onClick,
       })}
+      onClick={onClick}
     >
       {title && <h6 className={styles.title}>{title}</h6>}
 

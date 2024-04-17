@@ -12,7 +12,11 @@
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: var(--gray-100);
+    color: var(--dark);
+  }
+
+  &:hover svg path {
+    stroke: var(--dark);
   }
 
   svg,

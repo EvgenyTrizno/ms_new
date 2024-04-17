@@ -8,7 +8,6 @@ import { FilterBtn } from "@/shared/ui/FilterBtn";
 import { Search } from "@/features/Search";
 import { WithFilter } from "./ui/WithFilter";
 import styles from "./styles.module.scss";
-import { BackBtn } from "@/widgets/components";
 
 const SearchPage: FC = () => {
   const [search, setSearch] = useState("");
@@ -23,8 +22,6 @@ const SearchPage: FC = () => {
       <MobileHeader />
       <div className={styles.content}>
         <div className={styles.searchWrapper}>
-          <BackBtn />
-
           <Search
             className={styles.search}
             placeholder="Поиск чатов"
