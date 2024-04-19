@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 
 import { Layout } from "../Layout";
 import { MOBILE } from "@/shared/utils";
@@ -24,19 +24,12 @@ import BoxWrapper from "@/entities/BoxWrapper";
 import { ProfileItem } from "./ui/ProfileItem";
 import { AccountForm } from "./ui/AccountForm";
 import { ProfileLink } from "./ui/ProfileLink";
-import { useMainStore } from "@/shared/model/store/main";
+import { ROUTES } from "@/shared/utils/PATHS";
 
 const AccountPage: FC = () => {
   const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
-  const { isOpenSidebar, setOpenSidebar } = useMainStore();
   const { user } = useAuth();
   const [filter, setFilter] = useState("Записи");
-
-  useEffect(() => {
-    if(window.innerWidth < 1280 && isOpenSidebar) {
-      setOpenSidebar(false);
-    }
-  }, [isOpenSidebar]);
 
   return (
     <>
@@ -145,7 +138,7 @@ const AccountPage: FC = () => {
                   </svg>
                 }
                 title="Рекомендации"
-                href="/"
+                href={ROUTES.recommendations.path}
               />
 
               <ProfileLink

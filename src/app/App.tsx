@@ -25,6 +25,7 @@ const App = () => {
   const { getCookie } = useCookie();
   const { setCenters } = useCenters();
   const { setDoctors } = useDoctors();
+
   const { data: userData } = useQuery(
     ["user"],
     () => getUser(getCookie("access_token") as string),
@@ -63,7 +64,6 @@ const App = () => {
 
     setUser(userData.data);
   }, [setUser, userData]);
-
   return (
     <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
       <PSuspense>
