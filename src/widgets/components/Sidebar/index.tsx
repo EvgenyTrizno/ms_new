@@ -7,10 +7,12 @@ import { useMainStore } from "@/shared/model/store/main";
 import { FC, useEffect } from "react";
 import { PropsWithClassName } from "@/shared/types";
 import { useLogout } from "@/shared/lib/hooks/useLogout";
+import { useLocation } from "react-router";
 
 export const Sidebar: FC<PropsWithClassName> = ({ className }) => {
   const { isOpenSidebar, setOpenSidebar } = useMainStore();
   const { logout } = useLogout();
+  const location = useLocation();
 
   useEffect(() => {
     const resizeWindow = () => {
@@ -20,7 +22,9 @@ export const Sidebar: FC<PropsWithClassName> = ({ className }) => {
         isOpenSidebar
       ) {
         setOpenSidebar(false);
-      } else {
+      }
+
+      if (window.innerWidth >= 1280) {
         setOpenSidebar(true);
       }
     };
@@ -31,7 +35,7 @@ export const Sidebar: FC<PropsWithClassName> = ({ className }) => {
 
     return () => window.removeEventListener("resize", resizeWindow);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [location]);
 
   return (
     <div
