@@ -1,9 +1,12 @@
-const RecommendationsPage = () => {
-    return(
-        <div>
+import { MobileHeader } from "@/widgets/components/MobileHeader";
+import { Layout } from "../Layout";
 
-        </div>
-    )
-}
+const RecommendationsPage = () => {
+  return (
+    <Layout>
+      <MobileHeader />
+    </Layout>
+  );
+};
 
 export default RecommendationsPage;
