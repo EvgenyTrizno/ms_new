@@ -62,6 +62,7 @@ const HistoryPatientPage = lazy(() => import("@/pages/HistoryPatientPage"));
 const DiagnosisPage = lazy(() => import("@/pages/DiagnosisPage"));
 const CreateMedTaskPage = lazy(() => import("@/pages/CreateMedTaskPage"));
 const ConfirmationCodePage = lazy(() => import("@/pages/ConfirmationCodePage"));
+const RecommendationsPage = lazy(() => import("@/pages/RecommendationsPage"));
 
 export const routes: RouteProps[] = [
   {
@@ -209,4 +210,8 @@ export const routes: RouteProps[] = [
   { path: ROUTES.createMedTask.path, Component: CreateMedTaskPage },
 
   { path: ROUTES.confirmationCode.path, Component: ConfirmationCodePage },
+  {
+    path: ROUTES.recommendations.path,
+    Component: RecommendationsPage,
+  },
 ];

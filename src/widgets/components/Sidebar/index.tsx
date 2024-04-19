@@ -165,7 +165,7 @@ export const Sidebar: FC<PropsWithClassName> = ({ className }) => {
               />
             </svg>
           }
-          title="Мед задания"
+          title="Мед. задания"
           href={ROUTES.medTasks.path}
         />
 
@@ -265,7 +265,7 @@ export const Sidebar: FC<PropsWithClassName> = ({ className }) => {
               />
             </svg>
           }
-          title="Все врачи"
+          title="Врачи"
           href={ROUTES.allDoctors.path}
         />
 

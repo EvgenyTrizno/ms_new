@@ -24,6 +24,7 @@ import BoxWrapper from "@/entities/BoxWrapper";
 import { ProfileItem } from "./ui/ProfileItem";
 import { AccountForm } from "./ui/AccountForm";
 import { ProfileLink } from "./ui/ProfileLink";
+import { ROUTES } from "@/shared/utils/PATHS";
 
 const AccountPage: FC = () => {
   const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
@@ -137,7 +138,7 @@ const AccountPage: FC = () => {
                   </svg>
                 }
                 title="Рекомендации"
-                href="/"
+                href={ROUTES.recommendations.path}
               />
 
               <ProfileLink

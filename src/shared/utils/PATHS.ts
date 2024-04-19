@@ -174,6 +174,11 @@ export const ROUTES = {
     path: "/pacient-diagnosis",
     label: "Диагноз",
   },
+
+  recommendations: {
+    path: "/recommendations",
+    label: "Рекомендации",
+  },
 } as const;
 
 export const pagesTitles: { [key: string]: string } = {
@@ -185,4 +190,13 @@ export const pagesTitles: { [key: string]: string } = {
   "/all-doctors": ROUTES.allDoctors.label,
   "/map": ROUTES.map.label,
   "/settings": ROUTES.settings.label,
+  "/account": ROUTES.account.label,
+  "/payments": ROUTES.account.label + " / " + ROUTES.payments.label,
+  "/appointments": ROUTES.account.label + " / " + ROUTES.appointments.label,
+  "/statistics": ROUTES.account.label + " / " + ROUTES.statistics.label,
+  "/access": ROUTES.account.label + " / " + ROUTES.access.label,
+  "/subscriptions": ROUTES.account.label + " / " + ROUTES.subscriptions.label,
+  "/saved": ROUTES.account.label + " / " + ROUTES.saved.label,
+  "/recommendations":
+    ROUTES.account.label + " / " + ROUTES.recommendations.label,
 };
