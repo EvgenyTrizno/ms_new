@@ -5,3 +5,5 @@ export * from "./Call";
 export * from "./ReminderBlock";
 export * from "./BackBtn";
 export * from "./CalendarMob";
+export * from "./Recognition";
+export * from "./WidgetWrapper";

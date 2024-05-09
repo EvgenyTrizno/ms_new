@@ -48,8 +48,16 @@
       stroke: var(--white);
     }
 
+    svg g path {
+      fill: var(--white);
+    }
+
     &:hover svg path {
       stroke: white;
+    }
+
+    &:hover svg g path {
+      fill: white;
     }
   }
 

@@ -179,6 +179,21 @@ export const ROUTES = {
     path: "/recommendations",
     label: "Рекомендации",
   },
+
+  calendar: {
+    path: "/calendar",
+    label: "Календарь",
+  },
+
+  services: {
+    path: "/services",
+    label: "Услуги",
+  },
+
+  personalStatistics: {
+    path: "/personal-statistics",
+    label: "Статистика",
+  },
 } as const;
 
 export const pagesTitles: { [key: string]: string } = {
@@ -199,4 +214,8 @@ export const pagesTitles: { [key: string]: string } = {
   "/saved": ROUTES.account.label + " / " + ROUTES.saved.label,
   "/recommendations":
     ROUTES.account.label + " / " + ROUTES.recommendations.label,
+  "/calendar": ROUTES.calendar.label,
+  "/balance": ROUTES.balance.label,
+  "/services": ROUTES.services.label,
+  "/personal-statistics": ROUTES.personalStatistics.label,
 };

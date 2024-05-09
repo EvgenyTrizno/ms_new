@@ -63,6 +63,9 @@ const DiagnosisPage = lazy(() => import("@/pages/DiagnosisPage"));
 const CreateMedTaskPage = lazy(() => import("@/pages/CreateMedTaskPage"));
 const ConfirmationCodePage = lazy(() => import("@/pages/ConfirmationCodePage"));
 const RecommendationsPage = lazy(() => import("@/pages/RecommendationsPage"));
+const CalendarPage = lazy(() => import("@/pages/CalendarPage"));
+const ServicesPage = lazy(() => import("@/pages/ServicesPage"));
+const PersonalStatisticsPage = lazy(() => import("@/pages/PersonalStatisticsPage"));
 
 export const routes: RouteProps[] = [
   {
@@ -214,4 +217,19 @@ export const routes: RouteProps[] = [
     path: ROUTES.recommendations.path,
     Component: RecommendationsPage,
   },
+
+  {
+    path: ROUTES.calendar.path, 
+    Component: CalendarPage
+  },
+
+  {
+    path: ROUTES.services.path, 
+    Component: ServicesPage
+  },
+
+  {
+    path: ROUTES.personalStatistics.path, 
+    Component: PersonalStatisticsPage
+  }
 ];

@@ -1,0 +1,16 @@
+.progress {
+  width: 100%;
+  height: 23px;
+  border-radius: 5px;
+  border: 1px solid var(--blue-200);
+  position: relative;
+  overflow: hidden;
+
+  .valueLine {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: var(--blue-200);
+  }
+}

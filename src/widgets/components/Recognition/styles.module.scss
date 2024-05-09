@@ -1,0 +1,22 @@
+.total {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--blue-200);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--blue);
+  position: absolute;
+  right: 0;
+  top: 50%; 
+  transform: translateY(-50%);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

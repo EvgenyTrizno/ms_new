@@ -1,0 +1,11 @@
+.firstEl {
+  svg path {
+    stroke: none !important;
+  }
+
+  &:hover {
+    svg g path {
+      fill: var(--dark);
+    }
+  }
+}
