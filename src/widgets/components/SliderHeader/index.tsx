@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import { SwiperRef } from "swiper/react";
 
 type Props = {
-  title: string;
+  title?: string;
   swiperRef: MutableRefObject<SwiperRef | null>;
   withArrows?: boolean;
 };
@@ -23,12 +23,12 @@ export const SliderHeader: FC<Props> = ({ title, swiperRef, withArrows }) => {
 
   return (
     <div className={styles.wrapper}>
-      <h3 className={styles.title}>{title}</h3>
+      {title && <h3 className={styles.title}>{title}</h3>}
 
       {withArrows && (
         <div className={styles.arrows}>
           <svg
-            style={{transform: "rotate(-180deg)"}}
+            style={{ transform: "rotate(-180deg)" }}
             onClick={onClickPrev}
             width="6"
             height="11"

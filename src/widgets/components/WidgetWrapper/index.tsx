@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import cn from "clsx";
 
 type Props = {
-    title: string;
+    title?: string;
     headerRight?: JSX.Element;
 }
 
@@ -12,7 +12,9 @@ export const WidgetWrapper: FC<PropsWithClassName<PropsWithChildren<Props>>> = (
     return(
         <div className={cn(className, styles.wrapper)}>
             <div className={styles.header}>
-                <h4 className={styles.title}>{title}</h4>
+                {title && (
+                    <h4 className={styles.title}>{title}</h4>
+                )}
 
                 {headerRight}
             </div>

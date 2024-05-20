@@ -12,5 +12,15 @@
     bottom: 0;
     height: 100%;
     background-color: var(--blue-200);
+
+    .value {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      font-weight: 500;
+      width: calc(100% + 40px);
+      text-align: right;
+    }
   }
 }

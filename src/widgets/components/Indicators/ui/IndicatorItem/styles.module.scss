@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--blue-100);
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 16px;
+
+  @media (min-width: 1024px) {
+    padding: 24px;
+  }
+
+  .left {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--dark-gray);
+    }
+  }
+}

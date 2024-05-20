@@ -21,6 +21,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.10",
+    "react-fast-marquee": "^1.6.4",
     "react-geocode": "^0.2.3",
     "react-google-maps": "^9.4.5",
     "react-hook-form": "^7.50.0",

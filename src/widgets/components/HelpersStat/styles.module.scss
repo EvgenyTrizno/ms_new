@@ -1,0 +1,19 @@
+.inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  @media (min-width: 1024px) {
+    gap: 40px;
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+    @media (min-width: 1024px) {
+      gap: 38px;
+    }
+  }
+}
