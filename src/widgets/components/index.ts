@@ -13,3 +13,4 @@ export * from "./ProgressBar";
 export * from "./ChapterTitle";
 export * from "./HelpersStat";
 export * from "./GraphCol";
+export * from "./Interest";

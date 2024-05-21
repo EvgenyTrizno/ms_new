@@ -6,6 +6,7 @@ import {
   ChapterTitle,
   HelpersStat,
   Indicators,
+  Interest,
   Recognition,
   Showing,
 } from "@/widgets/components";
@@ -17,6 +18,7 @@ const PersonalStatisticsPage = () => {
       <div className={styles.list}>
         <Showing />
         <Recognition />
+        <Interest className={styles.interest} />
       </div>
 
       <div>

@@ -28,3 +28,9 @@
     }
   }
 }
+
+.interest {
+  @media(min-width: 1024px) {
+    grid-column: span 2;
+  }
+}
