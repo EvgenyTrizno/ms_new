@@ -9,6 +9,7 @@ import {
   Interest,
   Recognition,
   Showing,
+  Views,
 } from "@/widgets/components";
 
 const PersonalStatisticsPage = () => {
@@ -16,6 +17,7 @@ const PersonalStatisticsPage = () => {
     <Layout>
       <MobileHeader />
       <div className={styles.list}>
+        <Views className={styles.views} />
         <Showing />
         <Recognition />
         <Interest className={styles.interest} />

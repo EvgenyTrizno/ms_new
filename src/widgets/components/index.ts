@@ -14,3 +14,4 @@ export * from "./ChapterTitle";
 export * from "./HelpersStat";
 export * from "./GraphCol";
 export * from "./Interest";
+export * from "./Views";
