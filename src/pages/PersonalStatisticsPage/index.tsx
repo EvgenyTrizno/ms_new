@@ -4,12 +4,16 @@ import { MobileMenu } from "@/widgets/components/MobileMenu";
 import styles from "./styles.module.scss";
 import {
   ChapterTitle,
+  Coverage,
   HelpersStat,
   Indicators,
   Interest,
+  PurposeVisit,
   Recognition,
   Showing,
+  Survey,
   Views,
+  Visits,
 } from "@/widgets/components";
 
 const PersonalStatisticsPage = () => {
@@ -18,9 +22,12 @@ const PersonalStatisticsPage = () => {
       <MobileHeader />
       <div className={styles.list}>
         <Views className={styles.views} />
+        <Coverage />
         <Showing />
         <Recognition />
+        <PurposeVisit />
         <Interest className={styles.interest} />
+        <Visits />
       </div>
 
       <div>
@@ -32,6 +39,8 @@ const PersonalStatisticsPage = () => {
           <div className={styles.helpersStat}>
             <HelpersStat />
           </div>
+
+          <Survey />
         </div>
       </div>
 

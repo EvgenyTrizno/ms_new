@@ -15,3 +15,7 @@ export * from "./HelpersStat";
 export * from "./GraphCol";
 export * from "./Interest";
 export * from "./Views";
+export * from "./Coverage";
+export * from "./PurposeVisit";
+export * from "./Visits";
+export * from "./Survey";
