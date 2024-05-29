@@ -1,0 +1,37 @@
+.wrapper {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid var(--blue-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+
+    .imgWrapper {
+        width: 33px;
+        min-width: 33px;
+        height: 33px;
+        border-radius: 5px;
+        background-color: #EBF3FF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 12px;
+        font-weight: 500;
+
+        .select {
+            cursor: pointer;
+        }
+
+        .download {
+            cursor: pointer;
+        }
+    }
+}

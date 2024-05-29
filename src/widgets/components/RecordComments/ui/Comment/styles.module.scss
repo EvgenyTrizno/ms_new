@@ -1,0 +1,54 @@
+.message {
+  &:not(:first-child) {
+    margin-top: 14px;
+  }
+
+  max-width: 300px;
+  width: 100%;
+  gap: 10px;
+
+  display: flex;
+  align-items: start;
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .messageContent {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    .messageHeader {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .name {
+        font-size: 11px;
+        font-weight: 500;
+        color: #3c3d3e;
+      }
+
+      .time {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--dark-gray);
+      }
+    }
+
+    .messageText {
+      position: relative;
+      padding: 12px 15px;
+      background-color: #d6e7ff;
+      border-radius: 16px;
+      border-top-left-radius: 0;
+      font-size: 12px;
+      font-weight: 500;
+      color: #262626;
+    }
+  }
+}

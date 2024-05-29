@@ -1,0 +1,45 @@
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #c8dbf6;
+    border-radius: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse:collapse;
+  overflow: hidden;
+  border-radius: 10px;
+
+  thead {
+    tr {
+      min-height: 28px;
+      height: 28px;
+
+      th {
+        font-size: 12px;
+        font-weight: 500;
+        color: #000;
+        padding: 0 10px;
+        width: 100%;
+        text-wrap: nowrap;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      min-height: 28px;
+      height: 28px;
+      background: rgba(200, 219, 246, 0.2);
+
+      td {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--dark-gray);
+        padding: 0 10px;
+      }
+    }
+  }
+}

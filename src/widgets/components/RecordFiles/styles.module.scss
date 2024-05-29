@@ -1,0 +1,9 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 110px;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+}

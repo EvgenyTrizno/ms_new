@@ -1,0 +1,52 @@
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+
+  .mainContentLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 40%;
+
+    @media (min-width: 1024px) {
+      max-width: 695px;
+    }
+  }
+
+  .mainContentRight {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .mainContentRightCol {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+}
+
+.secondaryContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+
+  @media(min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

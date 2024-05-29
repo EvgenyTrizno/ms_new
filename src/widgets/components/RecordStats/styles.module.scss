@@ -1,0 +1,37 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media(min-width: 1024px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .secondaryInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        max-width: 200px;
+        margin: 0 auto;
+        text-align: center;
+
+        .infoItem {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .infoItemTitle {
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+            .infoItemValue {
+                font-size: 18px;
+                font-weight: 700;
+            }
+        }
+    }
+}

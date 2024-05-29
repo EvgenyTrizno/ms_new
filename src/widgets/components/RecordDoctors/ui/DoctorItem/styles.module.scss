@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 6px;
+  border-radius: 15px;
+  border: 1px solid var(--blue-100);
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .name {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .spec {
+      font-size: 13px;
+      color: #7d7f82;
+    }
+  }
+}

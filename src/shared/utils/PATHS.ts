@@ -194,6 +194,11 @@ export const ROUTES = {
     path: "/personal-statistics",
     label: "Статистика",
   },
+
+  record: {
+    path: "/record",
+    label: "Запись"
+  }
 } as const;
 
 export const pagesTitles: { [key: string]: string } = {
@@ -218,4 +223,5 @@ export const pagesTitles: { [key: string]: string } = {
   "/balance": ROUTES.balance.label,
   "/services": ROUTES.services.label,
   "/personal-statistics": ROUTES.personalStatistics.label,
+  "/record": ROUTES.record.label
 };

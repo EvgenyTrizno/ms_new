@@ -1,0 +1,29 @@
+.widgetWrapper {
+  height: max-content;
+
+  @media(min-width: 1024px) {
+    grid-column: span 2;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  
+    @media (min-width: 1024px) {
+      flex-direction: row;
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .doctors {
+      width: 100%;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--blue-200);
+    }
+  }
+}

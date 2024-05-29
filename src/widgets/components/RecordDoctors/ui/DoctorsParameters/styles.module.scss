@@ -1,0 +1,30 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 24px;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        width: 100%;
+    
+        .headerTitle {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 140%;
+            color: #3c3d3e;
+        }
+    
+        .headerText {
+            font-size: 15px;
+            font-weight: 500;
+            color: #000;
+        }
+      }
+    
+}

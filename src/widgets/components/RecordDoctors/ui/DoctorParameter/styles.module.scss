@@ -1,0 +1,54 @@
+.wrapper {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--blue-100);
+  display: flex;
+  align-items: end;
+  gap: 20px;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    gap: 40px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #414d55;
+    }
+
+    .percentWrapper {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+
+      .percent {
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .change {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        font-size: 12px;
+        font-weight: 500;
+        color: #00cc5e;
+      }
+    }
+
+    .lastDays {
+      margin-top: 14px;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 140%;
+      color: #7d7f82;
+    }
+  }
+}
