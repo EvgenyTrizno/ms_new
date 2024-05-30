@@ -1,0 +1,66 @@
+.wrapper {
+  position: relative;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+
+  .itemKey {
+    color: #b1b2b4;
+  }
+
+  .itemValue {
+    color: var(--dark);
+  }
+}
+
+.mapWrapper {
+  position: absolute;
+  right: -70px;
+  top: 0;
+  z-index: 1;
+}
+
+.map {
+  position: relative;
+}
+
+.secondaryInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
+  z-index: 2;
+
+  .secondaryInfoText {
+    font-size: 14px;
+    font-weight: 500;
+
+    .success {
+      color: #00CC5E;
+    }
+
+    &:first-child {
+      color: #B1B2B4;
+
+      span {
+        color: var(--dark);
+      }
+    }
+    
+  }
+}

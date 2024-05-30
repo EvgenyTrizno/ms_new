@@ -1,10 +1,12 @@
+import { FC } from "react";
 import { WidgetWrapper } from "../WidgetWrapper"
 import styles from "./styles.module.scss";
 import { Table } from "./ui/Table";
+import { PropsWithClassName } from "@/shared/types";
 
-export const RecordStats = () => {
+export const RecordStats: FC<PropsWithClassName> = ({className}) => {
     return(
-        <WidgetWrapper title="Статистика">
+        <WidgetWrapper className={className} title="Статистика">
             <div className={styles.content}>
                 <Table />
                 <div className={styles.secondaryInfo}>

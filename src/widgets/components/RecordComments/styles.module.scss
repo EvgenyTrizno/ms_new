@@ -34,7 +34,7 @@
     .messages {
       overflow-y: auto;
       scrollbar-width: none;
-      max-height: 360px;
+      max-height: 100%;
 
       .message {
         &:not(:first-child) {

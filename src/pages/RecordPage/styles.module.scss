@@ -10,7 +10,8 @@
   gap: 16px;
 
   @media (min-width: 1024px) {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: max(40%) 1fr;
   }
 
   .mainContentLeft {
@@ -20,7 +21,8 @@
     width: 40%;
 
     @media (min-width: 1024px) {
-      max-width: 695px;
+      max-width: 100%;
+      width: 100%;
     }
   }
 
@@ -47,6 +49,6 @@
   gap: 14px;
 
   @media(min-width: 1024px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: max(40%) 1fr;
   }
 }

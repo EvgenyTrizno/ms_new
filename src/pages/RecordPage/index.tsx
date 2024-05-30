@@ -37,8 +37,8 @@ const RecordPage = () => {
         </div>
 
         <div className={styles.secondaryContent}>
-          <RecordStats />
-          <RecordDoctors />
+          <RecordStats className={styles.secondaryStats} />
+          <RecordDoctors className={styles.recordDoctors} />
         </div>
       </div>
 

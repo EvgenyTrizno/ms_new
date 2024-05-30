@@ -1,9 +1,6 @@
 .widgetWrapper {
   height: max-content;
-
-  @media(min-width: 1024px) {
-    grid-column: span 2;
-  }
+  width: 100%;
 
   .wrapper {
     display: flex;
