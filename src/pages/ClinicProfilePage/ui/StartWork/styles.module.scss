@@ -1,0 +1,38 @@
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 22px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.itemTitle {
+  font-weight: 600;
+}
+
+.itemText {
+  font-weight: 500;
+  color: #3c3d3e;
+}

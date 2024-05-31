@@ -198,6 +198,11 @@ export const ROUTES = {
   record: {
     path: "/record",
     label: "Запись"
+  },
+
+  clinicProfile: {
+    path: "/clinic-profile",
+    label: "Профиль клиники"
   }
 } as const;
 
@@ -223,5 +228,6 @@ export const pagesTitles: { [key: string]: string } = {
   "/balance": ROUTES.balance.label,
   "/services": ROUTES.services.label,
   "/personal-statistics": ROUTES.personalStatistics.label,
-  "/record": ROUTES.record.label
+  "/record": ROUTES.record.label,
+  "/clinic-profile": ROUTES.clinicProfile.label
 };

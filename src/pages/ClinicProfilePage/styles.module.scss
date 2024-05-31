@@ -1,0 +1,15 @@
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.subContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

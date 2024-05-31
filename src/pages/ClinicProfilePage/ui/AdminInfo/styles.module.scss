@@ -1,0 +1,39 @@
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  @media (min-width: 1024px) {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phoneWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.phoneTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.phone {
+  font-size: 14px;
+  font-weight: 500;
+  color: #3c3d3e;
+}

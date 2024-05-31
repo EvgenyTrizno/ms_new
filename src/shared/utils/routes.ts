@@ -65,8 +65,11 @@ const ConfirmationCodePage = lazy(() => import("@/pages/ConfirmationCodePage"));
 const RecommendationsPage = lazy(() => import("@/pages/RecommendationsPage"));
 const CalendarPage = lazy(() => import("@/pages/CalendarPage"));
 const ServicesPage = lazy(() => import("@/pages/ServicesPage"));
-const PersonalStatisticsPage = lazy(() => import("@/pages/PersonalStatisticsPage"));
+const PersonalStatisticsPage = lazy(
+  () => import("@/pages/PersonalStatisticsPage")
+);
 const RecordPage = lazy(() => import("@/pages/RecordPage"));
+const ClinicProfilePage = lazy(() => import("@/pages/ClinicProfilePage"));
 
 export const routes: RouteProps[] = [
   {
@@ -220,22 +223,27 @@ export const routes: RouteProps[] = [
   },
 
   {
-    path: ROUTES.calendar.path, 
-    Component: CalendarPage
+    path: ROUTES.calendar.path,
+    Component: CalendarPage,
   },
 
   {
-    path: ROUTES.services.path, 
-    Component: ServicesPage
+    path: ROUTES.services.path,
+    Component: ServicesPage,
   },
 
   {
-    path: ROUTES.personalStatistics.path, 
-    Component: PersonalStatisticsPage
-  }, 
+    path: ROUTES.personalStatistics.path,
+    Component: PersonalStatisticsPage,
+  },
 
   {
     path: ROUTES.record.path,
-    Component: RecordPage
-  }
+    Component: RecordPage,
+  },
+
+  {
+    path: ROUTES.clinicProfile.path,
+    Component: ClinicProfilePage,
+  },
 ];
