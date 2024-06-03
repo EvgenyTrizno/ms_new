@@ -4,21 +4,21 @@ import { ICenter } from "../types/centers.interface";
 import { IUserData } from "../types";
 
 type GetCentersRes = {
-  center: ICenter[];
-  pacients: IUserData[];
+    center: ICenter[];
+    pacients: IUserData[];
 };
 
 export const getCenters = async (
-  token: string
+    token: string
 ): Promise<AxiosResponse<GetCentersRes>> => {
-  const res: AxiosResponse<GetCentersRes> = await instance.get(
-    `/admin/center`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+    const res = await instance.get(
+        `/admin/center`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
 
-  return res;
+    return res;
 };
