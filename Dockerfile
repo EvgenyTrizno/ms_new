@@ -1,8 +1,8 @@
 FROM dockerhub.timeweb.cloud/node as build 
 WORKDIR /app
 COPY . .
-RUN npm i --force
-RUN npm run build 
+RUN yarn 
+RUN yarn build 
 
 FROM dockerhub.timeweb.cloud/nginx:stable-alpine
 COPY --from=build /app/dist /usr/share/nginx/html
