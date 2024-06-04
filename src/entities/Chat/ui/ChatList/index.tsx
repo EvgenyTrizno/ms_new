@@ -24,6 +24,7 @@ export const ChatList: FC<IChatListProps> = ({ search }) => {
     const { setUser, setChatId } = useChat();
 
     console.log(search);
+    console.log(chats)
 
     const handleClick = (uuid: string, user: IUserData, id: number) => {
         navigate(`/messages/chat/${uuid}/`);
@@ -41,42 +42,41 @@ export const ChatList: FC<IChatListProps> = ({ search }) => {
                 active={false}
                 img={
                     <div
-                        className={`${styles.supportAvatar} ${
-                            sick && styles.sick
-                        }`}
+                        className={`${styles.supportAvatar} ${sick && styles.sick
+                            }`}
                     >
                         <img src={suprt} alt="support" />
                     </div>
                 }
                 onClick={() => ({})}
             />
-            {/* <ChatView
-                name="Ведущий центр"
-                time="2:23"
-                message="Чем мы можем Вам помочь?"
-                count={0}
-                active={false}
-                img={currUser?.image}
-                onClick={() => ({})}
-            /> */}
+            {/* <ChatView */}
+            {/*     name="Ведущий центр" */}
+            {/*     time="2:23" */}
+            {/*     message="Чем мы можем Вам помочь?" */}
+            {/*     count={0} */}
+            {/*     active={false} */}
+            {/*     img={currUser?.image} */}
+            {/*     onClick={() => ({})} */}
+            {/* /> */}
             {chats &&
                 chats.data.map((item) => {
                     const user = item.users.filter(
                         (item) => item.id !== (currUser && currUser.id)
                     );
-                    console.log(user[0].image);
-                    
+                    // console.log(currUser[0].image);
+
                     return (
                         <ChatView
                             key={item.id}
-                            name={user[0].first_name ?? ""}
+                            name={user[0]?.first_name ?? ""}
                             time={""}
                             message={""}
                             count={0}
                             active={item.uuid === id}
                             // img={user[0].image}
                             img={
-                                !user[0].image
+                                !user[0]?.image
                                     ? sick ? noImageRed : noImageBlue
                                     : user[0].image
                             }

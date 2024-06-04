@@ -1,29 +1,29 @@
 .wrapper {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 
-  img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
+    img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 
-  p {
-    font-size: 18px;
-    font-weight: 600;
-  }
+    p {
+        font-size: 18px;
+        font-weight: 600;
+    }
 
-  span {
-    color: var(--dark-gray);
-    font-size: 15px;
-    font-weight: 500;
-  }
+    span {
+        color: var(--dark-gray);
+        font-size: 15px;
+        font-weight: 500;
+    }
 }
