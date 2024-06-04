@@ -1,4 +1,4 @@
-FROM dockerhub.timeweb.cloud/node as build 
+FROM dockerhub.timeweb.cloud/node:18.17.1-alpine as build
 WORKDIR /app
 COPY . .
 RUN yarn 
