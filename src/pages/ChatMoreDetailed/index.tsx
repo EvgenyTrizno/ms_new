@@ -5,8 +5,8 @@ import styles from "./styles.module.scss";
 import { Layout } from "../Layout";
 import { Container } from "@/shared/ui/Container";
 import { TabLink } from "./ui/TabLink/TabLink";
-import { Doctor } from "./ui/Doctor/Doctor";
-import { ShowAllBtn } from "./ui/ShowAllBtn/ShowAllBtn";
+// import { Doctor } from "./ui/Doctor/Doctor";
+// import { ShowAllBtn } from "./ui/ShowAllBtn/ShowAllBtn";
 
 const ChatMoreDetailedPage = () => {
     return (

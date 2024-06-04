@@ -56,7 +56,7 @@ export const Account: FC = () => {
                         <Input
                             type="text"
                             placeholder="Страна"
-                            value={user?.country.name}
+                            value={user?.country?.name}
                         />
                         <Input
                             type="text"
@@ -86,7 +86,6 @@ export const Account: FC = () => {
                     </Text>
                     <ChangeBtn />
                 </Row>
-                <Protection />
             </Rows>
         </Rows>
     );
