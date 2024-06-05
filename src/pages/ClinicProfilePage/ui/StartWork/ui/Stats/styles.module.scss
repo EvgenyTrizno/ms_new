@@ -1,0 +1,30 @@
+.wrapper {
+    @media(min-width: 1024px) {
+        width: 60%;
+    }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 7px;
+  border: 1px solid #ebf3ff;
+  border-radius: 5px;
+  white-space: nowrap;
+  text-wrap: nowrap;
+
+  &.success {
+    color: #00cc5e;
+  }
+}
+
+.dateInput {
+    padding: 7px;
+    border: 1px solid #D6E7FF;
+    border-radius: 5px;
+}
