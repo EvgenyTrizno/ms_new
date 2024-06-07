@@ -5,7 +5,13 @@
 
   @media (min-width: 1024px) {
     flex-direction: row;
-    flex-wrap: wrap;
+  }
+}
+
+.info {
+  @media (min-width: 1024px) {
+    padding-right: 18px;
+    border-right: 1px solid var(--blue-200);
   }
 }
 

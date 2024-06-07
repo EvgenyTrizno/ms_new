@@ -203,6 +203,11 @@ export const ROUTES = {
   clinicProfile: {
     path: "/clinic-profile",
     label: "Профиль клиники"
+  },
+
+  clinicProfileStats: {
+    path: "/clinic-profile-stats",
+    label: "Профиль клиники"
   }
 } as const;
 
@@ -229,5 +234,6 @@ export const pagesTitles: { [key: string]: string } = {
   "/services": ROUTES.services.label,
   "/personal-statistics": ROUTES.personalStatistics.label,
   "/record": ROUTES.record.label,
-  "/clinic-profile": ROUTES.clinicProfile.label
+  "/clinic-profile": ROUTES.clinicProfile.label,
+  "/clinic-profile-stats": ROUTES.clinicProfileStats.label
 };

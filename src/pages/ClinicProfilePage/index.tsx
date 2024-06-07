@@ -23,7 +23,6 @@ const ClinicProfilePage = () => {
         </div>
       </div>
 
-      
       <MobileMenu />
     </Layout>
   );

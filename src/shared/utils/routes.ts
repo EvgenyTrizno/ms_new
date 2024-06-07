@@ -70,6 +70,9 @@ const PersonalStatisticsPage = lazy(
 );
 const RecordPage = lazy(() => import("@/pages/RecordPage"));
 const ClinicProfilePage = lazy(() => import("@/pages/ClinicProfilePage"));
+const ClinicProfileStatsPage = lazy(
+  () => import("@/pages/ClinicProfileStatsPage")
+);
 
 export const routes: RouteProps[] = [
   {
@@ -245,5 +248,10 @@ export const routes: RouteProps[] = [
   {
     path: ROUTES.clinicProfile.path,
     Component: ClinicProfilePage,
+  },
+
+  {
+    path: ROUTES.clinicProfileStats.path,
+    Component: ClinicProfileStatsPage,
   },
 ];

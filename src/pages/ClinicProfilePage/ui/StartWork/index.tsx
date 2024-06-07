@@ -1,5 +1,6 @@
 import { WidgetWrapper } from "@/widgets/components";
 import styles from "./styles.module.scss";
+import { Stats } from "./ui/Stats";
 
 export const StartWork = () => {
   return (
@@ -27,6 +28,8 @@ export const StartWork = () => {
             </div>
           </div>
         </div>
+
+        <Stats />
       </div>
     </WidgetWrapper>
   );
