@@ -2,7 +2,7 @@ import { FC, memo } from "react";
 
 import { IMap } from "./types";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
-import { GOOGLE_LIBRARIES } from "@/shared/utils";
+// import { GOOGLE_LIBRARIES } from "@/shared/utils";
 
 import styles from "./styles.module.scss";
 
@@ -16,7 +16,7 @@ const MapComponent: FC<IMap> = ({
 }) => {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAP_API_KEY as string,
-        libraries: GOOGLE_LIBRARIES,
+        // libraries: GOOGLE_LIBRARIES,
     });
 
     const containerStyle = {

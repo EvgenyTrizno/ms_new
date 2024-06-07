@@ -1,1 +1,1 @@
-export { AppointmentsList } from "./AppointmentsList";
+// export { AppointmentsList } from "./AppointmentsList";
