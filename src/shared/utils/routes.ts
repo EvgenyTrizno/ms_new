@@ -5,6 +5,7 @@ import { InterviewPage } from "../../pages/Auth/InterviewPage/InterviewPage";
 import { ROUTES } from "./PATHS";
 import MapPage from "@/pages/Map/MapPage";
 
+const RegistrationClinicPage = lazy(() => import("@/pages/RegistrationClinicPage"));
 const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
 const MainPage = lazy(() => import("@/pages/Main"));
@@ -21,13 +22,13 @@ const MedicalTestPage = lazy(() => import("@/pages/MedicalTest"));
 const CreateNewPassPage = lazy(() => import("@/pages/CreateNewPass"));
 const NotFoundPage = lazy(() => import("@/pages/404Page/NotFoundPage"));
 const MobileNotificationPage = lazy(
-  () => import("@/pages/MobileNotification/MobileNotification")
+    () => import("@/pages/MobileNotification/MobileNotification")
 );
 const UserInfoPage = lazy(() => import("@/pages/UserInfo"));
 const UsersPage = lazy(() => import("@/pages/Users/UsersPage"));
 const BalancePage = lazy(() => import("@/pages/Balance"));
 const AbountCenterPage = lazy(
-  () => import("@/pages/AboutCenter/AboutCenterPage")
+    () => import("@/pages/AboutCenter/AboutCenterPage")
 );
 const AppStatsPage = lazy(() => import("@/pages/AppStatsPage"));
 const LeadsPage = lazy(() => import("@/pages/LeadsPage"));
@@ -66,192 +67,196 @@ const RecommendationsPage = lazy(() => import("@/pages/RecommendationsPage"));
 const CalendarPage = lazy(() => import("@/pages/CalendarPage"));
 const ServicesPage = lazy(() => import("@/pages/ServicesPage"));
 const PersonalStatisticsPage = lazy(
-  () => import("@/pages/PersonalStatisticsPage")
+    () => import("@/pages/PersonalStatisticsPage")
 );
 const RecordPage = lazy(() => import("@/pages/RecordPage"));
 const ClinicProfilePage = lazy(() => import("@/pages/ClinicProfilePage"));
 const ClinicProfileStatsPage = lazy(
-  () => import("@/pages/ClinicProfileStatsPage")
+    () => import("@/pages/ClinicProfileStatsPage")
 );
 
 export const routes: RouteProps[] = [
-  {
-    path: "/registration",
-    Component: RegistrationPage,
-  },
-  {
-    path: "/login",
-    Component: LoginPage,
-  },
-  {
-    path: "/",
-    Component: MainPage,
-  },
-  { path: "*", Component: NotFoundPage },
-  { path: "/recovery", Component: RecoveryPage },
-  {
-    path: "/select-center",
-    Component: SelectCenterPage,
-  },
-  {
-    path: "/confirmation",
-    Component: ConfirmationPage,
-  },
-  {
-    path: "/interview",
-    Component: InterviewPage,
-  },
-  {
-    path: "/search",
-    Component: SearchPage,
-  },
-  {
-    path: "/medical-card",
-    Component: MedicalCardPage,
-  },
-  {
-    path: "/notes",
-    Component: NotesPage,
-  },
-  {
-    path: "/notes/:name",
-    Component: NotesInfoPage,
-  },
-  {
-    path: "/create-event",
-    Component: CreateEventPage,
-  },
-  {
-    path: "/messages",
-    Component: MessagesPage,
-  },
-  {
-    path: "/medical-card-test",
-    Component: MedicalTestPage,
-  },
-  {
-    path: "/create-new-password",
-    Component: CreateNewPassPage,
-  },
-  {
-    path: "/notifications",
-    Component: MobileNotificationPage,
-  },
-  {
-    path: "/user/:id",
-    Component: UserInfoPage,
-  },
-  {
-    path: "/users",
-    Component: UsersPage,
-  },
-  {
-    path: "/balance",
-    Component: BalancePage,
-  },
+    {
+        path: "/registration",
+        Component: RegistrationPage,
+    },
+    {
+        path: "/login",
+        Component: LoginPage,
+    },
+    {
+        path: "/",
+        Component: MainPage,
+    },
+    { path: "*", Component: NotFoundPage },
+    { path: "/recovery", Component: RecoveryPage },
+    {
+        path: "/select-center",
+        Component: SelectCenterPage,
+    },
+    {
+        path: "/confirmation",
+        Component: ConfirmationPage,
+    },
+    {
+        path: "/interview",
+        Component: InterviewPage,
+    },
+    {
+        path: "/search",
+        Component: SearchPage,
+    },
+    {
+        path: "/medical-card",
+        Component: MedicalCardPage,
+    },
+    {
+        path: "/notes",
+        Component: NotesPage,
+    },
+    {
+        path: "/notes/:name",
+        Component: NotesInfoPage,
+    },
+    {
+        path: "/create-event",
+        Component: CreateEventPage,
+    },
+    {
+        path: "/messages",
+        Component: MessagesPage,
+    },
+    {
+        path: "/medical-card-test",
+        Component: MedicalTestPage,
+    },
+    {
+        path: "/create-new-password",
+        Component: CreateNewPassPage,
+    },
+    {
+        path: "/notifications",
+        Component: MobileNotificationPage,
+    },
+    {
+        path: "/user/:id",
+        Component: UserInfoPage,
+    },
+    {
+        path: "/users",
+        Component: UsersPage,
+    },
+    {
+        path: "/balance",
+        Component: BalancePage,
+    },
 
-  {
-    path: "/about-center",
-    Component: AbountCenterPage,
-  },
-  {
-    path: "/center/:id",
-    Component: CenterPage,
-  },
-  { path: "/app", Component: AppStatsPage },
-  { path: "/leads", Component: LeadsPage },
-  { path: "/map", Component: MapPage },
-  {
-    path: "/map/:country",
-    Component: CountryInfoPage,
-  },
-  {
-    path: "/map/:country/:city",
-    Component: CityInfoPage,
-  },
-  { path: "/requests", Component: RequestsPage },
-  { path: "/mail", Component: MailPage },
-  { path: "/social", Component: SocialPage },
-  { path: "/messages/chat/:id/", Component: ChatPage },
-  { path: "/center-account", Component: CenterAccount },
-  { path: "/appointments", Component: AppointmentsPage },
-  { path: "/medical-center", Component: MedicalCenter },
-  { path: "/subscriptions", Component: SubsPage },
-  { path: "/saved", Component: SavedPage },
-  { path: "/access", Component: AccessPage },
-  { path: "/geolocation", Component: GeolocationPage },
-  { path: "/account", Component: AccountPage },
-  { path: "/settings", Component: SettingsPage },
-  { path: "/statistics", Component: StatisticsPage },
-  { path: "/chat-more-detailed", Component: ChatMoreDetailed },
-  { path: "/clinic/:id", Component: ClinicPage },
-  { path: "/payments", Component: PaymentsPage },
-  { path: "/add-card", Component: AddCardPage },
-  {
-    path: ROUTES.cooperation.path,
-    Component: CooperationPage,
-  },
-  {
-    path: ROUTES.hardware.path,
-    Component: HardwarePage,
-  },
+    {
+        path: "/about-center",
+        Component: AbountCenterPage,
+    },
+    {
+        path: "/center/:id",
+        Component: CenterPage,
+    },
+    { path: "/app", Component: AppStatsPage },
+    { path: "/leads", Component: LeadsPage },
+    { path: "/map", Component: MapPage },
+    {
+        path: "/map/:country",
+        Component: CountryInfoPage,
+    },
+    {
+        path: "/map/:country/:city",
+        Component: CityInfoPage,
+    },
+    { path: "/requests", Component: RequestsPage },
+    { path: "/mail", Component: MailPage },
+    { path: "/social", Component: SocialPage },
+    { path: "/messages/chat/:id/", Component: ChatPage },
+    { path: "/center-account", Component: CenterAccount },
+    { path: "/appointments", Component: AppointmentsPage },
+    { path: "/medical-center", Component: MedicalCenter },
+    { path: "/subscriptions", Component: SubsPage },
+    { path: "/saved", Component: SavedPage },
+    { path: "/access", Component: AccessPage },
+    { path: "/geolocation", Component: GeolocationPage },
+    { path: "/account", Component: AccountPage },
+    { path: "/settings", Component: SettingsPage },
+    { path: "/statistics", Component: StatisticsPage },
+    { path: "/chat-more-detailed", Component: ChatMoreDetailed },
+    { path: "/clinic/:id", Component: ClinicPage },
+    { path: "/payments", Component: PaymentsPage },
+    { path: "/add-card", Component: AddCardPage },
+    {
+        path: ROUTES.cooperation.path,
+        Component: CooperationPage,
+    },
+    {
+        path: ROUTES.hardware.path,
+        Component: HardwarePage,
+    },
 
-  {
-    path: ROUTES.allDoctors.path,
-    Component: AllDoctorsPage,
-  },
-  {
-    path: ROUTES.medTasks.path,
-    Component: MedTasksPage,
-  },
-  {
-    path: ROUTES.overviewMedTask.path,
-    Component: OverviewMedTaskPage,
-  },
+    {
+        path: ROUTES.allDoctors.path,
+        Component: AllDoctorsPage,
+    },
+    {
+        path: ROUTES.medTasks.path,
+        Component: MedTasksPage,
+    },
+    {
+        path: ROUTES.overviewMedTask.path,
+        Component: OverviewMedTaskPage,
+    },
 
-  {
-    path: ROUTES.history.path,
-    Component: HistoryPatientPage,
-  },
-  {
-    path: ROUTES.pacientDiagnosis.path,
-    Component: DiagnosisPage,
-  },
-  { path: ROUTES.createMedTask.path, Component: CreateMedTaskPage },
+    {
+        path: ROUTES.history.path,
+        Component: HistoryPatientPage,
+    },
+    {
+        path: ROUTES.pacientDiagnosis.path,
+        Component: DiagnosisPage,
+    },
+    { path: ROUTES.createMedTask.path, Component: CreateMedTaskPage },
 
-  { path: ROUTES.confirmationCode.path, Component: ConfirmationCodePage },
-  {
-    path: ROUTES.recommendations.path,
-    Component: RecommendationsPage,
-  },
+    { path: ROUTES.confirmationCode.path, Component: ConfirmationCodePage },
+    {
+        path: ROUTES.recommendations.path,
+        Component: RecommendationsPage,
+    },
 
-  {
-    path: ROUTES.calendar.path,
-    Component: CalendarPage,
-  },
+    {
+        path: ROUTES.calendar.path,
+        Component: CalendarPage,
+    },
 
-  {
-    path: ROUTES.services.path,
-    Component: ServicesPage,
-  },
+    {
+        path: ROUTES.services.path,
+        Component: ServicesPage,
+    },
 
-  {
-    path: ROUTES.personalStatistics.path,
-    Component: PersonalStatisticsPage,
-  },
+    {
+        path: ROUTES.personalStatistics.path,
+        Component: PersonalStatisticsPage,
+    },
 
-  {
-    path: ROUTES.record.path,
-    Component: RecordPage,
-  },
+    {
+        path: ROUTES.record.path,
+        Component: RecordPage,
+    },
 
-  {
-    path: ROUTES.clinicProfile.path,
-    Component: ClinicProfilePage,
-  },
+    {
+        path: ROUTES.clinicProfile.path,
+        Component: ClinicProfilePage,
+    },
 
-  {
-    path: ROUTES.clinicProfileStats.path,
-    Component: ClinicProfileStatsPage,
-  },
+    {
+        path: ROUTES.clinicProfileStats.path,
+        Component: ClinicProfileStatsPage,
+    },
+    {
+        path: ROUTES.clinicRegistration.path,
+        Component: RegistrationClinicPage
+    }
 ];

@@ -3,8 +3,7 @@ import { FC, useState, ChangeEvent, FormEvent, useEffect } from "react";
 
 import { Input } from "@/shared/ui/Input";
 import { useRegistrationMutation } from "../../model/hooks/useRegistrationMutation";
-import { useRegistration } from "@/shared/model/store/registration";
-import { Policy } from "../Policy";
+import { useClinicRegistration } from "@/shared/model/store/clinicRegistration";
 import { Rows } from "@/shared/ui/Rows";
 import { Btn } from "@/shared/ui/Btn";
 import { Text } from "@/shared/ui/Text";
@@ -16,23 +15,22 @@ type ErrorType = {
     message: string | null;
 };
 
-export const RegistrationForm: FC = () => {
-    const [isChecked, setIsChecked] = useState<boolean>(false);
+export const ClinicRegistrationForm: FC = () => {
     const [error, setError] = useState<ErrorType>({
         value: false,
         message: null,
     });
 
-    const { email, setEmail, password, setPassword, password2, setPassword2 } =
-        useRegistration();
+    const { number, setNumber, password, setPassword, password2, setPassword2, workdays, worktime } =
+        useClinicRegistration();
 
     const {
         mutate,
         error: regError,
         data: regData,
         isLoading,
-    } = useRegistrationMutation(email, password);
 
+    } = useRegistrationMutation(number, password, worktime, workdays);
     const navigate = useNavigate();
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -42,8 +40,8 @@ export const RegistrationForm: FC = () => {
         setError({ value: false, message: null });
 
         switch (name) {
-            case "email":
-                setEmail(value);
+            case "number":
+                setNumber(value);
                 break;
             case "password":
                 setPassword(value);
@@ -56,7 +54,7 @@ export const RegistrationForm: FC = () => {
     const formHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (!isChecked || !email || !password || !password2) {
+        if (!number || !password || !password2) {
             return setError({
                 value: true,
                 message: "Заполните все поля",
@@ -89,7 +87,7 @@ export const RegistrationForm: FC = () => {
         setError({
             value: true,
             message:
-                "Ошибка. Возможно аккаунт с таким адресом эл.почты уже существует",
+                "Ошибка. Возможно клиника с таким номером уже существует",
         });
     }, [regError]);
 
@@ -100,7 +98,7 @@ export const RegistrationForm: FC = () => {
     }, [regData]);
 
     return (
-        <form onSubmit={formHandler}>
+        <form onSubmit={formHandler} >
             <Rows gap={20} rows={["auto"]}>
                 {error.value && (
                     <Text type="p" color="#d64657" position="center">
@@ -110,12 +108,12 @@ export const RegistrationForm: FC = () => {
 
                 <Rows gap={10} rows={["auto"]}>
                     <Input
-                        type="email"
-                        placeholder="Введите эл.почту"
+                        type="text"
+                        placeholder="Номер телефона"
                         borderColor="#E9EAEB"
-                        name="email"
+                        name="number"
                         onChange={handleChange}
-                        value={email}
+                        value={number}
                     />
                     <Input
                         type="password"
@@ -134,16 +132,15 @@ export const RegistrationForm: FC = () => {
                         value={password2}
                     />
                 </Rows>
-                <Policy isChecked={isChecked} setIsChecked={setIsChecked} />
                 <Btn
                     color="#0064FA"
                     disabled={
-                        isLoading || !isChecked || !email || !password || !password2
+                        isLoading || !number || !password || !password2
                     }
                 >
                     {isLoading ? "Загрузка..." : "Продолжить"}
                 </Btn>
             </Rows>
-        </form>
+        </form >
     );
 };

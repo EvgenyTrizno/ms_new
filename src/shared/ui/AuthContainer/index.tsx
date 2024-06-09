@@ -10,7 +10,7 @@ export const AuthContainer: FC<IAuthContainerProps> = ({ children, title }) => {
     return (
         <div className={styles.container}>
             <WhiteContentBlock className={styles.wrapper}>
-                <Text type="h2" position="center" fz="24px">
+                <Text type="h2" position="center" fz="20px">
                     {title}
                 </Text>
                 {children}
