@@ -55,7 +55,9 @@ export const CodeInputs: FC<ICodeInputsProps> = ({ setCode }) => {
     };
 
     if (verifyCode.length === 4) {
-        setCode(verifyCode);
+        if (setCode) {
+            setCode(verifyCode);
+        }
     }
 
     return (

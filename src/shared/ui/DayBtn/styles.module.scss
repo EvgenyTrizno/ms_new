@@ -1,0 +1,36 @@
+.day {
+    height: 50px;
+    width: 50px;
+    border: solid;
+    border-color: #EBF3FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: auto;
+    cursor: pointer;
+}
+
+.day_active {
+    height: 50px;
+    width: 50px;
+    border: 2px solid;
+    border-color: #EBF3FF;
+    background-color: #0064FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: auto;
+    cursor: pointer;
+}
+
+.day_text_active {
+    font-weight: 600;
+    color: white;
+}
+
+.day_text {
+    font-weight: 600;
+    color: black;
+}

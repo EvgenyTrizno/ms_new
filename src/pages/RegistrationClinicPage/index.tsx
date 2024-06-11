@@ -7,13 +7,25 @@ import { useClinicRegistration } from "@/shared/model/store/clinicRegistration";
 import { ClinicActivity } from "@/features/ClinicActivity";
 
 
+import styles from "./styles.module.scss"
+import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
+import { Text } from "@/shared/ui/Text";
 
 const RegistrationClinicPage: FC = () => {
     const { workdays, worktime } = useClinicRegistration();
     return (
-        <AuthContainer title={(workdays && worktime) ? "Регистрация клиники" : "Укажите активность своей клиники"} >
-            {(workdays && worktime) ? <ClinicRegistrationForm /> : <ClinicActivity />}
-        </AuthContainer >
+        <>
+            {(workdays && worktime) && (
+                <AuthContainer title="Регистрация клиники" >
+                    <ClinicRegistrationForm />
+                </AuthContainer>)}
+            <div className={styles.container}>
+                <WhiteContentBlock>
+                    <ClinicActivity />
+                </WhiteContentBlock>
+            </div>
+        </>
+
     );
 };
 
