@@ -5,13 +5,14 @@ import { registration } from "../../api/registration";
 export const useRegistrationMutation = (
     number: string,
     password: string,
-    worktime: Date,
-    workdays: string
+    worktime: number,
+    workdays: string[]
 
 ) => {
     return useMutation({
         mutationFn: () =>
-            registration(number, password, workdays, worktime),
+            registration(number, password, workdays.join(), worktime),
         mutationKey: ["clinicRegistration"],
+
     });
 };

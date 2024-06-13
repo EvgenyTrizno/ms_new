@@ -3,13 +3,13 @@ import { immer } from "zustand/middleware/immer";
 
 interface IClinicRegistrationStoreProps {
     number: string;
-    worktime: Date;
-    workdays: string;
+    worktime: number;
+    workdays: [] | string[];
     password: string;
     password2: string;
     setNumber: (number: string) => void;
-    setWorktime: (worktime: Date) => void;
-    setWorkdays: (workdays: string) => void;
+    setWorktime: (worktime: number) => void;
+    setWorkdays: (workdays: [] | string[]) => void;
     setPassword: (pass: string) => void;
     setPassword2: (pass: string) => void;
 }
@@ -17,8 +17,8 @@ interface IClinicRegistrationStoreProps {
 export const useClinicRegistration = create<IClinicRegistrationStoreProps>()(
     immer((set) => ({
         number: "",
-        worktime: new Date(),
-        workdays: "",
+        worktime: 0,
+        workdays: [],
         password: "",
         password2: "",
         setNumber: (number: string) => {
@@ -26,14 +26,15 @@ export const useClinicRegistration = create<IClinicRegistrationStoreProps>()(
                 state.number = number;
             })
         },
-        setWorktime: (worktime: Date) => {
+        setWorktime: (worktime: number) => {
             set((state) => {
                 state.worktime = worktime;
             })
         },
-        setWorkdays: (workdays: string) => {
+        setWorkdays: (workdays: [] | string[]) => {
             set((state) => {
                 state.workdays = workdays;
+                console.log(state.workdays)
             })
         },
         setPassword: (pass: string) => {

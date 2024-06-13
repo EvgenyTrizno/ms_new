@@ -7,7 +7,7 @@ export async function registration(
     number: string,
     password: string,
     workdays: string,
-    worktime: Date
+    worktime: number,
 ): Promise<AxiosResponse<IClinic>> {
     return instance.post("/clinic/", {
         number,

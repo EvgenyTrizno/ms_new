@@ -1,4 +1,4 @@
-import { FC, useRef, useState, ChangeEvent, FocusEvent, KeyboardEvent } from "react";
+import { FC, useRef, useState, ChangeEvent, FocusEvent, KeyboardEvent, useEffect } from "react";
 
 import styles from "./styles.module.scss"
 import { Text } from "@/shared/ui/Text";
@@ -9,10 +9,26 @@ import { Cols } from "@/shared/ui/Cols";
 import { Button } from "@/shared/ui";
 import { Btn } from "@/shared/ui/Btn";
 import { DayBtn } from "@/shared/ui/DayBtn";
+import { useClinicRegistration } from "@/shared/model/store/clinicRegistration";
 
-export const ClinicActivity: FC = () => {
+export const ClinicActivity: FC = ({ setForm }) => {
+    const { worktime, setWorktime, workdays } = useClinicRegistration();
     const [code, setCode] = useState<string>("");
     const [verifyCode, setVerifyCode] = useState<string>("");
+    console.log(worktime)
+
+
+    useEffect(() => {
+        console.log('eff')
+        if (verifyCode.length == 4) {
+            const workHours = parseInt(verifyCode.slice(0, 2)) * 60
+            const workMinutes = parseInt(verifyCode.slice(2, 4))
+            setWorktime(workHours + workMinutes)
+        } else if (verifyCode.length == 0) {
+            setWorktime(0)
+        }
+    }, [verifyCode])
+
 
     const codeRefs = [
         useRef<HTMLInputElement>(null),
@@ -53,9 +69,6 @@ export const ClinicActivity: FC = () => {
         e.target.classList.remove(styles.active);
     };
 
-    if (verifyCode.length === 4) {
-        console.log(verifyCode)
-    }
 
     const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
 
@@ -148,7 +161,8 @@ export const ClinicActivity: FC = () => {
 
         <Btn
             color="#0064FA"
-            disabled={verifyCode.length != 4 ? true : false}
+            disabled={(worktime === 0 || workdays.length === 0) ? true : false}
+            onClick={() => setForm(true)}
         >
             Зарегистрироваться
         </Btn>

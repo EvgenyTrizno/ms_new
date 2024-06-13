@@ -1,3 +1,3 @@
 export interface IDayBtn {
-    day?: string;
+    day: string;
 }

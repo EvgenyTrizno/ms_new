@@ -138,6 +138,7 @@ export const ClinicRegistrationForm: FC = () => {
                         isLoading || !number || !password || !password2
                     }
                 >
+
                     {isLoading ? "Загрузка..." : "Продолжить"}
                 </Btn>
             </Rows>

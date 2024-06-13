@@ -1,5 +1,5 @@
 
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { AuthContainer } from "@/shared/ui/AuthContainer";
 import { ClinicRegistrationForm } from "@/features/RegistrationClinic";
@@ -12,16 +12,22 @@ import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { Text } from "@/shared/ui/Text";
 
 const RegistrationClinicPage: FC = () => {
-    const { workdays, worktime } = useClinicRegistration();
+    const { workdays, worktime, setWorkdays, setWorktime } = useClinicRegistration();
+    const [form, setForm] = useState<boolean>(false);
+
+    useEffect(() => {
+        console.log(workdays)
+        setWorkdays([])
+    }, [])
     return (
         <>
-            {(workdays && worktime) && (
+            {form && (
                 <AuthContainer title="Регистрация клиники" >
                     <ClinicRegistrationForm />
                 </AuthContainer>)}
             <div className={styles.container}>
                 <WhiteContentBlock>
-                    <ClinicActivity />
+                    <ClinicActivity setForm={setForm} />
                 </WhiteContentBlock>
             </div>
         </>

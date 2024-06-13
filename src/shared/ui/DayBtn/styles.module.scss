@@ -1,19 +1,27 @@
 .day {
     height: 50px;
-    width: 50px;
+    width: 100%;
     border: solid;
     border-color: #EBF3FF;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
+    border-radius: 1px;
     padding: auto;
-    cursor: pointer;
+    // cursor: pointer;
+}
+
+.day:first-child {
+    border-radius: 12px 5px 5px 12px
+}
+
+.day:last-child {
+    border-radius: 5px 12px 12px 5px;
 }
 
 .day_active {
     height: 50px;
-    width: 50px;
+    width: 100%;
     border: 2px solid;
     border-color: #EBF3FF;
     background-color: #0064FA;
@@ -22,7 +30,7 @@
     align-items: center;
     border-radius: 12px;
     padding: auto;
-    cursor: pointer;
+    // cursor: pointer;
 }
 
 .day_text_active {
