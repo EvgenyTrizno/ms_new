@@ -10,56 +10,56 @@ import { PersonalMenu } from "./ui/PersonalMenu";
 import { UserMenu } from "./ui/UserMenu";
 
 export const Sidebar: FC<PropsWithClassName> = ({ className }) => {
-  const { isOpenSidebar, setOpenSidebar } = useMainStore();
-  const location = useLocation();
-  const { user } = useAuth();
+    const { isOpenSidebar, setOpenSidebar } = useMainStore();
+    const location = useLocation();
+    const { user } = useAuth();
 
-  useEffect(() => {
-    const resizeWindow = () => {
-      if (
-        window.innerWidth >= 1024 &&
-        window.innerWidth < 1280 &&
-        isOpenSidebar
-      ) {
-        setOpenSidebar(false);
-      }
+    useEffect(() => {
+        const resizeWindow = () => {
+            if (
+                window.innerWidth >= 1024 &&
+                window.innerWidth < 1280 &&
+                isOpenSidebar
+            ) {
+                setOpenSidebar(false);
+            }
 
-      if (window.innerWidth >= 1280) {
-        setOpenSidebar(true);
-      }
-    };
+            if (window.innerWidth >= 1280) {
+                setOpenSidebar(true);
+            }
+        };
 
-    resizeWindow();
+        resizeWindow();
 
-    window.addEventListener("resize", resizeWindow);
+        window.addEventListener("resize", resizeWindow);
 
-    return () => window.removeEventListener("resize", resizeWindow);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location]);
+        return () => window.removeEventListener("resize", resizeWindow);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [location]);
 
-  return (
-    <div
-      className={cn(styles.wrapper, className, {
-        [styles.notOpenSidebar]: !isOpenSidebar,
-      })}
-      onMouseEnter={() => {
-        if (window.innerWidth >= 1280) return;
+    return (
+        <div
+            className={cn(styles.wrapper, className, {
+                [styles.notOpenSidebar]: !isOpenSidebar,
+            })}
+            onMouseEnter={() => {
+                if (window.innerWidth >= 1280) return;
 
-        setOpenSidebar(true);
-      }}
-      onMouseLeave={() => {
-        if (window.innerWidth >= 1280) return;
+                setOpenSidebar(true);
+            }}
+            onMouseLeave={() => {
+                if (window.innerWidth >= 1280) return;
 
-        setOpenSidebar(false);
-      }}
-    >
-      <div className={styles.header}>
-        <Logo />
-      </div>
+                setOpenSidebar(false);
+            }}
+        >
+            <div className={styles.header}>
+                <Logo />
+            </div>
 
-      <div className={styles.list}>
-        {!user?.is_staff ? <UserMenu /> : <PersonalMenu />}
-      </div>
-    </div>
-  );
+            <div className={styles.list}>
+                {user ? <UserMenu /> : <PersonalMenu />}
+            </div>
+        </div>
+    );
 };

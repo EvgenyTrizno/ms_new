@@ -7,6 +7,7 @@ import MapPage from "@/pages/Map/MapPage";
 
 const RegistrationClinicPage = lazy(() => import("@/pages/RegistrationClinicPage"));
 const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
+const WorkerLoginPage = lazy(() => import("@/pages/WorkerLoginPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
 const MainPage = lazy(() => import("@/pages/Main"));
 const RecoveryPage = lazy(() => import("@/pages/RecoveryPage"));
@@ -258,5 +259,10 @@ export const routes: RouteProps[] = [
     {
         path: ROUTES.clinicRegistration.path,
         Component: RegistrationClinicPage
-    }
+    },
+
+    {
+        path: ROUTES.workerLogin.path,
+        Component: WorkerLoginPage
+    },
 ];

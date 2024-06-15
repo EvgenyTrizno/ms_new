@@ -6,11 +6,15 @@ export const ROUTES = {
     clinicRegistration: {
         path: "/registration-clinic",
     },
+
     registration: {
         path: "/registration",
     },
     confirmationCode: {
         path: "/confirmation-code",
+    },
+    workerLogin: {
+        path: '/loginc'
     },
     login: {
         path: "/login",

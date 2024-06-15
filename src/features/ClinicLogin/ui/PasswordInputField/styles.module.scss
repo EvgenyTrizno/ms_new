@@ -1,0 +1,9 @@
+.pass {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding-right: 20px;
+}
+
+.error {
+    border: 1px solid var(--red-400) !important;
+}

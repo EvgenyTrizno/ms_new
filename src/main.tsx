@@ -4,9 +4,10 @@ import { ReactQuery } from "./app/providers/ReactQuery";
 import { Routing } from "./app/providers/Routing";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <Routing>
-    <ReactQuery>
-      <App />
-    </ReactQuery>
-  </Routing>
+    <Routing>
+        <ReactQuery>
+
+            <App />
+        </ReactQuery>
+    </Routing>
 );

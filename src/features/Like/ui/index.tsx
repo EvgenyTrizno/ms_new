@@ -8,6 +8,7 @@ export const Like: FC = () => {
     return (
         <GrayBtn onClick={() => console.log("like")}>
             <img src={like} alt="" />
+            
         </GrayBtn>
     );
 };

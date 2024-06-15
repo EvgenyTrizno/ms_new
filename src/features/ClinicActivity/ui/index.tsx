@@ -18,6 +18,7 @@ export const ClinicActivity: FC = ({ setForm }) => {
     console.log(worktime)
 
 
+
     useEffect(() => {
         console.log('eff')
         if (verifyCode.length == 4) {
@@ -84,9 +85,11 @@ export const ClinicActivity: FC = ({ setForm }) => {
                         days.map((day) => (
                             <DayBtn day={day} />
                         ))
+
                     }
                 </div>
             </div>
+
             <div className={styles.block}>
 
                 <Text position="center" fz={20} >Выберите время</Text>

@@ -9,32 +9,32 @@ import styles from "./styles.module.scss";
 import { FilterBtn } from "@/shared/ui/FilterBtn";
 
 const MainPage: FC = () => {
-  return (
-    <Layout>
-      <MobileHeader />
+    return (
+        <Layout>
+            <MobileHeader />
 
-      <DoctorsFromUserCountry />
+            <DoctorsFromUserCountry />
 
-      <div className={styles.line}></div>
+            <div className={styles.line}></div>
 
-      <div className={styles.content}>
-        <div className={styles.contentHeader}>
-          <h4>Популярные посты</h4>
+            <div className={styles.content}>
+                <div className={styles.contentHeader}>
+                    <h4>Популярные посты</h4>
 
-          <FilterBtn
-            type={window.innerWidth >= 768 ? "big" : "small"}
-            onClick={() => console.log("asdsad")}
-          />
-        </div>
+                    <FilterBtn
+                        type={window.innerWidth >= 768 ? "big" : "small"}
+                        onClick={() => console.log("asdsad")}
+                    />
+                </div>
 
-        <div className={styles.postsWrapper}>
-          <Posts />
-        </div>
-      </div>
+                <div className={styles.postsWrapper}>
+                    <Posts />
+                </div>
+            </div>
 
-      <MobileMenu />
-    </Layout>
-  );
+            <MobileMenu />
+        </Layout>
+    );
 };
 
 export default MainPage;

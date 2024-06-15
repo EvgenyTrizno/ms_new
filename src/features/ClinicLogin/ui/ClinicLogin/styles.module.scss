@@ -1,0 +1,14 @@
+.box {
+    span {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+}
+
+.register {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
