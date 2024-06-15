@@ -8,6 +8,6 @@ export const AddToArchive: FC = () => {
     return (
         <GrayBtn onClick={() => console.log("archive")}>
             <img src={archive} alt="" />
-        </GrayBtn>
+        </Gra>
     );
 };
