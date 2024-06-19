@@ -10,7 +10,7 @@ type Props = {
 export const Clinic: FC<Props> = ({ data, onClick }) => {
   return (
     <div className={styles.wrapper} onClick={onClick}>
-      <img className={styles.img} src={data.image} alt="clinic" />
+      <img className={styles.img} src={data.image ? data.image : "/assets/clinic.jpg"} alt="clinic" />
 
       <div className={styles.content}>
         <h5 className={styles.title}>{data.name}</h5>

@@ -23,7 +23,7 @@ export const MobileMenu: FC = () => {
       path: ROUTES.search.path,
       svg: <SearchIcon />,
     },
-    { path: "/messages/chat/1" as "/", svg: <PlusMenuIcon /> },
+    // { path: "/messages/chat/1" as "/", svg: <PlusMenuIcon /> },
     {
       path: ROUTES.messages.path,
       svg: <MessagesIcon />,

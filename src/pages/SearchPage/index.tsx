@@ -24,7 +24,7 @@ const SearchPage: FC = () => {
         <div className={styles.searchWrapper}>
           <Search
             className={styles.search}
-            placeholder="Поиск чатов"
+            placeholder={filter == "Клиника" ?  "Поиск клиник" : "Поиск врачей"}
             height="48px"
             onChange={onChangeSearch}
             value={search}
