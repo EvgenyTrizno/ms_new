@@ -58,7 +58,7 @@ export const Sidebar: FC<PropsWithClassName> = ({ className }) => {
             </div>
 
             <div className={styles.list}>
-                {user ? <UserMenu /> : <PersonalMenu />}
+                <UserMenu />
             </div>
         </div>
     );

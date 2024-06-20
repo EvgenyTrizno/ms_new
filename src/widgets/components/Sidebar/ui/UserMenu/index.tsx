@@ -1,9 +1,11 @@
 import { ROUTES } from "@/shared/utils/PATHS";
 import { MenuItem } from "../MenuItem";
 import { useLogout } from "@/shared/lib/hooks/useLogout";
+import { useAuth } from "@/shared/model/store/auth";
 
 export const UserMenu = () => {
     const { logout } = useLogout();
+    const { user } = useAuth();
 
     return (
         <>
@@ -94,7 +96,7 @@ export const UserMenu = () => {
                     </svg>
                 }
                 title="Сообщения"
-                href="/messages"
+                href={user ? "/messages" : "/login"}
             />
 
             <MenuItem
@@ -115,7 +117,7 @@ export const UserMenu = () => {
                     </svg>
                 }
                 title="Мед. задания"
-                href={ROUTES.medTasks.path}
+                href={user ? ROUTES.medTasks.path : "/login"}
             />
 
             <MenuItem
@@ -173,7 +175,7 @@ export const UserMenu = () => {
                     </svg>
                 }
                 title="Диагноз"
-                href={ROUTES.pacientDiagnosis.path}
+                href={user ? ROUTES.pacientDiagnosis.path : "/login"}
             />
 
             <MenuItem
@@ -215,7 +217,7 @@ export const UserMenu = () => {
                     </svg>
                 }
                 title="Врачи"
-                href={ROUTES.allDoctors.path}
+                href={user ? ROUTES.allDoctors.path : "/login"}
             />
 
             <MenuItem
