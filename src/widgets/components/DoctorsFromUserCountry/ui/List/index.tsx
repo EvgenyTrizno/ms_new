@@ -2,15 +2,18 @@ import { FC, useRef } from "react";
 import { DoctorCard, SliderHeader } from "@/widgets";
 import { useDoctorsQuery } from "../../lib/hooks/useDoctorsQuery";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import { useAuth } from "@/shared/model/store/auth";
 export const List: FC = () => {
     const { data } = useDoctorsQuery();
+    const { user } = useAuth();
+
     const swiperRef = useRef<SwiperRef>(null);
 
     return (
         <>
             <SliderHeader
                 swiperRef={swiperRef}
-                title="Все врачи"
+                title={user ? `Все специалисты из ${user.country?.name}` : "Все врачи"}
                 withArrows={window.innerWidth >= 768}
             />
             <Swiper

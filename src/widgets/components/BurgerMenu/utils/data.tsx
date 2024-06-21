@@ -58,11 +58,11 @@ export const menuData: IMenuData = {
         //     path: ROUTES.allDoctors.path,
         //     icon: <AllDoctorsIcon className={styles.icon} />,
         // },
-        // {
-        //     label: ROUTES.history.label,
-        //     path: ROUTES.history.path,
-        //     icon: <HistoryIcon className={styles.icon} />,
-        // },
+        {
+            label: ROUTES.history.label,
+            path: ROUTES.history.path,
+            icon: <HistoryIcon className={styles.icon} />,
+        },
 
         // {
         //     label: ROUTES.pacientDiagnosis.label,

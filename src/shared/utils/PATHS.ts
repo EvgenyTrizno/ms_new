@@ -159,7 +159,7 @@ export const ROUTES = {
     },
     history: {
         path: "/history",
-        label: "История пациентов",
+        label: "История",
     },
     diagnosis: {
         path: "/diagnosis",

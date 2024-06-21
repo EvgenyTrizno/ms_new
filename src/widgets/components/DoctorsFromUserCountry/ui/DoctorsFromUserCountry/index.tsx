@@ -8,18 +8,18 @@ import { useAuth } from "@/shared/model/store/auth";
 import styles from "./styles.module.scss";
 
 export const DoctorsFromUserCountry: FC = () => {
-  const { user } = useAuth();
+    const { user } = useAuth();
 
-  return (
-    <div className={styles.wrapper}>
-      <Row gap={0} style={{ justifyContent: "space-between" }}>
-        <Text type="p" color="#7D7F82" className={styles.country}>
-          {user && user.country?.name
-            ? `Специалисты из ${user.country?.name}`
-            : ""}
-        </Text>
-      </Row>
-      <List />
-    </div>
-  );
+    return (
+        <div className={styles.wrapper}>
+            {/* <Row gap={0} style={{ justifyContent: "space-between" }}> */}
+            {/*   <Text type="p" color="#7D7F82" className={styles.country}> */}
+            {/*     {user && user.country?.name */}
+            {/*       ? `Специалисты из ${user.country?.name}` */}
+            {/*       : ""} */}
+            {/*   </Text> */}
+            {/* </Row> */}
+            <List />
+        </div>
+    );
 };

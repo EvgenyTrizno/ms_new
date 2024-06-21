@@ -1,146 +1,140 @@
 import { MainData } from "@/pages/AccountPage/ui/MainData";
 import styles from "./AccountMoreDetailedForm.module.scss";
-import { Interest } from "@/pages/AccountPage/ui/Interest";
 import { useForm } from "react-hook-form";
 import { AccountMoreDetailedFormData } from "@/shared/types/formsTypes";
 import { Button } from "@/shared/ui";
 import { useMutation } from "react-query";
 import { updateUserData } from "@/shared/api";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
-import { IUserData } from "@/shared/types";
+import { IUser } from "@/shared/types";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/shared/model/store/auth";
 import { Email } from "../../Protection/ui/Email";
 import { Number } from "../../Protection/ui/Number";
 
 export const AccountMoreDetailedForm = () => {
-  const { register, handleSubmit, setValue, watch } =
-    useForm<AccountMoreDetailedFormData>();
-  const { getCookie } = useCookie();
-  const {
-    mutate: updateUserDataMutate,
-    data: newUserData,
-    isError: updateUserDataIsError,
-    isSuccess: updateUserDataIsSuccess,
-  } = useMutation((updateData: Partial<IUserData>) =>
-    updateUserData(getCookie("access_token") as string, updateData)
-  );
-  const { user, setUser } = useAuth();
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
-  const [typeBtn, setTypeBtn] = useState<"primary" | "success" | "error">(
-    "primary"
-  );
+    const { register, handleSubmit, setValue, watch } =
+        useForm<AccountMoreDetailedFormData>();
+    const { getCookie } = useCookie();
+    const {
+        mutate: updateUserDataMutate,
+        data: newUserData,
+        isError: updateUserDataIsError,
+        isSuccess: updateUserDataIsSuccess,
+    } = useMutation((updateData: Partial<IUser>) =>
+        updateUserData(getCookie("access_token") as string, updateData)
+    );
+    const { user, setUser } = useAuth();
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
+    const [typeBtn, setTypeBtn] = useState<"primary" | "success" | "error">(
+        "primary"
+    );
 
-  useEffect(() => {
-    if (!newUserData) return;
+    useEffect(() => {
+        if (!newUserData) return;
 
-    setUser(newUserData.data);
-  }, [newUserData, setUser]);
+        setUser(newUserData.data);
+    }, [newUserData, setUser]);
 
-  useEffect(() => {
-    if (success) return setTypeBtn("success");
-    if (error) return setTypeBtn("error");
+    useEffect(() => {
+        if (success) return setTypeBtn("success");
+        if (error) return setTypeBtn("error");
 
-    return setTypeBtn("primary");
-  }, [error, success]);
+        return setTypeBtn("primary");
+    }, [error, success]);
 
-  useEffect(() => {
-    if (!user) return;
+    useEffect(() => {
+        if (!user) return;
 
-    const data = {
-      name: user.first_name,
-      surname: user.surname,
-      birthdate: user.birthday,
-      address: user.address,
-      email: user.email,
-      sex: user.sex,
-      interest: user.interest,
-      number: user.number,
+        const data = {
+            name: user.first_name,
+            surname: user.surname,
+            birthdate: user.birthday,
+            address: user.address,
+            email: user.email,
+            sex: user.sex,
+            number: user.number,
+        };
+
+        Object.entries(data).forEach((el) => {
+            const key = el[0] as keyof AccountMoreDetailedFormData;
+            const value = el[1];
+
+            if (typeof value === "string") {
+                setValue(key, value);
+            }
+        });
+    }, [setValue, user]);
+
+    useEffect(() => {
+        if (!updateUserDataIsError) return;
+
+        setError(true);
+
+        const timeout = setTimeout(() => {
+            setError(false);
+        }, 2000);
+
+        return () => clearTimeout(timeout);
+    }, [updateUserDataIsError]);
+
+    useEffect(() => {
+        if (!updateUserDataIsSuccess) return;
+
+        setSuccess(true);
+
+        const timeout = setTimeout(() => {
+            setSuccess(false);
+        }, 2000);
+
+        return () => clearTimeout(timeout);
+    }, [updateUserDataIsSuccess]);
+
+    const formHandler = (data: AccountMoreDetailedFormData) => {
+        const { name, surname, birthdate, login, address, email } = data;
+
+        const resData = {
+            first_name: name,
+            surname,
+            birthdate,
+            login,
+            address,
+            email,
+        };
+
+        updateUserDataMutate(resData);
     };
 
-    Object.entries(data).forEach((el) => {
-      const key = el[0] as keyof AccountMoreDetailedFormData;
-      const value = el[1];
+    return (
+        <form className={styles.form} onSubmit={handleSubmit(formHandler)}>
+            <div>
+                <p className={styles.groupTitle}>Основная информация</p>
+                <MainData register={register} />
+            </div>
 
-      if (typeof value === "string") {
-        setValue(key, value);
-      }
-    });
-  }, [setValue, user]);
 
-  useEffect(() => {
-    if (!updateUserDataIsError) return;
+            <div>
+                <p className={styles.groupTitle}>Защита профиля</p>
+                <div className={styles.protection}>
+                    <Number
+                        hookFormData={{
+                            register,
+                            registerName: "number",
+                        }}
+                        verify={!!watch("number")}
+                    />
+                    <Email
+                        hookFormData={{
+                            register,
+                            registerName: "email",
+                        }}
+                        verify={!!watch("email")}
+                    />
+                </div>
+            </div>
 
-    setError(true);
-
-    const timeout = setTimeout(() => {
-      setError(false);
-    }, 2000);
-
-    return () => clearTimeout(timeout);
-  }, [updateUserDataIsError]);
-
-  useEffect(() => {
-    if (!updateUserDataIsSuccess) return;
-
-    setSuccess(true);
-
-    const timeout = setTimeout(() => {
-      setSuccess(false);
-    }, 2000);
-
-    return () => clearTimeout(timeout);
-  }, [updateUserDataIsSuccess]);
-
-  const formHandler = (data: AccountMoreDetailedFormData) => {
-    const { name, surname, birthdate, login, address, email } = data;
-
-    const resData = {
-      first_name: name,
-      surname,
-      birthdate,
-      login,
-      address,
-      email,
-    };
-
-    updateUserDataMutate(resData);
-  };
-
-  return (
-    <form className={styles.form} onSubmit={handleSubmit(formHandler)}>
-      <div>
-        <p className={styles.groupTitle}>Основная информация</p>
-        <MainData register={register} />
-      </div>
-
-      <div>
-        <p className={styles.groupTitle}>Интерес</p>
-        <Interest />
-      </div>
-
-      <div>
-        <p className={styles.groupTitle}>Защита профиля</p>
-        <div className={styles.protection}>
-          <Number
-            hookFormData={{
-              register,
-              registerName: "number",
-            }}
-            verify={!!watch("number")}
-          />
-          <Email
-            hookFormData={{
-              register,
-              registerName: "email",
-            }}
-            verify={!!watch("email")}
-          />
-        </div>
-      </div>
-
-      <Button type="submit" color={typeBtn} title="Сохранить" />
-    </form>
-  );
+            <Button type="submit" color={typeBtn} title="Сохранить" />
+        </form>
+    );
 };

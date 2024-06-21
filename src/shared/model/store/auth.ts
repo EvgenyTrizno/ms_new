@@ -1,12 +1,12 @@
-import { IUserData } from "@/shared/types/user.types";
+import { IUser } from "@/shared/types/user.types";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
 interface IAuthStore {
     isAuth: boolean;
-    user: null | IUserData;
+    user: null | IUser;
     setIsAuth: (bol: boolean) => void;
-    setUser: (user: null | IUserData) => void;
+    setUser: (user: null | IUser) => void;
 }
 
 export const useAuth = create<IAuthStore>()(
@@ -18,7 +18,7 @@ export const useAuth = create<IAuthStore>()(
                 state.isAuth = bol;
             });
         },
-        setUser: (user: IUserData | null) => {
+        setUser: (user: IUser | null) => {
             set((state) => {
                 state.user = user;
             });

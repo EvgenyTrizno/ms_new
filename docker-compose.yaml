@@ -6,3 +6,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
+    volumes:
+      - "/var/www/pre-recover/.well-known:/var/www/pre-recover/.well-known"
+      - "/etc/letsencrypt/live/pre-recover.com/fullchain.pem:/etc/letsencrypt/live/pre-recover.com/fullchain.pem"
+      - "/etc/letsencrypt/live/pre-recover.com/privkey.pem:/etc/letsencrypt/live/pre-recover.com/privkey.pem"
