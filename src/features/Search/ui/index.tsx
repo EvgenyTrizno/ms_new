@@ -6,56 +6,56 @@ import { Image } from "@/shared/ui/Image";
 import styles from "./styles.module.scss";
 
 export const Search: FC<ISeacrh> = ({
-  placeholder,
-  value,
-  onChange,
-  className,
-  showSearchByScroll = true,
-  additionalBlock,
+    placeholder,
+    value,
+    onChange,
+    className,
+    showSearchByScroll = true,
+    additionalBlock,
 }) => {
-  const [showSearch, setShowSearch] = useState(
-    showSearchByScroll ? false : true
-  );
+    const [showSearch, setShowSearch] = useState(
+        showSearchByScroll ? false : true
+    );
 
-  useEffect(() => {
-    if (!showSearchByScroll) return;
+    useEffect(() => {
+        if (!showSearchByScroll) return;
 
-    const handleScroll = () => {
-      if (showSearch) return;
+        const handleScroll = () => {
+            if (showSearch) return;
 
-      setShowSearch(true);
-    };
+            setShowSearch(true);
+        };
 
-    window.addEventListener("scroll", handleScroll, true);
+        window.addEventListener("scroll", handleScroll, true);
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [showSearch, showSearchByScroll]);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [showSearch, showSearchByScroll]);
 
-  return (
-    <>
-      {showSearch && (
-        <div className={className}>
-          <div className={styles.wrapper}>
-            <div className={styles.searchWrapper}>
-              <Image
-                src="/assets/icons/search.svg"
-                alt="search"
-                width={16}
-                height={16}
-              />
-              <input
-                type="text"
-                placeholder={placeholder}
-                height="100%"
-                onChange={onChange}
-                value={value}
-              />
-            </div>
+    return (
+        <>
+            {showSearch && (
+                <div className={className}>
+                    <div className={styles.wrapper}>
+                        <div className={styles.searchWrapper}>
+                            <Image
+                                src="/assets/icons/search.svg"
+                                alt="search"
+                                width={16}
+                                height={16}
+                            />
+                            <input
+                                type="text"
+                                placeholder={placeholder}
+                                height="100%"
+                                onChange={onChange}
+                                value={value}
+                            />
+                        </div>
 
-            {additionalBlock || null}
-          </div>
-        </div>
-      )}
-    </>
-  );
+                        {additionalBlock || null}
+                    </div>
+                </div>
+            )}
+        </>
+    );
 };

@@ -8,39 +8,32 @@ import { PropsWithClassName } from "@/shared/types";
 import cn from "clsx";
 
 export const Filter: FC<PropsWithClassName<IFilter>> = ({
-  className,
-  data,
-  icons,
-  setIsSelect,
-  isSelect,
+    className,
+    data,
+    icons,
+    setIsSelect,
+    isSelect,
 }) => {
-  const { user } = useAuth();
 
-  const active = `${styles.item} ${styles.active}`;
-  const activeRed = `${styles.item} ${styles.activeRed}`;
+    const active = `${styles.item} ${styles.active}`;
 
-  const sick = user && user.disease.length;
 
-  return (
-    <div className={cn(styles.container, className)}>
-      {data.map((item, i) => (
-        <div
-          className={`${
-            isSelect === item && sick
-              ? activeRed
-              : isSelect === item && !sick
-              ? active
-              : styles.item
-          }`}
-          key={item}
-          onClick={() => {
-            setIsSelect(item);
-          }}
-        >
-          <span>{item}</span>
-          {item && icons && icons[i]}
+    return (
+        <div className={cn(styles.container, className)}>
+            {data.map((item, i) => (
+                <div
+                    className={`${isSelect === item
+                        ? active : styles.item
+                        }`}
+                    key={item}
+                    onClick={() => {
+                        setIsSelect(item);
+                    }}
+                >
+                    <span>{item}</span>
+                    {item && icons && icons[i]}
+                </div>
+            ))}
         </div>
-      ))}
-    </div>
-  );
+    );
 };

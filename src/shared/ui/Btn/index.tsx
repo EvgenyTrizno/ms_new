@@ -31,11 +31,7 @@ export const Btn: FC<IBtn> = ({
             type={type}
             style={{
                 fontSize: fz,
-                background: `${sick
-                    ? "#D64657"
-                    : sick && color === "transparent"
-                        ? "#transparent"
-                        : `${color}`
+                background: `${`${color}`
                     }`,
                 width,
                 borderRadius: br,

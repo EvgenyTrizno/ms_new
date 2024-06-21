@@ -13,6 +13,7 @@ import {
 import { ReactElement } from "react";
 import styles from "../styles.module.scss";
 import { ROUTES } from "@/shared/utils/PATHS";
+import { AssignmentIcon } from "@/icons/Assignment";
 
 export interface IData {
     label: string;
@@ -58,6 +59,11 @@ export const menuData: IMenuData = {
         //     path: ROUTES.allDoctors.path,
         //     icon: <AllDoctorsIcon className={styles.icon} />,
         // },
+        {
+            label: ROUTES.notes.label,
+            path: ROUTES.notes.path,
+            icon: <AssignmentIcon className={styles.icon} />
+        },
         {
             label: ROUTES.history.label,
             path: ROUTES.history.path,

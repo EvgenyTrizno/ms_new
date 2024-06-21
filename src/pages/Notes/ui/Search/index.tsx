@@ -7,36 +7,55 @@ import { Image } from "@/shared/ui/Image";
 
 import icon from "./assets/add-circle.svg";
 import styles from "./styles.module.scss";
+import { MOBILE, TABLET } from "@/shared/utils";
+import { FilterBtn } from "@/shared/ui/FilterBtn";
+import { Filter } from "@/shared/ui/Filter";
+import { PlusBtn } from "@/shared/ui/PlusBtn";
 
 export const SearchWithFilter: FC = () => {
-  const [showSearch, setShowSearch] = useState(false);
+    const [showSearch, setShowSearch] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (showSearch) return;
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         if (showSearch) return;
+    //
+    //         setShowSearch(true);
+    //     };
+    //
+    //     window.addEventListener("scroll", handleScroll, true);
+    //
+    //     return () => window.removeEventListener("scroll", handleScroll);
+    // }, [showSearch]);
+    const [filter, setFilter] = useState("Сообщения");
+    const [search, setSearch] = useState<string>("");
 
-      setShowSearch(true);
+    useEffect(() => {
+        const extraBtn = document.querySelector("#extraBtn") as HTMLElement;
+
+        extraBtn && !MOBILE && !TABLET && (extraBtn.style.display = "none");
+
+        return () => {
+            extraBtn && (extraBtn.style.display = "block");
+        };
+    }, []);
+
+    const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value);
     };
 
-    window.addEventListener("scroll", handleScroll, true);
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [showSearch]);
+    return (
+        <>
+            <Search
+                height="48px"
+                placeholder="Введите запрос"
+                onChange={onChangeSearch}
+                value={search}
+                showSearchByScroll={false}
+                additionalBlock={
+                    <PlusBtn onClick={() => console.log("click")} />
+                } />
 
-  return (
-    <>
-      {showSearch && (
-        <Row gap={10}>
-          <Search
-            placeholder="Введите запрос"
-            showSearchByScroll={showSearch}
-            value=""
-          />
-          <Btn color="#0064FA" className={styles.add}>
-            <Image src={icon} alt={""} />
-          </Btn>
-        </Row>
-      )}
-    </>
-  );
+        </>
+    );
 };
