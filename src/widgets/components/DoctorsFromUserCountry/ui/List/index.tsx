@@ -17,7 +17,7 @@ export const List: FC = () => {
                 user?.country?.name &&
                 <SliderHeader
                     swiperRef={swiperRef}
-                    title={`Все специалисты из ${user.country?.name}`}
+                    title={user?.country?.name ? `Все специалисты из ${user.country?.name}` : "Все врачи"}
                     withArrows={window.innerWidth >= 768}
                 />}
             <Swiper
