@@ -9,13 +9,10 @@
   text-align: center;
 
   .avatar {
-    width: 100%;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
 
-    @media (min-width: 475px) {
-      width: 55px;
-      height: 55px;
-    }
   }
 
   .rank {

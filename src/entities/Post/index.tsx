@@ -43,8 +43,8 @@ export const Post: FC<Props> = ({
     const navigate = useNavigate();
     const { getCookie } = useCookie();
     const { user } = useAuth();
-    const [isSaveState, setSaveState] = useState(false);
-    const [isLikeState, setLikeState] = useState(false);
+    const [isSaveState, setSaveState] = useState(isSave);
+    const [isLikeState, setLikeState] = useState(isLike);
 
     const [likeIdState, setLikeIdState] = useState<number>();
     const [saveIdState, setSaveIdState] = useState<number>();
@@ -60,7 +60,7 @@ export const Post: FC<Props> = ({
         if (saveId) {
             setSaveIdState(saveId);
         }
-    }, []);
+    }, [isSave, isLike, likeId, saveId]);
 
     const { mutate: saveMutate } = useMutation(
         (data: SendSaveData) => save(getCookie("access_token") as string, data),

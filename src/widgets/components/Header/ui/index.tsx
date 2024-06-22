@@ -41,7 +41,7 @@ export const Header = () => {
                 <NotificationsLink />
 
                 <div className={styles.profile} onClick={() => !user ? navigate("/login") : navigate("/account")}>
-                    <img src="/assets/avatar.png" alt="avatar" />
+                    <img src={user?.image ? user.image : "/assets/avatar.png"} alt="avatar" />
                 </div>
             </div>
         </header >

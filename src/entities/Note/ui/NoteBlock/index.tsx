@@ -17,113 +17,113 @@ import { useCenters } from "@/shared/model/store/centers";
 import { useDoctors } from "@/shared/model/store/useDoctors";
 
 type Props = {
-  data: Note;
+    data: Note;
 };
 
 export const NoteBlock: FC<Props> = ({ data }) => {
-  const [startDate] = useState(
-    data.time_start ? new Date(data.time_start) : undefined
-  );
-  const [endDate] = useState(
-    data.time_end ? new Date(data.time_end) : undefined
-  );
-  const { centers } = useCenters();
-  const { doctors: allDoctors } = useDoctors();
+    const [startDate] = useState(
+        data.time_start ? new Date(data.time_start) : undefined
+    );
+    const [endDate] = useState(
+        data.time_end ? new Date(data.time_end) : undefined
+    );
+    const { centers } = useCenters();
+    const { doctors: allDoctors } = useDoctors();
 
-  const { user } = useAuth();
-  const [startTime] = useState(startDate ? formatTime(startDate) : undefined);
-  const [endTime] = useState(endDate ? formatTime(endDate) : undefined);
+    const { user } = useAuth();
+    const [startTime] = useState(startDate ? formatTime(startDate) : undefined);
+    const [endTime] = useState(endDate ? formatTime(endDate) : undefined);
 
-  const sick = user && user.disease.length;
-  const [center] = useState(centers?.find((el) => el.id === data.center));
-  const [doctors, setDoctors] = useState<Doctor[]>();
+    const [center] = useState(centers?.find((el) => el.id === data.center));
+    const [doctors, setDoctors] = useState<Doctor[]>();
 
-  useEffect(() => {
-    if (!data.doctors || !allDoctors) return;
+    useEffect(() => {
+        console.log(allDoctors)
+        if (!data.doctors || !allDoctors) return;
 
-    const doctors = [];
+        const doctors = [];
 
-    for (let i = 0; i < data.doctors.length; i++) {
-      const doctorId = data.doctors[i];
+        for (let i = 0; i < data.doctors.length; i++) {
+            const doctorId = data.doctors[i];
 
-      const currentDoctor = allDoctors.find((el) => el.id === doctorId);
+            const currentDoctor = allDoctors.find((el) => el.id === doctorId);
 
-      if (!currentDoctor) return;
+            if (!currentDoctor) return;
 
-      doctors.push(currentDoctor);
-    }
+            doctors.push(currentDoctor);
+        }
 
-    setDoctors(doctors);
-  }, [allDoctors, data.doctors]);
+        setDoctors(doctors);
+    }, [allDoctors, data.doctors]);
 
-  return (
-    <WhiteContentBlock className={`${styles.note} ${sick && styles.sick}`}>
-      <Rows gap={20} rows={["auto"]}>
-        <Rows gap={7} rows={["auto", "auto"]}>
-          <Text type="p" color="#9B9B9B" fz="12px">
-            {data.title}
-          </Text>
-          <Text type="h2" color="#000" fz="17px">
-            {data.problem}
-          </Text>
-        </Rows>
-        <Rows gap={10} rows={["auto"]}>
-          <Row gap={10}>
-            <Text type="p" color="#B1B2B4" fz="12px">
-              Формат:
-            </Text>
-            <Text
-              type="p"
-              color={data.online ? "#00CC5E" : "#d64657"}
-              fz="12px"
-            >
-              {data.online ? "Online" : "Offline"}
-            </Text>
-          </Row>
-          <Row gap={10}>
-            <Text type="p" color="#B1B2B4" fz="12px">
-              Центр:
-            </Text>
-            <Text type="p" fz="12px">
-              {center?.name}
-            </Text>
-          </Row>
-          <Row gap={10}>
-            <Text type="p" color="#B1B2B4" fz="12px">
-              Врачи:
-            </Text>
-            <Text type="p" fz="12px">
-              {doctors?.map((doctor) => {
-                return `${doctor.middle_name} ${doctor.first_name} ${doctor.last_name}`;
-              })}
-            </Text>
-          </Row>
-        </Rows>
-        <div className={styles.line}></div>
-        <Row gap={16} style={{ justifyContent: "center" }}>
-          <Row gap={6}>
-            <Image src={calendar} alt="" width={20} height={20} />
-            <Text type="p" fz="12px">
-              {startDate ? formatDate(startDate) : "-"}
-            </Text>
-          </Row>
-          <Row gap={6}>
-            <Image src={alarm} alt="" width={20} height={20} />
-            <Text type="p" fz="12px">
-              {startTime} - {endTime}
-            </Text>
-          </Row>
-          {/* <Row gap={6}>
+    return (
+        <WhiteContentBlock className={`${styles.note}`}>
+            <Rows gap={20} rows={["auto"]}>
+                <Rows gap={7} rows={["auto", "auto"]}>
+                    <Text type="p" color="#9B9B9B" fz="12px">
+                        {data.title}
+                    </Text>
+                    <Text type="h2" color="#000" fz="17px">
+                        {data.problem}
+                    </Text>
+                </Rows>
+                <Rows gap={10} rows={["auto"]}>
+                    <Row gap={10}>
+                        <Text type="p" color="#B1B2B4" fz="12px">
+                            Формат:
+                        </Text>
+                        <Text
+                            type="p"
+                            color={data.online ? "#00CC5E" : "#d64657"}
+                            fz="12px"
+                        >
+                            {data.online ? "Online" : "Offline"}
+                        </Text>
+                    </Row>
+                    <Row gap={10}>
+                        <Text type="p" color="#B1B2B4" fz="12px">
+                            Центр:
+                        </Text>
+                        <Text type="p" fz="12px">
+                            {center?.name}
+                        </Text>
+                    </Row>
+                    <Row gap={10}>
+                        <Text type="p" color="#B1B2B4" fz="12px">
+                            Врачи:
+                        </Text>
+                        <Text type="p" fz="12px">
+                            {doctors?.map((doctor) => {
+                                return `${doctor.last_name} ${doctor.first_name} ${doctor.middle_name}`;
+                            })}
+                        </Text>
+                    </Row>
+                </Rows>
+                <div className={styles.line}></div>
+                <Row gap={16} style={{ justifyContent: "center" }}>
+                    <Row gap={6}>
+                        <Image src={calendar} alt="" width={20} height={20} />
+                        <Text type="p" fz="12px">
+                            {startDate ? formatDate(startDate) : "-"}
+                        </Text>
+                    </Row>
+                    <Row gap={6}>
+                        <Image src={alarm} alt="" width={20} height={20} />
+                        <Text type="p" fz="12px">
+                            {startTime} - {endTime}
+                        </Text>
+                    </Row>
+                    {/* <Row gap={6}>
             <Image src={clock} alt="" width={20} height={20} />
             <Text type="p" fz="12px">
               40 минут
             </Text>
           </Row> */}
-        </Row>
-        <Text type="p" fz="12px" position="center">
-          Доступно в групповом чате
-        </Text>
-      </Rows>
-    </WhiteContentBlock>
-  );
+                </Row>
+                <Text type="p" fz="12px" position="center">
+                    Доступно в групповом чате
+                </Text>
+            </Rows>
+        </WhiteContentBlock>
+    );
 };

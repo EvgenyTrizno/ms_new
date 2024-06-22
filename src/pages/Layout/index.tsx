@@ -12,40 +12,40 @@ import { useLocation } from "react-router";
 import { PropsWithClassName } from "@/shared/types";
 
 export const Layout: FC<PropsWithClassName<TProps>> = ({
-  className,
-  children,
-  bgColor = "blue",
+    className,
+    children,
+    bgColor = "blue",
 }) => {
-  const { isOpen } = useBurgerMenu();
-  const location = useLocation();
+    const { isOpen } = useBurgerMenu();
+    const location = useLocation();
 
-  return (
-    <div>
-      {/* {MOBILE && <MobileAccountMenu />} */}
-      {/* {!MOBILE && !TABLET && <Header />} */}
+    return (
+        <div>
+            {/* {MOBILE && <MobileAccountMenu />} */}
+            {/* {!MOBILE && !TABLET && <Header />} */}
 
-      {/* <Menu /> */}
+            {/* <Menu /> */}
 
-      <Header />
+            <Header />
 
-      <Sidebar className={styles.sidebarWrapper} />
+            <Sidebar className={styles.sidebarWrapper} />
 
-      <div
-        className={cn(styles.main, className, {
-          [styles[bgColor]]: bgColor,
-        })}
-      >
-        {children}
-      </div>
-      {/* {user && user.group.name === "Пользователи" && !MOBILE && (
+            <div
+                className={cn(styles.main, className, {
+                    [styles[bgColor]]: bgColor,
+                })}
+            >
+                {children}
+            </div>
+            {/* {user && user.group.name === "Пользователи" && !MOBILE && (
                     <ExtraCallBtn isOpen={isOpen} />
                 )} */}
 
-      {/* {isOpen && <ExtraCallModal isOpen={isOpen} setIsOpen={setIsOpen} />} */}
-      {isOpen && <BurgerMenu />}
+            {/* {isOpen && <ExtraCallModal isOpen={isOpen} setIsOpen={setIsOpen} />} */}
+            {isOpen && <BurgerMenu />}
 
-      {location.pathname !== "/messages" && <Call />}
-      {location.pathname !== "/messages" && <MobileMenu />}
-    </div>
-  );
+            {/* {location.pathname !== "/messages" && <Call />} */}
+            {location.pathname !== "/messages" && <MobileMenu />}
+        </div>
+    );
 };

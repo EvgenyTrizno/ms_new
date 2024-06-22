@@ -12,7 +12,6 @@ const MainPage: FC = () => {
     return (
         <Layout>
             <MobileHeader />
-
             <DoctorsFromUserCountry />
 
             <div className={styles.line}></div>

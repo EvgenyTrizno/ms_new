@@ -21,10 +21,6 @@ const SavedPage: FC = () => {
     let newsId: number[];
 
 
-    useEffect(() => {
-        saved?.data.map(saved => news?.data.filter(news => news.id === saved.id))
-
-    }, [newsSuccess, saved])
 
     return (
         <Layout>
@@ -122,11 +118,9 @@ const SavedPage: FC = () => {
                             }}
                         >
                             {
-
-                                saved?.data.map(saved => news?.data.filter(news => news.id === saved.news && user.id === saved.user)
-
+                                saved?.data.map(saved => news?.data.filter(news => news.id === saved.news && user?.id === saved.user)
                                     .map(news => (
-                                        < SwiperSlide >
+                                        <SwiperSlide>
                                             <div className={styles.galleryBlock}>
                                                 {
                                                     news.news_images.length > 0 ? news.news_images.map(image => (

@@ -16,13 +16,14 @@ import { useNotesQuery } from "@/shared/lib/hooks/useNotesQuery";
 const NotesPage: FC = () => {
     const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
     const [filter, setFilter] = useState<string>("Текущие");
+    const [search, setSearch] = useState<string>("");
     const { data } = useNotesQuery();
 
     return (
         <>
             <CustomMobileHeader back text="Записи" />
             <Layout>
-                <SearchWithFilter />
+                <SearchWithFilter search={search} setSearch={setSearch} />
                 <div
                     className={styles.items}
                     style={
@@ -45,9 +46,23 @@ const NotesPage: FC = () => {
                         </div>
                     ) : (
                         <>
-                            {data?.data.map((item) => (
-                                <NoteBlock key={item.id} data={item} />
-                            ))}
+
+                            {data?.data
+                                .filter((el) =>
+                                    Object.values(el).some((value) => {
+                                        if (typeof value === "string") {
+                                            return value.toLowerCase().includes(search.toLowerCase());
+                                        }
+                                    })
+                                )
+                                .map((el) => {
+                                    return (
+                                        <NoteBlock
+                                            key={el.id}
+                                            data={el}
+                                        />
+                                    );
+                                })}
                         </>
                     )}
                 </div>

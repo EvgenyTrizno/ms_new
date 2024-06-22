@@ -26,15 +26,8 @@ export const UserData: FC = () => {
             )}
             <Avatar
                 img={
-                    !user || (user && !user.image)
-                            ? sick ? noImageRed : noImageBlue
-                            : user && user.image
+                    (user && user.image) ? user.image : ""
                 }
-                // img={
-                //     (user && user.image)
-                //     ? sick ? noImageRed : noImageBlue 
-                //     : user && user.image || ""
-                // }
                 type="custom"
                 size={40}
                 onClick={() => navigate("/profile")}

@@ -6,17 +6,11 @@ import { IClinic } from "@/shared/types/clinic.types";
 import { AxiosResponse } from "axios";
 
 interface ISearchResults {
-  doctors: Doctor[];
-  centers: ICenter[];
-  clinics: IClinic[];
+    doctors: Doctor[];
+    centers: ICenter[];
+    clinics: IClinic[];
 }
 
-export async function getSearchResults(
-  token: string
-): Promise<AxiosResponse<ISearchResults>> {
-  return await instance.get("/search/", {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+export async function getSearchResults(): Promise<AxiosResponse<ISearchResults>> {
+    return await instance.get("/search/");
 }

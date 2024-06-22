@@ -6,9 +6,9 @@ export const getSaved = async (
   token: string
 ): Promise<AxiosResponse<Save[]>> => {
   const res: AxiosResponse<Save[]> = await instance.get(`/saved/`, {
-    headers: {
+    headers: token ? {
       Authorization: `Bearer ${token}`,
-    },
+    } : {},
   });
 
   return res;

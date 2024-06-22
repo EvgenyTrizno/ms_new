@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 
 import { Search } from "@/features/Search";
 import { Btn } from "@/shared/ui/Btn";
@@ -12,22 +12,15 @@ import { FilterBtn } from "@/shared/ui/FilterBtn";
 import { Filter } from "@/shared/ui/Filter";
 import { PlusBtn } from "@/shared/ui/PlusBtn";
 
-export const SearchWithFilter: FC = () => {
+type SearchWithFProps = {
+    search: string;
+    setSearch: Dispatch<SetStateAction<string>>;
+}
+
+export const SearchWithFilter: FC<SearchWithFProps> = ({ search, setSearch }) => {
     const [showSearch, setShowSearch] = useState(false);
 
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         if (showSearch) return;
-    //
-    //         setShowSearch(true);
-    //     };
-    //
-    //     window.addEventListener("scroll", handleScroll, true);
-    //
-    //     return () => window.removeEventListener("scroll", handleScroll);
-    // }, [showSearch]);
     const [filter, setFilter] = useState("Сообщения");
-    const [search, setSearch] = useState<string>("");
 
     useEffect(() => {
         const extraBtn = document.querySelector("#extraBtn") as HTMLElement;
