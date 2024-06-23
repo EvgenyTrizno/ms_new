@@ -28,7 +28,7 @@ export const AccountForm = () => {
     } = useForm<AccountMoreDetailedFormData>();
     const { user, setUser } = useAuth();
     const { data: countries } = useCountriesQuery();
-    const [countryId, setCountry] = useState<number>(null);
+    const [countryId, setCountry] = useState(user?.country?.id);
     const [sexName, setSex] = useState(user?.sex);
     const { getCookie } = useCookie();
     const { mutate, data, isError, isSuccess } = useMutation(
@@ -52,6 +52,7 @@ export const AccountForm = () => {
             birthdate: user.birthday,
             address: user.address,
             email: user.email,
+            country: user.country,
             sex: user.sex,
             interest: user.interest,
             number: user.number,

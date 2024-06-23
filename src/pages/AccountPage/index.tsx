@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 
 import { Layout } from "../Layout";
 import { MOBILE } from "@/shared/utils";
@@ -25,12 +25,29 @@ import { ProfileItem } from "./ui/ProfileItem";
 import { AccountForm } from "./ui/AccountForm";
 import { ProfileLink } from "./ui/ProfileLink";
 import { ROUTES } from "@/shared/utils/PATHS";
+import { updateUserData, updateUserImg } from "@/shared/api";
+import { useCookie } from "@/shared/lib/hooks/useCookie";
+import { useMutation } from "react-query";
+import { IUser } from "@/shared/types";
 
 const AccountPage: FC = () => {
     const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
     const { user } = useAuth();
+    const inputImg = useRef<HTMLInputElement | null>(null);
     const [filter, setFilter] = useState("Записи");
+    const { getCookie } = useCookie();
 
+
+
+
+
+    const handleImg = (event) => {
+
+        console.log(URL.createObjectURL(event.target.files[0]))
+        const fd = new FormData();
+        fd.append('image', event.target.files[0])
+        updateUserImg(getCookie("access_token"), fd)
+    }
     return (
         <>
             <MobileHeader />
@@ -101,7 +118,9 @@ const AccountPage: FC = () => {
                                     <img src={user?.image ? user.image : "/assets/avatar.png"} alt="avatar.png" />
 
                                     <div className={styles.avatarEdit}>
-                                        <svg width="12" height="11" viewBox="0 0 12 11" fill="none">
+                                        <input type="file" style={{ display: "none" }} accept="image/jpeg, image/png, image/gif" ref={inputImg} onChange={(e) => handleImg(e)} />
+
+                                        <svg width="12" height="11" viewBox="0 0 12 11" fill="none" onClick={(e) => inputImg.current.click()}>
                                             <path
                                                 d="M8.475 1.375L10.125 3.025M1.875 9.625L2.40152 7.69444C2.43587 7.56849 2.45304 7.50552 2.47941 7.44679C2.50282 7.39464 2.53158 7.34508 2.56524 7.29888C2.60315 7.24685 2.64931 7.20069 2.74162 7.10838L7.00416 2.84585C7.08583 2.76417 7.12667 2.72333 7.17377 2.70803C7.21519 2.69457 7.25981 2.69457 7.30124 2.70803C7.34833 2.72333 7.38917 2.76417 7.47085 2.84585L8.65416 4.02916C8.73583 4.11083 8.77667 4.15167 8.79197 4.19877C8.80543 4.24019 8.80543 4.28481 8.79197 4.32624C8.77667 4.37333 8.73583 4.41417 8.65416 4.49585L4.39162 8.75838C4.29931 8.85069 4.25315 8.89685 4.20112 8.93476C4.15493 8.96842 4.10536 8.99718 4.05321 9.02059C3.99449 9.04696 3.93151 9.06413 3.80556 9.09849L1.875 9.625Z"
                                                 stroke="#0064FA"

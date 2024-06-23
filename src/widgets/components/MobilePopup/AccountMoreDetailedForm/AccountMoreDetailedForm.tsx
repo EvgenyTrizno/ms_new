@@ -26,7 +26,7 @@ export const AccountMoreDetailedForm = () => {
     );
     const { user, setUser } = useAuth();
     const [sexName, setSex] = useState(user?.sex)
-    const [countryId, setCountry] = useState<number>(null)
+    const [countryId, setCountry] = useState(user?.country?.id)
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
     const [typeBtn, setTypeBtn] = useState<"primary" | "success" | "error">(
