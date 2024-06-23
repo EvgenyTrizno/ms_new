@@ -1,5 +1,6 @@
 export * from "./user.types";
 export * from "./notes.types";
+export * from "./country.interface";
 export * from "./clinic.types";
 export * from "./notifications.types";
 export * from "./doctors.type";

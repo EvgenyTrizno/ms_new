@@ -25,6 +25,8 @@ export const AccountMoreDetailedForm = () => {
         updateUserData(getCookie("access_token") as string, updateData)
     );
     const { user, setUser } = useAuth();
+    const [sexName, setSex] = useState(user?.sex)
+    const [countryId, setCountry] = useState<number>(null)
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
     const [typeBtn, setTypeBtn] = useState<"primary" | "success" | "error">(
@@ -98,6 +100,8 @@ export const AccountMoreDetailedForm = () => {
             first_name: name,
             surname,
             birthdate,
+            sex: sexName,
+            country: countryId,
             login,
             address,
             email,
@@ -110,7 +114,7 @@ export const AccountMoreDetailedForm = () => {
         <form className={styles.form} onSubmit={handleSubmit(formHandler)}>
             <div>
                 <p className={styles.groupTitle}>Основная информация</p>
-                <MainData register={register} />
+                <MainData register={register} setCountry={setCountry} setSex={setSex} />
             </div>
 
 

@@ -1,12 +1,13 @@
-import { FC, useState, ChangeEvent } from "react";
+import { FC, ChangeEvent } from "react";
 
 import { Input } from "@/shared/ui/Input";
 import { Btn } from "@/shared/ui/Btn";
 import { Rows } from "@/shared/ui/Rows";
 import { useResetPasswordByNumberMutation } from "../../lib/hooks/useResetPasswordByNumberMutation";
+import { useData } from "@/shared/model/store/resetPassword";
 
 export const RecoveryByNumber: FC = () => {
-    const [number, setNumber] = useState<string>("");
+    const { number, setNumber } = useData();
 
     const { mutate } = useResetPasswordByNumberMutation(number);
 

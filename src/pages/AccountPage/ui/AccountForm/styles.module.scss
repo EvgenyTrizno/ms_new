@@ -29,3 +29,7 @@
     margin-left: auto;
   }
 }
+
+.drop::after {
+  position:absolute;
+}

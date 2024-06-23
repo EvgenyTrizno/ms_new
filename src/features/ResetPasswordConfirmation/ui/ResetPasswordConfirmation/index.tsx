@@ -13,7 +13,7 @@ export const ResetPasswordConfirmation: FC = () => {
 
     const { mutate: byEmail } = useConfirmByEmailMutation(email, code);
     const { mutate: byNumber } = useConfirmByNumberMutation(number, code);
-
+    console.log(email, number)
     return (
         <ConfirmationForm
             setCode={setCode}

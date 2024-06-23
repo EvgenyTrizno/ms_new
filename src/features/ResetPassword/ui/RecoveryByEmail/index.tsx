@@ -4,10 +4,11 @@ import { Rows } from "@/shared/ui/Rows";
 import { Input } from "@/shared/ui/Input";
 import { Btn } from "@/shared/ui/Btn";
 import { useResetPasswordByEmailMutation } from "../../lib/hooks/useResetPasswordByEmailMutation";
+import { useData } from "@/shared/model/store/resetPassword";
 
 export const RecoveryByEmail: FC = () => {
-    const [email, setEmail] = useState<string>("");
 
+    const { email, setEmail } = useData();
     const { mutate } = useResetPasswordByEmailMutation(email);
 
     return (

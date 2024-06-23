@@ -5,13 +5,12 @@ import { changePasswordByEmail } from "../../api/changePassword";
 
 export const useChangePasswordByEmailMutation = (
     email: string,
-    password1: string,
-    password2: string
+    password: string,
 ) => {
     const navigate = useNavigate();
 
     return useMutation({
-        mutationFn: () => changePasswordByEmail(email, password1, password2),
+        mutationFn: () => changePasswordByEmail(email, password),
         mutationKey: ["changePassword", "email"],
         onSuccess: () => navigate("/login"),
     });

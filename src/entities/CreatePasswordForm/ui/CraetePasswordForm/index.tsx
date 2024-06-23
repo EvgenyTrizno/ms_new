@@ -6,8 +6,7 @@ import { ICreatePassFormProps } from "./types";
 
 export const CreatePassForm: FC<ICreatePassFormProps> = ({
     btn,
-    setPassword1,
-    setPassword2,
+    setPassword,
 }) => {
     return (
         <Rows gap={20} rows={["auto"]}>
@@ -15,13 +14,12 @@ export const CreatePassForm: FC<ICreatePassFormProps> = ({
                 type="text"
                 placeholder="Введите новый пароль"
                 borderColor="#E9EAEB"
-                onChange={(e) => setPassword1(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
             />
             <Input
                 type="text"
                 placeholder="Подтвердите пароль"
                 borderColor="#E9EAEB"
-                onChange={(e) => setPassword2(e.target.value)}
             />
             {btn}
         </Rows>

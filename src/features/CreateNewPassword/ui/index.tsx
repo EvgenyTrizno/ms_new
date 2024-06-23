@@ -6,35 +6,27 @@ import { Btn } from "@/shared/ui/Btn";
 import { useChangePasswordByEmailMutation } from "../lib/hooks/useChangePasswordByEmailMutation";
 
 export const ChangePassword: FC = () => {
-    const [password1, setPassword1] = useState<string>("");
-    const [password2, setPassword2] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
     const { number, email } = useData();
     const { mutate: byNumber } = useChangePasswordByNumberMutation(
         number,
-        password1,
-        password2
+        password,
     );
     const { mutate: byEmail } = useChangePasswordByEmailMutation(
         email,
-        password1,
-        password2
+        password
     );
 
     return (
         <CreatePassForm
-            setPassword2={setPassword2}
-            setPassword1={setPassword1}
+            setPassword={setPassword}
             btn={
-                email ? (
-                    <Btn color="" onClick={() => byEmail()}>
-                        Изменить пароль
-                    </Btn>
-                ) : (
-                    <Btn color="" onClick={() => byNumber()}>
-                        Изменить пароль
-                    </Btn>
-                )
+
+                <Btn color="blue" onClick={number ? () => byNumber() : () => byEmail()}>
+                    Изменить пароль
+                </Btn>
+
             }
         />
     );
