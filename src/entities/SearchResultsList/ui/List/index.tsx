@@ -8,63 +8,85 @@ import { DoctorMore } from "@/entities";
 import styles from "./styles.module.scss";
 
 export const SearchResultsList: FC<ISearchResultsListProps> = ({
-  filter,
-  search,
+    filter,
+    search,
 }) => {
-  const { data, isLoading, isRefetching } = useResultsQuery();
-  const navigate = useNavigate();
+    const { data, isLoading, isRefetching } = useResultsQuery();
+    const navigate = useNavigate();
 
-  return (
-    <>
-      {filter === "clinics" && (
-        <DataListWrapper
-          listIsUndefined={data === undefined ? true : false}
-          isLoading={isLoading || isRefetching}
-          listLength={data?.data.clinics.length || 0}
-        >
-          <div className={styles.list}>
-            {data?.data.clinics
-              .filter((el) =>
-                Object.values(el).some((value) => {
-                  if (typeof value === "string") {
-                    return value.toLowerCase().includes(search.toLowerCase());
-                  }
-                })
-              )
-              .map((el) => {
-                return (
-                  <Clinic
-                    key={el.id}
-                    data={el}
-                    onClick={() => navigate(`/clinic/${el.id}`)}
-                  />
-                );
-              })}
-          </div>
-        </DataListWrapper>
-      )}
+    return (
+        <>
+            {filter === "clinics" && (
+                <DataListWrapper
+                    listIsUndefined={data === undefined ? true : false}
+                    isLoading={isLoading || isRefetching}
+                    listLength={data?.data.clinics.length || 0}
+                >
+                    <div className={styles.list}>
+                        {data?.data.clinics
+                            .filter((el) =>
+                                Object.values(el).some((value) => {
+                                    if (typeof value === "string") {
+                                        return value.toLowerCase().includes(search.toLowerCase());
+                                    }
+                                })
+                            )
+                            .map((el) => {
+                                return (
+                                    <Clinic
+                                        key={el.id}
+                                        data={el}
+                                        onClick={() => navigate(`/clinic/${el.id}`)}
+                                    />
+                                );
+                            })}
+                    </div>
+                </DataListWrapper>
+            )}
 
-      {filter === "doctors" && (
-        <DataListWrapper
-          listIsUndefined={data === undefined ? true : false}
-          isLoading={isLoading || isRefetching}
-          listLength={data?.data.doctors.length || 0}
-        >
-          <div className={styles.list}>
-            {data?.data.doctors
-              .filter((el) =>
-                Object.values(el).some((value) => {
-                  if (typeof value === "string") {
-                    return value.toLowerCase().includes(search.toLowerCase());
-                  }
-                })
-              )
-              .map((el) => {
-                return <DoctorMore key={el.id} data={el} />;
-              })}
-          </div>
-        </DataListWrapper>
-      )}
-    </>
-  );
+            {filter === "doctors" && (
+                <DataListWrapper
+                    listIsUndefined={data === undefined ? true : false}
+                    isLoading={isLoading || isRefetching}
+                    listLength={data?.data.doctors.length || 0}
+                >
+                    <div className={styles.list}>
+                        {data?.data.doctors
+                            .filter((el) =>
+                                Object.values(el).some((value) => {
+                                    if (typeof value === "string") {
+                                        return value.toLowerCase().includes(search.toLowerCase());
+                                    }
+                                })
+                            )
+                            .map((el) => {
+                                return <DoctorMore key={el.id} data={el} />;
+                            })}
+                    </div>
+                </DataListWrapper>
+            )}
+            {filter === "services" && (
+                <DataListWrapper
+                    listIsUndefined={data === undefined ? true : false}
+                    isLoading={isLoading || isRefetching}
+                    listLength={data?.data.doctors.length || 0}
+                >
+                    <div className={styles.list}>
+                        {/* {data?.data.doctors */}
+                        {/*     .filter((el) => */}
+                        {/*         Object.values(el).some((value) => { */}
+                        {/*             if (typeof value === "string") { */}
+                        {/*                 return value.toLowerCase().includes(search.toLowerCase()); */}
+                        {/*             } */}
+                        {/*         }) */}
+                        {/*     ) */}
+                        {/*     .map((el) => { */}
+                        {/*         return <DoctorMore key={el.id} data={el} />; */}
+                        {/*     })} */}
+                    </div>
+                </DataListWrapper>
+            )}
+
+        </>
+    );
 };

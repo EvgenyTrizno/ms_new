@@ -7,16 +7,13 @@ import { Number } from "@/widgets/components/Protection/ui/Number";
 import { useMutation } from "react-query";
 import { updateUserData } from "@/shared/api";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
-import { IUserData } from "@/shared/types";
+import { IUser } from "@/shared/types";
 import { useCountriesQuery, useResultForm } from "@/shared/lib/hooks";
 import cn from "clsx";
 import { FormControl } from "@/shared/ui";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/shared/model/store/auth";
-import Select from "react-select";
-import { Dropdown } from "primereact/dropdown"
 import inputStyle from "@/shared/ui/Input/styles.module.scss"
-import { Drop } from "@/shared/ui/Drop/Drop";
 
 export const AccountForm = () => {
     const {
@@ -32,7 +29,7 @@ export const AccountForm = () => {
     const [sexName, setSex] = useState(user?.sex);
     const { getCookie } = useCookie();
     const { mutate, data, isError, isSuccess } = useMutation(
-        (updateData: Partial<IUserData>) =>
+        (updateData: Partial<IUser>) =>
             updateUserData(getCookie("access_token") as string, updateData)
     );
     const { error, success, resText } = useResultForm(isError, isSuccess);
@@ -75,10 +72,11 @@ export const AccountForm = () => {
             birthdate,
             // sex,
             login,
-            country,
+            // country,
             // city,
             address,
             email,
+
         } = data;
 
         const resData = {
@@ -91,6 +89,7 @@ export const AccountForm = () => {
             // city,
             address,
             email,
+            is_staff: user?.is_staff
         };
 
         mutate(resData);

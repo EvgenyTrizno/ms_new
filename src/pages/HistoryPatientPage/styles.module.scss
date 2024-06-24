@@ -5,7 +5,12 @@
 }
 
 .contentWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }

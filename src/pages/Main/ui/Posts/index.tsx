@@ -23,7 +23,6 @@ export const Posts: FC<PropsWithClassName> = ({ className }) => {
                 const videos = el.news_videos.map((videoItem) => videoItem.video);
                 const save = saves?.data.find((save) => save.news === el.id);
                 const like = likes?.data.find((like) => like.news === el.id);
-                console.log(Boolean(save), Boolean(like))
 
                 return (
                     <Post

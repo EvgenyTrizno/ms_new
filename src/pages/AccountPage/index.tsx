@@ -9,7 +9,7 @@ import { useOpensModals } from "@/shared/model/store/opensModals";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
 import { MobileHeader } from "@/widgets/components/MobileHeader";
 import { useAuth } from "@/shared/model/store/auth";
-import { MobilePopup } from "@/widgets";
+import { MobilePopup, Slider } from "@/widgets";
 import { NotesList } from "./ui/NotesList";
 import { Filter } from "@/shared/ui/Filter";
 import {
@@ -34,7 +34,7 @@ const AccountPage: FC = () => {
     const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
     const { user } = useAuth();
     const inputImg = useRef<HTMLInputElement | null>(null);
-    const [filter, setFilter] = useState("Записи");
+    const [filter, setFilter] = useState("Текущие");
     const { getCookie } = useCookie();
 
 
@@ -69,7 +69,7 @@ const AccountPage: FC = () => {
                         <div className={styles.contentWrapper}>
                             <img
                                 className={styles.avatar}
-                                src={user?.image || "/assets/avatar.png"}
+                                src={user?.image || "/assets/doctor.svg"}
                                 alt="avatar"
                             />
 
@@ -100,14 +100,13 @@ const AccountPage: FC = () => {
                                     </div>
                                 </div>
                             </div>
-
                             <Filter
-                                data={["Диагноз", "Записи", "Назначения"]}
+                                data={["Текущие", "История"]}
                                 isSelect={filter}
                                 setIsSelect={setFilter}
                             />
 
-                            {filter === "Записи" && <NotesList />}
+                            <NotesList filter={filter} />
                         </div>
                     </div>
                 ) : (
@@ -115,7 +114,7 @@ const AccountPage: FC = () => {
                         <BoxWrapper color="white">
                             <div className={styles.profileInfo}>
                                 <div className={styles.avatarWrapper}>
-                                    <img src={user?.image ? user.image : "/assets/avatar.png"} alt="avatar.png" />
+                                    <img src={user?.image ? user.image : "/assets/doctor.svg"} alt="avatar" />
 
                                     <div className={styles.avatarEdit}>
                                         <input type="file" style={{ display: "none" }} accept="image/jpeg, image/png, image/gif" ref={inputImg} onChange={(e) => handleImg(e)} />
