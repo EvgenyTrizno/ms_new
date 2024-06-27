@@ -48,23 +48,23 @@ export const NotificationList: FC = () => {
             {data && !data.data.length
                 ? "Список уведомлений пуст"
                 : data &&
-                  data.data.map((item) =>
-                      checkComment(item.text, messages.post) ? (
-                          <NewsPostNotification
-                              key={item.id}
-                              img={item.user.image}
-                              date={item.created_at}
-                              text={item.text}
-                          />
-                      ) : checkComment(item.text, messages.commentMed) ? (
-                          <MedCommentNotification
-                              key={item.id}
-                              img={item.user.image}
-                              text={item.text}
-                              date={item.created_at}
-                          />
-                      ) : null
-                  )}
+                data.data.map((item) =>
+                    checkComment(item.text, messages.post) ? (
+                        <NewsPostNotification
+                            key={item.id}
+                            img={item.user.image}
+                            date={item.created_at}
+                            text={item.text}
+                        />
+                    ) : checkComment(item.text, messages.commentMed) ? (
+                        <MedCommentNotification
+                            key={item.id}
+                            img={item.user.image}
+                            text={item.text}
+                            date={item.created_at}
+                        />
+                    ) : null
+                )}
             <ReminderNotification
                 date={new Date().toISOString()}
                 text={"Напоминание о записи завтра в 12:00"}

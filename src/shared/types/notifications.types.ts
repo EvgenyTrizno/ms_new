@@ -1,8 +1,8 @@
-import { IUserData } from ".";
 
+import { IUser } from ".";
 export type Notification = {
-  id: number;
-  user?: IUserData;
-  text: string;
-  created_at: Date;
+    id: number;
+    user?: IUser;
+    text: string;
+    created_at: Date;
 };

@@ -15,76 +15,89 @@ import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { useQuery } from "react-query";
 import { useAuth } from "@/shared/model/store/auth";
 import { useLoader } from "@/shared/lib/hooks";
+import { Notifications } from 'react-push-notification';
 import { getCenters } from "@/shared/api";
 import { useCenters } from "@/shared/model/store/centers";
 import { useDoctors } from "@/shared/model/store/useDoctors";
 import { getDoctors } from "@/widgets/components/DoctorsFromUserCountry/api/getDoctors";
+import { io } from "socket.io-client";
+import { Notification as notification } from "@/shared/types";
 
 const App = () => {
-  const { setUser } = useAuth();
-  const { getCookie } = useCookie();
-  const { setCenters } = useCenters();
-  const { setDoctors } = useDoctors();
+    const { setUser, user } = useAuth();
+    const { getCookie } = useCookie();
+    // const { setCenters } = useCenters();
+    // const { setDoctors } = useDoctors();
 
-  const { data: userData } = useQuery(
-    ["user"],
-    () => getUser(getCookie("access_token") as string),
-    {
-      enabled: !!getCookie("access_token"),
-      keepPreviousData: true,
-      staleTime: 5 * 60 * 1000,
-      cacheTime: 30 * 60 * 1000,
-    }
-  );
-  useQuery(["centers"], () => getCenters(getCookie("access_token") as string), {
-    enabled: !!getCookie("access_token"),
-    keepPreviousData: true,
-    staleTime: 5 * 60 * 1000,
-    cacheTime: 30 * 60 * 1000,
-    onSuccess: (data) => {
-      setCenters(data.data.center);
-    },
-  });
+    const { data: userData } = useQuery(
+        ["user"],
+        () => getUser(getCookie("access_token") as string),
+        {
+            enabled: !!getCookie("access_token"),
+            keepPreviousData: true,
+            staleTime: 5 * 60 * 1000,
+            cacheTime: 30 * 60 * 1000,
+        }
+    );
+    // useQuery(["centers"], () => getCenters(getCookie("access_token") as string), {
+    //   enabled: !!getCookie("access_token"),
+    //   keepPreviousData: true,
+    //   staleTime: 5 * 60 * 1000,
+    //   cacheTime: 30 * 60 * 1000,
+    //   onSuccess: (data) => {
+    //     setCenters(data.data.center);
+    //   },
+    // });
 
-  useQuery(["doctors"], () => getDoctors(getCookie("access_token") as string), {
-    enabled: !!getCookie("access_token"),
-    keepPreviousData: true,
-    staleTime: 5 * 60 * 1000,
-    cacheTime: 30 * 60 * 1000,
-    retry: false,
-    onSuccess: (data) => {
-      setDoctors(data.data);
-    },
-  });
+    // useQuery(["doctors"], () => getDoctors(getCookie("access_token") as string), {
+    //     enabled: !!getCookie("access_token"),
+    //     keepPreviousData: true,
+    //     staleTime: 5 * 60 * 1000,
+    //     cacheTime: 30 * 60 * 1000,
+    //     retry: false,
+    //     onSuccess: (data) => {
+    //         setDoctors(data.data);
+    //     },
+    // });
 
-  const isLoading = useLoader();
+    const isLoading = useLoader();
 
-  useEffect(() => {
-    if (!userData) return;
 
-    setUser(userData.data);
-  }, [setUser, userData]);
-  return (
-    <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
-      <PSuspense>
-        <AnimatePresence initial={true}>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Routes>
-              {routes.map((page, i) => (
-                <Route key={i} {...page} />
-              ))}
-            </Routes>
-            {isLoading && <PageLoader />}
-          </motion.div>
-        </AnimatePresence>
-      </PSuspense>
-    </ErrorBoundary>
-  );
+    useEffect(() => {
+        const socket = io("http://localhost:8000/")
+        socket.onAny((data: notification) => {
+            console.log(data.user, user?.id)
+            if (data.user?.id == user?.id) {
+                console.log('work')
+                new Notification(data.text)
+            }
+        })
+        if (!userData) return;
+
+        setUser(userData.data);
+    }, [setUser, userData]);
+    return (
+        <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
+            <PSuspense>
+
+                <AnimatePresence initial={true}>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <Routes>
+                            {routes.map((page, i) => (
+                                <Route key={i} {...page} />
+                            ))}
+                        </Routes>
+                        {/* {isLoading && <PageLoader />} */}
+                    </motion.div>
+                </AnimatePresence>
+            </PSuspense>
+        </ErrorBoundary>
+    );
 };
 
 export default App;

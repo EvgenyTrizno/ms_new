@@ -11,7 +11,6 @@ import { IUserData } from "@/shared/types/user.types";
 import suprt from "./assets/support.svg";
 import noImageBlue from "./assets/noImageBlue.svg";
 import noImageRed from "./assets/noImageRed.svg";
-// import suprtRed from "./assets/support-red.svg";
 import styles from "./styles.module.scss";
 import { useChat } from "@/shared/model/store/chat";
 

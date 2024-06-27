@@ -46,6 +46,7 @@ const AccountPage: FC = () => {
         console.log(URL.createObjectURL(event.target.files[0]))
         const fd = new FormData();
         fd.append('image', event.target.files[0])
+        fd.append('is_staff', user?.is_staff)
         updateUserImg(getCookie("access_token"), fd)
     }
     return (
