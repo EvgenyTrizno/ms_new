@@ -8,72 +8,49 @@ import { PropsWithClassName } from "@/shared/types";
 import cn from "clsx";
 
 type Props = {
-  type?: NotificationType;
-  userSrcAvatar?: string;
-  title: string;
-  time: string;
-  link?: {
+    type?: NotificationType;
+    userSrcAvatar?: string;
     title: string;
-    href: string;
-  };
+    time: string;
+    link?: {
+        title: string;
+        href: string;
+    };
 
-  userType?: UserType;
-  systemType?: SystemType;
+    userType?: UserType;
+    systemType?: SystemType;
 };
 
 export const Notification: FC<PropsWithClassName<Props>> = ({
-  className, 
-  type = "user",
-  userSrcAvatar = "/assets/avatar.png",
-  title,
-  time,
-  link,
-  userType = "comment",
-  systemType,
+    className,
+    type = "user",
+    userSrcAvatar = "/assets/avatar.png",
+    title,
+    time,
+    link,
+    userType = "comment",
+    systemType,
 }) => {
-  return (
-    <div className={cn(styles.notify, className)}>
-      {type === "user" ? (
-        <div className={styles.imgWrapper}>
-          {userType !== "standart" && (
-            <div
-              className={`${styles.userTypeIconWrapper} ${
-                userType === "new" && styles.new
-              }`}
-            >
-              {userType !== "new" && (
-                <img src={getUserTypeIcon(userType)} alt={userType} />
-              )}
-            </div>
-          )}
-
-          <img className={styles.avatar} src={userSrcAvatar} alt="avatar" />
-        </div>
-      ) : (
-        <>
-          {systemType && (
+    return (
+        <div className={cn(styles.notify, className)}>
             <div className={`${styles.imgWrapper} ${styles[systemType]}`}>
-              <img
-                className={styles.icon}
-                src={getSystemIcon(systemType)}
-                alt={systemType}
-              />
+                <img
+                    className={styles.icon}
+                    src={getSystemIcon(systemType)}
+                    alt={systemType}
+                />
             </div>
-          )}
-        </>
-      )}
-
-      <div className={styles.content}>
-        <h5 className={styles.title}>
-          {title}{" "}
-          {type === "system" && link && (
-            <Link className={styles.link} to={link.href}>
-              {link.title}
-            </Link>
-          )}
-        </h5>
-        <p className={styles.time}>{time}</p>
-      </div>
-    </div>
-  );
+            <div className={styles.content}>
+                <h5 className={styles.title}>
+                    {title}{" "}
+                    {type === "system" && link && (
+                        <Link className={styles.link} to={link.href}>
+                            {link.title}
+                        </Link>
+                    )}
+                </h5>
+                <p className={styles.time}>{time}</p>
+            </div>
+        </div >
+    );
 };

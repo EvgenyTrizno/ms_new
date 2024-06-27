@@ -22,10 +22,13 @@ import { useDoctors } from "@/shared/model/store/useDoctors";
 import { getDoctors } from "@/widgets/components/DoctorsFromUserCountry/api/getDoctors";
 import { io } from "socket.io-client";
 import { Notification as notification } from "@/shared/types";
+import { getNotifications } from "@/entities/Notification/api/getNotifications";
+import { useNotifyPointer } from "@/shared/model/store/notifyPointer";
 
 const App = () => {
     const { setUser, user } = useAuth();
     const { getCookie } = useCookie();
+    const { notification, setNotification } = useNotifyPointer();
     // const { setCenters } = useCenters();
     // const { setDoctors } = useDoctors();
 
@@ -59,19 +62,21 @@ const App = () => {
     //         setDoctors(data.data);
     //     },
     // });
+    // const { data: notificationsData, isSuccess } = useQuery(
+    //     ["notifications"],
+    //     () => getNotifications(getCookie("access_token") as string),
+    //     {
+    //         keepPreviousData: true,
+    //         staleTime: 5 * 60 * 1000,
+    //         cacheTime: 30 * 60 * 1000,
+    //         retry: false,
+    //     }
+    // );
 
     const isLoading = useLoader();
 
 
     useEffect(() => {
-        const socket = io("http://localhost:8000/")
-        socket.onAny((data: notification) => {
-            console.log(data.user, user?.id)
-            if (data.user?.id == user?.id) {
-                console.log('work')
-                new Notification(data.text)
-            }
-        })
         if (!userData) return;
 
         setUser(userData.data);
