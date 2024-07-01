@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 
 import { Layout } from "../Layout";
 import { MOBILE } from "@/shared/utils";
@@ -9,12 +9,14 @@ import { useOpensModals } from "@/shared/model/store/opensModals";
 import { MobileMenu } from "@/widgets/components/MobileMenu";
 import { MobileHeader } from "@/widgets/components/MobileHeader";
 import { useAuth } from "@/shared/model/store/auth";
-import { MobilePopup, Slider } from "@/widgets";
+import { MobilePopup, Slider, SliderArrows } from "@/widgets";
 import { NotesList } from "./ui/NotesList";
+import { Navigation } from "swiper/modules";
 import { Filter } from "@/shared/ui/Filter";
 import {
     AccountIcon,
     EditIcon,
+    HistoryIcon,
     LikeIcon,
     PaymentsIcon,
     PeopleIcon,
@@ -29,17 +31,86 @@ import { updateUserData, updateUserImg } from "@/shared/api";
 import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { useMutation } from "react-query";
 import { IUser } from "@/shared/types";
+import { useNotesQuery } from "@/shared/lib/hooks/useNotesQuery";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { NotesCard } from "@/widgets/components/NotesCard";
+import { NoteBlock } from "@/entities";
+import { months } from "@/widgets/components/Calendar";
 
 const AccountPage: FC = () => {
+    const monthsTableReverse = {
+        0: "Январь",
+        1: "Февраль",
+        2: "Март",
+        3: "Апрель",
+        4: "Май",
+        5: "Июнь",
+        6: "Июль",
+        7: "Август",
+        8: "Сентябрь",
+        9: "Октябрь",
+        10: "Ноябрь",
+        11: "Декабрь",
+    };
+    const month = months
     const { isOpenMoreDetailed, setOpenMoreDetailed } = useOpensModals();
     const { user } = useAuth();
+    const { data } = useNotesQuery();
     const inputImg = useRef<HTMLInputElement | null>(null);
     const [filter, setFilter] = useState("Текущие");
     const { getCookie } = useCookie();
+    const [activeMonth, setActiveMonth] = useState<string>(monthsTableReverse[new Date().getMonth()])
 
 
 
+    const swiper = useSwiper();
+    const [isEnd, setIsEnd] = useState(false);
 
+    const handlePrev = () => {
+        console.log('call')
+        swiper && swiper.slidePrev();
+    };
+
+    const handleNext = () => {
+        if (swiper && !isEnd) {
+            swiper.slideNext();
+        }
+    };
+
+    useEffect(() => {
+        console.log(activeMonth)
+        const handleReachEnd = () => {
+            setIsEnd(true);
+        };
+
+        const handleSlideChange = () => {
+            setIsEnd(false);
+        };
+
+        swiper && swiper.on("reachEnd", handleReachEnd);
+        swiper && swiper.on("slideChange", handleSlideChange);
+
+        return () => {
+            swiper && swiper.off("reachEnd", handleReachEnd);
+            swiper && swiper.off("slideChange", handleSlideChange);
+        };
+    }, [swiper]);
+
+
+    const monthTable = {
+        "Январь": 0,
+        "Февраль": 1,
+        "Март": 2,
+        "Апрель": 3,
+        "Май": 4,
+        "Июнь": 5,
+        "Июль": 6,
+        "Август": 7,
+        "Сентябрь": 8,
+        "Октябрь": 9,
+        "Ноябрь": 10,
+        "Декабрь": 11
+    }
 
     const handleImg = (event) => {
 
@@ -52,8 +123,8 @@ const AccountPage: FC = () => {
     return (
         <>
             <MobileHeader />
-            <Layout>
-                {MOBILE ? (
+            {MOBILE ? (
+                <Layout>
                     <div className={styles.wrapper}>
                         {/* <SearchWithFilter */}
                         {/*     className={styles.search} */}
@@ -101,16 +172,83 @@ const AccountPage: FC = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Filter
-                                data={["Текущие", "История"]}
-                                isSelect={filter}
-                                setIsSelect={setFilter}
-                            />
+                            <BoxWrapper color="white" className={styles.white__block}>
+                                <div className={styles.slider__block}>
 
-                            <NotesList filter={filter} />
+                                    <div
+                                        className={
+                                            isEnd ? `${styles.prev} ${styles.disabled}` : styles.prev
+                                        }
+                                        onClick={handlePrev}
+                                        id="prevArrow"
+                                    >
+                                        <svg width="9" height="14" viewBox="0 0 9 14" fill="none" className={styles.slider__arrow}>
+                                            <path
+                                                d="M7.5299 1.34315L1.87305 7L7.5299 12.6569"
+                                                stroke="#262626"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <Swiper
+                                        spaceBetween={8}
+                                        initialSlide={new Date().getMonth() }
+                                        slidesPerView={5}
+                                        navigation={{ nextEl: "#nextArrow", prevEl: "#prevArrow" }}
+                                        modules={[Navigation]}
+                                        style={{ overflow: "hidden" }}
+                                        slidesPerGroup={4}
+                                        slidesOffsetBefore={16}
+                                        slidesOffsetAfter={16}
+                                    >
+                                        {
+                                            months.map((item) => (
+                                                <SwiperSlide key={item}>
+                                                    <div className={activeMonth == item ? styles.month__border__active : styles.month__border}>
+
+                                                        <div className={activeMonth == item ? styles.month__title__active : styles.month__title} onClick={() => setActiveMonth(item)}>
+
+                                                            {item}</div>
+                                                    </div>
+
+                                                </SwiperSlide>
+                                            ))
+                                        }
+                                    </Swiper>
+                                    <div
+                                        className={
+                                            isEnd ? `${styles.next} ${styles.disabled}` : styles.next
+                                        }
+                                        onClick={handleNext}
+                                        id="nextArrow"
+                                    >
+                                        <svg width="24" height="24" viewBox="0 0 9 14" fill="none" className={styles.slider__arrow}>
+                                            <path
+                                                d="M1.84315 1.34315L7.5 7L1.84315 12.6569"
+                                                stroke="#262626"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <Filter
+                                    data={["Текущие", "История"]}
+                                    isSelect={filter}
+                                    setIsSelect={setFilter}
+                                />
+
+                                <NotesList filter={filter} month={monthTable[activeMonth]} />
+
+                            </BoxWrapper>
                         </div>
                     </div>
-                ) : (
+                </Layout >
+            ) : (
+                <Layout>
                     <div className={styles.desktopWrapper}>
                         <BoxWrapper color="white">
                             <div className={styles.profileInfo}>
@@ -167,22 +305,22 @@ const AccountPage: FC = () => {
                                 href="/payments"
                             />
 
-                            {/* <ProfileLink */}
-                            {/*     icon={<EditIcon />} */}
-                            {/*     title="Назначения" */}
-                            {/*     href="/appointments" */}
-                            {/* /> */}
+                            <ProfileLink
+                                icon={<EditIcon />}
+                                title="Записи"
+                                href="/notes"
+                            />
                             <ProfileLink
                                 icon={<StatsIcon />}
                                 title="Статистика"
                                 href="/statistics"
                             />
 
-                            {/* <ProfileLink */}
-                            {/*     icon={<PeopleIcon />} */}
-                            {/*     title="Доступ" */}
-                            {/*     href="/access" */}
-                            {/* /> */}
+                            <ProfileLink
+                                icon={<HistoryIcon />}
+                                title="История пациента"
+                                href="/history"
+                            />
                             {/**/}
                             {/* <ProfileLink */}
                             {/*     icon={<LikeIcon />} */}
@@ -207,11 +345,13 @@ const AccountPage: FC = () => {
                                 href="/saved"
                             />
                         </div>
-                    </div>
-                )}
-            </Layout>
+                    </div >
+                </Layout >
+            )}
 
-            {MOBILE && <MobileMenu />}
+            {
+                MOBILE && <MobileMenu />
+            }
 
             <MobilePopup
                 isOpen={isOpenMoreDetailed}

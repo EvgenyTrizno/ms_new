@@ -103,6 +103,7 @@ export const AccountMoreDetailedForm = () => {
             sex: sexName,
             country: countryId,
             login,
+            is_staff: user?.is_staff,
             address,
             email,
         };

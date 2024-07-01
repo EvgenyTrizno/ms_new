@@ -5,8 +5,10 @@ import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { DataListWrapper } from "@/widgets/components/DataListWrapper";
 
 
+import styles from "./styles.module.scss"
 type NotesListProps = {
     filter: string
+    month: number
 }
 
 export const NotesList = (props: NotesListProps) => {
@@ -27,22 +29,27 @@ export const NotesList = (props: NotesListProps) => {
             listLength={notesData?.data.length || 0}
             emptyText="Нет записей"
         >
-            {props.filter == "Текущие" ?
-                <>
-                    {notesData?.data.
-                        filter((note) => Date.parse(note.time_start) > Date.now()).
-                        map((note) => (
-                            <NoteBlock key={note.id} data={note} />
-                        ))}
-                </> : <>
-                    {notesData?.data.
-                        map((note) => (
-                            <NoteBlock key={note.id} data={note} />
-                        ))}
+            <div className={styles.notesList}>
+                {props.filter == "Текущие" ?
+                    <>
+                        {notesData?.data.
+                            filter((note) => Date.parse(note.time_start) > Date.now()).
+                            filter((note) => new Date(note.time_start).getMonth() === props.month).
+                            map((note) => (
+                                <NoteBlock key={note.id} data={note} />
+                            ))}
+                    </> : <>
+                        {notesData?.data.
+                            filter((note) => new Date(note.time_start).getMonth() === props.month).
+                            map((note) => (
+                                <NoteBlock key={note.id} data={note} />
+                            ))}
 
-                </>
+                    </>
 
-            }
+                }
+
+            </div>
         </DataListWrapper>
     );
 };

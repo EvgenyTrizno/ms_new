@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  // background-color: #fff;
 }
 
 .interest {
@@ -32,11 +33,87 @@
   }
 }
 
+.month__title__active {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21.6px;
+  color: #0064FA;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  // margin: 10px;
+}
+
+.month__title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21.6px;
+  color: #7D7F82;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  // margin: 10px;
+
+
+}
+
+.arrows {
+  display: flex;
+  align-items: center;
+  grid-gap: 16px;
+
+  .prev,
+  .next {
+    cursor: pointer;
+
+    img {
+      width: 34px;
+      height: 34px;
+      object-fit: cover;
+    }
+  }
+}
+
+.slider__arrow {
+  width: 12px;
+  height: 18px;
+  color: #7D7F82;
+  margin-bottom: 10px;
+}
+
+.slider__block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.month__border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.month__border__active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #0064FA;
+  border-radius: 8px
+}
+
+
+
 .contentWrapper {
-  background-color: #fff;
-  width: 100%;
-  margin-top: 100px;
-  padding: 0 16px;
+  // background-color: #fff;
+  background-color: #f4f8ff;
+  // width: 100vw;
+  // margin-top: 100px;
+  padding: 0px;
   padding-top: 75px;
   padding-bottom: 16px;
   position: relative;
@@ -47,10 +124,14 @@
 }
 
 .progress {
-  width: 200px; /* Ширина линии */
-  height: 100px; /* Высота линии */
-  border: 2px solid #000; /* Цвет и толщина линии */
-  border-radius: 100px; /* Радиус, определяющий изгиб линии (должен быть равен половине высоты) */
+  width: 200px;
+  /* Ширина линии */
+  height: 100px;
+  /* Высота линии */
+  border: 2px solid #000;
+  /* Цвет и толщина линии */
+  border-radius: 100px;
+  /* Радиус, определяющий изгиб линии (должен быть равен половине высоты) */
   position: relative;
   overflow: hidden;
 }
@@ -60,11 +141,15 @@
   position: absolute;
   top: 0;
   left: 50%;
-  width: 200%; /* Увеличиваем ширину для создания полукруглого эффекта */
+  width: 200%;
+  /* Увеличиваем ширину для создания полукруглого эффекта */
   height: 100%;
-  border-radius: 50%; /* Делаем псевдоэлемент полукруглым */
-  background-color: #000; /* Цвет фона линии */
-  transform: translateX(-50%); /* Сдвигаем на половину ширины элемента влево */
+  border-radius: 50%;
+  /* Делаем псевдоэлемент полукруглым */
+  background-color: #000;
+  /* Цвет фона линии */
+  transform: translateX(-50%);
+  /* Сдвигаем на половину ширины элемента влево */
 }
 
 .avatar {
@@ -174,7 +259,7 @@
       }
     }
   }
-  
+
   .list {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,30 @@
+.clinic__block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 25px;
+  gap: 16px;
+
+  .clinic__img {
+    border-radius: 999%;
+    width: 25px;
+
+  }
+
+  .clinic__name {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+    line-height: 22.4px;
+
+    @media (max-width: 1280px) {
+      display: none;
+    }
+
+  }
+
+}
