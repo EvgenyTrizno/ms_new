@@ -18,12 +18,12 @@ export const Clinic: FC<Props> = ({ data, onClick }) => {
                 <div className={styles.list}>
                     <div className={styles.item}>
                         <p>Страна: </p>
-                        <span>{data?.country || "-"}</span>
+                        <span>{data?.country?.name || "-"}</span>
                     </div>
 
                     <div className={styles.item}>
                         <p>Город: </p>
-                        <span>{data?.city || "-"}</span>
+                        <span>{data?.city?.name || "-"}</span>
                     </div>
 
                     <div className={styles.item}>

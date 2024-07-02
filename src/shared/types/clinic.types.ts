@@ -1,6 +1,8 @@
-import { Doctor } from ".";
+import { IDoctorResponse } from "@/widgets/components/DoctorsFromUserCountry/api/getDoctors";
+import { Doctor, ICountry, INews, INote } from ".";
+import { ICity } from "./city.interface";
 import { IDisease } from "./disease.interface";
-import { IUserData } from "./user.types";
+import { IUser } from "./user.types";
 
 export interface IClinic {
     id: number;
@@ -22,9 +24,9 @@ export interface IClinic {
     updated_at: Date;
     review_date: null;
     review_passed: null;
-    admin: IUserData;
-    country: string;
-    city: string;
+    admin: IUser;
+    country: ICountry;
+    city: ICity;
     employees: Doctor[];
     supported_diseases: IDisease[];
     online_notes: number;
@@ -32,6 +34,10 @@ export interface IClinic {
 }
 
 export type ClinicResTypes = {
+    online_notes: INote[];
+    offline_notes: INote[];
+    doctors: Doctor[];
     clinic: IClinic[];
-    pacients: IUserData[];
+    news: INews[];
+    users: IUser[];
 };

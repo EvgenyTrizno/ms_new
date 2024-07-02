@@ -64,7 +64,7 @@ const ClinicPage = () => {
                     className={cn(styles.banner, {
                         [styles.active]: scrollY > 0,
                     })}
-                    src="/assets/clinic-post.jpg"
+                    src={clinicData?.image || "/assets/clinic-post.jpg"}
                     alt="clinic"
                     onClick={() => {
                         if (!bannerRef.current) return;
@@ -92,11 +92,11 @@ const ClinicPage = () => {
 
             <div className={styles.parameters}>
                 <p>
-                    Страна: <span>{clinicData?.country || "-"}</span>
+                    Страна: <span>{clinicData?.country?.name || "-"}</span>
                 </p>
 
                 <p>
-                    Город: <span>{clinicData?.city || "-"}</span>
+                    Город: <span>{clinicData?.city?.name || "-"}</span>
                 </p>
 
                 <p>
@@ -114,16 +114,13 @@ const ClinicPage = () => {
             </div>
 
             <Links
-                onlineCount={clinicDataApi?.data.clinic[0].online_notes || 0}
-                offlineCount={clinicDataApi?.data.clinic[0].offline_notes || 0}
+                onlineCount={clinicDataApi?.data.online_notes.length || 0}
+                offlineCount={clinicDataApi?.data.offline_notes.length || 0}
                 cooperationCount={clinicDataApi?.data.clinic[0].employees.length || 0}
-                hardwareCount={0}
+                doctorsCount={clinicDataApi?.data.doctors.length || 0}
             />
             <Characteristics className={styles.characteristics} />
 
-            <News />
-
-            <Gallery className={styles.gallery} />
         </Layout>
     );
 };
