@@ -25,9 +25,9 @@ const ClinicPage = () => {
         ["clinics"],
         () => getClinicById(getCookie("access_token") as string, Number(id)),
         {
-            keepPreviousData: true,
-            staleTime: 5 * 60 * 1000,
-            cacheTime: 30 * 60 * 1000,
+            // keepPreviousData: true,
+            // staleTime: 5 * 60 * 1000,
+            // cacheTime: 30 * 60 * 1000,
 
             onSuccess: (data) => {
                 setCurrentClinic(data.data);
