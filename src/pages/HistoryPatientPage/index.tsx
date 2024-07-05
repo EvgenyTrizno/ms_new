@@ -32,33 +32,31 @@ const HistoryPatientPage = () => {
                     ) : undefined
                 }
             />
+            <Filter
+                isSelect={filter}
+                setIsSelect={setFilter}
+                data={["Записи", "Опрос", "Клиники", "Врачи"]}
+                width="100%"
+            />
             <div className={styles.contentWrapper}>
-                <Filter
-                    isSelect={filter}
-                    setIsSelect={setFilter}
-                    data={["Записи", "Опрос", "Клиники", "Врачи"]}
-                    width="100%"
-                />
 
-                <div className={styles.list}>
 
-                    {data?.data
-                        .filter((el) =>
-                            Object.values(el).some((value) => {
-                                if (typeof value === "string") {
-                                    return value.toLowerCase().includes(search.toLowerCase());
-                                }
-                            })
-                        )
-                        .map((el) => {
-                            return (
-                                <NoteBlock
-                                    key={el.id}
-                                    data={el}
-                                />
-                            );
-                        })}
-                </div>
+                {data?.data
+                    .filter((el) =>
+                        Object.values(el).some((value) => {
+                            if (typeof value === "string") {
+                                return value.toLowerCase().includes(search.toLowerCase());
+                            }
+                        })
+                    )
+                    .map((el) => {
+                        return (
+                            <NoteBlock
+                                key={el.id}
+                                data={el}
+                            />
+                        );
+                    })}
             </div>
         </Layout >
     );
