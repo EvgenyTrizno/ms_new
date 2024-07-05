@@ -23,7 +23,7 @@ export const updateUserData = async (
 
 export const updateUserImg = async (
     token: string,
-    formdata: FormData
+    formdata: FormData 
 ): Promise<AxiosResponse<IUser>> => {
     const res = await instance.patch(
         "/users-detail/",

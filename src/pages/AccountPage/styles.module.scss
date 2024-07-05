@@ -35,23 +35,21 @@
 
 .month__title__active {
   font-weight: 500;
-  font-size: 16px;
-  line-height: 21.6px;
+  font-size: 10px;
   color: #0064FA;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  // overflow: hidden;
   // margin: 10px;
 }
 
 .month__title {
   font-weight: 500;
-  font-size: 16px;
-  line-height: 21.6px;
+  font-size: 10px;
   color: #7D7F82;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  // white-space: nowrap;
+  // overflow: hidden;
   // margin: 10px;
 
 
