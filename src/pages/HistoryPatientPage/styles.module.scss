@@ -9,3 +9,33 @@
   margin-top: 16px;
   margin-bottom: 16px;
 }
+
+.searchWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .notes {
+    .items {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+
+      .item {
+        width: 100%;
+      }
+    }
+  }
+}

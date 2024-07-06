@@ -194,8 +194,8 @@ const AccountPage: FC = () => {
                                     </div>
                                     <Swiper
                                         spaceBetween={8}
-                                        initialSlide={new Date().getMonth() }
-                                        slidesPerView={5}
+                                        initialSlide={new Date().getMonth()}
+                                        slidesPerView={4}
                                         navigation={{ nextEl: "#nextArrow", prevEl: "#prevArrow" }}
                                         modules={[Navigation]}
                                         style={{ overflow: "hidden" }}

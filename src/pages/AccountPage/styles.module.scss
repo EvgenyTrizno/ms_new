@@ -35,21 +35,21 @@
 
 .month__title__active {
   font-weight: 500;
-  font-size: 10px;
+  font-size: 14px;
   color: #0064FA;
   text-overflow: ellipsis;
   white-space: nowrap;
-  // overflow: hidden;
+  overflow: hidden;
   // margin: 10px;
 }
 
 .month__title {
   font-weight: 500;
-  font-size: 10px;
+  font-size: 14px;
   color: #7D7F82;
   text-overflow: ellipsis;
   // white-space: nowrap;
-  // overflow: hidden;
+  overflow: hidden;
   // margin: 10px;
 
 
@@ -80,10 +80,10 @@
 }
 
 .slider__block {
-  display: flex;
   justify-content: center;
+  display: flex;
   align-items: center;
-  gap: 24px;
+  // gap: 24px;
 }
 
 .month__border {

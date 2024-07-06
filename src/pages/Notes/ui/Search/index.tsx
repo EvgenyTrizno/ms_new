@@ -39,15 +39,14 @@ export const SearchWithFilter: FC<SearchWithFProps> = ({ search, setSearch }) =>
 
     return (
         <>
-            <Search
-                height="48px"
-                placeholder="Введите запрос"
-                onChange={onChangeSearch}
-                value={search}
-                showSearchByScroll={false}
-                additionalBlock={
-                    <PlusBtn onClick={() => console.log("click")} />
-                } />
+            <div className={styles.searchWrapper}>
+                <Search height="48px" placeholder="Введите запрос"
+                    onChange={onChangeSearch}
+                    value={search}
+                    showSearchByScroll={false}
+                />
+                <FilterBtn type="small" onClick={() => console.log("click")} />
+            </div>
 
         </>
     );

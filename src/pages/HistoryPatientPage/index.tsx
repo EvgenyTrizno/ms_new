@@ -19,19 +19,18 @@ const HistoryPatientPage = () => {
         <Layout>
             {MOBILE && <CustomMobileHeader back text="История пациента" />}
 
-            <Search
-                className={styles.search}
-                placeholder={filter == "Клиника" ? "Поиск клиник" : filter == "Врачи" ? "Поиск врачей" : "Поиск записей"}
-                height="48px"
-                onChange={(e) => setSearch(e.target.value)}
-                value={search}
-                showSearchByScroll={false}
-                additionalBlock={
-                    MOBILE ? (
-                        <FilterBtn type="small" onClick={() => console.log("click")} />
-                    ) : undefined
-                }
-            />
+            <div className={styles.searchWrapper}>
+                <Search className={styles.search}
+                    placeholder="Введите запрос"
+                    height="48px"
+                    onChange={(e) => setSearch(e.target.value)}
+                    value={search}
+                    showSearchByScroll={false}
+                />
+                {MOBILE && (
+                    <FilterBtn type="small" onClick={() => console.log("click")} />
+                )}
+            </div>
             <Filter
                 isSelect={filter}
                 setIsSelect={setFilter}
