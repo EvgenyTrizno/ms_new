@@ -85,6 +85,9 @@ export const ROUTES = {
     clinicInfo: {
         path: "/clinic/:id",
     },
+    doctorInfo: {
+        path: "/doctor/:id"
+    },
     centerInfo: {
         path: "/center/:id",
     },

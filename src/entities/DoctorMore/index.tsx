@@ -3,16 +3,17 @@ import styles from "./styles.module.scss";
 import { Doctor } from "@/shared/types";
 import BoxWrapper from "../BoxWrapper";
 import { Characteristics } from "@/features";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
     data: Doctor;
 };
 
 export const DoctorMore: FC<Props> = ({ data }) => {
-    console.log(data)
+    const navigate = useNavigate();
     return (
         <BoxWrapper color="white">
-            <div className={styles.wrapper}>
+            <div className={styles.wrapper} onClick={() => navigate(`/doctor/${data.id}`)}>
                 <img className={styles.avatar} src={data.image || "/assets/doctor.svg"} alt="avatar" />
 
                 <div className={styles.content}>
@@ -35,6 +36,6 @@ export const DoctorMore: FC<Props> = ({ data }) => {
                     />
                 </div>
             </div>
-        </BoxWrapper>
+        </BoxWrapper >
     );
 };

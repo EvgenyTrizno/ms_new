@@ -7,6 +7,7 @@ import MapPage from "@/pages/Map/MapPage";
 
 const RegistrationClinicPage = lazy(() => import("@/pages/RegistrationClinicPage"));
 const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
+const DoctorPage = lazy(() => import("@/pages/DoctorPage"));
 const WorkerLoginPage = lazy(() => import("@/pages/WorkerLoginPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
 const MainPage = lazy(() => import("@/pages/Main"));
@@ -159,6 +160,10 @@ export const routes: RouteProps[] = [
     {
         path: "/center/:id",
         Component: CenterPage,
+    },
+    {
+        path: "/doctor/:id",
+        Component: DoctorPage
     },
     { path: "/app", Component: AppStatsPage },
     { path: "/leads", Component: LeadsPage },

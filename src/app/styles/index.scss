@@ -3,6 +3,9 @@
 @import "./fonts.scss";
 @import "./swiper.scss";
 @import "./animations.scss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   box-sizing: border-box;
@@ -28,24 +31,33 @@ body {
 }
 
 .scrollbar::-webkit-scrollbar {
-  width: 3px;               /* ширина scrollbar */
+  width: 3px;
+  /* ширина scrollbar */
 }
+
 .scrollbar::-webkit-scrollbar-track {
-  background: transparent;        /* цвет дорожки */
+  background: transparent;
+  /* цвет дорожки */
 }
+
 .scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--dark-gray);    /* цвет плашки */
-  border-radius: 20px;       /* закругления плашки */
-  border: 3px solid var(--dark-gray);  /* padding вокруг плашки */
+  background-color: var(--dark-gray);
+  /* цвет плашки */
+  border-radius: 20px;
+  /* закругления плашки */
+  border: 3px solid var(--dark-gray);
+  /* padding вокруг плашки */
 }
 
 @keyframes skeleton-loading {
   0% {
     opacity: 0.5;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0.5;
   }

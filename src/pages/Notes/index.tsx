@@ -21,7 +21,9 @@ const NotesPage: FC = () => {
 
     return (
         <>
-            <CustomMobileHeader back text="Записи" />
+            <CustomMobileHeader back text="Записи"
+
+            />
             <Layout>
                 <SearchWithFilter search={search} setSearch={setSearch} />
                 <div
