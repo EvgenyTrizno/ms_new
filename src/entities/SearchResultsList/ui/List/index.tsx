@@ -60,7 +60,10 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
                                 })
                             )
                             .map((el) => {
-                                return <DoctorMore key={el.id} data={el} />;
+                                return <DoctorMore
+                                    key={el.id}
+                                    data={el}
+                                    />
                             })}
                     </div>
                 </DataListWrapper>

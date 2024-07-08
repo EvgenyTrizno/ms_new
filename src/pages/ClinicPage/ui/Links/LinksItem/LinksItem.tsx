@@ -6,29 +6,29 @@ import cn from "clsx";
 import { LinkArrIcon } from "@/icons";
 
 type Props = {
-  href: string;
-  title: string;
-  count: number;
-  icon: JSX.Element;
+    onClick: () => void;
+    title: string;
+    count: number;
+    icon: JSX.Element;
 };
 
 export const LinksItem: FC<PropsWithClassName<Props>> = ({
-  className,
-  href = "/",
-  title,
-  count = 0,
-  icon,
+    className,
+    title,
+    count = 0,
+    onClick,
+    icon,
 }) => {
-  return (
-    <Link className={cn(className, styles.link)} to={href}>
-      <div className={styles.header}>
-        <p>{title}</p>
-        <LinkArrIcon />
-      </div>
-      <div className={styles.footer}>
-        <p>{count}</p>
-        {icon}
-      </div>
-    </Link>
-  );
+    return (
+        <div className={cn(className, styles.link)} onClick={onClick}>
+            <div className={styles.header}>
+                <p>{title}</p>
+                <LinkArrIcon />
+            </div>
+            <div className={styles.footer}>
+                <p>{count}</p>
+                {icon}
+            </div>
+        </div>
+    );
 };

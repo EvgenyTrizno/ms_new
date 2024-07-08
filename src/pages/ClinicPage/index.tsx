@@ -14,6 +14,7 @@ import { useCookie } from "@/shared/lib/hooks/useCookie";
 import { IClinic } from "@/shared/types";
 import { useClinic } from "@/shared/model/store/clinic";
 import { CustomMobileHeader } from "@/widgets";
+import { getServices } from "@/shared/api/services";
 
 const ClinicPage = () => {
     const [scrollY, setScrollY] = useState(0);
@@ -21,6 +22,10 @@ const ClinicPage = () => {
     const { id } = useParams();
     const { getCookie } = useCookie();
     const { setCurrentClinic } = useClinic();
+    const { data: serviceData, refetch } = useQuery(
+        ["services"],
+        () => getServices(getCookie("access_token") as string),
+    );
     const { data: clinicDataApi } = useQuery(
         ["clinics"],
         () => getClinicById(getCookie("access_token") as string, Number(id)),
@@ -114,8 +119,8 @@ const ClinicPage = () => {
             </div>
 
             <Links
-                onlineCount={clinicDataApi?.data.online_notes.length || 0}
-                offlineCount={clinicDataApi?.data.offline_notes.length || 0}
+                onlineCount={serviceData?.data.filter((service) => service.clinic.id === clinicData?.id && service.online).length || 0}
+                offlineCount={serviceData?.data.filter((service) => service.clinic.id === clinicData?.id && !service.online).length || 0}
                 cooperationCount={clinicDataApi?.data.clinic[0].employees.length || 0}
                 doctorsCount={clinicDataApi?.data.doctors.length || 0}
             />

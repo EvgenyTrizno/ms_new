@@ -18,12 +18,11 @@ import Service from "./ui/Service";
 const DoctorPage: FC = () => {
     const { id } = useParams();
     const { data } = useDoctorQuery(id);
-    useEffect(() => console.log(data))
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState("Онлайн услуги");
 
     const { getCookie } = useCookie();
-    const { data: serviceData } = useQuery(
+    const { data: serviceData, refetch } = useQuery(
         ["services"],
         () => getServices(getCookie("access_token") as string),
     );
@@ -76,7 +75,7 @@ const DoctorPage: FC = () => {
                             {filter == "Онлайн услуги" ?
                                 <>
                                     {serviceData?.data.
-                                        filter((service) => service.doctors.filter(doctor => doctor.id.toString() === id)).
+                                        filter((service) => service.doctors.find(doctor => doctor.id.toString() === id)).
                                         filter((service) => service.online).
                                         map((service, i) => (
                                             <div className="mt-3">
@@ -85,7 +84,7 @@ const DoctorPage: FC = () => {
                                         ))}
                                 </> : <>
                                     {serviceData?.data.
-                                        filter((service) => service.doctors.filter(doctor => doctor.id.toString() === id)).
+                                        filter((service) => service.doctors.find(doctor => doctor.id.toString() === id)).
                                         filter((service) => !service.online).
                                         map((service, i) => (
                                             <div className="mt-3">

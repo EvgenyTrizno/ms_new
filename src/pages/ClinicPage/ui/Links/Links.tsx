@@ -5,6 +5,7 @@ import cn from "clsx";
 import { LinksItem } from "./LinksItem/LinksItem";
 import { CooperationIcon, HarwareIcon, NoWifiIcon, WifiIcon } from "@/icons";
 import { ROUTES } from "@/shared/utils/PATHS";
+import { useNavigate, useParams } from "react-router";
 
 type Props = {
     onlineCount: number;
@@ -20,32 +21,34 @@ export const Links: FC<PropsWithClassName<Props>> = ({
     cooperationCount,
     doctorsCount,
 }) => {
+    const navigate = useNavigate();
+    const { id } = useParams();
     return (
         <div className={cn(className, styles.wrapper)}>
             <LinksItem
                 className={styles.item}
-                href="/"
+                onClick={() => navigate('/services', { state: { clinicId: id, online: true, count: onlineCount } })}
                 title="Онлайн услуги"
                 count={onlineCount}
                 icon={<WifiIcon />}
             />
             <LinksItem
                 className={styles.item}
-                href="/"
-                title="Оффлайн услуги"
+                onClick={() => navigate('/services', { state: { clinicId: id, online: false, count: offlineCount } })}
+                title="Офлайн услуги"
                 count={offlineCount}
                 icon={<NoWifiIcon />}
             />
             <LinksItem
                 className={styles.item}
-                href={ROUTES.cooperation.path}
+                onClick={() => navigate('/news', { state: { clinicId: id, count: doctorsCount } })}
                 title={"Новости"}
                 count={cooperationCount}
                 icon={<CooperationIcon />}
             />
             <LinksItem
                 className={styles.item}
-                href={ROUTES.hardware.path}
+                onClick={() => navigate('/doctors', { state: { clinicId: id, count: doctorsCount } })}
                 title={"Врачи"}
                 count={doctorsCount}
                 icon={<HarwareIcon />}

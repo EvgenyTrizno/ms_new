@@ -1,6 +1,7 @@
 import { IService } from "@/shared/types/services.interface";
 import { WhiteContentBlock } from "@/shared/ui/WhiteContentBlock";
 import { FC } from "react";
+import { useNavigate } from "react-router";
 
 
 interface ServiceProps {
@@ -10,10 +11,11 @@ interface ServiceProps {
 }
 
 const Service: FC<ServiceProps> = ({ service, pos }) => {
+    const navigate = useNavigate();
     return (
         <>
             <WhiteContentBlock>
-                <div className="flex gap-3 truncate ">
+                <div className="flex gap-3 truncate cursor-pointer" onClick={() => navigate(`/services/${service.id}`, { state: { service: service } })}>
 
                     <div className="text-gray-500 font-semibold text-[18px]">{pos}</div>
                     <div className="flex flex-col">
@@ -34,7 +36,7 @@ const Service: FC<ServiceProps> = ({ service, pos }) => {
                             <h3 className="font-medium text-[#7D7F82] text-[16px]">Кол-во новостей:</h3>
                             <h3 className="font-medium text-[#262626] text-[16px] ml-2">12</h3>
                         </div>
-                        <div className="h-[1px] w-full bg-[#C8DBF6] mt-3"></div>
+                        <div className="h-[1px] w-screen bg-[#C8DBF6] mt-3"></div>
                         <div className="flex mt-3 gap-1">
                             <h3 className="font-medium text-[#262626] text-[16px] pt-[2px]">Цена:</h3>
                             <h1 className="font-semibold text-[19px] mb-2 ">{service.price} UZS</h1>

@@ -55,6 +55,7 @@ export const List: FC = () => {
                     search.data.doctors.map((item) => (
                         <SwiperSlide key={item.id}>
                             <DoctorCard
+                                id={item.id}
                                 key={item.id}
                                 avatar={item.image}
                                 rank={item.specialization}
@@ -68,6 +69,7 @@ export const List: FC = () => {
                         <SwiperSlide key={item.id}>
                             <DoctorCard
                                 key={item.id}
+                                id={item.id}
                                 avatar={item.image}
                                 rank={item.specialization}
                                 fio={`${item.last_name} ${item.first_name?.slice(0, 1).toUpperCase() + "."

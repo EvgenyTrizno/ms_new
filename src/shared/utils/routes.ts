@@ -10,6 +10,7 @@ const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
 const DoctorPage = lazy(() => import("@/pages/DoctorPage"));
 const WorkerLoginPage = lazy(() => import("@/pages/WorkerLoginPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
+const DoctorsPage = lazy(() => import("@/pages/DoctorsPage"));
 const MainPage = lazy(() => import("@/pages/Main"));
 const RecoveryPage = lazy(() => import("@/pages/RecoveryPage"));
 const SelectCenterPage = lazy(() => import("@/pages/SelectCenter"));
@@ -54,6 +55,8 @@ const SettingsPage = lazy(() => import("@/pages/SettingsPage"));
 const StatisticsPage = lazy(() => import("@/pages/StatisticsPage"));
 const ChatMoreDetailed = lazy(() => import("@/pages/ChatMoreDetailed"));
 const ClinicPage = lazy(() => import("@/pages/ClinicPage"));
+const ServicesPage = lazy(() => import("@/pages/ServicesPage"));
+const ServicePage = lazy(() => import("@/pages/ServicePage"));
 const PaymentsPage = lazy(() => import("@/pages/PaymentsPage"));
 const AddCardPage = lazy(() => import("@/pages/AddCard"));
 const CooperationPage = lazy(() => import("@/pages/CooperationPage"));
@@ -65,9 +68,9 @@ const HistoryPatientPage = lazy(() => import("@/pages/HistoryPatientPage"));
 const DiagnosisPage = lazy(() => import("@/pages/DiagnosisPage"));
 const CreateMedTaskPage = lazy(() => import("@/pages/CreateMedTaskPage"));
 const ConfirmationCodePage = lazy(() => import("@/pages/ConfirmationCodePage"));
+const NewsPage = lazy(() => import("@/pages/NewsPage"));
 const RecommendationsPage = lazy(() => import("@/pages/RecommendationsPage"));
 const CalendarPage = lazy(() => import("@/pages/CalendarPage"));
-const ServicesPage = lazy(() => import("@/pages/ServicesPage"));
 const PersonalStatisticsPage = lazy(
     () => import("@/pages/PersonalStatisticsPage")
 );
@@ -177,7 +180,11 @@ export const routes: RouteProps[] = [
         Component: CityInfoPage,
     },
     { path: "/requests", Component: RequestsPage },
+    { path: "/doctors", Component: DoctorsPage },
+    { path: "/services", Component: ServicesPage },
+    { path: "/services/:id/", Component: ServicePage },
     { path: "/mail", Component: MailPage },
+    { path: "/news", Component: NewsPage },
     { path: "/social", Component: SocialPage },
     { path: "/messages/chat/:id/", Component: ChatPage },
     { path: "/center-account", Component: CenterAccount },
