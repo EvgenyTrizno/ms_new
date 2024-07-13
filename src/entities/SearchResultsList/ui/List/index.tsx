@@ -6,6 +6,7 @@ import { DataListWrapper } from "@/widgets/components/DataListWrapper";
 import { useNavigate } from "react-router";
 import { DoctorMore } from "@/entities";
 import styles from "./styles.module.scss";
+import Service from "@/pages/DoctorPage/ui/Service";
 
 export const SearchResultsList: FC<ISearchResultsListProps> = ({
     filter,
@@ -63,7 +64,7 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
                                 return <DoctorMore
                                     key={el.id}
                                     data={el}
-                                    />
+                                />
                             })}
                     </div>
                 </DataListWrapper>
@@ -75,17 +76,21 @@ export const SearchResultsList: FC<ISearchResultsListProps> = ({
                     listLength={data?.data.doctors.length || 0}
                 >
                     <div className={styles.list}>
-                        {/* {data?.data.doctors */}
-                        {/*     .filter((el) => */}
-                        {/*         Object.values(el).some((value) => { */}
-                        {/*             if (typeof value === "string") { */}
-                        {/*                 return value.toLowerCase().includes(search.toLowerCase()); */}
-                        {/*             } */}
-                        {/*         }) */}
-                        {/*     ) */}
-                        {/*     .map((el) => { */}
-                        {/*         return <DoctorMore key={el.id} data={el} />; */}
-                        {/*     })} */}
+                        {data?.data.services
+                            .filter((el) =>
+                                Object.values(el).some((value) => {
+                                    if (typeof value === "string") {
+                                        return value.toLowerCase().includes(search.toLowerCase());
+                                    }
+                                })
+                            )
+                            .map((el) => {
+                                return <Service
+                                    key={el.id}
+                                    service={el}
+                                    pos={el.id}
+                                />
+                            })}
                     </div>
                 </DataListWrapper>
             )}

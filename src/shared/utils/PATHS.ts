@@ -7,6 +7,7 @@ export const ROUTES = {
         path: "/registration-clinic",
     },
 
+
     registration: {
         path: "/registration",
     },

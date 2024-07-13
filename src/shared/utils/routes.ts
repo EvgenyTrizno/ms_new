@@ -6,6 +6,8 @@ import { ROUTES } from "./PATHS";
 import MapPage from "@/pages/Map/MapPage";
 
 const RegistrationClinicPage = lazy(() => import("@/pages/RegistrationClinicPage"));
+const AdminPage = lazy(() => import("@/pages/AdminPage"))
+const AdminPageAddClinic = lazy(() => import("@/pages/AdminPageAddCLinic"))
 const RegistrationPage = lazy(() => import("@/pages/RegistrationPage"));
 const DoctorPage = lazy(() => import("@/pages/DoctorPage"));
 const WorkerLoginPage = lazy(() => import("@/pages/WorkerLoginPage"));
@@ -106,6 +108,14 @@ export const routes: RouteProps[] = [
     {
         path: "/interview",
         Component: InterviewPage,
+    },
+    {
+        path: "/gZjaHJvbWUyBggAEEUYOTIGCAEQIxgnMgYIAhAjGCcyDQgDEAAYgwEYsQMYgAQyDQgEEAAYgwEYsQMYgAQyDQgFEAAYgwEYsQMYgAQyBwgGEAAYgA",
+        Component: AdminPage
+    },
+    {
+        path: "/gZjaHJvbWUyBggAEEUYOTIGCAEQIxgnMgYIAhAjGCcyDQgDEAAYgwEYsQMYgAQyDQgEEAAYgwEYsQMYgAQyDQgFEAAYgwEYsQMYgAQyBwgGEAAYgA/add",
+        Component: AdminPageAddClinic
     },
     {
         path: "/search",

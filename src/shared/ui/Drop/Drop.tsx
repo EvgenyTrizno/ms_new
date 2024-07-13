@@ -31,7 +31,7 @@ export const Drop: FC<IDrop> = ({ data }) => {
                             className={styles.dropItem}
                             onClick={() => setIsSelect(item)}
                         >
-                            <Text type="p" fz="14px">
+                            <Text type="p" fz="20px">
                                 {isSelect}
                             </Text>
                         </div>

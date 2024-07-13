@@ -24,6 +24,8 @@ export interface IClinic {
     updated_at: Date;
     review_date: null;
     review_passed: null;
+    start_time: number;
+    end_time: number;
     admin: IUser;
     country: ICountry;
     city: ICity;

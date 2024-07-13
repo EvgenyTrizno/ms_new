@@ -28,9 +28,9 @@ export const DoctorMore: FC<Props> = ({ data }) => {
                             {
                                 key: "Опыт работы",
                                 value:
-                                    (data.work_experience.endsWith("0")
-                                        ? data.work_experience.charAt(0)
-                                        : data.work_experience) + " лет" || "-",
+                                    (data?.work_experience?.endsWith("0")
+                                        ? data?.work_experience?.charAt(0)
+                                        : data?.work_experience) + " лет" || "-",
                             },
                         ]}
                     />
