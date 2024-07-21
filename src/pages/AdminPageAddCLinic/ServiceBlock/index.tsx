@@ -31,7 +31,6 @@ const ServiceBlock: FC<ServiceBlockProps> = ({ i, clinicId }) => {
                     clinic: clinicId,
                     doctors: [1]
                 }
-
             );
         }
 
